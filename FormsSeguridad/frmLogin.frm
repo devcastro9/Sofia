@@ -306,11 +306,11 @@ On Error Resume Next
              End
          End If
       ' Verificamos que exista el tipo de Cambio para la fecha de Maquina
-      With FrmTipoCambio
-        .TcPrincipal Date, txtUserName.Text & ""
+     ' With FrmTipoCambio
+        '.TcPrincipal Date, txtUserName.Text & ""
        ' Verificamos que exista el tipo de Cambio para la fecha de SQL Server
-       'With FrmTipoCambio
-       '         .TcPrincipal GlFechaProceso, txtUserName.Text & ""
+       With FrmTipoCambio
+                .TcPrincipal GlFechaProceso, txtUserName.Text & ""
       ' Screen.MousePointer = vbHourglass
        If Not .TipoCambioHoy Then
            MsgBox "No se tiene registrado el Tipo de Cambio para la Fecha '" & Format(Date, "dd/mm/yyyy") & "'." & vbCrLf & _
