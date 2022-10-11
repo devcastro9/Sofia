@@ -1,0 +1,1 @@
+xcopy \\SERVIDOR\UPDATES\*.* d:\SIGCGI /Y/E/R

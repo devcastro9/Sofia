@@ -1,0 +1,4 @@
+insert into to_DatosBanco (Nro_cmpte, Organismo, Fecha_Pago, Monto, Cambio, Beneficiario, Nro_Doc, Transf_Cheq, Cta_Codigo, Estado_Conciliacion) values ('11111',"GTZUDAPREDDDDDDDDDDDD", "05/06/2000", 11111.111,6.05,"CARLITOS DKFXBBBBBBBBBBBBBBD", "123333","C","1111111","43553" )
+insert into fc_DatosBanco (Nro_Cmpte, Organismo, Fecha_Pago, Monto, Cambio, Beneficiario,  Nro_Doc, Transf_Cheq, cta_codigo) values ('01461','111','" & X & "', 16000,6.05,'3462629LP','04010','C','1-297809' )
+
+insert into fc_DatosBanco (Nro_Cmpte, Organismo, Fecha_Pago, Monto, Cambio, Beneficiario,  Nro_Doc,Transf_Cheq, cta_codigo) values ('01661','111','02/06/2000', 16000,6.05,'3462629LP','04010','C','1-297809' ) 

@@ -1,0 +1,38 @@
+Línea 16: la clase MSComctlLib.Toolbar del control TbrOpciones no era una clase de control cargada.
+Línea 66: la clase MSComctlLib.Toolbar del control TbrAvanzadas no era una clase de control cargada.
+Línea 143: la clase TrueOleDBGrid60.TDBGrid del control DtgElige no era una clase de control cargada.
+Línea 162: la clase MSComctlLib.ImageList del control ImlImagenesAv no era una clase de control cargada.
+Línea 229: la clase MSComctlLib.ImageList del control ImlImagenes no era una clase de control cargada.
+Línea 23: el nombre de la propiedad _ExtentX de TbrOpciones no es válido.
+Línea 24: el nombre de la propiedad _ExtentY de TbrOpciones no es válido.
+Línea 25: el nombre de la propiedad ButtonWidth de TbrOpciones no es válido.
+Línea 26: el nombre de la propiedad ButtonHeight de TbrOpciones no es válido.
+Línea 27: el nombre de la propiedad Style de TbrOpciones no es válido.
+Línea 28: el nombre de la propiedad TextAlignment de TbrOpciones no es válido.
+Línea 29: el nombre de la propiedad ImageList de TbrOpciones no es válido.
+Línea 30: el nombre de la propiedad _Version de TbrOpciones no es válido.
+Línea 64: el nombre de la propiedad Buttons de TbrOpciones no es válido.
+Línea 73: el nombre de la propiedad _ExtentX de TbrAvanzadas no es válido.
+Línea 74: el nombre de la propiedad _ExtentY de TbrAvanzadas no es válido.
+Línea 75: el nombre de la propiedad ButtonWidth de TbrAvanzadas no es válido.
+Línea 76: el nombre de la propiedad ButtonHeight de TbrAvanzadas no es válido.
+Línea 78: el nombre de la propiedad Style de TbrAvanzadas no es válido.
+Línea 79: el nombre de la propiedad TextAlignment de TbrAvanzadas no es válido.
+Línea 80: el nombre de la propiedad ImageList de TbrAvanzadas no es válido.
+Línea 81: el nombre de la propiedad _Version de TbrAvanzadas no es válido.
+Línea 141: el nombre de la propiedad Buttons de TbrAvanzadas no es válido.
+Línea 147: el nombre de la propiedad OleObjectBlob de DtgElige no es válido.
+Línea 165: el nombre de la propiedad _ExtentX de ImlImagenesAv no es válido.
+Línea 166: el nombre de la propiedad _ExtentY de ImlImagenesAv no es válido.
+Línea 168: el nombre de la propiedad ImageWidth de ImlImagenesAv no es válido.
+Línea 169: el nombre de la propiedad ImageHeight de ImlImagenesAv no es válido.
+Línea 170: el nombre de la propiedad MaskColor de ImlImagenesAv no es válido.
+Línea 171: el nombre de la propiedad _Version de ImlImagenesAv no es válido.
+Línea 202: el nombre de la propiedad Images de ImlImagenesAv no es válido.
+Línea 232: el nombre de la propiedad _ExtentX de ImlImagenes no es válido.
+Línea 233: el nombre de la propiedad _ExtentY de ImlImagenes no es válido.
+Línea 235: el nombre de la propiedad ImageWidth de ImlImagenes no es válido.
+Línea 236: el nombre de la propiedad ImageHeight de ImlImagenes no es válido.
+Línea 237: el nombre de la propiedad MaskColor de ImlImagenes no es válido.
+Línea 238: el nombre de la propiedad _Version de ImlImagenes no es válido.
+Línea 261: el nombre de la propiedad Images de ImlImagenes no es válido.

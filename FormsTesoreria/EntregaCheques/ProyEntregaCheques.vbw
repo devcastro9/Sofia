@@ -1,0 +1,12 @@
+FrmDesplegado = 0, 0, 576, 364, C, 110, 110, 569, 554, C
+FrmActivacionCheques = 66, 66, 525, 510, C, 88, 88, 547, 532, C
+MDIForm1 = 44, 44, 503, 488, C, 0, 0, 459, 444, C
+RepOperacionesCheques = 0, 0, 0, 0, C, 132, 132, 591, 576, CZ
+CryOpCheques = 0, 0, 0, 0, C, 44, 44, 697, 713, CZ
+Module1 = 88, 88, 547, 532, C
+FrmTributosFiscales = 110, 110, 557, 554, C, 88, 88, 535, 532, C
+CryTributos = 0, 0, 0, 0, C, 176, 176, 829, 845, C
+RepTributos = 110, 110, 557, 554, C, 88, 88, 535, 532, CZ
+CrySoloTributos = 0, 0, 0, 0, C, 0, 0, 653, 669, C
+RepSoloTributos = -4, -23, 649, 646, C, 176, 176, 623, 620, C
+FrmHistoricoTributosFiscales = 132, 132, 579, 576, C, 176, 176, 623, 620, C

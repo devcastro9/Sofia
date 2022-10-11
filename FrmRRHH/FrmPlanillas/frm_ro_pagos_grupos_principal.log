@@ -1,0 +1,12 @@
+Línea 2380: la clase MSComctlLib.ProgressBar del control ProgressBar3 no era una clase de control cargada.
+Línea 2793: la clase MSComctlLib.ProgressBar del control ProgressBar1 no era una clase de control cargada.
+Línea 3413: la clase MSComctlLib.ProgressBar del control ProgressBar2 no era una clase de control cargada.
+Línea 2387: el nombre de la propiedad _ExtentX de ProgressBar3 no es válido.
+Línea 2388: el nombre de la propiedad _ExtentY de ProgressBar3 no es válido.
+Línea 2389: el nombre de la propiedad _Version de ProgressBar3 no es válido.
+Línea 2800: el nombre de la propiedad _ExtentX de ProgressBar1 no es válido.
+Línea 2801: el nombre de la propiedad _ExtentY de ProgressBar1 no es válido.
+Línea 2802: el nombre de la propiedad _Version de ProgressBar1 no es válido.
+Línea 3420: el nombre de la propiedad _ExtentX de ProgressBar2 no es válido.
+Línea 3421: el nombre de la propiedad _ExtentY de ProgressBar2 no es válido.
+Línea 3422: el nombre de la propiedad _Version de ProgressBar2 no es válido.

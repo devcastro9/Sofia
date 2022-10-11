@@ -1,0 +1,84 @@
+Línea 197: la clase MSDataListLib.DataCombo del control dtc_codigo3 no era una clase de control cargada.
+Línea 217: la clase MSDataListLib.DataCombo del control dtc_codigo1 no era una clase de control cargada.
+Línea 237: la clase MSDataListLib.DataCombo del control dtc_desc1 no era una clase de control cargada.
+Línea 266: la clase MSComCtl2.DTPicker del control DTPfecha1 no era una clase de control cargada.
+Línea 302: la clase MSDataListLib.DataCombo del control dtc_desc3 no era una clase de control cargada.
+Línea 331: la clase MSDataListLib.DataCombo del control dtc_desc4 no era una clase de control cargada.
+Línea 347: la clase MSDataListLib.DataCombo del control dtc_codigo4 no era una clase de control cargada.
+Línea 834: la clase MSDataListLib.DataCombo del control dtc_desc6 no era una clase de control cargada.
+Línea 850: la clase MSDataListLib.DataCombo del control dtc_codigo6 no era una clase de control cargada.
+Línea 868: la clase MSDataListLib.DataCombo del control dtc_desc5 no era una clase de control cargada.
+Línea 884: la clase MSDataListLib.DataCombo del control dtc_codigo5 no era una clase de control cargada.
+Línea 903: la clase MSDataListLib.DataCombo del control dtc_desc7 no era una clase de control cargada.
+Línea 919: la clase MSDataListLib.DataCombo del control dtc_desc8 no era una clase de control cargada.
+Línea 935: la clase MSDataListLib.DataCombo del control dtc_codigo7 no era una clase de control cargada.
+Línea 953: la clase MSDataListLib.DataCombo del control dtc_codigo8 no era una clase de control cargada.
+Línea 1426: la clase MSDataGridLib.DataGrid del control dg_det1 no era una clase de control cargada.
+Línea 1681: la clase MSAdodcLib.Adodc del control Ado_datos no era una clase de control cargada.
+Línea 1727: la clase MSDataGridLib.DataGrid del control dg_datos no era una clase de control cargada.
+Línea 1884: la clase MSAdodcLib.Adodc del control Ado_datos1 no era una clase de control cargada.
+Línea 1931: la clase MSAdodcLib.Adodc del control Ado_datos2 no era una clase de control cargada.
+Línea 1978: la clase MSAdodcLib.Adodc del control Ado_datos3 no era una clase de control cargada.
+Línea 2025: la clase Crystal.CrystalReport del control CR01 no era una clase de control cargada.
+Línea 2042: la clase MSAdodcLib.Adodc del control Adodc1 no era una clase de control cargada.
+Línea 2089: la clase MSAdodcLib.Adodc del control Ado_detalle1 no era una clase de control cargada.
+Línea 2136: la clase MSAdodcLib.Adodc del control Ado_datos4 no era una clase de control cargada.
+Línea 2183: la clase MSAdodcLib.Adodc del control Ado_datos5 no era una clase de control cargada.
+Línea 2230: la clase MSAdodcLib.Adodc del control Ado_datos6 no era una clase de control cargada.
+Línea 2277: la clase MSAdodcLib.Adodc del control Ado_datos7 no era una clase de control cargada.
+Línea 2324: la clase MSAdodcLib.Adodc del control Ado_datos8 no era una clase de control cargada.
+Línea 198: el nombre de la propiedad Bindings de dtc_codigo3 no es válido.
+Línea 207: el nombre de la propiedad _ExtentX de dtc_codigo3 no es válido.
+Línea 208: el nombre de la propiedad _ExtentY de dtc_codigo3 no es válido.
+Línea 209: el nombre de la propiedad _Version de dtc_codigo3 no es válido.
+Línea 211: el nombre de la propiedad Style de dtc_codigo3 no es válido.
+Línea 213: el nombre de la propiedad ListField de dtc_codigo3 no es válido.
+Línea 214: el nombre de la propiedad BoundColumn de dtc_codigo3 no es válido.
+Línea 215: el nombre de la propiedad Text de dtc_codigo3 no es válido.
+Línea 218: el nombre de la propiedad Bindings de dtc_codigo1 no es válido.
+Línea 227: el nombre de la propiedad _ExtentX de dtc_codigo1 no es válido.
+Línea 228: el nombre de la propiedad _ExtentY de dtc_codigo1 no es válido.
+Línea 229: el nombre de la propiedad _Version de dtc_codigo1 no es válido.
+Línea 231: el nombre de la propiedad Style de dtc_codigo1 no es válido.
+Línea 233: el nombre de la propiedad ListField de dtc_codigo1 no es válido.
+Línea 234: el nombre de la propiedad BoundColumn de dtc_codigo1 no es válido.
+Línea 235: el nombre de la propiedad Text de dtc_codigo1 no es válido.
+Línea 238: el nombre de la propiedad Bindings de dtc_desc1 no es válido.
+Línea 246: el nombre de la propiedad _ExtentX de dtc_desc1 no es válido.
+Línea 247: el nombre de la propiedad _ExtentY de dtc_desc1 no es válido.
+Línea 248: el nombre de la propiedad _Version de dtc_desc1 no es válido.
+Línea 250: el nombre de la propiedad Style de dtc_desc1 no es válido.
+Línea 253: el nombre de la propiedad ListField de dtc_desc1 no es válido.
+Línea 254: el nombre de la propiedad BoundColumn de dtc_desc1 no es válido.
+Línea 255: el nombre de la propiedad Text de dtc_desc1 no es válido.
+Línea 283: el nombre de la propiedad _ExtentX de DTPfecha1 no es válido.
+Línea 284: el nombre de la propiedad _ExtentY de DTPfecha1 no es válido.
+Línea 285: el nombre de la propiedad _Version de DTPfecha1 no es válido.
+Línea 295: el nombre de la propiedad CalendarBackColor de DTPfecha1 no es válido.
+Línea 296: el nombre de la propiedad CustomFormat de DTPfecha1 no es válido.
+Línea 297: el nombre de la propiedad Format de DTPfecha1 no es válido.
+Línea 298: el nombre de la propiedad CurrentDate de DTPfecha1 no es válido.
+Línea 299: el nombre de la propiedad MaxDate de DTPfecha1 no es válido.
+Línea 300: el nombre de la propiedad MinDate de DTPfecha1 no es válido.
+Línea 303: el nombre de la propiedad Bindings de dtc_desc3 no es válido.
+Línea 311: el nombre de la propiedad _ExtentX de dtc_desc3 no es válido.
+Línea 312: el nombre de la propiedad _ExtentY de dtc_desc3 no es válido.
+Línea 313: el nombre de la propiedad _Version de dtc_desc3 no es válido.
+Línea 315: el nombre de la propiedad Style de dtc_desc3 no es válido.
+Línea 318: el nombre de la propiedad ListField de dtc_desc3 no es válido.
+Línea 319: el nombre de la propiedad BoundColumn de dtc_desc3 no es válido.
+Línea 320: el nombre de la propiedad Text de dtc_desc3 no es válido.
+Línea 332: el nombre de la propiedad Bindings de dtc_desc4 no es válido.
+Línea 340: el nombre de la propiedad _ExtentX de dtc_desc4 no es válido.
+Línea 341: el nombre de la propiedad _ExtentY de dtc_desc4 no es válido.
+Línea 342: el nombre de la propiedad _Version de dtc_desc4 no es válido.
+Línea 343: el nombre de la propiedad ListField de dtc_desc4 no es válido.
+Línea 344: el nombre de la propiedad BoundColumn de dtc_desc4 no es válido.
+Línea 345: el nombre de la propiedad Text de dtc_desc4 no es válido.
+Línea 348: el nombre de la propiedad Bindings de dtc_codigo4 no es válido.
+Línea 357: el nombre de la propiedad _ExtentX de dtc_codigo4 no es válido.
+Línea 358: el nombre de la propiedad _ExtentY de dtc_codigo4 no es válido.
+Línea 359: el nombre de la propiedad _Version de dtc_codigo4 no es válido.
+Línea 362: el nombre de la propiedad ListField de dtc_codigo4 no es válido.
+Línea 363: el nombre de la propiedad BoundColumn de dtc_codigo4 no es válido.
+Línea 364: el nombre de la propiedad Text de dtc_codigo4 no es válido.

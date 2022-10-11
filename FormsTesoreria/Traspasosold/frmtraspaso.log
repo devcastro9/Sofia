@@ -1,0 +1,191 @@
+Línea 22: la clase Crystal.CrystalReport del control CryCompTraspasos no era una clase de control cargada.
+Línea 46: la clase MSDataGridLib.DataGrid del control DtGrid_comprobante no era una clase de control cargada.
+Línea 482: la clase MSDataGridLib.DataGrid del control DtGrid_Plan no era una clase de control cargada.
+Línea 639: la clase MSDataListLib.DataCombo del control D1documento no era una clase de control cargada.
+Línea 655: la clase MSDataListLib.DataCombo del control D2descripcion no era una clase de control cargada.
+Línea 672: la clase MSDataListLib.DataCombo del control d2beneficiario no era una clase de control cargada.
+Línea 689: la clase MSDataListLib.DataCombo del control d1beneficiario no era una clase de control cargada.
+Línea 1010: la clase TabDlg.SSTab del control SSTab1 no era una clase de control cargada.
+Línea 1081: la clase MSDataListLib.DataCombo del control TxtD_Nom3_Corriente no era una clase de control cargada.
+Línea 1093: la clase MSDataListLib.DataCombo del control TxtD_Nom2_Corriente no era una clase de control cargada.
+Línea 1105: la clase MSDataListLib.DataCombo del control TxtD_Aux3_Corriente no era una clase de control cargada.
+Línea 1117: la clase MSDataListLib.DataCombo del control TxtD_Aux2_Corriente no era una clase de control cargada.
+Línea 1318: la clase MSDataListLib.DataCombo del control TxtH_Nom3_Corriente no era una clase de control cargada.
+Línea 1330: la clase MSDataListLib.DataCombo del control TxtH_Nom2_Corriente no era una clase de control cargada.
+Línea 1342: la clase MSDataListLib.DataCombo del control TxtH_Aux3_Corriente no era una clase de control cargada.
+Línea 1354: la clase MSDataListLib.DataCombo del control TxtH_Aux2_Corriente no era una clase de control cargada.
+Línea 1366: la clase MSDataListLib.DataCombo del control TxtH_Nom3_aux3 no era una clase de control cargada.
+Línea 1528: la clase MSAdodcLib.Adodc del control Adodcbeneficiario no era una clase de control cargada.
+Línea 1575: la clase MSAdodcLib.Adodc del control Adodcdocumento no era una clase de control cargada.
+Línea 25: el nombre de la propiedad _ExtentX de CryCompTraspasos no es válido.
+Línea 26: el nombre de la propiedad _ExtentY de CryCompTraspasos no es válido.
+Línea 27: el nombre de la propiedad _Version de CryCompTraspasos no es válido.
+Línea 28: el nombre de la propiedad PrintFileLinesPerPage de CryCompTraspasos no es válido.
+Línea 52: el nombre de la propiedad _ExtentX de DtGrid_comprobante no es válido.
+Línea 53: el nombre de la propiedad _ExtentY de DtGrid_comprobante no es válido.
+Línea 54: el nombre de la propiedad _Version de DtGrid_comprobante no es válido.
+Línea 55: el nombre de la propiedad AllowUpdate de DtGrid_comprobante no es válido.
+Línea 56: el nombre de la propiedad ColumnHeaders de DtGrid_comprobante no es válido.
+Línea 57: el nombre de la propiedad HeadLines de DtGrid_comprobante no es válido.
+Línea 58: el nombre de la propiedad RowHeight de DtGrid_comprobante no es válido.
+Línea 59: el nombre de la propiedad FormatLocked de DtGrid_comprobante no es válido.
+Línea 68: el nombre de la propiedad HeadFont de DtGrid_comprobante no es válido.
+Línea 78: el nombre de la propiedad ColumnCount de DtGrid_comprobante no es válido.
+Línea 91: el nombre de la propiedad Column00 de DtGrid_comprobante no es válido.
+Línea 104: el nombre de la propiedad Column01 de DtGrid_comprobante no es válido.
+Línea 117: el nombre de la propiedad Column02 de DtGrid_comprobante no es válido.
+Línea 130: el nombre de la propiedad Column03 de DtGrid_comprobante no es válido.
+Línea 143: el nombre de la propiedad Column04 de DtGrid_comprobante no es válido.
+Línea 156: el nombre de la propiedad Column05 de DtGrid_comprobante no es válido.
+Línea 157: el nombre de la propiedad SplitCount de DtGrid_comprobante no es válido.
+Línea 171: el nombre de la propiedad Split0 de DtGrid_comprobante no es válido.
+Línea 488: el nombre de la propiedad _ExtentX de DtGrid_Plan no es válido.
+Línea 489: el nombre de la propiedad _ExtentY de DtGrid_Plan no es válido.
+Línea 490: el nombre de la propiedad _Version de DtGrid_Plan no es válido.
+Línea 491: el nombre de la propiedad HeadLines de DtGrid_Plan no es válido.
+Línea 492: el nombre de la propiedad RowHeight de DtGrid_Plan no es válido.
+Línea 501: el nombre de la propiedad HeadFont de DtGrid_Plan no es válido.
+Línea 511: el nombre de la propiedad ColumnCount de DtGrid_Plan no es válido.
+Línea 524: el nombre de la propiedad Column00 de DtGrid_Plan no es válido.
+Línea 537: el nombre de la propiedad Column01 de DtGrid_Plan no es válido.
+Línea 538: el nombre de la propiedad SplitCount de DtGrid_Plan no es válido.
+Línea 544: el nombre de la propiedad Split0 de DtGrid_Plan no es válido.
+Línea 640: el nombre de la propiedad Bindings de D1documento no es válido.
+Línea 647: el nombre de la propiedad _ExtentX de D1documento no es válido.
+Línea 648: el nombre de la propiedad _ExtentY de D1documento no es válido.
+Línea 649: el nombre de la propiedad _Version de D1documento no es válido.
+Línea 650: el nombre de la propiedad ListField de D1documento no es válido.
+Línea 651: el nombre de la propiedad BoundColumn de D1documento no es válido.
+Línea 652: el nombre de la propiedad Text de D1documento no es válido.
+Línea 653: el nombre de la propiedad Object.DataMember de D1documento no es válido.
+Línea 656: el nombre de la propiedad Bindings de D2descripcion no es válido.
+Línea 664: el nombre de la propiedad _ExtentX de D2descripcion no es válido.
+Línea 665: el nombre de la propiedad _ExtentY de D2descripcion no es válido.
+Línea 666: el nombre de la propiedad _Version de D2descripcion no es válido.
+Línea 667: el nombre de la propiedad ListField de D2descripcion no es válido.
+Línea 668: el nombre de la propiedad BoundColumn de D2descripcion no es válido.
+Línea 669: el nombre de la propiedad Text de D2descripcion no es válido.
+Línea 670: el nombre de la propiedad Object.DataMember de D2descripcion no es válido.
+Línea 673: el nombre de la propiedad Bindings de d2beneficiario no es válido.
+Línea 681: el nombre de la propiedad _ExtentX de d2beneficiario no es válido.
+Línea 682: el nombre de la propiedad _ExtentY de d2beneficiario no es válido.
+Línea 683: el nombre de la propiedad _Version de d2beneficiario no es válido.
+Línea 684: el nombre de la propiedad ListField de d2beneficiario no es válido.
+Línea 685: el nombre de la propiedad BoundColumn de d2beneficiario no es válido.
+Línea 686: el nombre de la propiedad Text de d2beneficiario no es válido.
+Línea 687: el nombre de la propiedad Object.DataMember de d2beneficiario no es válido.
+Línea 690: el nombre de la propiedad Bindings de d1beneficiario no es válido.
+Línea 698: el nombre de la propiedad _ExtentX de d1beneficiario no es válido.
+Línea 699: el nombre de la propiedad _ExtentY de d1beneficiario no es válido.
+Línea 700: el nombre de la propiedad _Version de d1beneficiario no es válido.
+Línea 701: el nombre de la propiedad ListField de d1beneficiario no es válido.
+Línea 702: el nombre de la propiedad BoundColumn de d1beneficiario no es válido.
+Línea 703: el nombre de la propiedad Text de d1beneficiario no es válido.
+Línea 704: el nombre de la propiedad Object.DataMember de d1beneficiario no es válido.
+Línea 1016: el nombre de la propiedad _ExtentX de SSTab1 no es válido.
+Línea 1017: el nombre de la propiedad _ExtentY de SSTab1 no es válido.
+Línea 1018: el nombre de la propiedad _Version de SSTab1 no es válido.
+Línea 1019: el nombre de la propiedad Tabs de SSTab1 no es válido.
+Línea 1020: el nombre de la propiedad Tab de SSTab1 no es válido.
+Línea 1021: el nombre de la propiedad TabHeight de SSTab1 no es válido.
+Línea 1022: el nombre de la propiedad TabCaption(0) de SSTab1 no es válido.
+Línea 1023: el nombre de la propiedad TabPicture(0) de SSTab1 no es válido.
+Línea 1024: el nombre de la propiedad Tab(0).ControlEnabled de SSTab1 no es válido.
+Línea 1025: el nombre de la propiedad Tab(0).Control(0) de SSTab1 no es válido.
+Línea 1026: el nombre de la propiedad Tab(0).ControlCount de SSTab1 no es válido.
+Línea 1027: el nombre de la propiedad TabCaption(1) de SSTab1 no es válido.
+Línea 1028: el nombre de la propiedad TabPicture(1) de SSTab1 no es válido.
+Línea 1029: el nombre de la propiedad Tab(1).ControlEnabled de SSTab1 no es válido.
+Línea 1030: el nombre de la propiedad Tab(1).Control(0) de SSTab1 no es válido.
+Línea 1031: el nombre de la propiedad Tab(1).Control(0).Enabled de SSTab1 no es válido.
+Línea 1032: el nombre de la propiedad Tab(1).ControlCount de SSTab1 no es válido.
+Línea 1087: el nombre de la propiedad _ExtentX de TxtD_Nom3_Corriente no es válido.
+Línea 1088: el nombre de la propiedad _ExtentY de TxtD_Nom3_Corriente no es válido.
+Línea 1089: el nombre de la propiedad _Version de TxtD_Nom3_Corriente no es válido.
+Línea 1091: el nombre de la propiedad Text de TxtD_Nom3_Corriente no es válido.
+Línea 1099: el nombre de la propiedad _ExtentX de TxtD_Nom2_Corriente no es válido.
+Línea 1100: el nombre de la propiedad _ExtentY de TxtD_Nom2_Corriente no es válido.
+Línea 1101: el nombre de la propiedad _Version de TxtD_Nom2_Corriente no es válido.
+Línea 1103: el nombre de la propiedad Text de TxtD_Nom2_Corriente no es válido.
+Línea 1111: el nombre de la propiedad _ExtentX de TxtD_Aux3_Corriente no es válido.
+Línea 1112: el nombre de la propiedad _ExtentY de TxtD_Aux3_Corriente no es válido.
+Línea 1113: el nombre de la propiedad _Version de TxtD_Aux3_Corriente no es válido.
+Línea 1115: el nombre de la propiedad Text de TxtD_Aux3_Corriente no es válido.
+Línea 1123: el nombre de la propiedad _ExtentX de TxtD_Aux2_Corriente no es válido.
+Línea 1124: el nombre de la propiedad _ExtentY de TxtD_Aux2_Corriente no es válido.
+Línea 1125: el nombre de la propiedad _Version de TxtD_Aux2_Corriente no es válido.
+Línea 1127: el nombre de la propiedad Text de TxtD_Aux2_Corriente no es válido.
+Línea 1324: el nombre de la propiedad _ExtentX de TxtH_Nom3_Corriente no es válido.
+Línea 1325: el nombre de la propiedad _ExtentY de TxtH_Nom3_Corriente no es válido.
+Línea 1326: el nombre de la propiedad _Version de TxtH_Nom3_Corriente no es válido.
+Línea 1328: el nombre de la propiedad Text de TxtH_Nom3_Corriente no es válido.
+Línea 1336: el nombre de la propiedad _ExtentX de TxtH_Nom2_Corriente no es válido.
+Línea 1337: el nombre de la propiedad _ExtentY de TxtH_Nom2_Corriente no es válido.
+Línea 1338: el nombre de la propiedad _Version de TxtH_Nom2_Corriente no es válido.
+Línea 1340: el nombre de la propiedad Text de TxtH_Nom2_Corriente no es válido.
+Línea 1348: el nombre de la propiedad _ExtentX de TxtH_Aux3_Corriente no es válido.
+Línea 1349: el nombre de la propiedad _ExtentY de TxtH_Aux3_Corriente no es válido.
+Línea 1350: el nombre de la propiedad _Version de TxtH_Aux3_Corriente no es válido.
+Línea 1352: el nombre de la propiedad Text de TxtH_Aux3_Corriente no es válido.
+Línea 1360: el nombre de la propiedad _ExtentX de TxtH_Aux2_Corriente no es válido.
+Línea 1361: el nombre de la propiedad _ExtentY de TxtH_Aux2_Corriente no es válido.
+Línea 1362: el nombre de la propiedad _Version de TxtH_Aux2_Corriente no es válido.
+Línea 1364: el nombre de la propiedad Text de TxtH_Aux2_Corriente no es válido.
+Línea 1372: el nombre de la propiedad _ExtentX de TxtH_Nom3_aux3 no es válido.
+Línea 1373: el nombre de la propiedad _ExtentY de TxtH_Nom3_aux3 no es válido.
+Línea 1374: el nombre de la propiedad _Version de TxtH_Nom3_aux3 no es válido.
+Línea 1376: el nombre de la propiedad Text de TxtH_Nom3_aux3 no es válido.
+Línea 1534: el nombre de la propiedad _ExtentX de Adodcbeneficiario no es válido.
+Línea 1535: el nombre de la propiedad _ExtentY de Adodcbeneficiario no es válido.
+Línea 1536: el nombre de la propiedad ConnectMode de Adodcbeneficiario no es válido.
+Línea 1537: el nombre de la propiedad CursorLocation de Adodcbeneficiario no es válido.
+Línea 1538: el nombre de la propiedad IsolationLevel de Adodcbeneficiario no es válido.
+Línea 1539: el nombre de la propiedad ConnectionTimeout de Adodcbeneficiario no es válido.
+Línea 1540: el nombre de la propiedad CommandTimeout de Adodcbeneficiario no es válido.
+Línea 1541: el nombre de la propiedad CursorType de Adodcbeneficiario no es válido.
+Línea 1542: el nombre de la propiedad LockType de Adodcbeneficiario no es válido.
+Línea 1543: el nombre de la propiedad CommandType de Adodcbeneficiario no es válido.
+Línea 1544: el nombre de la propiedad CursorOptions de Adodcbeneficiario no es válido.
+Línea 1545: el nombre de la propiedad CacheSize de Adodcbeneficiario no es válido.
+Línea 1546: el nombre de la propiedad MaxRecords de Adodcbeneficiario no es válido.
+Línea 1547: el nombre de la propiedad BOFAction de Adodcbeneficiario no es válido.
+Línea 1548: el nombre de la propiedad EOFAction de Adodcbeneficiario no es válido.
+Línea 1549: el nombre de la propiedad ConnectStringType de Adodcbeneficiario no es válido.
+Línea 1553: el nombre de la propiedad Orientation de Adodcbeneficiario no es válido.
+Línea 1555: el nombre de la propiedad Connect de Adodcbeneficiario no es válido.
+Línea 1556: el nombre de la propiedad OLEDBString de Adodcbeneficiario no es válido.
+Línea 1557: el nombre de la propiedad OLEDBFile de Adodcbeneficiario no es válido.
+Línea 1558: el nombre de la propiedad DataSourceName de Adodcbeneficiario no es válido.
+Línea 1559: el nombre de la propiedad OtherAttributes de Adodcbeneficiario no es válido.
+Línea 1560: el nombre de la propiedad UserName de Adodcbeneficiario no es válido.
+Línea 1561: el nombre de la propiedad Password de Adodcbeneficiario no es válido.
+Línea 1562: el nombre de la propiedad RecordSource de Adodcbeneficiario no es válido.
+Línea 1563: el nombre de la propiedad Caption de Adodcbeneficiario no es válido.
+Línea 1573: el nombre de la propiedad _Version de Adodcbeneficiario no es válido.
+Línea 1581: el nombre de la propiedad _ExtentX de Adodcdocumento no es válido.
+Línea 1582: el nombre de la propiedad _ExtentY de Adodcdocumento no es válido.
+Línea 1583: el nombre de la propiedad ConnectMode de Adodcdocumento no es válido.
+Línea 1584: el nombre de la propiedad CursorLocation de Adodcdocumento no es válido.
+Línea 1585: el nombre de la propiedad IsolationLevel de Adodcdocumento no es válido.
+Línea 1586: el nombre de la propiedad ConnectionTimeout de Adodcdocumento no es válido.
+Línea 1587: el nombre de la propiedad CommandTimeout de Adodcdocumento no es válido.
+Línea 1588: el nombre de la propiedad CursorType de Adodcdocumento no es válido.
+Línea 1589: el nombre de la propiedad LockType de Adodcdocumento no es válido.
+Línea 1590: el nombre de la propiedad CommandType de Adodcdocumento no es válido.
+Línea 1591: el nombre de la propiedad CursorOptions de Adodcdocumento no es válido.
+Línea 1592: el nombre de la propiedad CacheSize de Adodcdocumento no es válido.
+Línea 1593: el nombre de la propiedad MaxRecords de Adodcdocumento no es válido.
+Línea 1594: el nombre de la propiedad BOFAction de Adodcdocumento no es válido.
+Línea 1595: el nombre de la propiedad EOFAction de Adodcdocumento no es válido.
+Línea 1596: el nombre de la propiedad ConnectStringType de Adodcdocumento no es válido.
+Línea 1600: el nombre de la propiedad Orientation de Adodcdocumento no es válido.
+Línea 1602: el nombre de la propiedad Connect de Adodcdocumento no es válido.
+Línea 1603: el nombre de la propiedad OLEDBString de Adodcdocumento no es válido.
+Línea 1604: el nombre de la propiedad OLEDBFile de Adodcdocumento no es válido.
+Línea 1605: el nombre de la propiedad DataSourceName de Adodcdocumento no es válido.
+Línea 1606: el nombre de la propiedad OtherAttributes de Adodcdocumento no es válido.
+Línea 1607: el nombre de la propiedad UserName de Adodcdocumento no es válido.
+Línea 1608: el nombre de la propiedad Password de Adodcdocumento no es válido.
+Línea 1609: el nombre de la propiedad RecordSource de Adodcdocumento no es válido.
+Línea 1610: el nombre de la propiedad Caption de Adodcdocumento no es válido.
+Línea 1620: el nombre de la propiedad _Version de Adodcdocumento no es válido.

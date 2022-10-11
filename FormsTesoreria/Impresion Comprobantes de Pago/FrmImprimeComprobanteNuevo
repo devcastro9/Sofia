@@ -1,0 +1,1081 @@
+VERSION 5.00
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "CRYSTL32.OCX"
+Begin VB.Form FrmImprimeComprobanteNuevo 
+   Caption         =   "Impresión de Comprobantes"
+   ClientHeight    =   3195
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   4680
+   LinkTopic       =   "Form3"
+   LockControls    =   -1  'True
+   ScaleHeight     =   11115
+   ScaleWidth      =   15240
+   StartUpPosition =   3  'Windows Default
+   WindowState     =   2  'Maximized
+   Begin Crystal.CrystalReport CryCompr 
+      Left            =   7020
+      Top             =   3525
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      PrintFileLinesPerPage=   60
+      WindowShowNavigationCtls=   -1  'True
+      WindowShowCancelBtn=   -1  'True
+      WindowShowPrintBtn=   -1  'True
+      WindowShowExportBtn=   -1  'True
+      WindowShowZoomCtl=   -1  'True
+      WindowShowProgressCtls=   -1  'True
+      WindowShowSearchBtn=   -1  'True
+      WindowShowPrintSetupBtn=   -1  'True
+      WindowShowRefreshBtn=   -1  'True
+   End
+   Begin MSDataGridLib.DataGrid DtGCompr 
+      Height          =   6405
+      Left            =   7965
+      TabIndex        =   27
+      Top             =   1830
+      Width           =   5670
+      _ExtentX        =   10001
+      _ExtentY        =   11298
+      _Version        =   393216
+      HeadLines       =   1
+      RowHeight       =   15
+      BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ColumnCount     =   2
+      BeginProperty Column00 
+         DataField       =   ""
+         Caption         =   ""
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   16394
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      BeginProperty Column01 
+         DataField       =   ""
+         Caption         =   ""
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   16394
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      SplitCount      =   1
+      BeginProperty Split0 
+         BeginProperty Column00 
+         EndProperty
+         BeginProperty Column01 
+         EndProperty
+      EndProperty
+   End
+   Begin VB.Frame Frame1 
+      Height          =   675
+      Left            =   1305
+      TabIndex        =   24
+      Top             =   1110
+      Width           =   12315
+      Begin VB.Label Label4 
+         Caption         =   "Comprobantes"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Left            =   135
+         TabIndex        =   26
+         Top             =   255
+         Width           =   2445
+      End
+      Begin VB.Label Label7 
+         Caption         =   "Cheques a imprimir"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Left            =   5955
+         TabIndex        =   25
+         Top             =   255
+         Width           =   2445
+      End
+   End
+   Begin VB.CommandButton Seleccionar 
+      Caption         =   ">>"
+      Height          =   750
+      Left            =   6900
+      TabIndex        =   23
+      Top             =   1845
+      Width           =   1020
+   End
+   Begin VB.CommandButton Retornar 
+      Caption         =   "<<"
+      Height          =   750
+      Left            =   6915
+      TabIndex        =   22
+      Top             =   2655
+      Width           =   1020
+   End
+   Begin VB.PictureBox Picture1 
+      Align           =   1  'Align Top
+      Height          =   1050
+      Left            =   0
+      ScaleHeight     =   990
+      ScaleWidth      =   15180
+      TabIndex        =   8
+      Top             =   0
+      Width           =   15240
+      Begin VB.Label Label1 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         Caption         =   "IMPRESION DE COMPROBANTES"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   360
+         Left            =   3645
+         TabIndex        =   13
+         Top             =   135
+         Width           =   5055
+      End
+      Begin VB.Label LblUsuario 
+         Caption         =   "LblUsuario"
+         Height          =   225
+         Left            =   10485
+         TabIndex        =   12
+         Top             =   660
+         Width           =   1305
+      End
+      Begin VB.Label Label6 
+         Caption         =   "USUARIO:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   285
+         Left            =   9210
+         TabIndex        =   11
+         Top             =   645
+         Width           =   1275
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Unidad Administrativa Financiera"
+         Height          =   225
+         Left            =   1245
+         TabIndex        =   10
+         Top             =   690
+         Width           =   2460
+      End
+      Begin VB.Label Label2 
+         Caption         =   "UNIDAD:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   285
+         Left            =   60
+         TabIndex        =   9
+         Top             =   675
+         Width           =   1110
+      End
+   End
+   Begin VB.Frame FraOpciones 
+      Height          =   7215
+      Left            =   0
+      TabIndex        =   14
+      Top             =   1005
+      Width           =   1245
+      Begin VB.CommandButton CmdFiltro 
+         Caption         =   "Filtro por Organismo"
+         Height          =   795
+         Left            =   105
+         TabIndex        =   19
+         Top             =   1965
+         Width           =   930
+      End
+      Begin VB.CommandButton CmdImprimir 
+         Caption         =   "Imprimir"
+         Height          =   795
+         Left            =   120
+         Picture         =   "FrmImprimeComprobanteNuevo.frx":0000
+         Style           =   1  'Graphical
+         TabIndex        =   18
+         Top             =   375
+         Width           =   915
+      End
+      Begin VB.CommandButton CmdSalir 
+         Caption         =   "Salir"
+         Height          =   795
+         Left            =   105
+         Picture         =   "FrmImprimeComprobanteNuevo.frx":066A
+         Style           =   1  'Graphical
+         TabIndex        =   17
+         Top             =   3555
+         Width           =   930
+      End
+      Begin VB.CommandButton CmdRestaurar 
+         Caption         =   "Restaurar Grid"
+         Height          =   795
+         Left            =   105
+         Style           =   1  'Graphical
+         TabIndex        =   16
+         Top             =   1170
+         Width           =   930
+      End
+      Begin VB.CommandButton CmdBusqueda 
+         Caption         =   "Busqueda"
+         Height          =   795
+         Left            =   105
+         Picture         =   "FrmImprimeComprobanteNuevo.frx":0AAC
+         Style           =   1  'Graphical
+         TabIndex        =   15
+         Top             =   2760
+         Width           =   930
+      End
+   End
+   Begin VB.Frame FraBusca 
+      Height          =   2100
+      Left            =   1875
+      TabIndex        =   0
+      Top             =   4530
+      Visible         =   0   'False
+      Width           =   2040
+      Begin VB.CommandButton CmdSalirBusca 
+         Caption         =   "Salir"
+         Height          =   375
+         Left            =   225
+         TabIndex        =   28
+         Top             =   1635
+         Width           =   1515
+      End
+      Begin VB.CommandButton CmdBuscar 
+         Caption         =   "Buscar"
+         Height          =   390
+         Left            =   225
+         TabIndex        =   4
+         Top             =   1245
+         Width           =   1515
+      End
+      Begin VB.TextBox TxtCmpte 
+         Appearance      =   0  'Flat
+         Height          =   345
+         Left            =   225
+         TabIndex        =   3
+         Top             =   780
+         Width           =   1515
+      End
+      Begin VB.TextBox TxtOrg 
+         Appearance      =   0  'Flat
+         Height          =   345
+         Left            =   2047
+         TabIndex        =   2
+         Top             =   915
+         Width           =   1515
+      End
+      Begin VB.TextBox TxtGes 
+         Appearance      =   0  'Flat
+         Height          =   345
+         Left            =   3615
+         TabIndex        =   1
+         Top             =   915
+         Width           =   1515
+      End
+      Begin VB.Label Label21 
+         Caption         =   "Cmpte. Inicial"
+         Height          =   165
+         Left            =   450
+         TabIndex        =   7
+         Top             =   420
+         Width           =   975
+      End
+      Begin VB.Label Label19 
+         Caption         =   "Organismo"
+         Height          =   165
+         Left            =   2310
+         TabIndex        =   6
+         Top             =   615
+         Width           =   990
+      End
+      Begin VB.Label Label20 
+         Caption         =   "Gestión"
+         Height          =   165
+         Left            =   3900
+         TabIndex        =   5
+         Top             =   645
+         Width           =   795
+      End
+   End
+   Begin MSDataGridLib.DataGrid DtGComprobantes 
+      Height          =   6375
+      Left            =   1320
+      TabIndex        =   20
+      Top             =   1845
+      Width           =   5505
+      _ExtentX        =   9710
+      _ExtentY        =   11245
+      _Version        =   393216
+      HeadLines       =   1
+      RowHeight       =   15
+      BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ColumnCount     =   2
+      BeginProperty Column00 
+         DataField       =   ""
+         Caption         =   ""
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   1
+            Format          =   "0.00"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   16394
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      BeginProperty Column01 
+         DataField       =   ""
+         Caption         =   ""
+         BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+            Type            =   0
+            Format          =   ""
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   16394
+            SubFormatType   =   0
+         EndProperty
+      EndProperty
+      SplitCount      =   1
+      BeginProperty Split0 
+         BeginProperty Column00 
+         EndProperty
+         BeginProperty Column01 
+         EndProperty
+      EndProperty
+   End
+   Begin Crystal.CrystalReport CryCh 
+      Left            =   4845
+      Top             =   2310
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      Destination     =   1
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      PrintFileLinesPerPage=   60
+      WindowShowRefreshBtn=   -1  'True
+   End
+   Begin VB.Label Label5 
+      Caption         =   "Label5"
+      Height          =   75
+      Left            =   10875
+      TabIndex        =   21
+      Top             =   1725
+      Width           =   45
+   End
+End
+Attribute VB_Name = "FrmImprimeComprobanteNuevo"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+'========================================================================================
+' Sistema:                  SAF-2000
+' Módulo:                   Impresion de Comprobantes
+' Base de Datos:            SQL SERVER 7.0 (español)
+' Formulario :              FrmImprimirComprobante.frm
+' Descipción :              Luego de impreso los cheques y/o transferencias
+'                           se requiere la impresión de sus comprobantes.
+' Formularios relacionados: Main.frm (Padre)
+'                           CryComprobante
+' Autor:                    Celia Elena Tarquino Peralta
+' Fecha de creación         10/Ene/ 2000
+' Fecha última modificación 15/Mar/ 2000
+' Versión:                  2.0
+'========================================================================================
+
+Public rsComprobante As New ADODB.Recordset
+Dim rsCheque As New ADODB.Recordset
+Dim rsCorrel As New ADODB.Recordset
+Dim rsNada As New ADODB.Recordset
+Dim punto As Variant
+Dim NumeroCuenta As String
+Public CryCmpte As New CryComprobante
+
+Private Sub CmdBuscar_Click()
+                    If TxtCmpte.Text = "" Then
+                        MsgBox "Necesita números de comprobante"
+                        Exit Sub
+                    Else
+                        condicion = "pago_detalle.codigo_pago=" + "'" + TxtCmpte.Text + "'"
+                    End If
+                    SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf " & _
+                   "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo WHERE " & condicion & " order by Pago_detalle.codigo_pago "
+                    If rsComprobante.State Then rsComprobante.Close
+                    rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+                    If rsComprobante.RecordCount > 0 Then
+                        Set DtGComprobantes.DataSource = rsComprobante
+                    End If
+                    FraBusca.Visible = False
+
+End Sub
+
+Private Sub CmdBusqueda_Click()
+    FraBusca.Visible = True
+End Sub
+
+Private Sub CmdFiltro_Click()
+Dim SqlQuery As String
+Dim Resp As String
+
+    Resp = InputBox("Introducir Organismo o Cuenta Bancaria")
+    If Resp <> "" Then
+      Set rsCheque = New ADODB.Recordset
+      If rsCheque.State = 1 Then rsCheque.Close
+'      rsCheque.Open "SELECT Pagos.codigo_pago,pago_detalle.monto_Bolivianos,pago_detalle.fecha_pago,fc_beneficiario.denominacion_beneficiario, pago_detalle.cta_codigo,pagos.org_codigo,pago_detalle.literal, pago_detalle.numero_cheque_trf, pago_detalle.cheque_o_trf,  fc_bancos.Bco_descripcion_larga " & _
+'      "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo WHERE pago_detalle.cta_codigo= '" & Resp & "' and pago_detalle.estado_aprobacion <> 'A' order by pago_detalle.codigo_pago", db, adOpenKeyset, adLockOptimistic
+
+      'SqlQuery = "SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal,pago_detalle.cta_codigo "
+      SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf " & _
+                 "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo WHERE pago_detalle.cta_codigo= '" & Resp & "'"
+      rsCheque.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+      
+      If rsCheque.RecordCount > 0 Then
+        Set DtGComprobantes.DataSource = rsCheque
+        DtGComprobantes.Refresh
+      Else
+        MsgBox "No existen registros de la cuenta" + " " + Resp
+      End If
+    End If
+    
+End Sub
+Private Sub CmdImpresionRangos_Click()
+Dim SqlQuery As String
+     CmdLimpiar_Click
+     If TxtInicio = "" Then
+        MsgBox "Introducir comprobante inicial", vbInformation + vbCritical, "Validación de datos"
+        Exit Sub
+     End If
+     If Val(TxtInicio.Text) > Val(TxtFin.Text) Then
+        MsgBox "Comprobante inicial menor al comprobante final", vbInformation + vbCritical, "Validación de datos"
+        Exit Sub
+     End If
+     
+     'Limpiando la tabla auxiliar para cheques
+     Set rsCmpte = New ADODB.Recordset
+     If rsCmpte.State = 1 Then rsCheques.Close
+     rsCmpte.Open "SELECT * FROM to_comprobantes", db, adOpenKeyset, adLockOptimistic
+     While Not rsCmpte.EOF
+         rsCmpte.Delete
+         rsCmpte.MoveNext
+     Wend
+     
+     MsgBox "Se imprimirán los comprobantes por rango"
+     If TxtInicio.Text <> "" And TxtFin.Text <> "" Then
+        Set rsComprobante = New ADODB.Recordset
+                
+        If rsComprobante.State = 1 Then rsComprobante.Close
+        SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal " & _
+                   "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo" ',db, adOpenKeyset, adLockOptimistic
+        rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+        If rsComprobante.RecordCount > 0 Then
+           Set DtGComprobantes.DataSource = rsComprobante
+           While Not rsComprobante.EOF
+               If Val(rsComprobante("codigo_pago")) >= Val(TxtInicio.Text) And Val(rsComprobante("codigo_pago")) <= Val(TxtFin.Text) Then
+                      rsCmpte.AddNew
+                      rsCmpte("Nro_Cmpte") = rsComprobante("codigo_pago")
+                      rsCmpte("fecha_pago") = rsComprobante("fecha_pago")
+                      rsCmpte("organismo") = rsComprobante("cta_descripcion_larga")
+                      rsCmpte("monto") = rsComprobante("monto_bolivianos")
+                      rsCmpte("cambio") = rsComprobante("tipo_cambio")
+                      rsCmpte("beneficiario") = rsComprobante("denominacion_beneficiario")
+                      rsCmpte("justificacion") = rsComprobante("justificacion")
+                      rsCmpte("nro_cheque") = rsComprobante("numero_cheque_trf")
+                      rsCmpte("Banco") = Trim(rsComprobante("Bco_descripcion_larga"))
+                      rsCmpte("literal") = rsComprobante("literal")
+                End If
+                rsComprobante.MoveNext
+              Wend
+        End If
+    End If
+        sino = MsgBox("Se imprimiran los comprobantes ...! ", vbYesNo, "Mensaje de Advertencia")    '  sino = MsgBox("Està seguro de eliminar este registro", vbYesNo + vbQuestion, "Atenciòn") then
+        If sino = vbYes Then
+                 FrmComprobante.Show
+        Else
+                 Exit Sub
+        End If
+   
+End Sub
+
+Private Sub CmdImprimir_Click()
+   CryCompr.ReportFileName = "C:\SAF-2000\FormsTesoreria\Impresion Comprobantes de Pago\Rpt_Comprobantes.rpt"
+    IResult = CryCompr.PrintReport
+    If IResult <> 0 Then
+       MsgBox CryCompr.LastErrorNumber & " : " & CryCompr.LastErrorString, vbCritical + vbOKOnly, "Error..."
+     End If
+ 
+End Sub
+
+
+
+Private Sub CmdRestaurar_Click()
+    Dim SqlQuery As String
+    Set rsComprobante = New ADODB.Recordset
+    If rsComprobante.State = 1 Then rsComprobante.Close
+    'SqlQuery = " SELECT Pagos.codigo_pago, fc_organismo_financiamiento.Org_descripcion, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cheque_o_trf "
+     SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf " & _
+               "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo" ',db, adOpenKeyset, adLockOptimistic
+    rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+    If rsComprobante.RecordCount > 0 Then
+        Set DtGComprobantes.DataSource = rsComprobante
+    End If
+End Sub
+
+Private Sub CmdSalir_Click()
+    Unload Me
+End Sub
+
+Private Sub Command2_Click()
+    'MsgBox LstChequesCodigo.ListCount
+    MsgBox LstChequesCodigo.ListIndex
+    LstChequesDatos.RemoveItem punto
+    'MsgBox LstChequesCodigo.Index(0)
+End Sub
+
+Private Sub CmdSalirBusca_Click()
+    FraBusca.Visible = False
+End Sub
+
+Private Sub dtgComprobantes_Click()
+' Dim bandera As Integer
+'    bandera = 0
+'    For i = 0 To LstComprobante.ListCount - 1
+'         LstComprobante.ListIndex = i
+'         If LstComprobante.Text = DtGComprobantes.Columns(0) Then
+'              bandera = 1
+'         End If
+'    Next i
+'    If bandera = 0 Then
+'        LstComprobante.AddItem DtGComprobantes.Columns(0)
+'        LstOrganismo.AddItem DtGComprobantes.Columns(1)
+'        LstFecha.AddItem DtGComprobantes.Columns(2)
+'        LstMonto.AddItem DtGComprobantes.Columns(3)
+'        LstCambio.AddItem DtGComprobantes.Columns(4)
+'        LstBeneficiario.AddItem DtGComprobantes.Columns(5)
+'        LstJustificacion.AddItem DtGComprobantes.Columns(6)
+'        LstNroCheque.AddItem DtGComprobantes.Columns(7)
+'        LstBanco.AddItem DtGComprobantes.Columns(8)
+'        LstLiteral.AddItem DtGComprobantes.Columns(9)
+'        If Not IsNull(DtGComprobantes.Columns(11)) Then
+'            LstTransf_Cheq.AddItem DtGComprobantes.Columns(11)
+'        End If
+'
+'    End If
+
+End Sub
+
+Private Sub dtgComprobantes_DblClick()
+' Dim bandera As Integer
+'    bandera = 0
+'    For i = 0 To LstComprobante.ListCount - 1
+'         LstComprobante.ListIndex = i
+'         If LstComprobante.Text = dtgComprobantes.Columns(0) Then
+'              bandera = 1
+'         End If
+'    Next i
+'    If bandera = 0 Then
+'        LstComprobante.AddItem dtgComprobantes.Columns(0)
+'        LstMonto.AddItem dtgComprobantes.Columns(1)
+'        LstFecha.AddItem dtgComprobantes.Columns(2)
+'        LstBeneficiario.AddItem dtgComprobantes.Columns(3)
+'
+'        LstCuenta.AddItem dtgComprobantes.Columns(4)
+'    End If
+
+
+End Sub
+
+Private Sub dtgComprobantes_HeadClick(ByVal ColIndex As Integer)
+    Set rsComprobante = New ADODB.Recordset
+    CmdLimpiar_Click
+    If rsComprobante.State = 1 Then rsComprobante.Close
+    Select Case ColIndex
+        Case 0
+'            rsComprobante.Open "SELECT Pagos.codigo_pago,pago_detalle.monto_Bolivianos,pago_detalle.fecha_pago,fc_beneficiario.denominacion_beneficiario, pago_detalle.cta_codigo,pagos.org_codigo,pago_detalle.literal, fc_bancos.Bco_descripcion_larga " & _
+'            "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where pago_detalle.estado_aprobacion <> 'A'order by  Pagos.codigo_pago", db, adOpenKeyset, adLockOptimistic
+
+            'SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo "
+             SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf " & _
+                   "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo order by pago_detalle.codigo_pago"
+            rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+        Case 1
+            'rsComprobante.Open "SELECT Pagos.codigo_pago,pago_detalle.monto_Bolivianos,pago_detalle.fecha_pago,fc_beneficiario.denominacion_beneficiario, pago_detalle.cta_codigo,pagos.org_codigo,pago_detalle.literal, fc_bancos.Bco_descripcion_larga " & _
+            "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where pago_detalle.estado_aprobacion <> 'A'order by pago_detalle.monto_Bolivianos", db, adOpenKeyset, adLockOptimistic
+        Case 2
+            rsComprobante.Open "SELECT Pagos.codigo_pago,pago_detalle.monto_Bolivianos,pago_detalle.fecha_pago,fc_beneficiario.denominacion_beneficiario, pago_detalle.cta_codigo,pagos.org_codigo,pago_detalle.literal, fc_bancos.Bco_descripcion_larga " & _
+            "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where pago_detalle.estado_aprobacion <> 'A'order by pago_detalle.fecha_pago", db, adOpenKeyset, adLockOptimistic
+        Case 3
+            rsComprobante.Open "SELECT Pagos.codigo_pago,pago_detalle.monto_Bolivianos,pago_detalle.fecha_pago,fc_beneficiario.denominacion_beneficiario, pago_detalle.cta_codigo,pagos.org_codigo,pago_detalle.literal, fc_bancos.Bco_descripcion_larga " & _
+            "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where pago_detalle.estado_aprobacion <> 'A'order by fc_beneficiario.denominacion_beneficiario", db, adOpenKeyset, adLockOptimistic
+        Case 4
+            rsComprobante.Open "SELECT Pagos.codigo_pago,pago_detalle.monto_Bolivianos,pago_detalle.fecha_pago,fc_beneficiario.denominacion_beneficiario, pago_detalle.cta_codigo,pagos.org_codigo,pago_detalle.literal, fc_bancos.Bco_descripcion_larga " & _
+            "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where pago_detalle.estado_aprobacion <> 'A'order by pago_detalle.cta_codigo", db, adOpenKeyset, adLockOptimistic
+    End Select
+    Set DtGComprobantes.DataSource = rsComprobante
+End Sub
+
+Private Sub Form_Load()
+Dim CryCmpte As New CryComprobante
+    Dim SqlQuery As String
+    Set rsComprobante = New ADODB.Recordset
+    SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf, pago_detalle.org_codigo,pago_detalle.ges_gestion " & _
+               "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo order by Pago_detalle.codigo_pago"
+    rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+    If rsComprobante.RecordCount > 0 Then
+        Set DtGComprobantes.DataSource = rsComprobante
+    End If
+     
+    'Lista los comprobantes para imprimir
+    Refrescar
+End Sub
+Private Sub LstCheques_Click()
+    MsgBox LstChequesCodigo.ListCount
+    LstCheques.RemoveItem LstCheques.ListIndex
+End Sub
+
+Private Sub LstChequesCodigo_Click()
+    punto = LstChequesCodigo.ListIndex
+    'MsgBox LstChequesCodigo.ListCount
+    'LstChequesDatos.RemoveItem punto
+    
+    'LstChequesCodigo.RemoveItem LstChequesCodigo.ListIndex
+    
+    'LstChequesDatos_Click
+End Sub
+
+Private Sub LstChequesCodigo_DblClick()
+    LstChequesCodigo.RemoveItem LstChequesCodigo.ListIndex
+End Sub
+
+Private Sub LstChequesDatos_Click()
+    LstChequesDatos.RemoveItem LstChequesDatos.ListIndex
+End Sub
+
+Public Sub Cheques_Impresos_lista()
+        'Determinando comprobante de pagos en detalle como APROBADOS CHEQUES
+        For i = 0 To LstNroCheque.ListCount - 1
+          LstNroCheque.ListIndex = i
+          LstComprobante.ListIndex = i
+          NroCheque = LstNroCheque.Text
+          
+            Set rspago = New ADODB.Recordset
+            If rspago.State = 1 Then rspago.Close
+            rspago.Open "SELECT * from pagos where codigo_pago= '" & LstComprobante.Text & "'", db, adOpenKeyset, adLockOptimistic
+            If rspago.RecordCount > 0 Then
+                Set rsPAgoDetalle = New ADODB.Recordset
+                If rsPAgoDetalle.State = 1 Then rsPAgoDetalle.Close
+                rsPAgoDetalle.Open "SELECT * from pago_detalle where codigo_pago= '" & LstComprobante.Text & "'", db, adOpenKeyset, adLockOptimistic
+                If rsPAgoDetalle.RecordCount > 0 Then
+                     rsPAgoDetalle("estado_aprobacion") = "A"
+                     rsPAgoDetalle.Update
+                End If
+                Set rsPAgoDetalle = New ADODB.Recordset
+                If rsPAgoDetalle.State = 1 Then rsPAgoDetalle.Close
+                rsPAgoDetalle.Open "SELECT * from pago_detalle where codigo_pago= '" & LstComprobante.Text & "' and estado_aprobacion<>'A'", db, adOpenKeyset, adLockOptimistic
+                If rsPAgoDetalle.RecordCount > 0 Then
+                    SumaMontosParciales = 0
+                    While Not rsPAgoDetalle.EOF
+                     SumaMontosParciales = SumaMontosParciales + rsPAgoDetalle("monto_bolivianos")
+                     rsPAgoDetalle.MoveNext
+                    Wend
+                    If rspago("liquido_pagar") = SumaMontosParciales And SumaMontosParciales <> 0 Then
+                     rspago("estado_aprobacion") = "A"
+                     rspago.Update
+                    End If
+                End If
+        
+                If rsPAgoDetalle.State = 1 Then rsPAgoDetalle.Close
+           End If
+     Next i
+End Sub
+
+
+Private Sub LstBanco_DblClick()
+    LstBanco.RemoveItem punto
+    LstLiteral_DblClick
+End Sub
+
+Private Sub LstBeneficiario_DblClick()
+    LstBeneficiario.RemoveItem punto
+    LstJustificacion_DblClick
+End Sub
+
+Private Sub LstCambio_DblClick()
+    LstCambio.RemoveItem punto
+    LstBeneficiario_DblClick
+End Sub
+
+Private Sub LstComprobante_DblClick()
+    punto = LstComprobante.ListIndex
+    LstComprobante.RemoveItem punto
+    LstOrganismo_DblClick
+End Sub
+Private Sub LstFecha_DblClick()
+    LstFecha.RemoveItem punto
+    LstMonto_DblClick
+End Sub
+
+Public Sub Cheques_Impresos_rango()
+       Set rsCheque = New ADODB.Recordset
+       If rsCheque.State = 1 Then rsCheque.Close
+       rsCheque.Open "SELECT * from ts_cheque", db, adOpenKeyset, adLockOptimistic
+       If rsCheque.RecordCount > 0 Then
+       While Not rsCheque.EOF
+            Set rspago = New ADODB.Recordset
+            If rspago.State = 1 Then rspago.Close
+            rspago.Open "SELECT * from pagos where codigo_pago='" & rsCheque("numero_comprobante") & "'", db, adOpenKeyset, adLockOptimistic
+            If rspago.RecordCount > 0 Then
+                Set rsPAgoDetalle = New ADODB.Recordset
+                If rsPAgoDetalle.State = 1 Then rsPAgoDetalle.Close
+                rsPAgoDetalle.Open "SELECT * from pago_detalle where codigo_pago= '" & rsCheque("numero_comprobante") & "' and estado_aprobacion<>'A'", db, adOpenKeyset, adLockOptimistic
+                If rsPAgoDetalle.RecordCount > 0 Then
+                     rsPAgoDetalle("estado_aprobacion") = "A"
+                     rsPAgoDetalle.Update
+                End If
+                
+                Set rsPAgoDetalle = New ADODB.Recordset
+                If rsPAgoDetalle.State = 1 Then rsPAgoDetalle.Close
+                rsPAgoDetalle.Open "SELECT * from pago_detalle where codigo_pago= '" & rsCheque("numero_comprobante") & "'", db, adOpenKeyset, adLockOptimistic
+                If rsPAgoDetalle.RecordCount > 0 Then
+                SumaMontosParciales = 0
+                    While Not rsPAgoDetalle.EOF
+                     SumaMontosParciales = SumaMontosParciales + rsPAgoDetalle("monto_bolivianos")
+                     rsPAgoDetalle.MoveNext
+                    Wend
+                    If rspago("liquido_pagar") = SumaMontosParciales And SumaMontosParciales <> 0 Then
+                     rspago("estado_aprobacion") = "A"
+                     rspago.Update
+                    End If
+                End If
+                If rsPAgoDetalle.State = 1 Then rsPAgoDetalle.Close
+           End If
+           rsCheque.MoveNext
+         Wend
+        End If
+End Sub
+
+Public Sub Restaurar_numeracion_cheque()
+   Set rsCheque = New ADODB.Recordset
+   rsCheque.Open "SELECT * FROM ts_cheque", db, adOpenKeyset, adLockOptimistic
+   If rsCheque.RecordCount > 0 Then
+     While Not rsCheque.EOF
+         Select Case rsCheque("cta_codigo")
+            Case "4.41.1.1.1.402.208.11-2"
+                  NumeroCuenta = "cta_1"
+            Case "4.41.1.1.1.402.208.12-1"
+                  NumeroCuenta = "cta_2"
+            Case "4.41.1.1.1.402.208.14-0"
+                  NumeroCuenta = "cta_3"
+            Case "4.41.1.1.1.402.208.16-8"
+                  NumeroCuenta = "cta_4"
+            Case "4.41.1.1.1.402.208.18-6"
+                  NumeroCuenta = "cta_5"
+            Case "4.41.1.1.1.402.254.01-7"
+                  NumeroCuenta = "cta_6"
+            Case "4.41.1.1.1.402.254.02-6"
+                  NumeroCuenta = "cta_7"
+            Case "1-297792"
+                  NumeroCuenta = "cta_8"
+            Case "1-297809"
+                  NumeroCuenta = "cta_9"
+            Case "1-297841"
+                  NumeroCuenta = "cta_10"
+            Case "1-297867"
+                  NumeroCuenta = "cta_11"
+            Case "1-297875"
+                  NumeroCuenta = "cta_12"
+            Case "1-297883"
+                  NumeroCuenta = "cta_13"
+            Case "1-297891"
+                  NumeroCuenta = "cta_14"
+            Case "1-297916"
+                  NumeroCuenta = "cta_15"
+            Case "1-297924"
+                  NumeroCuenta = "cta_16"
+            Case "1-297932"
+                  NumeroCuenta = "cta_17"
+            Case "1-297940"
+                  NumeroCuenta = "cta_18"
+            Case "1-297958"
+                  NumeroCuenta = "cta_19"
+            Case "1-301973"
+                  NumeroCuenta = "cta_20"
+            Case "1-301999"
+                  NumeroCuenta = "cta_21"
+            Case "1-302731"
+                  NumeroCuenta = "cta_22"
+            Case "1-303515"
+                  NumeroCuenta = "cta_23"
+            Case "1-306379"
+                  NumeroCuenta = "cta_24"
+            Case "1-302731"
+                  NumeroCuenta = "cta_25"
+         End Select
+         
+         If rsCorrel.State = 1 Then rsCorrel.Close
+         Set rsCorrel = New ADODB.Recordset
+         rsCorrel.Open "SELECT * FROM fc_correl WHERE tipo_tramite= '" & NumeroCuenta & "' ", db, adOpenKeyset, adLockOptimistic
+         If rsCorrel.RecordCount > 0 Then
+            rsCorrel("numero_correlativo") = rsCorrel("numero_correlativo") - 1 'LstComprobante.ListCount
+            rsCorrel.Update
+         Else
+            rsCorrel("numero_correlativo") = 0
+            rsCorrel.Update
+         End If
+         rsCheque.MoveNext
+     Wend
+    End If
+    'CmdLimpiar_Click
+End Sub
+
+Public Sub NrosCheque_Compte()
+Dim NumeroCheque As String
+
+If rsCheque.State = 1 Then rsCheque.Close
+Set rsCheque = New ADODB.Recordset
+rsCheque.Open "select * FROM ts_cheque", db, adOpenKeyset, adLockOptimistic
+If rsCheque.RecordCount > 0 Then
+        While Not rsCheque.EOF
+            Set rsPagoDet = New ADODB.Recordset
+            rsPagoDet.Open "select * from pago_detalle where codigo_pago='" & rsCheque("numero_comprobante") & "' and estado_aprobacion='N'", db, adOpenKeyset, adLockOptimistic
+'            If rsPagoDet.RecordCount >= 0 Then
+                'rsPagoDet("cta_codigo") = rsCheque("cta_codigo")
+                'Determinar el numero con ceros
+                
+                Select Case Len(rsCheque("numero_cheque"))
+                    Case 1
+                        NumeroCheque = "0000" + rsCheque("numero_cheque")
+                    Case 2
+                        NumeroCheque = "000" + rsCheque("numero_cheque")
+                    Case 3
+                        NumeroCheque = "00" + rsCheque("numero_cheque")
+                    Case 4
+                        NumeroCheque = "0" + rsCheque("numero_cheque")
+                    Case 5
+                        NumeroCheque = rsCheque("numero_cheque")
+                End Select
+                
+                rsPagoDet("numero_cheque_trf") = NumeroCheque
+                rsPagoDet.Update
+'            End If
+            rsCheque.MoveNext
+        Wend
+End If
+End Sub
+
+Private Sub LstJustificacion_DblClick()
+    LstJustificacion.RemoveItem punto
+    LstNroCheque_DblClick
+End Sub
+
+Private Sub LstLiteral_DblClick()
+    LstLiteral.RemoveItem punto
+    LstTransf_Cheq_DblClick
+End Sub
+
+Private Sub LstMonto_DblClick()
+    LstMonto.RemoveItem punto
+    LstCambio_DblClick
+End Sub
+
+
+Private Sub LstNroCheque_DblClick()
+    LstNroCheque.RemoveItem punto
+    LstBanco_DblClick
+End Sub
+
+Private Sub LstOrganismo_DblClick()
+    LstOrganismo.RemoveItem punto
+    LstFecha_DblClick
+End Sub
+
+Private Sub LstTransf_Cheq_DblClick()
+    LstTransf_Cheq.RemoveItem punto
+End Sub
+
+Private Sub OptCheques_Click()
+    Dim SqlQuery As String
+    Set rsComprobante = New ADODB.Recordset
+    If rsComprobante.State = 1 Then rsComprobante.Close
+    'SqlQuery = " SELECT Pagos.codigo_pago,  fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal,pago_detalle.cheque_o_trf "
+    SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf " & _
+               "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where cheque_o_trf= 'C'"
+    rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+    If rsComprobante.RecordCount > 0 Then
+        Set DtGComprobantes.DataSource = rsComprobante
+    End If
+End Sub
+
+Private Sub OptTransferencias_Click()
+    Dim SqlQuery As String
+    Set rsComprobante = New ADODB.Recordset
+    If rsComprobante.State = 1 Then rsComprobante.Close
+    'SqlQuery = " SELECT Pagos.codigo_pago,  fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal,pago_detalle.cheque_o_trf "
+    SqlQuery = " SELECT Pagos.codigo_pago, fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal, pago_detalle.cta_codigo, pago_detalle.cheque_o_trf " & _
+               "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where cheque_o_trf= 'T'"
+    rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+    If rsComprobante.RecordCount > 0 Then
+        Set DtGComprobantes.DataSource = rsComprobante
+    End If
+    
+    
+'    Dim SqlQuery As String
+'    Set rsComprobante = New adodb.Recordset
+'    If rsComprobante.State = 1 Then rsComprobante.Close
+'    SqlQuery = " SELECT Pagos.codigo_pago,  fc_cuenta_bancaria.cta_descripcion_larga, pago_detalle.fecha_pago, pago_detalle.monto_Bolivianos, pago_detalle.tipo_cambio, fc_beneficiario.denominacion_beneficiario, Pagos.justificacion,  pago_detalle.numero_cheque_trf, fc_bancos.Bco_descripcion_larga, pago_detalle.literal " & _
+'               "FROM (((Pagos INNER JOIN pago_detalle ON (Pagos.ges_gestion = pago_detalle.Ges_gestion) AND (Pagos.org_codigo = pago_detalle.org_codigo) AND (Pagos.codigo_pago = pago_detalle.codigo_pago)) INNER JOIN fc_beneficiario ON pago_detalle.codigo_beneficiario = fc_beneficiario.codigo_beneficiario) INNER JOIN fc_organismo_financiamiento ON Pagos.org_codigo = fc_organismo_financiamiento.Org_codigo) INNER JOIN (fc_bancos INNER JOIN fc_cuenta_bancaria ON (fc_bancos.Bco_codigo = fc_cuenta_bancaria.Bco_codigo) AND (fc_bancos.Ges_gestion = fc_cuenta_bancaria.Ges_gestion)) ON pago_detalle.cta_codigo = fc_cuenta_bancaria.Cta_codigo where cheque_o_trf= 'T' "
+'    rsComprobante.Open SqlQuery, db, adOpenKeyset, adLockOptimistic
+'    If rsComprobante.RecordCount > 0 Then
+'        Set DtGComprobantes.DataSource = rsComprobante
+'    End If
+
+End Sub
+
+Private Sub Retornar_Click()
+   db.Execute "DELETE FROM to_Comprobantes where Nro_Cmpte='" & DtGCompr.Columns(0) & "' and organismo= '" & DtGCompr.Columns(1) & "' "
+   Refrescar
+End Sub
+
+Private Sub Seleccionar_Click()
+'Insertar nuevos Comprobantes
+
+    Set rsCom = New ADODB.Recordset
+    If rsCom.State = 1 Then rsCom.Close
+    rsCom.Open "select * from to_comprobantes where Nro_Cmpte=" & rsComprobante("Codigo_Pago") & " and Organismo='" & rsComprobante("org_codigo") & "' ", db, adOpenKeyset, adLockOptimistic
+    If rsCom.RecordCount = 0 Then
+       rsCom.AddNew
+       rsCom("Nro_Cmpte") = rsComprobante("Codigo_Pago")
+       rsCom("Organismo") = rsComprobante("Org_Codigo")
+       rsCom("Fecha_Pago") = Format(rsComprobante("Fecha_Pago"), "dd/mm/yyyy")
+       rsCom("Monto") = rsComprobante("Monto_Bolivianos")
+       rsCom("Cambio") = rsComprobante("Tipo_Cambio")
+       rsCom("Beneficiario") = rsComprobante("denominacion_Beneficiario")
+       rsCom("Justificacion") = rsComprobante("Justificacion")
+       rsCom("Nro_Cheque") = rsComprobante("Numero_cheque_trf")
+       If rsComprobante("cheque_o_trf") = "C" Then
+        rsCom("Transf_Cheq") = "CHEQUE"
+       End If
+       If rsComprobante("cheque_o_trf") = "T" Then
+        rsCom("Transf_Cheq") = "TRANSFERENCIA"
+       End If
+       rsCom("Banco") = rsComprobante("Bco_Descripcion_Larga")
+       rsCom("Literal") = Literal(rsComprobante("Monto_Bolivianos")) & " " & "BOLIVIANOS"
+       rsCom.Update
+
+'       db.Execute "insert into to_comprobantes (Nro_Cmpte, Organismo, Fecha_Pago, Monto, Cambio, Beneficiario, Justificacion, Nro_cheque, Banco, Transf_Cheq, Literal)" & _
+'                  "values ('" & DtGComprobantes.Columns(0) & "','" & DtGComprobantes.Columns(1) & "','" & DtGComprobantes.Columns(2) & "', " & DtGComprobantes.Columns(3) & ",'" & DtGComprobantes.Columns(4) & "'," & DtGComprobantes.Columns(5) & ",'" & DtGComprobantes.Columns(6) & "','','" & DtGComprobantes.Columns(7) & "','" & DtGComprobantes.Columns(8) & "', '" & DtGComprobantes.Columns(9) & "' + 'BOLIVIANOS' ) "
+    End If
+    Refrescar
+    Retornar.Enabled = True
+       
+'        LstComprobante.AddItem DtGComprobantes.Columns(0)
+'        LstOrganismo.AddItem DtGComprobantes.Columns(1)
+'        LstFecha.AddItem DtGComprobantes.Columns(2)
+'        LstMonto.AddItem DtGComprobantes.Columns(3)
+'        LstCambio.AddItem DtGComprobantes.Columns(4)
+'        LstBeneficiario.AddItem DtGComprobantes.Columns(5)
+'        LstJustificacion.AddItem DtGComprobantes.Columns(6)
+'        LstNroCheque.AddItem DtGComprobantes.Columns(7)
+'        LstBanco.AddItem DtGComprobantes.Columns(8)
+'        LstLiteral.AddItem DtGComprobantes.Columns(9)
+'        If Not IsNull(DtGComprobantes.Columns(11)) Then
+'            LstTransf_Cheq.AddItem DtGComprobantes.Columns(11)
+'        End If
+
+End Sub
+
+Public Sub Refrescar()
+    Set rsCom = New ADODB.Recordset
+    rsCom.Open "select * from to_comprobantes ", db, adOpenKeyset, adLockOptimistic
+    If rsCom.RecordCount > 0 Then
+        Set DtGCompr.DataSource = rsCom
+    Else
+        Set DtGCompr.DataSource = rsNada
+        Retornar.Enabled = False
+    End If
+    
+End Sub

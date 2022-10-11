@@ -1,0 +1,9 @@
+Línea 314: la clase MSDataListLib.DataCombo del control dtcfue no era una clase de control cargada.
+Línea 330: la clase MSDataListLib.DataCombo del control DtcPais no era una clase de control cargada.
+Línea 446: la clase MSDataListLib.DataCombo del control dtcfu no era una clase de control cargada.
+Línea 462: la clase MSDataListLib.DataCombo del control Combo1 no era una clase de control cargada.
+Línea 615: la clase MSAdodcLib.Adodc del control adoLista no era una clase de control cargada.
+Línea 661: la clase MSDataGridLib.DataGrid del control grdlista no era una clase de control cargada.
+Línea 920: la clase MSAdodcLib.Adodc del control Adofuente no era una clase de control cargada.
+Línea 967: la clase MSAdodcLib.Adodc del control AdoPais no era una clase de control cargada.
+Línea 1014: la clase Crystal.CrystalReport del control CrystalReport1 no era una clase de control cargada.

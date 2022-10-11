@@ -1,0 +1,7 @@
+Línea 14: la propiedad Icon de ac_CapturaDatosPersonales tenía una referencia a archivo no válida.
+Línea 18: la propiedad Picture de ac_CapturaDatosPersonales tenía una referencia a archivo no válida.
+Línea 27: la propiedad Picture de FraGrabarCancelar tenía una referencia a archivo no válida.
+Línea 39: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 51: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 244: la propiedad Bindings de Dtc_Par tenía una referencia a archivo no válida.
+Línea 263: la propiedad Bindings de Dtc_ParDes tenía una referencia a archivo no válida.

@@ -1,0 +1,12 @@
+Línea 389: la clase MSDataGridLib.DataGrid del control DtGComprobantes no era una clase de control cargada.
+Línea 395: el nombre de la propiedad _ExtentX de DtGComprobantes no es válido.
+Línea 396: el nombre de la propiedad _ExtentY de DtGComprobantes no es válido.
+Línea 397: el nombre de la propiedad _Version de DtGComprobantes no es válido.
+Línea 398: el nombre de la propiedad HeadLines de DtGComprobantes no es válido.
+Línea 399: el nombre de la propiedad RowHeight de DtGComprobantes no es válido.
+Línea 408: el nombre de la propiedad HeadFont de DtGComprobantes no es válido.
+Línea 418: el nombre de la propiedad ColumnCount de DtGComprobantes no es válido.
+Línea 431: el nombre de la propiedad Column00 de DtGComprobantes no es válido.
+Línea 444: el nombre de la propiedad Column01 de DtGComprobantes no es válido.
+Línea 445: el nombre de la propiedad SplitCount de DtGComprobantes no es válido.
+Línea 451: el nombre de la propiedad Split0 de DtGComprobantes no es válido.

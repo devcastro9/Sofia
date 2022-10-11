@@ -1,0 +1,4 @@
+Línea 161: la clase TabDlg.SSTab del control SSTab1 no era una clase de control cargada.
+Línea 3260: la clase MSDataGridLib.DataGrid del control dg_datos no era una clase de control cargada.
+Línea 3688: la clase MSDataGridLib.DataGrid del control DtGLista no era una clase de control cargada.
+Línea 3919: la clase MSDataGridLib.DataGrid del control DtgCobro no era una clase de control cargada.

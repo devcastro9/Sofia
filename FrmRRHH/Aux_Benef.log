@@ -1,0 +1,114 @@
+Línea 168: la clase MSDataListLib.DataCombo del control Dtc_descrip no era una clase de control cargada.
+Línea 194: la clase MSDataListLib.DataCombo del control DtcPryDes no era una clase de control cargada.
+Línea 220: la clase MSComCtl2.DTPicker del control DTPFFirma no era una clase de control cargada.
+Línea 234: la clase MSDataListLib.DataCombo del control DtcPuestoDes no era una clase de control cargada.
+Línea 260: la clase MSDataListLib.DataCombo del control DtcPuesto no era una clase de control cargada.
+Línea 288: la clase MSComCtl2.DTPicker del control DTPFInicio no era una clase de control cargada.
+Línea 302: la clase MSComCtl2.DTPicker del control DTPFFin no era una clase de control cargada.
+Línea 316: la clase MSDataListLib.DataCombo del control Dtc_codigo no era una clase de control cargada.
+Línea 344: la clase MSDataListLib.DataCombo del control DtcOrgDes no era una clase de control cargada.
+Línea 370: la clase MSDataListLib.DataCombo del control DtcOrg no era una clase de control cargada.
+Línea 398: la clase MSDataListLib.DataCombo del control DtcPry no era una clase de control cargada.
+Línea 426: la clase MSDataListLib.DataCombo del control DtcCargoDes no era una clase de control cargada.
+Línea 452: la clase MSDataListLib.DataCombo del control DtcCargo no era una clase de control cargada.
+Línea 480: la clase MSDataListLib.DataCombo del control DtcFteDes no era una clase de control cargada.
+Línea 506: la clase MSDataListLib.DataCombo del control DTcFte no era una clase de control cargada.
+Línea 169: el nombre de la propiedad Bindings de Dtc_descrip no es válido.
+Línea 177: el nombre de la propiedad _ExtentX de Dtc_descrip no es válido.
+Línea 178: el nombre de la propiedad _ExtentY de Dtc_descrip no es válido.
+Línea 179: el nombre de la propiedad _Version de Dtc_descrip no es válido.
+Línea 181: el nombre de la propiedad ListField de Dtc_descrip no es válido.
+Línea 182: el nombre de la propiedad BoundColumn de Dtc_descrip no es válido.
+Línea 183: el nombre de la propiedad Text de Dtc_descrip no es válido.
+Línea 195: el nombre de la propiedad Bindings de DtcPryDes no es válido.
+Línea 203: el nombre de la propiedad _ExtentX de DtcPryDes no es válido.
+Línea 204: el nombre de la propiedad _ExtentY de DtcPryDes no es válido.
+Línea 205: el nombre de la propiedad _Version de DtcPryDes no es válido.
+Línea 207: el nombre de la propiedad ListField de DtcPryDes no es válido.
+Línea 208: el nombre de la propiedad BoundColumn de DtcPryDes no es válido.
+Línea 209: el nombre de la propiedad Text de DtcPryDes no es válido.
+Línea 228: el nombre de la propiedad _ExtentX de DTPFFirma no es válido.
+Línea 229: el nombre de la propiedad _ExtentY de DTPFFirma no es válido.
+Línea 230: el nombre de la propiedad _Version de DTPFFirma no es válido.
+Línea 231: el nombre de la propiedad Format de DTPFFirma no es válido.
+Línea 232: el nombre de la propiedad CurrentDate de DTPFFirma no es válido.
+Línea 235: el nombre de la propiedad Bindings de DtcPuestoDes no es válido.
+Línea 243: el nombre de la propiedad _ExtentX de DtcPuestoDes no es válido.
+Línea 244: el nombre de la propiedad _ExtentY de DtcPuestoDes no es válido.
+Línea 245: el nombre de la propiedad _Version de DtcPuestoDes no es válido.
+Línea 247: el nombre de la propiedad ListField de DtcPuestoDes no es válido.
+Línea 248: el nombre de la propiedad BoundColumn de DtcPuestoDes no es válido.
+Línea 249: el nombre de la propiedad Text de DtcPuestoDes no es válido.
+Línea 261: el nombre de la propiedad Bindings de DtcPuesto no es válido.
+Línea 270: el nombre de la propiedad _ExtentX de DtcPuesto no es válido.
+Línea 271: el nombre de la propiedad _ExtentY de DtcPuesto no es válido.
+Línea 272: el nombre de la propiedad _Version de DtcPuesto no es válido.
+Línea 275: el nombre de la propiedad ListField de DtcPuesto no es válido.
+Línea 276: el nombre de la propiedad BoundColumn de DtcPuesto no es válido.
+Línea 277: el nombre de la propiedad Text de DtcPuesto no es válido.
+Línea 296: el nombre de la propiedad _ExtentX de DTPFInicio no es válido.
+Línea 297: el nombre de la propiedad _ExtentY de DTPFInicio no es válido.
+Línea 298: el nombre de la propiedad _Version de DTPFInicio no es válido.
+Línea 299: el nombre de la propiedad Format de DTPFInicio no es válido.
+Línea 300: el nombre de la propiedad CurrentDate de DTPFInicio no es válido.
+Línea 310: el nombre de la propiedad _ExtentX de DTPFFin no es válido.
+Línea 311: el nombre de la propiedad _ExtentY de DTPFFin no es válido.
+Línea 312: el nombre de la propiedad _Version de DTPFFin no es válido.
+Línea 313: el nombre de la propiedad Format de DTPFFin no es válido.
+Línea 314: el nombre de la propiedad CurrentDate de DTPFFin no es válido.
+Línea 317: el nombre de la propiedad Bindings de Dtc_codigo no es válido.
+Línea 326: el nombre de la propiedad _ExtentX de Dtc_codigo no es válido.
+Línea 327: el nombre de la propiedad _ExtentY de Dtc_codigo no es válido.
+Línea 328: el nombre de la propiedad _Version de Dtc_codigo no es válido.
+Línea 331: el nombre de la propiedad ListField de Dtc_codigo no es válido.
+Línea 332: el nombre de la propiedad BoundColumn de Dtc_codigo no es válido.
+Línea 333: el nombre de la propiedad Text de Dtc_codigo no es válido.
+Línea 345: el nombre de la propiedad Bindings de DtcOrgDes no es válido.
+Línea 353: el nombre de la propiedad _ExtentX de DtcOrgDes no es válido.
+Línea 354: el nombre de la propiedad _ExtentY de DtcOrgDes no es válido.
+Línea 355: el nombre de la propiedad _Version de DtcOrgDes no es válido.
+Línea 357: el nombre de la propiedad ListField de DtcOrgDes no es válido.
+Línea 358: el nombre de la propiedad BoundColumn de DtcOrgDes no es válido.
+Línea 359: el nombre de la propiedad Text de DtcOrgDes no es válido.
+Línea 371: el nombre de la propiedad Bindings de DtcOrg no es válido.
+Línea 380: el nombre de la propiedad _ExtentX de DtcOrg no es válido.
+Línea 381: el nombre de la propiedad _ExtentY de DtcOrg no es válido.
+Línea 382: el nombre de la propiedad _Version de DtcOrg no es válido.
+Línea 385: el nombre de la propiedad ListField de DtcOrg no es válido.
+Línea 386: el nombre de la propiedad BoundColumn de DtcOrg no es válido.
+Línea 387: el nombre de la propiedad Text de DtcOrg no es válido.
+Línea 399: el nombre de la propiedad Bindings de DtcPry no es válido.
+Línea 408: el nombre de la propiedad _ExtentX de DtcPry no es válido.
+Línea 409: el nombre de la propiedad _ExtentY de DtcPry no es válido.
+Línea 410: el nombre de la propiedad _Version de DtcPry no es válido.
+Línea 413: el nombre de la propiedad ListField de DtcPry no es válido.
+Línea 414: el nombre de la propiedad BoundColumn de DtcPry no es válido.
+Línea 415: el nombre de la propiedad Text de DtcPry no es válido.
+Línea 427: el nombre de la propiedad Bindings de DtcCargoDes no es válido.
+Línea 435: el nombre de la propiedad _ExtentX de DtcCargoDes no es válido.
+Línea 436: el nombre de la propiedad _ExtentY de DtcCargoDes no es válido.
+Línea 437: el nombre de la propiedad _Version de DtcCargoDes no es válido.
+Línea 439: el nombre de la propiedad ListField de DtcCargoDes no es válido.
+Línea 440: el nombre de la propiedad BoundColumn de DtcCargoDes no es válido.
+Línea 441: el nombre de la propiedad Text de DtcCargoDes no es válido.
+Línea 453: el nombre de la propiedad Bindings de DtcCargo no es válido.
+Línea 462: el nombre de la propiedad _ExtentX de DtcCargo no es válido.
+Línea 463: el nombre de la propiedad _ExtentY de DtcCargo no es válido.
+Línea 464: el nombre de la propiedad _Version de DtcCargo no es válido.
+Línea 467: el nombre de la propiedad ListField de DtcCargo no es válido.
+Línea 468: el nombre de la propiedad BoundColumn de DtcCargo no es válido.
+Línea 469: el nombre de la propiedad Text de DtcCargo no es válido.
+Línea 481: el nombre de la propiedad Bindings de DtcFteDes no es válido.
+Línea 489: el nombre de la propiedad _ExtentX de DtcFteDes no es válido.
+Línea 490: el nombre de la propiedad _ExtentY de DtcFteDes no es válido.
+Línea 491: el nombre de la propiedad _Version de DtcFteDes no es válido.
+Línea 493: el nombre de la propiedad ListField de DtcFteDes no es válido.
+Línea 494: el nombre de la propiedad BoundColumn de DtcFteDes no es válido.
+Línea 495: el nombre de la propiedad Text de DtcFteDes no es válido.
+Línea 507: el nombre de la propiedad Bindings de DTcFte no es válido.
+Línea 516: el nombre de la propiedad _ExtentX de DTcFte no es válido.
+Línea 517: el nombre de la propiedad _ExtentY de DTcFte no es válido.
+Línea 518: el nombre de la propiedad _Version de DTcFte no es válido.
+Línea 521: el nombre de la propiedad ListField de DTcFte no es válido.
+Línea 522: el nombre de la propiedad BoundColumn de DTcFte no es válido.
+Línea 523: el nombre de la propiedad Text de DTcFte no es válido.

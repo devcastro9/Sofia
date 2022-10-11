@@ -1,0 +1,17 @@
+Línea 14: la propiedad Icon de frm_fc_Dosificacion_docs tenía una referencia a archivo no válida.
+Línea 25: la propiedad Picture de fraOpciones tenía una referencia a archivo no válida.
+Línea 36: la propiedad Picture de cmdaceptar tenía una referencia a archivo no válida.
+Línea 48: la propiedad Picture de cmdCancelar tenía una referencia a archivo no válida.
+Línea 60: la propiedad Picture de cmdRefresh tenía una referencia a archivo no válida.
+Línea 72: la propiedad Picture de cmdAdicionar tenía una referencia a archivo no válida.
+Línea 84: la propiedad Picture de cmdEditar tenía una referencia a archivo no válida.
+Línea 96: la propiedad Picture de cmdBorrar tenía una referencia a archivo no válida.
+Línea 108: la propiedad Picture de cmdSalir tenía una referencia a archivo no válida.
+Línea 119: la propiedad Picture de CmdIMPRIMIR tenía una referencia a archivo no válida.
+Línea 131: la propiedad Picture de cmd_busqueda tenía una referencia a archivo no válida.
+Línea 143: la propiedad Picture de BtnDesAprobar tenía una referencia a archivo no válida.
+Línea 184: la propiedad Bindings de dtc_desc1 tenía una referencia a archivo no válida.
+Línea 201: la propiedad Bindings de dtcfue tenía una referencia a archivo no válida.
+Línea 281: la propiedad Bindings de dtcfu tenía una referencia a archivo no válida.
+Línea 366: la propiedad Bindings de dtc_codigo1 tenía una referencia a archivo no válida.
+Línea 675: la propiedad Bindings de grdlista tenía una referencia a archivo no válida.

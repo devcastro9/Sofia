@@ -1,0 +1,16 @@
+Línea 12: la propiedad Icon de aw_p_ac_bienes_equipo_tipos tenía una referencia a archivo no válida.
+Línea 23: la propiedad Picture de fraOpciones tenía una referencia a archivo no válida.
+Línea 34: la propiedad Picture de BtnAprobar tenía una referencia a archivo no válida.
+Línea 46: la propiedad Picture de BtnDesAprobar tenía una referencia a archivo no válida.
+Línea 58: la propiedad Picture de BtnBuscar tenía una referencia a archivo no válida.
+Línea 70: la propiedad Picture de BtnImprimir tenía una referencia a archivo no válida.
+Línea 82: la propiedad Picture de BtnSalir tenía una referencia a archivo no válida.
+Línea 93: la propiedad Picture de BtnEliminar tenía una referencia a archivo no válida.
+Línea 105: la propiedad Picture de BtnModificar tenía una referencia a archivo no válida.
+Línea 117: la propiedad Picture de BtnAñadir tenía una referencia a archivo no válida.
+Línea 156: la propiedad Bindings de dg_datos tenía una referencia a archivo no válida.
+Línea 331: la propiedad ItemData de txt_tipo_eqp tenía una referencia a archivo no válida.
+Línea 333: la propiedad List de txt_tipo_eqp tenía una referencia a archivo no válida.
+Línea 580: la propiedad Picture de FraGrabarCancelar tenía una referencia a archivo no válida.
+Línea 592: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 604: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.

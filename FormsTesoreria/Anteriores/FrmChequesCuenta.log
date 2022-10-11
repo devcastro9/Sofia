@@ -1,0 +1,12 @@
+Línea 358: la clase MSDataGridLib.DataGrid del control DtGCheques no era una clase de control cargada.
+Línea 364: el nombre de la propiedad _ExtentX de DtGCheques no es válido.
+Línea 365: el nombre de la propiedad _ExtentY de DtGCheques no es válido.
+Línea 366: el nombre de la propiedad _Version de DtGCheques no es válido.
+Línea 367: el nombre de la propiedad HeadLines de DtGCheques no es válido.
+Línea 368: el nombre de la propiedad RowHeight de DtGCheques no es válido.
+Línea 377: el nombre de la propiedad HeadFont de DtGCheques no es válido.
+Línea 387: el nombre de la propiedad ColumnCount de DtGCheques no es válido.
+Línea 400: el nombre de la propiedad Column00 de DtGCheques no es válido.
+Línea 413: el nombre de la propiedad Column01 de DtGCheques no es válido.
+Línea 414: el nombre de la propiedad SplitCount de DtGCheques no es válido.
+Línea 420: el nombre de la propiedad Split0 de DtGCheques no es válido.

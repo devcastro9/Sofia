@@ -1,0 +1,5 @@
+Línea 18: la propiedad Picture de cmdAceptar tenía una referencia a archivo no válida.
+Línea 28: la propiedad Picture de Command3 tenía una referencia a archivo no válida.
+Línea 35: la propiedad Bindings de dGrEstProg tenía una referencia a archivo no válida.
+Línea 179: la propiedad Connect de adoEstrProg tenía un valor no válido.
+Línea 180: la propiedad OLEDBString de adoEstrProg tenía un valor no válido.

@@ -1,0 +1,872 @@
+VERSION 5.00
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Begin VB.Form OrganismoFinanciador 
+   Caption         =   "Organismo Financiador"
+   ClientHeight    =   6960
+   ClientLeft      =   1065
+   ClientTop       =   2415
+   ClientWidth     =   11895
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MDIChild        =   -1  'True
+   ScaleHeight     =   6960
+   ScaleWidth      =   11895
+   Begin VB.PictureBox Picture3 
+      AutoSize        =   -1  'True
+      BorderStyle     =   0  'None
+      Height          =   5715
+      Left            =   4455
+      ScaleHeight     =   5715
+      ScaleWidth      =   7395
+      TabIndex        =   13
+      Top             =   1200
+      Width           =   7395
+      Begin VB.TextBox txtFields 
+         DataField       =   "Ges_gestion"
+         Height          =   285
+         Index           =   0
+         Left            =   2580
+         TabIndex        =   24
+         Top             =   330
+         Width           =   1005
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_activo"
+         Height          =   285
+         Index           =   1
+         Left            =   6225
+         TabIndex        =   23
+         Top             =   3765
+         Width           =   525
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_cargo"
+         Height          =   285
+         Index           =   2
+         Left            =   2580
+         TabIndex        =   22
+         Top             =   2730
+         Width           =   4170
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_codigo"
+         Height          =   285
+         Index           =   3
+         Left            =   2580
+         TabIndex        =   21
+         Top             =   840
+         Width           =   720
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_descripcion_corta"
+         Height          =   285
+         Index           =   4
+         Left            =   2595
+         TabIndex        =   20
+         Top             =   2295
+         Width           =   1950
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_descripcion_larga"
+         Height          =   555
+         Index           =   5
+         Left            =   720
+         MultiLine       =   -1  'True
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   19
+         Top             =   1575
+         Width           =   6090
+      End
+      Begin VB.TextBox txtFields 
+         BackColor       =   &H8000000B&
+         DataField       =   "Org_fecha_mod"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Index           =   6
+         Left            =   675
+         TabIndex        =   18
+         Top             =   4770
+         Width           =   1665
+      End
+      Begin VB.TextBox txtFields 
+         BackColor       =   &H8000000B&
+         DataField       =   "Org_hora_mod"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Index           =   7
+         Left            =   2835
+         TabIndex        =   17
+         Top             =   4785
+         Width           =   1545
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_patron"
+         Height          =   285
+         Index           =   8
+         Left            =   2625
+         TabIndex        =   16
+         Top             =   3780
+         Width           =   465
+      End
+      Begin VB.TextBox txtFields 
+         DataField       =   "Org_representante"
+         Height          =   285
+         Index           =   9
+         Left            =   2610
+         TabIndex        =   15
+         Top             =   3315
+         Width           =   4155
+      End
+      Begin VB.TextBox txtFields 
+         BackColor       =   &H8000000B&
+         DataField       =   "Org_usuario_mod"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Index           =   10
+         Left            =   4800
+         TabIndex        =   14
+         Top             =   4785
+         Width           =   1845
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "GESTION:"
+         Height          =   255
+         Index           =   0
+         Left            =   660
+         TabIndex        =   35
+         Top             =   330
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "CODIGO ORGANISMO:"
+         Height          =   255
+         Index           =   1
+         Left            =   675
+         TabIndex        =   34
+         Top             =   840
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "CARGO RESPONSABLE:"
+         Height          =   255
+         Index           =   2
+         Left            =   675
+         TabIndex        =   33
+         Top             =   2730
+         Width           =   1965
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "ACTIVO ó INACTIVO:"
+         Height          =   255
+         Index           =   3
+         Left            =   4320
+         TabIndex        =   32
+         Top             =   3780
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "SIGLA ORGANISMO:"
+         Height          =   255
+         Index           =   4
+         Left            =   675
+         TabIndex        =   31
+         Top             =   2295
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "DENOMINACION"
+         Height          =   255
+         Index           =   5
+         Left            =   705
+         TabIndex        =   30
+         Top             =   1335
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "FECHA DE REGISTRO"
+         Height          =   255
+         Index           =   6
+         Left            =   675
+         TabIndex        =   29
+         Top             =   4545
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "HORA DE REGISTRO"
+         Height          =   255
+         Index           =   7
+         Left            =   2790
+         TabIndex        =   28
+         Top             =   4545
+         Width           =   1695
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "TIPO ORGANISMO:"
+         Height          =   255
+         Index           =   8
+         Left            =   705
+         TabIndex        =   27
+         Top             =   3780
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "REPRESENTANTE:"
+         Height          =   255
+         Index           =   9
+         Left            =   705
+         TabIndex        =   26
+         Top             =   3315
+         Width           =   1815
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "USUARIO"
+         Height          =   255
+         Index           =   10
+         Left            =   5310
+         TabIndex        =   25
+         Top             =   4530
+         Width           =   900
+      End
+   End
+   Begin VB.PictureBox Picture2 
+      Align           =   3  'Align Left
+      Height          =   5865
+      Left            =   1440
+      ScaleHeight     =   5805
+      ScaleWidth      =   2910
+      TabIndex        =   11
+      Top             =   1095
+      Width           =   2970
+      Begin VB.CommandButton cmdFirst 
+         Height          =   300
+         Left            =   15
+         Picture         =   "OrganismoFinanciador.frx":0000
+         Style           =   1  'Graphical
+         TabIndex        =   47
+         Top             =   5415
+         UseMaskColor    =   -1  'True
+         Width           =   345
+      End
+      Begin VB.CommandButton cmdPrevious 
+         Height          =   300
+         Left            =   360
+         Picture         =   "OrganismoFinanciador.frx":0192
+         Style           =   1  'Graphical
+         TabIndex        =   46
+         Top             =   5415
+         UseMaskColor    =   -1  'True
+         Width           =   345
+      End
+      Begin VB.CommandButton cmdNext 
+         Height          =   300
+         Left            =   2220
+         Picture         =   "OrganismoFinanciador.frx":0324
+         Style           =   1  'Graphical
+         TabIndex        =   45
+         Top             =   5430
+         UseMaskColor    =   -1  'True
+         Width           =   345
+      End
+      Begin VB.CommandButton cmdLast 
+         Height          =   300
+         Left            =   2565
+         Picture         =   "OrganismoFinanciador.frx":04B6
+         Style           =   1  'Graphical
+         TabIndex        =   44
+         Top             =   5430
+         UseMaskColor    =   -1  'True
+         Width           =   345
+      End
+      Begin MSDataGridLib.DataGrid grdDataGrid 
+         Height          =   5280
+         Left            =   45
+         TabIndex        =   12
+         Top             =   45
+         Width           =   2790
+         _ExtentX        =   4921
+         _ExtentY        =   9313
+         _Version        =   393216
+         AllowUpdate     =   0   'False
+         HeadLines       =   1
+         RowHeight       =   15
+         FormatLocked    =   -1  'True
+         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ColumnCount     =   2
+         BeginProperty Column00 
+            DataField       =   "ges_gestion"
+            Caption         =   "GESTION"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column01 
+            DataField       =   "org_codigo"
+            Caption         =   "ORGANISMO"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         SplitCount      =   1
+         BeginProperty Split0 
+            BeginProperty Column00 
+               Alignment       =   2
+               ColumnWidth     =   1140.095
+            EndProperty
+            BeginProperty Column01 
+               Alignment       =   2
+            EndProperty
+         EndProperty
+      End
+      Begin VB.Label lblStatus 
+         BackColor       =   &H00FFFFFF&
+         BorderStyle     =   1  'Fixed Single
+         Height          =   285
+         Left            =   705
+         TabIndex        =   48
+         Top             =   5430
+         Width           =   1515
+      End
+   End
+   Begin VB.PictureBox Picture1 
+      Align           =   1  'Align Top
+      Height          =   1095
+      Left            =   0
+      ScaleHeight     =   1035
+      ScaleWidth      =   11835
+      TabIndex        =   9
+      Top             =   0
+      Width           =   11895
+      Begin VB.Label Label11 
+         Caption         =   "Label3"
+         Height          =   225
+         Left            =   9990
+         TabIndex        =   43
+         Top             =   810
+         Width           =   1305
+      End
+      Begin VB.Label Label10 
+         Caption         =   "HORA:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   285
+         Left            =   9060
+         TabIndex        =   42
+         Top             =   765
+         Width           =   900
+      End
+      Begin VB.Label Label9 
+         Height          =   225
+         Left            =   10020
+         TabIndex        =   41
+         Top             =   540
+         Width           =   1335
+      End
+      Begin VB.Label Label8 
+         Caption         =   "FECHA:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   285
+         Left            =   9075
+         TabIndex        =   40
+         Top             =   495
+         Width           =   900
+      End
+      Begin VB.Label Label7 
+         Caption         =   "Label3"
+         Height          =   225
+         Left            =   1305
+         TabIndex        =   39
+         Top             =   765
+         Width           =   1305
+      End
+      Begin VB.Label Label6 
+         Caption         =   "USUARIO:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   285
+         Left            =   120
+         TabIndex        =   38
+         Top             =   750
+         Width           =   1275
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Unidad Administrativa Financiera"
+         Height          =   225
+         Left            =   1290
+         TabIndex        =   37
+         Top             =   510
+         Width           =   2460
+      End
+      Begin VB.Label Label2 
+         Caption         =   "UNIDAD:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   285
+         Left            =   120
+         TabIndex        =   36
+         Top             =   510
+         Width           =   1110
+      End
+      Begin VB.Label Label1 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         Caption         =   "ORGANISMOS FINANCIADORES"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   360
+         Left            =   3435
+         TabIndex        =   10
+         Top             =   -30
+         Width           =   4695
+      End
+   End
+   Begin VB.PictureBox picButtons 
+      Align           =   3  'Align Left
+      Height          =   5865
+      Left            =   0
+      ScaleHeight     =   5805
+      ScaleWidth      =   1380
+      TabIndex        =   1
+      Top             =   1095
+      Width           =   1440
+      Begin VB.CommandButton cmdCancel 
+         Caption         =   "&Cancelar"
+         Height          =   765
+         Left            =   180
+         Picture         =   "OrganismoFinanciador.frx":0648
+         Style           =   1  'Graphical
+         TabIndex        =   8
+         Top             =   4320
+         Visible         =   0   'False
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmdUpdate 
+         Caption         =   "&Grabar"
+         Height          =   795
+         Left            =   195
+         Picture         =   "OrganismoFinanciador.frx":0952
+         Style           =   1  'Graphical
+         TabIndex        =   7
+         Top             =   300
+         Visible         =   0   'False
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmdClose 
+         Caption         =   "&Salir"
+         Height          =   750
+         Left            =   180
+         Picture         =   "OrganismoFinanciador.frx":0D94
+         Style           =   1  'Graphical
+         TabIndex        =   6
+         Top             =   4305
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmdRefresh 
+         Caption         =   "&Refrescar"
+         Height          =   765
+         Left            =   180
+         Picture         =   "OrganismoFinanciador.frx":11D6
+         Style           =   1  'Graphical
+         TabIndex        =   5
+         Top             =   3300
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmdDelete 
+         Caption         =   "&Eliminar"
+         Height          =   720
+         Left            =   180
+         Picture         =   "OrganismoFinanciador.frx":1618
+         Style           =   1  'Graphical
+         TabIndex        =   4
+         Top             =   2310
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmdEdit 
+         Caption         =   "&Modificar"
+         Height          =   735
+         Left            =   180
+         Picture         =   "OrganismoFinanciador.frx":1C82
+         Style           =   1  'Graphical
+         TabIndex        =   3
+         Top             =   1335
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmdAdd 
+         Caption         =   "Adicionar"
+         Height          =   795
+         Left            =   195
+         Picture         =   "OrganismoFinanciador.frx":20C4
+         Style           =   1  'Graphical
+         TabIndex        =   2
+         Top             =   315
+         Width           =   1095
+      End
+   End
+   Begin VB.PictureBox picStatBox 
+      Appearance      =   0  'Flat
+      BorderStyle     =   0  'None
+      ForeColor       =   &H80000008&
+      Height          =   300
+      Left            =   2505
+      ScaleHeight     =   300
+      ScaleWidth      =   5280
+      TabIndex        =   0
+      Top             =   7290
+      Width           =   5280
+   End
+End
+Attribute VB_Name = "OrganismoFinanciador"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim WithEvents adoPrimaryRS As Recordset
+Attribute adoPrimaryRS.VB_VarHelpID = -1
+Dim mbChangedByCode As Boolean
+Dim mvBookMark As Variant
+Dim mbEditFlag As Boolean
+Dim mbAddNewFlag As Boolean
+Dim mbDataChanged As Boolean
+
+Private Sub Form_Load()
+   Label9.Caption = Now
+   Label11.Caption = Time
+   Label7.Caption = frmLogin.txtUserName.Text
+
+  Set adoPrimaryRS = New Recordset
+  adoPrimaryRS.Open "SHAPE {select Ges_gestion,Org_activo,Org_cargo,Org_codigo,Org_descripcion_corta,Org_descripcion_larga,Org_fecha_mod,Org_hora_mod,Org_patron,Org_representante,Org_usuario_mod from fc_organismo_financiamiento Order by Org_codigo} AS ParentCMD APPEND ({select Ges_gestion,Org_activo,Org_cargo,Org_codigo,Org_descripcion_corta,Org_descripcion_larga,Org_fecha_mod,Org_hora_mod,Org_patron,Org_representante,Org_usuario_mod from fc_organismo_financiamiento Order by Org_codigo } AS ChildCMD RELATE Org_codigo TO Org_codigo) AS ChildCMD", db, adOpenStatic, adLockOptimistic
+
+  Dim oText As TextBox
+  'Enlaza los cuadros de texto con el proveedor de datos
+  For Each oText In Me.txtFields
+    Set oText.DataSource = adoPrimaryRS
+  Next
+
+  Set grdDataGrid.DataSource = adoPrimaryRS
+
+  mbDataChanged = False
+End Sub
+
+Private Sub Form_Resize()
+  On Error Resume Next
+  'Esto cambiará el tamaño de la cuadrícula al cambiar el tamaño del formulario
+'  grdDataGrid.Width = Me.ScaleWidth
+''  grdDataGrid.Height = Me.ScaleHeight - grdDataGrid.Top - 30 - picButtons.Height - picStatBox.Height
+'  lblStatus.Width = Me.Width - 1500
+'  cmdNext.Left = lblStatus.Width + 700
+'  cmdLast.Left = cmdNext.Left + 340
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+  If mbEditFlag Or mbAddNewFlag Then Exit Sub
+
+  Select Case KeyCode
+    Case vbKeyEscape
+      cmdClose_Click
+    Case vbKeyEnd
+      cmdLast_Click
+    Case vbKeyHome
+      cmdFirst_Click
+    Case vbKeyUp, vbKeyPageUp
+      If Shift = vbCtrlMask Then
+        cmdFirst_Click
+      Else
+        cmdPrevious_Click
+      End If
+    Case vbKeyDown, vbKeyPageDown
+      If Shift = vbCtrlMask Then
+        cmdLast_Click
+      Else
+        cmdNext_Click
+      End If
+  End Select
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+  Screen.MousePointer = vbDefault
+End Sub
+
+Private Sub adoPrimaryRS_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
+  'Esto mostrará la posición de registro actual para este Recordset
+  lblStatus.Caption = " Reg.: " & CStr(adoPrimaryRS.AbsolutePosition) & " de " & CStr(adoPrimaryRS.RecordCount)
+End Sub
+
+Private Sub adoPrimaryRS_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, ByVal cRecords As Long, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
+  'Aquí se coloca el código de validación
+  'Se llama a este evento cuando ocurre la siguiente acción
+  Dim bCancel As Boolean
+
+  Select Case adReason
+  Case adRsnAddNew
+  Case adRsnClose
+  Case adRsnDelete
+  Case adRsnFirstChange
+  Case adRsnMove
+  Case adRsnRequery
+  Case adRsnResynch
+  Case adRsnUndoAddNew
+  Case adRsnUndoDelete
+  Case adRsnUndoUpdate
+  Case adRsnUpdate
+  End Select
+
+  If bCancel Then adStatus = adStatusCancel
+End Sub
+
+Private Sub cmdAdd_Click()
+  On Error GoTo AddErr
+  With adoPrimaryRS
+    If Not (.BOF And .EOF) Then
+      mvBookMark = .Bookmark
+    End If
+    .AddNew
+    lblStatus.Caption = "Agregar registro"
+    mbAddNewFlag = True
+    SetButtons False
+  End With
+
+  Exit Sub
+AddErr:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdDelete_Click()
+  On Error GoTo DeleteErr
+  With adoPrimaryRS
+    .Delete
+    .MoveNext
+    If .EOF Then .MoveLast
+  End With
+  Exit Sub
+DeleteErr:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdRefresh_Click()
+  'Esto sólo es necesario en aplicaciones multiusuario
+  On Error GoTo RefreshErr
+  Set grdDataGrid.DataSource = Nothing
+  adoPrimaryRS.Requery
+  'Set grdDataGrid.DataSource = adoPrimaryRS("ChildCMD").UnderlyingValue
+  Set grdDataGrid.DataSource = adoPrimaryRS
+  Exit Sub
+RefreshErr:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdEdit_Click()
+  On Error GoTo EditErr
+
+  lblStatus.Caption = "Modificar registro"
+  mbEditFlag = True
+  SetButtons False
+  Exit Sub
+
+EditErr:
+  MsgBox Err.Description
+End Sub
+Private Sub cmdCancel_Click()
+  On Error Resume Next
+
+  SetButtons True
+  mbEditFlag = False
+  mbAddNewFlag = False
+  adoPrimaryRS.CancelUpdate
+  If mvBookMark > 0 Then
+    adoPrimaryRS.Bookmark = mvBookMark
+  Else
+    adoPrimaryRS.MoveFirst
+  End If
+  mbDataChanged = False
+
+End Sub
+
+Private Sub cmdUpdate_Click()
+  On Error GoTo UpdateErr
+
+  adoPrimaryRS.UpdateBatch adAffectAll
+
+  If mbAddNewFlag Then
+    adoPrimaryRS.MoveLast              'va al nuevo registro
+  End If
+
+  mbEditFlag = False
+  mbAddNewFlag = False
+  SetButtons True
+  mbDataChanged = False
+
+  Exit Sub
+UpdateErr:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdClose_Click()
+  Unload Me
+End Sub
+
+Private Sub cmdFirst_Click()
+  On Error GoTo GoFirstError
+
+  adoPrimaryRS.MoveFirst
+  mbDataChanged = False
+
+  Exit Sub
+
+GoFirstError:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdLast_Click()
+  On Error GoTo GoLastError
+
+  adoPrimaryRS.MoveLast
+  mbDataChanged = False
+
+  Exit Sub
+
+GoLastError:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdNext_Click()
+  On Error GoTo GoNextError
+
+  If Not adoPrimaryRS.EOF Then adoPrimaryRS.MoveNext
+  If adoPrimaryRS.EOF And adoPrimaryRS.RecordCount > 0 Then
+    Beep
+     'ha sobrepasado el final; vuelva atrás
+    adoPrimaryRS.MoveLast
+  End If
+  'muestra el registro actual
+  mbDataChanged = False
+
+  Exit Sub
+GoNextError:
+  MsgBox Err.Description
+End Sub
+
+Private Sub cmdPrevious_Click()
+  On Error GoTo GoPrevError
+
+  If Not adoPrimaryRS.BOF Then adoPrimaryRS.MovePrevious
+  If adoPrimaryRS.BOF And adoPrimaryRS.RecordCount > 0 Then
+    Beep
+    'ha sobrepasado el final; vuelva atrás
+    adoPrimaryRS.MoveFirst
+  End If
+  'muestra el registro actual
+  mbDataChanged = False
+
+  Exit Sub
+
+GoPrevError:
+  MsgBox Err.Description
+End Sub
+
+Private Sub SetButtons(bVal As Boolean)
+  cmdAdd.Visible = bVal
+  cmdEdit.Visible = bVal
+  cmdUpdate.Visible = Not bVal
+  cmdCancel.Visible = Not bVal
+  cmdDelete.Visible = bVal
+  cmdClose.Visible = bVal
+  cmdRefresh.Visible = bVal
+  cmdNext.Enabled = bVal
+  cmdFirst.Enabled = bVal
+  cmdLast.Enabled = bVal
+  cmdPrevious.Enabled = bVal
+End Sub
+

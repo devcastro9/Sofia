@@ -1,0 +1,9 @@
+Línea 22: la propiedad Picture de cmdSalir tenía una referencia a archivo no válida.
+Línea 381: la propiedad Picture de cmdEditarAdj tenía una referencia a archivo no válida.
+Línea 393: la propiedad Picture de cmdGuardaAdj tenía una referencia a archivo no válida.
+Línea 405: la propiedad Picture de cmdCancelaAdj tenía una referencia a archivo no válida.
+Línea 585: la propiedad OleObjectBlob de grdAddendum tenía una referencia a archivo no válida.
+Línea 582: no se puede cargar el control grdAddendum.
+Línea 1251: la propiedad Picture de cmdCancela tenía una referencia a archivo no válida.
+Línea 1262: la propiedad Picture de cmdEditar tenía una referencia a archivo no válida.
+Línea 1274: la propiedad Picture de cmdGuardar tenía una referencia a archivo no válida.

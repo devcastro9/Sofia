@@ -1,0 +1,49 @@
+Línea 16: la clase Crystal.CrystalReport del control CryHistorico no era una clase de control cargada.
+Línea 201: la clase MSDataGridLib.DataGrid del control DtGTributosFiscales no era una clase de control cargada.
+Línea 265: la clase MSDataGridLib.DataGrid del control DtGSeleccionados no era una clase de control cargada.
+Línea 329: la clase MSComCtl2.DTPicker del control DTPFechaInicio no era una clase de control cargada.
+Línea 342: la clase MSComCtl2.DTPicker del control DTPFechaFin no era una clase de control cargada.
+Línea 19: el nombre de la propiedad _ExtentX de CryHistorico no es válido.
+Línea 20: el nombre de la propiedad _ExtentY de CryHistorico no es válido.
+Línea 21: el nombre de la propiedad _Version de CryHistorico no es válido.
+Línea 22: el nombre de la propiedad WindowControlBox de CryHistorico no es válido.
+Línea 23: el nombre de la propiedad WindowMaxButton de CryHistorico no es válido.
+Línea 24: el nombre de la propiedad WindowMinButton de CryHistorico no es válido.
+Línea 25: el nombre de la propiedad PrintFileLinesPerPage de CryHistorico no es válido.
+Línea 26: el nombre de la propiedad WindowShowSearchBtn de CryHistorico no es válido.
+Línea 27: el nombre de la propiedad WindowShowPrintSetupBtn de CryHistorico no es válido.
+Línea 28: el nombre de la propiedad WindowShowRefreshBtn de CryHistorico no es válido.
+Línea 207: el nombre de la propiedad _ExtentX de DtGTributosFiscales no es válido.
+Línea 208: el nombre de la propiedad _ExtentY de DtGTributosFiscales no es válido.
+Línea 209: el nombre de la propiedad _Version de DtGTributosFiscales no es válido.
+Línea 210: el nombre de la propiedad HeadLines de DtGTributosFiscales no es válido.
+Línea 211: el nombre de la propiedad RowHeight de DtGTributosFiscales no es válido.
+Línea 220: el nombre de la propiedad HeadFont de DtGTributosFiscales no es válido.
+Línea 230: el nombre de la propiedad ColumnCount de DtGTributosFiscales no es válido.
+Línea 243: el nombre de la propiedad Column00 de DtGTributosFiscales no es válido.
+Línea 256: el nombre de la propiedad Column01 de DtGTributosFiscales no es válido.
+Línea 257: el nombre de la propiedad SplitCount de DtGTributosFiscales no es válido.
+Línea 263: el nombre de la propiedad Split0 de DtGTributosFiscales no es válido.
+Línea 271: el nombre de la propiedad _ExtentX de DtGSeleccionados no es válido.
+Línea 272: el nombre de la propiedad _ExtentY de DtGSeleccionados no es válido.
+Línea 273: el nombre de la propiedad _Version de DtGSeleccionados no es válido.
+Línea 274: el nombre de la propiedad HeadLines de DtGSeleccionados no es válido.
+Línea 275: el nombre de la propiedad RowHeight de DtGSeleccionados no es válido.
+Línea 284: el nombre de la propiedad HeadFont de DtGSeleccionados no es válido.
+Línea 294: el nombre de la propiedad ColumnCount de DtGSeleccionados no es válido.
+Línea 307: el nombre de la propiedad Column00 de DtGSeleccionados no es válido.
+Línea 320: el nombre de la propiedad Column01 de DtGSeleccionados no es válido.
+Línea 321: el nombre de la propiedad SplitCount de DtGSeleccionados no es válido.
+Línea 327: el nombre de la propiedad Split0 de DtGSeleccionados no es válido.
+Línea 335: el nombre de la propiedad _ExtentX de DTPFechaInicio no es válido.
+Línea 336: el nombre de la propiedad _ExtentY de DTPFechaInicio no es válido.
+Línea 337: el nombre de la propiedad _Version de DTPFechaInicio no es válido.
+Línea 338: el nombre de la propiedad CheckBox de DTPFechaInicio no es válido.
+Línea 339: el nombre de la propiedad Format de DTPFechaInicio no es válido.
+Línea 340: el nombre de la propiedad CurrentDate de DTPFechaInicio no es válido.
+Línea 348: el nombre de la propiedad _ExtentX de DTPFechaFin no es válido.
+Línea 349: el nombre de la propiedad _ExtentY de DTPFechaFin no es válido.
+Línea 350: el nombre de la propiedad _Version de DTPFechaFin no es válido.
+Línea 351: el nombre de la propiedad CheckBox de DTPFechaFin no es válido.
+Línea 352: el nombre de la propiedad Format de DTPFechaFin no es válido.
+Línea 353: el nombre de la propiedad CurrentDate de DTPFechaFin no es válido.

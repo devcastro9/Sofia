@@ -1,0 +1,94 @@
+Attribute VB_Name = "Module1"
+Public fMainForm As frmMain
+Public db As Connection
+Public usuario2 As String
+'Datos del buscador
+Public Vquery As String
+Public ErrCriterio As String
+Public SwOrden As Boolean
+
+'Datos Contabilidad
+Public diarioFlag As Boolean
+Public mayorflag As Boolean
+Public conexion1 As ADODB.Connection
+
+Public V_Porden, V_OrgF As Column
+Public v_Estado As String
+
+Public recsetAdicion As New ADODB.Recordset
+Public ConexionA As New ADODB.Connection
+Public ConexionRel As New ADODB.Connection
+'Public ConexionComp As New ADODB.Connection
+Public GlobErr As ADODB.Error
+
+Public RegDato As Boolean
+
+Public recSetAuxcomp1 As ADODB.Recordset
+Public recSetAuxbenefi1 As ADODB.Recordset
+Public recSetPartid1 As New ADODB.Recordset
+
+Public recSetOrg As ADODB.Recordset
+Public recSetGenera As ADODB.Recordset
+Public recSetAuxRel As ADODB.Recordset
+Public recSetAux As ADODB.Recordset
+Public recSetAuxcomp As ADODB.Recordset
+Public recSetPartida As ADODB.Recordset
+Public recSetComp As ADODB.Recordset
+Public recSetAuxActualizar As ADODB.Recordset
+Public recSetAuxActualizar1 As ADODB.Recordset
+Public recSetBusqueda As ADODB.Recordset
+
+Public Cod_Comp As Integer
+
+Public Libroaux As Integer
+Public ExistReg As Boolean
+Public aux As String
+
+Public NumComp As Integer
+
+
+
+Sub Main()
+   Dim fLogin As New frmLogin
+   fLogin.Show vbModal
+   If Not fLogin.OK Then
+      'Fallo al iniciar la sesión, se sale de la aplicación
+      MsgBox "Error de Login ..."
+      End
+   End If
+
+   Unload fLogin
+
+   Set fMainForm = New frmMain
+   Load fMainForm
+   Set db = New Connection
+   db.CursorLocation = adUseClient
+   db.Open "PROVIDER=MSDataShape;Data PROVIDER=Microsoft.Jet.OLEDB.3.51;Data Source=\\sersis\saf\pragma.mdb;"
+   'FrmRegularizacion.Show
+  
+    SwOrden = True
+    fMainForm.Show
+  
+End Sub
+
+Public Sub pErrorRst(prmErrores As ADODB.Errors)
+   Dim e As ADODB.Error
+   
+   For Each e In prmErrores
+      MsgBox "Error No. " & e.Number & " " & Trim(e.Description)
+   Next
+   
+End Sub
+
+Public Function ValidaCriterio(v1, v2, v3)
+Dim valor As Integer
+    valor = 0
+    If v1 <> "" Then
+        valor = 1
+    End If
+    If v1 <> "" And v2 <> "" And "'" & v3 & "'" <> "" Then
+        valor = 2
+    End If
+    ValidaCriterio = valor
+End Function
+

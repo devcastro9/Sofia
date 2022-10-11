@@ -1,0 +1,3 @@
+Línea 322: la clase MSDataGridLib.DataGrid del control grdPrincipal no era una clase de control cargada.
+Línea 613: la clase MSDataGridLib.DataGrid del control grdLiquida no era una clase de control cargada.
+Línea 1053: la clase MSDataGridLib.DataGrid del control grdBeneficiario no era una clase de control cargada.

@@ -1,0 +1,11 @@
+Línea 102: la clase MSAdodcLib.Adodc del control AdoBeneficiario no era una clase de control cargada.
+Línea 149: la clase MSAdodcLib.Adodc del control AdoPuestoOrg no era una clase de control cargada.
+Línea 196: la clase MSAdodcLib.Adodc del control AdoUnidad no era una clase de control cargada.
+Línea 243: la clase MSAdodcLib.Adodc del control AdoOrg no era una clase de control cargada.
+Línea 290: la clase MSAdodcLib.Adodc del control AdoPry no era una clase de control cargada.
+Línea 471: la clase MSComCtl2.DTPicker del control DTPFFirma no era una clase de control cargada.
+Línea 588: la clase MSComCtl2.DTPicker del control DTPFInicio no era una clase de control cargada.
+Línea 600: la clase MSComCtl2.DTPicker del control DTPFFin no era una clase de control cargada.
+Línea 1087: la clase MSAdodcLib.Adodc del control AdoFuente no era una clase de control cargada.
+Línea 1134: la clase MSAdodcLib.Adodc del control AdoCargo no era una clase de control cargada.
+Línea 1181: la clase MSAdodcLib.Adodc del control AdoRespaldo no era una clase de control cargada.

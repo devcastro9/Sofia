@@ -1,0 +1,13 @@
+Línea 12: la propiedad Icon de tw_bienes_marcas tenía una referencia a archivo no válida.
+Línea 33: la propiedad Picture de BtnDesAprobar tenía una referencia a archivo no válida.
+Línea 47: la propiedad Picture de BtnSalir tenía una referencia a archivo no válida.
+Línea 62: la propiedad Picture de BtnImprimir tenía una referencia a archivo no válida.
+Línea 76: la propiedad Picture de BtnBuscar tenía una referencia a archivo no válida.
+Línea 90: la propiedad Picture de BtnAprobar tenía una referencia a archivo no válida.
+Línea 104: la propiedad Picture de BtnEliminar tenía una referencia a archivo no válida.
+Línea 118: la propiedad Picture de BtnModificar tenía una referencia a archivo no válida.
+Línea 132: la propiedad Picture de BtnAñadir tenía una referencia a archivo no válida.
+Línea 144: la propiedad Picture de BtnVer tenía una referencia a archivo no válida.
+Línea 196: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 210: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 249: la propiedad Bindings de dg_datos tenía una referencia a archivo no válida.

@@ -1,0 +1,79 @@
+USE [ADMIN_EMPRESA]
+GO
+/****** Object:  StoredProcedure [dbo].[ap_salida_almacen_mant]    Script Date: 02/14/2017 08:34:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Autor: Elizabeth Huanca Alejo
+-- Modificado por:
+-- Sistema: ADMIN.EMPRESA
+-- Objeto: PROCEDIMIENTO ALMACENADO
+-- Nombre del objeto: ap_salida_almacen_total
+-- Descripcion:	REPORTE - SALIDA ALMACEN
+-- Tabla: ac_bienes
+-- Tablas relacionadas: 
+-- Fecha de creacion: 11/01/2017
+-- Fecha de modificacion;
+-- Version: 1.0
+-- =============================================
+ALTER PROCEDURE [dbo].[ap_salida_almacen_mant]
+@fmes_plan INTEGER,
+--@dia_correl INT,
+@edif_descripcion varchar(100)
+AS
+BEGIN
+
+----------------////////////////////////////////////////////////////////-------------------------
+delete from ac_almacen_aux
+-------------------------------cantidad1
+insert into ac_almacen_aux (fmes_plan, bien_codigo, cantidad, edif_descripcion, fecha_almi, doc_codigo ,doc_numero_m, observaciones2 )
+(SELECT     fmes_plan, bien_codigo1, SUM(cantidad1) AS cantidad1, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2
+FROM        to_cronograma_diario_final
+WHERE     fmes_plan = @fmes_plan and edif_descripcion like @edif_descripcion
+GROUP BY fmes_plan, bien_codigo1, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2)
+-----------------------------cantidad2
+insert into ac_almacen_aux (fmes_plan, bien_codigo, cantidad, edif_descripcion, fecha_almi, doc_codigo ,doc_numero_m, observaciones2 )
+(SELECT     fmes_plan, bien_codigo2, SUM(cantidad2) AS cantidad2, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2
+FROM        to_cronograma_diario_final
+WHERE     fmes_plan = @fmes_plan and edif_descripcion like @edif_descripcion
+GROUP BY fmes_plan, bien_codigo2, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2)
+---------------------------cantidad3
+insert into ac_almacen_aux (fmes_plan, bien_codigo, cantidad, edif_descripcion, fecha_almi, doc_codigo ,doc_numero_m, observaciones2 )
+(SELECT     fmes_plan, bien_codigo3, SUM(cantidad3) AS cantidad3, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2
+FROM        to_cronograma_diario_final
+WHERE     fmes_plan = @fmes_plan and edif_descripcion like @edif_descripcion
+GROUP BY fmes_plan, bien_codigo3, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2)
+---------------------------cantidad4
+insert into ac_almacen_aux (fmes_plan, bien_codigo, cantidad, edif_descripcion, fecha_almi, doc_codigo ,doc_numero_m, observaciones2 )
+(SELECT     fmes_plan, bien_codigo4, SUM(cantidad4) AS cantidad4, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2
+FROM        to_cronograma_diario_final
+WHERE     fmes_plan = @fmes_plan and edif_descripcion like @edif_descripcion
+GROUP BY fmes_plan, bien_codigo4, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2)
+--------------------------cantidad5
+insert into ac_almacen_aux (fmes_plan, bien_codigo, cantidad, edif_descripcion, fecha_almi, doc_codigo ,doc_numero_m, observaciones2 )
+(SELECT     fmes_plan, bien_codigo5, SUM(cantidad5) AS cantidad5, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2
+FROM        to_cronograma_diario_final
+WHERE     fmes_plan = @fmes_plan and edif_descripcion like @edif_descripcion
+GROUP BY fmes_plan, bien_codigo5, edif_descripcion, fecha_almi, doc_codigo, doc_numero_m, observaciones2)
+
+update ac_almacen_aux set ac_almacen_aux.unimed_codigo =ac_bienes.unimed_codigo, ac_almacen_aux.bien_descripcion =ac_bienes.bien_descripcion
+from ac_almacen_aux INNER JOIN ac_bienes 
+ON ac_almacen_aux.bien_codigo =ac_bienes.bien_codigo
+-----------------------------------------////////////////////////////////////////////////
+
+    SELECT     dbo.gc_beneficiario.beneficiario_denominacion, dbo.ac_almacen_aux.bien_codigo, dbo.ac_almacen_aux.cantidad, dbo.ac_almacen_aux.edif_descripcion, 
+                      dbo.ac_almacen_aux.fecha_almi, dbo.ac_almacen_aux.doc_codigo, dbo.ac_almacen_aux.doc_numero_m, dbo.ac_almacen_aux.observaciones2, 
+                      dbo.ac_almacen_aux.unimed_codigo, dbo.ac_almacen_aux.bien_descripcion, dbo.ac_almacen_aux.fmes_plan
+	FROM         dbo.to_cronograma_mensual INNER JOIN
+                      dbo.gc_beneficiario ON dbo.to_cronograma_mensual.beneficiario_codigo_resp = dbo.gc_beneficiario.beneficiario_codigo INNER JOIN
+                      dbo.ac_almacen_aux ON dbo.to_cronograma_mensual.fmes_plan = dbo.ac_almacen_aux.fmes_plan
+	WHERE ac_almacen_aux.fmes_plan = @fmes_plan and ac_almacen_aux.edif_descripcion like @edif_descripcion and cantidad > 0
+	/*and 
+	av_salida_almacen_mant.cantidad1 > '0' and av_salida_almacen_mant.cantidad2 > '0' and av_salida_almacen_mant.cantidad3 > '0' and av_salida_almacen_mant.cantidad4 > '0' and
+	av_salida_almacen_mant.cantidad5  > '0'*/
+	GROUP BY dbo.gc_beneficiario.beneficiario_denominacion, dbo.ac_almacen_aux.bien_codigo, dbo.ac_almacen_aux.cantidad, dbo.ac_almacen_aux.edif_descripcion, 
+                      dbo.ac_almacen_aux.fecha_almi, dbo.ac_almacen_aux.doc_codigo, dbo.ac_almacen_aux.doc_numero_m, dbo.ac_almacen_aux.observaciones2, 
+                      dbo.ac_almacen_aux.unimed_codigo, dbo.ac_almacen_aux.bien_descripcion, dbo.ac_almacen_aux.fmes_plan
+END

@@ -1,0 +1,4 @@
+Línea 429: la clase MSDataGridLib.DataGrid del control dg_det1 no era una clase de control cargada.
+Línea 650: la clase MSDataGridLib.DataGrid del control dg_det3 no era una clase de control cargada.
+Línea 852: la clase MSDataGridLib.DataGrid del control dg_det2 no era una clase de control cargada.
+Línea 1054: la clase MSDataGridLib.DataGrid del control dg_datos no era una clase de control cargada.

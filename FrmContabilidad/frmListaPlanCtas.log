@@ -1,0 +1,3 @@
+Línea 18: la propiedad Picture de cmdAceptar tenía una referencia a archivo no válida.
+Línea 28: la propiedad Picture de Command3 tenía una referencia a archivo no válida.
+Línea 35: la propiedad Bindings de dGrEstProg tenía una referencia a archivo no válida.

@@ -1,0 +1,14 @@
+Línea 32: la propiedad Picture de BtnDesAprobar tenía una referencia a archivo no válida.
+Línea 46: la propiedad Picture de BtnSalir tenía una referencia a archivo no válida.
+Línea 61: la propiedad Picture de BtnImprimir tenía una referencia a archivo no válida.
+Línea 75: la propiedad Picture de BtnBuscar tenía una referencia a archivo no válida.
+Línea 89: la propiedad Picture de BtnAprobar tenía una referencia a archivo no válida.
+Línea 103: la propiedad Picture de BtnEliminar tenía una referencia a archivo no válida.
+Línea 117: la propiedad Picture de BtnModificar tenía una referencia a archivo no válida.
+Línea 131: la propiedad Picture de BtnAñadir tenía una referencia a archivo no válida.
+Línea 143: la propiedad Picture de BtnVer tenía una referencia a archivo no válida.
+Línea 195: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 209: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 248: la propiedad Bindings de dg_datos tenía una referencia a archivo no válida.
+Línea 437: la propiedad ItemData de txt_bbss tenía una referencia a archivo no válida.
+Línea 439: la propiedad List de txt_bbss tenía una referencia a archivo no válida.

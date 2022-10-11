@@ -1,0 +1,6 @@
+Línea 37: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 51: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 267: la propiedad Text de txt_respaldos tenía una referencia a archivo no válida.
+Línea 389: la propiedad Bindings de txt_campo1 tenía una referencia a archivo no válida.
+Línea 409: la propiedad Bindings de Txt_descripcion tenía una referencia a archivo no válida.
+Línea 428: la propiedad Bindings de dtc_desc4A tenía una referencia a archivo no válida.

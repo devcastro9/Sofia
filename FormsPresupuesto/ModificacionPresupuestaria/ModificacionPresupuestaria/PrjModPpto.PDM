@@ -1,0 +1,299 @@
+[Root]
+Most Recent Package=Paquete de instalación estándar 1
+
+
+[Package|Paquete de instalación estándar 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\Paquete
+
+[Package|Paquete de instalación estándar 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Paquete de instalación estándar 1|Files Found]
+
+[Package|Paquete de instalación estándar 1|Files Released]
+SSCSDK32.DLL=
+u25TOTAL.DLL=
+u25STORE.DLL=
+Crystal=
+
+[Package|Paquete de instalación estándar 1|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\SIMPDATA.TLB=
+C:\Program Files\Common Files\System\ole db\OLEDB32.DLL=
+
+[Package|Paquete de instalación estándar 1|Out-of-Date Dependency Information]
+
+[Package|Paquete de instalación estándar 1|Files Added]
+
+[Package|Paquete de instalación estándar 1|Files Removed]
+
+[Package|Paquete de instalación estándar 1|Files In Project]
+D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\PrjModPpto.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=Yes
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=Yes
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\SYSTEM\VB6ES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=Yes
+C:\WINDOWS\SYSTEM\STDFTES.DLL=Yes
+C:\Program Files\Common Files\System\ole db\OLEDB32.DLL=Yes
+C:\WINDOWS\SYSTEM\SIMPDATA.TLB=Yes
+C:\WINDOWS\SYSTEM\MSBIND.DLL=Yes
+C:\WINDOWS\SYSTEM\CompBusquedas.dll=Yes
+C:\WINDOWS\SYSTEM\MSRDC20.OCX=Yes
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=Yes
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=Yes
+C:\WINDOWS\SYSTEM\RDO20ES.DLL=Yes
+C:\WINDOWS\SYSTEM\RDC20ES.DLL=Yes
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\TABCTES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=Yes
+C:\WINDOWS\SYSTEM\FLXGDES.DLL=Yes
+C:\WINDOWS\SYSTEM\COMDLG32.OCX=Yes
+C:\WINDOWS\SYSTEM\CMDLGES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCMCES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCC2ES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSINET.OCX=Yes
+C:\WINDOWS\SYSTEM\INETES.DLL=Yes
+C:\WINDOWS\SYSTEM\RICHTX32.OCX=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=Yes
+C:\WINDOWS\SYSTEM\RCHTXES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSCHRT20.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCH2ES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSWINSCK.OCX=Yes
+C:\WINDOWS\SYSTEM\WINSKES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSMAPI32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSMPIES.DLL=Yes
+C:\WINDOWS\SYSTEM\MCI32.OCX=Yes
+C:\WINDOWS\SYSTEM\MCIES.DLL=Yes
+C:\WINDOWS\SYSTEM\PICCLP32.OCX=Yes
+C:\WINDOWS\SYSTEM\PCCLPES.DLL=Yes
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=Yes
+C:\WINDOWS\SYSTEM\SYSINES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSCOMM32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSMSKES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSDATGRD.OCX=Yes
+C:\WINDOWS\SYSTEM\DATGDES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSDATLST.OCX=Yes
+C:\WINDOWS\SYSTEM\DATLSES.DLL=Yes
+C:\WINDOWS\SYSTEM\COMCT332.OCX=Yes
+C:\WINDOWS\SYSTEM\CMCT3ES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSADODC.OCX=Yes
+C:\WINDOWS\SYSTEM\ADODCES.DLL=Yes
+C:\WINDOWS\SYSTEM\MSHFLXGD.OCX=Yes
+C:\WINDOWS\SYSTEM\MSHFGES.DLL=Yes
+C:\WINDOWS\SYSTEM\crystl32.ocx=Yes
+C:\WINDOWS\SYSTEM\crpe32.dll=Yes
+C:\WINDOWS\SYSTEM\implode.dll=Yes
+C:\WINDOWS\SYSTEM\crpaig32.dll=Yes
+C:\WINDOWS\SYSTEM\MSVCRT.DLL=Yes
+C:\WINDOWS\SYSTEM\MFC42.DLL=Yes
+C:\WINDOWS\Crystal\crxlat32.dll=Yes
+C:\WINDOWS\Crystal\p2bbde.dll=Yes
+C:\WINDOWS\SYSTEM\p2bbnd.dll=Yes
+C:\WINDOWS\SYSTEM\p2bdao.dll=Yes
+C:\WINDOWS\Crystal\p2bxbse.dll=Yes
+C:\WINDOWS\SYSTEM\p2ctdao.dll=Yes
+C:\WINDOWS\SYSTEM\p2irdao.dll=Yes
+C:\WINDOWS\Crystal\p2sifmx.dll=Yes
+C:\WINDOWS\SYSTEM\p2smon.dll=Yes
+C:\WINDOWS\SYSTEM\p2sodbc.dll=Yes
+C:\WINDOWS\Crystal\p2sora7.dll=Yes
+C:\WINDOWS\Crystal\p2ssql.dll=Yes
+C:\WINDOWS\Crystal\p2ssyb10.dll=Yes
+C:\WINDOWS\Crystal\p2soledb.dll=Yes
+C:\WINDOWS\Crystal\u2ddisk.dll=Yes
+C:\WINDOWS\Crystal\u2dmapi.dll=Yes
+C:\WINDOWS\Crystal\u2dnotes.dll=Yes
+C:\WINDOWS\Crystal\u2dpost.dll=Yes
+C:\WINDOWS\Crystal\u2dvim.dll=Yes
+C:\WINDOWS\Crystal\u2dapp.dll=Yes
+C:\WINDOWS\Crystal\u2fcr.dll=Yes
+C:\WINDOWS\Crystal\u2fhtml.dll=Yes
+C:\WINDOWS\Crystal\u2fodbc.dll=Yes
+C:\WINDOWS\Crystal\u2frec.dll=Yes
+C:\WINDOWS\Crystal\u2frtf.dll=Yes
+C:\WINDOWS\Crystal\u2fsepv.dll=Yes
+C:\WINDOWS\Crystal\u2ftext.dll=Yes
+C:\WINDOWS\Crystal\u2fwks.dll=Yes
+C:\WINDOWS\Crystal\u2fwordw.dll=Yes
+C:\WINDOWS\Crystal\u2fxls.dll=Yes
+C:\WINDOWS\Crystal\u25dts.dll=Yes
+C:\WINDOWS\Crystal\u2l2000.dll=Yes
+C:\WINDOWS\Crystal\u2lbar.dll=Yes
+C:\WINDOWS\Crystal\u2lcom.dll=Yes
+C:\WINDOWS\Crystal\u2ldts.dll=Yes
+C:\WINDOWS\Crystal\u2lsamp1.dll=Yes
+C:\WINDOWS\Crystal\u252000.dll=Yes
+C:\WINDOWS\SYSTEM\DBLIST32.OCX=Yes
+C:\WINDOWS\SYSTEM\DBLSTES.DLL=Yes
+C:\TDBI5\TDBNumbr.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Paquete de instalación estándar 1|Configure Registry Files]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Install Locations]
+D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\PrjModPpto.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\VB6ES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\STDFTES.DLL=$(WinSysPath)
+C:\Program Files\Common Files\System\ole db\OLEDB32.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SIMPDATA.TLB=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSBIND.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\CompBusquedas.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSRDC20.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDO20ES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDC20ES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\FLXGDES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\CMDLGES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCC2ES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSINET.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\INETES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RICHTX32.OCX=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\RICHED32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\RCHTXES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCHRT20.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCH2ES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSWINSCK.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\WINSKES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMAPI32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMPIES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MCI32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MCIES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\PICCLP32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\PCCLPES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SYSINES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMSKES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSDATGRD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\DATGDES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSDATLST.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\DATLSES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\COMCT332.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\CMCT3ES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\ADODCES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSHFGES.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\crystl32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\crpe32.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\implode.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\crpaig32.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSVCRT.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MFC42.DLL=$(WinSysPath)
+C:\WINDOWS\Crystal\crxlat32.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2bbde.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\p2bbnd.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\p2bdao.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2bxbse.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\p2ctdao.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\p2irdao.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2sifmx.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\p2smon.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\p2sodbc.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2sora7.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2ssql.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2ssyb10.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\p2soledb.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2ddisk.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2dmapi.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2dnotes.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2dpost.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2dvim.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2dapp.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fcr.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fhtml.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fodbc.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2frec.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2frtf.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fsepv.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2ftext.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fwks.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fwordw.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2fxls.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u25dts.dll=$(AppPath)
+C:\WINDOWS\Crystal\u2l2000.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2lbar.dll=$(AppPath)
+C:\WINDOWS\Crystal\u2lcom.dll=$(WinSysPath)
+C:\WINDOWS\Crystal\u2ldts.dll=$(AppPath)
+C:\WINDOWS\Crystal\u2lsamp1.dll=$(AppPath)
+C:\WINDOWS\Crystal\u252000.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\DBLIST32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\DBLSTES.DLL=$(WinSysPath)
+C:\TDBI5\TDBNumbr.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Paquete de instalación estándar 1|Configure Shared Files]
+Applicable=Yes
+D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\PrjModPpto.exe=No
+C:\WINDOWS\Crystal\u25dts.dll=No
+C:\WINDOWS\Crystal\u2lbar.dll=No
+C:\WINDOWS\Crystal\u2ldts.dll=No
+C:\WINDOWS\Crystal\u2lsamp1.dll=No
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+
+[Package|Paquete de instalación estándar 1|Distribution]
+Type=single
+Size=
+Title=PrjModPpto
+
+[Package|Paquete de instalación estándar 1|IconGroups]
+Group0=PrjModPpto
+PrivateGroup0=Verdadero
+Parent0=$(Programs)
+
+[Package|Paquete de instalación estándar 1|PrjModPpto]
+Icon1=PrjModPpto.exe
+Title1=PrjModPpto
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Paquete de instalación estándar 1|Package]
+PackageFolder=D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\Paquete
+ProjectFolder=D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria
+ServerSideCab=
+File1=D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\Paquete\setup.exe
+File2=D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\Paquete\Setup.Lst
+File3=D:\saf-2001\FormsPresupuesto\ModificacionPresupuestaria\Paquete\PrjModPpto.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

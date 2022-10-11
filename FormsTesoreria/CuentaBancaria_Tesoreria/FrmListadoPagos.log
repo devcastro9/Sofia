@@ -1,0 +1,80 @@
+Línea 18: la clase MSAdodcLib.Adodc del control AdoCuenta no era una clase de control cargada.
+Línea 144: la clase MSComCtl2.DTPicker del control DTPFechaInicio no era una clase de control cargada.
+Línea 157: la clase MSComCtl2.DTPicker del control DTPFechaFin no era una clase de control cargada.
+Línea 194: la clase MSDataListLib.DataCombo del control DtCCuentaOrigen no era una clase de control cargada.
+Línea 211: la clase MSDataListLib.DataCombo del control DtCDescripcion no era una clase de control cargada.
+Línea 228: la clase MSDataListLib.DataCombo del control DtCTgn no era una clase de control cargada.
+Línea 263: la clase Crystal.CrystalReport del control CryMov no era una clase de control cargada.
+Línea 24: el nombre de la propiedad _ExtentX de AdoCuenta no es válido.
+Línea 25: el nombre de la propiedad _ExtentY de AdoCuenta no es válido.
+Línea 26: el nombre de la propiedad ConnectMode de AdoCuenta no es válido.
+Línea 27: el nombre de la propiedad CursorLocation de AdoCuenta no es válido.
+Línea 28: el nombre de la propiedad IsolationLevel de AdoCuenta no es válido.
+Línea 29: el nombre de la propiedad ConnectionTimeout de AdoCuenta no es válido.
+Línea 30: el nombre de la propiedad CommandTimeout de AdoCuenta no es válido.
+Línea 31: el nombre de la propiedad CursorType de AdoCuenta no es válido.
+Línea 32: el nombre de la propiedad LockType de AdoCuenta no es válido.
+Línea 33: el nombre de la propiedad CommandType de AdoCuenta no es válido.
+Línea 34: el nombre de la propiedad CursorOptions de AdoCuenta no es válido.
+Línea 35: el nombre de la propiedad CacheSize de AdoCuenta no es válido.
+Línea 36: el nombre de la propiedad MaxRecords de AdoCuenta no es válido.
+Línea 37: el nombre de la propiedad BOFAction de AdoCuenta no es válido.
+Línea 38: el nombre de la propiedad EOFAction de AdoCuenta no es válido.
+Línea 39: el nombre de la propiedad ConnectStringType de AdoCuenta no es válido.
+Línea 43: el nombre de la propiedad Orientation de AdoCuenta no es válido.
+Línea 45: el nombre de la propiedad Connect de AdoCuenta no es válido.
+Línea 46: el nombre de la propiedad OLEDBString de AdoCuenta no es válido.
+Línea 47: el nombre de la propiedad OLEDBFile de AdoCuenta no es válido.
+Línea 48: el nombre de la propiedad DataSourceName de AdoCuenta no es válido.
+Línea 49: el nombre de la propiedad OtherAttributes de AdoCuenta no es válido.
+Línea 50: el nombre de la propiedad UserName de AdoCuenta no es válido.
+Línea 51: el nombre de la propiedad Password de AdoCuenta no es válido.
+Línea 52: el nombre de la propiedad RecordSource de AdoCuenta no es válido.
+Línea 53: el nombre de la propiedad Caption de AdoCuenta no es válido.
+Línea 63: el nombre de la propiedad _Version de AdoCuenta no es válido.
+Línea 150: el nombre de la propiedad _ExtentX de DTPFechaInicio no es válido.
+Línea 151: el nombre de la propiedad _ExtentY de DTPFechaInicio no es válido.
+Línea 152: el nombre de la propiedad _Version de DTPFechaInicio no es válido.
+Línea 153: el nombre de la propiedad CheckBox de DTPFechaInicio no es válido.
+Línea 154: el nombre de la propiedad Format de DTPFechaInicio no es válido.
+Línea 155: el nombre de la propiedad CurrentDate de DTPFechaInicio no es válido.
+Línea 163: el nombre de la propiedad _ExtentX de DTPFechaFin no es válido.
+Línea 164: el nombre de la propiedad _ExtentY de DTPFechaFin no es válido.
+Línea 165: el nombre de la propiedad _Version de DTPFechaFin no es válido.
+Línea 166: el nombre de la propiedad CheckBox de DTPFechaFin no es válido.
+Línea 167: el nombre de la propiedad Format de DTPFechaFin no es válido.
+Línea 168: el nombre de la propiedad CurrentDate de DTPFechaFin no es válido.
+Línea 195: el nombre de la propiedad Bindings de DtCCuentaOrigen no es válido.
+Línea 202: el nombre de la propiedad _ExtentX de DtCCuentaOrigen no es válido.
+Línea 203: el nombre de la propiedad _ExtentY de DtCCuentaOrigen no es válido.
+Línea 204: el nombre de la propiedad _Version de DtCCuentaOrigen no es válido.
+Línea 206: el nombre de la propiedad Style de DtCCuentaOrigen no es válido.
+Línea 207: el nombre de la propiedad ListField de DtCCuentaOrigen no es válido.
+Línea 208: el nombre de la propiedad BoundColumn de DtCCuentaOrigen no es válido.
+Línea 209: el nombre de la propiedad Text de DtCCuentaOrigen no es válido.
+Línea 212: el nombre de la propiedad Bindings de DtCDescripcion no es válido.
+Línea 219: el nombre de la propiedad _ExtentX de DtCDescripcion no es válido.
+Línea 220: el nombre de la propiedad _ExtentY de DtCDescripcion no es válido.
+Línea 221: el nombre de la propiedad _Version de DtCDescripcion no es válido.
+Línea 223: el nombre de la propiedad Style de DtCDescripcion no es válido.
+Línea 224: el nombre de la propiedad ListField de DtCDescripcion no es válido.
+Línea 225: el nombre de la propiedad BoundColumn de DtCDescripcion no es válido.
+Línea 226: el nombre de la propiedad Text de DtCDescripcion no es válido.
+Línea 229: el nombre de la propiedad Bindings de DtCTgn no es válido.
+Línea 236: el nombre de la propiedad _ExtentX de DtCTgn no es válido.
+Línea 237: el nombre de la propiedad _ExtentY de DtCTgn no es válido.
+Línea 238: el nombre de la propiedad _Version de DtCTgn no es válido.
+Línea 240: el nombre de la propiedad Style de DtCTgn no es válido.
+Línea 241: el nombre de la propiedad ListField de DtCTgn no es válido.
+Línea 242: el nombre de la propiedad BoundColumn de DtCTgn no es válido.
+Línea 243: el nombre de la propiedad Text de DtCTgn no es válido.
+Línea 266: el nombre de la propiedad _ExtentX de CryMov no es válido.
+Línea 267: el nombre de la propiedad _ExtentY de CryMov no es válido.
+Línea 268: el nombre de la propiedad _Version de CryMov no es válido.
+Línea 269: el nombre de la propiedad WindowControlBox de CryMov no es válido.
+Línea 270: el nombre de la propiedad WindowMaxButton de CryMov no es válido.
+Línea 271: el nombre de la propiedad WindowMinButton de CryMov no es válido.
+Línea 272: el nombre de la propiedad PrintFileLinesPerPage de CryMov no es válido.
+Línea 273: el nombre de la propiedad WindowShowSearchBtn de CryMov no es válido.
+Línea 274: el nombre de la propiedad WindowShowPrintSetupBtn de CryMov no es válido.
+Línea 275: el nombre de la propiedad WindowShowRefreshBtn de CryMov no es válido.

@@ -1,0 +1,129 @@
+Línea 36: la clase Crystal.CrystalReport del control CryHistorico no era una clase de control cargada.
+Línea 44: la clase Crystal.CrystalReport del control CryPagosBeneficiario no era una clase de control cargada.
+Línea 98: la clase MSDataGridLib.DataGrid del control DtGTributos no era una clase de control cargada.
+Línea 299: la clase MSDataGridLib.DataGrid del control DtGTributosFiscales no era una clase de control cargada.
+Línea 394: la clase MSDataListLib.DataCombo del control DataCombo2 no era una clase de control cargada.
+Línea 405: la clase MSDataListLib.DataCombo del control DataCombo1 no era una clase de control cargada.
+Línea 479: la clase MSAdodcLib.Adodc del control AdoCuenta no era una clase de control cargada.
+Línea 526: la clase MSDataListLib.DataCombo del control DtCCuentaOrigen1 no era una clase de control cargada.
+Línea 544: la clase MSDataListLib.DataCombo del control DtCCuentaOrigenDes1 no era una clase de control cargada.
+Línea 562: la clase MSDataListLib.DataCombo del control DtcCtaTGN1 no era una clase de control cargada.
+Línea 580: la clase MSDataListLib.DataCombo del control DtCCuentaOrigen no era una clase de control cargada.
+Línea 597: la clase MSDataListLib.DataCombo del control DtCCuentaOrigenDes no era una clase de control cargada.
+Línea 614: la clase MSDataListLib.DataCombo del control DtcCtaTGN no era una clase de control cargada.
+Línea 39: el nombre de la propiedad _ExtentX de CryHistorico no es válido.
+Línea 40: el nombre de la propiedad _ExtentY de CryHistorico no es válido.
+Línea 41: el nombre de la propiedad _Version de CryHistorico no es válido.
+Línea 42: el nombre de la propiedad PrintFileLinesPerPage de CryHistorico no es válido.
+Línea 47: el nombre de la propiedad _ExtentX de CryPagosBeneficiario no es válido.
+Línea 48: el nombre de la propiedad _ExtentY de CryPagosBeneficiario no es válido.
+Línea 49: el nombre de la propiedad _Version de CryPagosBeneficiario no es válido.
+Línea 50: el nombre de la propiedad WindowControlBox de CryPagosBeneficiario no es válido.
+Línea 51: el nombre de la propiedad WindowMaxButton de CryPagosBeneficiario no es válido.
+Línea 52: el nombre de la propiedad WindowMinButton de CryPagosBeneficiario no es válido.
+Línea 53: el nombre de la propiedad PrintFileLinesPerPage de CryPagosBeneficiario no es válido.
+Línea 54: el nombre de la propiedad WindowShowSearchBtn de CryPagosBeneficiario no es válido.
+Línea 55: el nombre de la propiedad WindowShowPrintSetupBtn de CryPagosBeneficiario no es válido.
+Línea 56: el nombre de la propiedad WindowShowRefreshBtn de CryPagosBeneficiario no es válido.
+Línea 104: el nombre de la propiedad _ExtentX de DtGTributos no es válido.
+Línea 105: el nombre de la propiedad _ExtentY de DtGTributos no es válido.
+Línea 106: el nombre de la propiedad _Version de DtGTributos no es válido.
+Línea 107: el nombre de la propiedad HeadLines de DtGTributos no es válido.
+Línea 108: el nombre de la propiedad RowHeight de DtGTributos no es válido.
+Línea 117: el nombre de la propiedad HeadFont de DtGTributos no es válido.
+Línea 127: el nombre de la propiedad ColumnCount de DtGTributos no es válido.
+Línea 140: el nombre de la propiedad Column00 de DtGTributos no es válido.
+Línea 153: el nombre de la propiedad Column01 de DtGTributos no es válido.
+Línea 154: el nombre de la propiedad SplitCount de DtGTributos no es válido.
+Línea 160: el nombre de la propiedad Split0 de DtGTributos no es válido.
+Línea 305: el nombre de la propiedad _ExtentX de DtGTributosFiscales no es válido.
+Línea 306: el nombre de la propiedad _ExtentY de DtGTributosFiscales no es válido.
+Línea 307: el nombre de la propiedad _Version de DtGTributosFiscales no es válido.
+Línea 308: el nombre de la propiedad HeadLines de DtGTributosFiscales no es válido.
+Línea 309: el nombre de la propiedad RowHeight de DtGTributosFiscales no es válido.
+Línea 318: el nombre de la propiedad HeadFont de DtGTributosFiscales no es válido.
+Línea 328: el nombre de la propiedad ColumnCount de DtGTributosFiscales no es válido.
+Línea 341: el nombre de la propiedad Column00 de DtGTributosFiscales no es válido.
+Línea 354: el nombre de la propiedad Column01 de DtGTributosFiscales no es válido.
+Línea 355: el nombre de la propiedad SplitCount de DtGTributosFiscales no es válido.
+Línea 361: el nombre de la propiedad Split0 de DtGTributosFiscales no es válido.
+Línea 400: el nombre de la propiedad _ExtentX de DataCombo2 no es válido.
+Línea 401: el nombre de la propiedad _ExtentY de DataCombo2 no es válido.
+Línea 402: el nombre de la propiedad _Version de DataCombo2 no es válido.
+Línea 403: el nombre de la propiedad Text de DataCombo2 no es válido.
+Línea 411: el nombre de la propiedad _ExtentX de DataCombo1 no es válido.
+Línea 412: el nombre de la propiedad _ExtentY de DataCombo1 no es válido.
+Línea 413: el nombre de la propiedad _Version de DataCombo1 no es válido.
+Línea 414: el nombre de la propiedad Text de DataCombo1 no es válido.
+Línea 485: el nombre de la propiedad _ExtentX de AdoCuenta no es válido.
+Línea 486: el nombre de la propiedad _ExtentY de AdoCuenta no es válido.
+Línea 487: el nombre de la propiedad ConnectMode de AdoCuenta no es válido.
+Línea 488: el nombre de la propiedad CursorLocation de AdoCuenta no es válido.
+Línea 489: el nombre de la propiedad IsolationLevel de AdoCuenta no es válido.
+Línea 490: el nombre de la propiedad ConnectionTimeout de AdoCuenta no es válido.
+Línea 491: el nombre de la propiedad CommandTimeout de AdoCuenta no es válido.
+Línea 492: el nombre de la propiedad CursorType de AdoCuenta no es válido.
+Línea 493: el nombre de la propiedad LockType de AdoCuenta no es válido.
+Línea 494: el nombre de la propiedad CommandType de AdoCuenta no es válido.
+Línea 495: el nombre de la propiedad CursorOptions de AdoCuenta no es válido.
+Línea 496: el nombre de la propiedad CacheSize de AdoCuenta no es válido.
+Línea 497: el nombre de la propiedad MaxRecords de AdoCuenta no es válido.
+Línea 498: el nombre de la propiedad BOFAction de AdoCuenta no es válido.
+Línea 499: el nombre de la propiedad EOFAction de AdoCuenta no es válido.
+Línea 500: el nombre de la propiedad ConnectStringType de AdoCuenta no es válido.
+Línea 504: el nombre de la propiedad Orientation de AdoCuenta no es válido.
+Línea 506: el nombre de la propiedad Connect de AdoCuenta no es válido.
+Línea 507: el nombre de la propiedad OLEDBString de AdoCuenta no es válido.
+Línea 508: el nombre de la propiedad OLEDBFile de AdoCuenta no es válido.
+Línea 509: el nombre de la propiedad DataSourceName de AdoCuenta no es válido.
+Línea 510: el nombre de la propiedad OtherAttributes de AdoCuenta no es válido.
+Línea 511: el nombre de la propiedad UserName de AdoCuenta no es válido.
+Línea 512: el nombre de la propiedad Password de AdoCuenta no es válido.
+Línea 513: el nombre de la propiedad RecordSource de AdoCuenta no es válido.
+Línea 514: el nombre de la propiedad Caption de AdoCuenta no es válido.
+Línea 524: el nombre de la propiedad _Version de AdoCuenta no es válido.
+Línea 527: el nombre de la propiedad Bindings de DtCCuentaOrigen1 no es válido.
+Línea 536: el nombre de la propiedad _ExtentX de DtCCuentaOrigen1 no es válido.
+Línea 537: el nombre de la propiedad _ExtentY de DtCCuentaOrigen1 no es válido.
+Línea 538: el nombre de la propiedad _Version de DtCCuentaOrigen1 no es válido.
+Línea 540: el nombre de la propiedad ListField de DtCCuentaOrigen1 no es válido.
+Línea 541: el nombre de la propiedad BoundColumn de DtCCuentaOrigen1 no es válido.
+Línea 542: el nombre de la propiedad Text de DtCCuentaOrigen1 no es válido.
+Línea 545: el nombre de la propiedad Bindings de DtCCuentaOrigenDes1 no es válido.
+Línea 554: el nombre de la propiedad _ExtentX de DtCCuentaOrigenDes1 no es válido.
+Línea 555: el nombre de la propiedad _ExtentY de DtCCuentaOrigenDes1 no es válido.
+Línea 556: el nombre de la propiedad _Version de DtCCuentaOrigenDes1 no es válido.
+Línea 558: el nombre de la propiedad ListField de DtCCuentaOrigenDes1 no es válido.
+Línea 559: el nombre de la propiedad BoundColumn de DtCCuentaOrigenDes1 no es válido.
+Línea 560: el nombre de la propiedad Text de DtCCuentaOrigenDes1 no es válido.
+Línea 563: el nombre de la propiedad Bindings de DtcCtaTGN1 no es válido.
+Línea 572: el nombre de la propiedad _ExtentX de DtcCtaTGN1 no es válido.
+Línea 573: el nombre de la propiedad _ExtentY de DtcCtaTGN1 no es válido.
+Línea 574: el nombre de la propiedad _Version de DtcCtaTGN1 no es válido.
+Línea 576: el nombre de la propiedad ListField de DtcCtaTGN1 no es válido.
+Línea 577: el nombre de la propiedad BoundColumn de DtcCtaTGN1 no es válido.
+Línea 578: el nombre de la propiedad Text de DtcCtaTGN1 no es válido.
+Línea 581: el nombre de la propiedad Bindings de DtCCuentaOrigen no es válido.
+Línea 588: el nombre de la propiedad _ExtentX de DtCCuentaOrigen no es válido.
+Línea 589: el nombre de la propiedad _ExtentY de DtCCuentaOrigen no es válido.
+Línea 590: el nombre de la propiedad _Version de DtCCuentaOrigen no es válido.
+Línea 592: el nombre de la propiedad Style de DtCCuentaOrigen no es válido.
+Línea 593: el nombre de la propiedad ListField de DtCCuentaOrigen no es válido.
+Línea 594: el nombre de la propiedad BoundColumn de DtCCuentaOrigen no es válido.
+Línea 595: el nombre de la propiedad Text de DtCCuentaOrigen no es válido.
+Línea 598: el nombre de la propiedad Bindings de DtCCuentaOrigenDes no es válido.
+Línea 605: el nombre de la propiedad _ExtentX de DtCCuentaOrigenDes no es válido.
+Línea 606: el nombre de la propiedad _ExtentY de DtCCuentaOrigenDes no es válido.
+Línea 607: el nombre de la propiedad _Version de DtCCuentaOrigenDes no es válido.
+Línea 609: el nombre de la propiedad Style de DtCCuentaOrigenDes no es válido.
+Línea 610: el nombre de la propiedad ListField de DtCCuentaOrigenDes no es válido.
+Línea 611: el nombre de la propiedad BoundColumn de DtCCuentaOrigenDes no es válido.
+Línea 612: el nombre de la propiedad Text de DtCCuentaOrigenDes no es válido.
+Línea 615: el nombre de la propiedad Bindings de DtcCtaTGN no es válido.
+Línea 622: el nombre de la propiedad _ExtentX de DtcCtaTGN no es válido.
+Línea 623: el nombre de la propiedad _ExtentY de DtcCtaTGN no es válido.
+Línea 624: el nombre de la propiedad _Version de DtcCtaTGN no es válido.
+Línea 626: el nombre de la propiedad Style de DtcCtaTGN no es válido.
+Línea 627: el nombre de la propiedad ListField de DtcCtaTGN no es válido.
+Línea 628: el nombre de la propiedad BoundColumn de DtcCtaTGN no es válido.
+Línea 629: el nombre de la propiedad Text de DtcCtaTGN no es válido.

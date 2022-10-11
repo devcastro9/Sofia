@@ -1,0 +1,15 @@
+Línea 13: la propiedad Icon de frm_ac_bienes_subgrupo tenía una referencia a archivo no válida.
+Línea 35: la propiedad Picture de BtnVer tenía una referencia a archivo no válida.
+Línea 50: la propiedad Picture de BtnAñadir tenía una referencia a archivo no válida.
+Línea 64: la propiedad Picture de BtnModificar tenía una referencia a archivo no válida.
+Línea 78: la propiedad Picture de BtnEliminar tenía una referencia a archivo no válida.
+Línea 92: la propiedad Picture de BtnAprobar tenía una referencia a archivo no válida.
+Línea 106: la propiedad Picture de BtnBuscar tenía una referencia a archivo no válida.
+Línea 120: la propiedad Picture de BtnImprimir tenía una referencia a archivo no válida.
+Línea 134: la propiedad Picture de BtnSalir tenía una referencia a archivo no válida.
+Línea 146: la propiedad Picture de BtnDesAprobar tenía una referencia a archivo no válida.
+Línea 197: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 211: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 250: la propiedad Bindings de dg_datos tenía una referencia a archivo no válida.
+Línea 472: la propiedad Bindings de dtc_codigo1 tenía una referencia a archivo no válida.
+Línea 490: la propiedad Bindings de dtc_desc1 tenía una referencia a archivo no válida.

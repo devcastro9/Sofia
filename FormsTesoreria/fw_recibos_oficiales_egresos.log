@@ -1,0 +1,20 @@
+Línea 743: la clase MSComCtl2.DTPicker del control DTP_Finicio no era una clase de control cargada.
+Línea 756: la clase MSComCtl2.DTPicker del control DTP_Ffin no era una clase de control cargada.
+Línea 1743: la clase MSComCtl2.DTPicker del control DTPfechasol no era una clase de control cargada.
+Línea 750: el nombre de la propiedad _ExtentX de DTP_Finicio no es válido.
+Línea 751: el nombre de la propiedad _ExtentY de DTP_Finicio no es válido.
+Línea 752: el nombre de la propiedad _Version de DTP_Finicio no es válido.
+Línea 753: el nombre de la propiedad Format de DTP_Finicio no es válido.
+Línea 754: el nombre de la propiedad CurrentDate de DTP_Finicio no es válido.
+Línea 763: el nombre de la propiedad _ExtentX de DTP_Ffin no es válido.
+Línea 764: el nombre de la propiedad _ExtentY de DTP_Ffin no es válido.
+Línea 765: el nombre de la propiedad _Version de DTP_Ffin no es válido.
+Línea 766: el nombre de la propiedad Format de DTP_Ffin no es válido.
+Línea 767: el nombre de la propiedad CurrentDate de DTP_Ffin no es válido.
+Línea 1760: el nombre de la propiedad _ExtentX de DTPfechasol no es válido.
+Línea 1761: el nombre de la propiedad _ExtentY de DTPfechasol no es válido.
+Línea 1762: el nombre de la propiedad _Version de DTPfechasol no es válido.
+Línea 1763: el nombre de la propiedad Format de DTPfechasol no es válido.
+Línea 1764: el nombre de la propiedad CurrentDate de DTPfechasol no es válido.
+Línea 1765: el nombre de la propiedad MaxDate de DTPfechasol no es válido.
+Línea 1766: el nombre de la propiedad MinDate de DTPfechasol no es válido.

@@ -1,0 +1,11 @@
+Línea 352: la clase MSComCtl2.DTPicker del control DTPFechaProg no era una clase de control cargada.
+Línea 368: la clase MSDataListLib.DataCombo del control dtc_codigo4A no era una clase de control cargada.
+Línea 388: la clase MSDataListLib.DataCombo del control txt_campo1 no era una clase de control cargada.
+Línea 408: la clase MSDataListLib.DataCombo del control Txt_descripcion no era una clase de control cargada.
+Línea 427: la clase MSDataListLib.DataCombo del control dtc_desc4A no era una clase de control cargada.
+Línea 445: la clase MSComCtl2.DTPicker del control DTPFechaPago no era una clase de control cargada.
+Línea 863: la clase MSAdodcLib.Adodc del control Ado_clasif1 no era una clase de control cargada.
+Línea 910: la clase MSAdodcLib.Adodc del control Ado_clasif2 no era una clase de control cargada.
+Línea 957: la clase MSAdodcLib.Adodc del control Ado_clasif3 no era una clase de control cargada.
+Línea 1004: la clase MSAdodcLib.Adodc del control Ado_clasif4 no era una clase de control cargada.
+Línea 1051: la clase MSAdodcLib.Adodc del control Ado_clasif5 no era una clase de control cargada.

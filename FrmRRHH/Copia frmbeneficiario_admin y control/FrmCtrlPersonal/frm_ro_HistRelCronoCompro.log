@@ -1,0 +1,4 @@
+Línea 67: la propiedad Picture de cmdDown tenía una referencia a archivo no válida.
+Línea 78: la propiedad Picture de cmdUp tenía una referencia a archivo no válida.
+Línea 167: la propiedad Bindings de DataGrid1 tenía una referencia a archivo no válida.
+Línea 396: la propiedad Bindings de dtcCodigo_unidad tenía una referencia a archivo no válida.

@@ -1,0 +1,17 @@
+Línea 44: la clase TrueOleDBList60.TDBCombo del control tdbcGrupos no era una clase de control cargada.
+Línea 203: la clase Crystal.CrystalReport del control Cry no era una clase de control cargada.
+Línea 230: la clase TrueOleDBGrid60.TDBGrid del control tdbgInventario no era una clase de control cargada.
+Línea 47: el nombre de la propiedad OleObjectBlob de tdbcGrupos no es válido.
+Línea 206: el nombre de la propiedad _ExtentX de Cry no es válido.
+Línea 207: el nombre de la propiedad _ExtentY de Cry no es válido.
+Línea 208: el nombre de la propiedad _Version de Cry no es válido.
+Línea 209: el nombre de la propiedad WindowControlBox de Cry no es válido.
+Línea 210: el nombre de la propiedad WindowMaxButton de Cry no es válido.
+Línea 211: el nombre de la propiedad WindowMinButton de Cry no es válido.
+Línea 212: el nombre de la propiedad PrintFileLinesPerPage de Cry no es válido.
+Línea 213: el nombre de la propiedad WindowShowCloseBtn de Cry no es válido.
+Línea 214: el nombre de la propiedad WindowShowSearchBtn de Cry no es válido.
+Línea 215: el nombre de la propiedad WindowShowPrintSetupBtn de Cry no es válido.
+Línea 216: el nombre de la propiedad WindowShowRefreshBtn de Cry no es válido.
+Línea 232: el nombre de la propiedad Bindings de tdbgInventario no es válido.
+Línea 235: el nombre de la propiedad OleObjectBlob de tdbgInventario no es válido.

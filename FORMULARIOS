@@ -1,0 +1,1039 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n£mero de serie del volumen es: F8F9-652F
+
+ Directorio de D:\Jorge\SIGCGI\Clasificadores\Administrativos
+
+12/04/2017  08:51           169,532 aw_bienes.frm
+23/03/2017  17:18           160,820 aw_bienes_ant.frm
+07/12/2016  17:52            36,298 aw_bienes_grupos.frm
+07/12/2016  17:53            38,214 aw_bienes_subgrupo.frm
+17/03/2017  15:13             7,536 aw_Componentes_Equipos.frm
+27/06/2016  11:38            52,589 aw_p_ac_bienes_equipo_cabina_estetica.frm
+27/06/2016  11:38            33,153 aw_p_ac_bienes_equipo_condicion_cabina.frm
+10/12/2015  17:03            33,150 aw_p_ac_bienes_equipo_condicion_ventas.frm
+10/12/2015  17:04            40,728 aw_p_ac_bienes_equipo_ctrl_maquina.frm
+10/12/2015  17:05            36,261 aw_p_ac_bienes_equipo_cuadro_ctrl.frm
+10/12/2015  17:06            34,918 aw_p_ac_bienes_equipo_grupo_coches.frm
+10/12/2015  17:07            33,088 aw_p_ac_bienes_equipo_sistema_puertas.frm
+10/12/2015  16:56            33,223 aw_p_ac_bienes_equipo_tipos.frm
+10/12/2015  17:08            36,380 aw_p_ac_bienes_equipo_tipo_puerta_piso.frm
+10/12/2015  17:11            35,090 aw_p_ac_bienes_equipo_velocidad.frm
+11/07/2016  14:46            32,546 aw_p_ac_bienes_marcas.frm
+10/12/2015  16:57            32,872 aw_p_ac_bienes_unidad_medida.frm
+20/09/2016  19:07            33,125 aw_tipo_compra_venta.frm
+16/08/2014  04:16            90,668 frm_ac_almacenes.frm
+19/12/2016  16:49           159,708 frm_ac_bienes.frm
+18/04/2017  15:49           151,874 frm_ac_bienes_eqp.frm
+01/09/2016  17:53            44,272 frm_ac_bienes_equipo_botoneria.frm
+02/09/2016  17:43            42,704 frm_ac_bienes_equipo_motor.frm
+06/09/2016  16:12            44,325 frm_ac_bienes_equipo_senalizacion.frm
+15/11/2016  10:39            36,415 frm_ac_bienes_grupos.frm
+02/09/2016  16:34            38,590 frm_ac_bienes_intervalo_trafico.frm
+28/07/2015  17:31            36,869 frm_ac_bienes_modelos.frm
+15/11/2016  12:31            38,390 frm_ac_bienes_subgrupo.frm
+10/12/2015  17:21            41,166 frm_ac_bienes_tecnologia_linea.frm
+24/05/2012  13:04            33,869 Frm_ac_biens_Grupos.frm
+12/11/2015  16:48            38,169 frm_ac_costos_comercializacion.frm
+29/06/2016  11:36            33,429 frm_ac_negociacion_forma.frm
+29/06/2016  12:17            33,434 frm_ac_tipo_compra_venta.frm
+18/07/2016  10:44            47,599 frm_gc_impuestos.frm
+29/06/2016  11:17            36,690 frm_gc_tipo_moneda.frm
+              35 archivos      1,827,694 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Clasificadores\CLASIFICADORES_DL
+
+23/03/2017  16:23            33,512 tw_bienes_equipo_tipos.frm
+23/03/2017  10:25            33,862 tw_bienes_marcas.frm
+23/03/2017  10:26            37,042 tw_bienes_modelos.frm
+29/03/2017  16:05           129,447 tw_cronograma_zonas.frm
+27/03/2017  09:21           102,169 tw_edificaciones.frm
+               5 archivos        336,032 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Clasificadores\Financieros
+
+07/11/2016  16:34            59,802 FrmCta.frm
+05/01/2016  09:15            46,116 frm_fc_cuenta_bancaria.frm
+03/01/2017  10:53            55,177 frm_fc_Dosificacion_docs.frm
+31/08/2015  09:32            47,242 frm_fc_Dosificacion_docs_ANT.frm
+10/12/2015  17:33            40,034 frm_fc_EstructuraProgramatica.frm
+10/12/2015  17:33            36,912 frm_fc_ingresos_rubro.frm
+09/01/2015  17:18            47,720 frm_fc_OrganismoFinanciador.frm
+03/01/2016  15:52            47,342 frm_gc_partida_gasto.frm
+07/12/2016  17:38            40,895 fw_bancos.frm
+08/12/2016  14:01            47,315 fw_cuenta_bancaria.frm
+01/03/2017  15:44            36,115 fw_Estructura_Programatica.frm
+08/12/2016  14:57            34,175 fw_fuente_financiamiento.frm
+07/12/2016  17:34            37,226 fw_ingresos_grupo.frm
+06/04/2017  17:35            38,185 fw_ingresos_rubro.frm
+01/03/2017  15:45            51,690 fw_Organismo_Financiador.frm
+01/01/2017  18:44            47,982 fw_partida_gasto.frm
+09/01/2015  17:18            33,163 fw_p_fc_fuente_financiamiento.frm
+07/04/2017  10:29            65,859 fw_Relacionador_Gastos.frm
+07/04/2017  08:41            66,462 fw_Relacionador_Ingresos.frm
+              19 archivos        879,412 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Clasificadores\Generales
+
+08/11/2015  00:07            41,910 frm_gc_calles.frm
+01/08/2016  10:14            47,597 frm_gc_impuestos.frm
+12/08/2014  11:20            54,442 frm_gc_municipio.frm
+07/02/2015  23:47            46,855 frm_gc_provincia.frm
+01/08/2016  10:15            51,842 frm_gc_unidad_ejecutora.frm
+03/07/2015  09:43            54,072 frm_gc_zonas.frm
+29/03/2017  10:11           107,754 gw_p_gc_beneficiario_aux.frm
+30/03/2017  17:09           108,378 gw_p_gc_beneficiario_aux2.frm
+21/04/2017  09:53           115,954 gw_p_gc_beneficiario_empresa.frm
+15/12/2016  08:47           124,403 gw_p_gc_beneficiario_persona.frm
+09/12/2015  12:08            32,552 gw_p_gc_calle_tipo.frm
+14/07/2016  15:27            37,112 gw_p_gc_departamento.frm
+01/08/2016  10:19            42,668 gw_p_gc_direccion_administrativa.frm
+01/08/2016  09:57            34,376 gw_p_gc_direccion_general.frm
+10/12/2015  16:43            33,016 gw_p_gc_documentos_clasificacion.frm
+07/01/2015  15:23            37,097 gw_p_gc_documentos_respaldo.frm
+19/12/2016  11:09           101,607 gw_p_gc_edificaciones.frm
+20/04/2017  18:45            81,140 gw_p_gc_edificaciones_aux.frm
+09/12/2015  12:08            32,775 gw_p_gc_edificacion_tipo.frm
+19/07/2016  12:40            34,844 gw_p_gc_ocupacion_profesion.frm
+20/12/2014  18:30            41,340 gw_p_gc_pais.frm
+09/12/2015  12:08            32,910 gw_p_gc_tipo_beneficiario.frm
+05/08/2016  11:32            35,876 gw_p_gc_tipo_solicitud.frm
+21/09/2016  10:42            41,156 gw_tipo_moneda.frm
+05/08/2016  13:13            40,966 rw_unidad_vs_responsable.frm
+              25 archivos      1,412,642 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Clasificadores\RRHH
+
+28/07/2014  11:13            16,193 frmgc_nivel_educacion_ant.frm
+17/09/2016  16:30            44,151 FrmRc_Calendario.frm
+16/05/2011  09:56            33,220 FrmRc_Calendario2.frm
+18/12/2015  18:02            53,682 FrmRc_horarios.frm
+01/08/2016  10:26            40,394 frm_rc_antiguedad.frm
+31/03/2017  18:07            29,511 frm_rc_cargos.frm
+10/12/2015  16:53            41,010 frm_rc_modalidad_contratacion.frm
+20/07/2016  13:36            33,389 frm_rc_motivos_procesos.frm
+19/07/2016  12:35            34,650 frm_rc_nivel_educacion.frm
+24/04/2015  06:19            32,360 frm_rc_personal_parentesco.frm
+01/08/2016  09:08            42,740 frm_rc_planilla_grupo.frm
+01/08/2016  09:11            40,425 frm_rc_planilla_sub_grupo.frm
+24/04/2015  05:53            51,874 frm_rc_puestos.frm
+25/01/2017  19:31            41,811 rw_basico_nacional.frm
+08/08/2016  19:07            33,654 rw_clasificador_laboral.frm
+14/07/2016  18:55            38,141 rw_planilla_subgrupo.frm
+              16 archivos        607,205 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Clasificadores\Tecnico
+
+27/06/2016  12:11            34,513 frm_ac_negociacion_forma.frm
+               1 archivos         34,513 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Componentes\COPIA_BUSCA
+
+01/11/2001  16:12            42,378 GrFrmClBuscaEnGridPropio.frm
+               1 archivos         42,378 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Componentes\FormsBusca
+
+09/01/2003  23:08            32,741 GrFrmBuscaEnGridExterno.frm
+01/11/2001  16:12            31,512 GrFrmClBuscaEnGridExterno.frm
+01/11/2001  16:12            42,378 GrFrmClBuscaEnGridPropio.frm
+               3 archivos        106,631 bytes
+
+ Directorio de D:\Jorge\SIGCGI\Componentes\FormsPruebas
+
+06/09/2002  05:43             6,015 FrmPruebaBusca.frm
+31/05/2000  19:11             1,323 FrmPruebaBusca1.frm
+               2 archivos          7,338 bytes
+
+ Directorio de D:\Jorge\SIGCGI\descargos
+
+03/01/2017  11:44           490,065 fw_Descargos.frm
+               1 archivos        490,065 bytes
+
+ Directorio de D:\Jorge\SIGCGI\DOCS
+
+20/02/2017  15:36            10,996 Form1.frm
+18/01/2017  19:29             4,131 Form1A.frm
+               2 archivos         15,127 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsAlmacen
+
+25/04/2012  20:14            18,343 ALFrmAlmacen.frm
+30/05/2012  17:44            40,600 ALFrmCLDestinos.frm
+24/11/2011  10:10            38,366 ALFrmCLDestinos_ant.frm
+20/07/2012  03:13            85,214 AlFrmCreaMaterial.frm
+08/08/2011  16:02             7,998 ALFrmEntDet.frm
+08/08/2011  16:02            11,869 ALFrmEntregaDet.frm
+06/09/2002  04:42            10,256 ALFrmEntregaManual.frm
+20/08/2011  13:09            13,724 AlFrmExistencia_Almacen.frm
+15/01/2012  00:55             8,781 ALFrmIngDeLici.frm
+08/08/2011  16:02            15,851 ALFrmIngresoDet.frm
+17/04/2008  17:25            44,141 AlFrmIngresoMaterial.frm
+05/09/2011  08:50            21,311 AlFrmIngUnidadMedida.frm
+25/04/2012  19:03            22,914 AlFrmMarcas.frm
+08/08/2011  16:02             5,563 ALFrmMateriales.frm
+17/07/2012  17:35           144,659 AlFrmTransfer.frm
+25/04/2012  19:03            21,955 AlFrmUnidadMedida.frm
+05/09/2012  21:34            38,232 ALFrm_montado.frm
+31/07/2011  13:08            31,921 AlFrm_montador.frm
+14/08/2000  11:33             8,685 AlmCLFrmProveedor.frm
+24/05/2012  13:04            33,869 AlmFrmCLGrupos.frm
+25/04/2012  19:04            13,863 AlmFrmInventario.frm
+29/05/2008  16:01            51,841 AlmFrmSalidaMaterial.frm
+12/11/2007  21:57            51,501 AlmFrmSalidaMaterialF11.frm
+20/04/2017  09:46           383,178 aw_almacen_salida.frm
+24/03/2017  19:49           142,071 aw_almacen_salida_mant.frm
+25/03/2017  16:39           394,710 aw_almacen_traspaso.frm
+19/04/2017  09:33            71,481 aw_bienes_adjudica.frm
+02/02/2017  12:12           210,777 aw_compra_bienes.frm
+28/12/2016  14:58            55,092 aw_orden_pago.frm
+18/03/2017  19:41           207,253 aw_requerimiento_compra.frm
+19/04/2017  19:10           166,738 aw_salida_almacen_mant.frm
+19/03/2017  02:57            95,577 aw_solicitud_bienes_insumos.frm
+01/01/2009  11:25            54,536 Copia AlFrmCreaMaterial.frm
+18/08/2000  21:42             3,499 frmIngreso.frm
+03/04/2012  01:58             9,062 frmListaStock.frm
+17/08/2015  19:43           437,236 frm_almacen_salida.frm
+30/12/2015  18:58           100,854 frm_almacen_salida_zonas.frm
+30/01/2017  19:38            67,170 frm_ao_compra_grupo.frm
+17/11/2016  10:02           202,065 frm_ao_requerimiento_compra.frm
+21/08/2000  09:03             5,316 GrFrmOpciones.frm
+18/08/2000  13:47             3,116 MDIFrmPrincipal.frm
+              41 archivos      3,351,188 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsAlmacen\Copia_EH
+
+01/03/2017  19:45           375,415 aw_almacen_salida.frm
+24/03/2017  19:49           142,071 aw_almacen_salida_mant.frm
+               2 archivos        517,486 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsAlmacen\CpoiaJQ
+
+29/03/2017  11:10           141,666 aw_salida_almacen_mant.frm
+               1 archivos        141,666 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsAlmacen\RESPALDO CORRECCIONES
+
+25/04/2012  19:03            39,498 ALFrmCLDestinos.frm
+23/02/2017  11:27           375,557 aw_almacen_salida.frm
+22/03/2017  19:20           141,666 aw_salida_almacen_mant.frm
+               3 archivos        556,721 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsGenerales
+
+12/12/2012  12:14            12,095 Copia de frmAbout.frm
+04/02/2014  13:23            12,175 frmAbout.frm
+21/04/2017  15:51           127,048 frmMain.frm
+01/08/2000  09:32            47,615 frmMain1.frm
+03/05/2009  20:49            81,705 frmMain_ant.frm
+27/01/2017  09:01            20,332 FrmTipoCambio.frm
+07/03/2013  19:19             2,248 GrFrmOpciones.frm
+               7 archivos        303,218 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsGenerales\Clases
+
+20/01/2016  23:57            34,215 GrFrmBuscaEnGridExterno.frm
+               1 archivos         34,215 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsGenerales\Clases2
+
+19/04/2008  22:43            33,507 GrFrmBuscaEnGridExterno.frm
+               1 archivos         33,507 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsIngresos
+
+17/08/2015  14:42           241,333 Frm_fo_ingresos.frm
+14/06/2014  17:05           224,757 ingresos.frm
+06/07/2001  09:00           186,430 ingresosANT.frm
+28/06/2001  17:41           176,141 ingresosOLD.frm
+               4 archivos        828,661 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsIngresos\oficial\ingresos
+
+31/12/2001  10:59           197,039 ingresos.frm
+               1 archivos        197,039 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsIngresos\pruebas concilia
+
+24/07/2000  11:58             2,380 Form1.frm
+               1 archivos          2,380 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsIngresos\soes\formularios
+
+12/10/2000  10:48             8,457 frmCompRechazo.frm
+06/11/2000  08:28            23,465 frmComprobante.frm
+06/11/2000  09:49            47,384 frmDetalleSoes.frm
+23/10/2000  14:23            28,023 frmFc_bancos.frm
+18/09/2000  08:20             1,677 frmmenu.frm
+22/04/2002  14:35            75,578 frmSoesMain.frm
+               6 archivos        184,584 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPoa
+
+19/07/2014  03:13            52,124 frm_pc_proceso_nivel3.frm
+11/03/2015  16:41           124,125 frm_po_actividad.frm
+03/01/2016  15:52           141,359 frm_po_insumo.frm
+11/03/2015  16:33           119,841 frm_po_objetivo_especifico.frm
+11/03/2015  11:32           111,946 frm_po_objetivo_general.frm
+11/03/2015  17:51           164,145 frm_po_poa.frm
+11/03/2015  11:30           132,007 frm_po_tarea.frm
+11/12/2015  16:53            32,808 pw_p_pc_proceso_nivel1.frm
+28/07/2015  10:17            46,227 pw_p_pc_proceso_nivel2.frm
+               9 archivos        924,582 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto
+
+25/03/2017  08:08           447,180 ff_egresos.frm
+28/08/2011  19:10           428,159 FrmRegularizacion.frm
+               2 archivos        875,339 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\Anulacion_Devolucion
+
+07/08/2000  18:15           379,856 FrmAnulacion.frm
+08/10/2000  19:30           382,062 FrmRegularizacion.frm
+22/07/2000  13:00           355,210 FrmRegularizacionold.frm
+               3 archivos      1,117,128 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\Anulacion_Devolucion\Contabilizacion
+
+23/07/2000  15:27            25,012 Frm_Cont_Mat.frm
+               1 archivos         25,012 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\Anulacion_Devolucion\ModificacionPresupuestaria
+
+28/07/2000  17:01           216,113 FrmModPresup.frm
+12/07/2000  02:41           150,303 ingresos.frm
+               2 archivos        366,416 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\Anulacion_Devolucion\ModificacionPresupuestaria\bak
+
+23/07/2000  18:40           215,346 FrmModPresup.frm
+12/07/2000  02:41           150,303 ingresos.frm
+               2 archivos        365,649 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\Anulacion_Devolucion\ModificacionPresupuestaria\BORRE
+
+21/07/2000  10:10             5,151 NOHAY.frm
+               1 archivos          5,151 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\Contabilizacion
+
+03/04/2012  12:13            36,808 Frm_Cont_Mat.frm
+               1 archivos         36,808 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\ModificacionPresupuestaria
+
+09/04/2010  10:36            14,508 FrmBusqueda.frm
+15/08/2014  09:31           229,621 FrmFormulacion.frm
+04/11/2014  02:22             8,090 frmListaEstProg.frm
+15/08/2014  09:01           219,116 FrmModPresup.frm
+09/04/2010  11:09            24,152 FrmOrigenDestino.frm
+10/07/2016  17:26            36,071 frmRepPresupuesto.frm
+18/08/2014  06:56           239,861 Frm_fo_ppto.frm
+               7 archivos        771,419 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsPresupuesto\ModificacionPresupuestaria\ModificacionPresupuestaria
+
+09/04/2010  10:36            14,508 FrmBusqueda.frm
+09/04/2010  11:02           231,025 FrmFormulacion.frm
+26/03/2008  01:18           248,503 FrmModPresup.frm
+09/04/2010  11:09            24,152 FrmOrigenDestino.frm
+               4 archivos        518,188 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsSeguridad
+
+02/04/2014  16:42             5,720 FrmBuscaFuncionario.frm
+17/04/2014  14:24            13,688 FrmBuscaUsuario.frm
+25/01/2017  18:16            12,185 FrmCambiarClave.frm
+20/02/2017  00:24            12,803 frmLogin.frm
+04/09/2003  00:14            13,720 frmLogin_ant.frm
+17/04/2014  14:24            26,078 FrmNivelesAcceso.frm
+17/04/2014  14:24            25,864 frmPrivAcceso.frm
+13/08/2015  12:17            32,671 FrmSisUsuarios.frm
+11/03/2015  09:34            52,079 frm_pc_proceso_nivel3.frm
+               9 archivos        194,808 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria
+
+01/12/2016  12:39           101,208 ao_solicitud_fondos.frm
+31/05/2000  19:27            70,453 FrmChequesCuenta.frm
+25/08/2000  11:14           226,888 FrmCP.frm
+31/05/2000  19:29            60,048 FrmImprimirComprobantes.frm
+01/07/2000  15:20             1,955 Frmimpr_grid.frm
+31/05/2000  19:32            55,793 FrmTransferencia.frm
+27/09/2016  10:05           157,321 frm_ao_solicitud_servicio_basico.frm
+31/05/2000  19:32             1,963 Frm_rep_grid.frm
+18/03/2017  18:50            99,634 frm_solicitud_bienes7A.frm
+               9 archivos        775,263 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria
+
+10/06/2000  12:27             1,917 ConciliadosGTZ.frm
+05/06/2000  10:28             1,919 Form1.frm
+28/06/2000  09:25             6,112 Form1111.frm
+20/06/2000  15:40             8,705 frmBalanceGral.frm
+27/03/2008  01:11            23,686 FrmComparacion.frm
+24/03/2008  13:57            72,560 FrmConciliacion.frm
+06/06/2000  16:00             5,485 FrmEleccion.frm
+01/12/2002  13:24            28,851 FrmExtractoBancario.frm
+03/07/2000  14:06            27,901 FrmMovimiento.frm
+27/06/2000  17:14             2,096 FrmMovimientoCuentas.frm
+06/06/2000  14:48             2,182 FrmPresentacion.frm
+21/06/2000  10:57             2,081 RepConciliados.frm
+12/06/2000  15:16             2,075 RepConciliadosGTZ.frm
+              13 archivos        185,570 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria\Captura  Banco
+
+26/07/2000  16:15            17,127 Form1.frm
+01/12/2002  12:28            22,493 FrmCapturaDatosBanco.frm
+               2 archivos         39,620 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria\eJEMPLOS
+
+28/06/2000  16:15             5,981 frmBalanceGral.frm
+               1 archivos          5,981 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria\eJEMPLOS\Libro_Mayor_Aux
+
+17/06/2000  18:51            72,574 FrmLMayorAux.frm
+               1 archivos         72,574 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria\Explorador
+
+08/09/1999  08:23             8,406 FrmAcerca.frm
+14/08/1999  18:45             2,185 FrmAcerca.frmFrmAcerca.frm
+12/08/2000  09:15            36,244 FrmExplora.frm
+01/12/2002  13:24            21,035 FrmExplorador.frm
+05/09/1999  06:55             7,190 FrmPropiedades.frm
+31/08/1999  18:11             1,643 FrmpRUEBA.frm
+               6 archivos         76,703 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria\Movimiento de Cuentas
+
+21/06/2000  14:18           160,980 FrmCuentaBancaria.frm
+               1 archivos        160,980 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Conciliacion Bancaria\Movimiento de Cuentas\Impresiones
+
+20/06/2000  10:29             2,384 RepCtaBancaria.frm
+19/06/2000  12:32             2,200 RepCuentaBancaria.frm
+28/06/2000  14:38             2,717 RepMovi.frm
+               3 archivos          7,301 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Consulta Pagos
+
+25/04/2012  19:43            83,274 FrmPagosRealizados.frm
+25/04/2012  19:43            87,358 FrmPagosTotal.frm
+04/07/2000  17:46             1,890 RepPagos.frm
+               3 archivos        172,522 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Contabilizacion
+
+25/05/2000  09:32           116,140 frmtraspaso.frm
+31/05/2000  19:25            12,043 Frm_ContaApag.frm
+               2 archivos        128,183 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\CuentaBancaria_Tesoreria
+
+02/08/2000  16:45           291,740 FrmCuentaBancaria.frm
+25/07/2000  18:21            20,885 FrmFirmadas.frm
+01/12/2002  13:24            21,060 FrmListadoPagos.frm
+01/12/2002  13:24            43,484 FrmPagosProyectos.frm
+               4 archivos        377,169 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\CuentaBancaria_Tesoreria\Cuenta Bancaria
+
+27/06/2000  16:00           162,627 FrmCuentaBancaria.frm
+               1 archivos        162,627 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\CuentaBancaria_Tesoreria\Impresiones
+
+06/07/2000  17:31             2,470 RepCtaBancaria.frm
+19/06/2000  12:32             2,200 RepCuentaBancaria.frm
+25/07/2000  11:00             3,167 RepMovi.frm
+               3 archivos          7,837 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\EntregaCheques
+
+25/04/2012  19:43            77,077 FrmActivacionCheques.frm
+13/06/2000  16:59            31,427 FrmDesplegado.frm
+01/12/2002  13:24            17,966 FrmHistoricoTributosFiscales.frm
+01/12/2002  13:24            45,584 FrmTributosFiscales.frm
+13/06/2000  10:06             1,059 MDIForm1.frm
+09/06/2000  10:23             2,009 RepOperacionesCheques.frm
+21/06/2000  14:25             1,832 RepSoloTributos.frm
+15/06/2000  17:55             1,815 RepTributos.frm
+               8 archivos        178,769 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\FormsSeguridad
+
+31/05/2000  19:26             5,506 FrmBuscaFuncionario.frm
+31/05/2000  19:27             6,948 FrmBuscaUsuario.frm
+31/05/2000  19:27             9,032 FrmCambiarClave.frm
+06/07/2000  18:35            15,654 frmLogin.frm
+06/07/2000  18:35            23,106 FrmNivelesAcceso.frm
+31/05/2000  19:30            14,630 frmPrivAcceso.frm
+30/06/2000  12:22            15,987 FrmSisUsuarios.frm
+               7 archivos         90,863 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\FormulariosEntrada
+
+02/06/2016  18:12           302,263 FrmF01.frm
+27/07/2013  13:45           320,280 FrmS04.frm
+               2 archivos        622,543 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Impresion Comprobantes de Pago
+
+01/12/2002  12:28            14,385 FrmColaImpresion.frm
+25/07/2000  11:00             2,117 FrmComprobante.frm
+25/04/2012  19:43            54,356 FrmImprimeComprobanteNuevo.frm
+01/12/2002  13:24            60,211 FrmImprimirComprobantes.frm
+               4 archivos        131,069 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Impresion de Cheques
+
+25/07/2000  13:51            74,244 FrmChequesCuenta.frm
+25/03/2008  21:18            72,202 FrmChequesNuevo.frm
+25/07/2000  13:51             3,713 RepCheque.frm
+               3 archivos        150,159 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Impresion Transferencias
+
+08/07/2000  14:56             1,448 FrmOpciones.frm
+18/07/2000  17:11            62,513 FrmTransferencia.frm
+25/04/2012  19:43            57,249 FrmTransferenciasNuevo.frm
+01/12/2002  13:23             1,947 RepTransferencia.frm
+               4 archivos        123,157 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Movimiento de Cuentas
+
+21/06/2000  14:18           160,980 FrmCuentaBancaria.frm
+25/04/2012  20:14            31,896 FrmMovimiento.frm
+01/12/2002  13:23            23,289 FrmSaldosBancarios.frm
+01/12/2002  13:24            14,180 FrmSaldosReales.frm
+               4 archivos        230,345 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Movimiento de Cuentas\Impresiones
+
+25/08/2000  11:14            22,791 FrmSaldosBancarios.frm
+20/06/2000  10:29             2,384 RepCtaBancaria.frm
+19/06/2000  12:32             2,200 RepCuentaBancaria.frm
+01/12/2002  13:23             2,847 RepMovi.frm
+               4 archivos         30,222 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Movimiento de Cuentas Jorge
+
+21/06/2000  14:18           160,980 FrmCuentaBancaria.frm
+25/07/2000  10:38            29,620 FrmMovimiento.frm
+25/07/2000  10:38            13,103 FrmSaldosReales.frm
+               3 archivos        203,703 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Movimiento de Cuentas Jorge\Impresiones
+
+20/06/2000  10:29             2,384 RepCtaBancaria.frm
+19/06/2000  12:32             2,200 RepCuentaBancaria.frm
+28/06/2000  14:38             2,717 RepMovi.frm
+               3 archivos          7,301 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Operacion de Cheques
+
+25/03/2008  21:18            35,782 FrmActivacionCheques.frm
+10/03/2012  13:30            23,721 FrmBuscaEnTodo.frm
+01/12/2002  12:27            15,801 FrmConsultaEstadoCheque.frm
+01/12/2002  12:28            13,002 FrmCorrelativos.frm
+07/12/2000  09:52             2,921 FrmCriterioBusqueda.frm
+01/12/2002  13:24            19,495 FrmDesplegado.frm
+01/12/2002  13:23             3,157 FrmInformeProcesos.frm
+25/07/2000  14:12             2,061 RepOperacionesCheques.frm
+               8 archivos        115,940 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Operacion de Cheques_bak
+
+26/08/2000  11:43            72,529 FrmActivacionCheques.frm
+08/11/2000  18:55            13,028 FrmCorrelativos.frm
+08/11/2000  18:55            37,897 FrmDesplegado.frm
+25/07/2000  14:12             2,061 RepOperacionesCheques.frm
+               4 archivos        125,515 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Pagos Pendientes
+
+25/04/2012  19:43           240,174 FrmCP.frm
+09/03/2017  08:48           146,064 fw_fa_gastos_detalle.frm
+02/02/2017  12:12           146,175 fw_gastos_detalle.frm
+               3 archivos        532,413 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Pagos Pendientes\PAgosSQL
+
+23/07/2000  09:27           225,428 FrmCP.frm
+               1 archivos        225,428 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Programacion Financiera
+
+06/11/2008  23:36             8,767 FrmPF.frm
+               1 archivos          8,767 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FormsTesoreria\Traspasosold
+
+06/06/2000  18:41             2,010 Frmimpr_grid.frm
+16/06/2000  12:17           122,700 frmtraspaso.frm
+06/06/2000  18:40             1,943 repComprob_conta.frm
+               3 archivos        126,653 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmCaptura
+
+16/07/2014  12:32           146,597 aw_p_ao_solicitud.frm
+19/03/2017  02:57            21,464 frmexporta.frm
+18/08/2014  23:26            39,240 frm_ao_solicitud_bitacora.frm
+20/06/2016  10:37            80,684 frm_solicitud_bienes.frm
+               4 archivos        287,985 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmCaptura\COPIA
+
+21/07/2016  09:25            21,176 frmexporta.frm
+               1 archivos         21,176 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmComercial
+
+18/03/2017  18:50            43,579 aw_p_ao_negociacion_bitacora.frm
+04/08/2016  17:41           153,993 aw_p_ao_negociacion_cabecera.frm
+18/03/2017  15:01           184,428 aw_p_ao_solicitud.frm
+20/03/2017  13:02           394,013 aw_p_ao_solicitud_calculo_trafico.frm
+20/03/2017  11:04            49,977 aw_p_ao_solicitud_calculo_trafico_det.frm
+14/10/2015  11:41           164,359 aw_p_ao_solicitud_copia.frm
+22/02/2017  11:46           138,178 aw_p_ao_solicitud_cotiza_costos.frm
+04/04/2017  18:49           156,099 aw_p_ao_solicitud_cotiza_costosA.frm
+23/02/2017  16:52           205,669 aw_p_ao_solicitud_cotiza_costosE.frm
+29/10/2015  10:22            61,124 aw_p_ao_solicitud_cotiza_datos.frm
+29/10/2015  10:22            61,008 aw_p_ao_solicitud_cotiza_datosA.frm
+28/08/2015  08:58            61,010 aw_p_ao_solicitud_cotiza_datosE.frm
+22/02/2017  18:28            54,221 aw_p_ao_solicitud_cotiza_detalle.frm
+23/02/2017  17:03            63,913 aw_p_ao_solicitud_cotiza_det_asia.frm
+23/02/2017  17:03            64,197 aw_p_ao_solicitud_cotiza_det_eur.frm
+04/11/2015  08:51           591,117 aw_p_ao_solicitud_cotiza_venta.frm
+18/03/2017  18:50            67,000 aw_p_ao_solicitud_edificacion.frm
+23/02/2017  16:58            17,469 aw_p_ao_solicitud_item_costos.frm
+07/12/2016  18:26           201,513 aw_requerimiento_compra.frm
+22/09/2016  18:04           169,173 frm_ao_compra_proceso.frm
+31/10/2016  17:08           179,302 frm_ao_requerimiento_compra.frm
+17/02/2017  13:16            74,537 frm_ao_solicitud_cotiza_datos.frm
+17/02/2017  13:16            74,025 frm_ao_solicitud_cotiza_datosA.frm
+17/02/2017  13:16            51,014 frm_ao_solicitud_cotiza_datosE.frm
+08/11/2015  23:00           472,569 frm_ao_solicitud_cotiza_venta - copia.frm
+19/04/2017  18:04           497,339 frm_ao_solicitud_cotiza_venta.frm
+07/03/2017  07:57           144,364 mw_calculo_trafico.frm
+21/04/2017  12:11           191,737 mw_solicitud.frm
+20/03/2017  11:53            74,266 mw_solicitud_edificacion.frm
+              29 archivos      4,661,193 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmComercial\Copia
+
+04/05/2015  06:31           224,585 aw_p_ao_solicitud_cotiza_venta.frm
+               1 archivos        224,585 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmComercial\CopiaJQ
+
+17/02/2017  13:16           390,957 aw_p_ao_solicitud_calculo_trafico.frm
+23/06/2016  12:21            40,463 aw_p_ao_solicitud_calculo_trafico_det.frm
+17/06/2016  09:32           137,967 aw_p_ao_solicitud_cotiza_costos.frm
+29/11/2015  23:46           155,764 aw_p_ao_solicitud_cotiza_costosA.frm
+06/01/2017  16:55           205,414 aw_p_ao_solicitud_cotiza_costosE.frm
+29/10/2015  10:22            61,008 aw_p_ao_solicitud_cotiza_datosA.frm
+28/08/2015  08:58            61,010 aw_p_ao_solicitud_cotiza_datosE.frm
+17/02/2017  13:16            53,935 aw_p_ao_solicitud_cotiza_detalle.frm
+04/11/2015  14:42            63,701 aw_p_ao_solicitud_cotiza_det_asia.frm
+06/01/2017  19:42            63,909 aw_p_ao_solicitud_cotiza_det_eur.frm
+30/06/2015  14:59            16,382 aw_p_ao_solicitud_item_costos.frm
+              11 archivos      1,250,510 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmComercial\Copia_ant
+
+05/05/2015  17:25           203,898 aw_p_ao_solicitud_cotiza_venta.frm
+               1 archivos        203,898 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmComercial\Formularios_Ctrl
+
+09/12/2010  10:52           123,490 ac_NoObjecion_c1.frm
+19/10/2010  19:59           106,070 ac_PagosMain.frm
+14/12/2012  10:46           335,339 frmBeneficiario_Control.frm
+06/07/2011  08:10           309,777 frmfo_FA_formulario.frm
+14/12/2012  10:46            35,912 frm_ao_Asistencia.frm
+14/12/2012  10:47            47,292 frm_ao_Permisos.frm
+14/05/2011  22:43            28,288 frm_ao_Vacacion.frm
+14/12/2012  10:46            28,928 frm_ao_Vacacion_Prog.frm
+               8 archivos      1,015,096 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmComercial\new
+
+22/02/2017  10:37            43,072 aw_p_ao_negociacion_bitacora.frm
+04/08/2016  17:41           153,993 aw_p_ao_negociacion_cabecera.frm
+24/02/2017  10:16           177,696 aw_p_ao_solicitud.frm
+22/02/2017  11:09           391,992 aw_p_ao_solicitud_calculo_trafico.frm
+22/02/2017  11:07            40,463 aw_p_ao_solicitud_calculo_trafico_det.frm
+14/10/2015  11:41           164,359 aw_p_ao_solicitud_copia.frm
+22/02/2017  11:46           138,178 aw_p_ao_solicitud_cotiza_costos.frm
+22/02/2017  15:03           156,099 aw_p_ao_solicitud_cotiza_costosA.frm
+23/02/2017  16:52           205,669 aw_p_ao_solicitud_cotiza_costosE.frm
+29/10/2015  10:22            61,124 aw_p_ao_solicitud_cotiza_datos.frm
+29/10/2015  10:22            61,008 aw_p_ao_solicitud_cotiza_datosA.frm
+28/08/2015  08:58            61,010 aw_p_ao_solicitud_cotiza_datosE.frm
+22/02/2017  18:28            54,221 aw_p_ao_solicitud_cotiza_detalle.frm
+23/02/2017  17:03            63,913 aw_p_ao_solicitud_cotiza_det_asia.frm
+23/02/2017  17:03            64,197 aw_p_ao_solicitud_cotiza_det_eur.frm
+04/11/2015  08:51           591,117 aw_p_ao_solicitud_cotiza_venta (2).frm
+04/11/2015  08:51           591,117 aw_p_ao_solicitud_cotiza_venta.frm
+22/02/2017  10:30            66,438 aw_p_ao_solicitud_edificacion.frm
+23/02/2017  16:58            17,469 aw_p_ao_solicitud_item_costos.frm
+07/12/2016  18:26           201,513 aw_requerimiento_compra.frm
+22/09/2016  18:04           169,173 frm_ao_compra_proceso.frm
+31/10/2016  17:08           179,302 frm_ao_requerimiento_compra.frm
+22/02/2017  15:22            74,740 frm_ao_solicitud_cotiza_datos.frm
+23/02/2017  16:20            74,254 frm_ao_solicitud_cotiza_datosA.frm
+22/02/2017  15:10            51,152 frm_ao_solicitud_cotiza_datosE.frm
+08/11/2015  23:00           472,569 frm_ao_solicitud_cotiza_venta - copia.frm
+24/02/2017  10:24           502,883 frm_ao_solicitud_cotiza_venta.frm
+              27 archivos      4,828,721 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmCOMEX
+
+19/04/2017  09:33           134,900 aw_seguimiento_comex.frm
+19/04/2017  09:33            68,789 frm_ao_comex_adjudica.frm
+11/10/2016  10:43            53,922 frm_ao_comex_pagos.frm
+19/04/2017  12:10           185,150 frm_ao_compra_servicio.frm
+22/11/2016  17:04           362,001 Frm_ao_pagos.frm
+               5 archivos        804,762 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmContabilidad
+
+04/01/2016  19:50           252,078 FrmConta_BalApertura - copia.frm
+23/02/2016  16:40           300,410 FrmConta_BalApertura.frm
+04/01/2016  15:27             9,061 frmListaPlanCtas.frm
+14/03/2013  12:42           110,412 FrmLMayorAux.frm
+12/05/2014  18:02           110,440 frmPlanCuentas.frm
+14/05/2014  18:51            90,756 frm_cc_plan_cuentas_ANT.frm
+05/12/2016  10:57           408,765 frm_co_contab_diario.frm
+19/06/2014  00:46           386,740 frm_co_contab_diario_JQ.frm
+18/11/2016  13:21            87,067 frm_co_plan_cuentas.frm
+17/06/2014  10:26           347,980 frm_ManualConta_ANT.frm
+07/04/2017  10:29           121,700 fw_balance_de_apertura.frm
+18/03/2017  18:50           438,262 fw_contab_diario.frm
+10/03/2017  12:05           493,395 fw_Descargos.frm
+10/03/2017  18:20           495,838 fw_nota_credito_debito.frm
+07/04/2017  10:29           138,802 fw_plan_cuentas.frm
+19/03/2017  03:06           162,137 fw_solicitud_fondos.frm
+              16 archivos      3,953,843 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmContabilidad\FraReportes
+
+25/01/2017  16:50            15,378 frmBalanceGral.frm
+26/01/2017  12:10            64,255 Fw_Mayor_Auxiliar.frm
+               2 archivos         79,633 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmDescargos
+
+31/01/2017  17:00           495,295 fw_Descargos.frm
+02/02/2017  12:12           162,315 fw_solicitud_fondos.frm
+               2 archivos        657,610 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH
+
+11/04/2011  00:17            40,751 Aux_Benef.frm
+18/04/2017  08:52           133,591 frm_ReportesRRH.frm
+27/07/2016  19:20             4,443 rw_planilla_financiamiento.frm
+               3 archivos        178,785 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\Copia frmbeneficiario_admin y control
+
+19/10/2016  18:43           380,001 frmBeneficiario_Admin.frm
+24/10/2016  09:21           357,601 frmBeneficiario_Control.frm
+06/02/2017  10:42           132,828 frm_ReportesRRH.frm
+               3 archivos        870,430 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\Copia frmbeneficiario_admin y control\formularios
+
+29/09/2016  15:51            36,739 ac_CapturaDatosPersonales.frm
+30/11/2016  08:27            24,120 ac_CapturaEstudiosRealizados.frm
+30/11/2016  08:27            28,107 ac_CapturaExperienciaLaboral.frm
+22/09/2016  12:53            33,943 ac_CapturaHojaVida.frm
+13/12/2010  01:40            34,495 Ac_Estructura_Org.frm
+29/12/2016  17:31            61,084 Ac_Personal_Contrato.frm
+22/03/2011  10:04            71,506 Ac_Personal_Liquidacion - copia.frm
+27/03/2011  11:06            55,956 Ac_Personal_Liquidacion.frm
+24/07/2014  10:37            43,897 Ac_Puesto_Org.frm
+22/03/2011  10:04            60,737 Ao_Personal_Contrato - copia.frm
+25/11/2010  09:42            34,334 Frm_Estructura_Org.frm
+25/11/2010  09:42            34,334 Frm_Puesto_Org.frm
+06/10/2015  17:23            75,556 frm_ro_ConfirmaFechasContrato.frm
+07/10/2015  22:52            17,630 frm_ro_LiquidaAdiGrupo.frm
+06/10/2015  17:03            22,169 frm_ro_LiquidaAdiPago.frm
+12/10/2014  19:41            28,774 frm_ro_LiquidaConformidad.frm
+06/10/2015  17:47            45,774 frm_ro_LiquidaMontoBen.frm
+06/10/2015  17:47            29,502 frm_ro_SelecBenLiquida.frm
+29/09/2016  15:04            65,173 ro_Personal_Contrato.frm
+24/01/2017  15:06           123,258 ro_Personal_Liquidacion.frm
+16/01/2017  19:09            85,583 ro_Personal_Planilla.frm
+              21 archivos      1,012,671 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\Copia frmbeneficiario_admin y control\FrmAdminPersonal
+
+16/01/2017  08:53           380,973 frmBeneficiario_Admin.frm
+18/02/2016  15:19             7,827 frmListaEstProg.frm
+19/03/2017  03:04           176,605 frm_ao_contratacion.frm
+27/10/2016  11:53            68,766 frm_ao_contratacion_adjudica.frm
+27/09/2016  16:01            80,550 frm_ao_contratacion_calificacion.frm
+06/10/2016  13:45            78,760 frm_ao_contratacion_persona.frm
+19/02/2017  15:10            43,945 frm_ao_solicitud_bitacora.frm
+28/09/2016  11:01            68,701 frm_ao_solicitud_persona.frm
+18/03/2017  19:41           152,275 frm_ao_solicitud_rrhh.frm
+30/11/2016  08:27            70,393 frm_ro_personal_contrato.frm
+06/02/2017  08:57           144,834 rw_contratacion_personal .frm
+              11 archivos      1,273,629 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\Copia frmbeneficiario_admin y control\FrmCtrlPersonal
+
+09/12/2010  10:52           123,490 ac_NoObjecion_c1.frm
+19/10/2010  19:59           106,070 ac_PagosMain.frm
+30/11/2016  09:51           367,431 frmBeneficiario_Control.frm
+06/07/2011  08:10           309,777 frmfo_FA_formulario.frm
+06/10/2014  10:29            38,731 frm_ao_Asistencia.frm
+03/02/2017  09:38            35,543 frm_ao_memoranda.frm
+06/01/2017  10:26            74,677 frm_ao_Permisos _js.frm
+22/09/2016  15:16            69,661 frm_ao_Permisos.frm
+22/09/2016  15:16            69,661 frm_ao_Permisos_ant.frm
+23/09/2016  16:42            31,797 frm_ao_Vacacion.frm
+19/01/2017  18:30            48,480 frm_ao_Vacacion_Prog.frm
+12/10/2014  20:23            75,589 frm_ro_ConfirmaFechasContrato.frm
+12/10/2014  19:52            34,685 frm_ro_HistRelCronoCompro.frm
+14/07/2016  12:45           179,465 frm_ro_LiquidaMain.frm
+30/11/2016  08:27            75,150 frm_ro_movilidad_personal.frm
+20/02/2006  17:01            38,151 frm_ro_PagosPrintOrdenPago (2).frm
+12/10/2014  20:27            38,203 frm_ro_PagosPrintOrdenPago.frm
+12/10/2014  19:59           140,649 frm_ro_pagos_grupos.frm
+29/03/2017  10:11           481,500 rw_ficha_rrhh.frm
+02/12/2016  10:55            54,746 rw_importar_registro_asistencia.frm
+25/03/2017  16:39           355,167 rw_prestamos.frm
+29/11/2016  11:15            14,624 rw_reportes_asistencia.frm
+              22 archivos      2,763,247 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\Copia frmbeneficiario_admin y control\FrmPlanillas
+
+02/02/2017  17:28           336,788 frm_ro_pagos_grupos_principal.frm
+               1 archivos        336,788 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\formularios
+
+29/09/2016  15:51            36,739 ac_CapturaDatosPersonales.frm
+30/11/2016  08:27            24,120 ac_CapturaEstudiosRealizados.frm
+30/11/2016  08:27            28,107 ac_CapturaExperienciaLaboral.frm
+22/09/2016  12:53            33,943 ac_CapturaHojaVida.frm
+13/12/2010  01:40            34,495 Ac_Estructura_Org.frm
+29/12/2016  17:31            61,084 Ac_Personal_Contrato.frm
+22/03/2011  10:04            71,506 Ac_Personal_Liquidacion - copia.frm
+27/03/2011  11:06            55,956 Ac_Personal_Liquidacion.frm
+24/07/2014  10:37            43,897 Ac_Puesto_Org.frm
+22/03/2011  10:04            60,737 Ao_Personal_Contrato - copia.frm
+25/11/2010  09:42            34,334 Frm_Estructura_Org.frm
+25/11/2010  09:42            34,334 Frm_Puesto_Org.frm
+06/10/2015  17:23            75,556 frm_ro_ConfirmaFechasContrato.frm
+07/10/2015  22:52            17,630 frm_ro_LiquidaAdiGrupo.frm
+06/10/2015  17:03            22,169 frm_ro_LiquidaAdiPago.frm
+12/10/2014  19:41            28,774 frm_ro_LiquidaConformidad.frm
+06/10/2015  17:47            45,774 frm_ro_LiquidaMontoBen.frm
+06/10/2015  17:47            29,502 frm_ro_SelecBenLiquida.frm
+29/09/2016  15:04            65,173 ro_Personal_Contrato.frm
+24/01/2017  15:06           123,258 ro_Personal_Liquidacion.frm
+16/01/2017  19:09            85,583 ro_Personal_Planilla.frm
+              21 archivos      1,012,671 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\FrmAdminPersonal
+
+16/01/2017  08:53           380,973 frmBeneficiario_Admin.frm
+18/02/2016  15:19             7,827 frmListaEstProg.frm
+27/10/2016  17:57           176,715 frm_ao_contratacion.frm
+27/10/2016  11:53            68,766 frm_ao_contratacion_adjudica.frm
+27/09/2016  16:01            80,550 frm_ao_contratacion_calificacion.frm
+06/10/2016  13:45            78,760 frm_ao_contratacion_persona.frm
+28/09/2016  11:01            44,025 frm_ao_solicitud_bitacora.frm
+28/09/2016  11:01            68,701 frm_ao_solicitud_persona.frm
+27/10/2016  17:56           152,329 frm_ao_solicitud_rrhh.frm
+30/11/2016  08:27            70,393 frm_ro_personal_contrato.frm
+13/03/2017  09:22           144,955 rw_contratacion_personal .frm
+              11 archivos      1,273,994 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\FrmAdminPersonal - copia
+
+29/11/2016  10:40           380,986 frmBeneficiario_Admin.frm
+18/02/2016  15:19             7,827 frmListaEstProg.frm
+27/10/2016  17:57           176,715 frm_ao_contratacion.frm
+27/10/2016  11:53            68,766 frm_ao_contratacion_adjudica.frm
+27/09/2016  16:01            80,550 frm_ao_contratacion_calificacion.frm
+06/10/2016  13:45            78,760 frm_ao_contratacion_persona.frm
+28/09/2016  11:01            44,025 frm_ao_solicitud_bitacora.frm
+28/09/2016  11:01            68,701 frm_ao_solicitud_persona.frm
+27/10/2016  17:56           152,329 frm_ao_solicitud_rrhh.frm
+29/09/2016  14:29            70,777 frm_ro_personal_contrato.frm
+29/11/2016  09:16           143,878 rw_contratacion_personal .frm
+              11 archivos      1,273,314 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\FrmCtrlPersonal
+
+09/12/2010  10:52           123,490 ac_NoObjecion_c1.frm
+19/10/2010  19:59           106,070 ac_PagosMain.frm
+30/11/2016  09:51           367,431 frmBeneficiario_Control.frm
+06/07/2011  08:10           309,777 frmfo_FA_formulario.frm
+06/10/2014  10:29            38,731 frm_ao_Asistencia.frm
+16/02/2017  18:28            35,547 frm_ao_memoranda.frm
+06/01/2017  10:26            74,677 frm_ao_Permisos _js.frm
+22/09/2016  15:16            69,661 frm_ao_Permisos.frm
+22/09/2016  15:16            69,661 frm_ao_Permisos_ant.frm
+23/09/2016  16:42            31,797 frm_ao_Vacacion.frm
+19/01/2017  18:30            48,480 frm_ao_Vacacion_Prog.frm
+12/10/2014  20:23            75,589 frm_ro_ConfirmaFechasContrato.frm
+12/10/2014  19:52            34,685 frm_ro_HistRelCronoCompro.frm
+14/07/2016  12:45           179,465 frm_ro_LiquidaMain.frm
+30/11/2016  08:27            75,150 frm_ro_movilidad_personal.frm
+20/02/2006  17:01            38,151 frm_ro_PagosPrintOrdenPago (2).frm
+12/10/2014  20:27            38,203 frm_ro_PagosPrintOrdenPago.frm
+12/10/2014  19:59           140,649 frm_ro_pagos_grupos.frm
+18/04/2017  09:22           486,752 rw_ficha_rrhh.frm
+02/12/2016  10:55            54,746 rw_importar_registro_asistencia.frm
+31/03/2017  10:16           391,966 rw_prestamos.frm
+29/11/2016  11:15            14,624 rw_reportes_asistencia.frm
+              22 archivos      2,805,302 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\FrmCtrlPersonal - copia
+
+09/12/2010  10:52           123,490 ac_NoObjecion_c1.frm
+19/10/2010  19:59           106,070 ac_PagosMain.frm
+29/11/2016  10:48           367,376 frmBeneficiario_Control.frm
+06/07/2011  08:10           309,777 frmfo_FA_formulario.frm
+06/10/2014  10:29            38,731 frm_ao_Asistencia.frm
+28/10/2016  17:50            32,720 frm_ao_memoranda.frm
+29/09/2016  15:54            75,615 frm_ao_Permisos _js.frm
+22/09/2016  15:16            69,661 frm_ao_Permisos.frm
+23/09/2016  16:42            31,797 frm_ao_Vacacion.frm
+11/11/2016  10:11            47,959 frm_ao_Vacacion_Prog.frm
+12/10/2014  20:23            75,589 frm_ro_ConfirmaFechasContrato.frm
+12/10/2014  19:52            34,685 frm_ro_HistRelCronoCompro.frm
+14/07/2016  12:45           179,465 frm_ro_LiquidaMain.frm
+31/10/2016  18:33            75,370 frm_ro_movilidad_personal.frm
+20/02/2006  17:01            38,151 frm_ro_PagosPrintOrdenPago (2).frm
+12/10/2014  20:27            38,203 frm_ro_PagosPrintOrdenPago.frm
+12/10/2014  19:59           140,649 frm_ro_pagos_grupos.frm
+30/09/2016  19:42            47,971 rw_importar_registro_asistencia.frm
+29/11/2016  09:29           391,507 rw_prestamos.frm
+29/11/2016  11:15            14,624 rw_reportes_asistencia.frm
+              20 archivos      2,239,410 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\FrmPlanillas
+
+17/04/2017  15:05           338,299 frm_ro_pagos_grupos_principal.frm
+               1 archivos        338,299 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmRRHH\FrmPlanillas_ANT
+
+24/01/2017  16:44           335,933 frm_ro_pagos_grupos_principal.frm
+               1 archivos        335,933 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmServicioBasico
+
+19/03/2017  02:57            42,284 aw_p_ao_bitacora.frm
+24/11/2016  11:23           172,534 frm_ao_solicitud_servicio_basico.frm
+12/04/2017  11:45            92,614 frm_solicitud_bienes_gral.frm
+30/01/2017  11:46            82,489 frm_solicitud_bienes_sb.frm
+20/04/2017  11:33           116,685 fw_adjudica_gral.frm
+20/04/2017  11:28           249,710 fw_compras_gral.frm
+29/03/2017  10:26            53,616 fw_orden_pago.frm
+17/03/2017  09:13            53,514 fw_pagos_gral.frm
+18/03/2017  19:41           175,063 fw_solicitud_compras.frm
+19/03/2017  03:04           172,218 fw_solicitud_servicio_basico.frm
+              10 archivos      1,210,727 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmServicioBasico\COPIA
+
+24/11/2016  11:23           172,534 frm_ao_solicitud_servicio_basico.frm
+30/01/2017  11:46            82,489 frm_solicitud_bienes_sb.frm
+17/10/2016  10:55            69,176 fw_adjudica_gral.frm
+15/02/2017  10:58           185,601 fw_compras_gral.frm
+11/10/2016  10:43            53,922 fw_orden_pago.frm
+               5 archivos        563,722 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmServicioBasico\FrmServicioBasico
+
+18/10/2016  12:29            42,304 aw_p_ao_bitacora.frm
+24/11/2016  11:23           172,534 frm_ao_solicitud_servicio_basico.frm
+06/02/2017  17:53            82,490 frm_solicitud_bienes_gral - copia.frm
+24/03/2017  15:05            87,190 frm_solicitud_bienes_gral.frm
+17/10/2016  10:55            69,176 fw_adjudica_gral.frm
+27/03/2017  18:20           208,950 fw_compras_gral.frm
+11/10/2016  10:43            53,922 fw_orden_pago.frm
+17/03/2017  09:13            53,514 fw_pagos_gral.frm
+23/03/2017  14:21           176,866 fw_solicitud_compras.frm
+07/12/2016  19:12           161,283 fw_solicitud_servicio_basico.frm
+              10 archivos      1,108,229 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmTecnico
+
+25/11/2016  18:35            95,157 aw_solicitud_bienes_insumos.frm
+19/02/2017  15:10            67,521 frm_ao_bitacora_emergencia.frm
+19/04/2017  09:33            83,968 frm_solicitud_bienes2.frm
+31/05/2016  23:31            94,301 frm_solicitud_bienes3.frm
+21/01/2016  00:59            95,214 frm_solicitud_bienes5.frm
+18/03/2017  18:50            94,121 frm_solicitud_bienes5A.frm
+21/01/2016  00:59            95,451 frm_solicitud_bienes6.frm
+21/01/2016  00:59           101,605 frm_solicitud_bienes7.frm
+25/03/2017  16:39           111,051 frm_to_calendario_zonas.frm
+06/04/2017  18:47           144,541 frm_to_cronograma_certifica.frm
+28/06/2016  11:13           128,850 frm_to_cronograma_certifica_error.frm
+31/08/2016  09:51           174,896 frm_to_cronograma_mensual - copia.frm
+21/04/2017  12:11           272,660 frm_to_cronograma_mensual.frm
+23/02/2017  19:20           128,203 frm_to_cronograma_zonas.frm
+18/02/2017  23:26           309,512 frm_to_identificacion_cliente.frm
+25/03/2017  16:39           301,354 frm_to_id_emergencia.frm
+19/02/2017  15:10            43,738 frm_to_solicitud_bitacora.frm
+25/12/2014  12:26           187,151 frm_to_solicitud_cotiza_venta.frm
+17/02/2017  10:22           273,351 frm_to_tecnico_cronograma.frm
+20/07/2014  17:08           161,562 frm_to_tecnico_proceso.frm
+17/02/2017  18:45           475,676 frm_to_tecnico_venta.frm
+25/03/2017  16:39           306,328 tw_identificacion_cliente.frm
+19/03/2017  02:57            77,361 tw_solicitud_bienes.frm
+19/03/2017  02:57            94,461 tw_solicitud_bienes3.frm
+19/03/2017  02:57            95,423 tw_solicitud_bienes5.frm
+19/03/2017  02:57            95,590 tw_solicitud_bienes6.frm
+19/03/2017  02:57           101,744 tw_solicitud_bienes7.frm
+22/02/2017  10:57            76,787 tw_solicitud_bienes_jq.frm
+07/02/2017  09:05           268,295 tw_tecnico_cronograma_ant.frm
+10/04/2017  16:07           462,829 tw_tecnico_venta.frm
+              30 archivos      5,018,701 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmVentas
+
+19/04/2017  09:21           366,774 aw_seguimiento_cobranzas.frm
+02/01/2017  19:23            49,165 frm_ao_ventas_alcance.frm
+10/04/2017  12:50           498,501 Frm_ao_ventas_cabecera.frm
+18/04/2017  19:31           550,860 Frm_ao_ventas_cobranzas.frm
+27/09/2016  09:34           373,144 Frm_ao_ventas_seguimiento.frm
+14/12/2015  10:55            58,323 Frm_Imprime_Factura.frm
+20/04/2017  17:41           106,545 frm_VentasReportes.frm
+19/04/2017  09:09            55,252 fw_seg_cobranza_parametro.frm
+19/04/2017  18:04           502,246 mw_ventas_cabecera.frm
+               9 archivos      2,560,810 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmVentas\Anterior
+
+02/10/2008  09:55            66,637 FrmCapturaBienV.frm
+28/07/2012  22:23           251,196 FrmVentas.frm
+25/04/2012  19:43            55,220 FrmVentasCobranzas.frm
+18/11/2008  02:19            54,674 FrmVentasCobranzas_H.frm
+25/04/2012  19:43            71,763 FrmVentasDetalle.frm
+24/12/2008  13:53           126,638 FrmVentas_H.frm
+22/09/2016  10:58           537,625 Frm_ao_ventas_cobranzas.frm
+               7 archivos      1,163,753 bytes
+
+ Directorio de D:\Jorge\SIGCGI\FrmVentas\JR
+
+15/09/2016  15:47           533,521 Frm_ao_ventas_cobranzas.frm
+               1 archivos        533,521 bytes
+
+     Total de archivos en la lista:
+             657 archivos     68,048,327 bytes
+               0 dirs  144,741,457,920 bytes libres

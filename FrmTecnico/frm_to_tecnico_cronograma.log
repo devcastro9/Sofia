@@ -1,0 +1,5 @@
+Línea 1515: la clase MSComCtl2.DTPicker del control DTPFechaInicio no era una clase de control cargada.
+Línea 1541: la clase MSComCtl2.DTPicker del control DTPFechaFin no era una clase de control cargada.
+Línea 2040: la clase MSComCtl2.DTPicker del control DTPfechasol no era una clase de control cargada.
+Línea 2195: la clase MSComCtl2.DTPicker del control lbl_fecha_ini no era una clase de control cargada.
+Línea 2221: la clase MSComCtl2.DTPicker del control lbl_fecha_fin no era una clase de control cargada.

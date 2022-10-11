@@ -1,0 +1,12 @@
+Línea 12: la propiedad Icon de frm_rc_antiguedad tenía una referencia a archivo no válida.
+Línea 33: la propiedad Picture de BtnDesAprobar tenía una referencia a archivo no válida.
+Línea 47: la propiedad Picture de BtnAñadir tenía una referencia a archivo no válida.
+Línea 61: la propiedad Picture de BtnModificar tenía una referencia a archivo no válida.
+Línea 75: la propiedad Picture de BtnEliminar tenía una referencia a archivo no válida.
+Línea 89: la propiedad Picture de BtnAprobar tenía una referencia a archivo no válida.
+Línea 103: la propiedad Picture de BtnBuscar tenía una referencia a archivo no válida.
+Línea 117: la propiedad Picture de BtnImprimir tenía una referencia a archivo no válida.
+Línea 131: la propiedad Picture de BtnSalir tenía una referencia a archivo no válida.
+Línea 183: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 197: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 282: la propiedad Bindings de dg_datos tenía una referencia a archivo no válida.

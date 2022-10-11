@@ -1,0 +1,10 @@
+Línea 37: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 51: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 336: la propiedad ItemData de cmd_unimed2 tenía una referencia a archivo no válida.
+Línea 338: la propiedad List de cmd_unimed2 tenía una referencia a archivo no válida.
+Línea 371: la propiedad ItemData de cmb_mes_ini tenía una referencia a archivo no válida.
+Línea 373: la propiedad List de cmb_mes_ini tenía una referencia a archivo no válida.
+Línea 495: la propiedad Bindings de dtc_desc5 tenía una referencia a archivo no válida.
+Línea 512: la propiedad Bindings de dtc_codigo5 tenía una referencia a archivo no válida.
+Línea 541: la propiedad Bindings de dtc_aux4 tenía una referencia a archivo no válida.
+Línea 570: la propiedad Bindings de dtc_aux5 tenía una referencia a archivo no válida.

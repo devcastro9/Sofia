@@ -1,0 +1,14 @@
+Línea 24: la propiedad Picture de FraGrabarCancelar tenía una referencia a archivo no válida.
+Línea 36: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 48: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.
+Línea 140: la propiedad Bindings de dtc_desc2 tenía una referencia a archivo no válida.
+Línea 159: la propiedad Bindings de dtc_codigo2 tenía una referencia a archivo no válida.
+Línea 463: la propiedad Bindings de dtc_codigo1 tenía una referencia a archivo no válida.
+Línea 480: la propiedad Bindings de dtc_desc1 tenía una referencia a archivo no válida.
+Línea 500: la propiedad Bindings de Txt_campo4 tenía una referencia a archivo no válida.
+Línea 519: la propiedad Bindings de Txt_campo2 tenía una referencia a archivo no válida.
+Línea 538: la propiedad Bindings de Txt_campo3 tenía una referencia a archivo no válida.
+Línea 557: la propiedad Bindings de Txt_campo18 tenía una referencia a archivo no válida.
+Línea 699: la propiedad Bindings de dtc_aux3 tenía una referencia a archivo no válida.
+Línea 741: la propiedad Bindings de dtc_aux2 tenía una referencia a archivo no válida.
+Línea 799: la propiedad Bindings de dtc_aux1 tenía una referencia a archivo no válida.

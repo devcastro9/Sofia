@@ -1,0 +1,25 @@
+Línea 15: la propiedad Icon de aw_salida_almacen_mant tenía una referencia a archivo no válida.
+Línea 108: la propiedad Picture de BtnGraba3 tenía una referencia a archivo no válida.
+Línea 120: la propiedad Picture de BtnCancelar3 tenía una referencia a archivo no válida.
+Línea 249: la propiedad Bindings de dtc_codigo2 tenía una referencia a archivo no válida.
+Línea 267: la propiedad Bindings de dtc_desc2 tenía una referencia a archivo no válida.
+Línea 287: la propiedad Picture de BtnImprimir4 tenía una referencia a archivo no válida.
+Línea 303: la propiedad Picture de BtnBuscar2 tenía una referencia a archivo no válida.
+Línea 318: la propiedad Picture de BtnImprimir2 tenía una referencia a archivo no válida.
+Línea 333: la propiedad Picture de BtnAprobarDet tenía una referencia a archivo no válida.
+Línea 349: la propiedad Picture de BtnCancelarDet tenía una referencia a archivo no válida.
+Línea 364: la propiedad Picture de BtnGrabarDet tenía una referencia a archivo no válida.
+Línea 379: la propiedad Picture de BtnModDetalle tenía una referencia a archivo no válida.
+Línea 393: la propiedad Picture de BtnAnlDetalle tenía una referencia a archivo no válida.
+Línea 425: la propiedad Bindings de TDBGrid1 tenía una referencia a archivo no válida.
+Línea 429: la propiedad OleObjectBlob de TDBGrid1 tenía una referencia a archivo no válida.
+Línea 424: no se puede cargar el control TDBGrid1.
+Línea 603: la propiedad Picture de BtnAñadir tenía una referencia a archivo no válida.
+Línea 618: la propiedad Picture de BtnModificar tenía una referencia a archivo no válida.
+Línea 633: la propiedad Picture de BtnEliminar tenía una referencia a archivo no válida.
+Línea 648: la propiedad Picture de BtnAprobar tenía una referencia a archivo no válida.
+Línea 663: la propiedad Picture de BtnBuscar tenía una referencia a archivo no válida.
+Línea 677: la propiedad Picture de BtnImprimir tenía una referencia a archivo no válida.
+Línea 691: la propiedad Picture de BtnSalir tenía una referencia a archivo no válida.
+Línea 728: la propiedad Picture de BtnCancelar tenía una referencia a archivo no válida.
+Línea 742: la propiedad Picture de BtnGrabar tenía una referencia a archivo no válida.

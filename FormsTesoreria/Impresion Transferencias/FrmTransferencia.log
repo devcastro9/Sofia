@@ -1,0 +1,16 @@
+Línea 244: la clase ComctlLib.Toolbar del control Toolbar1 no era una clase de control cargada.
+Línea 423: la clase MSDataGridLib.DataGrid del control DtgTransferencias no era una clase de control cargada.
+Línea 250: el nombre de la propiedad _ExtentX de Toolbar1 no es válido.
+Línea 251: el nombre de la propiedad _ExtentY de Toolbar1 no es válido.
+Línea 253: el nombre de la propiedad _Version de Toolbar1 no es válido.
+Línea 429: el nombre de la propiedad _ExtentX de DtgTransferencias no es válido.
+Línea 430: el nombre de la propiedad _ExtentY de DtgTransferencias no es válido.
+Línea 431: el nombre de la propiedad _Version de DtgTransferencias no es válido.
+Línea 432: el nombre de la propiedad HeadLines de DtgTransferencias no es válido.
+Línea 433: el nombre de la propiedad RowHeight de DtgTransferencias no es válido.
+Línea 442: el nombre de la propiedad HeadFont de DtgTransferencias no es válido.
+Línea 452: el nombre de la propiedad ColumnCount de DtgTransferencias no es válido.
+Línea 465: el nombre de la propiedad Column00 de DtgTransferencias no es válido.
+Línea 478: el nombre de la propiedad Column01 de DtgTransferencias no es válido.
+Línea 479: el nombre de la propiedad SplitCount de DtgTransferencias no es válido.
+Línea 485: el nombre de la propiedad Split0 de DtgTransferencias no es válido.

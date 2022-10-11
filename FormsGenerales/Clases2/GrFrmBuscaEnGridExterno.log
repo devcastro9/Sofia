@@ -1,0 +1,17 @@
+Línea 19: la clase MSComctlLib.Toolbar del control TbrAvanzadas no era una clase de control cargada.
+Línea 130: la clase MSComctlLib.ImageList del control ImlImagenesAv no era una clase de control cargada.
+Línea 26: el nombre de la propiedad _ExtentX de TbrAvanzadas no es válido.
+Línea 27: el nombre de la propiedad _ExtentY de TbrAvanzadas no es válido.
+Línea 28: el nombre de la propiedad ButtonWidth de TbrAvanzadas no es válido.
+Línea 29: el nombre de la propiedad ButtonHeight de TbrAvanzadas no es válido.
+Línea 31: el nombre de la propiedad TextAlignment de TbrAvanzadas no es válido.
+Línea 32: el nombre de la propiedad ImageList de TbrAvanzadas no es válido.
+Línea 33: el nombre de la propiedad _Version de TbrAvanzadas no es válido.
+Línea 115: el nombre de la propiedad Buttons de TbrAvanzadas no es válido.
+Línea 133: el nombre de la propiedad _ExtentX de ImlImagenesAv no es válido.
+Línea 134: el nombre de la propiedad _ExtentY de ImlImagenesAv no es válido.
+Línea 136: el nombre de la propiedad ImageWidth de ImlImagenesAv no es válido.
+Línea 137: el nombre de la propiedad ImageHeight de ImlImagenesAv no es válido.
+Línea 138: el nombre de la propiedad MaskColor de ImlImagenesAv no es válido.
+Línea 139: el nombre de la propiedad _Version de ImlImagenesAv no es válido.
+Línea 174: el nombre de la propiedad Images de ImlImagenesAv no es válido.

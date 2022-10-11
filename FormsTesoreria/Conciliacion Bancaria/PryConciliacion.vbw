@@ -1,0 +1,12 @@
+FrmConciliacion = 37, 21, 549, 465, , 302, 117, 604, 234, C
+FrmComparacion = 302, 351, 604, 468, C, 302, 0, 604, 117, C
+Module1 = 302, 234, 604, 351, 
+FrmPresentacion = 43, 114, 568, 558, C, 52, 80, 577, 524, C
+FrmEleccion = -98, 198, 427, 642, C, 0, 0, 525, 444, C
+RepConciliados = 132, 132, 788, 496, C, 132, 132, 672, 576, CZ
+CryConciliados = 0, 0, 0, 0, C, -394, 110, 266, 722, C
+CryConciliadosGTZ = 0, 0, 0, 0, C, 44, 44, 704, 656, C
+RepConciliadosGTZ = 176, 176, 635, 620, C, 154, 154, 613, 598, CZ
+FrmCuentas = 110, 110, 497, 554, C, 0, 312, 302, 468, C
+RepMovi = 44, 44, 469, 335, C, 132, 132, 410, 452, CZ
+CryMovi = 0, 0, 0, 0, C, 132, 132, 868, 633, C

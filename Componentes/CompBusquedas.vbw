@@ -1,0 +1,4 @@
+ClBuscaBinariaEnRS = 0, 0, 327, 502, C
+ClBuscaEnGridExterno = -3, 231, 661, 560, C
+ClBuscaSecuencialEnRS = 327, 0, 654, 502, C
+GrFrmBuscaEnGridExterno = 66, 66, 641, 510, , 66, 66, 658, 506, C
