@@ -280,16 +280,19 @@ On Error Resume Next
            Encontrado = False
            Exit Sub
          Else
-           rsAccesoSistema.AddNew
-           rsAccesoSistema!usr_codigo = glusuario
-           rsAccesoSistema!maquina = Trim(GlMaquina)
-           rsAccesoSistema!FechaLogin = Date & " " & Time
-           rsAccesoSistema!estadosesion = "A" 'Sesion con el sistema A=Activo T=terminado I=Interrumpido
-           rsAccesoSistema!SalidaSistema = "A"  'Salida del sistema A=Anormal  N=Normal
-           rsAccesoSistema!version_principal = App.Major   'Salida del sistema version_principal
-           rsAccesoSistema!version_secundaria = App.Minor   'Salida del sistema version_secundaria
-           rsAccesoSistema!version_revision = App.Revision   'Salida del sistema version_revision
-           rsAccesoSistema.Update
+            db.Execute "INSERT INTO gc_accesosistema (usr_codigo, maquina, fechalogin, estadosesion, salidasistema, version_principal, version_secundaria, version_revision) " & _
+            " VALUES ('" & glusuario & "', '" & Trim(GlMaquina) & "', '" & Date & " " & Time & "', 'A', 'A', " & App.Major & ", " & App.Minor & ", " & App.Revision & ")"
+            
+           'rsAccesoSistema.AddNew
+           'rsAccesoSistema!usr_codigo = glusuario
+           'rsAccesoSistema!maquina = Trim(GlMaquina)
+           'rsAccesoSistema!FechaLogin = Date & " " & Time
+           'rsAccesoSistema!estadosesion = "A" 'Sesion con el sistema A=Activo T=terminado I=Interrumpido
+           'rsAccesoSistema!SalidaSistema = "A"  'Salida del sistema A=Anormal  N=Normal
+           'rsAccesoSistema!version_principal = App.Major   'Salida del sistema version_principal
+           'rsAccesoSistema!version_secundaria = App.Minor   'Salida del sistema version_secundaria
+           'rsAccesoSistema!version_revision = App.Revision   'Salida del sistema version_revision
+           'rsAccesoSistema.Update
          End If
       End If
    End If
