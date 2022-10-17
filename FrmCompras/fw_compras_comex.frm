@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   10935
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   108986369
+         Format          =   118095873
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2738,10 +2738,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   20250
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   10935
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4017,6 +4017,10 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
 End Sub
 
 Private Sub BtnAddDetalle1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo UpdateErr
     ' DETALLE DE BIENES COMPRA
  If Ado_datos.Recordset.RecordCount > 0 Then
@@ -4160,6 +4164,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAddDetalle2_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo UpdateErr
 'Timer1.Enabled = False
 'Registro de FACTURA o RECIBO
@@ -4474,6 +4482,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAnlDetalle1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 
 'If rs_datos!estado_codigo <> "REG" Or Ado_detalle2.Recordset!estado_codigo = "REG" Then
 'sino = MsgBox("NO se puede eliminar este registro si ya esta aprobado o anulado")
@@ -4534,6 +4546,10 @@ Private Sub BtnAnlDetalle1_Click()
 End Sub
 
 Private Sub BtnAnlDetalle2_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
    sino = MsgBox("Está Seguro de ANULAR el Registro Activo ? ", vbYesNo + vbQuestion, "Atención")
    If Ado_detalle1.Recordset("estado_codigo") = "REG" Then
       If sino = vbYes Then
@@ -4550,6 +4566,10 @@ Private Sub BtnAnlDetalle2_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
   
   If parametro = "COMEX" Then
@@ -4719,6 +4739,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAprobar1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
     Set rs_datos4A = New ADODB.Recordset
     If rs_datos4A.State = 1 Then rs_datos4A.Close
     rs_datos4A.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
@@ -5018,7 +5042,7 @@ End If
 '          End If
         ' envia BIENES A LA FACTURA
          Call BIENES
-        If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
+        If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
            CORRELARIVO1 = "0"  'CORRELATIVO PARA SALDOS INICIALES
            Set rs_det1A = New ADODB.Recordset
            If rs_det1A.State = 1 Then rs_det1A.Close
@@ -5123,7 +5147,11 @@ AddErr:
 End Sub
 
 Private Sub BtnAprobar4_Click()
- If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!edif_codigo <> "20101-3") And (Ado_datos.Recordset!edif_codigo <> "70101-3") And (Ado_datos.Recordset!edif_codigo <> "30101-3") And (Ado_datos.Recordset!edif_codigo <> "10101-3") Then
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+ If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!EDIF_CODIGO <> "20101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "70101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "30101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "10101-3") Then
     If (Ado_detalle2.Recordset.RecordCount > 0) And (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
         VAR_COMPRA = Ado_datos.Recordset!compra_codigo
         'INI correlativo ALMACEN
@@ -5291,6 +5319,10 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
    If Ado_datos.Recordset.RecordCount > 0 Then
     Select Case Glaux
@@ -5482,7 +5514,7 @@ Private Sub BtnGrabar_Click()
      
      
      rs_datos!compra_fecha = DTPfecha1.Value
-     rs_datos!edif_codigo = dtc_codigo3.Text
+     rs_datos!EDIF_CODIGO = dtc_codigo3.Text
      rs_datos!depto_codigo = Left(Trim(dtc_codigo3.Text), 1)
 '     If dtc_codigo3.Text = "20101-5" Then
 '        'rs_datos!beneficiario_codigo = dtc_aux3.Text
@@ -5865,6 +5897,10 @@ Private Sub BtnImprimir4_Click()
 End Sub
 
 Private Sub BtnModDetalle1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 'On Error GoTo UpdateErr
  
      If Ado_datos.Recordset.RecordCount > 0 Then
@@ -6100,6 +6136,10 @@ End If
 End Sub
 
 Private Sub BtnModDetalle2_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo UpdateErr
     If Ado_datos.Recordset.RecordCount > 0 Then
     Select Case Glaux
@@ -6315,6 +6355,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnModificar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo EditErr
   
   If Ado_datos.Recordset.RecordCount > 0 Then
@@ -6498,7 +6542,7 @@ On Error GoTo UpdateErr
                 sino = MsgBox("No Se Puede Quitar Este ITEM, Ya Esta APROBADO(APR) como Ingreso a Almacén...", vbCritical, "ERROR")
                 Exit Sub
             End If
-            If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
+            If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
                 db.Execute "update ao_almacen_TOTALES SET stock_ingreso = stock_ingreso - " & Ado_detalle1A.Recordset!adjudica_cantidad & " WHERE WHERE almacen_codigo = " & Ado_detalle1A.Recordset!almacen & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "'  "
                 db.Execute "DELETE ao_almacen_ingresos WHERE compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
                 db.Execute "update ao_compra_detalle set estado_codigo = 'REG' WHERE compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
@@ -7663,6 +7707,10 @@ Private Sub Ado_datos_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub BtnAñadir_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 'dg_det1.Visible = False
 'dg_det2.Visible = False
 'dg_det3.Visible = False

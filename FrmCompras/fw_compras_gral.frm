@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_gral
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   117440513
+         Format          =   109314049
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2799,10 +2799,10 @@ Begin VB.Form fw_compras_gral
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   10935
-      Width           =   20250
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4222,6 +4222,10 @@ Private Sub BtnAddDetalle_Click()
 End Sub
 
 Private Sub BtnAddDetalle1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo UpdateErr
 
  If Ado_datos.Recordset.RecordCount > 0 Then
@@ -4367,6 +4371,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAddDetalle2_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo UpdateErr
  Timer1.Enabled = False
   If parametro <> "COMEX" Then
@@ -4621,6 +4629,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAnlDetalle1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 
 'If rs_datos!estado_codigo <> "REG" Or Ado_detalle2.Recordset!estado_codigo = "REG" Then
 'sino = MsgBox("NO se puede eliminar este registro si ya esta aprobado o anulado")
@@ -4681,6 +4693,10 @@ Set rs_aux8 = New ADODB.Recordset
 End Sub
 
 Private Sub BtnAnlDetalle2_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
    sino = MsgBox("Está Seguro de ANULAR el Registro Activo ? ", vbYesNo + vbQuestion, "Atención")
    If Ado_detalle1.Recordset("estado_codigo") = "REG" Then
       If sino = vbYes Then
@@ -4697,6 +4713,10 @@ Private Sub BtnAnlDetalle2_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
   
 '  If parametro = "COMEX" Then
@@ -4867,6 +4887,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAprobar1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo AddErr
  If glusuario = "" Or glusuario = "" Then
     If Ado_datos.Recordset.RecordCount > 0 Then
@@ -4884,7 +4908,6 @@ On Error GoTo AddErr
        Ado_detalle2.Recordset("fecha_aprueba") = Date
        Ado_detalle2.Recordset("fecha_recibe_almacen") = Date
        Ado_detalle2.Recordset.Update
-    
     End If
 End If
 
@@ -5425,6 +5448,10 @@ AddErr:
 End Sub
 
 Private Sub BtnAprobar4_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
  If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!EDIF_CODIGO <> "20101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "70101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "30101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "10101-3") Then
     'If (Ado_detalle2.Recordset.RecordCount > 0) And (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
     If (Ado_detalle2.Recordset.RecordCount > 0) Or (Ado_detalle2.Recordset!estado_codigo = "REG") Then
@@ -5532,6 +5559,10 @@ Private Sub BtnAprobar4_Click()
 End Sub
 
 Private Sub BtnAprobar5_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 'update ao_compra_adjudica_bienes set ao_compra_adjudica_bienes.bien_precio_adjudica_bs = ao_compra_detalle.compra_precio_unitario_bs
 'FROM ao_compra_adjudica_bienes INNER JOIN ao_compra_detalle
 'ON ao_compra_adjudica_bienes.compra_codigo = ao_compra_detalle.compra_codigo AND ao_compra_adjudica_bienes.bien_codigo  = ao_compra_detalle.bien_codigo
@@ -5649,6 +5680,10 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
    If Ado_datos.Recordset.RecordCount > 0 Then
     Select Case Glaux
@@ -6350,6 +6385,10 @@ Private Sub BtnModDetalle_Click()
 End Sub
 
 Private Sub BtnModDetalle1_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 'On Error GoTo UpdateErr
  
     If Ado_datos.Recordset.RecordCount > 0 Then
@@ -6396,7 +6435,7 @@ Private Sub BtnModDetalle1_Click()
           
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_aux1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-           frm_solicitud_bienes_gral.dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+           frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -6406,8 +6445,8 @@ Private Sub BtnModDetalle1_Click()
            frm_solicitud_bienes_gral.Txt_campo14.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
           
            'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-           frm_solicitud_bienes_gral.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-           frm_solicitud_bienes_gral.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+           frm_solicitud_bienes_gral.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+           frm_solicitud_bienes_gral.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
            frm_solicitud_bienes_gral.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
           
            frm_solicitud_bienes_gral.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -6486,6 +6525,10 @@ End If
 End Sub
 
 Private Sub BtnModDetalle2_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 On Error GoTo UpdateErr
  If Ado_datos.Recordset.RecordCount > 0 Then
     Select Case Glaux
@@ -6704,6 +6747,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnModificar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo EditErr
   
   If Ado_datos.Recordset.RecordCount > 0 Then
@@ -7712,6 +7759,10 @@ Private Sub Ado_datos_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub BtnAñadir_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 'dg_det1.Visible = False
 'dg_det2.Visible = False
 'dg_det3.Visible = False

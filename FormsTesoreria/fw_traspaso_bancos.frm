@@ -17,9 +17,9 @@ Begin VB.Form fw_traspaso_bancos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   4.9184e5
+   ScaleHeight     =   5.23732e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   7.80691e7
+   ScaleWidth      =   1.47259e8
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet3 
       BackColor       =   &H00E0E0E0&
@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   109838337
+         Format          =   117112833
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109838337
+         Format          =   117112833
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109838337
+            Format          =   117112833
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -4215,7 +4215,7 @@ Private Sub AbreOrigen()
 '        Case Else
 '            rs_datos6.Open "select * from fv_recibos_pendientes_agrupados WHERE (IdTraspasoBancos is NULL or IdTraspasoBancos ='0')  ", db, adOpenKeyset, adLockOptimistic
 '    End Select
-    Set ado_datos6.Recordset = rs_datos6
+    Set Ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 
 End Sub
@@ -4611,7 +4611,35 @@ Private Sub BtnAprobar1_Click()
 'fecha_destino
     'APRUEBA fo_traspaso_bancos
     db.Execute "update fo_traspaso_bancos set estado_verificado = 'APR', usr_codigo_verificado = '" & glusuario & "', fecha_verificado = '" & Date & "'  where IdTraspasoBancos = " & VAR_RECIBO & " "
-    
+    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+    '-- ACTUALIZA ESTADO TRASPASOS EN fo_recibos_detalle
+    'db.Execute "UPDATE fo_recibos_detalle SET estado_aprueba  ='REG' "
+    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_aprueba  ='APR' FROM fo_recibos_detalle INNER JOIN fo_traspaso_bancos ON fo_recibos_detalle.IdTraspasoBancos= fo_traspaso_bancos.IdTraspasoBancos WHERE fo_traspaso_bancos.estado_verificado = 'APR' --AND fo_recibos_detalle.estado_aprueba <> 'APR' "
+
+    '-- ACTUALIZA ESTADO TRASPASOS EN fo_recibos_detalle
+    db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' "
+    '-- EN BOLIVIANOS
+    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_ingreso_GRAL ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta " & _
+        " AND fo_recibos_detalle.cobranza_bs  = fo_extracto_ingreso_GRAL.monto_bs WHERE (fo_extracto_ingreso_GRAL.cuenta ='2015046557-03-054' OR fo_extracto_ingreso_GRAL.cuenta ='4010439742' OR fo_extracto_ingreso_GRAL.cuenta ='4010620792' OR fo_extracto_ingreso_GRAL.cuenta ='4010644195' OR fo_extracto_ingreso_GRAL.cuenta ='4010772049' " & _
+        " OR fo_extracto_ingreso_GRAL.cuenta ='4011005599' OR fo_extracto_ingreso_GRAL.cuenta ='4011048967' OR fo_extracto_ingreso_GRAL.cuenta ='4011048981' OR fo_extracto_ingreso_GRAL.cuenta ='4069626219' OR fo_extracto_ingreso_GRAL.cuenta ='4069626233' OR fo_extracto_ingreso_GRAL.cuenta ='10000019133060') AND (fo_recibos_detalle.estado_aprueba  ='APR') "
+    '-- EN DOLARES
+    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_ingreso_GRAL ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta " & _
+        " AND fo_recibos_detalle.cobranza_dol = fo_extracto_ingreso_GRAL.monto_dol WHERE (fo_extracto_ingreso_GRAL.cuenta ='201-5041743-2-18' OR fo_extracto_ingreso_GRAL.cuenta ='096359-201-9' OR fo_extracto_ingreso_GRAL.cuenta ='4010038393' OR fo_extracto_ingreso_GRAL.cuenta ='4010620785' OR fo_extracto_ingreso_GRAL.cuenta ='4010780124' OR fo_extracto_ingreso_GRAL.cuenta ='4011005601' " & _
+        " OR fo_extracto_ingreso_GRAL.cuenta ='4011048974' OR fo_extracto_ingreso_GRAL.cuenta ='4069626242' OR fo_extracto_ingreso_GRAL.cuenta ='4069626265' ) AND (fo_recibos_detalle.estado_aprueba  ='APR') "
+
+    '-- ACTUALIZA ESTADO TRASPASOS EN fo_extracto_ingreso_GRAL
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET estado_conciliado = 'REG' "
+    '-- EN BOLIVIANOS
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET fo_extracto_ingreso_GRAL.estado_conciliado = 'APR' FROM fo_extracto_ingreso_GRAL INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta " & _
+        " AND fo_recibos_detalle.cobranza_bs  = fo_extracto_ingreso_GRAL.monto_bs WHERE (fo_extracto_ingreso_GRAL.cuenta ='2015046557-03-054' OR fo_extracto_ingreso_GRAL.cuenta ='4010439742' OR fo_extracto_ingreso_GRAL.cuenta ='4010620792' OR fo_extracto_ingreso_GRAL.cuenta ='4010644195' OR fo_extracto_ingreso_GRAL.cuenta ='4010772049' OR fo_extracto_ingreso_GRAL.cuenta ='4011005599' " & _
+        " OR fo_extracto_ingreso_GRAL.cuenta ='4011048967' OR fo_extracto_ingreso_GRAL.cuenta ='4011048981' OR fo_extracto_ingreso_GRAL.cuenta ='4069626219' OR fo_extracto_ingreso_GRAL.cuenta ='4069626233' OR fo_extracto_ingreso_GRAL.cuenta ='10000019133060') AND (fo_recibos_detalle.estado_aprueba  ='APR') "
+    '-- EN DOLARES
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET estado_conciliado = 'APR' FROM fo_extracto_ingreso_GRAL INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta AND fo_recibos_detalle.cobranza_dol = fo_extracto_ingreso_GRAL.monto_dol " & _
+        " WHERE (fo_extracto_ingreso_GRAL.cuenta ='201-5041743-2-18' OR fo_extracto_ingreso_GRAL.cuenta ='096359-201-9' OR fo_extracto_ingreso_GRAL.cuenta ='4010038393' OR fo_extracto_ingreso_GRAL.cuenta ='4010620785' OR fo_extracto_ingreso_GRAL.cuenta ='4010780124' OR fo_extracto_ingreso_GRAL.cuenta ='4011005601' OR fo_extracto_ingreso_GRAL.cuenta ='4011048974' OR fo_extracto_ingreso_GRAL.cuenta ='4069626242' OR fo_extracto_ingreso_GRAL.cuenta ='4069626265' ) " & _
+        " AND (fo_recibos_detalle.estado_aprueba  ='APR') "
+
+
+    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     OptFilGral2_Click
     
     If (dg_datos.SelBookmarks.Count <> 0) Then

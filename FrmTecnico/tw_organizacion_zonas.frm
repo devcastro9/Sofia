@@ -2649,20 +2649,43 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '                    ¿LblParImpar = "NO ASIGNADO"
             End Select
             If Ado_datos.Recordset!zpiloto_codigo <> 0 Then
-                'Actualiza tc_zona_piloto_edif
+                'Actualiza tc_zona_piloto_edif  - CONTRATOS VENTAS NUEVAS Y ALCANCE
+                db.Execute "UPDATE tc_zona_piloto_edif SET Gratuito = 'XX' where Zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " "
+                Set rs_aux5 = New ADODB.Recordset
+                If rs_aux5.State = 1 Then rs_aux5.Close
+                'rs_aux5.Open "Select * from AV_VENTAS_FECHA_MAX_ALCANCE WHERE zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' ", db, adOpenStatic
+                rs_aux5.Open "Select * from AV_VENTAS_FECHA_MAX_ALCANCE WHERE zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' ", db, adOpenStatic
+                If rs_aux5.RecordCount > 0 Then
+                    rs_aux5.MoveFirst
+                    While Not rs_aux5.EOF
+                        'db.Execute "UPDATE ao_ventas_cabecera SET ao_ventas_cabecera.unimed_codigo_tec = tc_zona_piloto_edif.unimed_codigo FROM ao_ventas_cabecera INNER JOIN tc_zona_piloto_edif ON ao_ventas_cabecera.edif_codigo = tc_zona_piloto_edif.edif_codigo where ao_ventas_cabecera.venta_codigo = " & rs_aux5!venta_codigo & " "
+                        Set rs_aux6 = New ADODB.Recordset
+                        If rs_aux6.State = 1 Then rs_aux6.Close
+                        'rs_aux6.Open "Select * from ao_ventas_cabecera where venta_fecha_fin = '" & rs_aux5!venta_fecha_fin & "' and edif_codigo = '" & rs_aux5!EDIF_CODIGO & "' and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND estado_codigo = 'APR' ", db, adOpenStatic
+                        rs_aux6.Open "Select * from ao_ventas_cabecera where venta_codigo = " & rs_aux5!venta_codigo & " and (unidad_codigo='DVTA' OR unidad_codigo LIKE '%COM%' ) ", db, adOpenStatic
+                        If rs_aux6.RecordCount > 0 Then
+                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = 'MES', solicitud_tipo = '6', fecha_fin_max = '" & rs_aux5!fecha_fin_real & "', Gratuito = 'SI', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
+                        End If
+                        rs_aux5.MoveNext
+                    Wend
+                End If
+                'Actualiza tc_zona_piloto_edif  - CONTRATOS MANTENIMIENTO
+                db.Execute "UPDATE tc_zona_piloto_edif SET tc_zona_piloto_edif.unimed_codigo_tec = ao_ventas_cabecera.unimed_codigo FROM ao_ventas_cabecera INNER JOIN tc_zona_piloto_edif ON ao_ventas_cabecera.edif_codigo = tc_zona_piloto_edif.edif_codigo where ao_ventas_cabecera.venta_codigo = " & rs_aux5!venta_codigo & " and ao_ventas_cabecera.unimed_codigo_tec is null "
                 Set rs_aux5 = New ADODB.Recordset
                 If rs_aux5.State = 1 Then rs_aux5.Close
                 rs_aux5.Open "Select * from AV_VENTAS_FECHA_MAX WHERE zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' ", db, adOpenStatic
                 If rs_aux5.RecordCount > 0 Then
                     rs_aux5.MoveFirst
                     While Not rs_aux5.EOF
-                        db.Execute "UPDATE ao_ventas_cabecera SET ao_ventas_cabecera.unimed_codigo_tec = tc_zona_piloto_edif.unimed_codigo FROM ao_ventas_cabecera INNER JOIN tc_zona_piloto_edif ON ao_ventas_cabecera.edif_codigo = tc_zona_piloto_edif.edif_codigo where ao_ventas_cabecera.venta_codigo = " & rs_aux5!venta_codigo & " "
+                        'db.Execute "UPDATE "
+                        db.Execute "UPDATE ao_ventas_cabecera SET ao_ventas_cabecera.unimed_codigo_tec = tc_zona_piloto_edif.unimed_codigo FROM ao_ventas_cabecera INNER JOIN tc_zona_piloto_edif ON ao_ventas_cabecera.edif_codigo = tc_zona_piloto_edif.edif_codigo where ao_ventas_cabecera.venta_codigo = " & rs_aux5!venta_codigo & " and ao_ventas_cabecera.unimed_codigo_tec is null "
                         Set rs_aux6 = New ADODB.Recordset
                         If rs_aux6.State = 1 Then rs_aux6.Close
                         'rs_aux6.Open "Select * from ao_ventas_cabecera where venta_fecha_fin = '" & rs_aux5!venta_fecha_fin & "' and edif_codigo = '" & rs_aux5!EDIF_CODIGO & "' and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND estado_codigo = 'APR' ", db, adOpenStatic
-                        rs_aux6.Open "Select * from ao_ventas_cabecera where venta_codigo = " & rs_aux5!venta_codigo & " ", db, adOpenStatic
+                        rs_aux6.Open "Select * from av_ventas_cabecera_mant where venta_codigo = " & rs_aux5!venta_codigo & " ", db, adOpenStatic
                         If rs_aux6.RecordCount > 0 Then
-                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!EDIF_CODIGO & "'  "
+                        
+                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
                         End If
                         rs_aux5.MoveNext
                     Wend
@@ -2755,6 +2778,10 @@ Private Sub BtnAnlDetalle_Click()
 End Sub
 
 Private Sub BtnAñadir_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo EditErr
 '  lblStatus.Caption = "Modificar registro"
     'If Ado_datos.Recordset!estado_codigo = "REG" Then
@@ -3094,7 +3121,7 @@ Private Sub BtnModDetalle_Click()
         Option10.Value = True
     End If
     'Call ABRIR_DET
-    VAR_EDIF = Ado_detalle1.Recordset!EDIF_CODIGO
+    VAR_EDIF = Ado_detalle1.Recordset!edif_codigo
     dtc_desc5.BoundText = dtc_codigo5.BoundText
     lbl_orden_camb.Visible = True
     cmd_campo2.Visible = True
@@ -3350,6 +3377,9 @@ Private Sub Form_Load()
     'db.Execute "UPDATE tc_zona_piloto_edif SET tc_zona_piloto_edif.codigo_empresa = to_cronograma.codigo_empresa FROM tc_zona_piloto_edif INNER JOIN to_cronograma ON to_cronograma.edif_codigo  =tc_zona_piloto_edif.edif_codigo where (tc_zona_piloto_edif.codigo_empresa Is Null OR tc_zona_piloto_edif.codigo_empresa ='0' ) "
     'db.Execute "UPDATE tc_zona_piloto_edif SET tc_zona_piloto_edif.solicitud_tipo  = to_cronograma.solicitud_tipo FROM tc_zona_piloto_edif INNER JOIN to_cronograma ON to_cronograma.edif_codigo  =tc_zona_piloto_edif.edif_codigo where (tc_zona_piloto_edif.solicitud_tipo Is Null OR (tc_zona_piloto_edif.solicitud_tipo <> '10' AND tc_zona_piloto_edif.solicitud_tipo <> '6' )) "
 
+    'IDENTIDICA VENTAS NUEVAS QUE YA TIENEN CONTRATO DE MANTENIMIENTO
+    db.Execute "UPDATE ao_ventas_cabecera SET ao_ventas_cabecera.correl_detalle ='1' FROM ao_ventas_cabecera INNER JOIN av_ventas_cabecera_mant ON ao_ventas_cabecera.edif_codigo = av_ventas_cabecera_mant.edif_codigo WHERE ao_ventas_cabecera.unidad_codigo ='DVTA' OR ao_ventas_cabecera.unidad_codigo ='DCOMC' OR ao_ventas_cabecera.unidad_codigo ='DCOMS' OR ao_ventas_cabecera.unidad_codigo ='DCOMB' "
+    
     Call ABRIR_TABLAS_AUX
     Call OptFilGral2_Click
     
@@ -3745,12 +3775,12 @@ End Sub
 Private Sub ABRIR_TABLA_DET()
     Set rs_det1 = New ADODB.Recordset
     If rs_det1.State = 1 Then rs_det1.Close
-    If VAR_UORIGEN = "DNINS" Then
-        rs_det1.Open "select * from tv_zona_piloto_edif where zpiloto_codigo = '0' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
-    Else
+    'If VAR_UORIGEN = "DNINS" Then
+    '    rs_det1.Open "select * from tv_zona_piloto_edif where zpiloto_codigo = '0' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    'Else
         rs_det1.Open "select * from tv_zona_piloto_edif where zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        ' and ges_gestion = '" & g & "'
-    End If
+    '    ' and ges_gestion = '" & g & "'
+    'End If
     Set Ado_detalle1.Recordset = rs_det1
     If Ado_detalle1.Recordset.RecordCount > 0 Then
 '        'gc_edificaciones

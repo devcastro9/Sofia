@@ -666,7 +666,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   118882305
+         Format          =   117506049
          CurrentDate     =   44197
          MinDate         =   32874
       End
@@ -682,7 +682,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   118882305
+         Format          =   117506049
          CurrentDate     =   44197
          MinDate         =   36526
       End
@@ -1137,6 +1137,10 @@ Dim mvBookMark, marca1 As Variant
 Dim mbDataChanged As Boolean
 
 Private Sub BtnAprobar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
    If rs_datos!estado_codigo = "REG" Then
       sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
@@ -1200,6 +1204,10 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!calle_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
    If ExisteReg2(Ado_datos.Recordset!calle_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
@@ -1292,8 +1300,8 @@ Private Sub BtnGrabar_Click()
 '               rs_datos!monto_total_dol = rs_datos!monto_total_bs / GlTipoCambioOficial
 '            End If
         Case 18, 21
-            rs_datos!fecha_inicio = IIf(IsNull(DTPFechaIni.Value), "01/01/1900", DTPFechaIni.Value)
-            rs_datos!fecha_fin = IIf(IsNull(DTPFechaFin.Value), "01/01/1900", DTPFechaFin.Value)
+            rs_datos!fecha_inicio = IIf(IsNull(DTPfechaIni.Value), "01/01/1900", DTPfechaIni.Value)
+            rs_datos!fecha_fin = IIf(IsNull(DTPfechaFin.Value), "01/01/1900", DTPfechaFin.Value)
             rs_datos!monto_total_bs = 0
             rs_datos!monto_total_dol = 0
         Case 20
@@ -1306,8 +1314,8 @@ Private Sub BtnGrabar_Click()
 '            Else
 '               rs_datos!monto_total_dol = rs_datos!monto_total_bs / GlTipoCambioOficial
 '            End If
-            rs_datos!fecha_inicio = IIf(IsNull(DTPFechaIni.Value), "01/01/1900", DTPFechaIni.Value)
-            rs_datos!fecha_fin = IIf(IsNull(DTPFechaFin.Value), "01/01/1900", DTPFechaFin.Value)
+            rs_datos!fecha_inicio = IIf(IsNull(DTPfechaIni.Value), "01/01/1900", DTPfechaIni.Value)
+            rs_datos!fecha_fin = IIf(IsNull(DTPfechaFin.Value), "01/01/1900", DTPfechaFin.Value)
         Case 23
             rs_datos!monto_total_bs = IIf(Txt_MontoBs.Text = "", "0", CDbl(Txt_MontoBs.Text) * (-1))
             rs_datos!monto_total_dol = IIf(Txt_montoDol.Text = "", "0", CDbl(Txt_montoDol.Text) * (-1))
@@ -1317,13 +1325,13 @@ Private Sub BtnGrabar_Click()
 '            Else
 '               rs_datos!monto_total_dol = rs_datos!monto_total_bs / GlTipoCambioOficial
 '            End If
-            rs_datos!fecha_inicio = IIf(IsNull(DTPFechaIni.Value), "01/01/1900", DTPFechaIni.Value)
-            rs_datos!fecha_fin = IIf(IsNull(DTPFechaFin.Value), "01/01/1900", DTPFechaFin.Value)
+            rs_datos!fecha_inicio = IIf(IsNull(DTPfechaIni.Value), "01/01/1900", DTPfechaIni.Value)
+            rs_datos!fecha_fin = IIf(IsNull(DTPfechaFin.Value), "01/01/1900", DTPfechaFin.Value)
         Case Else
             rs_datos!monto_total_bs = 0
             rs_datos!monto_total_dol = 0
-            rs_datos!fecha_inicio = IIf(IsNull(DTPFechaIni.Value), "01/01/1900", DTPFechaIni.Value)
-            rs_datos!fecha_fin = IIf(IsNull(DTPFechaFin.Value), "01/01/1900", DTPFechaFin.Value)
+            rs_datos!fecha_inicio = IIf(IsNull(DTPfechaIni.Value), "01/01/1900", DTPfechaIni.Value)
+            rs_datos!fecha_fin = IIf(IsNull(DTPfechaFin.Value), "01/01/1900", DTPfechaFin.Value)
      End Select
 
      'venta_codigo_adenda, venta_codigo,monto_total_bs, monto_total_dol,fecha_inicio, fecha_fin, cantidad_total,motivo_codigo,
@@ -1371,7 +1379,7 @@ Private Sub valida_campos()
         Case 18, 21
             If Val(Txt_tiempo) < 1 Then
               MsgBox "La Fecha de Inicio NO puede ser MAYOR ni IGUAL a la Fecha de Finalización, Vuelva a Intentar ...", vbExclamation, "Validación de Registro"
-              DTPFechaFin.SetFocus
+              DTPfechaFin.SetFocus
               VAR_VAL = "ERR"
               Exit Sub
             End If
@@ -1383,7 +1391,7 @@ Private Sub valida_campos()
             End If
             If Val(Txt_tiempo) < 1 Then
               MsgBox "La Fecha de Inicio NO puede ser MAYOR ni IGUAL a la Fecha de Finalización, Vuelva a Intentar ...", vbExclamation, "Validación de Registro"
-              DTPFechaFin.SetFocus
+              DTPfechaFin.SetFocus
               VAR_VAL = "ERR"
               Exit Sub
             End If
@@ -1395,7 +1403,7 @@ Private Sub valida_campos()
             End If
             If Val(Txt_tiempo) < 1 Then
               MsgBox "La Fecha de Inicio NO puede ser MAYOR ni IGUAL a la Fecha de Finalización, Vuelva a Intentar ...", vbExclamation, "Validación de Registro"
-              DTPFechaFin.SetFocus
+              DTPfechaFin.SetFocus
               VAR_VAL = "ERR"
               Exit Sub
             End If
@@ -1435,6 +1443,10 @@ Private Sub BtnImprimir_Click()
 End Sub
 
 Private Sub BtnModificar_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo EditErr
   If rs_datos!estado_codigo = "REG" Then
 '  lblStatus.Caption = "Modificar registro"
@@ -1486,8 +1498,8 @@ End Sub
 Private Sub dtc_desc1_LostFocus()
   Select Case dtc_codigo1.Text
     Case 17
-        DTPFechaIni.Visible = False
-        DTPFechaFin.Visible = False
+        DTPfechaIni.Visible = False
+        DTPfechaFin.Visible = False
         Txt_MontoBs.Visible = False
         
         lblTipoCambio.Visible = False
@@ -1495,8 +1507,8 @@ Private Sub dtc_desc1_LostFocus()
         lblMontoDol.Visible = False
         Txt_montoDol.Visible = False
     Case 18
-        DTPFechaIni.Visible = True
-        DTPFechaFin.Visible = True
+        DTPfechaIni.Visible = True
+        DTPfechaFin.Visible = True
         Txt_MontoBs.Visible = False
         
         lblTipoCambio.Visible = False
@@ -1504,8 +1516,8 @@ Private Sub dtc_desc1_LostFocus()
         lblMontoDol.Visible = False
         Txt_montoDol.Visible = False
     Case 19
-        DTPFechaIni.Visible = False
-        DTPFechaFin.Visible = False
+        DTPfechaIni.Visible = False
+        DTPfechaFin.Visible = False
         Txt_MontoBs.Visible = True
         
         lblTipoCambio.Visible = True
@@ -1513,8 +1525,8 @@ Private Sub dtc_desc1_LostFocus()
         lblMontoDol.Visible = True
         Txt_montoDol.Visible = True
     Case 20
-        DTPFechaIni.Visible = True
-        DTPFechaFin.Visible = True
+        DTPfechaIni.Visible = True
+        DTPfechaFin.Visible = True
         Txt_MontoBs.Visible = True
         
         lblTipoCambio.Visible = True
@@ -1522,8 +1534,8 @@ Private Sub dtc_desc1_LostFocus()
         lblMontoDol.Visible = True
         Txt_montoDol.Visible = True
     Case 21
-        DTPFechaIni.Visible = True
-        DTPFechaFin.Visible = True
+        DTPfechaIni.Visible = True
+        DTPfechaFin.Visible = True
         Txt_MontoBs.Visible = False
     
         lblTipoCambio.Visible = False
@@ -1532,8 +1544,8 @@ Private Sub dtc_desc1_LostFocus()
         Txt_montoDol.Visible = False
     
     Case 22
-        DTPFechaIni.Visible = False
-        DTPFechaFin.Visible = False
+        DTPfechaIni.Visible = False
+        DTPfechaFin.Visible = False
         Txt_MontoBs.Visible = True
         
         lblTipoCambio.Visible = True
@@ -1541,8 +1553,8 @@ Private Sub dtc_desc1_LostFocus()
         lblMontoDol.Visible = True
         Txt_montoDol.Visible = True
     Case 23
-        DTPFechaIni.Visible = True
-        DTPFechaFin.Visible = True
+        DTPfechaIni.Visible = True
+        DTPfechaFin.Visible = True
         Txt_MontoBs.Visible = True
         
         lblTipoCambio.Visible = True
@@ -1563,10 +1575,10 @@ End Sub
 Private Sub DTPFechaFin_LostFocus()
     'Me.Print Format(DateDiff("y", Fecha_Inicial, Fecha_Final), Formato) & " dias"
     'Txt_MontoBs = Format(DateDiff("y", DTPfechaIni, DTPfechaFin), Formato)
-    Txt_tiempo = DateDiff("y", DTPFechaIni, DTPFechaFin)
+    Txt_tiempo = DateDiff("y", DTPfechaIni, DTPfechaFin)
     If Val(Txt_tiempo) < 0 Then
         MsgBox "La Fecha de Inicio NO puede ser MAYOR a la Fecha de Finalización, Vuelva a Intentar ...", vbExclamation, "Validación de Registro"
-        DTPFechaFin.SetFocus
+        DTPfechaFin.SetFocus
     End If
 End Sub
 
@@ -1652,6 +1664,10 @@ Private Sub Ado_datos_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub BtnAñadir_Click()
+    If glusuario = "CCRUZ" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   On Error GoTo AddErr
     Call ABRIR_TABLA
     If rs_datos.RecordCount > 0 Then rs_datos.MoveLast

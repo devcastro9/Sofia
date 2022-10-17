@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   59179009
+         Format          =   109314049
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   59179009
+         Format          =   109314049
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   59179009
+         Format          =   109314049
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -336,7 +336,6 @@ Begin VB.Form fw_conciliacion_bancaria
       _ExtentY        =   17171
       _Version        =   393216
       Tabs            =   2
-      Tab             =   1
       TabsPerRow      =   2
       TabHeight       =   520
       ForeColor       =   16384
@@ -351,40 +350,38 @@ Begin VB.Form fw_conciliacion_bancaria
       EndProperty
       TabCaption(0)   =   "IMPORTAR EXTRACTO BANCARIO"
       TabPicture(0)   =   "fw_conciliacion_bancaria.frx":2D42
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "fraOpciones"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Fra_ABM"
+      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "FraNavega"
+      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).Control(3)=   "Frame1"
+      Tab(0).Control(3).Enabled=   0   'False
       Tab(0).Control(4)=   "btnImportarDato"
+      Tab(0).Control(4).Enabled=   0   'False
       Tab(0).Control(5)=   "btnCargarArchivo"
+      Tab(0).Control(5).Enabled=   0   'False
       Tab(0).ControlCount=   6
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
-      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmABMDet"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "FrmDetalle2"
-      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).Control(2)=   "Frame2"
-      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).Control(3)=   "FrmDetalle"
-      Tab(1).Control(3).Enabled=   0   'False
       Tab(1).Control(4)=   "Frame3"
-      Tab(1).Control(4).Enabled=   0   'False
       Tab(1).Control(5)=   "BtnBuscar3"
-      Tab(1).Control(5).Enabled=   0   'False
       Tab(1).Control(6)=   "BtnBuscar2"
-      Tab(1).Control(6).Enabled=   0   'False
       Tab(1).Control(7)=   "BtnImprimir2"
-      Tab(1).Control(7).Enabled=   0   'False
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   590
-         Left            =   60
+         Left            =   -74940
          Picture         =   "fw_conciliacion_bancaria.frx":2D7A
          ScaleHeight     =   585
          ScaleWidth      =   1395
@@ -398,7 +395,7 @@ Begin VB.Form fw_conciliacion_bancaria
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   590
-         Left            =   120
+         Left            =   -74880
          Picture         =   "fw_conciliacion_bancaria.frx":3A55
          ScaleHeight     =   585
          ScaleWidth      =   1335
@@ -413,7 +410,7 @@ Begin VB.Form fw_conciliacion_bancaria
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   120
+         Left            =   -74880
          Picture         =   "fw_conciliacion_bancaria.frx":4314
          ScaleHeight     =   615
          ScaleWidth      =   1335
@@ -436,7 +433,7 @@ Begin VB.Form fw_conciliacion_bancaria
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   2360
-         Left            =   1560
+         Left            =   -73440
          TabIndex        =   65
          Top             =   5400
          Width           =   17655
@@ -854,7 +851,7 @@ Begin VB.Form fw_conciliacion_bancaria
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   1905
-         Left            =   1560
+         Left            =   -73440
          TabIndex        =   61
          Top             =   7760
          Width           =   17655
@@ -1242,7 +1239,7 @@ Begin VB.Form fw_conciliacion_bancaria
          EndProperty
          ForeColor       =   &H00000080&
          Height          =   2295
-         Left            =   1560
+         Left            =   -73440
          TabIndex        =   60
          Top             =   3100
          Width           =   17655
@@ -1328,7 +1325,7 @@ Begin VB.Form fw_conciliacion_bancaria
          EndProperty
          ForeColor       =   &H00000080&
          Height          =   2625
-         Left            =   1560
+         Left            =   -73440
          TabIndex        =   58
          Top             =   480
          Width           =   17655
@@ -1927,7 +1924,7 @@ Begin VB.Form fw_conciliacion_bancaria
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   -59640
+         Left            =   15360
          Style           =   1  'Graphical
          TabIndex        =   57
          Top             =   4200
@@ -1947,7 +1944,7 @@ Begin VB.Form fw_conciliacion_bancaria
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   -59640
+         Left            =   15360
          Style           =   1  'Graphical
          TabIndex        =   56
          Top             =   5760
@@ -1958,7 +1955,7 @@ Begin VB.Form fw_conciliacion_bancaria
          BackColor       =   &H80000015&
          FillColor       =   &H00FFFFFF&
          Height          =   4905
-         Left            =   120
+         Left            =   -74880
          Negotiate       =   -1  'True
          ScaleHeight     =   20.188
          ScaleMode       =   4  'Character
@@ -2080,7 +2077,7 @@ Begin VB.Form fw_conciliacion_bancaria
          EndProperty
          ForeColor       =   &H00C00000&
          Height          =   2355
-         Left            =   -74640
+         Left            =   360
          TabIndex        =   34
          Top             =   4680
          Visible         =   0   'False
@@ -2345,7 +2342,7 @@ Begin VB.Form fw_conciliacion_bancaria
          Caption         =   "Registros del EXTRACTO BANCARIO"
          ForeColor       =   &H00FF0000&
          Height          =   7320
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   32
          Top             =   1080
          Visible         =   0   'False
@@ -2477,7 +2474,7 @@ Begin VB.Form fw_conciliacion_bancaria
             Strikethrough   =   0   'False
          EndProperty
          Height          =   7320
-         Left            =   -61800
+         Left            =   13200
          TabIndex        =   17
          Top             =   1080
          Visible         =   0   'False
@@ -2601,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   59179009
+            Format          =   109314049
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -2734,7 +2731,7 @@ Begin VB.Form fw_conciliacion_bancaria
          BackColor       =   &H80000015&
          BorderStyle     =   0  'None
          Height          =   660
-         Left            =   -74880
+         Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   18960
          TabIndex        =   8
@@ -3456,6 +3453,25 @@ Private Sub BtnAñadir_Click()
     Else
         MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
     End If
+    '-- ACTUALIZA INGRESOS fo_extracto_ingreso_GRAL
+    db.Execute "DELETE fo_extracto_ingreso_GRAL "
+    db.Execute "INSERT INTO fo_extracto_ingreso_GRAL (correlativo, cuenta, fecha_transaccion, monto, cod_bancarizacion, agencia, descripcion, glosa, nro_cheque, plantilla, estado_conciliado, usuario, nombre_archivo, cod_cliente, id_depositante, nombre_depositante, banco) SELECT * FROM fv_extracto_ingreso_GRAL "
+
+    '-- ACTUALIZA BOLIVIANOS
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET monto_bs = monto, monto_dol = MONTO/6.96 WHERE cuenta ='2015046557-03-054' OR cuenta ='4010439742' OR cuenta ='4010620792' OR cuenta ='4010644195' OR cuenta ='4010772049' OR cuenta ='4011005599' OR cuenta ='4011048967' OR cuenta ='4011048981' OR cuenta ='4069626219' OR cuenta ='4069626233' OR cuenta ='10000019133060' "
+
+    '-- ACTUALIZA DOLARES
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET monto_dol = monto, monto_bs = MONTO*6.96 WHERE cuenta ='201-5041743-2-18' OR cuenta ='096359-201-9' OR cuenta ='4010038393' OR cuenta ='4010620785' OR cuenta ='4010780124' OR cuenta ='4011005601' OR cuenta ='4011048974' OR cuenta ='4069626242' OR cuenta ='4069626265' "
+
+    '-- ACTUALIZA EGREOS fo_extracto_egreso_GRAL        'select * from fo_extracto_egreso_GRAL
+    db.Execute "Delete fo_extracto_egreso_GRAL "
+    db.Execute "INSERT INTO fo_extracto_egreso_GRAL (correlativo, cuenta, fecha_transaccion, monto, cod_bancarizacion, agencia, descripcion, glosa, nro_cheque, plantilla, estado_conciliado, usuario, nombre_archivo, cod_cliente, id_depositante, nombre_depositante, banco) SELECT * FROM fv_extracto_egreso_GRAL "
+
+    '-- ACTUALIZA BOLIVIANOS
+    db.Execute "UPDATE fo_extracto_egreso_GRAL SET monto_bs = monto, monto_dol = MONTO/6.96 WHERE cuenta ='2015046557-03-054' OR cuenta ='4010439742' OR cuenta ='4010620792' OR cuenta ='4010644195' OR cuenta ='4010772049' OR cuenta ='4011005599' OR cuenta ='4011048967' OR cuenta ='4011048981' OR cuenta ='4069626219' OR cuenta ='4069626233' OR cuenta ='10000019133060' "
+
+    '-- ACTUALIZA DOLARES
+    db.Execute "UPDATE fo_extracto_egreso_GRAL SET monto_dol = monto, monto_bs = MONTO*6.96 WHERE cuenta ='201-5041743-2-18' OR cuenta ='096359-201-9' OR cuenta ='4010038393' OR cuenta ='4010620785' OR cuenta ='4010780124' OR cuenta ='4011005601' OR cuenta ='4011048974' OR cuenta ='4069626242' OR cuenta ='4069626265' "
 
 End Sub
 
@@ -3467,7 +3483,7 @@ Private Sub limpiar()
     btnImportarDato.Enabled = True
     cmb_departamento = ""
     cmb_equipo = ""
-    dtpFecha.Value = Date
+    DtpFecha.Value = Date
     
 End Sub
 
@@ -3504,7 +3520,7 @@ Private Sub btnCargarArchivo_Click()
             sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text, vbYesNo + vbQuestion, "Atención")
         End If
         If rbtDia(0).Value = True Then
-            sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & dtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
+            sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & DtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
         End If
         If sino = vbYes Then
             GLCarpeta = ""
@@ -3512,7 +3528,7 @@ Private Sub btnCargarArchivo_Click()
             Fra_ABM.Enabled = False
             Dim dia As String, mes As String
         
-            Fecha = dtpFecha.Value
+            Fecha = DtpFecha.Value
             Call ObtenerDiaMes(DatePart("m", Fecha), mes)
             ' Tipo de exportación por mes o dia.
             If rbtMes.Value = True Then
@@ -3592,7 +3608,7 @@ End Sub
 Private Sub valida_campos(esValio)
   Dim inicial As Integer
   If rbtDia(0).Value = True Then
-    If dtpFecha.Value = "" Then
+    If DtpFecha.Value = "" Then
       MsgBox " El campo Fecha es requerido."
       esValio = False
     End If
@@ -4213,7 +4229,7 @@ Private Sub rbtDia_Click(Index As Integer)
     If rbtDia(0).Value = True Then
         LblTime.Caption = rbtDia(0).Caption
         'lbl_inicial(0).Visible = True
-        dtpFecha.Visible = True
+        DtpFecha.Visible = True
         'lbl_inicial(1).Visible = False
         cmb_mes_ini.Visible = False
         cmb_gestion_rep.Visible = False
@@ -4225,7 +4241,7 @@ Private Sub rbtMes_Click()
     If rbtMes.Value = True Then
         LblTime.Caption = rbtMes.Caption
         'lbl_inicial(0).Visible = False
-        dtpFecha.Visible = False
+        DtpFecha.Visible = False
         'lbl_inicial(1).Visible = True
         cmb_mes_ini.Visible = True
         cmb_gestion_rep.Visible = True

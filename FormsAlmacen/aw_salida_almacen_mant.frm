@@ -160,7 +160,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109838337
+            Format          =   118423553
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -1093,7 +1093,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   109838339
+         Format          =   118423555
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
@@ -2778,7 +2778,8 @@ Private Sub BtnGraba3_Click()
     '
     db.Execute "Update to_cronograma_diario_final SET doc_codigo = '" & VAR_DOC & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "' "
     'ACTUALIZA CORRELATIVO DE DOC. RESPALDO
-    If Ado_detalle2.Recordset!doc_numero_m = 0 Or IsNull(Ado_detalle2.Recordset!doc_numero_m) Then
+    'If Ado_detalle2.Recordset!doc_numero_m = 0 Or IsNull(Ado_detalle2.Recordset!doc_numero_m) Then
+    If VAR_DC = 0 Then
         Set rs_aux2 = New ADODB.Recordset
         If rs_aux2.State = 1 Then rs_aux2.Close
         Select Case Left(VAR_ED, 1)
