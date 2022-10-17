@@ -223,7 +223,6 @@ End Function
 
 Public Sub Main()
     ' Date
-    GlFechaProceso = Date
     ' Conexion a Access
     Set cnn = New Connection
     With cnn
@@ -239,7 +238,7 @@ Public Sub Main()
     ' Conexion a la base de datos Sql Server
     Set db = GetDatabase(GlServidor, GlBaseDatos)
     ' Variables
-    'GlFechaProceso = ObtenerFechaServidor()
+    GlFechaProceso = ObtenerFechaServidor()
     'GlFechaProceso = Date
     SwOrden = True
     ' Login
@@ -381,7 +380,7 @@ Public Function ObtenerFechaServidor() As Date
     Dim rsFecha As New ADODB.Recordset
     Dim Fecha As Date
     Dim query_fecha As String
-    query_fecha = "SELECT GETDATE() AS 'FechaServidor'"
+    query_fecha = "SELECT CONVERT(DATE, GETDATE()) AS 'FechaServidor'"
     rsFecha.Open query_fecha, db, adOpenStatic, adLockReadOnly
     ObtenerFechaServidor = rsFecha!FechaServidor
     rsFecha.Close
