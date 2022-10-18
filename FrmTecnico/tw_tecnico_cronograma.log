@@ -1,6 +1,1 @@
-Línea 959: la clase MSComCtl2.DTPicker del control lbl_fecha_ini no era una clase de control cargada.
-Línea 985: la clase MSComCtl2.DTPicker del control lbl_fecha_fin no era una clase de control cargada.
-Línea 1319: la clase MSComCtl2.DTPicker del control DTPfechasol no era una clase de control cargada.
-Línea 2737: la clase MSComCtl2.DTPicker del control DTPFechaInicio no era una clase de control cargada.
-Línea 2763: la clase MSComCtl2.DTPicker del control DTPFechaFin no era una clase de control cargada.
-Línea 2808: la clase MSComCtl2.DTPicker del control DTP_FechaDetif no era una clase de control cargada.
+Línea 34: la clase ComctlLib.ProgressBar del control ProgressBar1 no era una clase de control cargada.
