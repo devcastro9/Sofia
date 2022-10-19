@@ -1,9 +1,9 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
-Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDatLst.Ocx"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form aw_almacen_salida_rep 
    BackColor       =   &H00C0C0C0&
@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117702657
+         Format          =   137691137
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117702657
+         Format          =   137691137
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   117702657
+            Format          =   139001857
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -9049,7 +9049,7 @@ Private Sub grabar()
             " values ('" & glGestion & "', " & var_cod5 & ",  '" & VAR_DPTO & "', '" & parametro & "', " & var_cod & ", '" & dtc_codigo3.Text & "', '" & dtc_codigo2.Text & "', '" & VAR_CITE & "', '0', '" & FVenta & "', 'A', '" & VAR_BENA & "', '" & dtc_codigo4.Text & "', '0', '" & VAR_BENI & "', " & _
             " '" & VAR_BENR & "', '" & VAR_BENH & "', '" & VAR_BENDI & "', '" & VAR_BENDR & "', '" & VAR_BENDH & "', '" & TxtConcepto.Text & "', '0', '0', '0', " & GlTipoCambioOficial & ", '0', '0', " & _
             " '0',                              '0',                    '0',                        '" & FVenta & "', '" & FVenta & "', 'MES',          '1',            'MES',                  'ENERO',            '1',        '" & VAR_N1 & "', '" & VAR_N2 & "', '" & VAR_N3 & "', 'ADM', '" & VAR_R & "', '0', '" & VAR_POA & "', " & _
-            " '" & VAR_DOCI & "', " & VAR_NUMI & ", '" & VAR_POA & "', " & VAR_ALMI & ", " & VAR_ALMDI & ", '" & VAR_DPTOD & "', '" & VAR_DOCR & "', " & VAR_NUMR & ", " & VAR_ALMR & ", " & VAR_ALMDR & ", '" & VAR_DPTOD & "', '" & VAR_DOCH & "', " & VAR_NUMH & ", " & VAR_ALMH & ", '" & VAR_DPTOD & "', '" & VAR_CITE & "', " & _
+            " '" & VAR_DOCI & "', " & VAR_NUMI & ", '" & VAR_POA & "', " & VAR_ALMI & ", " & VAR_ALMDI & ", '" & VAR_DPTOD & "', '" & VAR_DOCR & "', " & VAR_NUMR & ", " & VAR_ALMR & ", " & VAR_ALMDR & ", '" & VAR_DPTOD & "', '" & VAR_DOCH & "', " & VAR_NUMH & ", '" & VAR_ALMH & "', '" & VAR_DPTOD & "', '" & VAR_CITE & "', " & _
             " 'N',                              '0',            '1',                'N',            'N',            'APR',          'REG', '" & glusuario & "', '" & Date & "', 'REG',  '" & glusuario & "', '" & Date & "', '', '0', 'BOB', '" & VAR_ALMT & "', '" & VAR_ALMT & "' ) "
             
             '   '" & Time & "'
