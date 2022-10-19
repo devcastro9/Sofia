@@ -621,9 +621,12 @@ Begin VB.Form mw_ventas_cabecera
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":BB4B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0).Enabled=   0   'False
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(1).Enabled=   0   'False
+      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2).Enabled=   0   'False
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1060,7 +1063,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   117506049
+            Format          =   109707265
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1371,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   117506051
+            Format          =   109707267
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3068,7 +3071,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   117506049
+               Format          =   109707265
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6565,6 +6568,7 @@ Private Sub BtnAprobar_Click()
            '
            FraZona.Visible = True
            '
+           VAR_ZONA = Ado_datos.Recordset!zpiloto_codigo
            If VAR_ZONA = "" Then
                 MsgBox "NO se puede Aprobar, debe registrar la Zona Piloto para su Mantenimiento Gratuito !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
                 Exit Sub
@@ -10429,7 +10433,7 @@ Private Sub BtnModDetalle_Click()
     Set rs_datos12 = New ADODB.Recordset
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "select * from Gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
-    Set Ado_Datos12.Recordset = rs_datos12
+    Set Ado_datos12.Recordset = rs_datos12
     'Ado_datos12.Refresh
     Dtc_aux12.BoundText = dtc_codigo12.BoundText
     dtc_desc12.BoundText = dtc_codigo12.BoundText
@@ -11431,7 +11435,7 @@ Private Sub ABRIR_TABLAS_AUX()
     'If parametro = "DNMOD" Then
     '    rs_datos11.Open "select * from ac_tipo_compra_venta where venta_tipo = 'C'  ", db, adOpenStatic
     'Else
-        rs_datos11.Open "select * from ac_tipo_compra_venta where venta_tipo = 'L' or venta_tipo = 'V' or venta_tipo = 'G' ", db, adOpenStatic
+        rs_datos11.Open "select * from ac_tipo_compra_venta where venta_tipo = 'L' or venta_tipo = 'V'  ", db, adOpenStatic     'or venta_tipo = 'G'
     'End If
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText

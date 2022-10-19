@@ -38,7 +38,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   4920
+      Top             =   4800
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -122,7 +122,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   4920
+      Top             =   4800
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -739,9 +739,9 @@ Begin VB.Form tw_tecnico_venta
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":C37D
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1300,7 +1300,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   108789761
+            Format          =   109707265
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1561,7 +1561,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   108789761
+            Format          =   109707265
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -1589,7 +1589,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   108789761
+            Format          =   109707265
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2087,7 +2087,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   108789761
+               Format          =   109707265
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2112,7 +2112,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   108789761
+               Format          =   109707265
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2556,7 +2556,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   108789761
+               Format          =   109707265
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2639,7 +2639,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   108789761
+               Format          =   109707265
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3365,7 +3365,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   108789761
+            Format          =   109707265
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -6170,11 +6170,12 @@ Private Sub BtnAddDetalle1_Click()
 '    sino = MsgBox("El Contrato incluye... SERVICIO DE DESMONTAJE ? ...", vbYesNo, "Confirmando")
     Set rs_aux19 = New ADODB.Recordset
     If rs_aux19.State = 1 Then rs_aux19.Close
-'    If sino = vbYes Then
-'       rs_aux19.Open "Select * from gc_tipo_solicitud where solicitud_num = '90' order by ORDEN ", db, adOpenStatic
-'    Else
-       rs_aux19.Open "Select * from gc_tipo_solicitud WHERE (solicitud_num = '90') AND (solicitud_tipo <> '20') AND (solicitud_tipo <> '6') AND (solicitud_tipo <> '5') AND (solicitud_tipo <> '2') AND (solicitud_tipo <> '3') OR (solicitud_tipo = '15') order by ORDEN ", db, adOpenStatic
-'    End If
+    If VAR_UORIGEN = "DNREP" Or VAR_UORIGEN = "DREPS" Or VAR_UORIGEN = "DREPB" Or VAR_UORIGEN = "DREPC" Then
+       rs_aux19.Open "Select * from gc_tipo_solicitud where solicitud_tipo = '15' OR solicitud_tipo = '16' OR solicitud_tipo = '17' OR solicitud_tipo = '18' OR solicitud_tipo = '7'  order by ORDEN ", db, adOpenStatic
+    Else
+       'rs_aux19.Open "Select * from gc_tipo_solicitud WHERE (solicitud_num = '90') AND (solicitud_tipo <> '20') AND (solicitud_tipo <> '6') AND (solicitud_tipo <> '5') AND (solicitud_tipo <> '2') AND (solicitud_tipo <> '3') OR (solicitud_tipo = '15') order by ORDEN ", db, adOpenStatic
+       rs_aux19.Open "Select * from gc_tipo_solicitud where solicitud_tipo = '15' OR solicitud_tipo = '16' OR solicitud_tipo = '17' OR solicitud_tipo = '18' OR solicitud_tipo = '4'  order by ORDEN ", db, adOpenStatic
+    End If
     'Set Ado_datos1.Recordset = rs_aux19
     If rs_aux19.RecordCount > 0 Then
         'ao_ventas_alcance
@@ -6771,7 +6772,7 @@ Private Sub BtnAprobar_Click()
                TimeD = Ado_datos.Recordset!venta_plazo_dias_calendario
                CANTOT = Ado_datos.Recordset!venta_cantidad_total
                VAR_GLOSA2 = Ado_datos.Recordset!venta_descripcion
-               VAR_PROY2 = Ado_datos.Recordset!edif_codigo
+               VAR_PROY2 = Ado_datos.Recordset!EDIF_CODIGO
                VAR_CITE = Ado_datos.Recordset!unidad_codigo_ant         'OS - 36AO - 36NB - 36NO...
                VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
                VAR_BEND = dtc_desc2.Text
@@ -6779,10 +6780,10 @@ Private Sub BtnAprobar_Click()
                VAR_UNID = dtc_desc1.Text
                'VAR_DPTO = Left(VAR_PROY2, 1)
                'VAR_DPTO = Ado_datos.Recordset!depto_codigo
-               If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!edif_codigo, 1) Then
+               If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!EDIF_CODIGO, 1) Then
                      VAR_DPTO = Ado_datos.Recordset!depto_codigo
                 Else
-                     VAR_DPTO = Left(Ado_datos.Recordset!edif_codigo, 1)
+                     VAR_DPTO = Left(Ado_datos.Recordset!EDIF_CODIGO, 1)
                 End If
                VARG_ORGD = ""
                VAR_CTAD = ""
@@ -6806,7 +6807,7 @@ Private Sub BtnAprobar_Click()
                         If VAR_TIPOV = "R" Then
                            'REPUESTOS IMPORTADOS - VALIDACION
                            VAR_EXPOR = "SI"
-                           If Left(VAR_CITE, 4) = "36AO" Then
+                           If Left(VAR_CITE, 3) = "36A" Then
                                 VAR_CORREL = rs_aux17!correl_AO
                             Else
                                 VAR_CORREL = rs_aux17!correl_AO + 1
@@ -6910,7 +6911,7 @@ Private Sub BtnAprobar_Click()
                         VAR_TIPO = 7
                         'ODS
                         If VAR_EXPOR = "SI" Then
-                            If Left(VAR_CITE, 4) = "36AO" Then
+                            If Left(VAR_CITE, 3) = "36A" Then
                                 VAR_CITE = VAR_CITE
                             Else
                                 VAR_CITE = "36AO" + Trim(Str(VAR_CORREL))
@@ -6962,6 +6963,7 @@ Private Sub BtnAprobar_Click()
                             VAR_SOLTIPO = rs_aux1!solicitud_tipo
                             Call PARA_COMEX
                         End If
+
                       Case 6
                     
                    'rs_aux1.MoveFirst
@@ -6975,7 +6977,7 @@ Private Sub BtnAprobar_Click()
                    '     End If
                    '  Else
                         If VAR_PROY2 = "" Then
-                            VAR_PROY2 = Ado_datos.Recordset!edif_codigo
+                            VAR_PROY2 = Ado_datos.Recordset!EDIF_CODIGO
                         End If
                             Set rs_aux4 = New ADODB.Recordset
                             If rs_aux4.State = 1 Then rs_aux4.Close
@@ -7015,7 +7017,9 @@ Private Sub BtnAprobar_Click()
                             End If
                         End Select
                         'Call BtnAñadir2_Click               'GENERA CRONOGRAMA DE MANTENIMIENTO
-                        Call CRONO_MTTO
+                        If VAR_COD1 = "DNMAN" Or VAR_COD1 = "DMANS" Or VAR_COD1 = "DMANB" Or VAR_COD1 = "DMANC" Or VAR_COD1 = "DNEME" Or VAR_COD1 = "DEMEB" Or VAR_COD1 = "DEMES" Or VAR_COD1 = "DEMEC" Then
+                            Call CRONO_MTTO
+                        End If
                  End If                 ' FIN ALCANCE
 
                db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo = 'APR' Where ao_ventas_cabecera.venta_codigo = " & NumComp & " "
@@ -7091,7 +7095,7 @@ Private Sub PARA_COMEX()
                    rs_aux3!solicitud_codigo_adm = correldetalle
                    rs_aux3!unidad_codigo = VAR_COD4
                    rs_aux3!solicitud_codigo = VAR_SOL
-                   rs_aux3!edif_codigo = VAR_PROY2
+                   rs_aux3!EDIF_CODIGO = VAR_PROY2
                    rs_aux3!beneficiario_codigo = VAR_BENEF
                    rs_aux3!beneficiario_codigo_alm = IIf(IsNull(Ado_datos.Recordset!beneficiario_codigo_resp), "0", Ado_datos.Recordset!beneficiario_codigo_resp)
                    rs_aux3!solicitud_tipo = rs_aux11!observaciones     '"15"
@@ -7491,7 +7495,7 @@ Private Sub BtnAprobar2_Click()
                 " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
                         " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
+                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!EDIF_CODIGO & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
                         
             'Actualiza CORREO ELECTRONICO
             db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
@@ -10821,10 +10825,10 @@ Private Sub grabar()
         'Ado_datos.Recordset("fecha_aprueba") = ""
         'Ado_datos.Recordset.Update
         '
-       If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!edif_codigo, 1) Then
+       If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!EDIF_CODIGO, 1) Then
             VAR_DPTO = Ado_datos.Recordset!depto_codigo
        Else
-            VAR_DPTO = Left(Ado_datos.Recordset!edif_codigo, 1)
+            VAR_DPTO = Left(Ado_datos.Recordset!EDIF_CODIGO, 1)
        End If
         'GRABA DATOS DEL CONTRATO DE VENTA
         VAR_MED2 = cmd_unimed2.Text                                      'Ado_datos.Recordset!unimed_codigo_cobr
@@ -11733,7 +11737,7 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             If IsNull(Ado_datos.Recordset!zpiloto_codigo) Or Ado_datos.Recordset!zpiloto_codigo = "0" Then
                 Set rs_datos10 = New ADODB.Recordset
                 If rs_datos10.State = 1 Then rs_datos10.Close
-                rs_datos10.Open "Select * from tc_zona_piloto_edif where edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "' ", db, adOpenStatic
+                rs_datos10.Open "Select * from tc_zona_piloto_edif where edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "' ", db, adOpenStatic
                 If rs_datos10.RecordCount > 0 Then
                     dtc_codigo7.Text = rs_datos10!zpiloto_codigo
                     dtc_desc7.BoundText = dtc_codigo7.BoundText
