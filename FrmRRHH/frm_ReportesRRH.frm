@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDatLst.Ocx"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form frm_ReportesRRH 
    BackColor       =   &H00E0E0E0&
@@ -9,10 +9,10 @@ Begin VB.Form frm_ReportesRRH
    ClientHeight    =   10800
    ClientLeft      =   60
    ClientTop       =   345
-   ClientWidth     =   9690
+   ClientWidth     =   10950
    LinkTopic       =   "Form1"
    ScaleHeight     =   10800
-   ScaleWidth      =   9690
+   ScaleWidth      =   10950
    StartUpPosition =   1  'CenterOwner
    Visible         =   0   'False
    Begin VB.Frame Frame6 
@@ -403,7 +403,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   202702849
+         Format          =   138739713
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker DTP_Fvigencia 
@@ -415,7 +415,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   202702849
+         Format          =   138739713
          CurrentDate     =   42735
       End
       Begin MSDataListLib.DataCombo dtc_ctades 
@@ -658,7 +658,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   202702849
+         Format          =   138739713
          CurrentDate     =   42005
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -671,7 +671,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   202702849
+         Format          =   138739713
          CurrentDate     =   42369
       End
       Begin MSDataListLib.DataCombo dtc_rep_det 
@@ -2754,7 +2754,7 @@ Public Sub inicio(Usuario, Proceso As String)
   glRepPresup = Proceso
   Call llena_datos
   DTPfecha1.Value = Format("01/01/2016", "dd/mm/yyyy")
-  dtpFecha2.Value = Format(Date, "dd/mm/yyyy")
+  DTPfecha2.Value = Format(Date, "dd/mm/yyyy")
   'dtpFecha2.Value = Date
 '  frmRepPresupuesto.Show
 End Sub
@@ -3632,11 +3632,11 @@ End Sub
 Private Sub RepDetalle(tipoRep As String, ArchRep As String, titulo1 As String)
   CryDetalle.ReportFileName = App.Path & ArchRep
   CryDetalle.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
-  CryDetalle.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
+  CryDetalle.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
   CryDetalle.StoredProcParam(2) = tipoRep
   Call setParametros(CryDetalle)
   CryDetalle.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
-  CryDetalle.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
+  CryDetalle.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
   If titulo1 <> "" Then
     CryDetalle.Formulas(2) = "Titulo1 = '" & titulo1 & "'"
   End If
