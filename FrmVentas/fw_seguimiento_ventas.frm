@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form fw_seguimiento_ventas 
    BackColor       =   &H00C0C0C0&
@@ -14,9 +14,9 @@ Begin VB.Form fw_seguimiento_ventas
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   1.97078e7
+   ScaleHeight     =   2.47341e7
    ScaleMode       =   0  'User
-   ScaleWidth      =   9.64706e8
+   ScaleWidth      =   1.34771e9
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprime 
       BackColor       =   &H80000018&
@@ -31,12 +31,28 @@ Begin VB.Form fw_seguimiento_ventas
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   7575
-      Left            =   8760
+      Height          =   7455
+      Left            =   8280
       TabIndex        =   25
-      Top             =   720
+      Top             =   840
       Visible         =   0   'False
       Width           =   10095
+      Begin VB.CommandButton btnSalirPanel 
+         Caption         =   "Salir"
+         Height          =   495
+         Left            =   2160
+         TabIndex        =   39
+         Top             =   6600
+         Width           =   1335
+      End
+      Begin VB.CommandButton btnPrintOption 
+         Caption         =   "Imprimir"
+         Height          =   495
+         Left            =   480
+         TabIndex        =   38
+         Top             =   6600
+         Width           =   1335
+      End
       Begin VB.OptionButton Option9 
          BackColor       =   &H80000018&
          Caption         =   "9. KARDEX por COBRADOR seleccionado (Todos los Clientes) (Dólares)"
@@ -51,7 +67,7 @@ Begin VB.Form fw_seguimiento_ventas
          EndProperty
          Height          =   375
          Left            =   1080
-         TabIndex        =   39
+         TabIndex        =   37
          Top             =   6000
          Width           =   7335
       End
@@ -69,7 +85,7 @@ Begin VB.Form fw_seguimiento_ventas
          EndProperty
          Height          =   375
          Left            =   1080
-         TabIndex        =   38
+         TabIndex        =   36
          Top             =   5520
          Width           =   7335
       End
@@ -87,30 +103,9 @@ Begin VB.Form fw_seguimiento_ventas
          EndProperty
          Height          =   375
          Left            =   1080
-         TabIndex        =   37
+         TabIndex        =   35
          Top             =   5040
          Width           =   8895
-      End
-      Begin VB.OptionButton Option100 
-         BackColor       =   &H80000018&
-         Caption         =   "11. SALIR"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C00000&
-         Height          =   375
-         Left            =   600
-         TabIndex        =   35
-         Top             =   7080
-         Value           =   -1  'True
-         Visible         =   0   'False
-         Width           =   2655
       End
       Begin VB.OptionButton Option6 
          BackColor       =   &H80000018&
@@ -126,7 +121,7 @@ Begin VB.Form fw_seguimiento_ventas
          EndProperty
          Height          =   375
          Left            =   1080
-         TabIndex        =   34
+         TabIndex        =   33
          Top             =   3960
          Width           =   6495
       End
@@ -144,28 +139,9 @@ Begin VB.Form fw_seguimiento_ventas
          EndProperty
          Height          =   375
          Left            =   1080
-         TabIndex        =   33
+         TabIndex        =   32
          Top             =   1920
          Width           =   6495
-      End
-      Begin VB.OptionButton Option0 
-         BackColor       =   &H80000018&
-         Caption         =   "10. CERRAR sin Imprimir ..."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C00000&
-         Height          =   375
-         Left            =   600
-         TabIndex        =   30
-         Top             =   6600
-         Width           =   3975
       End
       Begin VB.OptionButton Option5 
          BackColor       =   &H80000018&
@@ -254,7 +230,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   36
+         TabIndex        =   34
          Top             =   4560
          Width           =   7215
       End
@@ -273,7 +249,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   32
+         TabIndex        =   31
          Top             =   2520
          Width           =   7215
       End
@@ -292,7 +268,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   31
+         TabIndex        =   30
          Top             =   600
          Width           =   6615
       End
@@ -3419,7 +3395,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
+            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -3532,7 +3508,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
+            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -4678,6 +4654,100 @@ End Sub
 Private Sub BtnImprimir2_Click()
     Fw_ReportesVentas.lbl_titulo = "REPORTES DE VENTAS"
     Fw_ReportesVentas.Show
+End Sub
+
+Private Sub btnPrintOption_Click()
+    If Option1.Value = True Then
+        If Ado_datos16.Recordset.RecordCount > 0 Then
+            CryF01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente.rpt"
+            CryF01.WindowShowRefreshBtn = True
+            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+                CryF01.StoredProcParam(0) = "%"
+            Else
+                'CryF01.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
+                CryF01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+            End If
+            iResult = CryF01.PrintReport
+            If iResult <> 0 Then MsgBox CryF01.LastErrorNumber & " : " & CryF01.LastErrorString, vbCritical, "Error de impresión"
+            Else
+                MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
+        End If
+    ElseIf Option2.Value = True Then
+        If Ado_datos16.Recordset.RecordCount > 0 Then
+            CryR01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex.rpt"
+            CryR01.WindowShowRefreshBtn = True
+            If Ado_datos16.Recordset!venta_codigo = "" Then
+                CryR01.StoredProcParam(0) = "%"
+                CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
+            Else
+                CryR01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
+            End If
+            iResult = CryR01.PrintReport
+            If iResult <> 0 Then MsgBox CryR01.LastErrorNumber & " : " & CryR01.LastErrorString, vbCritical, "Error de impresión"
+            Else
+                MsgBox "No se puede IMPRIMIR, el registro, verifique los datos y vuelva a intentar ...", , "Atención"
+            End If
+    ElseIf Option3.Value = True Then
+        If Ado_datos16.Recordset.RecordCount > 0 Then
+            CryF02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_servicio.rpt"
+            CryF02.WindowShowRefreshBtn = True
+            CryF02.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+            CryF02.StoredProcParam(1) = Ado_datos16.Recordset!subproceso_codigo
+            iResult = CryF02.PrintReport
+            If iResult <> 0 Then MsgBox CryF02.LastErrorNumber & " : " & CryF02.LastErrorString, vbCritical, "Error de impresión"
+            Else
+                MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
+            End If
+    ElseIf Option4.Value = True Then
+        If Ado_datos16.Recordset.RecordCount > 0 Then
+            CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes.rpt"
+            CryQ01.WindowShowRefreshBtn = True
+            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+                CryQ01.StoredProcParam(0) = "%"
+            Else
+                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+            End If
+            iResult = CryQ01.PrintReport
+            If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
+            Else
+                MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
+            End If
+    ElseIf Option5.Value = True Then
+        MsgBox "Reporte aun en desarrollo ...", , "Atención"
+    ElseIf Option6.Value = True Then
+        If Ado_datos16.Recordset.RecordCount > 0 Then
+            CryQ02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cobrador_tes.rpt"
+            CryQ02.WindowShowRefreshBtn = True
+            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+                CryQ02.StoredProcParam(0) = "%"
+            Else
+                CryQ02.StoredProcParam(0) = Ado_datos16.Recordset!beneficiario_codigo_cobr
+            End If
+            iResult = CryQ02.PrintReport
+            If iResult <> 0 Then MsgBox CryQ02.LastErrorNumber & " : " & CryQ02.LastErrorString, vbCritical, "Error de impresión"
+            Else
+                MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
+            End If
+    ElseIf Option7.Value = True Then
+        If Ado_datos16.Recordset.RecordCount > 0 Then
+            CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes_dol.rpt"
+            CryQ01.WindowShowRefreshBtn = True
+            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+                CryQ01.StoredProcParam(0) = "%"
+            Else
+                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+            End If
+            iResult = CryQ01.PrintReport
+            If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
+            Else
+                MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
+            End If
+    ElseIf Option8.Value = True Then
+        MsgBox "Reporte aun en desarrollo ...", , "Atención"
+    ElseIf Option9.Value = True Then
+        MsgBox "Reporte aun en desarrollo ...", , "Atención"
+    End If
 End Sub
 
 Private Sub BtnSalir_Click()
@@ -7126,6 +7196,14 @@ End Sub
 '    txtGes_gestion = CStr(Year(DTPfechasol.Value))
 'End Sub
 
+Private Sub btnSalirPanel_Click()
+    FraImprime.Visible = False
+    fraOpciones.Visible = True
+    FrmDetalle.Enabled = True
+    FraNavega2.Enabled = True
+    Frame1.Enabled = True
+End Sub
+
 Private Sub Form_Load()
     swnuevo = 0
     VAR_SW = 0
@@ -7927,160 +8005,4 @@ Private Sub OptFilGral09_Click()
     Set Ado_datos16.Recordset = rs_datos16.DataSource
     Set dg_datos16.DataSource = Ado_datos16.Recordset
 
-End Sub
-
-Private Sub Option0_Click()
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
-End Sub
-
-Private Sub Option1_Click()
-    If Ado_datos16.Recordset.RecordCount > 0 Then
-  '     Dim iResult As Variant  ', i%, y%
-        CryF01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente.rpt"
-        CryF01.WindowShowRefreshBtn = True
-        If Ado_datos16.Recordset!edif_codigo = "" Then
-            CryF01.StoredProcParam(0) = "%"
-        Else
-            'CryF01.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
-            CryF01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
-        End If
-'      '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
-        iResult = CryF01.PrintReport
-        If iResult <> 0 Then MsgBox CryF01.LastErrorNumber & " : " & CryF01.LastErrorString, vbCritical, "Error de impresión"
-    Else
-        MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
-    End If
-
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
-End Sub
-
-Private Sub Option2_Click()
-  If Ado_datos16.Recordset.RecordCount > 0 Then
-'    Dim iResult As Variant  ', i%, y%
-    CryR01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex.rpt"
-    CryR01.WindowShowRefreshBtn = True
-    If Ado_datos16.Recordset!venta_codigo = "" Then
-        CryR01.StoredProcParam(0) = "%"
-        CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
-    Else
-        CryR01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
-        CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
-    End If
-    iResult = CryR01.PrintReport
-    If iResult <> 0 Then MsgBox CryR01.LastErrorNumber & " : " & CryR01.LastErrorString, vbCritical, "Error de impresión"
-  Else
-    MsgBox "No se puede IMPRIMIR, el registro, verifique los datos y vuelva a intentar ...", , "Atención"
-  End If
-
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
-End Sub
-
-Private Sub Option3_Click()
-  If Ado_datos16.Recordset.RecordCount > 0 Then
-'    sino = MsgBox("Elija: " & vbCr & _
-'        "      SI (Todos Edificios)" & vbCr & _
-'        "      NO (Sólo Edificio Elegido)... ", vbYesNo, "Confirmando")
-'    If sino = vbYes Then
-      CryF02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_servicio.rpt"
-      CryF02.WindowShowRefreshBtn = True
-      CryF02.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
-      CryF02.StoredProcParam(1) = Ado_datos16.Recordset!subproceso_codigo
-      iResult = CryF02.PrintReport
-      If iResult <> 0 Then MsgBox CryF02.LastErrorNumber & " : " & CryF02.LastErrorString, vbCritical, "Error de impresión"
-    Else
-      MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
-    End If
-
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
-End Sub
-
-Private Sub Option4_Click()
-    If Ado_datos16.Recordset.RecordCount > 0 Then
-  '     Dim iResult As Variant  ', i%, y%
-        CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes.rpt"
-        CryQ01.WindowShowRefreshBtn = True
-        If Ado_datos16.Recordset!edif_codigo = "" Then
-            CryQ01.StoredProcParam(0) = "%"
-        Else
-            'CryQ01.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
-            CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
-        End If
-'      '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
-        iResult = CryQ01.PrintReport
-        If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
-    Else
-        MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
-    End If
-
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
-End Sub
-
-Private Sub Option6_Click()
-    If Ado_datos16.Recordset.RecordCount > 0 Then
-  '     Dim iResult As Variant  ', i%, y%
-        CryQ02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cobrador_tes.rpt"
-        CryQ02.WindowShowRefreshBtn = True
-        If Ado_datos16.Recordset!edif_codigo = "" Then
-            CryQ02.StoredProcParam(0) = "%"
-        Else
-            'CryQ02.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
-            CryQ02.StoredProcParam(0) = Ado_datos16.Recordset!beneficiario_codigo_cobr
-        End If
-'      '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
-        iResult = CryQ02.PrintReport
-        If iResult <> 0 Then MsgBox CryQ02.LastErrorNumber & " : " & CryQ02.LastErrorString, vbCritical, "Error de impresión"
-    Else
-        MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
-    End If
-
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
-End Sub
-
-Private Sub Option7_Click()
-    If Ado_datos16.Recordset.RecordCount > 0 Then
-  '     Dim iResult As Variant  ', i%, y%
-        CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes_dol.rpt"
-        CryQ01.WindowShowRefreshBtn = True
-        If Ado_datos16.Recordset!edif_codigo = "" Then
-            CryQ01.StoredProcParam(0) = "%"
-        Else
-            'CryQ01.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
-            CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
-        End If
-'      '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
-        iResult = CryQ01.PrintReport
-        If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
-    Else
-        MsgBox "No se puede IMPRIMIR, debe elegir un registro, verifique y vuelva a intentar ...", , "Atención"
-    End If
-
-    FraImprime.Visible = False
-    fraOpciones.Visible = True
-    FrmDetalle.Enabled = True
-    FraNavega2.Enabled = True
-    Frame1.Enabled = True
 End Sub

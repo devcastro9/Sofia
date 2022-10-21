@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDatLst.Ocx"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form aw_almacen_inventario 
    Caption         =   "Inventario de Almacenes"
@@ -29,19 +29,35 @@ Begin VB.Form aw_almacen_inventario
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   4455
+      Height          =   4575
       Left            =   2040
       TabIndex        =   33
       Top             =   3360
       Visible         =   0   'False
       Width           =   8775
+      Begin VB.CommandButton btnSalirPanel 
+         Caption         =   "Salir"
+         Height          =   495
+         Left            =   7320
+         TabIndex        =   44
+         Top             =   3840
+         Width           =   1095
+      End
+      Begin VB.CommandButton btnPrintOption 
+         Caption         =   "Imprimir"
+         Height          =   495
+         Left            =   5760
+         TabIndex        =   43
+         Top             =   3840
+         Width           =   1335
+      End
       Begin VB.OptionButton Option6 
          BackColor       =   &H00FFC0C0&
          Caption         =   "Contratos VIGENTES con detalle de BIENES"
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   1080
-         TabIndex        =   41
+         TabIndex        =   40
          Top             =   3120
          Visible         =   0   'False
          Width           =   5175
@@ -52,7 +68,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   1080
-         TabIndex        =   40
+         TabIndex        =   39
          Top             =   3480
          Visible         =   0   'False
          Width           =   5295
@@ -63,30 +79,10 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   1080
-         TabIndex        =   39
+         TabIndex        =   38
          Top             =   2760
          Visible         =   0   'False
          Width           =   5295
-      End
-      Begin VB.OptionButton opt_salir 
-         BackColor       =   &H00FFC0C0&
-         Caption         =   "Salir"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000080&
-         Height          =   255
-         Left            =   480
-         TabIndex        =   38
-         Top             =   3840
-         Value           =   -1  'True
-         Width           =   1215
       End
       Begin VB.OptionButton Option4 
          BackColor       =   &H00FFC0C0&
@@ -197,7 +193,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   480
-         TabIndex        =   43
+         TabIndex        =   42
          Top             =   2040
          Width           =   5415
       End
@@ -216,7 +212,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   480
-         TabIndex        =   42
+         TabIndex        =   41
          Top             =   360
          Width           =   5415
       End
@@ -336,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109838337
+         Format          =   276430849
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -349,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109838337
+         Format          =   276430849
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1192,7 +1188,7 @@ End Sub
 
 Private Sub BtnImprimir_Click()
   If dtc_codigo1.Text <> "" Then
-    opt_salir.Value = True
+    'opt_salir.Value = True
     fra_reportes.Visible = True
 '    'If Ado_datos.Recordset.RecordCount > 0 Then
 '      Dim iResult As Integer
@@ -1330,8 +1326,58 @@ Private Sub BtnImprimir4_Click()
       
 End Sub
 
+Private Sub btnPrintOption_Click()
+    Dim iResult As Integer
+    If Option1.Value = True Then
+        Screen.MousePointer = vbHourglass
+        Cry.ReportFileName = App.Path & "\Reportes\Almacenes\ar_almacen_kardex_tot_alm.rpt"
+        Cry.StoredProcParam(0) = dtc_codigo1.Text         'Ado_datos.Recordset!almacen_codigo
+      
+        iResult = Cry.PrintReport
+        Screen.MousePointer = vbDefault
+        If iResult <> 0 Then
+            MsgBox Cry.LastErrorNumber & " : " & Cry.LastErrorString, vbExclamation + vbOKOnly, "Atención"
+        End If
+    ElseIf Option2.Value = True Then
+        Fra_reporte.Visible = True
+        tdbgInventario.Enabled = False
+        Fra_Elegir.Enabled = False
+        CmdFiltrar.Visible = True
+        BtnImprimir1.Visible = False
+        BtnImprimir2.Visible = False
+        fra_reportes.Visible = False
+    ElseIf Option3.Value = True Then
+        Fra_reporte.Visible = True
+        tdbgInventario.Enabled = False
+        Fra_Elegir.Enabled = False
+        CmdFiltrar.Visible = True
+        BtnImprimir1.Visible = False
+        BtnImprimir2.Visible = False
+        fra_reportes.Visible = False
+    ElseIf Option4.Value = True Then
+        Screen.MousePointer = vbHourglass
+        Cry01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_salida_almacenes_todos_TXT.rpt"
+
+        iResult = Cry01.PrintReport
+        Screen.MousePointer = vbDefault
+        If iResult <> 0 Then
+            MsgBox Cry01.LastErrorNumber & " : " & Cry01.LastErrorString, vbExclamation + vbOKOnly, "Atención"
+        End If
+    ElseIf Option5.Value = True Then
+        MsgBox "Reporte en desarrollo...", vbExclamation + vbOKOnly, "Atención"
+    ElseIf Option6.Value = True Then
+        MsgBox "Reporte en desarrollo...", vbExclamation + vbOKOnly, "Atención"
+    ElseIf Option7.Value = True Then
+        MsgBox "Reporte en desarrollo...", vbExclamation + vbOKOnly, "Atención"
+    End If
+End Sub
+
 Private Sub BtnSalir_Click()
     Unload Me
+End Sub
+
+Private Sub btnSalirPanel_Click()
+    fra_reportes.Visible = False
 End Sub
 
 Private Sub cmdFiltrar_Click()
@@ -1533,70 +1579,6 @@ Public Sub Totales()
 ''    tdbgInventario.Columns("valor").FooterText = Format(valor, "###,###,##0") & ""
 ''    tdbgInventario.Columns("Ejmtot").FooterText = Format(Ejmtot, "###,###,##0") & ""
 ''    'tdbgInventario.Columns("Valor").FooterText = Format(ValorSus, "###,###,##0.00") & " $us"
-End Sub
-
-Private Sub opt_salir_Click()
-    fra_reportes.Visible = False
-End Sub
-
-Private Sub Option1_Click()
-      Dim iResult As Integer
-      Screen.MousePointer = vbHourglass
-      Cry.ReportFileName = App.Path & "\Reportes\Almacenes\ar_almacen_kardex_tot_alm.rpt"
-      Cry.StoredProcParam(0) = dtc_codigo1.Text         'Ado_datos.Recordset!almacen_codigo
-      
-      iResult = Cry.PrintReport
-      Screen.MousePointer = vbDefault
-      If iResult <> 0 Then
-          MsgBox Cry.LastErrorNumber & " : " & Cry.LastErrorString, vbExclamation + vbOKOnly, "Atención"
-      End If
-    fra_reportes.Visible = False
-End Sub
-
-Private Sub Option2_Click()
-    Fra_reporte.Visible = True
-    tdbgInventario.Enabled = False
-    Fra_Elegir.Enabled = False
-    CmdFiltrar.Visible = True
-    BtnImprimir1.Visible = False
-    BtnImprimir2.Visible = False
-
-    fra_reportes.Visible = False
-      
-'      Screen.MousePointer = vbHourglass
-'      Cry02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_almacen_kardex_tot_alm_valorado.rpt"
-'      Cry02.StoredProcParam(0) = dtc_codigo1.Text         'Ado_datos.Recordset!almacen_codigo
-'
-'      iResult = Cry02.PrintReport
-'      Screen.MousePointer = vbDefault
-'      If iResult <> 0 Then
-'          MsgBox Cry02.LastErrorNumber & " : " & Cry02.LastErrorString, vbExclamation + vbOKOnly, "Atención"
-'      End If
-'    fra_reportes.Visible = False
-End Sub
-
-Private Sub Option3_Click()
-    Fra_reporte.Visible = True
-    tdbgInventario.Enabled = False
-    Fra_Elegir.Enabled = False
-    CmdFiltrar.Visible = True
-    BtnImprimir1.Visible = False
-    BtnImprimir2.Visible = False
-
-    fra_reportes.Visible = False
-End Sub
-
-Private Sub Option4_Click()
-      Dim iResult As Integer
-      Screen.MousePointer = vbHourglass
-      Cry01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_salida_almacenes_todos_TXT.rpt"
-      'Cry01.StoredProcParam(0) = dtc_codigo1.Text         'Ado_datos.Recordset!almacen_codigo
-
-      iResult = Cry01.PrintReport
-      Screen.MousePointer = vbDefault
-      If iResult <> 0 Then
-          MsgBox Cry01.LastErrorNumber & " : " & Cry01.LastErrorString, vbExclamation + vbOKOnly, "Atención"
-      End If
 End Sub
 
 Private Sub tdbgInventario_DblClick()
