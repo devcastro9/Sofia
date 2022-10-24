@@ -8,7 +8,7 @@ Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form fw_conciliacion_bancaria 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "Financiero - Tesorerï¿½a - Conciliaciï¿½n Bancaria"
+   Caption         =   "Financiero - Tesorería - Conciliación Bancaria"
    ClientHeight    =   8790
    ClientLeft      =   1110
    ClientTop       =   345
@@ -1989,7 +1989,7 @@ Begin VB.Form fw_conciliacion_bancaria
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   51
-            ToolTipText     =   "Imprime Reporte de Conciliaciï¿½n"
+            ToolTipText     =   "Imprime Reporte de Conciliación"
             Top             =   2160
             Width           =   1400
          End
@@ -2065,7 +2065,7 @@ Begin VB.Form fw_conciliacion_bancaria
       End
       Begin VB.Frame Frame1 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "Borrar registro de Facturaciï¿½n Electrï¿½nica"
+         Caption         =   "Borrar registro de Facturación Electrónica"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -2328,7 +2328,7 @@ Begin VB.Form fw_conciliacion_bancaria
          End
          Begin VB.Label Label32 
             BackColor       =   &H00C0C0C0&
-            Caption         =   "GESTIï¿½N"
+            Caption         =   "GESTIÓN"
             ForeColor       =   &H00000000&
             Height          =   255
             Left            =   1080
@@ -2481,7 +2481,7 @@ Begin VB.Form fw_conciliacion_bancaria
          Width           =   5805
          Begin VB.OptionButton rbtDia 
             BackColor       =   &H00C0C0C0&
-            Caption         =   "Por dï¿½a"
+            Caption         =   "Por día"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   9.75
@@ -2672,7 +2672,7 @@ Begin VB.Form fw_conciliacion_bancaria
             AutoSize        =   -1  'True
             BackColor       =   &H00C0C0C0&
             BackStyle       =   0  'Transparent
-            Caption         =   "Equipo Biomï¿½trico"
+            Caption         =   "Equipo Biométrico"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   9.75
@@ -2748,7 +2748,7 @@ Begin VB.Form fw_conciliacion_bancaria
             Visible         =   0   'False
             Width           =   1125
          End
-         Begin VB.PictureBox BtnAï¿½adir 
+         Begin VB.PictureBox BtnAñadir 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
             BorderStyle     =   0  'None
@@ -3210,7 +3210,7 @@ Private Sub BtnBuscar_Click()
 '    Call ABRIR_DETALLE
     PosibleApliqueFiltro = False
     Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexiï¿½n = db
+    Set ClBuscaGrid.Conexión = db
     ClBuscaGrid.EsTdbGrid = False
     Set ClBuscaGrid.GridTrabajo = DtGLista11
     ClBuscaGrid.QueryUtilizado = queryinicial
@@ -3220,7 +3220,7 @@ Private Sub BtnBuscar_Click()
     PosibleApliqueFiltro = True
 
   Else
-    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atenciï¿½n!"
+    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
     'OptFilGral1.Visible = True
     'OptFilGral2.Visible = True
   End If
@@ -3235,7 +3235,7 @@ Private Sub BtnBuscar1_Click()
 '    Call ABRIR_DETALLE
     PosibleApliqueFiltro = False
     Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexiï¿½n = db
+    Set ClBuscaGrid.Conexión = db
     ClBuscaGrid.EsTdbGrid = False
     Set ClBuscaGrid.GridTrabajo = dg_datos2
     ClBuscaGrid.QueryUtilizado = queryinicial1
@@ -3245,7 +3245,7 @@ Private Sub BtnBuscar1_Click()
     PosibleApliqueFiltro = True
 
   Else
-    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atenciï¿½n!"
+    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
     'OptFilGral1.Visible = True
     'OptFilGral2.Visible = True
   End If
@@ -3261,7 +3261,7 @@ Private Sub BtnBuscar2_Click()
 '    Call ABRIR_DETALLE
     PosibleApliqueFiltro = False
     Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexiï¿½n = db
+    Set ClBuscaGrid.Conexión = db
     ClBuscaGrid.EsTdbGrid = False
     Set ClBuscaGrid.GridTrabajo = dg_datos3
     ClBuscaGrid.QueryUtilizado = queryinicial2
@@ -3271,7 +3271,7 @@ Private Sub BtnBuscar2_Click()
     PosibleApliqueFiltro = True
 
   Else
-    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atenciï¿½n!"
+    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
     'OptFilGral1.Visible = True
     'OptFilGral2.Visible = True
   End If
@@ -3323,10 +3323,10 @@ Private Sub BtnEliminar_Click()
 End Sub
 
 Private Sub BtnGrabar_Click()
-    sino = MsgBox("ï¿½Estï¿½ Seguro de Eliminar el Registro de Facturas Electrï¿½nicas ?", vbYesNo + vbQuestion, "Atenciï¿½n")
+    sino = MsgBox("¿Está Seguro de Eliminar el Registro de Facturas Electrónicas ?", vbYesNo + vbQuestion, "Atención")
     If sino = vbYes Then
         db.Execute " UPDATE ao_ventas_cobranza SET factura_impresa = 'N', cobranza_nro_factura = '0', estado_codigo_fac1 = 'REG', cta_codigo2 = 'NN', trans_codigo = 'O' WHERE (factura_impresa = 'S') AND (cobranza_nro_factura > '0') AND (ges_gestion = '2020') AND (estado_codigo_fac1 = 'APR') AND (cmpbte_deposito2 <> '0') AND (cta_codigo2 = '" & NombreArchivo & "') and (trans_codigo = 'L') "
-        MsgBox "Se anularon los registros de Facturas Electrï¿½nicas ..."
+        MsgBox "Se anularon los registros de Facturas Electrónicas ..."
         Frame1.Visible = False
     End If
 End Sub
@@ -3367,7 +3367,7 @@ Private Sub BtnModDetalle_Click()
             Fra_reporte.Visible = True
             'DtGLista.Enabled = True
         Else
-            MsgBox "Debe elegir un registro cobrado para modificar, verifique y vuelva a intentar ...", , "Atenciï¿½n"
+            MsgBox "Debe elegir un registro cobrado para modificar, verifique y vuelva a intentar ...", , "Atención"
         End If
 End Sub
 
@@ -3436,11 +3436,11 @@ Private Sub Form_Load()
 '    dtc_rep_det.BoundText = dtc_rep_cod.BoundText
 End Sub
 
-Private Sub BtnAï¿½adir_Click()
+Private Sub BtnAñadir_Click()
 '    Call limpiar
 '    LblMensaje.Visible = False
 '    Fra_ABM.Enabled = True
-'    BtnAï¿½adir.Visible = True
+'    BtnAñadir.Visible = True
 '    btnCargarArchivo.Visible = True
 '    Image1.Visible = True
 '    btnImportarDato.Visible = False
@@ -3449,30 +3449,30 @@ Private Sub BtnAï¿½adir_Click()
 
     If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "MWILDE" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then         'Or glusuario = "MVALDIVIA"
         Dim e As Long
-        e = Shell(App.Path & "\Extractos\SofiaNetCore.exe", 1)
+        e = Shell(App.Path & "\Extractos\sofiaNET_6.exe", 1)
     Else
         MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
     End If
     ' esto es...
     '-- ACTUALIZA INGRESOS fo_extracto_ingreso_GRAL
-    'db.Execute "DELETE fo_extracto_ingreso_GRAL "
-    'db.Execute "INSERT INTO fo_extracto_ingreso_GRAL (correlativo, cuenta, fecha_transaccion, monto, cod_bancarizacion, agencia, descripcion, glosa, nro_cheque, plantilla, estado_conciliado, usuario, nombre_archivo, cod_cliente, id_depositante, nombre_depositante, banco) SELECT * FROM fv_extracto_ingreso_GRAL "
+    db.Execute "DELETE fo_extracto_ingreso_GRAL "
+    db.Execute "INSERT INTO fo_extracto_ingreso_GRAL (correlativo, cuenta, fecha_transaccion, monto, cod_bancarizacion, agencia, descripcion, glosa, nro_cheque, plantilla, estado_conciliado, usuario, nombre_archivo, cod_cliente, id_depositante, nombre_depositante, banco) SELECT * FROM fv_extracto_ingreso_GRAL "
 
     '-- ACTUALIZA BOLIVIANOS
-    'db.Execute "UPDATE fo_extracto_ingreso_GRAL SET monto_bs = monto, monto_dol = MONTO/6.96 WHERE cuenta ='2015046557-03-054' OR cuenta ='4010439742' OR cuenta ='4010620792' OR cuenta ='4010644195' OR cuenta ='4010772049' OR cuenta ='4011005599' OR cuenta ='4011048967' OR cuenta ='4011048981' OR cuenta ='4069626219' OR cuenta ='4069626233' OR cuenta ='10000019133060' "
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET monto_bs = monto, monto_dol = MONTO/6.96 WHERE cuenta ='2015046557-03-054' OR cuenta ='4010439742' OR cuenta ='4010620792' OR cuenta ='4010644195' OR cuenta ='4010772049' OR cuenta ='4011005599' OR cuenta ='4011048967' OR cuenta ='4011048981' OR cuenta ='4069626219' OR cuenta ='4069626233' OR cuenta ='10000019133060' "
 
     '-- ACTUALIZA DOLARES
-    'db.Execute "UPDATE fo_extracto_ingreso_GRAL SET monto_dol = monto, monto_bs = MONTO*6.96 WHERE cuenta ='201-5041743-2-18' OR cuenta ='096359-201-9' OR cuenta ='4010038393' OR cuenta ='4010620785' OR cuenta ='4010780124' OR cuenta ='4011005601' OR cuenta ='4011048974' OR cuenta ='4069626242' OR cuenta ='4069626265' "
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET monto_dol = monto, monto_bs = MONTO*6.96 WHERE cuenta ='201-5041743-2-18' OR cuenta ='096359-201-9' OR cuenta ='4010038393' OR cuenta ='4010620785' OR cuenta ='4010780124' OR cuenta ='4011005601' OR cuenta ='4011048974' OR cuenta ='4069626242' OR cuenta ='4069626265' "
 
     '-- ACTUALIZA EGREOS fo_extracto_egreso_GRAL        'select * from fo_extracto_egreso_GRAL
-    'db.Execute "Delete fo_extracto_egreso_GRAL "
-    'db.Execute "INSERT INTO fo_extracto_egreso_GRAL (correlativo, cuenta, fecha_transaccion, monto, cod_bancarizacion, agencia, descripcion, glosa, nro_cheque, plantilla, estado_conciliado, usuario, nombre_archivo, cod_cliente, id_depositante, nombre_depositante, banco) SELECT * FROM fv_extracto_egreso_GRAL "
+    db.Execute "Delete fo_extracto_egreso_GRAL "
+    db.Execute "INSERT INTO fo_extracto_egreso_GRAL (correlativo, cuenta, fecha_transaccion, monto, cod_bancarizacion, agencia, descripcion, glosa, nro_cheque, plantilla, estado_conciliado, usuario, nombre_archivo, cod_cliente, id_depositante, nombre_depositante, banco) SELECT * FROM fv_extracto_egreso_GRAL "
 
     '-- ACTUALIZA BOLIVIANOS
-    'db.Execute "UPDATE fo_extracto_egreso_GRAL SET monto_bs = monto, monto_dol = MONTO/6.96 WHERE cuenta ='2015046557-03-054' OR cuenta ='4010439742' OR cuenta ='4010620792' OR cuenta ='4010644195' OR cuenta ='4010772049' OR cuenta ='4011005599' OR cuenta ='4011048967' OR cuenta ='4011048981' OR cuenta ='4069626219' OR cuenta ='4069626233' OR cuenta ='10000019133060' "
+    db.Execute "UPDATE fo_extracto_egreso_GRAL SET monto_bs = monto, monto_dol = MONTO/6.96 WHERE cuenta ='2015046557-03-054' OR cuenta ='4010439742' OR cuenta ='4010620792' OR cuenta ='4010644195' OR cuenta ='4010772049' OR cuenta ='4011005599' OR cuenta ='4011048967' OR cuenta ='4011048981' OR cuenta ='4069626219' OR cuenta ='4069626233' OR cuenta ='10000019133060' "
 
     '-- ACTUALIZA DOLARES
-    'db.Execute "UPDATE fo_extracto_egreso_GRAL SET monto_dol = monto, monto_bs = MONTO*6.96 WHERE cuenta ='201-5041743-2-18' OR cuenta ='096359-201-9' OR cuenta ='4010038393' OR cuenta ='4010620785' OR cuenta ='4010780124' OR cuenta ='4011005601' OR cuenta ='4011048974' OR cuenta ='4069626242' OR cuenta ='4069626265' "
+    db.Execute "UPDATE fo_extracto_egreso_GRAL SET monto_dol = monto, monto_bs = MONTO*6.96 WHERE cuenta ='201-5041743-2-18' OR cuenta ='096359-201-9' OR cuenta ='4010038393' OR cuenta ='4010620785' OR cuenta ='4010780124' OR cuenta ='4011005601' OR cuenta ='4011048974' OR cuenta ='4069626242' OR cuenta ='4069626265' "
 
 End Sub
 
@@ -3499,7 +3499,7 @@ Private Sub btnCargarArchivo_Click()
   ' Valida si existe ruta destino.
   If existeRuta = Falso Then
      ' Consulta no existe ruta.
-     sino = MsgBox("No existe ruta destino 'EXTRACTOS' ï¿½ Desea crearla ? ", vbYesNo + vbQuestion, "Atenciï¿½n")
+     sino = MsgBox("No existe ruta destino 'EXTRACTOS' ¿ Desea crearla ? ", vbYesNo + vbQuestion, "Atención")
      If sino = vbYes Then
            Dim f As FileSystemObject
            Set f = New FileSystemObject
@@ -3517,21 +3517,21 @@ Private Sub btnCargarArchivo_Click()
     
      If esValio Then
         If rbtMes.Value = True Then
-            'sino = MsgBox("ï¿½Esta seguro de subir la asistencia del MES con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text & vbCrLf & "Equipo Biomï¿½trico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atenciï¿½n")
-            sino = MsgBox("ï¿½Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text, vbYesNo + vbQuestion, "Atenciï¿½n")
+            'sino = MsgBox("¿Esta seguro de subir la asistencia del MES con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
+            sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text, vbYesNo + vbQuestion, "Atención")
         End If
         If rbtDia(0).Value = True Then
-            sino = MsgBox("ï¿½Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & DtpFecha.Value & vbCrLf & "Equipo Biomï¿½trico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atenciï¿½n")
+            sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & DtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
         End If
         If sino = vbYes Then
             GLCarpeta = ""
-            BtnAï¿½adir.Visible = False
+            BtnAñadir.Visible = False
             Fra_ABM.Enabled = False
             Dim dia As String, mes As String
         
             Fecha = DtpFecha.Value
             Call ObtenerDiaMes(DatePart("m", Fecha), mes)
-            ' Tipo de exportaciï¿½n por mes o dia.
+            ' Tipo de exportación por mes o dia.
             If rbtMes.Value = True Then
                 NombreArchivo = UCase(Trim$("EB" & "_" & cmb_gestion_rep.Text & cmb_mes_ini.Text))
 '                If cmb_mes_ini.Text = "NO ASIGNADO" Then
@@ -3640,7 +3640,7 @@ Private Sub btnImportarDato_Click()
         Image1.Visible = False
         
         If SiEstaImportado Then
-            sino = MsgBox("ï¿½Existen datos para '" & NombreArchivo & "',desea reemplazarlos?", vbQuestion + vbYesNo, "Confirmando ... ")
+            sino = MsgBox("¿Existen datos para '" & NombreArchivo & "',desea reemplazarlos?", vbQuestion + vbYesNo, "Confirmando ... ")
             If sino = vbYes Then
                 Call EliminarDatoAnterior
                 MsgBox "Los datos anteriores se anularon ..."
@@ -3684,7 +3684,7 @@ Private Sub ImportarDato()
   On Error GoTo ErrorHandler
             
         LblMensaje.Visible = True
-        MsgBox " Se inicia el proceso de importaciï¿½n de datos..."
+        MsgBox " Se inicia el proceso de importación de datos..."
                 
         Dim conExcel As New ADODB.Connection
         Dim rsExcel As New ADODB.Recordset
@@ -3811,7 +3811,7 @@ Private Sub ImportarDato()
          
         If rsTablaAuxiliar.State = 1 Then rsTablaAuxiliar.Close
         Dim sqlSelect As String
-        ' Tipo de exportaciï¿½n por mes o dia.
+        ' Tipo de exportación por mes o dia.
         If rbtMes.Value = True Then
             ' Consulta por mes
             'sqlSelect = "SELECT * FROM auxiliar_asistencia WHERE MONTH(Fecha) = '" & txt_mes.Text & "' AND YEAR(Fecha) = '" & cmb_gestion_rep.Text & "' AND Nombre_Archivo = '" & NombreArchivo & "' "
@@ -3936,7 +3936,7 @@ ErrorHandler:
        LblMensaje.Visible = False
        MsgBox Err.Description, , "Error"
        Fra_ABM.Enabled = True
-       BtnAï¿½adir.Visible = True
+       BtnAñadir.Visible = True
     End If
 End Sub
 
