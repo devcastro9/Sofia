@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   50921473
+         Format          =   140247041
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   50921473
+         Format          =   140247041
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   50921473
+         Format          =   140247041
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -367,14 +367,14 @@ Begin VB.Form fw_conciliacion_bancaria
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "BtnImprimir2"
-      Tab(1).Control(1)=   "BtnBuscar2"
-      Tab(1).Control(2)=   "BtnBuscar3"
-      Tab(1).Control(3)=   "Frame3"
-      Tab(1).Control(4)=   "FrmDetalle"
-      Tab(1).Control(5)=   "Frame2"
-      Tab(1).Control(6)=   "FrmDetalle2"
-      Tab(1).Control(7)=   "FrmABMDet"
+      Tab(1).Control(0)=   "FrmABMDet"
+      Tab(1).Control(1)=   "FrmDetalle2"
+      Tab(1).Control(2)=   "Frame2"
+      Tab(1).Control(3)=   "FrmDetalle"
+      Tab(1).Control(4)=   "Frame3"
+      Tab(1).Control(5)=   "BtnBuscar3"
+      Tab(1).Control(6)=   "BtnBuscar2"
+      Tab(1).Control(7)=   "BtnImprimir2"
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
@@ -2598,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   50921473
+            Format          =   140247041
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -3210,7 +3210,7 @@ Private Sub BtnBuscar_Click()
 '    Call ABRIR_DETALLE
     PosibleApliqueFiltro = False
     Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexi贸n = db
+    Set ClBuscaGrid.Conexi髇 = db
     ClBuscaGrid.EsTdbGrid = False
     Set ClBuscaGrid.GridTrabajo = DtGLista11
     ClBuscaGrid.QueryUtilizado = queryinicial
@@ -3235,7 +3235,7 @@ Private Sub BtnBuscar1_Click()
 '    Call ABRIR_DETALLE
     PosibleApliqueFiltro = False
     Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexi贸n = db
+    Set ClBuscaGrid.Conexi髇 = db
     ClBuscaGrid.EsTdbGrid = False
     Set ClBuscaGrid.GridTrabajo = dg_datos2
     ClBuscaGrid.QueryUtilizado = queryinicial1
@@ -3261,7 +3261,7 @@ Private Sub BtnBuscar2_Click()
 '    Call ABRIR_DETALLE
     PosibleApliqueFiltro = False
     Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexi贸n = db
+    Set ClBuscaGrid.Conexi髇 = db
     ClBuscaGrid.EsTdbGrid = False
     Set ClBuscaGrid.GridTrabajo = dg_datos3
     ClBuscaGrid.QueryUtilizado = queryinicial2
@@ -3332,28 +3332,28 @@ Private Sub BtnGrabar_Click()
 End Sub
 
 Private Sub BtnImprimir1_Click()
-    CR01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_detalle_concilia.rpt"
+    Cr01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_detalle_concilia.rpt"
     titulo2 = "MODULO TESORERIA"
     subtitulo2 = "CONCILIACION P/CUENTA BANCARIA"
-    CR01.Formulas(2) = "Titulo = '" & titulo2 & "'"
-    CR01.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
+    Cr01.Formulas(2) = "Titulo = '" & titulo2 & "'"
+    Cr01.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
     
-    iResult = CR01.PrintReport
+    iResult = Cr01.PrintReport
     If iResult <> 0 Then
-        MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical + vbOKOnly, "Error..."
+        MsgBox Cr01.LastErrorNumber & " : " & Cr01.LastErrorString, vbCritical + vbOKOnly, "Error..."
     End If
 End Sub
 
 Private Sub BtnImprimir2_Click()
-    CR02.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_NO_conciliados.rpt"
+    Cr02.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_NO_conciliados.rpt"
     titulo2 = "EXTRACTOS BANCARIOS"
     subtitulo2 = "NO CONCILIADOS"
-    CR02.Formulas(2) = "Titulo = '" & titulo2 & "'"
-    CR02.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
+    Cr02.Formulas(2) = "Titulo = '" & titulo2 & "'"
+    Cr02.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
     
-    iResult = CR02.PrintReport
+    iResult = Cr02.PrintReport
     If iResult <> 0 Then
-        MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical + vbOKOnly, "Error..."
+        MsgBox Cr02.LastErrorNumber & " : " & Cr02.LastErrorString, vbCritical + vbOKOnly, "Error..."
     End If
 End Sub
 
@@ -3449,7 +3449,9 @@ Private Sub BtnA帽adir_Click()
 
     If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "MWILDE" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then         'Or glusuario = "MVALDIVIA"
         Dim e As Long
-e = Shell(App.Path & "\Extractos\SofiaNetCore.exe", 1)
+        Dim ruta As String
+        ruta = App.Path & "\Extractos\SofiaNetCore.exe"
+        e = Shell(ruta, 1)
     Else
         MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
     End If
@@ -3484,7 +3486,7 @@ Private Sub limpiar()
     btnImportarDato.Enabled = True
     cmb_departamento = ""
     cmb_equipo = ""
-    DtpFecha.Value = Date
+    dtpFecha.Value = Date
     
 End Sub
 
@@ -3521,7 +3523,7 @@ Private Sub btnCargarArchivo_Click()
             sino = MsgBox("驴Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text, vbYesNo + vbQuestion, "Atenci贸n")
         End If
         If rbtDia(0).Value = True Then
-            sino = MsgBox("驴Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & DtpFecha.Value & vbCrLf & "Equipo Biom茅trico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atenci贸n")
+            sino = MsgBox("驴Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & dtpFecha.Value & vbCrLf & "Equipo Biom茅trico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atenci贸n")
         End If
         If sino = vbYes Then
             GLCarpeta = ""
@@ -3529,7 +3531,7 @@ Private Sub btnCargarArchivo_Click()
             Fra_ABM.Enabled = False
             Dim dia As String, mes As String
         
-            Fecha = DtpFecha.Value
+            Fecha = dtpFecha.Value
             Call ObtenerDiaMes(DatePart("m", Fecha), mes)
             ' Tipo de exportaci贸n por mes o dia.
             If rbtMes.Value = True Then
@@ -3609,7 +3611,7 @@ End Sub
 Private Sub valida_campos(esValio)
   Dim inicial As Integer
   If rbtDia(0).Value = True Then
-    If DtpFecha.Value = "" Then
+    If dtpFecha.Value = "" Then
       MsgBox " El campo Fecha es requerido."
       esValio = False
     End If
@@ -4230,7 +4232,7 @@ Private Sub rbtDia_Click(Index As Integer)
     If rbtDia(0).Value = True Then
         LblTime.Caption = rbtDia(0).Caption
         'lbl_inicial(0).Visible = True
-        DtpFecha.Visible = True
+        dtpFecha.Visible = True
         'lbl_inicial(1).Visible = False
         cmb_mes_ini.Visible = False
         cmb_gestion_rep.Visible = False
@@ -4242,7 +4244,7 @@ Private Sub rbtMes_Click()
     If rbtMes.Value = True Then
         LblTime.Caption = rbtMes.Caption
         'lbl_inicial(0).Visible = False
-        DtpFecha.Visible = False
+        dtpFecha.Visible = False
         'lbl_inicial(1).Visible = True
         cmb_mes_ini.Visible = True
         cmb_gestion_rep.Visible = True
