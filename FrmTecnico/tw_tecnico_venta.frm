@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.13786e9
+   ScaleHeight     =   7.12822e9
    ScaleMode       =   0  'User
-   ScaleWidth      =   46688.27
+   ScaleWidth      =   61527.18
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -739,9 +739,9 @@ Begin VB.Form tw_tecnico_venta
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":C37D
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1300,7 +1300,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109707265
+            Format          =   109445121
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1561,7 +1561,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   109707265
+            Format          =   109445121
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -1589,7 +1589,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109707265
+            Format          =   109445121
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2087,7 +2087,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   109707265
+               Format          =   109445121
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2112,7 +2112,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109707265
+               Format          =   109445121
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2556,7 +2556,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109707265
+               Format          =   109445121
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2639,7 +2639,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109707265
+               Format          =   109445121
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3365,7 +3365,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109707265
+            Format          =   109445121
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -6936,7 +6936,7 @@ Private Sub BtnAprobar_Click()
                         Exit Sub
                End Select
                'ACTUALIZA TOTALES EN CABECERA
-               Call acumulaMont(Ado_datos.Recordset("ges_gestion"), NumComp)
+               Call acumulaMont(Ado_datos.Recordset!ges_gestion, NumComp)
                
                 ' GRABA Nombre de Archivo en ao_ventas_cabecera. VERIFICAR JQA 2014-07-08
                 'rs_datos!doc_numero = Txt_campo1.Caption
@@ -7050,6 +7050,9 @@ Private Sub PARA_COMEX()
         VAR_TIPOV = "R"       'Ado_datos.Recordset!venta_tipo
         'INI GENERA INFORMACION COMEX, INSTALACION, AJUSTE
         If VAR_SOLTIPO = "15" Then
+            VAR_SOLTIPO = "3"
+        End If
+        If VAR_SOLTIPO = "7" Then
             VAR_SOLTIPO = "3"
         End If
         VAR_SOLTIPO2 = Str(VAR_SOLTIPO)
@@ -8141,7 +8144,7 @@ Private Sub CRONO2()
             If rs_aux18.State = 1 Then rs_aux18.Close
             rs_aux18.Open "Select fmes_plan from to_cronograma_mensual where zpiloto_codigo = " & VAR_ZONA & " AND ges_gestion = '" & rs_aux2!gestion & "' AND fmes_correl = " & rs_aux2!cobranza_mes & "  ", db, adOpenKeyset, adLockOptimistic
             If rs_aux18.RecordCount > 0 Then
-                db.Execute "update ao_ventas_cobranza_prog set fmes_plan = " & rs_aux18!fmes_plan & "where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
+                db.Execute "update ao_ventas_cobranza_prog set fmes_plan = " & rs_aux18!fmes_plan & " where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
             Else
                 db.Execute "update ao_ventas_cobranza_prog set fmes_plan = '0' where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
             End If
@@ -11317,75 +11320,6 @@ Private Sub cerea()
 '  txtjustifica = ""
 '  txt_venta = ""
 '  txtterref = ""
-End Sub
-'Private Sub fbuscaunidad()
-'  If rstFc_unidad_ejecutora.State = 1 Then rstFc_unidad_ejecutora.Close
-'  rstFc_unidad_ejecutora.Open "select * from Fc_unidad_ejecutora where uni_codigo = '" & Trim(adopuestosol.Recordset("codigo_unidad")) & "'", db, adOpenKeyset, adLockReadOnly
-'  If rstFc_unidad_ejecutora.RecordCount > 0 Then
-'    LblUni_descripcion_larga.Caption = rstFc_unidad_ejecutora("Uni_descripcion_larga")
-'  Else
-'    LblUni_descripcion_larga.Caption = ""
-'  End If
-'  If rstFc_unidad_ejecutora.State = 1 Then rstFc_unidad_ejecutora.Close
-'End Sub
-
-Sub creaVista()
-db.Execute "drop view vwF04"
-
-db.Execute "create view vwF04 as " & _
-            "select  ao_solicitud_lista.id_beneficiario, ao_solicitud_lista.tipoben_codigo, ao_solicitud_lista.doc_identidad, ao_solicitud_lista.grado_instruccion, ao_solicitud_lista.profesion, ao_solicitud_lista.paterno, ao_solicitud_lista.materno, ao_solicitud_lista.nombres, ao_solicitud_lista.telefono, ao_solicitud_lista.razon_s, ao_solicitud.codigo_solicitud, ao_solicitud.justificacion_solicitud, ao_solicitud.duracion_estimada_numero, ao_solicitud.por_tiempo, ao_solicitud.fecha_estimada_inicio, ao_solicitud.caracteristicas, ao_solicitud.duracion_estimada_tiempo, " & _
-            "ao_solicitud.tr_adjuntos AS docAdjunta, " & _
-            "ao_solicitud.codigo_bien, ac_bienes.bie_descripcion , ao_solicitud.observaciones, fc_unidad_ejecutora.uni_descripcion_larga, ao_solicitud.fecha_solicitud, " & _
-            "(rc_personal.paterno) + ' ' + (rc_personal.materno) + ' ' +(rc_personal.nombres) + ' [' + ao_solicitud.ci + ']' AS pmn " & _
-            "from ao_solicitud_lista  ,     " & _
-                 "ao_solicitud       ,     " & _
-                 "fc_unidad_ejecutora,     " & _
-                 "rc_personal,             " & _
-                 "ac_bienes                " & _
-            "where  ao_solicitud_lista.ges_Gestion       = '" & Me.Ado_datos.Recordset!ges_gestion & "' and " & _
-                    "ao_solicitud_lista.codigo_unidad    = '" & Me.Ado_datos.Recordset!codigo_unidad & "' and " & _
-                    "ao_solicitud_lista.codigo_solicitud =  " & Me.Ado_datos.Recordset!codigo_solicitud & " and " & _
-                    "ao_solicitud_lista.ges_Gestion      = ao_solicitud.ges_gestion            and " & _
-                    "ao_solicitud_lista.codigo_unidad    = ao_solicitud.codigo_unidad          and " & _
-                    "ao_solicitud_lista.codigo_solicitud = ao_solicitud.codigo_solicitud       and " & _
-                    "ao_solicitud.codigo_unidad          = fc_unidad_ejecutora.codigo_unidad   and " & _
-                    "ao_solicitud.codigo_bien            = ac_bienes.codigo_bien               and " & _
-                    "ao_solicitud.ci                     = rc_personal.ci                      " & _
-            "GROUP BY ao_solicitud_lista.id_beneficiario, ao_solicitud_lista.doc_identidad, ao_solicitud_lista.tipoben_codigo, " & _
-            "ao_solicitud.codigo_solicitud, ao_solicitud_lista.grado_instruccion, ao_solicitud_lista.profesion, ao_solicitud_lista.razon_s, ao_solicitud_lista.paterno, ao_solicitud_lista.materno, ao_solicitud_lista.nombres, " & _
-            "ao_solicitud_lista.telefono, ao_solicitud.justificacion_solicitud, ao_solicitud.duracion_estimada_tiempo, ao_solicitud.nacional_extranjero, ao_solicitud.por_tiempo, ao_solicitud.codigo_bien, ac_bienes.bie_descripcion, ao_solicitud.duracion_estimada_numero, ao_solicitud.duracion_estimada_tiempo, ao_solicitud.fecha_estimada_inicio, ao_solicitud.esparaRH, ao_solicitud.tr_adjuntos, ao_solicitud.observaciones, ao_solicitud.caracteristicas, fc_unidad_ejecutora.Uni_descripcion_larga, ao_solicitud.fecha_solicitud, (rc_personal.paterno)+' '+(rc_personal.materno)+' '+(rc_personal.nombres)+' ['+ao_solicitud.ci+']', ao_solicitud_lista.id_beneficiario "
-
-'            "trim$(rc_personal.paterno) + ' ' + trim$(rc_personal.materno) + ' ' +trim$(rc_personal.nombres) + ' [' + ao_solicitud.ci + ']' AS pmn " & _
-
-'''db.Execute "create view vwF05 as " & _
-'''            "select  ao_solicitud_lista.* " & _
-'''            "from ao_solicitud_lista"
-End Sub
-
-Sub CREAVISTAF11()
-db.Execute "drop view VWF11"
-db.Execute "create view VWF11 as " & _
-    "SELECT ao_Solicitud.Ges_Gestion, ao_Solicitud.codigo_unidad, " & _
-    "ao_Solicitud.codigo_solicitud, ao_Solicitud.formulario, " & _
-    "ao_Solicitud.justificacion_solicitud, ao_Solicitud.CI, " & _
-    "ao_Solicitud.fecha_solicitud, ao_Solicitud.codigo_bien, " & _
-    "ac_bienes_grupo.DescGrupo, RC_Personal.paterno, RC_Personal.materno, RC_Personal.nombres, " & _
-    "ao_Solicitud.observaciones, ao_Solicitud.caracteristicas, " & _
-    "ao_Solicitud.tr_adjuntos, ao_Solicitud.estatus, ao_Solicitud.estado_aprobacion, " & _
-    "ao_Solicitud.duracion_estimada_numero, ao_Solicitud.duracion_estimada_tiempo, " & _
-    "ao_solicitud_lista.codDetalle AS ci_material,  ao_solicitud_lista.profesion, ao_solicitud_lista.Aplanilla, " & _
-    "ao_solicitud_lista.razon_s, ao_solicitud_lista.Nro_pagos, ao_solicitud_lista.Monto_solicitud_dl, ao_solicitud_lista.AUnidad " & _
-"FROM ao_Solicitud, ao_Solicitud_detalle, ac_bienes_grupo, RC_Personal, ao_solicitud_lista " & _
-"WHERE (ao_Solicitud.Ges_Gestion) = '" & Me.Ado_datos.Recordset!ges_gestion & "' and " & _
-    "(ao_Solicitud.codigo_unidad) = '" & Me.Ado_datos.Recordset!codigo_unidad & "' and " & _
-    "(ao_Solicitud.codigo_solicitud) =  " & Me.Ado_datos.Recordset!codigo_solicitud & " and " & _
-    "ao_Solicitud.Ges_Gestion = ao_Solicitud_detalle.Ges_Gestion AND " & _
-    "ao_Solicitud.codigo_unidad = ao_Solicitud_detalle.codigo_unidad AND " & _
-    "ao_Solicitud.codigo_solicitud = ao_Solicitud_detalle.codigo_solicitud AND " & _
-    "ao_Solicitud.codigo_unidad = ao_Solicitud_lista.codigo_unidad AND " & _
-    "ao_Solicitud.codigo_solicitud = ao_Solicitud_lista.codigo_solicitud AND " & _
-    "ao_Solicitud.CodGrupo = ac_bienes_grupo.CodGrupo AND " & _
-    "ao_Solicitud.ci = RC_Personal.ci"
 End Sub
 
 Private Sub acumulaMont(ges, Nro)

@@ -160,7 +160,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   118423553
+            Format          =   119144449
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -1093,7 +1093,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   118423555
+         Format          =   119144451
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526

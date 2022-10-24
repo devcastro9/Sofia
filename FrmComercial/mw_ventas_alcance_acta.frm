@@ -44,7 +44,6 @@ Begin VB.Form mw_ventas_alcance_acta
          TabIndex        =   88
          ToolTipText     =   "Registra Adenda o Modificación al Contrato"
          Top             =   0
-         Visible         =   0   'False
          Width           =   1455
       End
       Begin VB.PictureBox BtnSalir 
@@ -105,6 +104,7 @@ Begin VB.Form mw_ventas_alcance_acta
          TabIndex        =   66
          ToolTipText     =   "Anula Zona elegida"
          Top             =   0
+         Visible         =   0   'False
          Width           =   1215
       End
       Begin VB.PictureBox BtnModificar 
@@ -252,25 +252,25 @@ Begin VB.Form mw_ventas_alcance_acta
          BackColor       =   &H80000018&
          Caption         =   "Anular-->"
          Height          =   640
-         Left            =   360
+         Left            =   240
          Style           =   1  'Graphical
          TabIndex        =   52
          ToolTipText     =   "Anula la Cobranza Identificada"
-         Top             =   165
+         Top             =   1485
          Visible         =   0   'False
-         Width           =   765
+         Width           =   1365
       End
       Begin VB.CommandButton BtnAddDetalle 
          BackColor       =   &H80000018&
          Caption         =   "Codificar"
          Height          =   640
-         Left            =   600
+         Left            =   240
          Style           =   1  'Graphical
          TabIndex        =   50
          ToolTipText     =   "Codifica Equipos"
-         Top             =   195
+         Top             =   795
          Visible         =   0   'False
-         Width           =   765
+         Width           =   1365
       End
    End
    Begin TabDlg.SSTab SSTab1 
@@ -450,7 +450,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   108789761
+               Format          =   108855297
                CurrentDate     =   44334
             End
             Begin MSComCtl2.DTPicker DTPfechasol 
@@ -464,7 +464,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   108789761
+               Format          =   108855297
                CurrentDate     =   44334
             End
             Begin VB.TextBox Txt_Campo1 
@@ -1605,6 +1605,7 @@ Begin VB.Form mw_ventas_alcance_acta
          Width           =   1455
       End
       Begin MSDataGridLib.DataGrid dg_datos 
+         Bindings        =   "mw_ventas_alcance_acta.frx":5604
          Height          =   4170
          Left            =   120
          TabIndex        =   25
@@ -1824,7 +1825,7 @@ Begin VB.Form mw_ventas_alcance_acta
       Top             =   5580
       Width           =   14895
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "mw_ventas_alcance_acta.frx":5604
+         Bindings        =   "mw_ventas_alcance_acta.frx":561C
          Height          =   1905
          Left            =   240
          TabIndex        =   8
@@ -2984,8 +2985,8 @@ Dim swgrabar, swnuevo, deta2 As Integer
 Dim nroventa, correlv, correldet2 As Integer
 Dim VAR_PARTIDA, VAR_PROY, correldetalle As Integer
 Dim VAR_CANT0, VAR_CANT9  As Integer
-Dim VAR_CODANT, Var_Comp, VAR_SOL, VAR_TIPOS As Integer
-Dim VAR_NUM As Integer
+Dim VAR_CODANT, Var_Comp, VAR_SOL, VAR_ZPILOTO As Integer
+Dim VAR_NUM, VAR_SOLTIPO As Integer
 Dim VAR_COMPM As Long
 
 Dim VAR_DCORR, VAR_HCORR As String
@@ -3003,7 +3004,7 @@ Dim VAR_COBR0, VAR_OA, VAR_OA2, VAR_NEW As String
 Dim VAR_PAIS, VAR_EQP, VAR_TIPOEQP As String
 Dim VAR_DA, VAR_UORIGEN As String
 Dim VAR_NOMD, VAR_NOMH As String
-Dim VAR_JQ, VAR_VAL As String
+Dim VAR_JQ, VAR_VAL, VAR_FCONTROL As String
     
 Private Sub CmdDetalle_Click()
     FrmCobranza.Visible = True
@@ -3049,7 +3050,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             BtnModificar.Visible = True
             BtnEliminar.Visible = True
 '            BtnVer.Visible = False
-            BtnModDetalle1.Visible = True
+'            BtnModDetalle1.Visible = True
             If IsNull(Ado_datos.Recordset("venta_tipo")) Then
                 FrmABMDet.Visible = False
                 FrmABMDet1.Visible = False
@@ -3063,12 +3064,6 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                 FrmCobranza.Visible = True
 '                FrmAlcance.Visible = True
             End If
-'            FraDet2.Visible = False
-'            If (Ado_datos.Recordset!unidad_codigo = "DVTA") Then
-'                BtnAddDetalle.Visible = True
-'            Else
-'                BtnAddDetalle.Visible = False
-'            End If
         Else
         'WWWWWWWWWWWWWWWWWWWWWWWWWW
             Select Case Ado_datos.Recordset!estado_cancelado
@@ -3204,7 +3199,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             End If
             
         End If
-        GlEdificio = Ado_datos.Recordset!edif_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
         Call ABRIR_TABLA_DET
 '        FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
@@ -3212,23 +3207,6 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         FrmDetalle.Caption = "BIENES DEL TRAMITE NRO. " + Str((Ado_datos.Recordset("solicitud_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE TRAMITE NRO. " + Str((Ado_datos.Recordset("solicitud_codigo")))
 '        Else
-'            ' por si es nuevo
-'            dtccodpoa.Text = " "
-'            dtcdespoa.Text = dtccodpoa.BoundText
-'            dtc_codigo4.Text = " "
-'            Dtcpaternosol.Text = dtc_codigo4.BoundText
-'            dtcmaternosol.Text = " "
-'            dtcnombresol.Text = " "
-'            dtccodpuesto.Text = " "
-'            dtcdenopuesto.Text = dtccodpuesto.BoundText
-'            dtccoduni.Text = " "
-'            dtcdescripuni.Text = dtccoduni.BoundText
-'            dtc_codigo15.Text = " "
-'            dtc_desc15.Text = " "
-'            TxtMonto_bolivianos.Text = 0
-'            Txtobservaciones.Text = ""
-'            Txtcaracteristicas.Text = ""
-'            txtsolpeso.Text = 0
         End If
         'GlEdificio = Ado_datos.Recordset!edif_codigo
         FrmDetalle.Visible = True
@@ -3291,94 +3269,94 @@ End Sub
 
 
 Private Sub Ado_datos16_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
- If (Not Ado_datos16.Recordset.BOF) And (Not Ado_datos16.Recordset.EOF) Then
-    If Not IsNull(Ado_datos16.Recordset("venta_codigo")) Then
-        'BtnModDetalle2.Visible = False
-        If (Ado_datos16.Recordset("estado_codigo") = "REG") Then
+' If (Not Ado_datos16.Recordset.BOF) And (Not Ado_datos16.Recordset.EOF) Then
+'    If Not IsNull(Ado_datos16.Recordset("venta_codigo")) Then
+'        'BtnModDetalle2.Visible = False
+'        If (Ado_datos16.Recordset("estado_codigo") = "REG") Then
 '            If (Ado_datos.Recordset("estado_codigo") = "APR") Then
 '                BtnAprobar2.Visible = False
 '            Else
 '                BtnAprobar2.Visible = True
 '            End If
-            BtnImprimir2.Visible = True
-            BtnAprobar2.Visible = True
-            BtnAnlDetalle2.Visible = True
-            BtnModDetalle2.Visible = True
-        End If
-        If (Ado_datos16.Recordset("estado_codigo") = "APR") Then
-            BtnImprimir2.Visible = True
-            BtnAprobar2.Visible = False
-            BtnAnlDetalle2.Visible = False
-            BtnModDetalle2.Visible = False
-        End If
-        If (Ado_datos16.Recordset("estado_codigo") = "ANL") Then
-            BtnImprimir2.Visible = False
-            BtnAnlDetalle2.Visible = False
-            BtnModDetalle2.Visible = False
-            BtnAprobar2.Visible = False
-        End If
-    Else
-        BtnAprobar2.Visible = False
-        BtnImprimir2.Visible = False
-        BtnAnlDetalle2.Visible = False
-        BtnModDetalle2.Visible = False
-    End If
- Else
-    BtnAprobar2.Visible = False
-    BtnImprimir2.Visible = False
-    BtnAnlDetalle2.Visible = False
-    BtnModDetalle2.Visible = False
- End If
+'            BtnImprimir2.Visible = True
+'            BtnAprobar2.Visible = True
+'            BtnAnlDetalle2.Visible = True
+'            BtnModDetalle2.Visible = True
+'        End If
+'        If (Ado_datos16.Recordset("estado_codigo") = "APR") Then
+'            BtnImprimir2.Visible = True
+'            BtnAprobar2.Visible = False
+'            BtnAnlDetalle2.Visible = False
+'            BtnModDetalle2.Visible = False
+'        End If
+'        If (Ado_datos16.Recordset("estado_codigo") = "ANL") Then
+'            BtnImprimir2.Visible = False
+'            BtnAnlDetalle2.Visible = False
+'            BtnModDetalle2.Visible = False
+'            BtnAprobar2.Visible = False
+'        End If
+'    Else
+'        BtnAprobar2.Visible = False
+'        BtnImprimir2.Visible = False
+'        BtnAnlDetalle2.Visible = False
+'        BtnModDetalle2.Visible = False
+'    End If
+' Else
+'    BtnAprobar2.Visible = False
+'    BtnImprimir2.Visible = False
+'    BtnAnlDetalle2.Visible = False
+'    BtnModDetalle2.Visible = False
+' End If
 End Sub
 
 Private Sub BtnAddDetalle_Click()
-  'marca1 = Ado_datos.Recordset.Bookmark
-  If ado_datos14.Recordset!estado_codigo = "REG" Then
-    Set rs_aux6 = New ADODB.Recordset
-    If rs_aux6.State = 1 Then rs_aux6.Close
-    rs_aux6.Open "select * from fc_partida_gasto where par_codigo = '43340' ", db, adOpenKeyset, adLockReadOnly
-    If rs_aux6.RecordCount > 0 Then
-        VAR_OA = "AO36" + LTrim(Str(rs_aux6!correlativo36 + 1))
-        Set rs_aux7 = New ADODB.Recordset
-        If rs_aux7.State = 1 Then rs_aux7.Close
-        rs_aux7.Open "select * from ac_bienes where bien_codigo = '" & VAR_OA & "' ", db, adOpenKeyset, adLockReadOnly
-        If rs_aux7.RecordCount > 0 Then
-            MsgBox "El equipo " + VAR_OA + " YA Existe, vuelva a intentar !! ", vbExclamation, "Atención!"
-            db.Execute "update fc_partida_gasto set correlativo36 = correlativo36 + 1 where par_codigo = '43340' "
-        Else
-            ado_datos14.Recordset!bien_codigo = Trim(VAR_OA)
-            db.Execute "update fc_partida_gasto set correlativo36 = correlativo36 + 1 where par_codigo = '43340' "
-            db.Execute "insert into ac_bienes(grupo_codigo, subgrupo_codigo, bien_codigo, par_codigo, bien_descripcion, bien_precio_compra, bien_precio_venta_base, bien_precio_venta_final, unimed_codigo, unimed_codigo_empaque, bien_cantidad_por_empaque, marca_codigo, bien_stock_minimo, bien_stock_inicial, bien_stock_ingreso, bien_stock_salida, bien_stock_actual, bien_total_compra_bs, bien_total_venta_bs, bien_utilidad_Bs, bien_codigo_anterior, bien_codigo_universal, bien_descripcion_anterior, pais_codigo, archivo_foto2, archivo_foto, estado_codigo, fecha_registro, usr_codigo) " & _
-            "VALUES ('40000', '43000', '" & VAR_OA & "', '43340', 'CAPACIDAD ' + '" & dtc_desc31.Text & "' + ' PERSONAS Y VELOCIDAD ' + '" & dtc_valor41.Text & "' + ' m/s', " & var_cod & ", '0', '0', 'EQP', 'EQP', '1', 'S/M', '1', '0', '0', '0', '0', '0', '0', '0', '-', '-', '-', 'NN', '" & VAR_COD3 & "' + '2.JPG', '" & VAR_COD3 & "' + '.JPG', 'REG', '" & Date & "', '" & glusuario & "') "
-        End If
-    End If
-'    'If OptFilGral1.Value = True Then Call OptFilGral1_Click
-'    'If OptFilGral2.Value = True Then Call OptFilGral2_Click
-''    Ado_datos.Recordset.Move marca1 - 1
-'    swnuevo = 1
-'    SSTab1.Tab = 1
-'    SSTab1.TabEnabled(1) = True
-'    SSTab1.TabEnabled(0) = False
-'    SSTab1.TabEnabled(2) = False
-'    FrmEdita.Visible = True
-'    FrmEdita.Enabled = True
-'    FraNavega.Enabled = False
-'    FrmDetalle.Enabled = False
-'    FrmCobranza.Visible = False
-'    FrmABMDet.Visible = False
-'    FrmABMDet2.Visible = False
-'    'tipo Beneficiario
-'    Set rs_datos12 = New ADODB.Recordset
-'    If rs_datos12.State = 1 Then rs_datos12.Close
-'    'rs_datos12.Open "select * from gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
-'    rs_datos12.Open "select * from gc_tipo_beneficiario where tipoben_codigo = '" & Dtc_aux2.Text & "' ", db, adOpenKeyset, adLockReadOnly
-'    Set Ado_Datos12.Recordset = rs_datos12
-'    Ado_Datos12.Refresh
-'
-'    ado_datos14.Recordset.AddNew
-  Else
-    MsgBox "El registro Aprobado o Anulado, NO pueden ser modificado !! ", vbExclamation, "Atención!"
-  End If
+'  'marca1 = Ado_datos.Recordset.Bookmark
+'  If ado_datos14.Recordset!estado_codigo = "REG" Then
+'    Set rs_aux6 = New ADODB.Recordset
+'    If rs_aux6.State = 1 Then rs_aux6.Close
+'    rs_aux6.Open "select * from fc_partida_gasto where par_codigo = '43340' ", db, adOpenKeyset, adLockReadOnly
+'    If rs_aux6.RecordCount > 0 Then
+'        VAR_OA = "AO36" + LTrim(Str(rs_aux6!correlativo36 + 1))
+'        Set rs_aux7 = New ADODB.Recordset
+'        If rs_aux7.State = 1 Then rs_aux7.Close
+'        rs_aux7.Open "select * from ac_bienes where bien_codigo = '" & VAR_OA & "' ", db, adOpenKeyset, adLockReadOnly
+'        If rs_aux7.RecordCount > 0 Then
+'            MsgBox "El equipo " + VAR_OA + " YA Existe, vuelva a intentar !! ", vbExclamation, "Atención!"
+'            db.Execute "update fc_partida_gasto set correlativo36 = correlativo36 + 1 where par_codigo = '43340' "
+'        Else
+'            ado_datos14.Recordset!bien_codigo = Trim(VAR_OA)
+'            db.Execute "update fc_partida_gasto set correlativo36 = correlativo36 + 1 where par_codigo = '43340' "
+'            db.Execute "insert into ac_bienes(grupo_codigo, subgrupo_codigo, bien_codigo, par_codigo, bien_descripcion, bien_precio_compra, bien_precio_venta_base, bien_precio_venta_final, unimed_codigo, unimed_codigo_empaque, bien_cantidad_por_empaque, marca_codigo, bien_stock_minimo, bien_stock_inicial, bien_stock_ingreso, bien_stock_salida, bien_stock_actual, bien_total_compra_bs, bien_total_venta_bs, bien_utilidad_Bs, bien_codigo_anterior, bien_codigo_universal, bien_descripcion_anterior, pais_codigo, archivo_foto2, archivo_foto, estado_codigo, fecha_registro, usr_codigo) " & _
+'            "VALUES ('40000', '43000', '" & VAR_OA & "', '43340', 'CAPACIDAD ' + '" & dtc_desc31.Text & "' + ' PERSONAS Y VELOCIDAD ' + '" & dtc_valor41.Text & "' + ' m/s', " & var_cod & ", '0', '0', 'EQP', 'EQP', '1', 'S/M', '1', '0', '0', '0', '0', '0', '0', '0', '-', '-', '-', 'NN', '" & VAR_COD3 & "' + '2.JPG', '" & VAR_COD3 & "' + '.JPG', 'REG', '" & Date & "', '" & glusuario & "') "
+'        End If
+'    End If
+''    'If OptFilGral1.Value = True Then Call OptFilGral1_Click
+''    'If OptFilGral2.Value = True Then Call OptFilGral2_Click
+'''    Ado_datos.Recordset.Move marca1 - 1
+''    swnuevo = 1
+''    SSTab1.Tab = 1
+''    SSTab1.TabEnabled(1) = True
+''    SSTab1.TabEnabled(0) = False
+''    SSTab1.TabEnabled(2) = False
+''    FrmEdita.Visible = True
+''    FrmEdita.Enabled = True
+''    FraNavega.Enabled = False
+''    FrmDetalle.Enabled = False
+''    FrmCobranza.Visible = False
+''    FrmABMDet.Visible = False
+''    FrmABMDet2.Visible = False
+''    'tipo Beneficiario
+''    Set rs_datos12 = New ADODB.Recordset
+''    If rs_datos12.State = 1 Then rs_datos12.Close
+''    'rs_datos12.Open "select * from gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
+''    rs_datos12.Open "select * from gc_tipo_beneficiario where tipoben_codigo = '" & Dtc_aux2.Text & "' ", db, adOpenKeyset, adLockReadOnly
+''    Set Ado_Datos12.Recordset = rs_datos12
+''    Ado_Datos12.Refresh
+''
+''    ado_datos14.Recordset.AddNew
+'  Else
+'    MsgBox "El registro Aprobado o Anulado, NO pueden ser modificado !! ", vbExclamation, "Atención!"
+'  End If
 End Sub
 
 Private Sub BtnAprobar_Click()
@@ -3390,7 +3368,7 @@ Private Sub BtnAprobar_Click()
     End If
     Set rs_aux10 = New ADODB.Recordset     'Proyecto de Edificación
     If rs_aux10.State = 1 Then rs_aux10.Close
-    rs_aux10.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & dtc_aux3.Text & "' and estado_codigo = 'APR' ", db, adOpenStatic
+    rs_aux10.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & GlEdificio & "' and estado_codigo = 'APR' ", db, adOpenStatic
     If rs_aux10.RecordCount = 0 Then
         'Si Faltarian Aprobar
         MsgBox "No se puede APROBAR, verifique los datos del Edificio si estan correctos y si está Aprobado, luego vuelva a intentar ...", , "Atención"
@@ -3420,32 +3398,20 @@ Private Sub BtnAprobar_Click()
 '        Exit Sub
 '   End If
     If Ado_datos.Recordset("estado_acta") = "REG" Then
-        VAR_SOLA = Ado_datos.Recordset!venta_codigo
+        NumComp = Ado_datos.Recordset!venta_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        VAR_EDIF = Ado_datos.Recordset!edif_descripcion
+        VAR_COD4 = Ado_datos.Recordset!unidad_codigo
+        VAR_SOL = Ado_datos.Recordset!solicitud_codigo
+        VAR_ZPILOTO = Ado_datos.Recordset!zpiloto_codigo
+        VAR_MED = "MES"
+        VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
+        VAR_TIPO = "6"                                      'Ado_datos.Recordset!tipo_solicitud
        sino = MsgBox("Esta seguro de Aprobar el registro?", vbYesNo, "Confirmando")
        If sino = vbYes Then
-           db.Execute "Update ao_ventas_alcance set estado_acta ='APR'  WHERE venta_codigo = " & VAR_SOLA & " AND solicitud_tipo = '6' "
+           Call CRONO_MTTO
+           db.Execute "Update ao_ventas_alcance set estado_acta ='APR', estado_codigo ='APR'  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
            'ASIGNA A VARIABLES CAMPOS CLAVES
-'           'INI Deptos de Bolivia
-'            Select Case VAR_DPTO
-'                 Case "1"
-'                     VAR_DPTOD = "CHUQUISACA"
-'                 Case "2"
-'                     VAR_DPTOD = "LA PAZ"
-'                 Case "3"
-'                     VAR_DPTOD = "COCHABAMBA"
-'                 Case "4"
-'                     VAR_DPTOD = "ORURO"
-'                 Case "5"
-'                     VAR_DPTOD = "POTOSI"
-'                 Case "6"
-'                     VAR_DPTOD = "TARIJA"
-'                 Case "7"
-'                     VAR_DPTOD = "SANTA CRUZ"
-'                 Case "8"
-'                     VAR_DPTOD = "BENI"
-'                 Case "9"
-'                     VAR_DPTOD = "PANDO"
-'            End Select
 '           'ACTUALIZA CORRELATIVO DE DOC. RESPALDO
 '            Set rs_aux2 = New ADODB.Recordset
 '            If rs_aux2.State = 1 Then rs_aux2.Close
@@ -3532,37 +3498,37 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
-  If Ado_datos.Recordset.RecordCount > 0 Then
-    If Ado_datos.Recordset("estado_codigo") = "REG" Then
-      sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
-      If sino = vbYes Then
-          db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo = 'ANL' Where ao_ventas_cabecera.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_cabecera.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  "
-          'Dim rstdestino As New ADODB.Recordset
-          'Set rstdestino = New ADODB.Recordset
-          'If rstdestino.State = 1 Then rstdestino.Close
-          'rstdestino.Open "select * from ao_ventas_cabecera where ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' and correl_venta = " & Ado_datos.Recordset("correl_venta") & " and venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  ", db, adOpenDynamic, adLockOptimistic
-          'If Not rstdestino.BOF Then rstdestino.MoveFirst
-          'If Not rstdestino.BOF And Not rstdestino.EOF Then
-          '    rstdestino("estado_codigo") = "E"
-          '    rstdestino.Update
-          'End If
-          'If rstdestino.State = 1 Then rstdestino.Close
-          marca1 = Ado_datos.Recordset.Bookmark
-          'Ado_datos.Recordset.Requery
-          'Ado_datos.Refresh
-          Call OptFilGral1_Click
-          Ado_datos.Recordset.Move marca1 - 1
-      End If
-    Else
-      MsgBox "NO se puede ANULAR el registro que ya fue Aprobado o previamente Anulado.", , "Atencion"
-    End If
-  Else
-    MsgBox "NO se puede ANULAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
-  End If
+'  If Ado_datos.Recordset.RecordCount > 0 Then
+'    If Ado_datos.Recordset("estado_codigo") = "REG" Then
+'      sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
+'      If sino = vbYes Then
+'          db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo = 'ANL' Where ao_ventas_cabecera.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_cabecera.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  "
+'          'Dim rstdestino As New ADODB.Recordset
+'          'Set rstdestino = New ADODB.Recordset
+'          'If rstdestino.State = 1 Then rstdestino.Close
+'          'rstdestino.Open "select * from ao_ventas_cabecera where ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' and correl_venta = " & Ado_datos.Recordset("correl_venta") & " and venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  ", db, adOpenDynamic, adLockOptimistic
+'          'If Not rstdestino.BOF Then rstdestino.MoveFirst
+'          'If Not rstdestino.BOF And Not rstdestino.EOF Then
+'          '    rstdestino("estado_codigo") = "E"
+'          '    rstdestino.Update
+'          'End If
+'          'If rstdestino.State = 1 Then rstdestino.Close
+'          marca1 = Ado_datos.Recordset.Bookmark
+'          'Ado_datos.Recordset.Requery
+'          'Ado_datos.Refresh
+'          Call OptFilGral1_Click
+'          Ado_datos.Recordset.Move marca1 - 1
+'      End If
+'    Else
+'      MsgBox "NO se puede ANULAR el registro que ya fue Aprobado o previamente Anulado.", , "Atencion"
+'    End If
+'  Else
+'    MsgBox "NO se puede ANULAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
+'  End If
 End Sub
 
 Private Sub BtnGrabar_Click()
-VAR_SOLA = Ado_datos.Recordset!venta_codigo
+  NumComp = Ado_datos.Recordset!venta_codigo
   If dtc_codigo4 = "" Then
     MsgBox "Debe Elejir un Vendedor !! Vuelva a Intentar ...", vbExclamation, "Atención"
     Exit Sub
@@ -3610,7 +3576,7 @@ VAR_SOLA = Ado_datos.Recordset!venta_codigo
      End If
      If Ado_datos.Recordset.RecordCount > 0 Then
      'VAR_SW = ""
-        rs_datos.Find "venta_codigo = " & VAR_SOLA & "   ", , , 1
+        rs_datos.Find "venta_codigo = " & NumComp & "   ", , , 1
         dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
      Else
      'VAR_SW = ""
@@ -3719,141 +3685,106 @@ Private Sub BtnSalir_Click()
     End If
 End Sub
 
-Private Sub Chk_plazo_Click()
-    If Chk_plazo.Value = 1 Then
-        lbl_plazo.Visible = True
-        txt_plazo.Visible = True
-        
-    Else
-        lbl_plazo.Visible = False
-        txt_plazo.Visible = False
-    End If
-End Sub
-
-Private Sub CmdNOunidad_Click()
-    swunidad = 0
-    Frmunidad.Visible = False
-End Sub
-
-Private Sub CmdOKunidad_Click()
-    swunidad = 1
-        If swunidad = 1 Then
-            Dim rstpagos As New ADODB.Recordset
-            Set rstpagos = New ADODB.Recordset
-            If rstpagos.State = 1 Then rstpagos.Close
-            rstpagos.Open "select * from pagos where GES_gestion = '5000'", db, adOpenKeyset, adLockOptimistic
-            rstpagos.AddNew
-                rstpagos("ges_gestion") = Ado_datos.Recordset("ges_gestion")
-                rstpagos("org_codigo") = DataCombo1.Text   'Ado_datos.Recordset("formulario")
-                rstpagos("codigo_pago") = "" 'genera jorge
-                rstpagos("codigo_solicitud") = Ado_datos.Recordset("codigo_solicitud")
-                rstpagos("formulario") = Ado_datos.Recordset("formulario")
-                rstpagos("codigo_unidad") = Ado_datos.Recordset("codigo_unidad")
-                rstpagos("monto_bolivianos") = Ado_datos.Recordset("monto_bolivianos")
-                rstpagos("estado_compromiso") = "N"
-                rstpagos("justificacion") = Ado_datos.Recordset("justificacion_solicitud")
-             rstpagos.Update
-        End If
-End Sub
-
 Private Sub BtnAnlDetalle_Click()
- If Ado_datos.Recordset!estado_codigo = "REG" Then
-   sino = MsgBox("Está seguro de ANULAR este registro", vbYesNo + vbQuestion, "Atención ...")
-   If sino = vbYes Then
-'     ado_datos14.Recordset.Delete
-'     ado_datos14.Recordset.Update
-'     rs_datos14.Requery
-'     ado_datos14.Refresh
-'     'cerea
-'     ado_datos14.Refresh
-      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
-   End If
-  Else
-    MsgBox "Los Bienes del registro Aprobado o Anulado, NO pueden ser ANULADOS !! ", vbExclamation, "Atención!"
-  End If
+' If Ado_datos.Recordset!estado_codigo = "REG" Then
+'   sino = MsgBox("Está seguro de ANULAR este registro", vbYesNo + vbQuestion, "Atención ...")
+'   If sino = vbYes Then
+''     ado_datos14.Recordset.Delete
+''     ado_datos14.Recordset.Update
+''     rs_datos14.Requery
+''     ado_datos14.Refresh
+''     'cerea
+''     ado_datos14.Refresh
+'      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
+'   End If
+'  Else
+'    MsgBox "Los Bienes del registro Aprobado o Anulado, NO pueden ser ANULADOS !! ", vbExclamation, "Atención!"
+'  End If
 End Sub
 
 Private Sub BtnModDetalle_Click()
-  If Ado_datos.Recordset!estado_codigo = "REG" Then
-    FraNavega.Enabled = False
-    FrmDetalle.Enabled = False
-    FrmCobranza.Visible = False
-    FrmAlcance.Visible = False
-    swgrabar = 0
-    swnuevo = 2
-    'marca1 = Ado_datos.Recordset.Bookmark
-    'txt_descripcion_venta.Enabled = True
-    correlv = Ado_datos.Recordset!venta_codigo
-    TxtNroVenta.Text = correlv  'Ado_datos.Recordset!venta_codigo  'txt_venta.Text
-    TxtNroVenta.Enabled = False
-    'lbltipoVenta.Caption = dtc_desc11.Text
-'    lblges_gestion.Caption = Ado_datos.Recordset!ges_gestion
-    SSTab1.Tab = 1
-    SSTab1.TabEnabled(0) = False
-    SSTab1.TabEnabled(1) = True
-    SSTab1.TabEnabled(2) = False
-    FrmEdita.Visible = True
-    FrmEdita.Enabled = True
-    FrmABMDet.Visible = False
-    FrmABMDet1.Visible = False
-    FrmABMDet2.Visible = False
-    If ado_datos14.Recordset!modelo_elegido = "S" Then
-        OpMod1.Value = True
-        OpMod2.Value = False
-        OpMod3.Value = False
-    End If
-    If ado_datos14.Recordset!modelo_elegido_h = "S" Then
-        OpMod1.Value = False
-        OpMod2.Value = True
-        OpMod3.Value = False
-    End If
-    If ado_datos14.Recordset!modelo_elegido_x = "S" Then
-        OpMod1.Value = False
-        OpMod2.Value = False
-        OpMod3.Value = True
-    End If
-    'dtc_codigo13.Text
-    If ado_datos14.Recordset!par_codigo = "43340" Then
-        dtc_codigo13.Text = "0"
-        dtc_desc13.BoundText = dtc_codigo13.BoundText
-        dtc_desc13.backColor = &H80000013
-        dtc_desc13.ForeColor = &HFFFFFF
-    Else
-        dtc_desc13.backColor = &HFFFFFF
-        dtc_desc13.ForeColor = &H80000008
-    End If
-    Set rs_datos12 = New ADODB.Recordset
-    If rs_datos12.State = 1 Then rs_datos12.Close
-    rs_datos12.Open "select * from Gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
-    Set Ado_Datos12.Recordset = rs_datos12
-    'Ado_datos12.Refresh
-    Dtc_aux12.BoundText = dtc_codigo12.BoundText
-    dtc_desc12.BoundText = dtc_codigo12.BoundText
-    
-    'Solo para Equipos (*)
-    Set rs_datos15 = New ADODB.Recordset
-    If rs_datos15.State = 1 Then rs_datos15.Close
-    rs_datos15.Open "Select * from ac_bienes where edif_codigo = '" & GlEdificio & "' OR modelo_codigo= 'NA' ", db, adOpenStatic
-    'rs_datos15.Open "select * from av_solicitud_cotiza_venta ", db, adOpenKeyset, adLockReadOnly
-    Set ado_datos15.Recordset = rs_datos15
-    ado_datos15.Refresh
-  Else
-    MsgBox "Los datos del registro Aprobado o Entregado, NO pueden ser modificados !! ", vbExclamation, "Atención!"
-  End If
+'  If Ado_datos.Recordset!estado_codigo = "REG" Then
+'    FraNavega.Enabled = False
+'    FrmDetalle.Enabled = False
+'    FrmCobranza.Visible = False
+'    FrmAlcance.Visible = False
+'    swgrabar = 0
+'    swnuevo = 2
+'    'marca1 = Ado_datos.Recordset.Bookmark
+'    'txt_descripcion_venta.Enabled = True
+'    correlv = Ado_datos.Recordset!venta_codigo
+'    TxtNroVenta.Text = correlv  'Ado_datos.Recordset!venta_codigo  'txt_venta.Text
+'    TxtNroVenta.Enabled = False
+'    'lbltipoVenta.Caption = dtc_desc11.Text
+''    lblges_gestion.Caption = Ado_datos.Recordset!ges_gestion
+'    SSTab1.Tab = 1
+'    SSTab1.TabEnabled(0) = False
+'    SSTab1.TabEnabled(1) = True
+'    SSTab1.TabEnabled(2) = False
+'    FrmEdita.Visible = True
+'    FrmEdita.Enabled = True
+'    FrmABMDet.Visible = False
+'    FrmABMDet1.Visible = False
+'    FrmABMDet2.Visible = False
+'    If ado_datos14.Recordset!modelo_elegido = "S" Then
+'        OpMod1.Value = True
+'        OpMod2.Value = False
+'        OpMod3.Value = False
+'    End If
+'    If ado_datos14.Recordset!modelo_elegido_h = "S" Then
+'        OpMod1.Value = False
+'        OpMod2.Value = True
+'        OpMod3.Value = False
+'    End If
+'    If ado_datos14.Recordset!modelo_elegido_x = "S" Then
+'        OpMod1.Value = False
+'        OpMod2.Value = False
+'        OpMod3.Value = True
+'    End If
+'    'dtc_codigo13.Text
+'    If ado_datos14.Recordset!par_codigo = "43340" Then
+'        dtc_codigo13.Text = "0"
+'        dtc_desc13.BoundText = dtc_codigo13.BoundText
+'        dtc_desc13.backColor = &H80000013
+'        dtc_desc13.ForeColor = &HFFFFFF
+'    Else
+'        dtc_desc13.backColor = &HFFFFFF
+'        dtc_desc13.ForeColor = &H80000008
+'    End If
+'    Set rs_datos12 = New ADODB.Recordset
+'    If rs_datos12.State = 1 Then rs_datos12.Close
+'    rs_datos12.Open "select * from Gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
+'    Set Ado_Datos12.Recordset = rs_datos12
+'    'Ado_datos12.Refresh
+'    Dtc_aux12.BoundText = dtc_codigo12.BoundText
+'    dtc_desc12.BoundText = dtc_codigo12.BoundText
+'
+'    'Solo para Equipos (*)
+'    Set rs_datos15 = New ADODB.Recordset
+'    If rs_datos15.State = 1 Then rs_datos15.Close
+'    rs_datos15.Open "Select * from ac_bienes where edif_codigo = '" & GlEdificio & "' OR modelo_codigo= 'NA' ", db, adOpenStatic
+'    'rs_datos15.Open "select * from av_solicitud_cotiza_venta ", db, adOpenKeyset, adLockReadOnly
+'    Set ado_datos15.Recordset = rs_datos15
+'    ado_datos15.Refresh
+'  Else
+'    MsgBox "Los datos del registro Aprobado o Entregado, NO pueden ser modificados !! ", vbExclamation, "Atención!"
+'  End If
 End Sub
 
 Private Sub BtnVer2_Click()
-  If Ado_datos.Recordset!estado_codigo = "REG" Then
+    'If Ado_datos.Recordset!estado_codigo = "REG" Then
+  If Ado_datos.Recordset!estado_acta = "REG" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    VAR_EDIFD = Ado_datos.Recordset!edif_codigo
+    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
     'BUSCA ZONA PILOTO
     Set rs_aux2 = New ADODB.Recordset
     If rs_aux2.State = 1 Then rs_aux2.Close
-    rs_aux2.Open "SELECT * FROM tc_zona_piloto_edif WHERE EDIF_codigo = '" & VAR_EDIFD & "' ", db, adOpenKeyset, adLockOptimistic
+    rs_aux2.Open "SELECT * FROM tc_zona_piloto_edif WHERE EDIF_codigo = '" & GlEdificio & "' ", db, adOpenKeyset, adLockOptimistic
     If rs_aux2.RecordCount > 0 Then
-        VAR_ZONA = rs_aux2!zpiloto_codigo
+        VAR_ZPILOTO = rs_aux2!zpiloto_codigo
     Else
         MsgBox "Se necesita asignar la ZONA PILOTO, para generar el Cronograma de Mantenimiento Gratuito... Consulte al Personal del área Técnica ...", , "Atencion"
+        Exit Sub
     End If
     'VERIFICA SI EXISTE ITEMS PARA CRONOGRAMA
     Set rs_aux3 = New ADODB.Recordset
@@ -3877,7 +3808,7 @@ Private Sub BtnVer2_Click()
         Else
         'If rs_aux3!codigo3 > corrprog Then
             'ACTUALIZAR CORRELATIVO CRONO
-            db.Execute "update ao_ventas_cabecera set correl_cobro_prog = '" & rs_aux3!codigo3 & "' where venta_codigo= " & NumComp & " "
+            db.Execute "update ao_ventas_cabecera set correl_cobro_prog = " & rs_aux3!codigo3 & " where venta_codigo= " & NumComp & " "
             'wwwwwwwwwwwwwwwwwww
             db.Execute "UPDATE ao_ventas_cobranza_inst SET ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' where venta_codigo = " & NumComp & " and ges_gestion <> '" & Ado_datos.Recordset!ges_gestion & "'  "
             'db.Execute "update ao_ventas_cabecera set estado_codigo_verif = 'APR' Where venta_codigo = " & NumComp & " "
@@ -3898,119 +3829,68 @@ Private Sub CRONO2()
 '    rs_aux5.Open "select * from av_ventas_alcance where venta_codigo= " & NumComp & "  ", db, adOpenKeyset, adLockBatchOptimistic
 '    'Set AdoAux.Recordset = rsAuxDetalle
 '    If rs_aux5.RecordCount > 0 Then
+    If IsNull(Ado_datos.Recordset!fecha_inicio_real) Then                   ' Is Null
+        MsgBox "Debe registrar la Fecha Inicio Real, verifique y vuelva a intentar ...", , "Atencion"
+        Exit Sub
+    End If
       CONT2 = 1
-      FInicio = Ado_datos.Recordset!fecha_inicio_real                       'venta_fecha_inicio
+      'FInicio = DTPfechasol.Value                        'Fecha Inicio Alcance
+      FInicio = Ado_datos.Recordset!fecha_inicio_real                       '
 '      CANTOT = rs_aux5!venta_cantidad_total
-      gestion0 = Ado_datos.Recordset!ges_gestion
+      gestion0 = Year(FInicio)                              'Ado_datos.Recordset!ges_gestion
       VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
       VAR_MED2 = "MES"                                          'Ado_datos.Recordset!unimed_codigo_cobr
       'MES = DateDiff("M", fecha, Date)
       VAR_COBR2 = DateDiff("M", FInicio, Ado_datos.Recordset!fecha_fin_real)
-      MControl = MonthName(Month(FInicio))                        'Ado_datos.Recordset!mes_inicio_crono
+      MControl = UCase(MonthName(Month(FInicio)))                        'Ado_datos.Recordset!mes_inicio_crono
       VAR_MES2 = Month(FInicio)
-      FControl = "01/" + Str(Month(FInicio)) + "/" + Str(Year(FInicio))
+      FControl = RTrim("01/" + RTrim(Str(Month(FInicio))) + "/" + Str(Year(FInicio)))
+      VAR_FCONTROL = Format(FControl, "dd/mm/yyyy")
+      FControl = VAR_FCONTROL
       CONT3 = 0
       CONT4 = 0
-      CONT_MED = 1              'ENERO
-'      Select Case VAR_MED2
-'        Case "MES"
-'            CONT_MED = 1
-'        Case "BMES"
-'            CONT_MED = 2
-'        Case "TMES"
-'            CONT_MED = 3
-'        Case "CMES"
-'            CONT_MED = 4
-'        Case "5MES"
-'            CONT_MED = 5
-'        Case "SMES"
-'            CONT_MED = 6
-'        Case "7MES"
-'            CONT_MED = 7
-'        Case "8MES"
-'            CONT_MED = 8
-'        Case "9MES"
-'            CONT_MED = 9
-'        Case "10MES"
-'            CONT_MED = 10
-'        Case "11MES"
-'            CONT_MED = 11
-'        Case "ANUAL"
-'            CONT_MED = 12
-'      End Select
+      CONT_MED = 1              'MES = 1 (Mensual)
+      Set rs_aux2 = New ADODB.Recordset
+      If rs_aux2.State = 1 Then rs_aux2.Close
+      rs_aux2.Open "select * from ao_ventas_cobranza_inst where venta_codigo = " & NumComp & "  ", db, adOpenKeyset, adLockOptimistic
+      If rs_aux2.RecordCount = 0 Then
+        db.Execute "UPDATE ao_ventas_cabecera SET correl_cobro_prog = '0' WHERE  venta_codigo = " & NumComp & " "
+        correldet2 = "0"
+      End If
       While (CONT2 <= VAR_COBR2)
         Set rs_aux2 = New ADODB.Recordset
         If rs_aux2.State = 1 Then rs_aux2.Close
-        rs_aux2.Open "select * from ao_ventas_cobranza_inst where venta_codigo = '" & NumComp & "'  ", db, adOpenKeyset, adLockOptimistic
+        rs_aux2.Open "select * from ao_ventas_cobranza_inst where venta_codigo = " & NumComp & "  ", db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 And corrprog >= VAR_COBR2 Then
             MsgBox "El Cronograma ya fue generado... ", , "Atención"
             CONT2 = CONT2 + 1
         Else
            'wwwwwwwwwwwwwwwwwwwwww
-          correldet2 = Ado_datos.Recordset!correl_cobro_prog + 1                          'rs_aux5!correl_cobro_prog + 1
-          Ado_datos.Recordset!correl_cobro_prog = Ado_datos.Recordset!correl_cobro_prog + 1
-          'rs_aux5!correl_cobro_prog = rs_aux5!correl_cobro_prog + 1
+'          If correldet2 > 0 Then
+'            correldet2 = Ado_datos.Recordset!correl_cobro_prog + 1                          'rs_aux5!correl_cobro_prog + 1
+'          End If
+          correldet2 = correldet2 + 1
           corrprog = correldet2
-          rs_aux5.Update
+          db.Execute "UPDATE ao_ventas_cabecera SET correl_cobro_prog = " & corrprog & " WHERE  venta_codigo = " & NumComp & " "
+
           Set rs_aux8 = New ADODB.Recordset
           If rs_aux8.State = 1 Then rs_aux8.Close
-          rs_aux8.Open "select * from ao_ventas_cobranza_inst where venta_codigo = " & NumComp & " and YEAR(cobranza_fecha_prog) ='" & Year(FControl) & "'  AND MONTH(cobranza_fecha_prog) = '" & Month(FControl) & "'  ", db, adOpenKeyset, adLockOptimistic
+          rs_aux8.Open "select * from ao_ventas_cobranza_inst where venta_codigo = " & NumComp & " and YEAR(cobranza_fecha_prog) ='" & Year(VAR_FCONTROL) & "'  AND MONTH(cobranza_fecha_prog) = '" & Month(VAR_FCONTROL) & "'  ", db, adOpenKeyset, adLockOptimistic
           If rs_aux8.RecordCount = 0 Then
-            rs_aux2.AddNew
-            'gestion0 = Ado_datos.Recordset!ges_gestion
-            'VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
-            rs_aux2!ges_gestion = gestion0
-            rs_aux2!venta_codigo = NumComp 'Ado_datos.Recordset("venta_codigo")
-            rs_aux2!cobranza_prog_codigo = correldet2
-            rs_aux2!beneficiario_codigo = VAR_BENEF                   'Codigo Beneficiario/Cliente
-            'OJO MODIFICAR COBRADOR - JQA 03-ENE-2015
-            rs_aux2!beneficiario_codigo_resp = IIf(dtc_codigo5.Text = "", "4333735", dtc_codigo5.Text) '                                                     'Codigo Cobrador
-            'rs_aux2!nombre_cobrador = dtc_desc4A.Text   '+ " " + DtcMaterno.Text + " " + DtcNombre.Text    'Nombre Cobrador
-            Set rs_aux6 = New ADODB.Recordset
-            If rs_aux6.State = 1 Then rs_aux6.Close
-            If VAR_UORIGEN = "DNMAN" Then
-                rs_aux6.Open "select sum(venta_precio_unitario_bs) as acumBs from ao_ventas_detalle where venta_codigo = " & NumComp & " AND (par_codigo = '99990' or par_codigo = '43340') ", db, adOpenKeyset, adLockReadOnly
-                If rs_aux6.RecordCount > 0 Then
-                    rs_aux2!cobranza_programada_bs = Round(rs_aux6!acumBs, 2)                    'Monto Programado Bs CONT1
-                    rs_aux2!cobranza_total_bs = Round(rs_aux6!acumBs, 2)                         'Monto Total Bs
-                Else
-                    rs_aux2!cobranza_programada_bs = 0
-                End If
-            Else
-                If CONT1 = "" Then
-                    CONT1 = "1"
-                End If
-                If CONT1 = "0" Then CONT1 = "1"
-                rs_aux6.Open "select sum(venta_precio_total_bs) as acumBs from ao_ventas_detalle where venta_codigo = " & NumComp & " AND (par_codigo <> '43340') ", db, adOpenKeyset, adLockReadOnly
-                If rs_aux6.RecordCount > 0 Then
-                    rs_aux2!cobranza_programada_bs = Round(rs_aux6!acumBs / CONT1, 2)                                   'Monto Programado Bs
-                    rs_aux2!cobranza_programada_dol = Round(rs_aux2!cobranza_programada_bs / GlTipoCambioMercado, 2)    'Monto Programado en Dolares
-                    rs_aux2!cobranza_total_bs = Round(rs_aux6!acumBs / CONT1, 2)                                        'Monto Total Bs
-                    rs_aux2!cobranza_total_dol = Round(rs_aux2!cobranza_total_bs / GlTipoCambioMercado, 2)              'Monto Total Dol
-                Else
-                    rs_aux2!cobranza_programada_bs = 0
-                    rs_aux2!cobranza_programada_dol = 0
-                    rs_aux2!cobranza_total_bs = 0
-                    rs_aux2!cobranza_total_dol = 0
-                End If
-            End If
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+            'rs_aux2.AddNew
+            'rs_aux2!cobranza_prog_codigo = correldet2
+            'rs_aux2!beneficiario_codigo = VAR_BENEF                   'Codigo Beneficiario/Cliente
+            ''OJO MODIFICAR COBRADOR - JQA 03-ENE-2015
+            'rs_aux2!beneficiario_codigo_resp = IIf(dtc_codigo5.Text = "", "4333735", dtc_codigo5.Text)      ''Codigo Cobrador
+            'Ado_datos.Recordset!correl_cobro_prog = corrprog
             
-            'rs_aux2!cobranza_programada_dol = rs_aux6!acumBs / GlTipoCambioMercado  'Monto Programado en Dolares
-            rs_aux2!cobranza_descuento_bs = 0                                       'Descuento Bs
-            rs_aux2!cobranza_descuento_dol = 0                                      'Descuento Dol
-            
-            'rs_aux2!cobranza_total_dol = rs_aux6!acumBs / GlTipoCambioMercado       'Monto Total Dol
-            'ini PARA COBRANZA WWWWWWWWWWWWWWWWWWW=
-            'rs_aux2!cobranza_fecha_prog = rs_aux5!venta_fecha_inicio + (30 * CONT2)
-            'Dim fdia, fmes, fanio As Integer
-            'fmes = Month(FInicio) + CONT2
-            
-            fdia = Day(FControl)
-            fanio = Year(FControl)
+            fdia = Day(VAR_FCONTROL)
+            fanio = Year(VAR_FCONTROL)
             'CONT3 = CONT2 * CONT_MED
             CONT3 = 1
             While (CONT3 <= CONT_MED)
-                fmes = Month(FControl)
+                fmes = Month(VAR_FCONTROL)
                 Select Case fmes
                     Case 2
                         If fanio = "2012" Or fanio = "2016" Or fanio = "2020" Or fanio = "2024" Then
@@ -4024,80 +3904,73 @@ Private Sub CRONO2()
                     Case 4, 6, 9, 11
                         Dias_Mes = 30
                 End Select
-                If Val(VAR_MES2) = Month(FControl) Then
-                    rs_aux2!cobranza_fecha_prog = FControl
-                    'rs_aux2!cobranza_fecha_conformidad = FControl + 10
-                    rs_aux2!cobranza_fecha_cobro = FControl + 20
+                If Val(VAR_MES2) = Month(VAR_FCONTROL) Then
+                    'rs_aux2!cobranza_fecha_prog = FControl
+                    'rs_aux2!cobranza_fecha_cobro = FControl + 20
+                    FControl = Format(VAR_FCONTROL, "dd/mm/yyyy")
                     VAR_MES2 = VAR_MES2 + CONT_MED
                     If Val(VAR_MES2) > 12 Then
                         VAR_MES2 = Val(VAR_MES2) - 12
                     End If
                 End If
-                FControl = FControl + Dias_Mes
+                'FControl = FControl + Dias_Mes
+                VAR_FCONTROL = CDate(VAR_FCONTROL) + Dias_Mes
                 CONT3 = CONT3 + 1
                 CONT4 = CONT4 + Dias_Mes
             Wend
             'FControl = Str(fdia) + "/" + Str(fmes) + "/" + Str(fanio)
             'rs_aux2!cobranza_fecha_prog = FInicio + (30 * CONT2)
             'rs_aux2!cobranza_fecha_prog = FControl
-            If rs_aux2!cobranza_fecha_prog = Null Then
-                rs_aux2!cobranza_fecha_prog = Date
-            End If
-            rs_aux2!gestion = Year(rs_aux2!cobranza_fecha_prog)
-            rs_aux2!cobranza_mes = Month(rs_aux2!cobranza_fecha_prog)
-            
-            'VAR_FEC2 = MonthName(Month(IIf(IsNull(rs_aux2!cobranza_fecha_prog), Date, rs_aux2!cobranza_fecha_prog)))
-            
-            VAR_FEC2 = MonthName(Month(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog)))
-            'rs_aux2!cobranza_fecha_cobro = FControl + 10 ' rs_aux2!cobranza_fecha_prog + 10
-            'If VAR_MED2 = "MES" Then
-            '    FControl = FControl + Dias_Mes
+            'If Ado_datos.Recordset!cobranza_fecha_prog = Null Then
+                'rs_aux2!cobranza_fecha_prog = Date
+                'FControl = Date
+            '    VAR_FCONTROL = Date
             'End If
-            'rs_aux2!cobranza_observaciones = "CUOTA Nro. " + Str(corrprog) + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(Date)) + " - " + lbl_titulo
-            'rs_aux2!cobranza_observaciones = "CUOTA Nro. " + Str(corrprog) + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + lbl_titulo
-            Select Case parametro
-              Case "DNMAN", "DMANS", "DMANB", "DMANC"
-                  'rs_aux2!cobranza_observaciones = lbl_titulo + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Trámite: " + VAR_CITE + "-C-" + Str(corrprog)
-                  rs_aux2!cobranza_observaciones = "SERVICIO DE MANTENIMIENTO INTEGRAL - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Trámite: " + VAR_CITE + "-C-" + Str(corrprog)
-                  rs_aux2!cobranza_concepto_plazo = "SERVICIO DE MANTENIMIENTO INTEGRAL - CUOTA Nº " + Str(corrprog)
-              Case "DNREP", "DREPS", "DREPB", "DREPC"
-                  rs_aux2!cobranza_observaciones = "SERVICIO DE REPARACIONES, SEGÚN " + Txt_campo2.Text + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Cite: " + VAR_CITE + "-C-" + Str(corrprog)
-                  rs_aux2!cobranza_concepto_plazo = "SERVICIO DE REPARACION, SEGÚN " + VAR_CITE
-              Case "DNINS", "DINSS", "DINSB", "DINSC"
-                  rs_aux2!cobranza_observaciones = "SERVICIO DE INSTALACION - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Cite: " + VAR_CITE + "-C-" + Str(corrprog)
-                  rs_aux2!cobranza_concepto_plazo = "SERVICIO DE INSTALACION, SEGÚN " + VAR_CITE
-              Case Else
-                  rs_aux2!cobranza_observaciones = lbl_titulo + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Cite: " + VAR_CITE + "-C-" + Str(corrprog)
-                  rs_aux2!cobranza_concepto_plazo = "CONFORMIDAD DEL SERVICIO"
-            End Select
+            'rs_aux2!gestion = Year(rs_aux2!cobranza_fecha_prog)
+            'rs_aux2!cobranza_mes = Month(rs_aux2!cobranza_fecha_prog)
             
+            ''VAR_FEC2 = MonthName(Month(IIf(IsNull(rs_aux2!cobranza_fecha_prog), Date, rs_aux2!cobranza_fecha_prog)))
+            'VAR_FEC2 = MonthName(Month(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog)))
+            
+            'CONT2 = CONT2 + 1
+            'rs_aux2!cobranza_requisito_plazo = "S"
+            ''rs_aux2!cobranza_concepto_plazo = "CONFORMIDAD DEL SERVICIO"
+            'If rs_aux2!cobranza_programada_bs <> 0 Then
+            '    rs_aux2!Literal = Literal(CStr(rs_aux2!cobranza_programada_bs)) + " BOLIVIANOS"
+            'End If
+            'rs_aux2!proceso_codigo = "TEC"
+            'rs_aux2!subproceso_codigo = "TEC-02"
+            'rs_aux2!etapa_codigo = "TEC-02-02"
+            'rs_aux2!clasif_codigo = "TEC"
+            'rs_aux2!doc_codigo = "R-105"    ' R-307 Certificado de Mantenimiento ' Colocar en la conformidad
+            'rs_aux2!doc_numero = "0"        'NumComp
+            'rs_aux2!poa_codigo = "3.2.3"
+            'rs_aux2!estado_codigo = "REG"
+            'rs_aux2!usr_codigo = glusuario
+            'rs_aux2!fecha_registro = Format(Date, "dd/mm/yyyy")
+            'rs_aux2!hora_registro = Format(Time, "hh:mm:ss")
+            'rs_aux2!correl_ac = 0
+            'rs_aux2!estado_ac = "REG"
+            'rs_aux2.Update
+            ' JQA 2022-10-22
+            VAR_FEC2 = UCase(MonthName(Month(FControl)))
             CONT2 = CONT2 + 1
-            rs_aux2!cobranza_requisito_plazo = "S"
-            'rs_aux2!cobranza_concepto_plazo = "CONFORMIDAD DEL SERVICIO"
-            If rs_aux2!cobranza_programada_bs <> 0 Then
-                rs_aux2!Literal = Literal(CStr(rs_aux2!cobranza_programada_bs)) + " BOLIVIANOS"
-            End If
-            rs_aux2!proceso_codigo = "TEC"
-            rs_aux2!subproceso_codigo = "TEC-02"
-            rs_aux2!etapa_codigo = "TEC-02-02"
-            rs_aux2!clasif_codigo = "TEC"
-            rs_aux2!doc_codigo = "R-105"    ' R-307 Certificado de Mantenimiento ' Colocar en la conformidad
-            rs_aux2!doc_numero = "0"        'NumComp
-            rs_aux2!poa_codigo = "3.2.3"
-            rs_aux2!estado_codigo = "REG"
-            rs_aux2!usr_codigo = glusuario
-            rs_aux2!fecha_registro = Format(Date, "dd/mm/yyyy")
-            rs_aux2!hora_registro = Format(Time, "hh:mm:ss")
-            rs_aux2!correl_ac = 0
-            rs_aux2!estado_ac = "REG"
-            rs_aux2.Update
+            VAR_GLOSA = "MTTO. GRATUITO POR LA GESTION: " + Str(Year(CDate(FControl))) + " - MES: " + VAR_FEC2
+            VAR_SOLTIPO = Ado_datos.Recordset!solicitud_tipo
+            VAR_ZPILOTO = Ado_datos.Recordset!zpiloto_codigo
+            'cobranza_fecha_conformidad, correl_prog , usr_aprueba, fecha_aprueba
+            db.Execute "INSERT INTO ao_ventas_cobranza_inst (venta_codigo, cobranza_prog_codigo, venta_codigo_new, ges_gestion, cobranza_fecha_prog, Gestion, cobranza_mes, fmes_plan, doc_numero_crono, edif_codigo, zpiloto_codigo, " & _
+                       "  trans_codigo, estado_codigo, usr_codigo, fecha_registro, Observaciones)  " & _
+                       " VALUES (" & NumComp & ", " & correldet2 & ", '0', '" & gestion0 & "', '" & FControl & "', '" & Year(FControl) & "', '" & Month(FControl) & "', '0', '0', '" & GlEdificio & "', " & VAR_ZPILOTO & ",  " & _
+                       " '42', 'REG', '" & glusuario & "', '" & Date & "', '" & VAR_GLOSA & "' )"
+                       
             'Asigna IdCrono (fmes_plan)
-            'VAR_ZONA = Ado_datos.Recordset!zpiloto_codigo
+            'VAR_ZPILOTO = Ado_datos.Recordset!zpiloto_codigo
             Set rs_aux18 = New ADODB.Recordset
             If rs_aux18.State = 1 Then rs_aux18.Close
-            rs_aux18.Open "Select fmes_plan from to_cronograma_mensual where zpiloto_codigo = " & VAR_ZONA & " AND ges_gestion = '" & rs_aux2!gestion & "' AND fmes_correl = " & rs_aux2!cobranza_mes & "  ", db, adOpenKeyset, adLockOptimistic
+            rs_aux18.Open "Select fmes_plan from to_cronograma_mensual where zpiloto_codigo = " & VAR_ZPILOTO & " AND ges_gestion = '" & Year(FControl) & "' AND fmes_correl = " & Month(FControl) & "  ", db, adOpenKeyset, adLockOptimistic
             If rs_aux18.RecordCount > 0 Then
-                db.Execute "update ao_ventas_cobranza_inst set fmes_plan = " & rs_aux18!fmes_plan & "where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
+                db.Execute "update ao_ventas_cobranza_inst set fmes_plan = " & rs_aux18!fmes_plan & " where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
             Else
                 db.Execute "update ao_ventas_cobranza_inst set fmes_plan = '0' where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
             End If
@@ -4109,7 +3982,7 @@ Private Sub CRONO2()
             'Asigna IdCrono (fmes_plan) WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
             Set rs_aux18 = New ADODB.Recordset
             If rs_aux18.State = 1 Then rs_aux18.Close
-            rs_aux18.Open "Select fmes_plan from to_cronograma_mensual where zpiloto_codigo = " & VAR_ZONA & " AND ges_gestion = '" & rs_aux2!gestion & "' AND fmes_correl = " & rs_aux2!cobranza_mes & "  ", db, adOpenKeyset, adLockOptimistic
+            rs_aux18.Open "Select fmes_plan from to_cronograma_mensual where zpiloto_codigo = " & VAR_ZPILOTO & " AND ges_gestion = '" & rs_aux2!gestion & "' AND fmes_correl = " & rs_aux2!cobranza_mes & "  ", db, adOpenKeyset, adLockOptimistic
             If rs_aux18.RecordCount > 0 Then
                 db.Execute "update ao_ventas_cobranza_inst set fmes_plan = " & rs_aux18!fmes_plan & " where venta_codigo = " & NumComp & " and cobranza_prog_codigo = " & correldet2 & " "
             Else
@@ -4154,7 +4027,7 @@ Private Sub CRONO2()
         End If
       Wend
       MsgBox "El Cronograma fue Generado Exitosamente... ", , "Atención"
-      db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo_verif = 'APR' Where ao_ventas_cabecera.venta_codigo = " & NumComp & " "
+      'db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo_verif = 'APR' Where ao_ventas_cabecera.venta_codigo = " & NumComp & " "
       If corrprog > 0 Then
         db.Execute "update ao_ventas_cabecera set correl_cobro_prog = '" & corrprog & "' "
         db.Execute "update ao_ventas_cabecera set venta_plazo_dias_calendario = " & CONT4 & " "
@@ -4163,6 +4036,96 @@ Private Sub CRONO2()
 '    Else
 '       MsgBox "Error Verifique la Venta de Productos..."
 '    End If
+End Sub
+
+
+Private Sub CRONO_MTTO()
+    Set rs_aux0 = New ADODB.Recordset
+    If rs_aux0.State = 1 Then rs_aux0.Close
+    rs_aux0.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & GlEdificio & "'   ", db, adOpenStatic
+    If rs_aux0.RecordCount > 0 Then
+        VAR_EDIF = Ado_datos.Recordset!edif_descripcion                      'RTrim(dtc_desc3.Text)          'edif_descripcion
+    End If
+    VAR_LUN = "SI"                                                  'Ado_datos.Recordset!lunes_cambia
+    VAR_PRIM = "SI"                                                 'Ado_datos.Recordset!primero_mes
+    
+    'VAR_EMES = "Error: No se encontró el Mes de Inicio del Cronograma, verifique y vuelva a intentar..."
+    ' jalar ORDEN de tc_zona_piloto_edif
+    Set rs_datos6 = New ADODB.Recordset
+    If rs_datos6.State = 1 Then rs_datos6.Close
+    rs_datos6.Open "Select * from tc_zona_piloto_edif WHERE edif_codigo = '" & GlEdificio & "'    ", db, adOpenStatic
+    If rs_datos6.RecordCount > 0 Then
+        DIA_ORDEN = rs_datos6!zona_edif_orden
+    Else
+        Set rs_aux18 = New ADODB.Recordset
+        If rs_aux18.State = 1 Then rs_aux18.Close
+        rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = " & VAR_ZONA & " ", db, adOpenKeyset, adLockOptimistic
+        If rs_aux18.RecordCount > 0 Then
+            VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
+        Else
+            VAR_ORDEN = 1
+        End If
+    
+       db.Execute "INSERT INTO tc_zona_piloto_edif (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
+                  " estado_codigo , estado_activo, fecha_registro, usr_codigo, unimed_codigo, codigo_empresa, solicitud_tipo) " & _
+                  " VALUES (" & VAR_ZPILOTO & ", '" & GlEdificio & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
+                  " 'REG',              'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ")"
+        DIA_ORDEN = "1"
+    End If
+    'DIA_ORDEN = Ado_datos.Recordset!zona_edif_orden
+    FInicio = Ado_datos.Recordset!fecha_inicio_real                       '
+    MControl = Month(FInicio)               'Ado_datos.Recordset!mes_inicio_crono_tec                     'mes_inicio_crono
+    'NumComp = Ado_datos.Recordset!venta_codigo
+    Set rs_aux1 = New ADODB.Recordset
+    'rs_aux1.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
+    rs_aux1.Open "select * from ao_ventas_cobranza_inst where venta_codigo = " & NumComp & " AND   ", db, adOpenKeyset, adLockBatchOptimistic
+    If rs_aux1.RecordCount > 0 Then
+        var_cod5 = rs_aux1.RecordCount
+        rs_aux1.MoveFirst
+        While Not rs_aux1.EOF
+            VAR_AUX2 = rs_aux1!fmes_plan
+            Set rs_aux2 = New ADODB.Recordset
+            If rs_aux2.State = 1 Then rs_aux2.Close
+            'rs_aux2.Open "select * from to_cronograma_mensual where ges_gestion = '" & gestion0 & "' and fmes_correl = " & VAR_MES & " and zpiloto_codigo = " & VAR_ZONA & "    ", db, adOpenKeyset, adLockOptimistic
+            rs_aux2.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
+            If rs_aux2.RecordCount > 0 Then
+                rs_aux2.MoveFirst
+                While Not rs_aux2.EOF
+                    'JQA 23-10-2022
+                    'VERIFICA SI EXITE EQUIPO EN ESTE MES
+                    Set rs_aux21 = New ADODB.Recordset
+                    If rs_aux21.State = 1 Then rs_aux21.Close
+                    rs_aux21.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  ", db, adOpenKeyset, adLockBatchOptimistic
+                    If rs_aux21.RecordCount > 0 Then
+                        db.Execute "update to_cronograma_diario set unidad_codigo_tec = '" & VAR_COD4 & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & GlEdificio & "' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario set bien_orden = " & DIA_ORDEN & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "   "
+                        db.Execute "update to_cronograma_diario set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "  "
+                    Else
+                        Set rs_aux3 = New ADODB.Recordset
+                        If rs_aux3.State = 1 Then rs_aux3.Close
+                        rs_aux3.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & " AND bien_codigo = ''  ", db, adOpenKeyset, adLockBatchOptimistic
+                        If rs_aux3.RecordCount > 0 Then
+                            rs_aux3.MoveFirst
+                            'If VAR_COD0 < var_cod5 Then     'And rs_aux3!estado_activo = "REG"
+                                'db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & VAR_UNITEC & "',  tec_plan_codigo = " & VAR_TECCOD & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "'   WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                                db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & VAR_COD4 & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & GlEdificio & "' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                                db.Execute "update to_cronograma_diario set bien_orden = " & DIA_ORDEN & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  and bien_orden='0' "
+                                db.Execute "update to_cronograma_diario set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                                'VAR_COD0 = VAR_COD0 + 1
+                                'CONT3 = 1
+                                db.Execute "Update ao_ventas_cabecera Set estado_crono = 'APR' Where venta_codigo = " & NumComp & "  "
+                                'VAR_EMES = "NADA"
+                            'End If
+                        Else
+                            'POR SI NO TIENE fmes_plan
+                        End If
+                    End If
+                    rs_aux2.MoveNext
+                Wend
+            rs_aux1.MoveNext
+            End If
+        Wend
+    End If
 End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
@@ -4258,66 +4221,66 @@ Private Sub dtc_desc11_Click(Area As Integer)
 End Sub
 
 Private Sub dtc_desc11_LostFocus()
-    If dtc_codigo11.Text = "L" Or dtc_codigo11.Text = "G" Then         'Hoja de Costos - CLIENTE - Importación Directa
-        'cotiza_precio_total_dol_cli
-        Set rs_aux5 = New ADODB.Recordset
-        If rs_aux5.State = 1 Then rs_aux5.Close
-        rs_aux5.Open "Select sum(cotiza_precio_total_bs_cli) as totbs, sum(cotiza_precio_total_dol_cli) as totdl , sum(cotiza_cantidad) as cantot from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " AND estado_codigo_verif = 'APR' ", db, adOpenKeyset, adLockBatchOptimistic
-        'rstacumdet.Open "select sum(venta_precio_total_bs) as totbs, sum (venta_precio_total_dol) as totdl , sum (venta_det_cantidad) as cantot from ao_ventas_detalle where venta_codigo = " & Nro, db, adOpenKeyset, adLockOptimistic   'ges_gestion = '" & ges & "' and
-        If rs_aux5.RecordCount > 0 Then
-            TxtMontoBs.Text = IIf(IsNull(rs_aux5!totbs), 0, rs_aux5!totbs * rs_aux5!CANTOT)
-            TxtMontoUsd.Text = IIf(IsNull(rs_aux5!totdl), 0, rs_aux5!totdl * rs_aux5!CANTOT)
-            TxtCobrado.Text = 0
-            TxtCobradoUsd.Text = 0
-            TxtBstotal.Text = CDbl(TxtMontoBs.Text)
-            TxtBstotalUsd.Text = CDbl(TxtMontoUsd.Text)
-        End If
-        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + Txt_campo2.Text
-    End If
-    If dtc_codigo11.Text = "V" Then     'Facturación Local
-        'cotiza_precio_total_dol_cge
-        Set rs_aux5 = New ADODB.Recordset
-        If rs_aux5.State = 1 Then rs_aux5.Close
-        rs_aux5.Open "Select sum(cotiza_precio_total_bs_cge) as totbs, sum(cotiza_precio_total_dol_cge) as totdl , sum(cotiza_cantidad) as cantot from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " AND estado_codigo_verif = 'APR' ", db, adOpenKeyset, adLockBatchOptimistic
-        'rstacumdet.Open "select sum(venta_precio_total_bs) as totbs, sum (venta_precio_total_dol) as totdl , sum (venta_det_cantidad) as cantot from ao_ventas_detalle where venta_codigo = " & Nro, db, adOpenKeyset, adLockOptimistic   'ges_gestion = '" & ges & "' and
-        If rs_aux5.RecordCount > 0 Then
-            TxtMontoBs.Text = IIf(IsNull(rs_aux5!totbs), 0, rs_aux5!totbs * rs_aux5!CANTOT)
-            TxtMontoUsd.Text = IIf(IsNull(rs_aux5!totdl), 0, rs_aux5!totdl * rs_aux5!CANTOT)
-            TxtCobrado.Text = 0
-            TxtCobradoUsd.Text = 0
-            TxtBstotal.Text = CDbl(TxtMontoBs.Text)
-            TxtBstotalUsd.Text = CDbl(TxtMontoUsd.Text)
-        End If
-        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + Txt_campo2.Text
-        'TxtPlazo.Visible = True
-    End If
-    If dtc_codigo11.Text = "C" Or dtc_codigo11.Text = "E" Then
-            TxtConcepto.Text = "VENTA AL CONTADO - " + Txt_campo2.Text
-            TxtPlazo.Text = 0
-            TxtPlazo.Visible = False
-'        Else
-'        'dtc_codigo2.Text = "VD"
-'        'dtc_desc2.Text = "VENTA DIRECTA"
-'        'TxtCobrado.Visible = True
-'        'Label7.Visible = True
-'            TxtConcepto.Text = "VENTA DIRECTA AL CLIENTE"
+'    If dtc_codigo11.Text = "L" Or dtc_codigo11.Text = "G" Then         'Hoja de Costos - CLIENTE - Importación Directa
+'        'cotiza_precio_total_dol_cli
+'        Set rs_aux5 = New ADODB.Recordset
+'        If rs_aux5.State = 1 Then rs_aux5.Close
+'        rs_aux5.Open "Select sum(cotiza_precio_total_bs_cli) as totbs, sum(cotiza_precio_total_dol_cli) as totdl , sum(cotiza_cantidad) as cantot from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " AND estado_codigo_verif = 'APR' ", db, adOpenKeyset, adLockBatchOptimistic
+'        'rstacumdet.Open "select sum(venta_precio_total_bs) as totbs, sum (venta_precio_total_dol) as totdl , sum (venta_det_cantidad) as cantot from ao_ventas_detalle where venta_codigo = " & Nro, db, adOpenKeyset, adLockOptimistic   'ges_gestion = '" & ges & "' and
+'        If rs_aux5.RecordCount > 0 Then
+'            TxtMontoBs.Text = IIf(IsNull(rs_aux5!totbs), 0, rs_aux5!totbs * rs_aux5!CANTOT)
+'            TxtMontoUsd.Text = IIf(IsNull(rs_aux5!totdl), 0, rs_aux5!totdl * rs_aux5!CANTOT)
+'            TxtCobrado.Text = 0
+'            TxtCobradoUsd.Text = 0
+'            TxtBstotal.Text = CDbl(TxtMontoBs.Text)
+'            TxtBstotalUsd.Text = CDbl(TxtMontoUsd.Text)
+'        End If
+'        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + Txt_campo2.Text
+'    End If
+'    If dtc_codigo11.Text = "V" Then     'Facturación Local
+'        'cotiza_precio_total_dol_cge
+'        Set rs_aux5 = New ADODB.Recordset
+'        If rs_aux5.State = 1 Then rs_aux5.Close
+'        rs_aux5.Open "Select sum(cotiza_precio_total_bs_cge) as totbs, sum(cotiza_precio_total_dol_cge) as totdl , sum(cotiza_cantidad) as cantot from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " AND estado_codigo_verif = 'APR' ", db, adOpenKeyset, adLockBatchOptimistic
+'        'rstacumdet.Open "select sum(venta_precio_total_bs) as totbs, sum (venta_precio_total_dol) as totdl , sum (venta_det_cantidad) as cantot from ao_ventas_detalle where venta_codigo = " & Nro, db, adOpenKeyset, adLockOptimistic   'ges_gestion = '" & ges & "' and
+'        If rs_aux5.RecordCount > 0 Then
+'            TxtMontoBs.Text = IIf(IsNull(rs_aux5!totbs), 0, rs_aux5!totbs * rs_aux5!CANTOT)
+'            TxtMontoUsd.Text = IIf(IsNull(rs_aux5!totdl), 0, rs_aux5!totdl * rs_aux5!CANTOT)
+'            TxtCobrado.Text = 0
+'            TxtCobradoUsd.Text = 0
+'            TxtBstotal.Text = CDbl(TxtMontoBs.Text)
+'            TxtBstotalUsd.Text = CDbl(TxtMontoUsd.Text)
+'        End If
+'        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + Txt_campo2.Text
+'        'TxtPlazo.Visible = True
+'    End If
+'    If dtc_codigo11.Text = "C" Or dtc_codigo11.Text = "E" Then
+'            TxtConcepto.Text = "VENTA AL CONTADO - " + Txt_campo2.Text
 '            TxtPlazo.Text = 0
 '            TxtPlazo.Visible = False
-    End If
+''        Else
+''        'dtc_codigo2.Text = "VD"
+''        'dtc_desc2.Text = "VENTA DIRECTA"
+''        'TxtCobrado.Visible = True
+''        'Label7.Visible = True
+''            TxtConcepto.Text = "VENTA DIRECTA AL CLIENTE"
+''            TxtPlazo.Text = 0
+''            TxtPlazo.Visible = False
+'    End If
 End Sub
 
 Private Sub dtccodmanejo_Click(Area As Integer)
-    DtCCodigo.BoundText = dtccodmanejo.BoundText
-    DtCDescripcion.BoundText = dtccodmanejo.BoundText
-    dtcunidadmedida.BoundText = dtccodmanejo.BoundText
-    dtccodpeso.BoundText = dtccodmanejo.BoundText
+'    DtCCodigo.BoundText = dtccodmanejo.BoundText
+'    DtCDescripcion.BoundText = dtccodmanejo.BoundText
+'    dtcunidadmedida.BoundText = dtccodmanejo.BoundText
+'    dtccodpeso.BoundText = dtccodmanejo.BoundText
 End Sub
 
 Private Sub dtccodpeso_Click(Area As Integer)
-    DtCCodigo.BoundText = dtccodpeso.BoundText
-    DtCDescripcion.BoundText = dtccodpeso.BoundText
-    dtcunidadmedida.BoundText = dtccodpeso.BoundText
-    dtccodmanejo.BoundText = dtccodpeso.BoundText
+'    DtCCodigo.BoundText = dtccodpeso.BoundText
+'    DtCDescripcion.BoundText = dtccodpeso.BoundText
+'    dtcunidadmedida.BoundText = dtccodpeso.BoundText
+'    dtccodmanejo.BoundText = dtccodpeso.BoundText
 End Sub
 
 Private Sub dtccodpar_Click(Area As Integer)
@@ -4325,7 +4288,7 @@ Private Sub dtccodpar_Click(Area As Integer)
 End Sub
 
 Private Sub dtccodpoa_Click(Area As Integer)
-    dtcdespoa.Text = dtccodpoa.BoundText
+'    dtcdespoa.Text = dtccodpoa.BoundText
 End Sub
 
 Private Sub dtccodpuesto_Click(Area As Integer)
@@ -4357,22 +4320,22 @@ Private Sub dtcdenopuesto_Click(Area As Integer)
 End Sub
 
 Private Sub DtCDescripcion_Click(Area As Integer)
-    DtCCodigo.BoundText = DtCDescripcion.BoundText
-    dtcunidadmedida.BoundText = DtCDescripcion.BoundText
-    dtccodmanejo.BoundText = DtCDescripcion.BoundText
-    dtccodpeso.BoundText = DtCDescripcion.BoundText
+'    DtCCodigo.BoundText = DtCDescripcion.BoundText
+'    dtcunidadmedida.BoundText = DtCDescripcion.BoundText
+'    dtccodmanejo.BoundText = DtCDescripcion.BoundText
+'    dtccodpeso.BoundText = DtCDescripcion.BoundText
 End Sub
 
 Private Sub dtc_precioventabase15_Click(Area As Integer)
-    dtc_desc15.BoundText = dtc_precioventabase15.BoundText
-    dtc_unimed15.BoundText = dtc_precioventabase15.BoundText
-    dtc_stocktotal15.BoundText = dtc_precioventabase15.BoundText
-    dtc_grupo15.BoundText = dtc_precioventabase15.BoundText
-    dtc_subgrupo15.BoundText = dtc_precioventabase15.BoundText
-    Dtc_partida15.BoundText = dtc_precioventabase15.BoundText
-    dtc_precioventafinal15.BoundText = dtc_precioventabase15.BoundText
-    dtc_codigo15.BoundText = dtc_precioventabase15.BoundText
-    dtc_preciocompra15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_desc15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_unimed15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_stocktotal15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_grupo15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_subgrupo15.BoundText = dtc_precioventabase15.BoundText
+'    Dtc_partida15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_precioventafinal15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_codigo15.BoundText = dtc_precioventabase15.BoundText
+'    dtc_preciocompra15.BoundText = dtc_precioventabase15.BoundText
 End Sub
 
 Private Sub dtcdescripar_Click(Area As Integer)
@@ -4411,28 +4374,6 @@ End Sub
 
 Private Sub dtc_desc4A_Click(Area As Integer)
     dtc_codigo4A.BoundText = dtc_desc4A.BoundText
-End Sub
-
-Private Sub dtctipodoc_Click(Area As Integer)
-    dtcdenodoc.Text = dtctipodoc.BoundText
-End Sub
-
-Private Sub dtcunidadmedida_Click(Area As Integer)
-    DtCCodigo.BoundText = dtcunidadmedida.BoundText
-    DtCDescripcion.BoundText = dtcunidadmedida.BoundText
-    dtccodmanejo.BoundText = dtcunidadmedida.BoundText
-    dtccodpeso.BoundText = dtcunidadmedida.BoundText
-End Sub
-
-Private Sub dtcdespoa_Click(Area As Integer)
-    dtccodpoa.Text = dtcdespoa.BoundText
-End Sub
-
-Private Sub dtc_desc15_LostFocus()
-    txt_descripcion_venta.Text = dtc_desc15.Text
-    TxtDescuento.Text = "0"
-    TxtPrecioU.Text = dtc_precioventabase15.Text
-'    Call AbreAlmacen
 End Sub
 
 'Private Sub DTPfechasol_LostFocus()
@@ -4666,9 +4607,9 @@ Private Sub grabar()
        
     'db.CommitTrans
     If Ado_datos.Recordset.RecordCount > 0 Then
-        VAR_SOLA = Ado_datos.Recordset!venta_codigo
+        NumComp = Ado_datos.Recordset!venta_codigo
        marca1 = Ado_datos.Recordset.Bookmark
-       db.Execute "Update ao_ventas_alcance set fecha_inicio_real = '" & DTPfechasol.Value & "', fecha_fin_real = '" & DTPfechaFin.Value & "', doc_codigo='R-321', correl_doc=" & Val(Txt_Campo1.Text) & "  WHERE venta_codigo = " & VAR_SOLA & " AND solicitud_tipo = '6' "
+       db.Execute "Update ao_ventas_alcance set fecha_inicio_real = '" & DTPfechasol.Value & "', fecha_fin_real = '" & DTPfechaFin.Value & "', doc_codigo='R-321', correl_doc=" & Val(Txt_Campo1.Text) & "  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
 '       If Ado_datos.Recordset("venta_tipo") = "E" Then
 '           db.Execute "INSERT INTO ao_ventas_cobranza_inst (venta_codigo, ges_gestion, beneficiario_codigo, beneficiario_codigo_resp, cobranza_deuda_bs, cobranza_deuda_dol, cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs, cobranza_total_dol, cobranza_fecha_prog, cobranza_fecha_cobro, cobranza_observaciones, literal, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, factura_impresa, poa_codigo, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
 '           "VALUES ('" & Ado_datos.Recordset!venta_codigo & "', '" & Ado_datos.Recordset!ges_gestion & "', '" & Ado_datos.Recordset!beneficiario_codigo & "', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "', " & Ado_datos.Recordset!venta_monto_total_bs & ", '" & Ado_datos.Recordset!venta_monto_total_dol & "', '0', '0', " & Ado_datos.Recordset!venta_monto_total_bs & ", " & Ado_datos.Recordset!venta_monto_total_dol & ", '" & Date & "', '" & Date & "', 'CANCELADO', 'CERO', 'COM', 'COM-02', 'COM-02-02', 'ADM', 'R-103', '0', 'R-101', '0', '0', 'N', '3.1.2', 'REG', '" & glusuario & "', '" & Date & "', '09:00')"
