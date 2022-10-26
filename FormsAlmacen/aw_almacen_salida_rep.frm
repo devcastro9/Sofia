@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   137691137
+         Format          =   137887745
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   137691137
+         Format          =   137887745
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   139001857
+            Format          =   137953281
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4655,13 +4655,13 @@ On Error GoTo UpdateErr
     End If
     dtc_desc3.backColor = &H80000005
     dtc_desc3.ForeColor = &H80000008
-    Txt_campo1.Caption = "0"
+    txt_campo1.Caption = "0"
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False
-    DTPfechaIni.Visible = False
+    DTPFechaIni.Visible = False
     'lbl_campo5.Visible = False
-    DTPfechaFin.Visible = False
+    DTPFechaFin.Visible = False
     'DTPfechasol.Value = Date
     swgrabar = 1
     FrmCabecera.Enabled = True
@@ -8897,8 +8897,8 @@ Private Sub grabar()
 '        Else
 '           VAR_NUM = 1
 '        End If
-        
-        Select Case VAR_ORIGEN
+
+                Select Case VAR_ORIGEN
             Case "UALMI"
                 VAR_DOCI = VAR_R
                 VAR_DOCR = VAR_R
@@ -8926,6 +8926,8 @@ Private Sub grabar()
                 VAR_ALMDR = IIf(dtc_codigo20.Text = "", "0", dtc_codigo20.Text)
                 VAR_ALMDH = "0"
                 VAR_ALMDA = "0"
+                
+                VAR_ALMT = "I"
             Case "UALMR"
                 VAR_DOCI = ""
                 VAR_DOCR = VAR_R
@@ -8954,34 +8956,38 @@ Private Sub grabar()
                 VAR_ALMDR = IIf(dtc_codigo20.Text = "", "0", dtc_codigo20.Text)
                 VAR_ALMDH = "0"
                 VAR_ALMDA = "0"
+                
+                VAR_ALMT = "R"
             Case "UALMH"
-                VAR_DOCI = ""
-                VAR_DOCR = ""
+                VAR_DOCI = VAR_R
+                VAR_DOCR = VAR_R
                 VAR_DOCH = VAR_R
                 VAR_DOCA = ""
-                VAR_BENI = "0"
-                VAR_BENR = "0"
-                VAR_BENH = dtc_codigo4.Text
+                VAR_BENI = IIf(dtc_codigo4.Text = "", "0", dtc_codigo4.Text)
+                VAR_BENR = IIf(dtc_codigo4.Text = "", "0", dtc_codigo4.Text)
+                VAR_BENH = IIf(dtc_codigo4.Text = "", "0", dtc_codigo4.Text)
                 VAR_BENA = "0"
-                VAR_BENDI = "0"
-                VAR_BENDR = "0"
-                VAR_BENDH = dtc_codigo5.Text
+                VAR_BENDI = IIf(dtc_codigo5.Text = "", "0", dtc_codigo5.Text)
+                VAR_BENDR = IIf(dtc_codigo5.Text = "", "0", dtc_codigo5.Text)
+                VAR_BENDH = IIf(dtc_codigo5.Text = "", "0", dtc_codigo5.Text)
                 VAR_BENDA = "0"
                 
-                VAR_NUMI = "0"
-                VAR_NUMR = "0"
-                VAR_NUMH = VAR_NUM
+                VAR_NUMI = IIf(VAR_NUM = "", "0", VAR_NUM)
+                VAR_NUMR = IIf(VAR_NUM = "", "0", VAR_NUM)
+                VAR_NUMH = IIf(VAR_NUM = "", "0", VAR_NUM)
                 VAR_NUMA = "0"
                 
-                VAR_ALMI = "0"
-                VAR_ALMR = "0"
-                VAR_ALMH = dtc_codigo11.Text
+                VAR_ALMI = IIf(dtc_codigo11.Text = "", "0", dtc_codigo11.Text)
+                VAR_ALMR = IIf(dtc_codigo11.Text = "", "0", dtc_codigo11.Text)
+                VAR_ALMH = IIf(dtc_codigo11.Text = "", "0", dtc_codigo11.Text)
                 VAR_ALMA = "0"
                 
-                VAR_ALMDI = "0"
-                VAR_ALMDR = "0"
-                VAR_ALMDH = dtc_codigo20.Text
+                VAR_ALMDI = IIf(dtc_codigo20.Text = "", "0", dtc_codigo20.Text)
+                VAR_ALMDR = IIf(dtc_codigo20.Text = "", "0", dtc_codigo20.Text)
+                VAR_ALMDH = IIf(dtc_codigo20.Text = "", "0", dtc_codigo20.Text)
                 VAR_ALMDA = "0"
+                
+                VAR_ALMT = "H"
             Case "GADM"
                 VAR_DOCI = ""
                 VAR_DOCR = ""
@@ -9010,6 +9016,8 @@ Private Sub grabar()
                 VAR_ALMDR = "0"
                 VAR_ALMDH = "0"
                 VAR_ALMDA = dtc_codigo20.Text
+                
+                VAR_ALMT = "A"
             Case Else
                 VAR_DOCI = ""
                 VAR_DOCR = VAR_R
@@ -9038,7 +9046,8 @@ Private Sub grabar()
                 VAR_ALMDR = IIf(dtc_codigo20.Text = "", "0", dtc_codigo20.Text)
                 VAR_ALMDH = "0"
                 VAR_ALMDA = "0"
-        End Select
+                
+                VAR_ALMT = "R"
         FVenta = Format(IIf(IsNull(DTPfechasol.Value), Date, DTPfechasol.Value), "dd,mm,yyyy")
         
         db.Execute "INSERT INTO AO_ventas_cabecera (ges_gestion, venta_codigo,  depto_codigo, unidad_codigo, solicitud_codigo, edif_codigo, unidad_destino, unidad_codigo_ant, solicitud_codigo_ant, venta_fecha, venta_tipo, beneficiario_codigo, beneficiario_codigo_resp, beneficiario_codigo_cobr, beneficiario_codigo_alm, " & _
