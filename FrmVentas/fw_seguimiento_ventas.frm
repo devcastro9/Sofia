@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form fw_seguimiento_ventas 
    BackColor       =   &H00C0C0C0&
@@ -3395,7 +3395,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -3508,7 +3508,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -4661,11 +4661,11 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryF01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente.rpt"
             CryF01.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryF01.StoredProcParam(0) = "%"
             Else
                 'CryF01.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
-                CryF01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryF01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             End If
             iResult = CryF01.PrintReport
             If iResult <> 0 Then MsgBox CryF01.LastErrorNumber & " : " & CryF01.LastErrorString, vbCritical, "Error de impresión"
@@ -4680,7 +4680,7 @@ Private Sub btnPrintOption_Click()
                 CryR01.StoredProcParam(0) = "%"
                 CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
             Else
-                CryR01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryR01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
                 CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
             End If
             iResult = CryR01.PrintReport
@@ -4692,7 +4692,7 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryF02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_servicio.rpt"
             CryF02.WindowShowRefreshBtn = True
-            CryF02.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+            CryF02.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             CryF02.StoredProcParam(1) = Ado_datos16.Recordset!subproceso_codigo
             iResult = CryF02.PrintReport
             If iResult <> 0 Then MsgBox CryF02.LastErrorNumber & " : " & CryF02.LastErrorString, vbCritical, "Error de impresión"
@@ -4703,10 +4703,10 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes.rpt"
             CryQ01.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryQ01.StoredProcParam(0) = "%"
             Else
-                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             End If
             iResult = CryQ01.PrintReport
             If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
@@ -4719,7 +4719,7 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryQ02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cobrador_tes.rpt"
             CryQ02.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryQ02.StoredProcParam(0) = "%"
             Else
                 CryQ02.StoredProcParam(0) = Ado_datos16.Recordset!beneficiario_codigo_cobr
@@ -4733,10 +4733,10 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes_dol.rpt"
             CryQ01.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryQ01.StoredProcParam(0) = "%"
             Else
-                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             End If
             iResult = CryQ01.PrintReport
             If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
@@ -7208,7 +7208,7 @@ Private Sub Form_Load()
     swnuevo = 0
     VAR_SW = 0
     parametro = Aux
-    db.Execute "UPDATE  ao_ventas_cabecera SET ao_ventas_cabecera.edif_codigo_corto = gc_edificaciones.edif_codigo_corto FROM ao_ventas_cabecera INNER JOIN gc_edificaciones ON ao_ventas_cabecera.edif_codigo = gc_edificaciones.edif_codigo where (ao_ventas_cabecera.edif_codigo_corto Is Null)"
+     db.Execute "UPDATE  ao_ventas_cabecera SET ao_ventas_cabecera.edif_codigo_corto = gc_edificaciones.edif_codigo_corto FROM ao_ventas_cabecera INNER JOIN gc_edificaciones ON ao_ventas_cabecera.edif_codigo = gc_edificaciones.edif_codigo where (ao_ventas_cabecera.edif_codigo_corto Is Null)"
     mbDataChanged = False
     'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     GlNombFor = "F04"

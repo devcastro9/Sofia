@@ -17,10 +17,291 @@ Begin VB.Form mw_ventas_alcance_acta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   5.48397e6
+   ScaleHeight     =   5.66013e6
    ScaleMode       =   0  'User
-   ScaleWidth      =   3.9812e8
+   ScaleWidth      =   4.8214e8
    WindowState     =   2  'Maximized
+   Begin VB.Frame FrmCobranza 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "PLAN DE ITEMS PARA CRONOGRAMA GRATUITO"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   2145
+      Left            =   120
+      TabIndex        =   89
+      Top             =   7560
+      Width           =   16455
+      Begin MSDataGridLib.DataGrid DtgCobro 
+         Bindings        =   "mw_ventas_alcance_acta.frx":058A
+         Height          =   1860
+         Left            =   120
+         TabIndex        =   90
+         Top             =   240
+         Width           =   16230
+         _ExtentX        =   28628
+         _ExtentY        =   3281
+         _Version        =   393216
+         AllowUpdate     =   0   'False
+         BackColor       =   16761024
+         Enabled         =   -1  'True
+         HeadLines       =   1
+         RowHeight       =   13
+         FormatLocked    =   -1  'True
+         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ColumnCount     =   13
+         BeginProperty Column00 
+            DataField       =   "cobranza_prog_codigo"
+            Caption         =   "No.Cuota"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column01 
+            DataField       =   "cobranza_fecha_prog"
+            Caption         =   "Mes.Programado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "mmm-yyyy"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column02 
+            DataField       =   "cobranza_programada_bs"
+            Caption         =   "Monto Programado Bs."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
+            DataField       =   "beneficiario_codigo_resp"
+            Caption         =   "Beneficiario"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column04 
+            DataField       =   "doc_numero"
+            Caption         =   "Nro.Doc.Resp."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column05 
+            DataField       =   "cobranza_fecha_conformidad"
+            Caption         =   "Fecha.Certif."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
+            DataField       =   "cobranza_observaciones"
+            Caption         =   "Concepto de la Cuota"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "cobranza_concepto_plazo"
+            Caption         =   "Plazo a Cumplir"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "estado_codigo"
+            Caption         =   "Estado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "estado_ac"
+            Caption         =   "Aviso Cob."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "correl_ac"
+            Caption         =   "Nro. Aviso Cob"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "cobranza_programada_dol"
+            Caption         =   "Monto a Pagar Dol."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column12 
+            DataField       =   "cobranza_codigo"
+            Caption         =   "Cod.Cobranza"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         SplitCount      =   1
+         BeginProperty Split0 
+            BeginProperty Column00 
+               Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   900.284
+            EndProperty
+            BeginProperty Column01 
+               Alignment       =   2
+               ColumnWidth     =   1275.024
+            EndProperty
+            BeginProperty Column02 
+               Alignment       =   1
+               Locked          =   -1  'True
+               ColumnWidth     =   1709.858
+            EndProperty
+            BeginProperty Column03 
+               Alignment       =   2
+               Locked          =   -1  'True
+            EndProperty
+            BeginProperty Column04 
+               Alignment       =   2
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1184.882
+            EndProperty
+            BeginProperty Column05 
+               Alignment       =   2
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1379.906
+            EndProperty
+            BeginProperty Column06 
+               Locked          =   -1  'True
+               ColumnWidth     =   5955.024
+            EndProperty
+            BeginProperty Column07 
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column08 
+               Alignment       =   2
+               ColumnWidth     =   645.165
+            EndProperty
+            BeginProperty Column09 
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column10 
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column11 
+               Alignment       =   1
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column12 
+               ColumnWidth     =   1214.929
+            EndProperty
+         EndProperty
+      End
+   End
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
       BorderStyle     =   0  'None
@@ -38,12 +319,12 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7680
-         Picture         =   "mw_ventas_alcance_acta.frx":058A
+         Picture         =   "mw_ventas_alcance_acta.frx":05A4
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   88
          ToolTipText     =   "Registra Adenda o Modificación al Contrato"
-         Top             =   0
+         Top             =   40
          Width           =   1455
       End
       Begin VB.PictureBox BtnSalir 
@@ -53,7 +334,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   18000
-         Picture         =   "mw_ventas_alcance_acta.frx":136B
+         Picture         =   "mw_ventas_alcance_acta.frx":12F1
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   69
@@ -68,7 +349,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   3960
-         Picture         =   "mw_ventas_alcance_acta.frx":1B2D
+         Picture         =   "mw_ventas_alcance_acta.frx":1AB3
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   68
@@ -83,7 +364,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   2640
-         Picture         =   "mw_ventas_alcance_acta.frx":22E2
+         Picture         =   "mw_ventas_alcance_acta.frx":2268
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   67
@@ -98,7 +379,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1440
-         Picture         =   "mw_ventas_alcance_acta.frx":2B15
+         Picture         =   "mw_ventas_alcance_acta.frx":2A9B
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   66
@@ -114,7 +395,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   -15
-         Picture         =   "mw_ventas_alcance_acta.frx":3261
+         Picture         =   "mw_ventas_alcance_acta.frx":31E7
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   65
@@ -129,7 +410,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5280
-         Picture         =   "mw_ventas_alcance_acta.frx":3B76
+         Picture         =   "mw_ventas_alcance_acta.frx":3AFC
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   64
@@ -181,7 +462,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "mw_ventas_alcance_acta.frx":4443
+         Picture         =   "mw_ventas_alcance_acta.frx":43C9
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   61
@@ -195,7 +476,7 @@ Begin VB.Form mw_ventas_alcance_acta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "mw_ventas_alcance_acta.frx":4D2F
+         Picture         =   "mw_ventas_alcance_acta.frx":4CB5
          ScaleHeight     =   615
          ScaleWidth      =   1275
          TabIndex        =   60
@@ -227,10 +508,10 @@ Begin VB.Form mw_ventas_alcance_acta
    Begin VB.PictureBox FrmABMDet 
       BackColor       =   &H80000015&
       FillColor       =   &H00FFFFFF&
-      Height          =   2220
+      Height          =   1860
       Left            =   120
       Negotiate       =   -1  'True
-      ScaleHeight     =   9
+      ScaleHeight     =   7.5
       ScaleMode       =   4  'Character
       ScaleWidth      =   15.625
       TabIndex        =   49
@@ -297,7 +578,7 @@ Begin VB.Form mw_ventas_alcance_acta
          Strikethrough   =   0   'False
       EndProperty
       TabCaption(0)   =   "REGISTRO DE ACTA DEFINITIVA DE ENTREGA"
-      TabPicture(0)   =   "mw_ventas_alcance_acta.frx":5505
+      TabPicture(0)   =   "mw_ventas_alcance_acta.frx":548B
       Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
       Tab(0).Control(0).Enabled=   0   'False
@@ -403,7 +684,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "mw_ventas_alcance_acta.frx":5521
+            Bindings        =   "mw_ventas_alcance_acta.frx":54A7
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -450,7 +731,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   117768193
+               Format          =   108855297
                CurrentDate     =   44334
             End
             Begin MSComCtl2.DTPicker DTPfechasol 
@@ -464,7 +745,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   117768193
+               Format          =   108855297
                CurrentDate     =   44334
             End
             Begin VB.TextBox Txt_Campo1 
@@ -1019,7 +1300,7 @@ Begin VB.Form mw_ventas_alcance_acta
                Width           =   1545
             End
             Begin MSDataListLib.DataCombo dtc_desc11 
-               Bindings        =   "mw_ventas_alcance_acta.frx":553A
+               Bindings        =   "mw_ventas_alcance_acta.frx":54C0
                DataField       =   "venta_tipo"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -1038,7 +1319,7 @@ Begin VB.Form mw_ventas_alcance_acta
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo11 
-               Bindings        =   "mw_ventas_alcance_acta.frx":5554
+               Bindings        =   "mw_ventas_alcance_acta.frx":54DA
                DataField       =   "venta_tipo"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -1239,7 +1520,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Width           =   1245
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "mw_ventas_alcance_acta.frx":556E
+            Bindings        =   "mw_ventas_alcance_acta.frx":54F4
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1259,7 +1540,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo1 
-            Bindings        =   "mw_ventas_alcance_acta.frx":5587
+            Bindings        =   "mw_ventas_alcance_acta.frx":550D
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1277,7 +1558,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc1 
-            Bindings        =   "mw_ventas_alcance_acta.frx":55A0
+            Bindings        =   "mw_ventas_alcance_acta.frx":5526
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1316,7 +1597,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_aux3 
-            Bindings        =   "mw_ventas_alcance_acta.frx":55B9
+            Bindings        =   "mw_ventas_alcance_acta.frx":553F
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1334,7 +1615,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo3 
-            Bindings        =   "mw_ventas_alcance_acta.frx":55D2
+            Bindings        =   "mw_ventas_alcance_acta.frx":5558
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1354,7 +1635,7 @@ Begin VB.Form mw_ventas_alcance_acta
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_desc3 
-            Bindings        =   "mw_ventas_alcance_acta.frx":55EB
+            Bindings        =   "mw_ventas_alcance_acta.frx":5571
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1605,7 +1886,7 @@ Begin VB.Form mw_ventas_alcance_acta
          Width           =   1455
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "mw_ventas_alcance_acta.frx":5604
+         Bindings        =   "mw_ventas_alcance_acta.frx":558A
          Height          =   4170
          Left            =   120
          TabIndex        =   25
@@ -1819,20 +2100,20 @@ Begin VB.Form mw_ventas_alcance_acta
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   2295
+      Height          =   1935
       Left            =   2160
       TabIndex        =   7
       Top             =   5580
       Width           =   14895
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "mw_ventas_alcance_acta.frx":561C
-         Height          =   1905
+         Bindings        =   "mw_ventas_alcance_acta.frx":55A2
+         Height          =   1665
          Left            =   240
          TabIndex        =   8
          Top             =   225
          Width           =   14535
          _ExtentX        =   25638
-         _ExtentY        =   3360
+         _ExtentY        =   2937
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   -2147483624
