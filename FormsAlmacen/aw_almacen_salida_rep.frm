@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   137887745
+         Format          =   145293313
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   137887745
+         Format          =   145293313
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   137953281
+            Format          =   124780545
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4655,13 +4655,13 @@ On Error GoTo UpdateErr
     End If
     dtc_desc3.backColor = &H80000005
     dtc_desc3.ForeColor = &H80000008
-    txt_campo1.Caption = "0"
+    Txt_campo1.Caption = "0"
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False
-    DTPFechaIni.Visible = False
+    DTPfechaIni.Visible = False
     'lbl_campo5.Visible = False
-    DTPFechaFin.Visible = False
+    DTPfechaFin.Visible = False
     'DTPfechasol.Value = Date
     swgrabar = 1
     FrmCabecera.Enabled = True
@@ -8898,7 +8898,7 @@ Private Sub grabar()
 '           VAR_NUM = 1
 '        End If
 
-                Select Case VAR_ORIGEN
+        Select Case VAR_ORIGEN
             Case "UALMI"
                 VAR_DOCI = VAR_R
                 VAR_DOCR = VAR_R
@@ -9048,6 +9048,7 @@ Private Sub grabar()
                 VAR_ALMDA = "0"
                 
                 VAR_ALMT = "R"
+            End Select
         FVenta = Format(IIf(IsNull(DTPfechasol.Value), Date, DTPfechasol.Value), "dd,mm,yyyy")
         
         db.Execute "INSERT INTO AO_ventas_cabecera (ges_gestion, venta_codigo,  depto_codigo, unidad_codigo, solicitud_codigo, edif_codigo, unidad_destino, unidad_codigo_ant, solicitud_codigo_ant, venta_fecha, venta_tipo, beneficiario_codigo, beneficiario_codigo_resp, beneficiario_codigo_cobr, beneficiario_codigo_alm, " & _
