@@ -1213,7 +1213,7 @@ Begin VB.Form gw_p_gc_beneficiario_empresa
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   108920833
+         Format          =   118554625
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -2319,7 +2319,7 @@ Private Sub BtnGrabar_Click()
   Call valida_campos
   If VAR_VAL = "OK" Then
      If VAR_SW = "ADD" Then
-       var_cod = Txt_campo4.Text + "-" + LblInicial
+       var_cod = txt_campo4.Text + "-" + LblInicial
        Set rs_aux1 = New ADODB.Recordset
        SQL_FOR = "select * from gc_beneficiario where beneficiario_codigo = '" & var_cod & "'  "
        rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic        ', adCmdText
@@ -2330,14 +2330,14 @@ Private Sub BtnGrabar_Click()
                 Exit Sub
        End If
        If LblInicial.Text = "" Then
-            VAR_COD3 = Txt_campo4.Text
+            VAR_COD3 = txt_campo4.Text
             rs_datos!beneficiario_iniciales = ""
        Else
-            VAR_COD3 = Trim(Txt_campo4.Text + "-" + Trim(LblInicial))     '
+            VAR_COD3 = Trim(txt_campo4.Text + "-" + Trim(LblInicial))     '
             rs_datos!beneficiario_iniciales = LblInicial
        End If
        rs_datos!beneficiario_codigo = VAR_COD3
-       rs_datos!beneficiario_nit = Txt_campo4.Text  'IIf(txt_campo4.Text = "", txt_codigo, txt_campo4.Text)
+       rs_datos!beneficiario_nit = txt_campo4.Text  'IIf(txt_campo4.Text = "", txt_codigo, txt_campo4.Text)
        rs_datos!estado_codigo = "REG"
         'rs_datos!ARCHIVO_Foto = txt_codigo.Caption + ".JPG"
         'rs_datos!archivo_foto_cargado = "N"
@@ -2350,27 +2350,27 @@ Private Sub BtnGrabar_Click()
          rs_datos!depto_sigla = dtc_codigo3.Text
          rs_datos!tipodoc_codigo = dtc_codigo2.Text
          rs_datos!tipoben_codigo = dtc_codigo1.Text
-         rs_datos!beneficiario_primer_apellido = IIf(Txt_campo1.Text = "", "-", Txt_campo1.Text)
-         rs_datos!beneficiario_segundo_apellido = IIf(Txt_campo2.Text = "", "-", Txt_campo2.Text)
-         rs_datos!beneficiario_nombres = IIf(Txt_campo3.Text = "", "-", Txt_campo3.Text)
+         rs_datos!beneficiario_primer_apellido = IIf(txt_campo1.Text = "", "-", txt_campo1.Text)
+         rs_datos!beneficiario_segundo_apellido = IIf(txt_campo2.Text = "", "-", txt_campo2.Text)
+         rs_datos!beneficiario_nombres = IIf(txt_campo3.Text = "", "-", txt_campo3.Text)
          rs_datos!beneficiario_denominacion = Txt_descripcion.Text
          rs_datos!beneficiario_fecha_nacimiento = DTP_Fecha1.Value
-         rs_datos!beneficiario_telefono_fijo = IIf(Txt_campo5.Text = "", "0", Txt_campo5.Text)
-         rs_datos!beneficiario_telefono_Of = IIf(Txt_campo6.Text = "", "0", Txt_campo6.Text)
+         rs_datos!beneficiario_telefono_fijo = IIf(txt_campo5.Text = "", "0", txt_campo5.Text)
+         rs_datos!beneficiario_telefono_Of = IIf(txt_campo6.Text = "", "0", txt_campo6.Text)
          rs_datos!beneficiario_telefono_Cel = IIf(txt_campo7.Text = "", "0", txt_campo7.Text)
-         rs_datos!beneficiario_email = IIf(Txt_campo8.Text = "", "-", Txt_campo8.Text)
-         rs_datos!beneficiario_email_of = IIf(Txt_campo9.Text = "", "-", Txt_campo9.Text)
+         rs_datos!beneficiario_email = IIf(txt_campo8.Text = "", "-", txt_campo8.Text)
+         rs_datos!beneficiario_email_of = IIf(txt_campo9.Text = "", "-", txt_campo9.Text)
          rs_datos!pais_codigo = IIf(dtc_codigo4.Text = "", "BOL", dtc_codigo4.Text)
          rs_datos!depto_codigo = dtc_codigo5.Text
          rs_datos!prov_codigo = dtc_codigo6.Text
          rs_datos!munic_codigo = dtc_codigo7.Text
          rs_datos!zona_codigo = IIf(dtc_codigo8.Text = "", "0", dtc_codigo8.Text)
          rs_datos!calle_codigo = IIf(dtc_codigo9.Text = "", "0", dtc_codigo9.Text)
-         rs_datos!edif_codigo = dtc_codigo10.Text
-         rs_datos!beneficiario_edif_nro = IIf(Txt_campo10.Text = "", "0", Txt_campo10.Text)
-         rs_datos!beneficiario_edif_piso_nro = IIf(Txt_campo11.Text = "", "0", Txt_campo11.Text)
-         rs_datos!beneficiario_edif_depto_nro = IIf(Txt_campo12.Text = "", "0", Txt_campo12.Text)
-         rs_datos!beneficiario_domicilio_legal = dtc_desc8.Text + " - " + dtc_desc9.Text + " Nro. " + Txt_campo10.Text
+         rs_datos!EDIF_CODIGO = dtc_codigo10.Text
+         rs_datos!beneficiario_edif_nro = IIf(txt_campo10.Text = "", "0", txt_campo10.Text)
+         rs_datos!beneficiario_edif_piso_nro = IIf(txt_campo11.Text = "", "0", txt_campo11.Text)
+         rs_datos!beneficiario_edif_depto_nro = IIf(txt_campo12.Text = "", "0", txt_campo12.Text)
+         rs_datos!beneficiario_domicilio_legal = dtc_desc8.Text + " - " + dtc_desc9.Text + " Nro. " + txt_campo10.Text
     '     If rs_datos!ARCHIVO_Foto = ".JPG" Or rs_datos!ARCHIVO_Foto = "" Then
     '        rs_datos!ARCHIVO_Foto = txt_codigo.Caption + ".JPG"
     '     End If
@@ -2383,11 +2383,11 @@ Private Sub BtnGrabar_Click()
      'End If
      If VAR_SW = "MOD" Then
        VAR_COD3 = Ado_datos.Recordset!beneficiario_codigo   'Codigo Llave de la Tabla
-       VAR_DIR = dtc_desc8.Text + " - " + dtc_desc9.Text + " Nro. " + Txt_campo10.Text
-       db.Execute "Update gc_beneficiario Set depto_sigla = '" & dtc_codigo3.Text & "', tipodoc_codigo = '" & dtc_codigo2.Text & "', tipoben_codigo = " & dtc_codigo1.Text & ", beneficiario_primer_apellido = '" & Txt_campo1.Text & "', beneficiario_segundo_apellido = '" & Txt_campo2.Text & "', beneficiario_nombres = '" & Txt_campo3.Text & "', beneficiario_denominacion = '" & Txt_descripcion.Text & "', " & _
-        " beneficiario_fecha_nacimiento = '" & DTP_Fecha1.Value & "', beneficiario_telefono_fijo = '" & Txt_campo5.Text & "', beneficiario_telefono_Of = '" & Txt_campo6.Text & "', beneficiario_telefono_Cel = '" & txt_campo7.Text & "', beneficiario_email = '" & Txt_campo8.Text & "', " & _
-        " beneficiario_email_of = '" & Txt_campo9.Text & "', pais_codigo = '" & dtc_codigo4.Text & "', depto_codigo = '" & dtc_codigo5.Text & "', prov_codigo = '" & dtc_codigo6.Text & "', munic_codigo = '" & dtc_codigo7.Text & "', zona_codigo = '" & dtc_codigo8.Text & "', " & _
-        " calle_codigo = '" & dtc_codigo9.Text & "', edif_codigo = '" & dtc_codigo10.Text & "', beneficiario_edif_nro = '" & Txt_campo10.Text & "', beneficiario_edif_piso_nro = '" & Txt_campo11.Text & "', beneficiario_edif_depto_nro = '" & Txt_campo12.Text & "', beneficiario_nit = '" & Txt_campo4.Text & "', " & _
+       VAR_DIR = dtc_desc8.Text + " - " + dtc_desc9.Text + " Nro. " + txt_campo10.Text
+       db.Execute "Update gc_beneficiario Set depto_sigla = '" & dtc_codigo3.Text & "', tipodoc_codigo = '" & dtc_codigo2.Text & "', tipoben_codigo = " & dtc_codigo1.Text & ", beneficiario_primer_apellido = '" & txt_campo1.Text & "', beneficiario_segundo_apellido = '" & txt_campo2.Text & "', beneficiario_nombres = '" & txt_campo3.Text & "', beneficiario_denominacion = '" & Txt_descripcion.Text & "', " & _
+        " beneficiario_fecha_nacimiento = '" & DTP_Fecha1.Value & "', beneficiario_telefono_fijo = '" & txt_campo5.Text & "', beneficiario_telefono_Of = '" & txt_campo6.Text & "', beneficiario_telefono_Cel = '" & txt_campo7.Text & "', beneficiario_email = '" & txt_campo8.Text & "', " & _
+        " beneficiario_email_of = '" & txt_campo9.Text & "', pais_codigo = '" & dtc_codigo4.Text & "', depto_codigo = '" & dtc_codigo5.Text & "', prov_codigo = '" & dtc_codigo6.Text & "', munic_codigo = '" & dtc_codigo7.Text & "', zona_codigo = '" & dtc_codigo8.Text & "', " & _
+        " calle_codigo = '" & dtc_codigo9.Text & "', edif_codigo = '" & dtc_codigo10.Text & "', beneficiario_edif_nro = '" & txt_campo10.Text & "', beneficiario_edif_piso_nro = '" & txt_campo11.Text & "', beneficiario_edif_depto_nro = '" & txt_campo12.Text & "', beneficiario_nit = '" & txt_campo4.Text & "', " & _
         " beneficiario_domicilio_legal = '" & VAR_DIR & "', Fecha_Registro = '" & Date & "', usr_codigo = '" & glusuario & "' " & _
        " Where beneficiario_codigo= '" & VAR_COD3 & "'  "
 
@@ -2406,7 +2406,7 @@ Private Sub BtnGrabar_Click()
      FraGrabarCancelar.Visible = False
      fraDatos.Enabled = False
      dg_datos.Enabled = True
-     Txt_campo4.Enabled = True
+     txt_campo4.Enabled = True
      LblInicial.Enabled = True
   End If
   Exit Sub
@@ -2416,7 +2416,7 @@ UpdateErr:
 End Sub
 
 Private Sub valida_campos()
-  If (Txt_campo4.Text = "") Then
+  If (txt_campo4.Text = "") Then
     MsgBox "Debe registrar el " + lbl_titulo1.Caption, vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -2490,7 +2490,7 @@ Private Sub BtnAñadir_Click()
     FraGrabarCancelar.Visible = True
     dg_datos.Enabled = False
     VAR_SW = "ADD"
-    Txt_campo4.SetFocus
+    txt_campo4.SetFocus
 '    BtnVer.Visible = False
   Exit Sub
 AddErr:
@@ -2569,19 +2569,19 @@ Private Sub BtnCancelar_Click()
         FraGrabarCancelar.Visible = False
         fraDatos.Enabled = False
         dg_datos.Enabled = True
-        Txt_campo4.Enabled = True
+        txt_campo4.Enabled = True
         LblInicial.Enabled = True
     End If
 End Sub
 
 Private Sub BtnModificar_Click()
   On Error GoTo EditErr
-  If glusuario = "SQUISPE" Or glusuario = "RGIL" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "MARTEAGA" Or glusuario = "APALACIOS" Or glusuario = "CSALINAS" Or glusuario = "GSOLIZ" Or glusuario = "EVILLALOBOS" Or glusuario = "HMARIN" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Then
+  If glusuario = "SQUISPE" Or glusuario = "RGIL" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "MARTEAGA" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "CSALINAS" Or glusuario = "GSOLIZ" Or glusuario = "EVILLALOBOS" Or glusuario = "HMARIN" Or glusuario = "LVEDIA" Then
     fraDatos.Enabled = True
     fraOpciones.Visible = False
     FraGrabarCancelar.Visible = True
     dg_datos.Enabled = False
-    Txt_campo4.Enabled = True
+    txt_campo4.Enabled = True
     LblInicial.Enabled = False
     VAR_SW = "MOD"
   Else
@@ -2591,7 +2591,7 @@ Private Sub BtnModificar_Click()
         fraOpciones.Visible = False
         FraGrabarCancelar.Visible = True
         dg_datos.Enabled = False
-        Txt_campo4.Enabled = False
+        txt_campo4.Enabled = False
         LblInicial.Enabled = False
         VAR_SW = "MOD"
     '    BtnVer.Visible = True

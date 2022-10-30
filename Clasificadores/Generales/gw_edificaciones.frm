@@ -14,8 +14,8 @@ Begin VB.Form gw_edificaciones
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   9120
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
@@ -1684,10 +1684,10 @@ Begin VB.Form gw_edificaciones
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   11280
       TabIndex        =   21
-      Top             =   10935
-      Width           =   20250
+      Top             =   9120
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -2483,8 +2483,8 @@ Private Sub BtnGrabar_Click()
         var_cod = rs_datos!EDIF_CODIGO
      End If
      rs_datos!edif_descripcion = RTrim(Txt_descripcion.Text)
-     rs_datos!campo1 = Txt_campo1
-     rs_datos!campo2 = RTrim(Txt_campo2)
+     rs_datos!campo1 = txt_campo1
+     rs_datos!campo2 = RTrim(txt_campo2)
      
      rs_datos!codigo1 = dtc_codigo1.Text
      rs_datos!munic_codigo = IIf(dtc_codigo2.Text = "", "NN", dtc_codigo2.Text)
@@ -2636,7 +2636,7 @@ End Sub
 Private Sub BtnModificar_Click()
   On Error GoTo EditErr
   Select Case glusuario
-      Case "CPLATA", "DTERCEROS", "GSOLIZ", "OCOLODRO", "JSAAVEDRA", "ADMIN", "LNAVA", "APALACIOS", "EMACHICADO", "IRAMOS", "BMONTAÑO", "JORAQUENI", "CSALINAS", "JCASTRO", "GFLORES"
+      Case "CPLATA", "DTERCEROS", "GSOLIZ", "OCOLODRO", "JSAAVEDRA", "ADMIN", "LNAVA", "APALACIOS", "JCASTRO", "EMACHICADO", "IRAMOS", "BMONTAÑO", "JORAQUENI", "CSALINAS", "GFLORES"
         VAR_SW = "MOD"
         VAR_EDIF = "2"
       Case "CPAREDES", "TCASTILLO", "RPRIETO"
@@ -3133,7 +3133,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos12 = New ADODB.Recordset
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "Select * from gc_beneficiario where (tipoben_codigo < 20 and tipoben_codigo <> 1) order by beneficiario_denominacion", db, adOpenStatic
-    Set Ado_datos12.Recordset = rs_datos12
+    Set Ado_Datos12.Recordset = rs_datos12
     dtc_desc12.BoundText = dtc_codigo12.BoundText
     
     'gc_pais

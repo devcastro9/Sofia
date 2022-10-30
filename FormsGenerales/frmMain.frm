@@ -1733,7 +1733,7 @@ Private Sub Mnu_EdificiosInstalacion_Click()
 End Sub
 
 Private Sub Mnu_Ejecucion_Servicio_M_Click()
-    If glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "JSAAVEDRA" Or glusuario = "KGARCIA" Or glusuario = "TCRUZ" Or glusuario = "EMACHICADO" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "SQUISPE" Or glusuario = "FCABRERA" Or glusuario = "VPEÑA" Or glusuario = "TCASTILLO" Or glusuario = "GFLORES" Or glusuario = "BMONTAÑO" Or glusuario = "JCHIPANA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "MMENACHO" Or glusuario = "CLEDEZMA" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "ULEDEZMA" Or glusuario = "MARTEAGA" Or glusuario = "LVASQUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "RPRIETO" Then
+    If glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "LVEDIA" Or glusuario = "JSAAVEDRA" Or glusuario = "KGARCIA" Or glusuario = "TCRUZ" Or glusuario = "EMACHICADO" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "SQUISPE" Or glusuario = "FCABRERA" Or glusuario = "VPEÑA" Or glusuario = "TCASTILLO" Or glusuario = "GFLORES" Or glusuario = "BMONTAÑO" Or glusuario = "JCHIPANA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "MMENACHO" Or glusuario = "CLEDEZMA" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "ULEDEZMA" Or glusuario = "MARTEAGA" Or glusuario = "LVASQUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "RPRIETO" Then
         Aux = "DNMAN"
 '        frm_to_cronograma_certifica.lbl_titulo = Mnu_Ejecucion_Servicio_M.Caption
 '        frm_to_cronograma_certifica.FraNavega = Mnu_Ejecucion_Servicio_M.Caption
@@ -2974,7 +2974,7 @@ Private Sub MDIForm_Load()
    txtFechaGl.Caption = Format(Date, "dd/mm/yyyy")
    txtHoraGl.Caption = Format(Time, "hh:mm:ss")
    txtVersion.Caption = App.Major & "." & App.Minor & "." & App.Revision
-   If glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MPAREDES" Or glusuario = "APALACIOS" Or glusuario = "VBELLIDO" Then
+   If glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MPAREDES" Or glusuario = "APALACIOS" Or glusuario = "CSALINAS" Or glusuario = "VBELLIDO" Then
         CmdRepGral.Visible = True
    Else
         CmdRepGral.Visible = False

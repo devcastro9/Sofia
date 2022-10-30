@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_certifica
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   10620
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -187,7 +187,7 @@ Begin VB.Form tw_cronograma_certifica
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   109248515
+         Format          =   108986371
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2629,7 +2629,7 @@ Begin VB.Form tw_cronograma_certifica
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   109248515
+         Format          =   108986371
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3284,7 +3284,7 @@ Private Sub BtnGrabar_Click()
      
      rs_datos!fmes_fecha_registro = DTPfecha1.Value
      rs_datos!beneficiario_codigo_resp = dtc_codigo4.Text
-     rs_datos!observaciones = Txt_campo2.Text
+     rs_datos!observaciones = txt_campo2.Text
      
      rs_datos!fmes_nro_dias_habiles = DIAS_HAB
      rs_datos!fmes_nro_horarios_hab = NRO_HORARIO
@@ -3854,7 +3854,7 @@ Private Sub OptFilGral0_Click()
         Case "1"    ' Chuquisaca
             queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2019') "
         Case "2"    'La Paz - Tecnico
-            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Then
+            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Then
                 queryinicial = "select * From to_cronograma_mensual WHERE ( ges_gestion = '2019') "     ' estado_certifica <> 'ANL' AND
             Else
                 queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2019' ) "
@@ -3889,7 +3889,7 @@ Private Sub OptFilGral1_Click()
         Case "1"    ' Chuquisaca
             queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2020') "
         Case "2"    'La Paz - Tecnico
-            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Then
+            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Then
                 queryinicial = "select * From to_cronograma_mensual WHERE ( ges_gestion = '2020') "     ' estado_certifica <> 'ANL' AND
             Else
                 queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2020' ) "
@@ -3924,7 +3924,7 @@ Private Sub OptFilGral2_Click()
         Case "1"    ' Chuquisaca
             queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2022') "
         Case "2"    'La Paz - Tecnico
-            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "LVASQUEZ" Or glusuario = "CSALINAS" Then
+            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "LVASQUEZ" Or glusuario = "CSALINAS" Then
                 queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2022') "     ' estado_certifica <> 'ANL' AND
             Else
                 queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='33' OR zpiloto_codigo='36' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND ges_gestion = '2022' ) "
@@ -4206,7 +4206,7 @@ Private Sub OptFilGral3_Click()
         Case "1"    ' Chuquisaca
             queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2021') "
         Case "2"    'La Paz - Tecnico
-            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
+            If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "JSAAVEDRA" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
                 queryinicial = "select * From to_cronograma_mensual WHERE ( ges_gestion = '2021') "     ' estado_certifica <> 'ANL' AND
             Else
                 queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2021' ) "
