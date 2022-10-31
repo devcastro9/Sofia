@@ -16,7 +16,8 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
     nombreForm = frmCurrent.Name
     For Each ctrUno In frmCurrent.Controls
         sqlMapeado = "EXECUTE [dbo].[mapear_controles] '" & ctrUno.Name & "', '" & TypeName(ctrUno) & "', '" & nombreForm & "'"
-        db.Execute sqlMapeado
+        Debug.Print sqlMapeado
+        'db.Execute sqlMapeado
     Next
     
     ' Roles
@@ -41,5 +42,7 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
 '        .Close
 '    End With
 Handler:
-    MsgBox "Database error " & Err.Number & " : " & Err.Description
+    If Err.Number > 0 Then
+        MsgBox "Database error " & Err.Number & " : " & Err.Description
+    End If
 End Sub
