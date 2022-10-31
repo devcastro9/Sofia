@@ -332,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   276430849
+         Format          =   122683393
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -345,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   276430849
+         Format          =   122683393
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1586,6 +1586,8 @@ Private Sub tdbgInventario_DblClick()
     VAR_ALM = Ado_datos.Recordset!almacen_codigo
     db.Execute "UPDATE ao_almacen_totales SET stock_salida = (SELECT SUM(cantidad_salida) FROM ao_almacen_salidas WHERE bien_codigo = '" & VAR_BIEN & "' AND almacen_codigo = " & VAR_ALM & ") where almacen_codigo = " & VAR_ALM & " and bien_codigo = '" & VAR_BIEN & "' "
     db.Execute "update ao_almacen_totales set stock_actual = stock_ingreso - stock_salida"
+    DTP_Finicio.Value = "01/01/" & glGestion
+    DTP_Ffin.Value = ObtenerFechaServidor()
     Fra_reporte.Visible = True
     tdbgInventario.Enabled = False
     Fra_Elegir.Enabled = False
