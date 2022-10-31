@@ -229,6 +229,7 @@ Private Sub Form_Load()
     txtUserName.Text = RTrim(GlMaquina)
     'ALB 24/04/2003
     TIPO_DE_CAMBIO
+    'Call SeguridadSet(Me)
 End Sub
 
 Private Sub cmdCancel_Click()
