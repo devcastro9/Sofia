@@ -218,11 +218,7 @@ Public Function meses(nMes As Integer) As String
     End Select
 End Function
 
-'CC 'IMPRESION
-'Dim CryCmpte As New CryComprobante
-
 Public Sub Main()
-    ' Date
     ' Conexion a Access
     Set cnn = New Connection
     With cnn
@@ -401,8 +397,10 @@ Private Sub BUSCA_PARAMETRO()
         glMunic = IIf(IsNull(rs_PARAMETRO!codmunicip), "20101", rs_PARAMETRO!codmunicip)
         glcomuni = IIf(IsNull(rs_PARAMETRO!codcomunidad), "2010101", rs_PARAMETRO!codcomunidad)
         GLCarpeta2 = "PERSONAL"
+    Else
+        MsgBox "No exixte un servidor habilitado en los parametros...", vbCritical
+        End
     End If
-    'Set Ado_PARAMETRO.Recordset = rs_PARAMETRO
 End Sub
 
 Public Sub BotonesHabilitar(Form1 As Form, TipoAcceso As String)

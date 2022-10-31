@@ -218,6 +218,7 @@ Private Sub Form_Load()
     Dim nPC As String
     Dim buffer As String
     Dim estado As Long
+    frmLogin.Caption = "Sistema de Gestion CGI - v" & App.Major & "." & App.Minor & "." & App.Revision
     buffer = String$(255, " ")
     estado = GetComputerName(buffer, 255)
     If estado <> 0 Then
@@ -242,7 +243,6 @@ On Error Resume Next
     Dim version_valida As Boolean
     'CAMBIOS JQA 2014-ABR-16
    'Sentencia SQL que actualiza el estado de la sesion con el sistema
-'   Screen.MousePointer = vbHourglass
    db.Execute "Update gc_accesosistema Set estadosesion='I' Where salidasistema='A'"
    'Segmento de codigo que verifica la existencia de usuarios para el sistema
    If rsUsuarios.State = 1 Then rsUsuarios.Close
@@ -254,14 +254,12 @@ On Error Resume Next
              "Defina los niveles de acceso y usuarios necesarios para " & vbCr & _
              "operar el sistema normalmente.", vbCritical + vbInformation, "Atención"
       Unload frmLogin
-'      Screen.MousePointer = vbDefault
       frmMain.Show
       Exit Sub
    End If
    'Segmento de codigo que verifica el login y password del usuario
    Encontrado = False
    If rsUsuarios.State = adStateOpen Then rsUsuarios.Close
-   'rsUsuarios.Open "Select * From GC_Usuarios Where usr_codigo='" & Trim(txtUserName) & "' And usr_clave = '" & Encriptar(Trim(txtPassword)) & "' And estado_codigo= 'APR' ", db, adOpenStatic
    rsUsuarios.Open "Select * From GC_Usuarios Where usr_codigo='" & Trim(txtUserName) & "' And usr_clave = '" & Encriptar(Trim(txtPassword)) & "' And estado_codigo <> 'ANL' ", db, adOpenStatic
    If rsUsuarios.RecordCount = 1 Then
        If rsUsuarios!usr_clave = Encriptar(Trim(txtPassword)) Then  'DUL:Ya que no diferenciaba mayusculas de minusculas
@@ -282,17 +280,6 @@ On Error Resume Next
          Else
             db.Execute "INSERT INTO gc_accesosistema (usr_codigo, maquina, fechalogin, estadosesion, salidasistema, version_principal, version_secundaria, version_revision) " & _
             " VALUES ('" & glusuario & "', '" & Trim(GlMaquina) & "', '" & Date & " " & Time & "', 'A', 'A', " & App.Major & ", " & App.Minor & ", " & App.Revision & ")"
-            
-           'rsAccesoSistema.AddNew
-           'rsAccesoSistema!usr_codigo = glusuario
-           'rsAccesoSistema!maquina = Trim(GlMaquina)
-           'rsAccesoSistema!FechaLogin = Date & " " & Time
-           'rsAccesoSistema!estadosesion = "A" 'Sesion con el sistema A=Activo T=terminado I=Interrumpido
-           'rsAccesoSistema!SalidaSistema = "A"  'Salida del sistema A=Anormal  N=Normal
-           'rsAccesoSistema!version_principal = App.Major   'Salida del sistema version_principal
-           'rsAccesoSistema!version_secundaria = App.Minor   'Salida del sistema version_secundaria
-           'rsAccesoSistema!version_revision = App.Revision   'Salida del sistema version_revision
-           'rsAccesoSistema.Update
          End If
       End If
    End If
