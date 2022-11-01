@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   140247041
+         Format          =   118423553
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   140247041
+         Format          =   118423553
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   140247041
+         Format          =   118423553
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -2598,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   140247041
+            Format          =   118423553
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -2854,9 +2854,9 @@ Begin VB.Form fw_conciliacion_bancaria
             EndProperty
             ForeColor       =   &H00FFFFC0&
             Height          =   285
-            Left            =   9825
+            Left            =   9960
             TabIndex        =   16
-            Top             =   195
+            Top             =   120
             Width           =   4035
          End
       End
@@ -3332,28 +3332,28 @@ Private Sub BtnGrabar_Click()
 End Sub
 
 Private Sub BtnImprimir1_Click()
-    Cr01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_detalle_concilia.rpt"
+    CR01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_detalle_concilia.rpt"
     titulo2 = "MODULO TESORERIA"
     subtitulo2 = "CONCILIACION P/CUENTA BANCARIA"
-    Cr01.Formulas(2) = "Titulo = '" & titulo2 & "'"
-    Cr01.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
+    CR01.Formulas(2) = "Titulo = '" & titulo2 & "'"
+    CR01.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
     
-    iResult = Cr01.PrintReport
+    iResult = CR01.PrintReport
     If iResult <> 0 Then
-        MsgBox Cr01.LastErrorNumber & " : " & Cr01.LastErrorString, vbCritical + vbOKOnly, "Error..."
+        MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical + vbOKOnly, "Error..."
     End If
 End Sub
 
 Private Sub BtnImprimir2_Click()
-    Cr02.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_NO_conciliados.rpt"
+    CR02.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_tesoreria_regional_NO_conciliados.rpt"
     titulo2 = "EXTRACTOS BANCARIOS"
     subtitulo2 = "NO CONCILIADOS"
-    Cr02.Formulas(2) = "Titulo = '" & titulo2 & "'"
-    Cr02.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
+    CR02.Formulas(2) = "Titulo = '" & titulo2 & "'"
+    CR02.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
     
-    iResult = Cr02.PrintReport
+    iResult = CR02.PrintReport
     If iResult <> 0 Then
-        MsgBox Cr02.LastErrorNumber & " : " & Cr02.LastErrorString, vbCritical + vbOKOnly, "Error..."
+        MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical + vbOKOnly, "Error..."
     End If
 End Sub
 
@@ -3403,37 +3403,41 @@ Private Sub Form_Load()
     SiEstaImportado = False
     Call limpiar
     'Call sstab1_Click
-    If SSTab1.Tab = 1 Then
-        'ACTUALIZA LOS CONCILIADOS
-        db.Execute "UPDATE fo_extracto_BMSC_202101 SET Cuenta = '4010620792' WHERE  (Cuenta IS NULL) "
-        db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
-        db.Execute "UPDATE fo_extracto_BMSC_202101 SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
-        
-        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.edif_codigo_corto = av_venta_cobranza_APR.edif_codigo_corto FROM fo_recibos_detalle inner JOIN av_venta_cobranza_APR ON fo_recibos_detalle.correl_cobro = av_venta_cobranza_APR.correl_cobro WHERE fo_recibos_detalle.edif_codigo_corto IS NULL"
-    
-        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
-        db.Execute "UPDATE fo_extracto_BMSC_202101 SET fo_extracto_BMSC_202101.estado_conciliado = 'APR' FROM fo_extracto_BMSC_202101 INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
-        
-        '-- 1. TODOS = (#BANCARIZACION, CUENTA, FECHA, MONTO, CLIENTE)
-        db.Execute "UPDATE fo_recibos_detalle SET  fo_recibos_detalle.nivel_conciliado = 1 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  = fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' "
-        
-        '-- 2. = (#BANCARIZACION, CUENTA, FECHA, MONTO ) Y <> (CLIENTE)
-        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 2 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 "
-    
-        '-- 3. = (#BANCARIZACION, CUENTA, FECHA) Y <> (CLIENTE, MONTO)
-        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 3 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 "
-    
-        '-- 4. = (#BANCARIZACION, CUENTA) Y <> (CLIENTE, MONTO, FECHA)
-        'db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR', nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  <> fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente "
-        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 AND  fo_recibos_detalle.nivel_conciliado <> 3 "
-    
-        Call ABRIR_LAS4
-    End If
-'    Set rs_aux7 = New ADODB.Recordset
-'    If rs_aux7.State = 1 Then rs_aux7.Close
-'    rs_aux7.Open "SELECT * FROM rc_planilla_grupo", db, adOpenStatic
-'    Set Ado_datos_rep.Recordset = rs_aux7
-'    dtc_rep_det.BoundText = dtc_rep_cod.BoundText
+    'If SSTab1.Tab = 1 Then
+        SSTab1.TabEnabled(0) = True
+        SSTab1.TabEnabled(1) = False
+    'End If
+'    If SSTab1.Tab = 1 Then
+'        'ACTUALIZA LOS CONCILIADOS
+'        db.Execute "UPDATE fo_extracto_BMSC_202101 SET Cuenta = '4010620792' WHERE  (Cuenta IS NULL) "
+'        db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
+'        db.Execute "UPDATE fo_extracto_BMSC_202101 SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
+'
+'        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.edif_codigo_corto = av_venta_cobranza_APR.edif_codigo_corto FROM fo_recibos_detalle inner JOIN av_venta_cobranza_APR ON fo_recibos_detalle.correl_cobro = av_venta_cobranza_APR.correl_cobro WHERE fo_recibos_detalle.edif_codigo_corto IS NULL"
+'
+'        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'        db.Execute "UPDATE fo_extracto_BMSC_202101 SET fo_extracto_BMSC_202101.estado_conciliado = 'APR' FROM fo_extracto_BMSC_202101 INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'
+'        '-- 1. TODOS = (#BANCARIZACION, CUENTA, FECHA, MONTO, CLIENTE)
+'        db.Execute "UPDATE fo_recibos_detalle SET  fo_recibos_detalle.nivel_conciliado = 1 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  = fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' "
+'
+'        '-- 2. = (#BANCARIZACION, CUENTA, FECHA, MONTO ) Y <> (CLIENTE)
+'        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 2 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 "
+'
+'        '-- 3. = (#BANCARIZACION, CUENTA, FECHA) Y <> (CLIENTE, MONTO)
+'        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 3 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 "
+'
+'        '-- 4. = (#BANCARIZACION, CUENTA) Y <> (CLIENTE, MONTO, FECHA)
+'        'db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR', nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  <> fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente "
+'        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 AND  fo_recibos_detalle.nivel_conciliado <> 3 "
+'
+'        Call ABRIR_LAS4
+'    End If
+''    Set rs_aux7 = New ADODB.Recordset
+''    If rs_aux7.State = 1 Then rs_aux7.Close
+''    rs_aux7.Open "SELECT * FROM rc_planilla_grupo", db, adOpenStatic
+''    Set Ado_datos_rep.Recordset = rs_aux7
+''    dtc_rep_det.BoundText = dtc_rep_cod.BoundText
 End Sub
 
 Private Sub BtnAñadir_Click()
@@ -3486,7 +3490,7 @@ Private Sub limpiar()
     btnImportarDato.Enabled = True
     cmb_departamento = ""
     cmb_equipo = ""
-    dtpFecha.Value = Date
+    DtpFecha.Value = Date
     
 End Sub
 
@@ -3523,7 +3527,7 @@ Private Sub btnCargarArchivo_Click()
             sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text, vbYesNo + vbQuestion, "Atención")
         End If
         If rbtDia(0).Value = True Then
-            sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & dtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
+            sino = MsgBox("¿Esta seguro de subir el Extracto con los siguientes datos?" & vbCrLf & "Fecha:" & DtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
         End If
         If sino = vbYes Then
             GLCarpeta = ""
@@ -3531,7 +3535,7 @@ Private Sub btnCargarArchivo_Click()
             Fra_ABM.Enabled = False
             Dim dia As String, mes As String
         
-            Fecha = dtpFecha.Value
+            Fecha = DtpFecha.Value
             Call ObtenerDiaMes(DatePart("m", Fecha), mes)
             ' Tipo de exportación por mes o dia.
             If rbtMes.Value = True Then
@@ -3611,7 +3615,7 @@ End Sub
 Private Sub valida_campos(esValio)
   Dim inicial As Integer
   If rbtDia(0).Value = True Then
-    If dtpFecha.Value = "" Then
+    If DtpFecha.Value = "" Then
       MsgBox " El campo Fecha es requerido."
       esValio = False
     End If
@@ -4232,7 +4236,7 @@ Private Sub rbtDia_Click(Index As Integer)
     If rbtDia(0).Value = True Then
         LblTime.Caption = rbtDia(0).Caption
         'lbl_inicial(0).Visible = True
-        dtpFecha.Visible = True
+        DtpFecha.Visible = True
         'lbl_inicial(1).Visible = False
         cmb_mes_ini.Visible = False
         cmb_gestion_rep.Visible = False
@@ -4244,7 +4248,7 @@ Private Sub rbtMes_Click()
     If rbtMes.Value = True Then
         LblTime.Caption = rbtMes.Caption
         'lbl_inicial(0).Visible = False
-        dtpFecha.Visible = False
+        DtpFecha.Visible = False
         'lbl_inicial(1).Visible = True
         cmb_mes_ini.Visible = True
         cmb_gestion_rep.Visible = True
@@ -4253,32 +4257,32 @@ Private Sub rbtMes_Click()
 End Sub
 
 Private Sub sstab1_Click(PreviousTab As Integer)
-  If SSTab1.Tab = 1 Then
-    'ACTUALIZA LOS CONCILIADOS
-    db.Execute "UPDATE fo_extracto_BMSC_202101 SET Cuenta = '4010620792' WHERE  (Cuenta IS NULL) "
-    db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
-    db.Execute "UPDATE fo_extracto_BMSC_202101 SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
-    
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.edif_codigo_corto = av_venta_cobranza_APR.edif_codigo_corto FROM fo_recibos_detalle inner JOIN av_venta_cobranza_APR ON fo_recibos_detalle.correl_cobro = av_venta_cobranza_APR.correl_cobro WHERE fo_recibos_detalle.edif_codigo_corto IS NULL"
-
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
-    db.Execute "UPDATE fo_extracto_BMSC_202101 SET fo_extracto_BMSC_202101.estado_conciliado = 'APR' FROM fo_extracto_BMSC_202101 INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
-    
-    '-- 1. TODOS = (#BANCARIZACION, CUENTA, FECHA, MONTO, CLIENTE)
-    db.Execute "UPDATE fo_recibos_detalle SET  fo_recibos_detalle.nivel_conciliado = 1 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  = fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' "
-    
-    '-- 2. = (#BANCARIZACION, CUENTA, FECHA, MONTO ) Y <> (CLIENTE)
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 2 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 "
-
-    '-- 3. = (#BANCARIZACION, CUENTA, FECHA) Y <> (CLIENTE, MONTO)
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 3 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 "
-
-    '-- 4. = (#BANCARIZACION, CUENTA) Y <> (CLIENTE, MONTO, FECHA)
-    'db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR', nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  <> fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente "
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 AND  fo_recibos_detalle.nivel_conciliado <> 3 "
-
-    Call ABRIR_LAS4
-  End If
+'  If SSTab1.Tab = 1 Then
+'    'ACTUALIZA LOS CONCILIADOS
+'    db.Execute "UPDATE fo_extracto_BMSC_202101 SET Cuenta = '4010620792' WHERE  (Cuenta IS NULL) "
+'    db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
+'    db.Execute "UPDATE fo_extracto_BMSC_202101 SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
+'
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.edif_codigo_corto = av_venta_cobranza_APR.edif_codigo_corto FROM fo_recibos_detalle inner JOIN av_venta_cobranza_APR ON fo_recibos_detalle.correl_cobro = av_venta_cobranza_APR.correl_cobro WHERE fo_recibos_detalle.edif_codigo_corto IS NULL"
+'
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'    db.Execute "UPDATE fo_extracto_BMSC_202101 SET fo_extracto_BMSC_202101.estado_conciliado = 'APR' FROM fo_extracto_BMSC_202101 INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'
+'    '-- 1. TODOS = (#BANCARIZACION, CUENTA, FECHA, MONTO, CLIENTE)
+'    db.Execute "UPDATE fo_recibos_detalle SET  fo_recibos_detalle.nivel_conciliado = 1 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  = fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' "
+'
+'    '-- 2. = (#BANCARIZACION, CUENTA, FECHA, MONTO ) Y <> (CLIENTE)
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 2 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 "
+'
+'    '-- 3. = (#BANCARIZACION, CUENTA, FECHA) Y <> (CLIENTE, MONTO)
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 3 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 "
+'
+'    '-- 4. = (#BANCARIZACION, CUENTA) Y <> (CLIENTE, MONTO, FECHA)
+'    'db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR', nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  <> fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente "
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 AND  fo_recibos_detalle.nivel_conciliado <> 3 "
+'
+'    Call ABRIR_LAS4
+'  End If
 End Sub
 
 Private Sub ABRIR_LAS4()

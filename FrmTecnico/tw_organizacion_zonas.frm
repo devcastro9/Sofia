@@ -2664,7 +2664,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                         'rs_aux6.Open "Select * from ao_ventas_cabecera where venta_fecha_fin = '" & rs_aux5!venta_fecha_fin & "' and edif_codigo = '" & rs_aux5!EDIF_CODIGO & "' and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND estado_codigo = 'APR' ", db, adOpenStatic
                         rs_aux6.Open "Select * from aV_ventas_alcance where venta_codigo = " & rs_aux5!venta_codigo & " and (unidad_codigo='DVTA' OR unidad_codigo LIKE '%COM%' )  ", db, adOpenStatic
                         If rs_aux6.RecordCount > 0 Then
-                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = 'MES', solicitud_tipo = '6', fecha_fin_max = '" & rs_aux6!fecha_fin_real & "', Gratuito = 'SI', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!EDIF_CODIGO & "'  "
+                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = 'MES', solicitud_tipo = '6', fecha_fin_max = '" & rs_aux6!fecha_fin_real & "', Gratuito = 'SI', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
                         End If
                         rs_aux5.MoveNext
                     Wend
@@ -2686,7 +2686,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                         rs_aux6.Open "Select * from av_ventas_cabecera_mant where venta_codigo = " & rs_aux5!venta_codigo & " ", db, adOpenStatic
                         If rs_aux6.RecordCount > 0 Then
 
-                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!EDIF_CODIGO & "'  "
+                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
                         End If
                         rs_aux5.MoveNext
                     Wend
@@ -3142,7 +3142,7 @@ Private Sub BtnModDetalle_Click()
         Option10.Value = True
     End If
     'Call ABRIR_DET
-    VAR_EDIF = Ado_detalle1.Recordset!EDIF_CODIGO
+    VAR_EDIF = Ado_detalle1.Recordset!edif_codigo
     dtc_desc5.BoundText = dtc_codigo5.BoundText
     lbl_orden_camb.Visible = True
     cmd_campo2.Visible = True

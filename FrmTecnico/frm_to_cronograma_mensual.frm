@@ -16,7 +16,7 @@ Begin VB.Form frm_to_cronograma_mensual
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   14400
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet3 
@@ -35,7 +35,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   1680
       Left            =   6840
       TabIndex        =   59
-      Top             =   5760
+      Top             =   4440
       Visible         =   0   'False
       Width           =   4860
       Begin VB.CommandButton BtnCancelar2 
@@ -152,7 +152,7 @@ Begin VB.Form frm_to_cronograma_mensual
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   4920
-      Left            =   12000
+      Left            =   12480
       TabIndex        =   165
       Top             =   2520
       Visible         =   0   'False
@@ -591,7 +591,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2400
       Left            =   5880
       TabIndex        =   123
-      Top             =   6840
+      Top             =   3600
       Visible         =   0   'False
       Width           =   6900
       Begin VB.PictureBox Picture1 
@@ -705,9 +705,9 @@ Begin VB.Form frm_to_cronograma_mensual
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   2400
-      Left            =   5280
+      Left            =   19320
       TabIndex        =   159
-      Top             =   6840
+      Top             =   6960
       Visible         =   0   'False
       Width           =   7980
       Begin VB.OptionButton Option11 
@@ -1822,7 +1822,7 @@ Begin VB.Form frm_to_cronograma_mensual
       BackColor       =   &H00C0C0C0&
       ForeColor       =   &H00000040&
       Height          =   3375
-      Left            =   240
+      Left            =   -4800
       TabIndex        =   4
       Top             =   5640
       Visible         =   0   'False
@@ -2200,7 +2200,7 @@ Begin VB.Form frm_to_cronograma_mensual
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110821377
+         Format          =   110297089
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -4600,7 +4600,6 @@ Begin VB.Form frm_to_cronograma_mensual
          Appearance      =   0  'Flat
          BackColor       =   &H80000015&
          BorderStyle     =   0  'None
-         Enabled         =   0   'False
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   120
@@ -4784,6 +4783,7 @@ Dim DIAS_HAB, NRO_HRS, NRO_HORARIO As Integer
 Dim VAR_ORDEN, VAR_MES, VAR_FMES As Integer
 Dim buscados, busca3, VAR_CONT As Integer
 Dim VAR_REG, VAR_CANT1 As Integer
+Dim VAR_ZPILOTO, VAR_FMPLAN, VAR_SOLCODIGO As Integer
 
 Dim VAR_FECH1, VAR_FECH2 As Date
 Dim mvBookMark, marca1 As Variant
@@ -4913,13 +4913,14 @@ Private Sub BtnAddDetalle3_Click()
     fraOpciones2.Enabled = False
     FrmABMDet.Enabled = False
     FraDet2.Visible = True
+    VAR_ZPILOTO = Ado_datos.Recordset!zpiloto_codigo
     Set rs_aux7 = New ADODB.Recordset
     If rs_aux7.State = 1 Then rs_aux7.Close
-    If Ado_datos.Recordset!zpiloto_codigo = "37" Then
-        rs_aux7.Open "Select * from tc_zonas_piloto WHERE zpiloto_codigo <> " & Ado_datos.Recordset!zpiloto_codigo & "   ", db, adOpenStatic
-    Else
-        rs_aux7.Open "Select * from tc_zonas_piloto WHERE zpiloto_codigo = '37'  ", db, adOpenStatic
-    End If
+    'If Ado_datos.Recordset!zpiloto_codigo = "37" Then
+        rs_aux7.Open "Select * from tc_zonas_piloto WHERE zpiloto_codigo <> " & VAR_ZPILOTO & " and depto_codigo = '" & Left(Ado_detalle1.Recordset!edif_codigo, 1) & "'  ", db, adOpenStatic
+    'Else
+    '    rs_aux7.Open "Select * from tc_zonas_piloto WHERE zpiloto_codigo = '37'  ", db, adOpenStatic
+    'End If
     Set Ado_datos2.Recordset = rs_aux7
     If rs_aux7.RecordCount > 0 Then
         dtc_desc5.BoundText = dtc_codigo5.BoundText
@@ -4927,6 +4928,7 @@ Private Sub BtnAddDetalle3_Click()
     Else
         VAR_ZONA = "0"
     End If
+
     'FIN ENVIA A OTRA ZONA
   Else
       MsgBox "No se puede ENVIAR A OTRA ZONA, el cronograma ya fue APROBADO o ANULADO ...", vbExclamation, "Validación de Registro"
@@ -5034,17 +5036,22 @@ End Sub
 
 Private Sub BtnAnlDetalle2_Click()
   'If ExisteReg2(Ado_detalle2.Recordset!fmes_plan, Ado_detalle2.Recordset!bien_codigo) Then MsgBox "No se puede RETORNAR 1, porque ya existen datos de ejecución...", vbInformation + vbOKOnly, "Atención": Exit Sub
-  
   If Ado_datos.Recordset!estado_codigo = "REG" Then
    'If Ado_detalle2.Recordset!estado_codigo = "REG" And Ado_detalle2.Recordset!estado_activo = "APR" Then
    If Ado_detalle2.Recordset!estado_activo = "APR" Then
+      VAR_FMPLAN = Ado_detalle2.Recordset!fmes_plan
       sino = MsgBox("Está Seguro de QUITAR el registro ? (Este no será considerado en el Cronograma Final) ", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
-        'db.Execute "update to_cronograma_diario set estado_activo = 'REG', estado_codigo = 'REG' WHERE fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "
-        'db.Execute "update to_cronograma_diario_final set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "
-        db.Execute "update to_cronograma_diario set estado_activo = 'REG', estado_codigo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "           'AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & "
-        db.Execute "update to_cronograma_diario_final set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "         'bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND
-        Call ABRIR_TABLA_DET
+'            Set rs_aux3 = New ADODB.Recordset
+'            If rs_aux3.State = 1 Then rs_aux3.Close
+'            rs_aux3.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_FMPLAN & " AND bien_codigo = ''  ", db, adOpenKeyset, adLockBatchOptimistic
+'            If rs_aux3.RecordCount > 0 Then
+'                rs_aux3.MoveFirst
+                db.Execute "update to_cronograma_diario set estado_activo = 'APR', estado_codigo = 'REG' WHERE fmes_plan = " & VAR_FMPLAN & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "           '
+                'db.Execute "update to_cronograma_diario set bien_codigo = '" & VAR_EQP & "', unidad_codigo_tec = '" & VAR_UNITEC & "',  tec_plan_codigo = " & VAR_SOLCODIGO & ", edif_descripcion = '" & VAR_OBS & "', edif_codigo = '" & VAR_EDIF & "', bien_orden = " & VAR_ORDEN & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_FMPLAN & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'            End If
+            db.Execute "update to_cronograma_diario_final set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '', edif_codigo='' WHERE fmes_plan = " & VAR_FMPLAN & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "         '
+            Call ABRIR_TABLA_DET
       End If
    Else
         MsgBox "No se puede ANULAR, el registro ya fue APROBADO o ya fue ANULADO anteriormente ...", vbExclamation, "Validación de Registro"
@@ -5483,55 +5490,74 @@ End Sub
 
 Private Sub BtnGraba3_Click()
    'CCCCCCCCCCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBB
-   VAR_ZONA = dtc_codigo5.Text
+   'VAR_FMPLAN                                                  'DESTINO
+   VAR_ZONA = dtc_codigo5.Text                                  'DESTINO
    VAR_MES = lbl_texto1.Caption
    gestion0 = txt_codigo1.Text
-   
+   VAR_EQP = Ado_detalle1.Recordset!bien_codigo
+   VAR_EDIF = Ado_detalle1.Recordset!edif_codigo
+   VAR_UNITEC = Ado_detalle1.Recordset!unidad_codigo_tec
+   VAR_OBS = Ado_detalle1.Recordset!edif_descripcion
+   VAR_SOLCODIGO = Ado_detalle1.Recordset!tec_plan_codigo
+   VAR_FMES = Ado_datos.Recordset!fmes_plan                     'ORIGEN
+   'VAR_ZPILOTO = Ado_detos.Recordset!zpiloto_codigo            'ORIGEN
      Set rs_aux4 = New ADODB.Recordset
      If rs_aux4.State = 1 Then rs_aux4.Close
-     rs_aux4.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_FMES & " and dia_correl = " & Ado_detalle1.Recordset!dia_correl & " and horario_codigo = " & Ado_detalle1.Recordset!horario_codigo & "   ", db, adOpenKeyset, adLockOptimistic
+     rs_aux4.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_FMES & " and edif_codigo = '" & VAR_EDIF & "' ", db, adOpenKeyset, adLockOptimistic
+     'dia_correl = " & Ado_detalle1.Recordset!dia_correl & " and horario_codigo = " & Ado_detalle1.Recordset!horario_codigo & "   ", db, adOpenKeyset, adLockOptimistic
      If rs_aux4.RecordCount > 0 Then
         If rs_aux4!estado_codigo = "APR" Then
             MsgBox "El registro ya fue ENVIADO, debe elegir otro registro ...", vbExclamation, "Validación de Registro"
             Exit Sub
         End If
-        VAR_UNITEC = Ado_detalle1.Recordset!unidad_codigo_tec
-        VAR_EQP = Ado_detalle1.Recordset!bien_codigo
-'        VAR_FMES = Ado_detalle1.Recordset!fmes_plan
-        Set rs_aux2 = New ADODB.Recordset
-        If rs_aux2.State = 1 Then rs_aux2.Close
-        rs_aux2.Open "select * from to_cronograma_mensual where ges_gestion = '" & gestion0 & "' and fmes_correl = " & VAR_MES & " and zpiloto_codigo = " & VAR_ZONA & "  and unidad_codigo_tec = '" & VAR_UNITEC & "'   ", db, adOpenKeyset, adLockOptimistic
-        If rs_aux2.RecordCount > 0 Then
-             VAR_AUX2 = rs_aux2!fmes_plan
-             VAR_COD0 = 0
-             'db.Execute "SELECT VAR_ORDEN = isnull(max(bien_orden),0) from to_cronograma_diario WHERE     (fmes_plan = " & VAR_AUX2 & " ) "
-            Set rs_aux5 = New ADODB.Recordset
-            If rs_aux5.State = 1 Then rs_aux5.Close
-            rs_aux5.Open "select isnull(max(bien_orden),0) as bien_orden2 from to_cronograma_diario WHERE fmes_plan = " & VAR_AUX2 & "  ", db, adOpenStatic
-            If rs_aux5.RecordCount > 0 Then
-               VAR_ORDEN = rs_aux5!bien_orden2 + 1
+        rs_aux4.MoveFirst
+        VAR_COD0 = 0
+        While Not rs_aux4.EOF
+            'VAR_UNITEC = rs_aux4!unidad_codigo_tec                  'Ado_detalle1.Recordset!unidad_codigo_tec
+            'VAR_EQP = rs_aux4!bien_codigo                           'Ado_detalle1.Recordset!bien_codigo
+            'VAR_EDIF = rs_aux4!edif_codigo                          'Ado_detalle1.Recordset!edif_codigo
+            'VAR_OBS = rs_aux4!edif_descripcion                      'Ado_detalle1.Recordset!edif_descripcion
+            VAR_EQP2 = rs_aux4!bien_codigo
+            'VAR_FMES = Ado_detalle1.Recordset!fmes_plan
+            Set rs_aux2 = New ADODB.Recordset
+            If rs_aux2.State = 1 Then rs_aux2.Close
+            rs_aux2.Open "select * from to_cronograma_mensual where ges_gestion = '" & gestion0 & "' and fmes_correl = " & VAR_MES & " and zpiloto_codigo = " & VAR_ZONA & "     ", db, adOpenKeyset, adLockOptimistic      'and unidad_codigo_tec = '" & VAR_UNITEC & "'
+            If rs_aux2.RecordCount > 0 Then
+                 VAR_FMPLAN = rs_aux2!fmes_plan
+            Else
+                MsgBox "El CALENDARIO para la ZPiloto y Mes Destino NO fue creado, consulte con el Administrador del Sistema ...", vbExclamation, "Validación de Registro"
+                Exit Sub
             End If
-             Set rs_aux3 = New ADODB.Recordset
-             If rs_aux3.State = 1 Then rs_aux3.Close
-             rs_aux3.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & "   ", db, adOpenKeyset, adLockBatchOptimistic
-             If rs_aux3.RecordCount > 0 Then
-                 rs_aux3.MoveFirst
-                 While Not rs_aux3.EOF
-                    If VAR_COD0 < 1 And rs_aux3!estado_activo = "REG" Then
-                        db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux4!bien_codigo & "', unidad_codigo_tec = '" & rs_aux4!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux4!tec_plan_codigo & ", observaciones = '" & rs_aux4!observaciones & "', bien_orden = " & VAR_ORDEN & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-                        db.Execute "update to_cronograma_diario set estado_codigo = 'REG', estado_activo = 'REG', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', observaciones = 'HORARIO LABORABLE'  WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & rs_aux4!horario_codigo & "  "
-                        VAR_COD0 = VAR_COD0 + 1
-                        CONT3 = 1
-                    End If
-                    rs_aux3.MoveNext
-                    'Habilitar .....
-                    'db.Execute "Update to_cronograma Set estado_detalle = 'APR' Where unidad_codigo_tec = '" & VAR_UNITEC & "' and tec_plan_codigo = " & VAR_TECCOD & "   "
-                 Wend
-             End If
-             db.Execute "update to_cronograma_diario set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & VAR_EQP & "'  "
-        End If
+                 'db.Execute "SELECT VAR_ORDEN = isnull(max(bien_orden),0) from to_cronograma_diario WHERE     (fmes_plan = " & VAR_AUX2 & " ) "
+                Set rs_aux5 = New ADODB.Recordset
+                If rs_aux5.State = 1 Then rs_aux5.Close
+                rs_aux5.Open "select isnull(max(bien_orden),0) as bien_orden2 from to_cronograma_diario WHERE fmes_plan = " & VAR_FMPLAN & "  ", db, adOpenStatic
+                If rs_aux5.RecordCount > 0 Then
+                   VAR_ORDEN = rs_aux5!bien_orden2 + 1
+                End If
+                 Set rs_aux3 = New ADODB.Recordset
+                 If rs_aux3.State = 1 Then rs_aux3.Close
+                 rs_aux3.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_FMPLAN & " AND bien_codigo = ''  ", db, adOpenKeyset, adLockBatchOptimistic
+                 If rs_aux3.RecordCount > 0 Then
+                     rs_aux3.MoveFirst
+                     'While Not rs_aux3.EOF
+                     '   If VAR_COD0 < 1 And rs_aux3!estado_activo = "REG" Then
+                            db.Execute "update to_cronograma_diario set bien_codigo = '" & VAR_EQP & "', unidad_codigo_tec = '" & VAR_UNITEC & "',  tec_plan_codigo = " & VAR_SOLCODIGO & ", edif_descripcion = '" & VAR_OBS & "', edif_codigo = '" & VAR_EDIF & "', bien_orden = " & VAR_ORDEN & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_FMPLAN & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                            db.Execute "update to_cronograma_diario set estado_codigo = 'REG', estado_activo = 'REG', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', edif_codigo = ''  WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & rs_aux4!horario_codigo & "  "
+                            VAR_COD0 = VAR_COD0 + 1
+                            CONT3 = 1
+                     '   End If
+                     '   rs_aux3.MoveNext
+                        'Habilitar .....
+                     'Wend
+                 End If
+                 db.Execute "update ao_ventas_cobranza_prog set fmes_plan = " & VAR_FMPLAN & ", zpiloto_codigo = " & VAR_ZONA & " WHERE Gestion = '" & gestion0 & "' AND cobranza_mes = " & VAR_MES & " AND edif_cod = '" & VAR_EDIF & "' AND fmes_plan = " & VAR_FMES & " "
+                 'db.Execute "update to_cronograma_diario set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '', edif_codigo = '' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & VAR_EQP & "'  "
+            rs_aux4.MoveNext
+            'Vuelve para mas equipos del mismo edificio .....
+        Wend
      End If
-     db.Execute "update to_cronograma_diario set to_cronograma_diario.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario.bien_codigo  = av_bienes_vs_edificios.bien_codigo "
+     'db.Execute "update to_cronograma_diario set to_cronograma_diario.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario.bien_codigo  = av_bienes_vs_edificios.bien_codigo "
      Call ABRIR_TABLA_DET
     fraOpciones.Enabled = True
     fraOpciones2.Enabled = True
@@ -5814,7 +5840,7 @@ Private Sub BtnGrabar2_Click()
     'ZONA PILOTO INI
     Set rs_aux4 = New ADODB.Recordset
     If rs_aux4.State = 1 Then rs_aux4.Close
-    rs_aux4.Open "Select * from tc_zona_piloto_edif WHERE edif_codigo = '" & Ado_detalle1.Recordset!EDIF_CODIGO & "'   ", db, adOpenStatic
+    rs_aux4.Open "Select * from tc_zona_piloto_edif WHERE edif_codigo = '" & Ado_detalle1.Recordset!edif_codigo & "'   ", db, adOpenStatic
     If rs_aux4.RecordCount > 0 Then
         VAR_ZONA = rs_aux4!zpiloto_codigo
         VAR_PARIMPAR = rs_aux4!mes_par_impar
