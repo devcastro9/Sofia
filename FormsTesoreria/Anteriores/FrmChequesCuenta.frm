@@ -1089,6 +1089,7 @@ Private Sub Form_Load()
         Set DtGCheques.DataSource = rsComprobante
     End If
     
+	Call SeguridadSet(Me)
 End Sub
 Private Sub LstCheques_Click()
     MsgBox LstChequesCodigo.ListCount

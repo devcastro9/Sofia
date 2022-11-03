@@ -252,4 +252,5 @@ recSetAuxcomp.CursorLocation = adUseClient  ' Use client cursor to enable Absolu
 recSetAuxActualizar.CursorLocation = adUseClient
 
 
+	Call SeguridadSet(Me)
 End Sub

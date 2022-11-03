@@ -303,6 +303,7 @@ Dim estado As Long
     End If
 ' aqui greco
     GlMaquina = Left(nPC, Len(Trim(nPC)) - 1)
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub cmdCancel_Click()

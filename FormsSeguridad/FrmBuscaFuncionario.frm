@@ -156,6 +156,7 @@ End Sub
 Private Sub Form_Load()
     rsFuncionarios.Open "Select * From rc_Personal Where Paterno<>'" & "ACEFALIA" & "' Order By Paterno", db, adOpenStatic
     Set dtgFuncionario.DataSource = rsFuncionarios
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

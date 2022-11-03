@@ -262,6 +262,7 @@ Dim estado As Long
         nPC = Left(buffer, 255)
     End If
     GlMaquina = Left(nPC, Len(Trim(nPC)) - 1)
+	Call SeguridadSet(Me)
 End Sub
 Private Sub cmdCancel_Click()
 '   rsPrm.Close

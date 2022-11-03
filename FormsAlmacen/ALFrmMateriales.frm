@@ -148,6 +148,7 @@ End Sub
 
 Private Sub Form_Load()
     QResp = False
+	Call SeguridadSet(Me)
 End Sub
 Private Sub trv_NodeClick(ByVal Node As MSComctlLib.Node)
     If InStr(Node.Key, "D") > 0 Then

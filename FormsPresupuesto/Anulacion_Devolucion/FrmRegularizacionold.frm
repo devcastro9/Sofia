@@ -6629,6 +6629,7 @@ Private Sub Form_Load()
     TxtTipoReg.Visible = True
     
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 
 'Private Sub OptChequeDestino_Click()

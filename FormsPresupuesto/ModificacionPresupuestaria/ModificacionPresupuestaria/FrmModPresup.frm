@@ -5892,6 +5892,7 @@ Private Sub Form_Load()
   End If
   '===== fin cargado de tablas de consulta y de datos de despliegue
 
+	Call SeguridadSet(Me)
 End Sub
 Private Sub valida()
   swgraba = 1

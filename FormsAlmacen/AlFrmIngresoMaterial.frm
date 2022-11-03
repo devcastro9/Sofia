@@ -953,6 +953,7 @@ Private Sub Form_Load()
     Set dtpFechIngreso.DataSource = RsIngreso
     '--
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 
 Private Function valida() As Boolean

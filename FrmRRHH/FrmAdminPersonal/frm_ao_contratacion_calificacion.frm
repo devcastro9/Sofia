@@ -1911,6 +1911,7 @@ Private Sub Form_Load()
     'txtSW = "0"
     parametro = Aux
     'Call abrir_tablas
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub abrir_tablas()

@@ -607,6 +607,7 @@ frmgrabcabeza.Visible = False
     rsTabla.Open queryinicial & " order by Unidad  ", db, adOpenKeyset, adLockOptimistic
     
     Set AdodcTabla.Recordset = rsTabla
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptActivos_Click()

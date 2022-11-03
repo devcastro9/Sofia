@@ -1792,6 +1792,7 @@ Private Sub Form_Load()
     rs_clasif5.Open "SELECT * FROM gc_beneficiario WHERE estado_codigo_contrato = 'REG' AND tipoben_codigo < '20' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_clasif5.Recordset = rs_clasif5
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Option1_Click()

@@ -7230,6 +7230,7 @@ On Error GoTo UpdateErr
 Exit Sub
 UpdateErr:
   MsgBox Err.Description
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

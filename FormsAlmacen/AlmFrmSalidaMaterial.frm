@@ -1057,6 +1057,7 @@ Private Sub Form_Load()
     Set tdbcDestino.DataSource = RsEntrega
     Set txtTipoCambio.DataSource = RsEntrega
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 Private Function valida() As Boolean
 Dim rs As ADODB.Recordset

@@ -966,6 +966,7 @@ Private Sub Form_Load()
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
 'End Function
+	Call SeguridadSet(Me)
 End Sub
 Public Sub Validar(DatosActuales As String, Caracter As Integer)
   ' Salimos si se ha pulsado la tecla de Retroceso

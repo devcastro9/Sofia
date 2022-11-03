@@ -38,4 +38,5 @@ db.Execute = "INSERT INTO fc_datosgtz(Nro_Cmpte, Organismo, Fecha_Pago, Monto, "
           "pago_detalle.Cta_codigo , fc_cuenta_bancaria.Bco_codigo, pago_detalle.Estado_Conciliacion  " & _
           "FROM pago_detalle INNER JOIN fc_cuenta_bancaria ON pago_detalle.Cta_codigo = fc_cuenta_bancaria.Cta_codigo "
           
+	Call SeguridadSet(Me)
 End Sub

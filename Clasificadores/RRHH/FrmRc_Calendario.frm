@@ -1245,6 +1245,7 @@ Private Sub Form_Load()
 '   Set adoLista.Recordset = rstorg
 '   'Set ClBuscaGrid = Nothing
   
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

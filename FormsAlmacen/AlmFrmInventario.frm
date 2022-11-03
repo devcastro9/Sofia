@@ -335,6 +335,7 @@ Private Sub Form_Load()
     Set tdbgInventario.DataSource = RsInventario
     Totales
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 On Error Resume Next

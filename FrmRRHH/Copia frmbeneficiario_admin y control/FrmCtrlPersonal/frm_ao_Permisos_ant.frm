@@ -1594,6 +1594,7 @@ Dim XAbe As Double, XAde As Double, XAbn As Double, XAdn As Double
     Call ABRE_DETALLE
 
 'mskMonto.SetFocus
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRE_DETALLE()

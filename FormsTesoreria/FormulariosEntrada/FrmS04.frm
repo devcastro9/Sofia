@@ -5001,6 +5001,7 @@ Private Sub Form_Load()
    sstab1.Tab = 0
    sstab1.TabEnabled(0) = True
    sstab1.TabEnabled(1) = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub proveedor()

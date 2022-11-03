@@ -954,6 +954,7 @@ Private Sub Form_Load()
     If rsComprobante.RecordCount > 0 Then
         Set DtGComprobantes.DataSource = rsComprobante
     End If
+	Call SeguridadSet(Me)
 End Sub
 Private Sub LstCheques_Click()
     MsgBox LstChequesCodigo.ListCount

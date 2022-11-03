@@ -49,6 +49,7 @@ Report.FormulaFields(1).Text = "'" & FrmComparacion.LblTitulo.Caption & "'"
 CRViewer1.ReportSource = Report
 CRViewer1.ViewReport
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

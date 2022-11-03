@@ -8519,6 +8519,7 @@ Private Sub Form_Load()
     lbl_titulo2.Caption = lbl_titulo.Caption
 '    Chk_plazo.Value = 0
   
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

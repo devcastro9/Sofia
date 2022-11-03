@@ -316,6 +316,7 @@ Private Sub Form_Load()
     cmbUsuarios.ListIndex = 0
     cmbNivelAcceso.ListIndex = 0
     cmbActivo.ListIndex = 0
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

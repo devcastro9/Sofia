@@ -2094,6 +2094,7 @@ Private Sub Form_Load()
 ''DE.Edson.Execute "SET DATEFORMAT dmy"
 '''**/
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub pl_Llena_Combos_Base()

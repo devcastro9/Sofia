@@ -1198,6 +1198,7 @@ Private Sub Form_Load()
 'Dejando limpio la tabla temporal    }
 db.Execute "DELETE FROM to_PagosTributos"
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub TxtCodigoSolicitud_KeyPress(KeyAscii As Integer)

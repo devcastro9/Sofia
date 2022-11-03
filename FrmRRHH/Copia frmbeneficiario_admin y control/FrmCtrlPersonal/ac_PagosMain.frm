@@ -2408,6 +2408,7 @@ Me.cmdModificarPago.Enabled = False
 Me.cmdGenF02.Enabled = True
 'fadeform Me, -1, -1, -1
 Call RefrescaListaPRincipal
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub RefrescaListaPRincipal()

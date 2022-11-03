@@ -1011,6 +1011,7 @@ Private Sub Form_Load()
         rscuenta.Open "select * from fc_cuenta_bancaria order by Cta_codigo_tgn", db, adOpenKeyset, adLockOptimistic
         Set AdoCuenta.Recordset = rscuenta
    
+	Call SeguridadSet(Me)
 End Sub
 
 

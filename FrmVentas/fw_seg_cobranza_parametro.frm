@@ -1147,6 +1147,7 @@ End Sub
 Private Sub Form_Load()
     Call CargarControles
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub CargarControles()

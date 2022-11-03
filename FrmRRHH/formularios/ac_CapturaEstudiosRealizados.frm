@@ -608,6 +608,7 @@ Dim XAbe As Double, XAde As Double, XAbn As Double, XAdn As Double
 '    Me.labPorcNal = "0%"
 'End If
 'mskMonto.SetFocus
+	Call SeguridadSet(Me)
 End Sub
 
 'Private Sub mskMonto_Change()

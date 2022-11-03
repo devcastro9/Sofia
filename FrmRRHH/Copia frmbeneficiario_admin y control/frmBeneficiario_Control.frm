@@ -7957,6 +7957,7 @@ Private Sub Form_Load()
 '        CmdApr6.Visible = False
    End If
    ' Set ClBuscaGrid = Nothing
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Carga_Beneficiario(posicion As Integer)

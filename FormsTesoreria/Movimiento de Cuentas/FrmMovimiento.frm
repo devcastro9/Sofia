@@ -810,5 +810,6 @@ Private Sub Form_Load()
         DTPFInicio.Value = "01/01/2002"
         DTPFFin.Value = Date
    
+	Call SeguridadSet(Me)
 End Sub
 

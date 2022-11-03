@@ -790,6 +790,7 @@ End Sub
 Private Sub Form_Load()
     Call ABRIR_TABLA
     cambiar = "NO"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

@@ -1814,6 +1814,7 @@ Private Sub Form_Load()
 '        ado_datos2.Recordset("archivo_foto_cargado").Value = "N"
 '        ado_datos2.Recordset("archivo_plano_cargado").Value = "N"
 '        ado_datos2.Recordset("edif_codigo").Value = dtc_codigo1.Text
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

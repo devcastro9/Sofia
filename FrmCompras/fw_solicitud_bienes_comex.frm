@@ -2128,6 +2128,7 @@ End If
 ''        aw_p_ao_solicitud.Ado_detalle1.Recordset("archivo_plano_cargado").Value = "N"
 ''        aw_p_ao_solicitud.Ado_detalle1.Recordset("edif_codigo").Value = dtc_codigo1.Text
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

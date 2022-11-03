@@ -252,6 +252,7 @@ Private Sub Form_Load()
     Set RsProv = New ADODB.Recordset
     RsProv.Open GlSqlAux, db, adOpenStatic, adLockOptimistic
     tdbgProv.DataSource = RsProv
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 On Error Resume Next

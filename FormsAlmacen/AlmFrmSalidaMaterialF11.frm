@@ -1051,6 +1051,7 @@ Private Sub Form_Load()
     txtNoEntrega = FrmF11.adosolicitud.Recordset("codigo_solicitud")
     TxtDescripcion = "F11 - SOLICITUD PREVIA PARA ALMACEN  "
    ' Call CmdAnadir
+	Call SeguridadSet(Me)
 End Sub
 Private Function valida() As Boolean
 Dim rs As ADODB.Recordset

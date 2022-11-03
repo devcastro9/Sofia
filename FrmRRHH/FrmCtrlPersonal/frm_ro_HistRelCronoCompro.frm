@@ -906,6 +906,7 @@ End If
 Call RefrescaListaPRincipal
 Call refrescaComboPlanillas
 Me.cboCodigo_grupo = af_LiquidaMain_c.lblCodGrupo.Caption
+	Call SeguridadSet(Me)
 End Sub
 
 Sub RefrescaListaPRincipal()

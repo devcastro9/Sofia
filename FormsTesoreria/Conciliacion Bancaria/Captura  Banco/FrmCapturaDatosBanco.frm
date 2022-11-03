@@ -621,6 +621,7 @@ Dim xxx As Recordset
   End If
 
   
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

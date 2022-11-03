@@ -645,5 +645,6 @@ recSetAuxActualizar.CursorLocation = adUseClient
 'End Select
                       
                
+	Call SeguridadSet(Me)
 End Sub
 

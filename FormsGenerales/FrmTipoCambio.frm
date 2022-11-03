@@ -499,6 +499,7 @@ End Sub
 
 Private Sub Form_Load()
     TipoCambioHoy = False
+	Call SeguridadSet(Me)
 End Sub
 
 Public Function ExisteTCambio(ByVal QueFecha As Date, _

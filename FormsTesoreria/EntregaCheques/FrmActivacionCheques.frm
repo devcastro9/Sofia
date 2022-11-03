@@ -1397,6 +1397,7 @@ Private Sub Form_Load()
     DtCCuentaOrigenDes.BoundText = DtCCuentaOrigen.BoundText
     DtcCtaTGN.BoundText = DtCCuentaOrigen.BoundText
 
+	Call SeguridadSet(Me)
 End Sub
 Public Sub Determina_Cheques()
 Dim i As Integer

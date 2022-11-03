@@ -378,6 +378,7 @@ Private Sub Form_Load()
     Set RsAlmacen = New ADODB.Recordset
     RsAlmacen.Open GlSqlAux, DB, adOpenStatic
     Set tdbgAlmacen.DataSource = RsAlmacen
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 On Error Resume Next

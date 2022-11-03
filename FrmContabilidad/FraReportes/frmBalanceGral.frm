@@ -412,4 +412,5 @@ Private Sub Form_Load()
   Set DtCCod_Moneda.RowSource = db.Execute(sql1, , cmdtext)
   Set DtcDenom_Moneda.RowSource = db.Execute(sql1, , cmdtext)
   opttodas.Value = True
+	Call SeguridadSet(Me)
 End Sub

@@ -2975,6 +2975,7 @@ Set rscta_corriente = New ADODB.Recordset
     rstipocambio.Open sql_TC, db, adOpenKeyset, adLockReadOnly
     TTipoC = rstipocambio!cambio_oficial
     TFecha = rstipocambio!fecha_cambio
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Frame1_DragDrop(Source As Control, x As Single, Y As Single)

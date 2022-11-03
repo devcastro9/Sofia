@@ -38,6 +38,7 @@ Private Sub Form_Load()
   cnn.Open "Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa;Initial Catalog=SAF2000;Data Source=SERSIS"
   
   Set ClBusca = New CompBusquedas.ClVentanaBuscaEnQuery
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

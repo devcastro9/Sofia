@@ -933,6 +933,7 @@ Private Sub Form_Load()
    rs_unidad_ejecutora.Open "select * from Fc_unidad_ejecutora WHERE UNI_ACTIVO='S' ", db, adOpenKeyset, adLockReadOnly
    Set AdoUnidad.Recordset = rs_unidad_ejecutora
    AdoUnidad.Refresh
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

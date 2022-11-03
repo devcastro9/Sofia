@@ -50,6 +50,7 @@ Private Sub Form_Load()
 Dim Report As New CryPagos
 CRViewer1.ReportSource = Report
 CRViewer1.ViewReport
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

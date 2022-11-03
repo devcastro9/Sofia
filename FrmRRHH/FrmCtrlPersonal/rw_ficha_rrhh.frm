@@ -11407,6 +11407,7 @@ Exit Sub
 
 EditErr:
   MsgBox Err.Description
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Carga_Beneficiario(posicion As Integer)

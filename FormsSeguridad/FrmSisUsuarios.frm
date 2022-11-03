@@ -524,6 +524,7 @@ Private Sub Form_Load()
        RecuperaUsuario
        BotonesNavegar
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -816,42 +817,47 @@ End Sub
 'End Sub
 '
 'Private Sub Form_Load()
-'    lblFechaCrea = Date
-'    cmdBuscarFuncionario.Enabled = False
-'    FraDatos.Enabled = False
-'    FraAcceso.Enabled = False
-'    txtUsuario.Enabled = True
-'    Editando = False
-'    'Abrimos la tabla de niveles de acceso
-'    If rsNivelAcceso.State = 1 Then rsNivelAcceso.Close
-'    rsNivelAcceso.Open "Select Distinct IdNivelAcceso, DesNivelAcceso Fromgc_nivelacceso", db, adOpenStatic
-'    If rsNivelAcceso.RecordCount = 0 Then
-'        MsgBox "ATENCION: No existe registros de Niveles de Acceso o se han borrado !!" & vbCr & _
-'               "Ingrese nuevos Niveles de Acceso para operar normalmente con el sistema.", vbCritical + vbOKOnly, "Atención"
-'        BotonesInicio
-'        BtnAñadir.Enabled = False
-'        Exit Sub
-'    Else
-'        i = 0
-'        While Not rsNivelAcceso.EOF
-'            cmbNivelAcceso.AddItem rsNivelAcceso!IdNivelAcceso & "  " & rsNivelAcceso!DesNivelAcceso
-'            vecNivelAcceso(i) = rsNivelAcceso!IdNivelAcceso
-'            i = i + 1
-'            rsNivelAcceso.MoveNext
-'        Wend
-'        rsNivelAcceso.Close
-'    End If
-'
-'    'Abrimos la tabla de usuarios
-'    rsUsuarios.Open "Select * From GC_Usuarios", db, adOpenKeyset, adLockOptimistic
-'    If rsUsuarios.RecordCount = 0 Then
-'       BotonesInicio
-'    Else
-'       'rsUsuarios.MoveNext
-'       RecuperaUsuario
-'       BotonesNavegar
-'    End If
-'End Sub
+    'Habilitacion de Frames
+    FraAcceso.Visible = True
+    FraVerificaClave.Visible = False
+   
+    lblFechaCrea = Date
+    cmdBuscarFuncionario.Enabled = False
+    FraDatos.Enabled = False
+    FraAcceso.Enabled = False
+    txtUsuario.Enabled = True
+    Editando = False
+    'Abrimos la tabla de niveles de acceso
+    If rsNivelAcceso.State = 1 Then rsNivelAcceso.Close
+    rsNivelAcceso.Open "Select Distinct IdNivelAcceso, DesNivelAcceso Fromgc_nivelacceso", db, adOpenStatic
+    If rsNivelAcceso.RecordCount = 0 Then
+        MsgBox "ATENCION: No existe registros de Niveles de Acceso o se han borrado !!" & vbCr & _
+               "Ingrese nuevos Niveles de Acceso para operar normalmente con el sistema.", vbCritical + vbOKOnly, "Atención"
+        BotonesInicio
+        BtnAñadir.Visible = False
+        Exit Sub
+    Else
+        i = 0
+        While Not rsNivelAcceso.EOF
+            cmbNivelAcceso.AddItem rsNivelAcceso!IdNivelAcceso & "  " & rsNivelAcceso!DesNivelAcceso
+            vecNivelAcceso(i) = rsNivelAcceso!IdNivelAcceso
+            i = i + 1
+            rsNivelAcceso.MoveNext
+        Wend
+        rsNivelAcceso.Close
+    End If
+    
+    'Abrimos la tabla de usuarios
+    rsUsuarios.Open "Select * From gc_Usuarios", db, adOpenKeyset, adLockOptimistic
+    If rsUsuarios.RecordCount = 0 Then
+       BotonesInicio
+    Else
+       'rsUsuarios.MoveNext
+       RecuperaUsuario
+       BotonesNavegar
+    End If
+	Call SeguridadSet(Me)
+End Sub
 '
 'Private Sub Form_Unload(Cancel As Integer)
 '    If rsUsuarios.State = 1 Then rsUsuarios.Close

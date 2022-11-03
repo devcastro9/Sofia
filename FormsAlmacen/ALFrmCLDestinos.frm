@@ -1118,6 +1118,7 @@ frmgrabcabeza.Visible = False
     rs_clasif2.Open "SELECT * FROM gc_municipio order by prov_codigo", db, adOpenStatic
     Set AdoClasif2.Recordset = rs_clasif2
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptActivos_Click()

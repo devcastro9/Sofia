@@ -357,6 +357,7 @@ EtiqError:
     ' si se produjo otro tipo de error
     MsgBox "Error: Se produjo un error." & Chr(13) & Chr(13) & "Error: " & Err.Number & Chr(13) & "Descripción: " & Err.Description & Chr(13) & Chr(13) & "Anote el error y comuniquese con el soporte técnico.", vbCritical, "Error"
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub pl_LlenaCombos()

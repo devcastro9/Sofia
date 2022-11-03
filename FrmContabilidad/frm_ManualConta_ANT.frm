@@ -6585,7 +6585,8 @@ Attribute VB_Exposed = False
 '
 '    OptSinAprobar.Value = True
 '    OptSinAprobar_Click
-'End Sub
+'	Call SeguridadSet(Me)
+End Sub
 '
 'Private Sub Form_Unload(Cancel As Integer)
 '  Set ClBuscaGrid = Nothing

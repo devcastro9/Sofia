@@ -673,6 +673,7 @@ Private Sub Form_Load()
     VAR_SERV = "0"
     VAR_OPT1 = 0
     VAR_OPT2 = 0
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub lbl_dpto_Click()

@@ -7861,7 +7861,8 @@ Attribute VB_Exposed = False
 '    SSTab1.TabEnabled(2) = False
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-'End Sub
+'	Call SeguridadSet(Me)
+End Sub
 '
 'Private Sub ABRIR_TABLAS_AUX()
 '    Set rs_datos1 = New ADODB.Recordset
@@ -8540,5 +8541,36 @@ End Sub
 '    KeyAscii = IIf(Chr(KeyAscii) Like "[0-9]" Or KeyAscii = 8, KeyAscii, 0)
 'End Sub
 Private Sub Form_Load()
-
+'    swnuevo = 0
+'    VAR_SW = ""
+'    'parametro = "estado_codigo" + " = " + "'REG'"
+'    '
+'    Call ABRIR_TABLAS_AUX
+'    Call OptFilGral1_Click
+'    'Call ABRIR_TABLA
+'    'Call ABRIR_TABLA_AUX2
+'    'Call ABRIR_TABLA_DET3
+'    'txt_codigo.Enabled = True
+'    mbDataChanged = False
+'    FrmCabecera.Enabled = False
+'    FrmCobros.Enabled = False
+'    dg_datos.Enabled = True
+'    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+'    GlNombFor = "F04"
+'    'LblUsuario.Caption = GlUsuario
+'    marca1 = 1
+'    deta2 = 0
+'    BtnImprimir2.Visible = True
+'    BtnImprimir3.Visible = True
+'
+''    FrmEdita.Enabled = False
+''    Cmd_Cliente.Visible = False
+'    swnuevo = 0
+'    SSTab1.Tab = 0
+'    SSTab1.TabEnabled(0) = True
+'    SSTab1.TabEnabled(1) = False
+'    SSTab1.TabEnabled(2) = False
+'    FraNavega.Caption = lbl_titulo.Caption
+'    lbl_titulo2.Caption = lbl_titulo.Caption
+'	Call SeguridadSet(Me)
 End Sub

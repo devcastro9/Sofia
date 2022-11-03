@@ -104,6 +104,7 @@ Private Sub Form_Load()
     LblAcerca3.Caption = "Memoria Física disponible para window:  32.260 KB" & _
     "Recursos del sistema:   56% disponible"
     
+	Call SeguridadSet(Me)
 End Sub
 Public Sub InformacionSistema()
     On Error GoTo SysInfoErr

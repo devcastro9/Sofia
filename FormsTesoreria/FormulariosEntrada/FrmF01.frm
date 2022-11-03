@@ -5009,7 +5009,8 @@ Attribute VB_Exposed = False
 '   SSTab1.Tab = 0
 '   SSTab1.TabEnabled(0) = True
 '   SSTab1.TabEnabled(1) = False
-'End Sub
+'	Call SeguridadSet(Me)
+End Sub
 '
 'Private Sub ABRE_SOL_LISTA()
 '   Set rstao_solicitud_lista = New adodb.Recordset

@@ -130,6 +130,7 @@ End Sub
 
 Private Sub Form_Load()
   PSElegido = 1
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, y As Single)

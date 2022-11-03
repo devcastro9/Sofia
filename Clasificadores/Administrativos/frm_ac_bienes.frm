@@ -3628,6 +3628,7 @@ Private Sub Form_Load()
     C_ROTBAJ = 0.02
     C_FIJO = 0.0636
     C_IMPSTO2 = 0.1494
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral2_Click()

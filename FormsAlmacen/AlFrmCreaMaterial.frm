@@ -2140,6 +2140,7 @@ Private Sub Form_Load()
     FraGraba.Visible = False
     FraArticulos.Enabled = False
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABREDETALLE_Click()

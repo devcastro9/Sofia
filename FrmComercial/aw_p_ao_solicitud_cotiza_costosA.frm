@@ -2897,6 +2897,7 @@ Private Sub Form_Load()
 '        dtc_desc2.BoundText = dtc_codigo2.BoundText
 '        dtc_desc3.BoundText = dtc_codigo3.BoundText
 '    End If
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

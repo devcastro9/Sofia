@@ -7785,7 +7785,8 @@ Attribute VB_Exposed = False
 '    'TxtTipoReg.Visible = True
 '
 '    Screen.MousePointer = vbDefault
-'End Sub
+'	Call SeguridadSet(Me)
+End Sub
 '
 ''Private Sub OptChequeDestino_Click()
 ''   LblNumeroDestino.Caption = "Cheque: "

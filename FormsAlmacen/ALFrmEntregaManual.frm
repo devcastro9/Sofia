@@ -172,6 +172,7 @@ Private Sub Form_Load()
     '--
     Set tdbgIngreso.DataSource = RsIngreso
     Totales
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 On Error Resume Next

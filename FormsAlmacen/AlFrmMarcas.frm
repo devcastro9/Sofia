@@ -650,6 +650,7 @@ Private Sub Form_Load()
     rsTabla.Open queryinicial, db, adOpenKeyset, adLockOptimistic
 '    rsTabla.Sort = "cod_marca "
     Set AdodcTabla.Recordset = rsTabla
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptActivos_Click()

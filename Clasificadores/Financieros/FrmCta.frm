@@ -1684,6 +1684,7 @@ Private Sub Form_Load()
  
      Set ClBuscaGrid = Nothing
    
+	Call SeguridadSet(Me)
 End Sub
 
 

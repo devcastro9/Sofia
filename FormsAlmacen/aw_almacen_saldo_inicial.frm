@@ -1200,6 +1200,7 @@ Set rs_aux3 = New ADODB.Recordset
   Call ABRIR_TABLA_AUX
   Call OptFilGral1_Click
   
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA_AUX()

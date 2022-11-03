@@ -2021,6 +2021,7 @@ Private Sub Form_Load()
     Fra_aux1.Visible = False
     rs_datos.AddNew
     'Txt_descripcion.SetFocus
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

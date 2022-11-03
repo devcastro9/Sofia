@@ -570,6 +570,7 @@ Private Sub Form_Load()
     lblDesNivelAcceso.Visible = True
     txtDesNivelAcceso.Visible = False
     BotonesNavegar
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

@@ -366,5 +366,6 @@ Private Sub Form_Load()
     If rsCorrelativos.RecordCount > 0 Then
         Set DtGCorrelativos.DataSource = rsCorrelativos
     End If
+	Call SeguridadSet(Me)
 End Sub
 

@@ -8312,6 +8312,7 @@ Private Sub Form_Load()
 'QError2:
 '    ' Manejo de errores
 '    MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

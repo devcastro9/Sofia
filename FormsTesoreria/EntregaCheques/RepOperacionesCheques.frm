@@ -50,6 +50,7 @@ Dim Report As New CryOpCheques
     Report.FormulaFields(2).Text = "'" & FrmDesplegado.DTPFechaFin.Value & "'"
     CRViewer1.ReportSource = Report
     CRViewer1.ViewReport
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 CRViewer1.Top = 0

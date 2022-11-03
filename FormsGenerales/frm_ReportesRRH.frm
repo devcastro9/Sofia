@@ -3789,6 +3789,7 @@ Private Sub Form_Load()
 '    BtnImprimir2.Visible = False
     Call llena_datos
     cmb_gestion_rep.Text = Year(Date)
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
     Unload Me

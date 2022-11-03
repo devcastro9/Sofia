@@ -891,6 +891,7 @@ End If
 Error:
     MsgBox "Existe error de sintaxis", vbDefaultButton2, "ERROR"
     MsgBox Vquery
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Text1_KeyPress(KeyAscii As Integer)

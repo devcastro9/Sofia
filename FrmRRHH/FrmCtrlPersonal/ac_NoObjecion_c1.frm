@@ -2995,6 +2995,7 @@ Me.ssTab.Tab = 0
 Me.fraOpciones0.Visible = True
 Me.FraOpciones1.Visible = False
 Me.FraOpciones2.Visible = False
+	Call SeguridadSet(Me)
 End Sub
 
 

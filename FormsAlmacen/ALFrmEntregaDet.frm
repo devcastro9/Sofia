@@ -245,6 +245,7 @@ Private Sub Form_Load()
         Fra(1).Enabled = False
         Cmdaceptar.Enabled = False
     End If
+	Call SeguridadSet(Me)
 End Sub
 Public Sub LlenaDatos()
     txtCodigo.Text = CodItem

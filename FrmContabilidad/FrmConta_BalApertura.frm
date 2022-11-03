@@ -5651,6 +5651,7 @@ error_conec:
       End
     End If
 
+	Call SeguridadSet(Me)
 End Sub
 
 Public Sub Mayor000()

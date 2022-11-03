@@ -762,6 +762,7 @@ Vquery = "select * from cns_cheques"
     Exit Sub
 Error:
     MsgBox "Existe error de sintaxis", vbDefaultButton2, "ERROR"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Text1_KeyPress(KeyAscii As Integer)

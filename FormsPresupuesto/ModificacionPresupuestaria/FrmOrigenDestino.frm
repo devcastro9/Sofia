@@ -639,6 +639,7 @@ End Sub
 
 Private Sub Form_Load()
     Call define_origen
+	Call SeguridadSet(Me)
 End Sub
 
 Public Sub abrir_formulacionO()

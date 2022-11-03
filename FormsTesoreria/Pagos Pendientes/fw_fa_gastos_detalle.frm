@@ -2961,6 +2961,7 @@ Private Sub Form_Load()
    Call CargarCuentaBancaria
    dtp_fechapago.Value = Date
    correlDocCta = 0
+	Call SeguridadSet(Me)
 End Sub
 
 

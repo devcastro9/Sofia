@@ -3359,6 +3359,7 @@ Private Sub Form_Load()
         
     End If
 
+	Call SeguridadSet(Me)
 End Sub
 
 

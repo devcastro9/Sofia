@@ -2049,6 +2049,7 @@ Private Sub Form_Load()
     txt_Tscta12.Visible = False
     txt_Tscta22.Visible = False
     txt_desc2.Visible = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral2_Click()

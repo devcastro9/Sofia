@@ -257,6 +257,7 @@ Private Sub Form_Load()
           txtClave.Visible = False
        End If
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 Function ValidaDatos() As Boolean

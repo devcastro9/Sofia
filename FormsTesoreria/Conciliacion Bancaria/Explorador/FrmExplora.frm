@@ -726,6 +726,7 @@ End Sub
 Private Sub Form_Load()
 'SetWindowText Form1.hwnd, "Bienvenidos  a VB"
 
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 'If ScaleWidth > FraElige.Width And ScaleHeight > FraElige.Height Then

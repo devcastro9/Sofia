@@ -373,6 +373,7 @@ cmb_gestion_rep.Text = Year(Date)
 cbo_mes_rep.Text = UCase(MonthName(Month(Date)))
 txt_mes.Text = Month(Date)
 
+	Call SeguridadSet(Me)
 End Sub
 Private Sub llenar_datos()
   Set rs_aux7 = New ADODB.Recordset

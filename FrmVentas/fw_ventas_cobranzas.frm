@@ -9771,6 +9771,7 @@ Private Sub Form_Load()
     BtnModificar.Visible = False
     BtnBuscar1.Visible = False
     FrmCobrosDet.Visible = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

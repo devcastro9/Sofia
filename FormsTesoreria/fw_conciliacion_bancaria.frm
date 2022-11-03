@@ -3438,6 +3438,7 @@ Private Sub Form_Load()
 ''    rs_aux7.Open "SELECT * FROM rc_planilla_grupo", db, adOpenStatic
 ''    Set Ado_datos_rep.Recordset = rs_aux7
 ''    dtc_rep_det.BoundText = dtc_rep_cod.BoundText
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub BtnAñadir_Click()
