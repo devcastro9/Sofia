@@ -4,11 +4,13 @@ def adicionar_seg(ruta:str) -> None:
     texto = ''
     patron_form_load = r"Private Sub Form_Load[^@]*?End Sub"
     try:
-        with open(ruta, 'r+') as form:
+        with open(ruta, 'r') as form:
             texto = form.read()
+            print('Original', texto)
             texto = reset_seguridad(texto)
+            print(texto)
             texto = adicion_seguridad(texto)
-            form.write(texto)
+            print(texto)
     except Exception as ex:
         print('Ha ocurrido un error:', ex)
     finally:
