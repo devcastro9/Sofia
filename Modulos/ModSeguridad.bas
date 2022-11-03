@@ -14,11 +14,11 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
     Dim sqlMapeado As String
     Dim nombreForm As String
     nombreForm = frmCurrent.Name
-    For Each ctrUno In frmCurrent.Controls
-        sqlMapeado = "EXECUTE [dbo].[mapear_controles] '" & ctrUno.Name & "', '" & TypeName(ctrUno) & "', '" & nombreForm & "'"
-        Debug.Print sqlMapeado
-        'db.Execute sqlMapeado
-    Next
+'    For Each ctrUno In frmCurrent.Controls
+'        sqlMapeado = "EXECUTE [dbo].[mapear_controles] '" & ctrUno.Name & "', '" & TypeName(ctrUno) & "', '" & nombreForm & "'"
+'        Debug.Print sqlMapeado
+'        'db.Execute sqlMapeado
+'    Next
     
     ' Roles
     'sqlRoles = ""

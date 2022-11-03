@@ -325,14 +325,14 @@ Begin VB.Form Frm_ao_pagos
       TabCaption(1)   =   "DATOS DE LA COMPRA"
       TabPicture(1)   =   "Frm_ao_pagos.frx":1B7811
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "FrmCabecera"
-      Tab(1).Control(1)=   "BtnSalir2"
+      Tab(1).Control(0)=   "BtnSalir2"
+      Tab(1).Control(1)=   "FrmCabecera"
       Tab(1).ControlCount=   2
       TabCaption(2)   =   "DETALLE BIENES Y SERVICIOS"
       TabPicture(2)   =   "Frm_ao_pagos.frx":1B782D
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "FrmEdita"
-      Tab(2).Control(1)=   "BtnSalir3"
+      Tab(2).Control(0)=   "BtnSalir3"
+      Tab(2).Control(1)=   "FrmEdita"
       Tab(2).ControlCount=   2
       Begin VB.CommandButton BtnImprimir3 
          BackColor       =   &H00C0C000&
@@ -2602,7 +2602,7 @@ Begin VB.Form Frm_ao_pagos
             EndProperty
             CalendarBackColor=   16777215
             CustomFormat    =   "dd-MMM-yyyy"
-            Format          =   247791619
+            Format          =   143065091
             CurrentDate     =   41678
             MaxDate         =   109939
             MinDate         =   36526
@@ -3556,37 +3556,37 @@ Begin VB.Form Frm_ao_pagos
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
                Object.Visible         =   0   'False
-               ColumnWidth     =   1005.165
+               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1124.787
+               ColumnWidth     =   1124,787
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
                Locked          =   -1  'True
                Object.Visible         =   0   'False
-               ColumnWidth     =   1275.024
+               ColumnWidth     =   1275,024
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1214.929
+               ColumnWidth     =   1214,929
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
@@ -3595,11 +3595,11 @@ Begin VB.Form Frm_ao_pagos
             BeginProperty Column08 
                Locked          =   -1  'True
                Object.Visible         =   0   'False
-               ColumnWidth     =   2445.166
+               ColumnWidth     =   2445,166
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   645.165
+               ColumnWidth     =   645,165
             EndProperty
             BeginProperty Column10 
                Locked          =   -1  'True
@@ -3851,28 +3851,28 @@ Begin VB.Form Frm_ao_pagos
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   989.858
+               ColumnWidth     =   989,858
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   3509.858
+               ColumnWidth     =   3509,858
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1200.189
+               ColumnWidth     =   1200,189
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1260.284
+               ColumnWidth     =   1260,284
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1395.213
+               ColumnWidth     =   1395,213
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   1649.764
+               ColumnWidth     =   1649,764
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
-               ColumnWidth     =   764.787
+               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
@@ -4070,39 +4070,39 @@ Begin VB.Form Frm_ao_pagos
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1500.095
+               ColumnWidth     =   1500,095
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4334.74
+               ColumnWidth     =   4334,74
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1035.213
+               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   884.976
+               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
-               ColumnWidth     =   1094.74
+               ColumnWidth     =   1094,74
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
-               ColumnWidth     =   1500.095
+               ColumnWidth     =   1500,095
             EndProperty
             BeginProperty Column08 
                Object.Visible         =   0   'False
-               ColumnWidth     =   689.953
+               ColumnWidth     =   689,953
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   615.118
+               ColumnWidth     =   615,118
             EndProperty
          EndProperty
       End
@@ -7861,8 +7861,8 @@ Attribute VB_Exposed = False
 '    SSTab1.TabEnabled(2) = False
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-'	Call SeguridadSet(Me)
-End Sub
+'       Call SeguridadSet(Me)
+'End Sub
 '
 'Private Sub ABRIR_TABLAS_AUX()
 '    Set rs_datos1 = New ADODB.Recordset
@@ -8572,5 +8572,5 @@ Private Sub Form_Load()
 '    SSTab1.TabEnabled(2) = False
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-'	Call SeguridadSet(Me)
+'       Call SeguridadSet(Me)
 End Sub
