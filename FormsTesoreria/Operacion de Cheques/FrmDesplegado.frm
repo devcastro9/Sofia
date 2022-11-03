@@ -590,6 +590,7 @@ Dim i As Byte
         vCampos(1, i) = CAMPOS.Type
         i = i + 1
     Next CAMPOS
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

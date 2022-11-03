@@ -669,6 +669,7 @@ Dim i As Byte
         Next CAMPOS
     End If
     vEsOrdenacion = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

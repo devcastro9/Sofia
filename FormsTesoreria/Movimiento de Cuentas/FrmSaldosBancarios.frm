@@ -531,6 +531,7 @@ End If
 
 
 
+	Call SeguridadSet(Me)
 End Sub
 
 

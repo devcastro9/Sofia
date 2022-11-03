@@ -3128,6 +3128,7 @@ Private Sub Form_Load()
   End If
   '===== fin cargado de tablas de consulta y de datos de despliegue
   TxtTipo_cambio = GlTipoCambioOficial
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral1_Click()

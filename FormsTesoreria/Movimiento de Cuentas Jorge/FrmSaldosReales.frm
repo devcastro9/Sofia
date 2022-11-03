@@ -341,4 +341,5 @@ Private Sub Form_Load()
         Exit Sub
     End If
 
+	Call SeguridadSet(Me)
 End Sub

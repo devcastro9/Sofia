@@ -2776,6 +2776,7 @@ End If
 '    rs_clasif4.Open "SELECT * FROM gc_municipio where region_codigo = 'SI' ORDER BY munic_descripcion ", db, adOpenStatic
 '    Set Ado_clasif4.Recordset = rs_clasif4
 
+	Call SeguridadSet(Me)
 End Sub
 
 

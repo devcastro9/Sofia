@@ -3797,6 +3797,7 @@ Private Sub Form_Load()
     '     Command1.Visible = True
     '     lblLabels(0).Visible = True
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub opt_bs_Click()

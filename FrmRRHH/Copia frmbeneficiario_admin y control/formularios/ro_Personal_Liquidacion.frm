@@ -3006,6 +3006,7 @@ Private Sub Form_Load()
     lblLabels(13).Caption = "Gestion Fin"
     lblLabels(29).Caption = "Gestion Ini"
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 'Private Sub abrirtabla()

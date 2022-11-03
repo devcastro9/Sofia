@@ -882,6 +882,7 @@ If swnuevo = "M" Then
     End If
   End If
 'FIN MOVECOMPLETE
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Frame13_DragDrop(Source As Control, X As Single, y As Single)

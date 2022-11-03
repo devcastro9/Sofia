@@ -408,6 +408,7 @@ Private Sub Form_Load()
     End Select
     Screen.MousePointer = vbDefault
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Function fl_VerificaLiquida() As Boolean

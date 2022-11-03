@@ -1240,6 +1240,7 @@ Private Sub Form_Load()
        Set AdoPagos.Recordset = rsComprobante
        Set DtGPagos.DataSource = AdoPagos.Recordset
     End If
+	Call SeguridadSet(Me)
 End Sub
 Public Sub Determina_Cheques()
 Dim i As Integer

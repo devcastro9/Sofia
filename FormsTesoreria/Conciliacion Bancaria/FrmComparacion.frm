@@ -602,6 +602,7 @@ End If
     Else
         Set DtGConciliacionBanco.DataSource = rsNada
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 Public Sub Conciliados_Proc()

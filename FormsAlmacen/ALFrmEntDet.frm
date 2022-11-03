@@ -215,6 +215,7 @@ Private Sub Form_Load()
     Else
         LlenaCampos
     End If
+	Call SeguridadSet(Me)
 End Sub
 Private Function valida() As Boolean
     valida = False

@@ -2562,6 +2562,7 @@ Private Sub Form_Load()
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
     Fra_Aux1.Visible = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

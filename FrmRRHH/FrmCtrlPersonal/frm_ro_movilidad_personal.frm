@@ -2579,6 +2579,7 @@ Text6.Text = "/" & Format(Date, "yy")
 '  Fra_ABM.Enabled = False
 '  DtG_Auxiliar.Enabled = True
   GlSW = "NADA"
+	Call SeguridadSet(Me)
 End Sub
 
 'Private Sub abrirtabla()

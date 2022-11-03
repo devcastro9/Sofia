@@ -2844,6 +2844,7 @@ Set rscta_corriente = New ADODB.Recordset
 
 '**********
 'cod_usr = "gab001"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Frame1_DragDrop(Source As Control, X As Single, Y As Single)

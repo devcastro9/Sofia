@@ -733,6 +733,7 @@ Private Sub Form_Load()
     End If
     'Lista los comprobantes para imprimir
     Refrescar
+	Call SeguridadSet(Me)
 End Sub
 Private Sub LstCheques_Click()
     MsgBox LstChequesCodigo.ListCount

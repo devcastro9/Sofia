@@ -75,5 +75,6 @@ End Sub
 
 Private Sub Form_Load()
   POpcionElegida = 0
+	Call SeguridadSet(Me)
 End Sub
 

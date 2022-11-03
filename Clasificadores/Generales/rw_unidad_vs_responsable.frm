@@ -1074,6 +1074,7 @@ Private Sub Form_Load()
     txt_cod_estado.Text = "REG"
    
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

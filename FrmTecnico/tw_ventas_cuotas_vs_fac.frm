@@ -1633,6 +1633,7 @@ End Sub
 Private Sub Form_Load()
     db.Execute "UPDATE ao_ventas_cobranza_prog SET es_grupo_fac = 'NO' WHERE venta_codigo = " & NumComp & "  "
     Call OptFilGral1_Click
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral1_Click()

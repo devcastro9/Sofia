@@ -917,6 +917,7 @@ Dim XAbe As Double, XAde As Double, XAbn As Double, XAdn As Double
     
 
 'mskMonto.SetFocus
+	Call SeguridadSet(Me)
 End Sub
 
 

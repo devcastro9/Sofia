@@ -517,6 +517,7 @@ If rsctabancaria.RecordCount > 0 Then
     Set DtGCuentaBancaria.DataSource = rsctabancaria
 End If
 
+	Call SeguridadSet(Me)
 End Sub
 
 

@@ -310,6 +310,7 @@ Private Sub Form_Load()
   Next
 
   mbDataChanged = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

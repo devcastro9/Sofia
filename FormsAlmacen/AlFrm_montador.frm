@@ -843,6 +843,7 @@ Dim Nodo As Node
     End If
     '
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 Private Function valida() As Boolean
     valida = False

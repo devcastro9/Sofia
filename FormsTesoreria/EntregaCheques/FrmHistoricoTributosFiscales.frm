@@ -486,5 +486,6 @@ End If
 'Colocando en la fecha actual
 DTPFechaInicio.Value = Date
 DTPFechaFin.Value = Date
+	Call SeguridadSet(Me)
 End Sub
 

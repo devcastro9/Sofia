@@ -3671,6 +3671,7 @@ Private Sub Form_Load()
   End If
   '===== fin cargado de tablas de consulta y de datos de despliegue
   txtTipo_Cambio = GlTipoCambioOficial
+	Call SeguridadSet(Me)
 End Sub
 
 'Private Sub FraOpciones_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)

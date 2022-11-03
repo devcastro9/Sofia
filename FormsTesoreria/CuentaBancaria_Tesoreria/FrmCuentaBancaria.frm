@@ -4026,6 +4026,7 @@ Dim Acumula_Saldo As Variant
     DtCDescripcion.BoundText = DtCCuentaOrigen.BoundText
     DtCTgn.BoundText = DtCCuentaOrigen.BoundText
 
+	Call SeguridadSet(Me)
 End Sub
 Public Sub Proceso_Cuenta(filtro As String)
 'Busca por numero de cuenta, rango de fecha, etc.,..

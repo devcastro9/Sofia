@@ -656,6 +656,7 @@ Private Sub Form_Load()
     Else
         BotonesNavegar
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

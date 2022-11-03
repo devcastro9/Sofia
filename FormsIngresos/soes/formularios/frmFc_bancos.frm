@@ -727,6 +727,7 @@ Private Sub Form_Load()
   If tpaises.State = 1 Then tpaises.Close
     tpaises.Open "SELECT codigo_pais, denominacion_pais FROM paises ", db, adOpenDynamic, adLockReadOnly
   Set ado_paises.Recordset = tpaises
+	Call SeguridadSet(Me)
 End Sub
 
 Function valida_registro() As Boolean

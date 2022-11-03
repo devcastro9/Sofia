@@ -1529,6 +1529,7 @@ Private Sub Form_Load()
     Call pl_Llena_Combos_Base
     Call pl_RefrescaContratoAdj
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub pl_RefrescaContratoAdj()

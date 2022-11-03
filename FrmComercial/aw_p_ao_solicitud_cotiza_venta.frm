@@ -10312,6 +10312,7 @@ Private Sub Form_Load()
 ''    End If
 '
 '    VAR_PRDA = IIf(dtc_desc10 = "", 0, dtc_desc10)
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral1_Click()

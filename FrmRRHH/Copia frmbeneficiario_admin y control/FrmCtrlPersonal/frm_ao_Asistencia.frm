@@ -935,6 +935,7 @@ Dim XAbe As Double, XAde As Double, XAbn As Double, XAdn As Double
    Dtc_Par.BoundText = Dtc_ParDes.BoundText
    Dtc_Par2.BoundText = Dtc_Par3.BoundText
 'mskMonto.SetFocus
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Txt02_Change()

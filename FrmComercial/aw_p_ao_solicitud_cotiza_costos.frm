@@ -2703,6 +2703,7 @@ Private Sub Form_Load()
 '                        'txt_cge_IT_bsA = "0.0416"
 '                        'txt_cge_IVA_bsA = "0.151"
 '                        'txt_tac_billing_bsA = "0.035"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

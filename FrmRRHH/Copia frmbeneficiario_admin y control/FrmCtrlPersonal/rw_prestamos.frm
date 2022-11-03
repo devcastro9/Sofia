@@ -7351,6 +7351,7 @@ Private Sub Form_Load()
         lbl_cite = "Cite Trámite"
     End If
 '    Chk_plazo.Value = 0
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA_DET()

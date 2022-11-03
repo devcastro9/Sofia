@@ -51,6 +51,7 @@ Set Report = New CryComprob_conta
 CRViewer1.ReportSource = Report
 CRViewer1.ViewReport
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

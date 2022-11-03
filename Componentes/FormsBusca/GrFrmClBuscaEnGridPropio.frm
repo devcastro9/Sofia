@@ -674,6 +674,7 @@ End Sub
 
 Private Sub Form_Load()
   OrdenarAsc = True
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub TxtCompara_KeyDown(KeyCode As Integer, Shift As Integer)

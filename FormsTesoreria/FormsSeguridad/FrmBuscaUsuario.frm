@@ -188,6 +188,7 @@ End Sub
 Private Sub Form_Load()
     rsUsuarios.Open "Select ud.IdFuncionario, ud.usr_usuario, pe.Paterno, pe.Materno, pe.Nombres,ud.NivelAcceso, ud.Usr_Activo From Usuarios_Udapre ud, rc_Personal pe Where ud.IdFuncionario=pe.IdFuncionario Order by pe.Paterno", db, adOpenStatic
     Set dtgUsuarios.DataSource = rsUsuarios
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

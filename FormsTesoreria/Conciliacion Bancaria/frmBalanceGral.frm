@@ -236,5 +236,6 @@ Private Sub Form_Load()
   Me.DTPinicio.MaxDate = Date
   Me.ProgressBar1.Min = 0
   Me.ProgressBar1.Visible = False
+	Call SeguridadSet(Me)
 End Sub
 

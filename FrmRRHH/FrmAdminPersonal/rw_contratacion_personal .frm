@@ -3765,6 +3765,7 @@ Private Sub Form_Load()
     Frame3.Visible = False
     
 
+	Call SeguridadSet(Me)
 End Sub
 Private Sub ABRIR_TABLA_AUX()
 ' Set rs_datos = New ADODB.Recordset

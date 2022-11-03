@@ -55,6 +55,7 @@ CRViewer1.ViewReport
 'CRViewer1.Refresh
 'iMPRIMIR DIRECTAMENTE
 'CRViewer1.PrintReport
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

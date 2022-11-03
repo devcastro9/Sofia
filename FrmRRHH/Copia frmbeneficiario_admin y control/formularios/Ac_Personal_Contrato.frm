@@ -1605,6 +1605,7 @@ Private Sub Form_Load()
   Fra_ABM.Enabled = False
   DtG_Auxiliar.Enabled = True
   GlSW = "NADA"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub abrirtabla()

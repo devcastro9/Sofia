@@ -1580,6 +1580,7 @@ Private Sub Form_Load()
 'Para_Aceptado = "N"
 'LOS DATOS PERSONALES SE CARGAN EN EL FORMULARIO QUE LO LLAMA
     'txtSW = "0"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Option1_Click()

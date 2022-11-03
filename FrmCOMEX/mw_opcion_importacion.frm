@@ -110,4 +110,5 @@ Private Sub Form_Load()
             VAR_TIT = frmMain.Mnu_ProveedoresEquipos.Caption
     End Select
     mw_opcion_importacion.Caption = VAR_TIT
+	Call SeguridadSet(Me)
 End Sub

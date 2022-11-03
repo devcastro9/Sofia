@@ -3215,6 +3215,7 @@ End Sub
 Private Sub Form_Load()
 '    BtnImprimir2.Visible = False
 '    Call llena_datos
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
     Unload Me

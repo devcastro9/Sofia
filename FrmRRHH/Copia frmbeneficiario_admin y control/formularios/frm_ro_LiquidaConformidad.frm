@@ -413,6 +413,7 @@ EtiqError:
     Screen.MousePointer = vbDefault
     MsgBox "Error: " & Err.Number & Chr(13) & "Descripción: " & Err.Description & Chr(13) & Chr(13) & "Anote el error y comuniquese con el soporte técnico.", vbCritical, "Error"
     
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub pl_ListaBeneficiario()

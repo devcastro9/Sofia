@@ -681,6 +681,7 @@ Private Sub Form_Load()
     opt_ges.Visible = False
     Frame2.Visible = True
     VAR_OPT1 = 2
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub lbl_dpto_Click()

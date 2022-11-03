@@ -1639,6 +1639,7 @@ Private Sub Form_Load()
   dtc_cuenta_cod.BoundText = dtc_cuenta_desc.BoundText
   dtc_cuenta_desc.BoundText = dtc_cuenta_cod.BoundText
     'txtSW = "0"
+	Call SeguridadSet(Me)
 End Sub
 
 

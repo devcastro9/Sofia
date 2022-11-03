@@ -840,6 +840,7 @@ Private Sub Form_Load()
     
 
     Screen.MousePointer = vbDefault
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

@@ -900,6 +900,7 @@ Private Sub Form_Load()
    NombreArchivo = ""
    SiEstaImportado = False
    Call limpiar
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub BtnAñadir_Click()

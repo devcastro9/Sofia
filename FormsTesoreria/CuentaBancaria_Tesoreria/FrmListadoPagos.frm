@@ -581,6 +581,7 @@ Private Sub Form_Load()
     DTPFechaFin.Value = Date
 '    DTPFechaIn.Value = Date
 '    DTPFechaFin.Value = Date
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptTodasCuentas_Click()

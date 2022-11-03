@@ -1813,6 +1813,7 @@ error_conec:
       End
     End If
 
+	Call SeguridadSet(Me)
 End Sub
 Public Sub Mayor000()
   Dim IResult As Integer

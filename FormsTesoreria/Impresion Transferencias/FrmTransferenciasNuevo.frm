@@ -911,6 +911,7 @@ Private Sub Form_Load()
         Set DtgTransferencias.DataSource = rsTransferencia
         Exit Sub
     End If
+	Call SeguridadSet(Me)
 End Sub
 
 Public Sub Cmpte_NroTransferencia()

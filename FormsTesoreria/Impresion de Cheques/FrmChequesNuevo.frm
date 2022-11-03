@@ -890,6 +890,7 @@ Private Sub Form_Load()
         DtGCheques.Enabled = True
     End If
     
+	Call SeguridadSet(Me)
 End Sub
 Private Sub LstCheques_Click()
     MsgBox LstChequesCodigo.ListCount

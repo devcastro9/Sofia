@@ -79,6 +79,7 @@ Dim TC As String
 CRViewer1.ReportSource = Report
 CRViewer1.ViewReport
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

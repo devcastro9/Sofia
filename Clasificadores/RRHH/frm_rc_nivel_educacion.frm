@@ -900,6 +900,7 @@ Private Sub Form_Load()
     mbDataChanged = False
     Fra_ABM.Enabled = False
     dg_datos.Enabled = True
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

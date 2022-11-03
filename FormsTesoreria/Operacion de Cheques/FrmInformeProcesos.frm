@@ -97,4 +97,5 @@ Private Sub Form_Load()
     FrmInformeProcesos.Caption = "Informe de transferencias >> " & Proceso & " << "
     Label1 = "Transf.   Cuentas                       Obsevaciones"
   End If
+	Call SeguridadSet(Me)
 End Sub

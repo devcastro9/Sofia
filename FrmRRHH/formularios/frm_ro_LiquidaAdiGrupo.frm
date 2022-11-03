@@ -355,6 +355,7 @@ Private Sub Form_Load()
     End If
     Screen.MousePointer = vbDefault
     
+	Call SeguridadSet(Me)
 End Sub
 
 

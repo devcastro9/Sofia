@@ -3099,6 +3099,7 @@ Private Sub Form_Load()
     SSTab1.Tab = 0
     SSTab1.TabEnabled(0) = True
     SSTab1.TabEnabled(1) = False
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub grabar()

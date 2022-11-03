@@ -858,6 +858,7 @@ If Val(Me.mskMonto_limite) = 0 Then
     Me.labPorcNal = "0%"
 End If
 'mskMonto.SetFocus
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub mskMonto_Change()

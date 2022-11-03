@@ -187,6 +187,7 @@ On Error GoTo QueError
   Exit Sub
 QueError:
   MsgBox "Error al Cargar: " & Err.Description, vbInformation + vbOKOnly, "Atención"
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

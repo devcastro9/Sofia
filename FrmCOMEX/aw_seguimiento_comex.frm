@@ -2789,6 +2789,7 @@ Private Sub Form_Load()
   
    numAdjudicacion = 0
    numAdjudicacionCargado = 0
+	Call SeguridadSet(Me)
 End Sub
 
 ' Numero compra evento cambio de texto.

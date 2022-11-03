@@ -1419,6 +1419,7 @@ Private Sub Form_Load()
   Exit Sub
 'AddErr:
 '  MsgBox Err.Description
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

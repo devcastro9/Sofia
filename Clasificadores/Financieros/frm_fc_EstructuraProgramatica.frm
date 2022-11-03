@@ -1099,6 +1099,7 @@ Private Sub Form_Load()
    
    Set ClBuscaGrid = Nothing
    sw2 = ""
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Resize()

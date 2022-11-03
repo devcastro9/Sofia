@@ -487,6 +487,7 @@ Private Sub Form_Load()
   flags = SWP_NOSIZE Or SWP_NOMOVE 'Or SWP_NOZORDER  'SWP_NOOWNERZORDER
 '
   Resultado = SetWindowPos(Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, flags)
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

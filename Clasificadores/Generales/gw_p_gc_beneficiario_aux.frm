@@ -2660,6 +2660,7 @@ AddErr:
   MsgBox Err.Description
 
     'WWWWWWWWWWWWWWWWWWWWW
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

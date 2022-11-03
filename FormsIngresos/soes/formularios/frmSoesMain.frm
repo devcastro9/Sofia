@@ -1896,6 +1896,7 @@ End Sub
 Private Sub Form_Load()
 Dim fecha As Date
   Datos.dbo_so_soes_cab "DEL_CANCELADOS", 0, "", fecha, "", "", "", 0, 0, 0, "", "", "", fecha, "", "", ""
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

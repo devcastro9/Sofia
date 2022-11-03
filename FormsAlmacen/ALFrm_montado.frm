@@ -1050,6 +1050,7 @@ frmgrabcabeza.Visible = False
     rs_partida.Open "SELECT * FROM fc_partida_gasto WHERE par_activo='1' OR par_activo='S' order by par_descripcion_larga", db, adOpenStatic
     Set AdoPartida.Recordset = rs_partida
 
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptActivos_Click()

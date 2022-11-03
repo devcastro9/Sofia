@@ -467,4 +467,5 @@ Private Sub Form_Load()
         DtgAlcanceC.Visible = False
     End If
 
+	Call SeguridadSet(Me)
 End Sub

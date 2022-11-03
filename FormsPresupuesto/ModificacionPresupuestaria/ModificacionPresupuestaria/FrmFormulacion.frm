@@ -5068,6 +5068,7 @@ Private Sub Form_Load()
     FrmFormulacion.lblModificaciones = Format(montoTotalM, "###,###,##0")
     FrmFormulacion.lblVigente = Format((montoTotal + montoTotalA + montoTotalM), "###,###,##0")
    
+	Call SeguridadSet(Me)
 End Sub
 
 Public Sub abrir_formulacion()

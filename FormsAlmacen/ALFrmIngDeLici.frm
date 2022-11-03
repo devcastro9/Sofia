@@ -127,6 +127,7 @@ Private Sub Form_Load()
     cmdElegir.Enabled = RsIngreso.RecordCount > 0
     Screen.MousePointer = vbDefault
     '--
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Resize()
 On Error Resume Next

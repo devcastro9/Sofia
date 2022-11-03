@@ -203,6 +203,7 @@ Private Sub Form_Load()
     Me.Caption = "Acerca de " & App.Title
     lblVersion.Caption = "Versión " & App.Major & "." & App.Minor & "." & App.Revision
     lblTitle.Caption = App.Title
+	Call SeguridadSet(Me)
 End Sub
 
 Public Sub StartSysInfo()

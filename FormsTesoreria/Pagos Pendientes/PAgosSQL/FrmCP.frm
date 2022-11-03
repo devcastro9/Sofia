@@ -4471,6 +4471,7 @@ Private Sub Form_Load()
     CmbNomDep.AddItem "BENI"
     CmbNomDep.AddItem "SANTA CRUZ"
     FraDatosCarta.Enabled = False
+	Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
     If rsNada.State = 1 Then rsNada.Close

@@ -231,6 +231,7 @@ Private Sub Form_Load()
     TIPO_DE_CAMBIO
     'Seguridad
     'Call SeguridadSet(Me)
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub cmdCancel_Click()

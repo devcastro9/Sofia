@@ -8730,6 +8730,7 @@ Private Sub Form_Load()
         '----------------------------------
    End If
    ' Set ClBuscaGrid = Nothing
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub Carga_Beneficiario(posicion As Integer)
