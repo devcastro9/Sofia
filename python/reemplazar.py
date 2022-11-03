@@ -2,13 +2,13 @@ import subprocess, sys, re
 
 def obtener_frm():
     lista_rutas = []
-    subprocess.Popen(['powershell.exe', 'Remove-Item -Recurse -Force forms.txt'], stdout=sys.stdout)
+    #subprocess.Popen(['powershell.exe', 'Remove-Item -Recurse -Force forms.txt'], stdout=sys.stdout)
     powershell_cmd = "Get-ChildItem -Recurse -Filter *.frm | Select FullName > forms.txt"
     subprocess.Popen(['powershell.exe', powershell_cmd], stdout=sys.stdout)
     with open('forms.txt', 'r', encoding='utf-16-le') as arch:
         for row in arch:
             if row.startswith('D'):
-                lista_rutas.append(row)
+                lista_rutas.append(re.sub(r'\n', '', row))
     return lista_rutas
     
 def adicionar_seg(ruta:str) -> None:
@@ -39,8 +39,10 @@ def adicion_seguridad(text:str) -> str:
     cadena_nueva = re.sub(r'End Sub', r'\tCall SeguridadSet(Me)\nEnd Sub', cadena_anterior)
     return re.sub(patron_load, cadena_nueva, text)
 
+def main():
+    lista_rutas = obtener_frm()
+    for ruta in lista_rutas:
+        adicionar_seg(ruta)
+
 if __name__ == '__main__':
-    result = obtener_frm()
-    for i in result:
-        print(i)
-    #adicionar_seg(r'D:\\repos\\Sofia\\python\\frmLogin.frm')
+    main()
