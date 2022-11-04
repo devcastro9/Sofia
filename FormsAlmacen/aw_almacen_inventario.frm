@@ -332,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   122683393
+         Format          =   155844609
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -345,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   122683393
+         Format          =   155844609
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1339,6 +1339,8 @@ Private Sub btnPrintOption_Click()
             MsgBox Cry.LastErrorNumber & " : " & Cry.LastErrorString, vbExclamation + vbOKOnly, "Atención"
         End If
     ElseIf Option2.Value = True Then
+        DTP_Finicio.Value = "01/01/" & glGestion
+        DTP_Ffin.Value = ObtenerFechaServidor()
         Fra_reporte.Visible = True
         tdbgInventario.Enabled = False
         Fra_Elegir.Enabled = False
@@ -1347,6 +1349,8 @@ Private Sub btnPrintOption_Click()
         BtnImprimir2.Visible = False
         fra_reportes.Visible = False
     ElseIf Option3.Value = True Then
+        DTP_Finicio.Value = "01/01/" & glGestion
+        DTP_Ffin.Value = ObtenerFechaServidor()
         Fra_reporte.Visible = True
         tdbgInventario.Enabled = False
         Fra_Elegir.Enabled = False
@@ -1530,7 +1534,7 @@ Private Sub Form_Load()
 '    Totales
 
     Screen.MousePointer = vbDefault
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 'Private Sub Form_Resize()
