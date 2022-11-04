@@ -4,7 +4,7 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form gw_p_gc_pais 
    BackColor       =   &H00000000&
-   Caption         =   "Clasificadores - Clasificación de Documentos"
+   Caption         =   "Clasificadores - Clasificación de Paises"
    ClientHeight    =   6570
    ClientLeft      =   1110
    ClientTop       =   345
@@ -1058,7 +1058,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
