@@ -2980,6 +2980,7 @@ Private Sub MDIForm_Load()
         CmdRepGral.Visible = False
    End If
 '   LoadNewDoc
+   Call SeguridadSet(Me)
 End Sub
 
 Private Sub MDIForm_Unload(Cancel As Integer)
