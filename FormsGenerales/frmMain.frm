@@ -4,7 +4,7 @@ Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.MDIForm frmMain 
    AutoShowChildren=   0   'False
    BackColor       =   &H00C0C0C0&
-   Caption         =   "Sistema de Organización Financiera y Administrativa (SOFIA)"
+   Caption         =   "Sistema de Organizaciï¿½n Financiera y Administrativa (SOFIA)"
    ClientHeight    =   7680
    ClientLeft      =   885
    ClientTop       =   1065
@@ -111,13 +111,13 @@ Begin VB.MDIForm frmMain
       Width           =   11280
       Begin VB.CommandButton CmdRepA 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Cambiar Contraseña"
+         Caption         =   "Cambiar Contraseï¿½a"
          Height          =   520
          Left            =   17280
          Picture         =   "frmMain.frx":0A02
          Style           =   1  'Graphical
          TabIndex        =   12
-         ToolTipText     =   "Cambiar Contraseña"
+         ToolTipText     =   "Cambiar Contraseï¿½a"
          Top             =   20
          Width           =   1575
       End
@@ -189,7 +189,7 @@ Begin VB.MDIForm frmMain
       End
       Begin VB.CommandButton CmdTesoreria 
          BackColor       =   &H00E0E0E0&
-         Caption         =   "Rep.Tesorería"
+         Caption         =   "Rep.Tesorerï¿½a"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -204,7 +204,7 @@ Begin VB.MDIForm frmMain
          Picture         =   "frmMain.frx":2D92
          Style           =   1  'Graphical
          TabIndex        =   17
-         ToolTipText     =   "Reportes de Tesorería"
+         ToolTipText     =   "Reportes de Tesorerï¿½a"
          Top             =   15
          Width           =   1470
       End
@@ -412,7 +412,7 @@ Begin VB.MDIForm frmMain
          Picture         =   "frmMain.frx":86B6
          Style           =   1  'Graphical
          TabIndex        =   4
-         ToolTipText     =   "Subir Facturas Electrónicas"
+         ToolTipText     =   "Subir Facturas Electrï¿½nicas"
          Top             =   20
          Visible         =   0   'False
          Width           =   630
@@ -467,7 +467,7 @@ Begin VB.MDIForm frmMain
          Width           =   720
       End
       Begin VB.Label lblVersion 
-         Caption         =   "Versión:"
+         Caption         =   "Versiï¿½n:"
          Height          =   255
          Left            =   13320
          TabIndex        =   32
@@ -624,7 +624,7 @@ Begin VB.MDIForm frmMain
       Appearance      =   1
    End
    Begin VB.Menu Mnu_Planificacion 
-      Caption         =   "PLANIFICACIÓN"
+      Caption         =   "PLANIFICACIï¿½N"
       Begin VB.Menu Mnu_ClasificadoresGral 
          Caption         =   "CLASIFICADORES DE USO GENERAL"
          Begin VB.Menu MnuClasificacionBeneficiarios 
@@ -1414,7 +1414,7 @@ End Sub
 
 Private Sub CmdRepV_Click()
     If glusuario = "JORAQUENI" Then
-        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
+        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atenciï¿½n"
         Exit Sub
     End If
     Fw_ReportesCobranzas.lbl_titulo = "REPORTES DE COBRANZAS"      'Mnu_ReportesCobranzas.Caption
@@ -1425,7 +1425,7 @@ End Sub
 
 Private Sub CmdTesoreria_Click()
     If glusuario = "JORAQUENI" Then
-        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
+        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atenciï¿½n"
         Exit Sub
     End If
     Fw_ReportesTesoreria.lbl_titulo = "REPORTES DE TESORERIA"
@@ -1434,7 +1434,7 @@ End Sub
 
 Private Sub CmdVenta_Click()
     If glusuario = "JORAQUENI" Then
-        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
+        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atenciï¿½n"
         Exit Sub
     End If
     Aux = "DCOBR"
@@ -1491,7 +1491,7 @@ Private Sub Mnu_AsignacionTareasD_Click()
 End Sub
 
 Private Sub Mnu_AsignacionTareasM_Click()
-    If glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "TCRUZ" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
+    If glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAï¿½EZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "TCRUZ" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
         Aux = "DNMAN"
         frm_to_cronograma_mensual.lbl_titulo = Mnu_AsignacionTareasM.Caption
         frm_to_cronograma_mensual.FraNavega = Mnu_AsignacionTareasM.Caption
@@ -1627,7 +1627,7 @@ Private Sub Mnu_CronogramaInstalaciones_Click()
 End Sub
 
 Private Sub Mnu_CronogramaMantenimiento_Click()
-    If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "FFLORES" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "JMAMANI" Or glusuario = "CESCALANTE" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Then
+    If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "FFLORES" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAï¿½EZ" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "JMAMANI" Or glusuario = "CESCALANTE" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Then
         Aux = "DNMAN"
         Frm_to_tecnico_cronograma.lbl_titulo = Mnu_CronogramaMantenimiento.Caption
         Frm_to_tecnico_cronograma.FraNavega = Mnu_CronogramaMantenimiento.Caption
@@ -1670,7 +1670,7 @@ Private Sub Mnu_Definicion_zonas_Click()
 '    tw_cronograma_zonas.FraNavega = Mnu_Definicion_zonas.Caption
 '    tw_cronograma_zonas.lbl_titulo2 = Mnu_Definicion_zonas.Caption
 '    tw_cronograma_zonas.Show
-    If glusuario = "ADMIN" Or glusuario = "JMAMANI" Or glusuario = "VMEJIA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
+    If glusuario = "ADMIN" Or glusuario = "JMAMANI" Or glusuario = "VMEJIA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAï¿½EZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
         Aux = "DNMAN"
         tw_organizacion_zonas.lbl_titulo = Mnu_Definicion_zonas.Caption
         tw_organizacion_zonas.FraNavega = Mnu_Definicion_zonas.Caption
@@ -1733,7 +1733,7 @@ Private Sub Mnu_EdificiosInstalacion_Click()
 End Sub
 
 Private Sub Mnu_Ejecucion_Servicio_M_Click()
-    If glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "LVEDIA" Or glusuario = "JSAAVEDRA" Or glusuario = "KGARCIA" Or glusuario = "TCRUZ" Or glusuario = "EMACHICADO" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "SQUISPE" Or glusuario = "FCABRERA" Or glusuario = "VPEÑA" Or glusuario = "TCASTILLO" Or glusuario = "GFLORES" Or glusuario = "BMONTAÑO" Or glusuario = "JCHIPANA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "MMENACHO" Or glusuario = "CLEDEZMA" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "ULEDEZMA" Or glusuario = "MARTEAGA" Or glusuario = "LVASQUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "RPRIETO" Then
+    If glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "LVEDIA" Or glusuario = "JSAAVEDRA" Or glusuario = "KGARCIA" Or glusuario = "TCRUZ" Or glusuario = "EMACHICADO" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "SQUISPE" Or glusuario = "FCABRERA" Or glusuario = "VPEï¿½A" Or glusuario = "TCASTILLO" Or glusuario = "GFLORES" Or glusuario = "BMONTAï¿½O" Or glusuario = "JCHIPANA" Or glusuario = "ASANTIVAï¿½EZ" Or glusuario = "MMENACHO" Or glusuario = "CLEDEZMA" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "ULEDEZMA" Or glusuario = "MARTEAGA" Or glusuario = "LVASQUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "RPRIETO" Then
         Aux = "DNMAN"
 '        frm_to_cronograma_certifica.lbl_titulo = Mnu_Ejecucion_Servicio_M.Caption
 '        frm_to_cronograma_certifica.FraNavega = Mnu_Ejecucion_Servicio_M.Caption
@@ -1869,7 +1869,7 @@ End Sub
 '  If iResult <> 0 Then
 '      MsgBox Cry.LastErrorNumber & " : " & Cry.LastErrorString, vbExclamation + vbOKOnly, "Error"
 '  End If
-''  sino = MsgBox("¿La impresión concluyó con EXITO?", vbQuestion + vbYesNo, "Confirmando Impresión... ")
+''  sino = MsgBox("ï¿½La impresiï¿½n concluyï¿½ con EXITO?", vbQuestion + vbYesNo, "Confirmando Impresiï¿½n... ")
 ''  If sino = vbYes Then
 ''  rstao_solicitud_recibido.MoveFirst
 '    While Not rstao_solicitud_recibido.EOF
@@ -1949,7 +1949,7 @@ End Sub
 
 Private Sub Mnu_IdentificacionClienteMantenimiento_Click()
     If glusuario = "JORAQUENI" Then
-        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
+        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atenciï¿½n"
         Exit Sub
     End If
     Aux = "DNMAN"
@@ -2232,7 +2232,7 @@ End Sub
 
 Private Sub Mnu_ProcesoMantenimiento_Click()
     If glusuario = "JORAQUENI" Then
-        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
+        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atenciï¿½n"
         Exit Sub
     End If
     Aux = "DNMAN"
@@ -2947,7 +2947,7 @@ Private Sub mnuUsuarios_Click()
 End Sub
 
 Private Sub MDIForm_Load()
-    ' Esta función no elimina el botón "X" de un MDI, pero sí lo deja inactivo
+    ' Esta funciï¿½n no elimina el botï¿½n "X" de un MDI, pero sï¿½ lo deja inactivo
     Dim hSysmenu As Long
     hSysmenu = GetSystemMenu(Me.hwnd, 0)
     RemoveMenu hSysmenu, 6, &H400&
@@ -2979,7 +2979,8 @@ Private Sub MDIForm_Load()
    Else
         CmdRepGral.Visible = False
    End If
-'   LoadNewDoc
+   'LoadNewDoc
+   Call SeguridadSet(Me)
 End Sub
 
 Private Sub MDIForm_Unload(Cancel As Integer)
@@ -3006,20 +3007,20 @@ End Sub
 '      Case "Producto"
 '         AlFrmCreaMaterial.Show
 '      Case "Guardar"
-'         'TareasPendientes: Agregar código de botón 'Guardar'.
-'         MsgBox "Agregar código de botón 'Guardar'."
+'         'TareasPendientes: Agregar cï¿½digo de botï¿½n 'Guardar'.
+'         MsgBox "Agregar cï¿½digo de botï¿½n 'Guardar'."
 '      Case "Imprimir"
-'         'TareasPendientes: Agregar código de botón 'Imprimir'.
-'         MsgBox "Agregar código de botón 'Imprimir'."
+'         'TareasPendientes: Agregar cï¿½digo de botï¿½n 'Imprimir'.
+'         MsgBox "Agregar cï¿½digo de botï¿½n 'Imprimir'."
 '      Case "Cortar"
-'         'TareasPendientes: Agregar código de botón 'Cortar'.
-'         MsgBox "Agregar código de botón 'Cortar'."
+'         'TareasPendientes: Agregar cï¿½digo de botï¿½n 'Cortar'.
+'         MsgBox "Agregar cï¿½digo de botï¿½n 'Cortar'."
 '      Case "Copiar"
-'         'TareasPendientes: Agregar código de botón 'Copiar'.
-'         MsgBox "Agregar código de botón 'Copiar'."
+'         'TareasPendientes: Agregar cï¿½digo de botï¿½n 'Copiar'.
+'         MsgBox "Agregar cï¿½digo de botï¿½n 'Copiar'."
 '      Case "Pegar"
-'         'TareasPendientes: Agregar código de botón 'Pegar'.
-'         MsgBox "Agregar código de botón 'Pegar'."
+'         'TareasPendientes: Agregar cï¿½digo de botï¿½n 'Pegar'.
+'         MsgBox "Agregar cï¿½digo de botï¿½n 'Pegar'."
 '      Case "Negrita"
 '         ActiveForm.rtfText.SelBold = Not ActiveForm.rtfText.SelBold
 '         Button.Value = IIf(ActiveForm.rtfText.SelBold, tbrPressed, tbrUnpressed)
@@ -3193,7 +3194,7 @@ End If
 '                If vNombOpcMenu = "formaspago" Then FormasPago.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '            If vNombOpcMenu = "ingresos" Then Ingresos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "rubros" Then Rubros.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
-'                If vNombOpcMenu = "económicosrecursos" Then EconómicosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
+'                If vNombOpcMenu = "econï¿½micosrecursos" Then Econï¿½micosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '                If vNombOpcMenu = "relacionadorrubroeco" Then RelacionadorRubroEco.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '            If vNombOpcMenu = "contabilidad2" Then Contabilidad2.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "plancuentas" Then PlanCuentas.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
@@ -3201,7 +3202,7 @@ End If
 '                If vNombOpcMenu = "relacionadoringresoscuentas" Then RelacionadorIngresosCuentas.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '                If vNombOpcMenu = "depreciaciones" Then Depreciaciones.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "claseauxiliares" Then ClaseAuxiliares.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
-'                If vNombOpcMenu = "económicosrecursos" Then EconómicosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
+'                If vNombOpcMenu = "econï¿½micosrecursos" Then Econï¿½micosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '                If vNombOpcMenu = "inversiones" Then Inversiones.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '            If vNombOpcMenu = "administrativos" Then Administrativos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "adquisiciones" Then Adquisiciones.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
@@ -3239,8 +3240,8 @@ End If
 ''            If vNombOpcMenu = "ejecucionorganismo" Then EjecucionOrganismo.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 ''            If vNombOpcMenu = "ejecucioncomprobante" Then EjecucionComprobante.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 ''            If vNombOpcMenu = "ejecucioncompromiso" Then EjecucionCompromiso.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-''            If vNombOpcMenu = "ejecucióndevengado" Then EjecuciónDevengado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-''            If vNombOpcMenu = "ejecuciónpagado" Then EjecuciónPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+''            If vNombOpcMenu = "ejecuciï¿½ndevengado" Then Ejecuciï¿½nDevengado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+''            If vNombOpcMenu = "ejecuciï¿½npagado" Then Ejecuciï¿½nPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '        If vNombOpcMenu = "mnumodppto" Then MnuModPpto.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)     'Modificaciones Presupuestarias
 '
 '    If vNombOpcMenu = "tesoreria" Then Tesoreria.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
@@ -3268,8 +3269,8 @@ End If
 '
 '''''    If vNombOpcMenu = "administracion" Then Administracion.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''        If vNombOpcMenu = "adquisicionbienes" Then AdquisicionBienes.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-'''''                If vNombOpcMenu = "comprasdirectas" Then EjecuciónPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-'''''                If vNombOpcMenu = "licitacionesnacionales" Then EjecuciónPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+'''''                If vNombOpcMenu = "comprasdirectas" Then Ejecuciï¿½nPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+'''''                If vNombOpcMenu = "licitacionesnacionales" Then Ejecuciï¿½nPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''                If vNombOpcMenu = "licitacionesinternacionales" Then LicitacionesInternacionales.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''        If vNombOpcMenu = "contratacionservicios" Then ContratacionServicios.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''                If vNombOpcMenu = "consultoresindividuales" Then ConsultoresIndividuales.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
@@ -3323,7 +3324,7 @@ End If
 '        If vNombOpcMenu = "administracionpersonal" Then AdministracionPersonal.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '        If vNombOpcMenu = "controlpersonal" Then ControlPersonal.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '        If vNombOpcMenu = "capacitacionpersonal" Then CapacitacionPersonal.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
-'        If vNombOpcMenu = "evaluaciondesempeño" Then EvaluacionDesempeño.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
+'        If vNombOpcMenu = "evaluaciondesempeï¿½o" Then EvaluacionDesempeï¿½o.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '
 '    If vNombOpcMenu = "informaciongerencial" Then InformacionGerencial.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)     'Contabilidad
 '
@@ -3331,7 +3332,7 @@ End If
 '        If vNombOpcMenu = "mnucambiarclave" Then mnuCambiarClave.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Cambiar clave
 '        If vNombOpcMenu = "mnuusuarios" Then mnuUsuarios.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Definicion de Usuarios
 '        If vNombOpcMenu = "mnunivelacceso" Then mnuNivelAcceso.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Cambiar clave
-'        If vNombOpcMenu = "mnuprivacceso" Then mnuPrivAcceso.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Privilegios de Operación
+'        If vNombOpcMenu = "mnuprivacceso" Then mnuPrivAcceso.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Privilegios de Operaciï¿½n
 '    rsNivelAcceso.MoveNext
 '    Wend
 '    rsNivelAcceso.MoveFirst
@@ -3382,7 +3383,7 @@ End If
 '                If vNombOpcMenu = "formaspago" Then FormasPago.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '            If vNombOpcMenu = "ingresos" Then Ingresos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "rubros" Then Rubros.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
-'                If vNombOpcMenu = "económicosrecursos" Then EconómicosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
+'                If vNombOpcMenu = "econï¿½micosrecursos" Then Econï¿½micosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '                If vNombOpcMenu = "relacionadorrubroeco" Then RelacionadorRubroEco.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '            If vNombOpcMenu = "contabilidad2" Then Contabilidad2.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "plancuentas" Then PlanCuentas.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
@@ -3390,7 +3391,7 @@ End If
 '                If vNombOpcMenu = "relacionadoringresoscuentas" Then RelacionadorIngresosCuentas.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '                If vNombOpcMenu = "depreciaciones" Then Depreciaciones.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "claseauxiliares" Then ClaseAuxiliares.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
-'                If vNombOpcMenu = "económicosrecursos" Then EconómicosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
+'                If vNombOpcMenu = "econï¿½micosrecursos" Then Econï¿½micosRecursos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '                If vNombOpcMenu = "inversiones" Then Inversiones.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '            If vNombOpcMenu = "administrativos" Then Administrativos.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Tesoreria
 '                If vNombOpcMenu = "adquisiciones" Then Adquisiciones.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
@@ -3428,8 +3429,8 @@ End If
 ''            If vNombOpcMenu = "ejecucionorganismo" Then EjecucionOrganismo.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 ''            If vNombOpcMenu = "ejecucioncomprobante" Then EjecucionComprobante.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 ''            If vNombOpcMenu = "ejecucioncompromiso" Then EjecucionCompromiso.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-''            If vNombOpcMenu = "ejecucióndevengado" Then EjecuciónDevengado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-''            If vNombOpcMenu = "ejecuciónpagado" Then EjecuciónPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+''            If vNombOpcMenu = "ejecuciï¿½ndevengado" Then Ejecuciï¿½nDevengado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+''            If vNombOpcMenu = "ejecuciï¿½npagado" Then Ejecuciï¿½nPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '        If vNombOpcMenu = "mnumodppto" Then MnuModPpto.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)     'Modificaciones Presupuestarias
 '
 '    If vNombOpcMenu = "tesoreria" Then Tesoreria.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
@@ -3457,8 +3458,8 @@ End If
 '
 '''''    If vNombOpcMenu = "administracion" Then Administracion.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''        If vNombOpcMenu = "adquisicionbienes" Then AdquisicionBienes.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-'''''                If vNombOpcMenu = "comprasdirectas" Then EjecuciónPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
-'''''                If vNombOpcMenu = "licitacionesnacionales" Then EjecuciónPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+'''''                If vNombOpcMenu = "comprasdirectas" Then Ejecuciï¿½nPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
+'''''                If vNombOpcMenu = "licitacionesnacionales" Then Ejecuciï¿½nPagado.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''                If vNombOpcMenu = "licitacionesinternacionales" Then LicitacionesInternacionales.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''        If vNombOpcMenu = "contratacionservicios" Then ContratacionServicios.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
 '''''                If vNombOpcMenu = "consultoresindividuales" Then ConsultoresIndividuales.Enabled = IIf(rsNivelAcceso!HABILITADO = "Si", True, False)
@@ -3512,7 +3513,7 @@ End If
 '        If vNombOpcMenu = "administracionpersonal" Then AdministracionPersonal.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '        If vNombOpcMenu = "controlpersonal" Then ControlPersonal.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '        If vNombOpcMenu = "capacitacionpersonal" Then CapacitacionPersonal.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
-'        If vNombOpcMenu = "evaluaciondesempeño" Then EvaluacionDesempeño.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
+'        If vNombOpcMenu = "evaluaciondesempeï¿½o" Then EvaluacionDesempeï¿½o.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)
 '
 '    If vNombOpcMenu = "informaciongerencial" Then InformacionGerencial.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)     'Contabilidad
 '
@@ -3520,7 +3521,7 @@ End If
 '        If vNombOpcMenu = "mnucambiarclave" Then mnuCambiarClave.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Cambiar clave
 '        If vNombOpcMenu = "mnuusuarios" Then mnuUsuarios.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False)    'Definicion de Usuarios
 '        If vNombOpcMenu = "mnunivelacceso" Then mnuNivelAcceso.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Cambiar clave
-'        If vNombOpcMenu = "mnuprivacceso" Then mnuPrivAcceso.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Privilegios de Operación
+'        If vNombOpcMenu = "mnuprivacceso" Then mnuPrivAcceso.Enabled = IIf(rsNivelAcceso!habilitado = "Si", True, False) 'Privilegios de Operaciï¿½n
 '    rsNivelAcceso.MoveNext
 '    Wend
 '    rsNivelAcceso.MoveFirst
@@ -3564,7 +3565,7 @@ Private Sub Option2_Click()
         CR07.WindowShowPrintSetupBtn = True
         CR07.WindowShowRefreshBtn = True
         iResult = CR07.PrintReport
-        If iResult <> 0 Then MsgBox CR07.LastErrorNumber & " : " & CR07.LastErrorString, vbCritical, "Error de impresión"
+        If iResult <> 0 Then MsgBox CR07.LastErrorNumber & " : " & CR07.LastErrorString, vbCritical, "Error de impresiï¿½n"
         CR07.WindowState = crptMaximized
     frm_alertas.Visible = False
 End Sub
