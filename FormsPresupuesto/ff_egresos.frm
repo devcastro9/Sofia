@@ -497,7 +497,6 @@ Begin VB.Form ff_egresos
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   659,906
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
@@ -523,24 +522,19 @@ Begin VB.Form ff_egresos
                Alignment       =   2
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                DividerStyle    =   6
-               ColumnWidth     =   1695,118
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   1725,165
             EndProperty
             BeginProperty Column10 
                Alignment       =   2
-               ColumnWidth     =   750,047
             EndProperty
             BeginProperty Column11 
                Alignment       =   2
-               ColumnWidth     =   1695,118
             EndProperty
             BeginProperty Column12 
             EndProperty
@@ -899,34 +893,25 @@ Begin VB.Form ff_egresos
       BeginProperty Split0 
          BeginProperty Column00 
             Object.Visible         =   -1  'True
-            ColumnWidth     =   689,953
          EndProperty
          BeginProperty Column01 
-            ColumnWidth     =   494,929
          EndProperty
          BeginProperty Column02 
             Object.Visible         =   0   'False
          EndProperty
          BeginProperty Column03 
-            ColumnWidth     =   629,858
          EndProperty
          BeginProperty Column04 
-            ColumnWidth     =   285,165
          EndProperty
          BeginProperty Column05 
-            ColumnWidth     =   269,858
          EndProperty
          BeginProperty Column06 
-            ColumnWidth     =   285,165
          EndProperty
          BeginProperty Column07 
-            ColumnWidth     =   209,764
          EndProperty
          BeginProperty Column08 
-            ColumnWidth     =   239,811
          EndProperty
          BeginProperty Column09 
-            ColumnWidth     =   239,811
          EndProperty
          BeginProperty Column10 
             Object.Visible         =   0   'False
