@@ -6,6 +6,7 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
     '       Authorization
     ' ================================================
     On Error GoTo Handler
+    Err.Clear
     Dim ctrUno As Control
     Dim rs_Roles As ADODB.Recordset
     Dim rs_Right As ADODB.Recordset
@@ -45,5 +46,7 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
 Handler:
     If Err.Number > 0 Then
         MsgBox "Database error " & Err.Number & " : " & Err.Description
+    Else
+        Err.Clear
     End If
 End Sub
