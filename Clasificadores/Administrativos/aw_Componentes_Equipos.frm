@@ -26,31 +26,31 @@ Begin VB.Form aw_Componentes_Equipos
       Begin VB.OptionButton Option17 
          BackColor       =   &H00C0C0C0&
          Caption         =   "SEÑALIZACION (EQUIPO)"
+         Enabled         =   0   'False
          Height          =   375
          Left            =   360
          TabIndex        =   21
          Top             =   4680
-         Visible         =   0   'False
          Width           =   3015
       End
       Begin VB.OptionButton Option16 
          BackColor       =   &H00C0C0C0&
          Caption         =   "BOTONERIA (EQUIPO)"
+         Enabled         =   0   'False
          Height          =   375
          Left            =   360
          TabIndex        =   20
          Top             =   4200
-         Visible         =   0   'False
          Width           =   3015
       End
       Begin VB.OptionButton Option15 
          BackColor       =   &H00C0C0C0&
          Caption         =   "MOTOR DEL EQUIPO"
+         Enabled         =   0   'False
          Height          =   375
          Left            =   360
          TabIndex        =   19
          Top             =   3720
-         Visible         =   0   'False
          Width           =   3015
       End
       Begin VB.OptionButton Option2 
@@ -138,11 +138,11 @@ Begin VB.Form aw_Componentes_Equipos
       Begin VB.OptionButton Option14 
          BackColor       =   &H00C0C0C0&
          Caption         =   "CAPACIDAD DEL EQUIPO (Peso, Pasajeros)"
+         Enabled         =   0   'False
          Height          =   375
          Left            =   360
          TabIndex        =   18
          Top             =   3240
-         Visible         =   0   'False
          Width           =   3855
       End
       Begin VB.OptionButton Option10 
