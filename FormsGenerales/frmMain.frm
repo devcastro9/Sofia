@@ -19,11 +19,11 @@ Begin VB.MDIForm frmMain
       Height          =   2055
       Left            =   0
       ScaleHeight     =   1995
-      ScaleWidth      =   11220
+      ScaleWidth      =   20190
       TabIndex        =   27
       Top             =   525
       Visible         =   0   'False
-      Width           =   11280
+      Width           =   20250
       Begin VB.Frame Frame1 
          Caption         =   "ALERTAS"
          BeginProperty Font 
@@ -105,10 +105,10 @@ Begin VB.MDIForm frmMain
       Height          =   525
       Left            =   0
       ScaleHeight     =   525
-      ScaleWidth      =   11280
+      ScaleWidth      =   20250
       TabIndex        =   10
       Top             =   0
-      Width           =   11280
+      Width           =   20250
       Begin VB.CommandButton CmdRepA 
          BackColor       =   &H00E0E0E0&
          Caption         =   "Cambiar Contraseña"
@@ -444,10 +444,10 @@ Begin VB.MDIForm frmMain
       Height          =   270
       Left            =   0
       ScaleHeight     =   210
-      ScaleWidth      =   11220
+      ScaleWidth      =   20190
       TabIndex        =   0
-      Top             =   7410
-      Width           =   11280
+      Top             =   10365
+      Width           =   20250
       Begin VB.Label txtVersion 
          AutoSize        =   -1  'True
          Caption         =   "Usuario:"
@@ -616,9 +616,9 @@ Begin VB.MDIForm frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   26
-      Top             =   7020
-      Width           =   11280
-      _ExtentX        =   19897
+      Top             =   9975
+      Width           =   20250
+      _ExtentX        =   35719
       _ExtentY        =   688
       _Version        =   327682
       Appearance      =   1

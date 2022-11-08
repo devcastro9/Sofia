@@ -1540,7 +1540,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   109379585
+         Format          =   111411201
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1803,7 +1803,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   109379585
+         Format          =   111411201
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -3562,7 +3562,7 @@ Private Sub BtnAprobar_Click()
        If Ado_datos.Recordset("estado_codigo") = "REG" Then
           If sino = vbYes Then
             CodBien = Ado_datos.Recordset!bien_codigo
-            COD_EDIF = Ado_datos.Recordset!edif_codigo
+            COD_EDIF = Ado_datos.Recordset!EDIF_CODIGO
             COD_MOD = Ado_datos.Recordset!modelo_codigo
 '            If Ado_datos.Recordset!grupo_codigo = "40000" Then
 '                Call ACTUALIZA_ID
@@ -3917,7 +3917,7 @@ Que_Error:
 End Sub
 
 Private Sub BtnModificar2_Click()
-    If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "JSAAVEDRA" Or glusuario = "GSOLIZ" Or glusuario = "CSALINAS" Or glusuario = "VMEJIA" Then
+    If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "JSAAVEDRA" Or glusuario = "GSOLIZ" Or glusuario = "CSALINAS" Or glusuario = "VMEJIA" Or glusuario = "JMAMANI" Then
         'dg_datos2.Enabled = True
         'dg_datos2.AllowUpdate = True
         '45. ADD. Kit de INSUMOS al modificar bienes...
@@ -4184,7 +4184,7 @@ On Error GoTo QError
         Ado_datos.Recordset!observaciones = IIf(dtc_desc10.Text = "", "NO ASIGNADO", dtc_desc10.Text)
         
         Ado_datos.Recordset!bien_rotacion = IIf(cmd_rotacion.Text = "", "PROMEDIO", cmd_rotacion.Text)      'CDbl(txtStockMin)
-        Ado_datos.Recordset!edif_codigo = IIf(dtc_codigo10.Text = "", "20101-0", dtc_codigo10.Text)      'CDbl(txtStockMin)
+        Ado_datos.Recordset!EDIF_CODIGO = IIf(dtc_codigo10.Text = "", "20101-0", dtc_codigo10.Text)      'CDbl(txtStockMin)
         'Ado_datos.Recordset!tipo_eqp = IIf(dtc_codigo8.Text = "", "X", dtc_codigo8.Text)
         Ado_datos.Recordset!pais_codigo = DtcPais.Text
         'Ado_datos.Recordset!ARCHIVO_F = Trim(Ado_datos.Recordset!subgrupo_codigo) + "-" + Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
@@ -4547,7 +4547,7 @@ Private Sub Form_Load()
     C_ROTBAJ = 0.02
     C_FIJO = 0.0636
     C_IMPSTO2 = 0.1494
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral2_Click()
