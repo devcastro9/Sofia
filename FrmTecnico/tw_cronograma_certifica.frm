@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_certifica
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   10620
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -187,7 +187,7 @@ Begin VB.Form tw_cronograma_certifica
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   108986371
+         Format          =   121110531
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2629,7 +2629,7 @@ Begin VB.Form tw_cronograma_certifica
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   108986371
+         Format          =   121110531
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3284,7 +3284,7 @@ Private Sub BtnGrabar_Click()
      
      rs_datos!fmes_fecha_registro = DTPfecha1.Value
      rs_datos!beneficiario_codigo_resp = dtc_codigo4.Text
-     rs_datos!observaciones = txt_campo2.Text
+     rs_datos!observaciones = Txt_campo2.Text
      
      rs_datos!fmes_nro_dias_habiles = DIAS_HAB
      rs_datos!fmes_nro_horarios_hab = NRO_HORARIO
@@ -3777,7 +3777,7 @@ Private Sub Form_Load()
             ''SSTab1.TabEnabled(1) = False
             'SSTab1.TabVisible(1) = False
    'End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

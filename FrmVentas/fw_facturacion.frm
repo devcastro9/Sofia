@@ -37,7 +37,7 @@ Begin VB.Form fw_facturacion
       Height          =   2535
       Left            =   3600
       TabIndex        =   45
-      Top             =   9000
+      Top             =   9240
       Visible         =   0   'False
       Width           =   9975
       Begin VB.CommandButton BtnGrabarBen 
@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   109838337
+         Format          =   121110529
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -5054,6 +5054,9 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 MsgBox "No se puede EMITIR mas Facturas, la fecha límite de emisión EXPIRÓ, debe realizar una nueva Dosificación ... ", , "Atención"
                 Exit Sub
             End If
+            ' EMITE NRO. DE FACTURA
+            VAR_COD1 = CDbl(rs_aux1!CORREL) + 1
+            db.Execute "UPDATE fc_dosificacion_docs SET CORREL = '" & Trim(Str(VAR_COD1)) & "' where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' "
             gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
             correlv = Ado_datos1.Recordset("venta_codigo")
             nroventa = Ado_datos1.Recordset("venta_codigo")
@@ -5110,14 +5113,14 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 MsgBox "Error en Autorizacion, NIT o Llave, Contactese con el Administrador y vuelva a intentar ...", , "Atención"
                 Exit Sub
             End If
-            'VAR_COD1 = CDbl(rs_aux1!CORREL) + 1         ' NRO. DE FACTURA
-            sino = MsgBox("Esta seguro(a) de EMITIR e IMPRIMIR la Factura Nro. " + Str(CDbl(rs_aux1!CORREL) + 1) + " ?", vbYesNo, "Confirmando")
-            'sino = MsgBox("Esta seguro(a) de EMITIR e IMPRIMIR la Factura ?", vbYesNo, "Confirmando")
-            If sino = vbYes Then
-                VAR_COD1 = CDbl(rs_aux1!CORREL) + 1         ' NRO. DE FACTURA
-                db.Execute "UPDATE fc_dosificacion_docs SET CORREL = '" & Trim(Str(VAR_COD1)) & "' where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' "
-                'rs_aux1!CORREL = Trim(Str(VAR_COD1))
-                'rs_aux1.Update
+'            'VAR_COD1 = CDbl(rs_aux1!CORREL) + 1         ' NRO. DE FACTURA
+'            sino = MsgBox("Esta seguro(a) de EMITIR e IMPRIMIR la Factura Nro. " + Str(CDbl(rs_aux1!CORREL) + 1) + " ?", vbYesNo, "Confirmando")
+'            'sino = MsgBox("Esta seguro(a) de EMITIR e IMPRIMIR la Factura ?", vbYesNo, "Confirmando")
+'            If sino = vbYes Then
+'                VAR_COD1 = CDbl(rs_aux1!CORREL) + 1         ' NRO. DE FACTURA
+'                db.Execute "UPDATE fc_dosificacion_docs SET CORREL = '" & Trim(Str(VAR_COD1)) & "' where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' "
+'                'rs_aux1!CORREL = Trim(Str(VAR_COD1))
+'                'rs_aux1.Update
                 VAR_ANIO = Year(VAR_FFAC)
                 VAR_MES = UCase(MonthName(Month(VAR_FFAC)))
                 'VAR_COD1 = "4083"
@@ -5291,11 +5294,11 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
 '                    Call Contabiliza_venta
 '                'End If
 '                db.Execute "UPDATE co_diario SET co_diario.estado_codigo = co_comprobante_m.estado_codigo FROM co_diario INNER JOIN co_comprobante_m ON co_diario.Cod_Comp =co_comprobante_m.Cod_Comp where co_diario.estado_codigo Is Null "
-            Else
-                VAR_COD1 = "0"
-                If rs_aux1.State = 1 Then rs_aux1.Close
-                Exit Sub
-            End If
+'            Else
+'                VAR_COD1 = "0"
+'                If rs_aux1.State = 1 Then rs_aux1.Close
+'                Exit Sub
+'            End If
         End If
         If rs_aux1.State = 1 Then rs_aux1.Close
         '===== fin TERMINA GENERACION DE FACTURA =====
@@ -8312,7 +8315,7 @@ Private Sub Form_Load()
 'QError2:
 '    ' Manejo de errores
 '    MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

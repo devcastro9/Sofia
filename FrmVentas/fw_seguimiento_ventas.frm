@@ -6851,7 +6851,7 @@ Private Sub cmd_moneda1_LostFocus()
     If rs_datos20.State = 1 Then rs_datos20.Close
     rs_datos20.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda1.Text & "' ", db, adOpenStatic
     Set Ado_datos20.Recordset = rs_datos20
-    dtc_ctaDes.BoundText = dtc_cta.BoundText
+    dtc_ctades.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub cmd_moneda2_LostFocus()
@@ -7038,11 +7038,11 @@ Private Sub dtc_codigo8_Click(Area As Integer)
 End Sub
 
 Private Sub dtc_cta_Click(Area As Integer)
-    dtc_ctaDes.BoundText = dtc_cta.BoundText
+    dtc_ctades.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub dtc_ctades_Click(Area As Integer)
-    dtc_cta.BoundText = dtc_ctaDes.BoundText
+    dtc_cta.BoundText = dtc_ctades.BoundText
 End Sub
 
 Private Sub dtc_desc4A1_Click(Area As Integer)
@@ -7209,6 +7209,11 @@ Private Sub Form_Load()
     VAR_SW = 0
     parametro = Aux
      db.Execute "UPDATE  ao_ventas_cabecera SET ao_ventas_cabecera.edif_codigo_corto = gc_edificaciones.edif_codigo_corto FROM ao_ventas_cabecera INNER JOIN gc_edificaciones ON ao_ventas_cabecera.edif_codigo = gc_edificaciones.edif_codigo where (ao_ventas_cabecera.edif_codigo_corto Is Null)"
+     
+     db.Execute "UPDATE ao_ventas_cobranza_prog SET ao_ventas_cobranza_prog.cobranza_fecha_conformidad  = to_cronograma_diario_final.fecha_conformidad FROM ao_ventas_cobranza_prog INNER JOIN to_cronograma_diario_final ON ao_ventas_cobranza_prog.fmes_plan = to_cronograma_diario_final.fmes_plan AND ao_ventas_cobranza_prog.venta_codigo = to_cronograma_diario_final.venta_codigo where ao_ventas_cobranza_prog.cobranza_fecha_conformidad Is Null And to_cronograma_diario_final.fecha_conformidad Is Not Null "
+
+    db.Execute "UPDATE ao_ventas_cobranza_prog SET ao_ventas_cobranza_prog.doc_numero = to_cronograma_diario_final.doc_numero FROM ao_ventas_cobranza_prog INNER JOIN to_cronograma_diario_final ON ao_ventas_cobranza_prog.fmes_plan = to_cronograma_diario_final.fmes_plan AND ao_ventas_cobranza_prog.venta_codigo = to_cronograma_diario_final.venta_codigo WHERE ao_ventas_cobranza_prog.doc_numero ='0' AND  to_cronograma_diario_final.doc_numero > '0' "
+    
     mbDataChanged = False
     'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     GlNombFor = "F04"
@@ -7240,7 +7245,7 @@ Private Sub Form_Load()
     'FraNavega.Caption = lbl_titulo.Caption
     'lbl_titulo2.Caption = lbl_titulo.Caption
     'lbl_titulo1.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral10_Click()
@@ -7638,7 +7643,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
