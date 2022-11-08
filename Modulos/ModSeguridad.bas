@@ -5,13 +5,13 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
     ' ================================================
     '       Authorization
     ' ================================================
-    Err.Clear
     On Error GoTo Handler
     Dim ctrIter As Control
     Dim rs_Right As ADODB.Recordset
     Dim sqlRolesAcceso As String
     Dim sqlMapeado As String
     Dim Mapear As Boolean
+    ' Mapeado de controles y completado de Formularios
     Mapear = False
     If Mapear Then
         For Each ctrIter In frmCurrent.Controls
@@ -33,7 +33,7 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
                 "ON [c].[FormId] = [f].[FormId] " & _
                 "WHERE [f].[NombreForm] = '" & frmCurrent.Name & "' AND [ur].[usr_codigo] = '" & glusuario & "' " & _
                 "GROUP BY [c].[NombreControl]"
-    ' Right vs Forms.Controls
+    ' Right vs Forms.Controls (Un ciclo por Datos SQL y N-Ciclos por Controles de Formularios en RAM)
     Set rs_Right = New ADODB.Recordset
     With rs_Right
         .Open sqlRolesAcceso, db, adOpenForwardOnly, adLockReadOnly
