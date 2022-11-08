@@ -65,12 +65,12 @@ Public Sub Mapeado(ByVal frmCurrent As Form)
     Next
 End Sub
 
-Public Function AccesoDatos_Roles(ByVal Usuario As String) As String
+Public Function AccesoDatos_Roles() As String
     Dim departamentos(1 To 10) As Boolean
     Dim sqlAccesoDatos As String
     Dim rs_Acceso As ADODB.Recordset
     Dim contador As Integer
-    Dim index As Integer
+    Dim Index As Integer
     Dim deptos_sql As String
     contador = 0
     'Consulta SQL
@@ -78,7 +78,7 @@ Public Function AccesoDatos_Roles(ByVal Usuario As String) As String
                 "FROM [dbo].[gc_usuarios_roles] AS [u] " & _
                 "INNER JOIN [dbo].[gc_roles] AS [r] " & _
                 "ON [u].[IdRole] = [r].[IdRole] " & _
-                "WHERE [u].[usr_codigo] = '" & Usuario & "' AND [r].[estado_codigo] = 'APR'"
+                "WHERE [u].[usr_codigo] = '" & glusuario & "' AND [r].[estado_codigo] = 'APR'"
     'RecordSet
     Set rs_Acceso = New ADODB.Recordset
     With rs_Acceso
@@ -105,12 +105,12 @@ Public Function AccesoDatos_Roles(ByVal Usuario As String) As String
     End With
     'Creacion del query
     deptos_sql = ""
-    For index = 1 To 10
-        If departamentos(index) Then
-            deptos_sql = deptos_sql & index & ", "
+    For Index = 1 To 10
+        If departamentos(Index) Then
+            deptos_sql = deptos_sql & Index & ", "
             contador = contador + 1
         End If
-    Next index
+    Next Index
     deptos_sql = Left(deptos_sql, Len(deptos_sql) - 2)
     Select Case contador
         Case 1:
