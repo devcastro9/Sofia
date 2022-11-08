@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.11859e9
+   ScaleHeight     =   7.10897e9
    ScaleMode       =   0  'User
-   ScaleWidth      =   81082.33
+   ScaleWidth      =   1.06853e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -38,7 +38,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   4800
+      Top             =   4920
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -122,7 +122,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   4800
+      Top             =   4920
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -707,6 +707,7 @@ Begin VB.Form tw_tecnico_venta
       _ExtentY        =   8837
       _Version        =   393216
       Tabs            =   4
+      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -722,7 +723,7 @@ Begin VB.Form tw_tecnico_venta
       EndProperty
       TabCaption(0)   =   "Registro DATOS CONTRATO"
       TabPicture(0)   =   "tw_tecnico_venta.frx":C329
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
@@ -733,15 +734,16 @@ Begin VB.Form tw_tecnico_venta
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
       TabPicture(2)   =   "tw_tecnico_venta.frx":C361
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "FrmCobros"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":C37D
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1081,7 +1083,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   -75000
+         Left            =   0
          TabIndex        =   27
          Top             =   380
          Width           =   11895
@@ -1300,7 +1302,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   135659521
+            Format          =   111411201
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1561,9 +1563,10 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   135659521
+            CheckBox        =   -1  'True
+            Format          =   111411201
             CurrentDate     =   44600
-            MaxDate         =   109939
+            MaxDate         =   47848
             MinDate         =   36526
          End
          Begin MSComCtl2.DTPicker DTPFechaConf 
@@ -1589,7 +1592,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   135659521
+            Format          =   111411201
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2087,7 +2090,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   135659521
+               Format          =   111411201
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2112,7 +2115,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   135659521
+               Format          =   111411201
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2317,7 +2320,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   60
+         Left            =   -74940
          TabIndex        =   14
          Top             =   380
          Width           =   11895
@@ -2556,7 +2559,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   135659521
+               Format          =   111411201
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2639,7 +2642,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   135659521
+               Format          =   111411201
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3365,7 +3368,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   135659521
+            Format          =   111411201
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -8599,9 +8602,9 @@ Private Sub CmdCancelaCobro_Click()
     TxtCobrador.Visible = True
     FrmABMDet.Visible = True
     FrmABMDet2.Visible = True
-        DTPFechaProg.Visible = True
-        DTPFechaConf.Visible = True
-        DTPFechaProg.Enabled = True
+'        DTPFechaProg.Visible = True
+'        DTPFechaConf.Visible = True
+'        DTPFechaProg.Enabled = True
     TxtMonto.Enabled = True
     TxtDsctoTot.Enabled = True
     TxtObs.Enabled = True
@@ -8642,7 +8645,7 @@ Private Sub BtnModDetalle2_Click()
     'swgrabar = 0
     swnuevo = 2
     TxtCobrador.Visible = False
-    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "GMORA" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "GMORA" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Then
         TxtMonto.Enabled = True
         TxtMonto.Locked = False
         TxtDsctoTot.Enabled = False
@@ -9139,10 +9142,10 @@ Private Sub CmdGrabaCobro_Click()
     MsgBox "Debe Registrar el " + lblccertif.Caption + ", !! Vuelva a Intentar ...", vbExclamation, "Atención"
     Exit Sub
   End If
-  If DTPFechaConf = "" Then
-    MsgBox "Debe Registrar la " + lblfechaCertif.Caption + " de la Cobranza, !! Vuelva a Intentar ...", vbExclamation, "Atención"
-    Exit Sub
-  End If
+'  If DTPFechaConf = "" Then
+'    MsgBox "Debe Registrar la " + lblfechaCertif.Caption + " de la Cobranza, !! Vuelva a Intentar ...", vbExclamation, "Atención"
+'    Exit Sub
+'  End If
   Select Case CmbEmision.Text
     Case "FACTURA FISICA"
         VAR_EMISION = "28"
@@ -9256,7 +9259,7 @@ Private Sub CmdGrabaCobro_Click()
             'Ado_datos16.Recordset!Literal = Literal(CStr(Ado_datos.Recordset!venta_monto_total_bs)) + " BOLIVIANOS"
       End If
       Ado_datos16.Recordset!cobranza_fecha_cobro = DTPFechaCobro.Value                                'Fecha de Cobranza cobranza_fecha_conformidad
-      Ado_datos16.Recordset!cobranza_fecha_conformidad = DTPFechaConf.Value                                'Fecha de Cobranza
+      'Ado_datos16.Recordset!cobranza_fecha_conformidad = DTPFechaConf.Value                                'Fecha de Cobranza
 '      Call acumulaMont(Ado_datos16.Recordset("ges_gestion"), Ado_datos16.Recordset("venta_codigo"))
 
       Ado_datos16.Recordset!cobranza_requisito_plazo = "S"
@@ -9335,10 +9338,10 @@ Private Sub CmdGrabaCobro_Click()
     'NumComp = Ado_datos.Recordset("correl_venta")
     nroventa = Ado_datos.Recordset("venta_codigo")
 
-        DTPFechaProg.Visible = True
+'        DTPFechaProg.Visible = True
 '        DTPFechaCobro.Visible = False
-        DTPFechaConf.Visible = True
-        DTPFechaProg.Enabled = True
+'        DTPFechaConf.Visible = True
+'        DTPFechaProg.Enabled = True
     TxtMonto.Enabled = True
     TxtDsctoTot.Enabled = True
     TxtObs.Enabled = True
