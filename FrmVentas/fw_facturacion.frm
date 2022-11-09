@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   121110529
+         Format          =   127991809
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -4808,7 +4808,7 @@ Private Sub BtnGrabar_Click()
             VARFACIMPR = "S"
             VARFECHA = Format(DTPFechaCobro.Value, "dd/mm/yyyy")        '"08/04/2021"
     End Select
-    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & Txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
+    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo2 = '" & TIPOPROC & "', trans_codigo = '" & TIPOTRAM & "', proceso_codigo='" & VARPROC & "', subproceso_codigo = '" & VARSUB & "', etapa_codigo = '" & VARETAPA & "', Literal = '" & var_literal & "', cobranza_nro_factura = '" & VARFactura & "', cobranza_fecha_fac = '" & VARFECHA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo = 'NN', cobranza_deuda_bs = '0', cobranza_deuda_dol = '0', cobranza_descuento_bs = " & VAR_13 & ", cobranza_descuento_dol = " & VAR_87 & ", cmpbte_deposito = '0', factura_impresa = '" & VARFACIMPR & "', poa_codigo = '3.1.2', estado_codigo_fac = '" & VARESTADO & "', cobranza_fecha_fac2 ='', usr_codigo = '" & glusuario & "', Fecha_Registro = '" & Format(Date, "dd/mm/yyyy") & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
 
@@ -5054,8 +5054,17 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 MsgBox "No se puede EMITIR mas Facturas, la fecha límite de emisión EXPIRÓ, debe realizar una nueva Dosificación ... ", , "Atención"
                 Exit Sub
             End If
-            ' EMITE NRO. DE FACTURA
+            ' GENERA NUMERO DE FACTURA
             VAR_COD1 = CDbl(rs_aux1!CORREL) + 1
+            'VALIDA SI EXISTE
+            Set rs_aux12 = New ADODB.Recordset
+            If rs_aux12.State = 1 Then rs_aux12.Close
+            rs_aux12.Open "select * from ao_ventas_cobranza_fac where dosifica_autorizacion = '" & rs_aux1!dosifica_autorizacion & "' AND estado_codigo <> 'ERR' AND nro_factura = " & VAR_COD1 & " ", db, adOpenDynamic, adLockOptimistic
+            If rs_aux12.RecordCount > 0 Then
+                MsgBox "No se puede EMITIR, la Facturas YA Existe, Consulte con el Administrador del Sistema ... ", , "Atención"
+                Exit Sub
+            End If
+            ' EMITE NRO. DE FACTURA
             db.Execute "UPDATE fc_dosificacion_docs SET CORREL = '" & Trim(Str(VAR_COD1)) & "' where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' "
             gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
             correlv = Ado_datos1.Recordset("venta_codigo")
@@ -6082,7 +6091,7 @@ Private Sub BtnModificar_Click()
 '            TxtObs.Text = Ado_datos2.Recordset!cobranza_observaciones
 '        End If
         TxtObs.Text = Ado_datos1.Recordset!glosa_Descripcion
-        Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+        txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
 '      SSTab1.Tab = 0
 '      SSTab1.TabEnabled(0) = False
 '      SSTab1.TabEnabled(1) = True
@@ -8063,7 +8072,8 @@ Private Sub CmdFoto_Click()
         MsgBox "ERROR No existe la Imagen, Verifique por Favor..."
     End If
     If Guardar_Imagen(db, "Select Foto From ao_ventas_cobranza_fac_QR Where IdFactura= '" & CodBenef & "' ", "Foto", ARCH_FOTO) Then
-        MsgBox "Se cargo la Imagen Correctamente !!"
+        'MsgBox "Se cargo la Imagen Correctamente !!"
+        MsgBox "Se Emitió Correctamente la Factura Nro. " + Str(CDbl(VARFactura2))
         Exit Sub
     Else
         MsgBox "ERROR No existe la Imagen, Verifique por Favor..."
@@ -8985,7 +8995,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
     End If
 End Sub
 
@@ -9152,7 +9162,7 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
 End Sub
 
 
