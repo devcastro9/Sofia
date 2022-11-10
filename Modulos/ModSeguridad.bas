@@ -11,7 +11,9 @@ Public Sub SeguridadSet(ByRef frmCurrent As Form)
     Dim sqlRolesAcceso As String
     ' Mapeado de controles y completado de Formularios
     Dim consultaDatos As String
-    consultaDatos = AccesoDatos_Roles("ADMIN")
+'    If frmCurrent.Name <> "frmLogin" Then
+'        consultaDatos = AccesoDatos_Roles()
+'    End If
     Call Mapeado(frmCurrent)
     ' Acceso permitido al usuario por roles en el formulario
     sqlRolesAcceso = "SELECT [c].[NombreControl], CAST(MAX(CAST([d].[Visible] AS TINYINT)) AS BIT) AS [Visible], CAST(MAX(CAST([d].[Enabled] AS TINYINT)) AS BIT) AS [Enabled] " & _
