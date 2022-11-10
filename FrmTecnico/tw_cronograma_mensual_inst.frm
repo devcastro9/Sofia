@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_mensual_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   14400
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumos 
@@ -498,7 +498,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   60096513
+         Format          =   128974849
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -4460,9 +4460,9 @@ Private Sub BtnAnlDetalle_Click()
         
     '      Set rs_aux6 = New ADODB.Recordset
     '      If rs_aux6.State = 1 Then rs_aux6.Close
-    '      rs_aux6.Open "Select * from to_cronograma_diario_final where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
+    '      rs_aux6.Open "Select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
     '      If rs_aux6.RecordCount > 0 Then
-    '        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and bien_codigo ='' "
+    '        db.Execute "UPDATE to_cronograma_diario_final_INST SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and bien_codigo ='' "
     '        db.Execute "UPDATE to_cronograma_diario_inst set estado_codigo = 'REG' where fmes_plan  = " & VAR_FMES & " AND estado_activo = 'APR' "
     '        Call ABRIR_TABLA_DET
     '      End If
@@ -4479,7 +4479,7 @@ Private Sub BtnAnlDetalle_Click()
             'dia_fecha Inicial
             Set rs_aux10 = New ADODB.Recordset
             If rs_aux10.State = 1 Then rs_aux10.Close
-            rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND estado_activo <> 'ANL' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+            rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND estado_activo <> 'ANL' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
             Set Ado_datos10.Recordset = rs_aux10
             If Ado_datos10.Recordset.RecordCount > 0 Then
             End If
@@ -4487,7 +4487,7 @@ Private Sub BtnAnlDetalle_Click()
             'dia_fecha Final
             Set rs_aux11 = New ADODB.Recordset
             If rs_aux11.State = 1 Then rs_aux11.Close
-            rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND estado_activo <> 'ANL' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+            rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND estado_activo <> 'ANL' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
             Set Ado_datos11.Recordset = rs_aux11
             If Ado_datos11.Recordset.RecordCount > 0 Then
             End If
@@ -4498,7 +4498,7 @@ Private Sub BtnAnlDetalle_Click()
 '    If Ado_detalle2.Recordset("estado_activo") = "REG" Or Ado_detalle2.Recordset("estado_activo") = "APC" Then
 '      sino = MsgBox("Está Seguro de cambiar a HORARIO NO LABORABLE ? (Este ya no será considerado en el Cronograma Final - Destino) ", vbYesNo + vbQuestion, "Atención")
 '      If sino = vbYes Then
-'        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and trim(edif_descripcion) = '" & Trim(dtc_desc9.Text) & "' and dia_fecha between ('" & CDate(DTPfecha2.Text) & "' and '" & CDate(DTPfecha3.Text) & "') "
+'        db.Execute "UPDATE to_cronograma_diario_final_INST SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and trim(edif_descripcion) = '" & Trim(dtc_desc9.Text) & "' and dia_fecha between ('" & CDate(DTPfecha2.Text) & "' and '" & CDate(DTPfecha3.Text) & "') "
 '        Ado_detalle2.Recordset!estado_activo = "ANL"
 '        Ado_detalle2.Recordset!observaciones = "HORARIO NO LABORABLE"
 '        Ado_detalle2.Recordset!edif_descripcion = " "
@@ -4526,14 +4526,14 @@ Private Sub BtnAnlDetalle_Click()
 '        'edif_descripcion
 '        Set rs_aux9 = New ADODB.Recordset
 '        If rs_aux9.State = 1 Then rs_aux9.Close
-'        rs_aux9.Open "Select edif_descripcion from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND edif_descripcion <> '' group  by edif_descripcion order by edif_descripcion ", db, adOpenStatic
+'        rs_aux9.Open "Select edif_descripcion from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND edif_descripcion <> '' group  by edif_descripcion order by edif_descripcion ", db, adOpenStatic
 '        Set Ado_datos9.Recordset = rs_aux9
 ''        dtc_desc9.BoundText = dtc_codigo9.BoundText
 '
 '        'dia_fecha Inicial
 '        Set rs_aux10 = New ADODB.Recordset
 '        If rs_aux10.State = 1 Then rs_aux10.Close
-'        rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+'        rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
 '        Set Ado_datos10.Recordset = rs_aux10
 '        If Ado_datos10.Recordset.RecordCount > 0 Then
 '        End If
@@ -4541,7 +4541,7 @@ Private Sub BtnAnlDetalle_Click()
 '        'dia_fecha Final
 '        Set rs_aux11 = New ADODB.Recordset
 '        If rs_aux11.State = 1 Then rs_aux11.Close
-'        rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+'        rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
 '        Set Ado_datos11.Recordset = rs_aux11
 '        If Ado_datos11.Recordset.RecordCount > 0 Then
 '        End If
@@ -4564,9 +4564,9 @@ Private Sub BtnAnlDetalle2_Click()
       sino = MsgBox("Está Seguro de QUITAR el registro ? (Este no será considerado en el Cronograma Final) ", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
         'db.Execute "update to_cronograma_diario_inst set estado_activo = 'REG', estado_codigo = 'REG' WHERE fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "
-        'db.Execute "update to_cronograma_diario_final set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "
+        'db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "
         db.Execute "update to_cronograma_diario_inst set estado_activo = 'REG', estado_codigo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "           'AND bien_orden = " & Ado_detalle2.Recordset!bien_orden & "
-        db.Execute "update to_cronograma_diario_final set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "         'bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND
+        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '', unidad_codigo_tec = '',  tec_plan_codigo = 0, observaciones = '', bien_orden = 0, estado_activo = 'REG', edif_descripcion = '' WHERE fmes_plan = " & VAR_FMES & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "'  "         'bien_orden = " & Ado_detalle2.Recordset!bien_orden & " AND
         Call ABRIR_TABLA_DET
       End If
    Else
@@ -4585,9 +4585,9 @@ Private Sub BtnAnlDetalle3_Click()
     If sino = vbYes Then
       Set rs_aux6 = New ADODB.Recordset
       If rs_aux6.State = 1 Then rs_aux6.Close
-      rs_aux6.Open "Select * from to_cronograma_diario_final where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
+      rs_aux6.Open "Select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
       If rs_aux6.RecordCount > 0 Then
-        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' "
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' "
 
         db.Execute "UPDATE to_cronograma_diario_inst set estado_codigo = 'REG' where fmes_plan  = " & VAR_FMES & " AND estado_activo = 'APR' "
       
@@ -4597,14 +4597,14 @@ Private Sub BtnAnlDetalle3_Click()
         'edif_descripcion
         Set rs_aux9 = New ADODB.Recordset
         If rs_aux9.State = 1 Then rs_aux9.Close
-        rs_aux9.Open "Select edif_descripcion from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND edif_descripcion <> '' group  by edif_descripcion order by edif_descripcion ", db, adOpenStatic
+        rs_aux9.Open "Select edif_descripcion from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND edif_descripcion <> '' group  by edif_descripcion order by edif_descripcion ", db, adOpenStatic
         Set Ado_datos9.Recordset = rs_aux9
 '        dtc_desc9.BoundText = dtc_codigo9.BoundText
 
         'dia_fecha Inicial
         Set rs_aux10 = New ADODB.Recordset
         If rs_aux10.State = 1 Then rs_aux10.Close
-        rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+        rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
         Set Ado_datos10.Recordset = rs_aux10
         If Ado_datos10.Recordset.RecordCount > 0 Then
         End If
@@ -4612,7 +4612,7 @@ Private Sub BtnAnlDetalle3_Click()
         'dia_fecha Final
         Set rs_aux11 = New ADODB.Recordset
         If rs_aux11.State = 1 Then rs_aux11.Close
-        rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+        rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND bien_codigo <> '' group  by dia_fecha order by dia_fecha ", db, adOpenStatic
         Set Ado_datos11.Recordset = rs_aux11
         If Ado_datos11.Recordset.RecordCount > 0 Then
         End If
@@ -4625,14 +4625,14 @@ Private Sub BtnAnlDetalle3_Click()
   End If
 
 '  If Ado_datos.Recordset!estado_codigo = "REG" Then
-'    'to_cronograma_diario_final
+'    'to_cronograma_diario_final_INST
 '    Set rs_aux6 = New ADODB.Recordset
 '    If rs_aux6.State = 1 Then rs_aux6.Close
-'    rs_aux6.Open "Select * from to_cronograma_diario_final where fmes_plan = " & Ado_detalle1.Recordset!fmes_plan & " AND bien_codigo <> '' ", db, adOpenStatic
+'    rs_aux6.Open "Select * from to_cronograma_diario_final_INST where fmes_plan = " & Ado_detalle1.Recordset!fmes_plan & " AND bien_codigo <> '' ", db, adOpenStatic
 '    If rs_aux6.RecordCount > 0 Then
 '      sino = MsgBox("Está Seguro de RETORNAR TODO ? (Se Retornará TODO el Cronograma DESTINO al ORIGEN) ", vbYesNo + vbQuestion, "Atención")
 '      If sino = vbYes Then
-'        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', estado_activo = 'REG' WHERE fmes_plan = " & Ado_detalle1.Recordset!fmes_plan & " AND estado_activo = 'APR' "
+'        db.Execute "UPDATE to_cronograma_diario_final_INST SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', estado_activo = 'REG' WHERE fmes_plan = " & Ado_detalle1.Recordset!fmes_plan & " AND estado_activo = 'APR' "
 '
 '        db.Execute "UPDATE to_cronograma_diario_inst set estado_codigo   = 'REG' where fmes_plan  = " & Ado_detalle1.Recordset!fmes_plan & " AND estado_activo = 'APR' "
 '
@@ -4649,7 +4649,7 @@ End Sub
 Private Function ExisteReg(codigo2 As String) As Boolean
     Dim rs As ADODB.Recordset
     Set rs = New ADODB.Recordset
-    GlSqlAux = "SELECT Count(*) AS Cuantos FROM to_cronograma_diario_final  WHERE fmes_plan = " & codigo2 & " AND bien_codigo <> '' and (nro_fojas IS NOT NULL) AND (doc_numero IS NOT NULL)  "
+    GlSqlAux = "SELECT Count(*) AS Cuantos FROM to_cronograma_diario_final_INST  WHERE fmes_plan = " & codigo2 & " AND bien_codigo <> '' and (nro_fojas IS NOT NULL) AND (doc_numero IS NOT NULL)  "
     rs.Open GlSqlAux, db, adOpenStatic
     ExisteReg = rs!Cuantos > 0
 End Function
@@ -4657,8 +4657,8 @@ End Function
 Private Function ExisteReg2(codigo2 As String, codigo3 As String) As Boolean
     Dim rs As ADODB.Recordset
     Set rs = New ADODB.Recordset
-    'GlSqlAux = "SELECT Count(*) AS Cuantos2 FROM to_cronograma_diario_final  WHERE fmes_plan = " & codigo2 & " AND bien_codigo = '" & codigo3 & "' and (nro_fojas IS NOT NULL or nro_fojas='0') AND (doc_numero IS NOT NULL or doc_numero ='0')  "
-    GlSqlAux = "SELECT Count(*) AS Cuantos2 FROM to_cronograma_diario_final  WHERE fmes_plan = " & codigo2 & " AND bien_codigo = '" & codigo3 & "' and (nro_fojas IS NOT NULL or nro_fojas='0') AND (doc_numero IS NOT NULL or doc_numero ='0')  "
+    'GlSqlAux = "SELECT Count(*) AS Cuantos2 FROM to_cronograma_diario_final_INST  WHERE fmes_plan = " & codigo2 & " AND bien_codigo = '" & codigo3 & "' and (nro_fojas IS NOT NULL or nro_fojas='0') AND (doc_numero IS NOT NULL or doc_numero ='0')  "
+    GlSqlAux = "SELECT Count(*) AS Cuantos2 FROM to_cronograma_diario_final_INST  WHERE fmes_plan = " & codigo2 & " AND bien_codigo = '" & codigo3 & "' and (nro_fojas IS NOT NULL or nro_fojas='0') AND (doc_numero IS NOT NULL or doc_numero ='0')  "
     rs.Open GlSqlAux, db, adOpenStatic
     ExisteReg2 = rs!Cuantos2 > 0
 End Function
@@ -4721,7 +4721,7 @@ Private Sub BtnAñadir2_Click()
         'dia_fecha Inicial
         Set rs_aux10 = New ADODB.Recordset
         If rs_aux10.State = 1 Then rs_aux10.Close
-        rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND (estado_activo = 'ANL' OR estado_activo = 'APC') group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+        rs_aux10.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND (estado_activo = 'ANL' OR estado_activo = 'APC') group  by dia_fecha order by dia_fecha ", db, adOpenStatic
         Set Ado_datos10.Recordset = rs_aux10
         If Ado_datos10.Recordset.RecordCount > 0 Then
         End If
@@ -4729,24 +4729,24 @@ Private Sub BtnAñadir2_Click()
         'dia_fecha Final
         Set rs_aux11 = New ADODB.Recordset
         If rs_aux11.State = 1 Then rs_aux11.Close
-        rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final where fmes_plan  = " & VAR_FMES & " AND (estado_activo = 'ANL' OR estado_activo = 'APC') group  by dia_fecha order by dia_fecha ", db, adOpenStatic
+        rs_aux11.Open "Select dia_fecha from to_cronograma_diario_final_INST where fmes_plan  = " & VAR_FMES & " AND (estado_activo = 'ANL' OR estado_activo = 'APC') group  by dia_fecha order by dia_fecha ", db, adOpenStatic
         Set Ado_datos11.Recordset = rs_aux11
         If Ado_datos11.Recordset.RecordCount > 0 Then
         End If
    End If
 
 '    'Actualiza Codigos de Insumos al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '    'Actualiza Cantidad de Insumos al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '    'Quita Cantidad de Insumo3 en meses pares al Crono Final
-'    db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
+'    db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
 '    " where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
 '    'Actualiza Carta al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_insumos.carta " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_insumos.carta " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
   Else
       MsgBox "No se puede HABILITAR, el cronograma ya fue APROBADO o ANULADO ...", vbExclamation, "Validación de Registro"
   End If
@@ -4757,61 +4757,61 @@ Private Sub BtnAñadir3_Click()
     FraInsumos.Visible = True
 '    VAR_AUX2 = VAR_FMES     ' fmes_plan
 '    'Carga "Codigos de Insumos" al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_y_detalle.bien_codigo1 , to_cronograma_diario_final.bien_codigo2 = tv_cronograma_y_detalle.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_y_detalle.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_y_detalle.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_y_detalle.bien_codigo5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_y_detalle.bien_codigo1 , to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_y_detalle.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_y_detalle.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_y_detalle.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_y_detalle.bien_codigo5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final_INST.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
 '
-'    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-'    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+'    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '
 '    'Actualiza Cantidad de Insumos al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_y_detalle.cantidad1 , to_cronograma_diario_final.cantidad2 = tv_cronograma_y_detalle.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_y_detalle.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_y_detalle.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_y_detalle.cantidad5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_y_detalle.cantidad1 , to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_y_detalle.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_y_detalle.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_y_detalle.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_y_detalle.cantidad5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final_INST.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
 '
-'    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-'    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " "
+'    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+'    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " "
 '
 '    'Quita Cantidad de Insumo3 e Insumo4 en meses pares al Crono Final
 '    sino = MsgBox("Elija SI: para programar en meses PARES (FEB, ABR, JUN, AGO, OCT, DIC) los insumos 3 y 4..." & vbCr & _
 '             "Elija NO: para programar en meses IMPARES (ENE, MAR, MAY, JUL, SEP, NOV) los insumos 3 y 4....", vbYesNo + vbQuestion, "Atención")
 '    If sino = vbYes Then
 '        'PROGRAMAR en Mes PAR y QUITAR Mes IMPAR
-'        db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0', to_cronograma_diario_final.cantidad4 = '0' From to_cronograma_diario_final INNER JOIN tv_cronograma_mensual_impar ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_mensual_impar.fmes_plan ) " & _
-'        " where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & "  ) "
+'        db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0', to_cronograma_diario_final_INST.cantidad4 = '0' From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_mensual_impar ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_mensual_impar.fmes_plan ) " & _
+'        " where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & "  ) "
 '
 '
 '    Else
 '        'Mes PAR
-'        db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0', to_cronograma_diario_final.cantidad4 = '0' From to_cronograma_diario_final INNER JOIN tv_cronograma_mensual_par ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_mensual_par.fmes_plan ) " & _
-'        " where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & " ) "
+'        db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0', to_cronograma_diario_final_INST.cantidad4 = '0' From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_mensual_par ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_mensual_par.fmes_plan ) " & _
+'        " where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & " ) "
 '    End If
 '
 '    'Actualiza Cantidad de Insumos al Crono Final Bmes, Tmes, etc.
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and tv_cronograma_insumos.unimed_codigo <> 'MES' "
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and tv_cronograma_insumos.unimed_codigo <> 'MES' "
 '
 '    'Actualiza Carta al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_carta.carta " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_carta ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_carta.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final.bien_codigo <> '' "
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_carta.carta " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_carta ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_carta.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final_INST.bien_codigo <> '' "
 '
-'    db.Execute " update to_cronograma_diario_final set to_cronograma_diario_final.carta = tv_cronograma_y_detalle.carta from to_cronograma_diario_final inner join tv_cronograma_y_detalle on to_cronograma_diario_final.bien_codigo = tv_cronograma_y_detalle.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final.bien_codigo <> '' "
+'    db.Execute " update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.carta = tv_cronograma_y_detalle.carta from to_cronograma_diario_final_INST inner join tv_cronograma_y_detalle on to_cronograma_diario_final_INST.bien_codigo = tv_cronograma_y_detalle.bien_codigo where to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final_INST.bien_codigo <> '' "
 '
 ''    'Actualiza Carta al Crono Final
-''    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_insumos.carta " & _
-''    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+''    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_insumos.carta " & _
+''    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '
 '    'Carga Codigos de Insumos al Crono Final de Otras Zonas
-'    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-'    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+'    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '    'Actualiza Cantidad de Insumos al Crono Final de Otras Zonas
-'    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-'    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " "
+'    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+'    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " "
 '
 '    'Quita Cantidad de Insumo3 en meses pares al Crono Final
-'    'db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0', to_cronograma_diario_final.cantidad4 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan ) " & _
+'    'db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0', to_cronograma_diario_final_INST.cantidad4 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan ) " & _
 '    '" where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
 '    'Actualiza Cantidad de Insumos al Crono Final Bmes, Tmes, etc.
-'    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4 " & _
-'    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and tv_cronograma_insumos.unimed_codigo <> 'MES' "
+'    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4 " & _
+'    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and tv_cronograma_insumos.unimed_codigo <> 'MES' "
 '
 '    MsgBox "Se actualizaron los Insumos desde CRONOGRAMA POR CONTRATO correspondientes a la misma Gestión y Zona del CRONOGRAMA FINAL (DESTINO) ...", vbInformation, "Información"
   Else
@@ -4830,7 +4830,7 @@ Private Sub BtnAprobar_Click()
 '        VAR_CONT = 0
 '        Set rs_aux12 = New ADODB.Recordset
 '        If rs_aux12.State = 1 Then rs_aux12.Close
-'        'SQL_FOR = "SELECT to_cronograma_mensual.fmes_plan, to_cronograma_mensual.ges_gestion, to_cronograma_mensual.fmes_correl, to_cronograma_mensual.zpiloto_codigo, to_cronograma_diario_final.dia_correl, to_cronograma_diario_final.horario_codigo, to_cronograma_diario_final.bien_codigo FROM to_cronograma_mensual INNER JOIN to_cronograma_diario_final ON to_cronograma_mensual.fmes_plan = to_cronograma_diario_final.fmes_plan where (to_cronograma_mensual.fmes_plan = " & VAR_FMES & " AND bien_codigo <> '') ORDER BY to_cronograma_diario_final.dia_correl, to_cronograma_diario_final.horario_codigo"
+'        'SQL_FOR = "SELECT to_cronograma_mensual.fmes_plan, to_cronograma_mensual.ges_gestion, to_cronograma_mensual.fmes_correl, to_cronograma_mensual.zpiloto_codigo, to_cronograma_diario_final_INST.dia_correl, to_cronograma_diario_final_INST.horario_codigo, to_cronograma_diario_final_INST.bien_codigo FROM to_cronograma_mensual INNER JOIN to_cronograma_diario_final_INST ON to_cronograma_mensual.fmes_plan = to_cronograma_diario_final_INST.fmes_plan where (to_cronograma_mensual.fmes_plan = " & VAR_FMES & " AND bien_codigo <> '') ORDER BY to_cronograma_diario_final_INST.dia_correl, to_cronograma_diario_final_INST.horario_codigo"
 '        SQL_FOR = "SELECT * FROM tv_cronograma_mensual_y_final where (fmes_plan = " & VAR_FMES & " AND bien_codigo <> '') ORDER BY dia_correl, horario_codigo"
 '        rs_aux12.Open SQL_FOR, db, adOpenStatic  'group  by bien_codigo
 '        VAR_CONT = rs_aux12.RecordCount
@@ -5049,17 +5049,17 @@ Private Sub BtnGraba4_Click()
                 VAR_EDIF = ""
                 VAR_OBS = "(" + Trim(cmd_campo1.Text) + ")"
                 
-                db.Execute "update to_cronograma_diario_final set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = '0', cantidad2 = '0', cantidad3 = '0', cantidad4 = '0', cantidad5 = '0' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = '0', cantidad2 = '0', cantidad3 = '0', cantidad4 = '0', cantidad5 = '0' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
 
-                db.Execute "update to_cronograma_diario_final set bien_codigo = '', observaciones = '" & VAR_OBS & "', edif_descripcion = '" & VAR_EDIF & "', bien_orden = 0  WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '', observaciones = '" & VAR_OBS & "', edif_descripcion = '" & VAR_EDIF & "', bien_orden = 0  WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
             
             Case "APP"      'HORARIO POR CONFIRMAR
                 VAR_EDIF = Trim(rs_aux8!edif_descripcion)
                 VAR_OBS = "(" + Trim(cmd_campo1.Text) + ")"
                 
-                db.Execute "update to_cronograma_diario_final set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' "
+                db.Execute "update to_cronograma_diario_final_INST set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' "
                 
-                db.Execute "update to_cronograma_diario_final set edif_descripcion = '" & VAR_EDIF & "', observaciones = '" & VAR_OBS & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo  = '" & Ado_detalle2.Recordset!bien_codigo & "' "
+                db.Execute "update to_cronograma_diario_final_INST set edif_descripcion = '" & VAR_EDIF & "', observaciones = '" & VAR_OBS & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo  = '" & Ado_detalle2.Recordset!bien_codigo & "' "
                 
             Case "APR"      'HORARIO LABORAL Confirmado
                 VAR_EDIF = Trim(rs_aux8!edif_descripcion)
@@ -5069,9 +5069,9 @@ Private Sub BtnGraba4_Click()
                     VAR_OBS = "(" + Trim(txt_obs.Text) + ")"
                 End If
                 
-                db.Execute "update to_cronograma_diario_final set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' "
+                db.Execute "update to_cronograma_diario_final_INST set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' "
                 
-                db.Execute "update to_cronograma_diario_final set edif_descripcion = '" & VAR_EDIF & "', observaciones = '" & VAR_OBS & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo  = '" & Ado_detalle2.Recordset!bien_codigo & "' "
+                db.Execute "update to_cronograma_diario_final_INST set edif_descripcion = '" & VAR_EDIF & "', observaciones = '" & VAR_OBS & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND bien_codigo  = '" & Ado_detalle2.Recordset!bien_codigo & "' "
                 
         End Select
         
@@ -5081,20 +5081,20 @@ Private Sub BtnGraba4_Click()
                 VAR_EDIF = ""
                 VAR_OBS = cmd_campo1.Text
                 
-                db.Execute "update to_cronograma_diario_final set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = '0', cantidad2 = '0', cantidad3 = '0', cantidad4 = '0', cantidad5 = '0' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = '0', cantidad2 = '0', cantidad3 = '0', cantidad4 = '0', cantidad5 = '0' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
 
-                db.Execute "update to_cronograma_diario_final set bien_codigo = '', observaciones = '" & VAR_OBS & "', edif_descripcion = '" & VAR_EDIF & "', bien_orden = 0  WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '', observaciones = '" & VAR_OBS & "', edif_descripcion = '" & VAR_EDIF & "', bien_orden = 0  WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
                 
             Case "APP"  'HORARIO POR CONFIRMAR
                 VAR_EDIF = Trim(cmd_campo1.Text)
-                db.Execute "update to_cronograma_diario_final set edif_descripcion = '" & VAR_EDIF & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set edif_descripcion = '" & VAR_EDIF & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
                 
-                db.Execute "update to_cronograma_diario_final set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
             Case "APR"  'HORARIO LABORAL Confirmado
                 VAR_EDIF = ""
-                db.Execute "update to_cronograma_diario_final set edif_descripcion = '" & VAR_EDIF & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set edif_descripcion = '" & VAR_EDIF & "' WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
                 
-                db.Execute "update to_cronograma_diario_final set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
+                db.Execute "update to_cronograma_diario_final_INST set estado_activo = '" & txt_codigo01.Text & "', cantidad1 = " & CDbl(Txt_cant1.Text) & ", cantidad2 = " & CDbl(Txt_cant2.Text) & ", cantidad3 = " & CDbl(Txt_cant3.Text) & ", cantidad4 = " & CDbl(Txt_cant4.Text) & ", cantidad5 = " & CDbl(Txt_cant5.Text) & " WHERE fmes_plan = " & VAR_FMES & " AND dia_correl = " & Ado_detalle2.Recordset!dia_correl & " AND horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & " "
                 
         End Select
 
@@ -5146,7 +5146,7 @@ Private Sub BtnGrabar_Click()
 '     rs_datos.Update    'Batch 'adAffectAll
      db.Execute "Update to_cronograma_mensual Set fecha_registro= '" & Date & "', usr_codigo ='" & glusuario & "', beneficiario_codigo_resp = " & dtc_codigo4.Text & " Where fmes_plan = " & VAR_FMES & "   "
      db.Execute "Update to_cronograma_diario_inst Set beneficiario_codigo_resp = " & dtc_codigo4.Text & ", beneficiario_codigo_resp2 = " & dtc_codigo4.Text & " Where fmes_plan = " & VAR_FMES & "   "
-     db.Execute "Update to_cronograma_diario_final Set beneficiario_codigo_resp = " & dtc_codigo4.Text & ", beneficiario_codigo_resp2 = " & dtc_codigo4.Text & " Where fmes_plan = " & VAR_FMES & "   "
+     db.Execute "Update to_cronograma_diario_final_INST Set beneficiario_codigo_resp = " & dtc_codigo4.Text & ", beneficiario_codigo_resp2 = " & dtc_codigo4.Text & " Where fmes_plan = " & VAR_FMES & "   "
      Call OptFilGral1_Click
      'rs_datos.MoveFirst
 '     mbDataChanged = False
@@ -5209,7 +5209,7 @@ Private Sub BtnGrabar2_Click()
          Set rs_aux3 = New ADODB.Recordset
          If rs_aux3.State = 1 Then rs_aux3.Close
          'rs_aux3.Open "select * from to_cronograma_detalle where unidad_codigo_tec = '" & VAR_UNITEC & "' and tec_plan_codigo = " & VAR_TECCOD & "   ", db, adOpenKeyset, adLockBatchOptimistic
-         rs_aux3.Open "select * from to_cronograma_diario_final where fmes_plan = " & VAR_AUX2 & "   ", db, adOpenKeyset, adLockBatchOptimistic
+         rs_aux3.Open "select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_AUX2 & "   ", db, adOpenKeyset, adLockBatchOptimistic
          If rs_aux3.RecordCount > 0 Then
              rs_aux3.MoveFirst
              While Not rs_aux3.EOF
@@ -5218,7 +5218,7 @@ Private Sub BtnGrabar2_Click()
                    If VAR_COD0 < cmd_campo2.Text And rs_aux3!estado_activo = "REG" Then        '
                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-                        db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
                         VAR_COD0 = VAR_COD0 + 2
                         CONT3 = 1
                    End If
@@ -5226,7 +5226,7 @@ Private Sub BtnGrabar2_Click()
                     If VAR_COD0 < 1 And rs_aux3!estado_activo = "REG" Then        '
                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-                        db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
                         VAR_COD0 = VAR_COD0 + 1
                         CONT3 = 1
                    End If
@@ -5236,9 +5236,9 @@ Private Sub BtnGrabar2_Click()
 '                      If VAR_COD0 < 2 And rs_aux3!estado_activo = "REG" Then        '
 '                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
 '                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-'                         db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-'                         'db.Execute "update to_cronograma_diario_final set bien_orden = " & rs_aux2!bien_orden & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-'                         'db.Execute "update to_cronograma_diario_final set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                         db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                         'db.Execute "update to_cronograma_diario_final_INST set bien_orden = " & rs_aux2!bien_orden & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                         'db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
 '                         VAR_COD0 = VAR_COD0 + 1
 '                         CONT3 = 1
 '                      End If
@@ -5248,9 +5248,9 @@ Private Sub BtnGrabar2_Click()
 '                      If VAR_COD0 < 2 And rs_aux3!estado_activo = "REG" Then        '
 '                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
 '                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-'                         db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-'                         'db.Execute "update to_cronograma_diario_final set bien_orden = " & rs_aux2!bien_orden & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-'                         'db.Execute "update to_cronograma_diario_final set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                         db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                         'db.Execute "update to_cronograma_diario_final_INST set bien_orden = " & rs_aux2!bien_orden & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                         'db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
 '                         VAR_COD0 = VAR_COD0 + 1
 '                         CONT3 = 1
 '                      End If
@@ -5261,20 +5261,20 @@ Private Sub BtnGrabar2_Click()
              Wend
          End If
      End If
-     db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final.bien_codigo  = av_bienes_vs_edificios.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final.bien_codigo <>'' "
+     db.Execute "update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final_INST INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final_INST.bien_codigo  = av_bienes_vs_edificios.bien_codigo where to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final_INST.bien_codigo <>'' "
     
     'Actualiza Codigos de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
     'Actualiza Cantidad de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "' AND to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "' AND to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " "
     'Quita Cantidad de Insumo3 en meses pares al Crono Final
-'    db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan AND to_cronograma_diario_final.bien_codigo  = to_cronograma_mensual.bien_codigo) " & _
+'    db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan AND to_cronograma_diario_final_INST.bien_codigo  = to_cronograma_mensual.bien_codigo) " & _
 '    " where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
     'Actualiza Carta al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_insumos.carta " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_insumos.carta " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 
 '     Call BtnAñadir2_Click
      fraOpciones.Enabled = True
@@ -5303,7 +5303,7 @@ Private Sub COPIA_TODOS()
          Set rs_aux3 = New ADODB.Recordset
          If rs_aux3.State = 1 Then rs_aux3.Close
          'rs_aux3.Open "select * from to_cronograma_detalle where unidad_codigo_tec = '" & VAR_UNITEC & "' and tec_plan_codigo = " & VAR_TECCOD & "   ", db, adOpenKeyset, adLockBatchOptimistic
-         rs_aux3.Open "select * from to_cronograma_diario_final where fmes_plan = " & VAR_AUX2 & "  and estado_codigo = 'REG' ", db, adOpenKeyset, adLockBatchOptimistic
+         rs_aux3.Open "select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_AUX2 & "  and estado_codigo = 'REG' ", db, adOpenKeyset, adLockBatchOptimistic
          If rs_aux3.RecordCount > 0 Then
              rs_aux3.MoveFirst
              While Not rs_aux3.EOF
@@ -5312,7 +5312,7 @@ Private Sub COPIA_TODOS()
                    If VAR_COD0 < cmd_campo2.Text And rs_aux3!estado_activo = "REG" Then        '
                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-                        db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
                         VAR_COD0 = VAR_COD0 + 2
                         CONT3 = 1
                    End If
@@ -5320,7 +5320,7 @@ Private Sub COPIA_TODOS()
                     If VAR_COD0 < 1 And rs_aux3!estado_activo = "REG" Then        '
                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-                        db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
                         VAR_COD0 = VAR_COD0 + 1
                         CONT3 = 1
                    End If
@@ -5333,20 +5333,20 @@ Private Sub COPIA_TODOS()
         rs_aux2.MoveNext
        Wend
      End If
-     db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final.bien_codigo  = av_bienes_vs_edificios.bien_codigo"
+     db.Execute "update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final_INST INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final_INST.bien_codigo  = av_bienes_vs_edificios.bien_codigo"
     
     'Actualiza Codigos de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
     'Actualiza Cantidad de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "' AND to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "' AND to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " "
     'Quita Cantidad de Insumo3 en meses pares al Crono Final
-'    db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan AND to_cronograma_diario_final.bien_codigo  = to_cronograma_mensual.bien_codigo) " & _
+'    db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan AND to_cronograma_diario_final_INST.bien_codigo  = to_cronograma_mensual.bien_codigo) " & _
 '    " where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
     'Actualiza Carta al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_insumos.carta " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_insumos.carta " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '     Call BtnAñadir2_Click
     'WWWWW GENERA CRONOGRAMA DIARIO UNO POR UNO (FIN)
     'wwwwwwwwwwwwwwwwwwwwwwwwwwwww
@@ -5369,7 +5369,7 @@ Private Sub COPIA_ALGUNOS()
          Set rs_aux3 = New ADODB.Recordset
          If rs_aux3.State = 1 Then rs_aux3.Close
          'rs_aux3.Open "select * from to_cronograma_detalle where unidad_codigo_tec = '" & VAR_UNITEC & "' and tec_plan_codigo = " & VAR_TECCOD & "   ", db, adOpenKeyset, adLockBatchOptimistic
-         rs_aux3.Open "select * from to_cronograma_diario_final where fmes_plan = " & VAR_AUX2 & " and estado_codigo = 'REG' ", db, adOpenKeyset, adLockBatchOptimistic
+         rs_aux3.Open "select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_AUX2 & " and estado_codigo = 'REG' ", db, adOpenKeyset, adLockBatchOptimistic
          If rs_aux3.RecordCount > 0 Then
              rs_aux3.MoveFirst
              While Not rs_aux3.EOF
@@ -5378,7 +5378,7 @@ Private Sub COPIA_ALGUNOS()
                    If VAR_COD0 < cmd_campo2.Text And rs_aux3!estado_activo = "REG" Then        '
                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-                        db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
                         VAR_COD0 = VAR_COD0 + 2
                         CONT3 = 1
                    End If
@@ -5386,7 +5386,7 @@ Private Sub COPIA_ALGUNOS()
                     If VAR_COD0 < 1 And rs_aux3!estado_activo = "REG" Then        '
                         'db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux2!dia_correl & " AND horario_codigo = " & rs_aux2!horario_codigo & "  "
                         db.Execute "update to_cronograma_diario_inst set estado_codigo = 'APR', estado_activo = 'APR'  WHERE fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  "
-                        db.Execute "update to_cronograma_diario_final set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & rs_aux2!unidad_codigo_tec & "',  tec_plan_codigo = " & rs_aux2!tec_plan_codigo & ", bien_orden = " & rs_aux2!bien_orden & ", estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
                         VAR_COD0 = VAR_COD0 + 1
                         CONT3 = 1
                    End If
@@ -5399,20 +5399,20 @@ Private Sub COPIA_ALGUNOS()
         rs_aux2.MoveNext
        Wend
      End If
-     db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final.bien_codigo  = av_bienes_vs_edificios.bien_codigo"
+     db.Execute "update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final_INST INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final_INST.bien_codigo  = av_bienes_vs_edificios.bien_codigo"
     
     'Actualiza Codigos de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
     'Actualiza Cantidad de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "' AND to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "' AND to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " "
     'Quita Cantidad de Insumo3 en meses pares al Crono Final
-'    db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan AND to_cronograma_diario_final.bien_codigo  = to_cronograma_mensual.bien_codigo) " & _
+'    db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan AND to_cronograma_diario_final_INST.bien_codigo  = to_cronograma_mensual.bien_codigo) " & _
 '    " where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
     'Actualiza Carta al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_insumos.carta " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_insumos.carta " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 
 '     Call BtnAñadir2_Click
     'WWWWW GENERA CRONOGRAMA DIARIO UNO POR UNO (FIN)
@@ -5429,11 +5429,11 @@ Private Sub BtnGrabar5_Click()
     If dtc_desc9.Text = "Todos" And DTPfecha2.Text <> "Todos" Then
         VAR_FECH1 = CDate(DTPfecha2.Text)
         VAR_FECH2 = CDate(DTPfecha3.Text)
-        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
 
         db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.hora_registro  = '00' WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '')"
 
-        db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.hora_registro  = 'OK' FROM to_cronograma_diario_inst INNER JOIN to_cronograma_diario_final ON to_cronograma_diario_inst.fmes_plan = to_cronograma_diario_final.fmes_plan and to_cronograma_diario_inst.bien_codigo  = to_cronograma_diario_final.bien_codigo WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '') "
+        db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.hora_registro  = 'OK' FROM to_cronograma_diario_inst INNER JOIN to_cronograma_diario_final_INST ON to_cronograma_diario_inst.fmes_plan = to_cronograma_diario_final_INST.fmes_plan and to_cronograma_diario_inst.bien_codigo  = to_cronograma_diario_final_INST.bien_codigo WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '') "
 
         db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.estado_activo  = 'REG', to_cronograma_diario_inst.estado_codigo  = 'REG' WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '') AND (to_cronograma_diario_inst.hora_registro  = '00')"
 
@@ -5444,13 +5444,13 @@ Private Sub BtnGrabar5_Click()
     Else
         VAR_FECH1 = CDate(DTPfecha2.Text)
         VAR_FECH2 = CDate(DTPfecha3.Text)
-        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and trim(edif_descripcion) = '" & Trim(dtc_desc9.Text) & "' and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' and trim(edif_descripcion) = '" & Trim(dtc_desc9.Text) & "' and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
 
         'db.Execute "UPDATE to_cronograma_diario_inst set estado_activo = 'REG', estado_codigo = 'REG'  where fmes_plan  = " & VAR_FMES & " AND estado_activo = 'APR' and trim(edif_descripcion) = '" & Trim(dtc_desc9.Text) & "' and dia_fecha between ('" & CDate(dtpFecha2.Text) & "' and '" & CDate(DTPfecha3.Text) & "') "
         
         db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.hora_registro  = '00' WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '')"
 
-        db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.hora_registro  = 'OK' FROM to_cronograma_diario_inst INNER JOIN to_cronograma_diario_final ON to_cronograma_diario_inst.fmes_plan = to_cronograma_diario_final.fmes_plan and to_cronograma_diario_inst.bien_codigo  = to_cronograma_diario_final.bien_codigo WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '') "
+        db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.hora_registro  = 'OK' FROM to_cronograma_diario_inst INNER JOIN to_cronograma_diario_final_INST ON to_cronograma_diario_inst.fmes_plan = to_cronograma_diario_final_INST.fmes_plan and to_cronograma_diario_inst.bien_codigo  = to_cronograma_diario_final_INST.bien_codigo WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '') "
 
         db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.estado_activo  = 'REG', to_cronograma_diario_inst.estado_codigo  = 'REG' WHERE (to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & ") AND (to_cronograma_diario_inst.bien_codigo <> '') AND (to_cronograma_diario_inst.hora_registro  = '00')"
       
@@ -5463,7 +5463,7 @@ End Sub
 Private Sub BtnGrabar6_Click()
     Set rs_aux6 = New ADODB.Recordset
     If rs_aux6.State = 1 Then rs_aux6.Close
-    rs_aux6.Open "Select * from to_cronograma_diario_final where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
+    rs_aux6.Open "Select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
     If rs_aux6.RecordCount > 0 Then
         'MsgBox "Ya existen registros en el CRONOGRAMA FINAL (DESTINO), debe deshabilitarlos (Retornar) o utilizar el botón (Envia Uno) ...", vbExclamation, "Validación de Registro"
         MsgBox "Ya existen registros en el CRONOGRAMA FINAL (DESTINO), solo podrá procesar la opción 3. ...", vbExclamation, "Validación de Registro"
@@ -5477,9 +5477,9 @@ Private Sub BtnGrabar6_Click()
         db.Execute "UPDATE to_cronograma_diario_inst set to_cronograma_diario_inst.estado_codigo   = 'APR' where to_cronograma_diario_inst.fmes_plan  = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
       End If
       If Option7.Value = True Then
-        db.Execute "UPDATE to_cronograma_diario_final SET to_cronograma_diario_final.bien_orden  = to_cronograma_diario_inst.bien_orden, to_cronograma_diario_final.bien_codigo = to_cronograma_diario_inst.bien_codigo, to_cronograma_diario_final.unidad_codigo_tec = to_cronograma_diario_inst.unidad_codigo_tec, " & _
-        " to_cronograma_diario_final.tec_plan_codigo = to_cronograma_diario_inst.tec_plan_codigo, to_cronograma_diario_final.edif_descripcion = to_cronograma_diario_inst.edif_descripcion, to_cronograma_diario_final.estado_activo = 'APR' FROM to_cronograma_diario_final INNER JOIN to_cronograma_diario_inst " & _
-        " ON to_cronograma_diario_final.fmes_plan  = to_cronograma_diario_inst.fmes_plan AND to_cronograma_diario_final.dia_correl  = to_cronograma_diario_inst.dia_correl AND to_cronograma_diario_final.horario_codigo = to_cronograma_diario_inst.horario_codigo WHERE to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_orden  = to_cronograma_diario_inst.bien_orden, to_cronograma_diario_final_INST.bien_codigo = to_cronograma_diario_inst.bien_codigo, to_cronograma_diario_final_INST.unidad_codigo_tec = to_cronograma_diario_inst.unidad_codigo_tec, " & _
+        " to_cronograma_diario_final_INST.tec_plan_codigo = to_cronograma_diario_inst.tec_plan_codigo, to_cronograma_diario_final_INST.edif_descripcion = to_cronograma_diario_inst.edif_descripcion, to_cronograma_diario_final_INST.estado_activo = 'APR' FROM to_cronograma_diario_final_INST INNER JOIN to_cronograma_diario_inst " & _
+        " ON to_cronograma_diario_final_INST.fmes_plan  = to_cronograma_diario_inst.fmes_plan AND to_cronograma_diario_final_INST.dia_correl  = to_cronograma_diario_inst.dia_correl AND to_cronograma_diario_final_INST.horario_codigo = to_cronograma_diario_inst.horario_codigo WHERE to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
 
         db.Execute "UPDATE to_cronograma_diario_inst set to_cronograma_diario_inst.estado_codigo   = 'APR' where to_cronograma_diario_inst.fmes_plan  = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
       End If
@@ -5501,9 +5501,9 @@ Private Sub BtnGrabar7_Click()
     VAR_FECH2 = CDate(DTPfecha5.Text)
     
     If VAR_SW2 = "HAB" Then
-        db.Execute "UPDATE to_cronograma_diario_final SET estado_activo  = 'REG', observaciones = 'HORARIO LABORABLE', edif_descripcion = '', tec_plan_codigo = '0' WHERE fmes_plan = " & VAR_FMES & " AND (estado_activo = 'ANL' OR estado_activo = 'APC') and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET estado_activo  = 'REG', observaciones = 'HORARIO LABORABLE', edif_descripcion = '', tec_plan_codigo = '0' WHERE fmes_plan = " & VAR_FMES & " AND (estado_activo = 'ANL' OR estado_activo = 'APC') and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
     Else
-        db.Execute "UPDATE to_cronograma_diario_final SET estado_activo  = 'ANL', observaciones = 'HORARIO NO LABORABLE', edif_descripcion = '', tec_plan_codigo = '0' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo <> 'APR' and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET estado_activo  = 'ANL', observaciones = 'HORARIO NO LABORABLE', edif_descripcion = '', tec_plan_codigo = '0' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo <> 'APR' and dia_fecha between '" & VAR_FECH1 & "' and '" & VAR_FECH2 & "' "
     End If
     Call ABRIR_TABLA_DET
     FraDet7.Visible = False
@@ -5518,12 +5518,12 @@ End Sub
 Private Sub BtnGrabar8_Click()
     VAR_AUX2 = VAR_FMES     ' fmes_plan
     'Carga "Codigos de Insumos" al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1 = tv_cronograma_y_detalle.bien_codigo1 , to_cronograma_diario_final.bien_codigo2 = tv_cronograma_y_detalle.bien_codigo2, to_cronograma_diario_final.bien_codigo3 = tv_cronograma_y_detalle.bien_codigo3, to_cronograma_diario_final.bien_codigo4 = tv_cronograma_y_detalle.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_y_detalle.bien_codigo5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1 = tv_cronograma_y_detalle.bien_codigo1 , to_cronograma_diario_final_INST.bien_codigo2 = tv_cronograma_y_detalle.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3 = tv_cronograma_y_detalle.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4 = tv_cronograma_y_detalle.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_y_detalle.bien_codigo5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final_INST.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
 
     'Actualiza Cantidad de Insumos al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_y_detalle.cantidad1 , to_cronograma_diario_final.cantidad2 = tv_cronograma_y_detalle.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_y_detalle.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_y_detalle.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_y_detalle.cantidad5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_y_detalle.cantidad1 , to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_y_detalle.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_y_detalle.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_y_detalle.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_y_detalle.cantidad5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_y_detalle ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_y_detalle.bien_codigo AND to_cronograma_diario_final_INST.unidad_codigo_tec = tv_cronograma_y_detalle.unidad_codigo_tec) where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & ") and (tv_cronograma_y_detalle.zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND tv_cronograma_y_detalle.ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' ) "
     
 '    'Quita Cantidad de Insumo3 e Insumo4 en meses pares al Crono Final
 '    sino = MsgBox("Elija SI: para programar en meses PARES (FEB, ABR, JUN, AGO, OCT, DIC) los insumos 3 y 4..." & vbCr & _
@@ -5531,23 +5531,23 @@ Private Sub BtnGrabar8_Click()
 '    If sino = vbYes Then
     If Option10.Value = True Then
         'Programar Meses IMPARES y quitar PARES
-        db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0', to_cronograma_diario_final.cantidad4 = '0' From to_cronograma_diario_final INNER JOIN tv_cronograma_mensual_par ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_mensual_par.fmes_plan ) " & _
-        " where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & " ) "
+        db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0', to_cronograma_diario_final_INST.cantidad4 = '0' From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_mensual_par ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_mensual_par.fmes_plan ) " & _
+        " where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & " ) "
     Else
         'PROGRAMAR en Meses PARES y quitar Mes IMPARES
-        db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0', to_cronograma_diario_final.cantidad4 = '0' From to_cronograma_diario_final INNER JOIN tv_cronograma_mensual_impar ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_mensual_impar.fmes_plan ) " & _
-        " where (to_cronograma_diario_final.fmes_plan >= " & VAR_AUX2 & "  ) "
+        db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0', to_cronograma_diario_final_INST.cantidad4 = '0' From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_mensual_impar ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_mensual_impar.fmes_plan ) " & _
+        " where (to_cronograma_diario_final_INST.fmes_plan >= " & VAR_AUX2 & "  ) "
     End If
     
     'Actualiza Cantidad de Insumos al Crono Final Bmes, Tmes, etc.
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and tv_cronograma_insumos.unimed_codigo <> 'MES' "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and tv_cronograma_insumos.unimed_codigo <> 'MES' "
     
     'Actualiza Carta al Crono Final
-    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_carta.carta " & _
-    " From to_cronograma_diario_final INNER JOIN tv_cronograma_carta ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_carta.bien_codigo) WHERE to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final.bien_codigo <> '' "
+    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_carta.carta " & _
+    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_carta ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_carta.bien_codigo) WHERE to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final_INST.bien_codigo <> '' "
     
-    db.Execute " update to_cronograma_diario_final set to_cronograma_diario_final.carta = tv_cronograma_y_detalle.carta from to_cronograma_diario_final inner join tv_cronograma_y_detalle on to_cronograma_diario_final.bien_codigo = tv_cronograma_y_detalle.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final.bien_codigo <> '' "
+    db.Execute " update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.carta = tv_cronograma_y_detalle.carta from to_cronograma_diario_final_INST inner join tv_cronograma_y_detalle on to_cronograma_diario_final_INST.bien_codigo = tv_cronograma_y_detalle.bien_codigo where to_cronograma_diario_final_INST.fmes_plan = " & VAR_AUX2 & " and to_cronograma_diario_final_INST.bien_codigo <> '' "
     
     MsgBox "Se actualizaron los Insumos desde CRONOGRAMA POR CONTRATO correspondientes a la misma Gestión y Zona del CRONOGRAMA FINAL (DESTINO) ...", vbInformation, "Información"
 End Sub
@@ -5555,29 +5555,29 @@ End Sub
 Private Sub BtnImprimir_Click()
 If Ado_datos.Recordset.RecordCount > 0 Then
 '    'Actualiza Codigos de Insumos al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '    'Actualiza Cantidad de Insumos al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.cantidad1 = tv_cronograma_insumos.cantidad1, to_cronograma_diario_final_INST.cantidad2 = tv_cronograma_insumos.cantidad2, to_cronograma_diario_final_INST.cantidad3 = tv_cronograma_insumos.cantidad3, to_cronograma_diario_final_INST.cantidad4 = tv_cronograma_insumos.cantidad4, to_cronograma_diario_final_INST.cantidad5 = tv_cronograma_insumos.cantidad5 " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 '    'Quita Cantidad de Insumo3 en meses pares al Crono Final
-'    db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
+'    db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
 '    " where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
 '    'Actualiza Carta al Crono Final
-'    db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_insumos.carta " & _
-'    " From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+'    db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_insumos.carta " & _
+'    " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
     
-    'to_cronograma_diario_final
+    'to_cronograma_diario_final_INST
     Set rs_datos1 = New ADODB.Recordset
     If rs_datos1.State = 1 Then rs_datos1.Close
-    rs_datos1.Open "select distinct bien_codigo  from to_cronograma_diario_final where fmes_plan = " & Ado_datos.Recordset!fmes_plan & " and bien_codigo <>'' ", db, adOpenStatic
+    rs_datos1.Open "select distinct bien_codigo  from to_cronograma_diario_final_INST where fmes_plan = " & Ado_datos.Recordset!fmes_plan & " and bien_codigo <>'' ", db, adOpenStatic
     If rs_datos1.RecordCount > 0 Then
         VAR_REG = rs_datos1.RecordCount
         VAR_CANT1 = rs_datos1.RecordCount
         'Actualiza Carta al Crono Final
-'        db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.carta  = tv_cronograma_carta.carta " & _
-'        " From to_cronograma_diario_final INNER JOIN tv_cronograma_carta ON (to_cronograma_diario_final.bien_codigo  = tv_cronograma_carta.bien_codigo)  " & _
-'        " WHERE to_cronograma_diario_final.fmes_plan = " & Ado_datos.Recordset!fmes_plan & " and to_cronograma_diario_final.bien_codigo <> '' "
+'        db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.carta  = tv_cronograma_carta.carta " & _
+'        " From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_carta ON (to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_carta.bien_codigo)  " & _
+'        " WHERE to_cronograma_diario_final_INST.fmes_plan = " & Ado_datos.Recordset!fmes_plan & " and to_cronograma_diario_final_INST.bien_codigo <> '' "
     Else
         VAR_REG = "0"
         VAR_CANT1 = "0"
@@ -5628,10 +5628,10 @@ End Sub
 
 Private Sub BtnImprimir2_Click()
 If Ado_datos.Recordset.RecordCount > 0 Then
-    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 
-    'db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
+    'db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
     '" where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
     
     Dim iResult As Integer
@@ -5675,10 +5675,10 @@ End Sub
 
 Private Sub BtnImprimir3_Click()
 If Ado_datos.Recordset.RecordCount > 0 Then
-    'db.Execute "Update to_cronograma_diario_final SET to_cronograma_diario_final.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
-    '" From to_cronograma_diario_final INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
+    'db.Execute "Update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_codigo1  = tv_cronograma_insumos.bien_codigo1, to_cronograma_diario_final_INST.bien_codigo2   = tv_cronograma_insumos.bien_codigo2, to_cronograma_diario_final_INST.bien_codigo3   = tv_cronograma_insumos.bien_codigo3, to_cronograma_diario_final_INST.bien_codigo4   = tv_cronograma_insumos.bien_codigo4, to_cronograma_diario_final_INST.bien_codigo5 = tv_cronograma_insumos.bien_codigo5 " & _
+    '" From to_cronograma_diario_final_INST INNER JOIN tv_cronograma_insumos ON (to_cronograma_diario_final_INST.fmes_plan = tv_cronograma_insumos.fmes_plan and to_cronograma_diario_final_INST.bien_codigo  = tv_cronograma_insumos.bien_codigo)"
 
-    'db.Execute "Update to_cronograma_diario_final set to_cronograma_diario_final.cantidad3 = '0' From to_cronograma_diario_final INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
+    'db.Execute "Update to_cronograma_diario_final_INST set to_cronograma_diario_final_INST.cantidad3 = '0' From to_cronograma_diario_final_INST INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final_INST.fmes_plan = to_cronograma_mensual.fmes_plan) " & _
     '" where to_cronograma_mensual.fmes_correl = '2' or to_cronograma_mensual.fmes_correl = '4' or to_cronograma_mensual.fmes_correl = '6' or to_cronograma_mensual.fmes_correl = '8' or to_cronograma_mensual.fmes_correl = '10' or to_cronograma_mensual.fmes_correl = '12' "
     
     Dim iResult As Integer
@@ -5779,11 +5779,11 @@ End Sub
 
 Private Sub BtnModDetalle2_Click()
   If Ado_datos.Recordset!estado_codigo = "REG" Then
-    'to_cronograma_diario_final
+    'to_cronograma_diario_final_INST
     FraDet6.Visible = True
 '    Set rs_aux6 = New ADODB.Recordset
 '    If rs_aux6.State = 1 Then rs_aux6.Close
-'    rs_aux6.Open "Select * from to_cronograma_diario_final where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
+'    rs_aux6.Open "Select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
 '    If rs_aux6.RecordCount > 0 Then
 '        MsgBox "Ya existen registros en el CRONOGRAMA FINAL (DESTINO), debe deshabilitarlos (Retornar) o utilizar el botón (Envia Uno) ...", vbExclamation, "Validación de Registro"
 '    Else
@@ -5793,9 +5793,9 @@ Private Sub BtnModDetalle2_Click()
 '        db.Execute "UPDATE to_cronograma_diario_inst set to_cronograma_diario_inst.estado_codigo   = 'APR' where to_cronograma_diario_inst.fmes_plan  = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
 '      Else
 '        If sino = vbNo Then
-'            db.Execute "UPDATE to_cronograma_diario_final SET to_cronograma_diario_final.bien_orden  = to_cronograma_diario_inst.bien_orden, to_cronograma_diario_final.bien_codigo = to_cronograma_diario_inst.bien_codigo, to_cronograma_diario_final.unidad_codigo_tec = to_cronograma_diario_inst.unidad_codigo_tec, " & _
-'            " to_cronograma_diario_final.tec_plan_codigo = to_cronograma_diario_inst.tec_plan_codigo, to_cronograma_diario_final.edif_descripcion = to_cronograma_diario_inst.edif_descripcion, to_cronograma_diario_final.estado_activo = 'APR' FROM to_cronograma_diario_final INNER JOIN to_cronograma_diario_inst " & _
-'            " ON to_cronograma_diario_final.fmes_plan  = to_cronograma_diario_inst.fmes_plan AND to_cronograma_diario_final.dia_correl  = to_cronograma_diario_inst.dia_correl AND to_cronograma_diario_final.horario_codigo = to_cronograma_diario_inst.horario_codigo WHERE to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
+'            db.Execute "UPDATE to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.bien_orden  = to_cronograma_diario_inst.bien_orden, to_cronograma_diario_final_INST.bien_codigo = to_cronograma_diario_inst.bien_codigo, to_cronograma_diario_final_INST.unidad_codigo_tec = to_cronograma_diario_inst.unidad_codigo_tec, " & _
+'            " to_cronograma_diario_final_INST.tec_plan_codigo = to_cronograma_diario_inst.tec_plan_codigo, to_cronograma_diario_final_INST.edif_descripcion = to_cronograma_diario_inst.edif_descripcion, to_cronograma_diario_final_INST.estado_activo = 'APR' FROM to_cronograma_diario_final_INST INNER JOIN to_cronograma_diario_inst " & _
+'            " ON to_cronograma_diario_final_INST.fmes_plan  = to_cronograma_diario_inst.fmes_plan AND to_cronograma_diario_final_INST.dia_correl  = to_cronograma_diario_inst.dia_correl AND to_cronograma_diario_final_INST.horario_codigo = to_cronograma_diario_inst.horario_codigo WHERE to_cronograma_diario_inst.fmes_plan = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
 '
 '            db.Execute "UPDATE to_cronograma_diario_inst set to_cronograma_diario_inst.estado_codigo   = 'APR' where to_cronograma_diario_inst.fmes_plan  = " & VAR_FMES & " AND to_cronograma_diario_inst.estado_activo = 'APR' "
 '        End If
@@ -5864,7 +5864,7 @@ End Sub
 Private Sub BtnVer2_Click()
     Set rs_aux14 = New ADODB.Recordset
     If rs_aux14.State = 1 Then rs_aux14.Close
-    rs_aux14.Open "select * from to_cronograma_diario_final where fmes_plan = '" & VAR_FMES & "'  and estado_activo = 'APR' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    rs_aux14.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "'  and estado_activo = 'APR' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
     'rs_det1.Sort = "bien_orden"
     If rs_aux14.RecordCount > 0 Then
         MsgBox "No se puede Actualizar el #Horas ni Orden, porque ya existen registros en el Cronograma Final de esta Zona en el Mes a procesar, Vuelva a Intentar ...", vbExclamation, "Validación"
@@ -6103,7 +6103,7 @@ Private Sub Form_Load()
             ''SSTab1.TabEnabled(1) = False
             'SSTab1.TabVisible(1) = False
    'End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -6473,7 +6473,7 @@ On Error GoTo UpdateErr
     If Option1.Value = True Then
         Set rs_det2 = New ADODB.Recordset
         If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from to_cronograma_diario_final where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
         'rs_det2.Sort = "bien_orden"
         Set Ado_detalle2.Recordset = rs_det2
         If Ado_detalle2.Recordset.RecordCount > 0 Then
@@ -6488,7 +6488,7 @@ On Error GoTo UpdateErr
     If Option2.Value = True Then
         Set rs_det2 = New ADODB.Recordset
         If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from to_cronograma_diario_final where fmes_plan = '" & VAR_FMES & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText
         'rs_det2.Sort = "bien_orden"
         Set Ado_detalle2.Recordset = rs_det2
         If Ado_detalle2.Recordset.RecordCount > 0 Then
@@ -6503,7 +6503,7 @@ On Error GoTo UpdateErr
     If Option5.Value = True Then
         Set rs_det2 = New ADODB.Recordset
         If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from to_cronograma_diario_final where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND estado_activo <> 'APR' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND estado_activo <> 'APR' ", db, adOpenKeyset, adLockOptimistic, adCmdText
         'rs_det2.Sort = "bien_orden"
         Set Ado_detalle2.Recordset = rs_det2
         If Ado_detalle2.Recordset.RecordCount > 0 Then

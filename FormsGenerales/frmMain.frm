@@ -19,11 +19,11 @@ Begin VB.MDIForm frmMain
       Height          =   2055
       Left            =   0
       ScaleHeight     =   1995
-      ScaleWidth      =   20190
+      ScaleWidth      =   11220
       TabIndex        =   27
       Top             =   525
       Visible         =   0   'False
-      Width           =   20250
+      Width           =   11280
       Begin VB.Frame Frame1 
          Caption         =   "ALERTAS"
          BeginProperty Font 
@@ -105,10 +105,10 @@ Begin VB.MDIForm frmMain
       Height          =   525
       Left            =   0
       ScaleHeight     =   525
-      ScaleWidth      =   20250
+      ScaleWidth      =   11280
       TabIndex        =   10
       Top             =   0
-      Width           =   20250
+      Width           =   11280
       Begin VB.CommandButton CmdRepA 
          BackColor       =   &H00E0E0E0&
          Caption         =   "Cambiar Contraseña"
@@ -444,10 +444,10 @@ Begin VB.MDIForm frmMain
       Height          =   270
       Left            =   0
       ScaleHeight     =   210
-      ScaleWidth      =   20190
+      ScaleWidth      =   11220
       TabIndex        =   0
-      Top             =   10365
-      Width           =   20250
+      Top             =   7410
+      Width           =   11280
       Begin VB.Label txtVersion 
          AutoSize        =   -1  'True
          Caption         =   "Usuario:"
@@ -616,9 +616,9 @@ Begin VB.MDIForm frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   26
-      Top             =   9975
-      Width           =   20250
-      _ExtentX        =   35719
+      Top             =   7020
+      Width           =   11280
+      _ExtentX        =   19897
       _ExtentY        =   688
       _Version        =   327682
       Appearance      =   1
@@ -1617,10 +1617,16 @@ End Sub
 Private Sub Mnu_CronogramaInstalaciones_Click()
     If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "NPAREDES" Then
         Aux = "DNINS"
-        tw_tecnico_cronograma.lbl_titulo = Mnu_CronogramaInstalaciones.Caption
-        tw_tecnico_cronograma.FraNavega = Mnu_CronogramaInstalaciones.Caption
-        tw_tecnico_cronograma.lbl_titulo2 = Mnu_CronogramaInstalaciones.Caption
-        tw_tecnico_cronograma.Show
+        'tw_cronograma_mensual_inst
+        tw_cronograma_mensual_inst.lbl_titulo = Mnu_CronogramaInstalaciones.Caption
+        tw_cronograma_mensual_inst.FraNavega = Mnu_CronogramaInstalaciones.Caption
+        tw_cronograma_mensual_inst.lbl_titulo2 = Mnu_CronogramaInstalaciones.Caption
+        tw_cronograma_mensual_inst.Show
+        
+'        tw_tecnico_cronograma.lbl_titulo = Mnu_CronogramaInstalaciones.Caption
+'        tw_tecnico_cronograma.FraNavega = Mnu_CronogramaInstalaciones.Caption
+'        tw_tecnico_cronograma.lbl_titulo2 = Mnu_CronogramaInstalaciones.Caption
+'        tw_tecnico_cronograma.Show
     Else
         MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
     End If
