@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119865345
+         Format          =   119013377
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119865345
+         Format          =   119013377
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119865345
+         Format          =   119013377
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -367,14 +367,14 @@ Begin VB.Form fw_conciliacion_bancaria
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "BtnImprimir2"
-      Tab(1).Control(1)=   "BtnBuscar2"
-      Tab(1).Control(2)=   "BtnBuscar3"
-      Tab(1).Control(3)=   "Frame3"
-      Tab(1).Control(4)=   "FrmDetalle"
-      Tab(1).Control(5)=   "Frame2"
-      Tab(1).Control(6)=   "FrmDetalle2"
-      Tab(1).Control(7)=   "FrmABMDet"
+      Tab(1).Control(0)=   "FrmABMDet"
+      Tab(1).Control(1)=   "FrmDetalle2"
+      Tab(1).Control(2)=   "Frame2"
+      Tab(1).Control(3)=   "FrmDetalle"
+      Tab(1).Control(4)=   "Frame3"
+      Tab(1).Control(5)=   "BtnBuscar3"
+      Tab(1).Control(6)=   "BtnBuscar2"
+      Tab(1).Control(7)=   "BtnImprimir2"
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
@@ -2598,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   119865345
+            Format          =   119013377
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -3405,7 +3405,7 @@ Private Sub Form_Load()
     'Call sstab1_Click
     'If SSTab1.Tab = 1 Then
         SSTab1.TabEnabled(0) = True
-        SSTab1.TabEnabled(1) = False
+        SSTab1.TabEnabled(1) = True
     'End If
 '    If SSTab1.Tab = 1 Then
 '        'ACTUALIZA LOS CONCILIADOS
@@ -4260,7 +4260,7 @@ End Sub
 Private Sub sstab1_Click(PreviousTab As Integer)
   If SSTab1.Tab = 1 Then
     'ACTUALIZA LOS CONCILIADOS
-    db.Execute "UPDATE fo_extracto_BMSC_202101 SET Cuenta = '4010620792' WHERE  (Cuenta IS NULL) "
+    'db.Execute "UPDATE fo_extracto_BMSC_202101 SET Cuenta = '4010620792' WHERE  (Cuenta IS NULL) "
     db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
     db.Execute "UPDATE fo_extracto_BMSC_202101 SET estado_conciliado = 'REG' WHERE  (estado_conciliado IS NULL) "
 

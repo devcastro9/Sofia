@@ -17,9 +17,9 @@ Begin VB.Form mw_ventas_alcance_acta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   5.66013e6
+   ScaleHeight     =   5.84195e6
    ScaleMode       =   0  'User
-   ScaleWidth      =   4.8214e8
+   ScaleWidth      =   5.83892e8
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCobranza 
       BackColor       =   &H00C0C0C0&
@@ -731,7 +731,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   119865345
+               Format          =   126812161
                CurrentDate     =   44334
             End
             Begin MSComCtl2.DTPicker DTPfechasol 
@@ -745,7 +745,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   119865345
+               Format          =   126812161
                CurrentDate     =   44334
             End
             Begin VB.TextBox Txt_Campo1 
@@ -3270,12 +3270,13 @@ Dim VAR_CODANT, Var_Comp, VAR_SOL, VAR_ZPILOTO As Integer
 Dim VAR_NUM, VAR_SOLTIPO As Integer
 Dim VAR_COMPM As Long
 
-Dim VAR_DCORR, VAR_HCORR As String
-
 Dim Cobrobs, VAR_COBR, VAR_AUX, VAR_AUX2 As Double
 Dim VAR_Bs, VAR_Dol, VAR_BS2, VAR_DOL2, VAR_MBS2, VAR_MDOL2 As Double
 Dim VAR_AUX4, VAR_AUX5 As Double
 
+Dim VAR_FECHAMAX As Date
+
+Dim VAR_DCORR, VAR_HCORR As String
 Dim gestion0, var_literal, VAR_PROY2, VAR_CITE, VAR_CTA As String
 Dim VAR_CODTIPO, VAR_ORG, VAR_FTE, VAR_BENEF, VAR_GLOSA, VAR_GLOSA2, VAR_MONEDA As String
 Dim VAR_BEND, VAR_EDIFD, VARG_ORGD, VAR_CTAD, VAR_UNID, VAR_DPTO, VAR_DPTOD As String
@@ -3691,6 +3692,9 @@ Private Sub BtnAprobar_Click()
        sino = MsgBox("Esta seguro de Aprobar el registro?", vbYesNo, "Confirmando")
        If sino = vbYes Then
            Call CRONO_MTTO
+           'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW ADD fecha_entrega_definitiva WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+           db.Execute "UPDATE ao_ventas_alcance SET fecha_entrega_definitiva = fecha_inicio_real WHERE solicitud_tipo = '6' AND  fecha_inicio_real IS NOT NULL AND fecha_inicio_real <> '01/01/1900' "
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW ADD fecha_entrega_definitiva WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
            db.Execute "Update ao_ventas_alcance set estado_acta ='APR', estado_codigo ='REG'  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
            'ASIGNA A VARIABLES CAMPOS CLAVES
 '           'ACTUALIZA CORRELATIVO DE DOC. RESPALDO
@@ -4057,6 +4061,10 @@ Private Sub BtnVer2_Click()
   If Ado_datos.Recordset!estado_acta = "REG" Then
     NumComp = Ado_datos.Recordset!venta_codigo
     GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+    VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
+    VAR_TIPO = 6
+    VAR_FECHAMAX = Ado_datos.Recordset!fecha_fin_real
+    VAR_MED = "MES"
     'BUSCA ZONA PILOTO
     Set rs_aux2 = New ADODB.Recordset
     If rs_aux2.State = 1 Then rs_aux2.Close
@@ -4064,22 +4072,47 @@ Private Sub BtnVer2_Click()
     If rs_aux2.RecordCount > 0 Then
         VAR_ZPILOTO = rs_aux2!zpiloto_codigo
     Else
-'        Set rs_aux18 = New ADODB.Recordset
-'        If rs_aux18.State = 1 Then rs_aux18.Close
-'        rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = " & VAR_ZONA & " ", db, adOpenKeyset, adLockOptimistic
-'        If rs_aux18.RecordCount > 0 Then
-'            VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
-'        Else
-'            VAR_ORDEN = 1
-'        End If
-'
-'       db.Execute "INSERT INTO tc_zona_piloto_edif (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
-'                  " estado_codigo , estado_activo, fecha_registro, usr_codigo, unimed_codigo, codigo_empresa, solicitud_tipo) " & _
-'                  " VALUES (" & VAR_ZPILOTO & ", '" & GlEdificio & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
-'                  " 'REG',              'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ")"
+        Select Case Ado_datos.Recordset!depto_codigo
+            Case 1
+                VAR_ZPILOTO = 41
+            Case 2
+                VAR_ZPILOTO = 42
+            Case 3
+                VAR_ZPILOTO = 43
+            Case 4
+                VAR_ZPILOTO = 44
+            Case 5
+                VAR_ZPILOTO = 45
+            Case 6
+                VAR_ZPILOTO = 46
+            Case 7
+                VAR_ZPILOTO = 47
+            Case 8
+                VAR_ZPILOTO = 48
+            Case 9
+                VAR_ZPILOTO = 49
+            Case Else
+                VAR_ZPILOTO = 42
+        End Select
+        Set rs_aux18 = New ADODB.Recordset
+        If rs_aux18.State = 1 Then rs_aux18.Close
+        rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = " & VAR_ZPILOTO & " ", db, adOpenKeyset, adLockOptimistic
+        If rs_aux18.RecordCount > 0 Then
+            VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
+        Else
+            VAR_ORDEN = 1
+        End If
+        'CREA EDIFICIO EN ORGANIZACION DE ZONAS
+        db.Execute "INSERT INTO tc_zona_piloto_edif (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
+                  " Gratuito, fecha_fin_max,       venta_codigo, estado_codigo, estado_activo, fecha_registro, usr_codigo,     unimed_codigo,      codigo_empresa,     solicitud_tipo) " & _
+                  " VALUES (" & VAR_ZPILOTO & ", '" & GlEdificio & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
+                  " 'SI', '" & VAR_FECHAMAX & "',  " & NumComp & ",  'REG',         'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ") "
                   
-        MsgBox "Se necesita asignar la ZONA PILOTO, para generar el Cronograma de Mantenimiento Gratuito... Consulte al Personal del área Técnica ...", , "Atencion"
-        Exit Sub
+        ' ASIGNA ZPILOTO EN ao_ventas_cabecera
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo = " & VAR_ZPILOTO & " WHERE venta_codigo = " & NumComp & "    "
+        
+        MsgBox "Se asignó la ZONA PILOTO=" + Str(VAR_ZPILOTO) + ", para generar el Cronograma de Mantenimiento Gratuito... ", , "Atencion"
+        'Exit Sub
     End If
     'VERIFICA SI EXISTE ITEMS PARA CRONOGRAMA
     Set rs_aux3 = New ADODB.Recordset
@@ -4252,7 +4285,7 @@ Private Sub CRONO2()
             CONT2 = CONT2 + 1
             VAR_GLOSA = "MTTO. GRATUITO POR LA GESTION: " + Str(Year(CDate(FControl))) + " - MES: " + VAR_FEC2
             VAR_SOLTIPO = Ado_datos.Recordset!solicitud_tipo
-            VAR_ZPILOTO = Ado_datos.Recordset!zpiloto_codigo
+            'VAR_ZPILOTO = IIf(IsNull(Ado_datos.Recordset!zpiloto_codigo), VAR_ZPILOTO, Ado_datos.Recordset!zpiloto_codigo)
             'cobranza_fecha_conformidad, correl_prog , usr_aprueba, fecha_aprueba
             db.Execute "INSERT INTO ao_ventas_cobranza_inst (venta_codigo, cobranza_prog_codigo, venta_codigo_new, ges_gestion, cobranza_fecha_prog, Gestion, cobranza_mes, fmes_plan, doc_numero_crono, edif_codigo, zpiloto_codigo, " & _
                        "  trans_codigo, estado_codigo, usr_codigo, fecha_registro, Observaciones)  " & _

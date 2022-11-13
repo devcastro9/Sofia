@@ -589,6 +589,7 @@ Begin VB.Form mw_ventas_cabecera
       _ExtentY        =   8414
       _Version        =   393216
       Tabs            =   4
+      Tab             =   1
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -604,14 +605,14 @@ Begin VB.Form mw_ventas_cabecera
       EndProperty
       TabCaption(0)   =   "REGISTRO DE VENTAS"
       TabPicture(0)   =   "mw_ventas_cabecera.frx":BAF7
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Equipos)"
       TabPicture(1)   =   "mw_ventas_cabecera.frx":BB13
-      Tab(1).ControlEnabled=   0   'False
+      Tab(1).ControlEnabled=   -1  'True
       Tab(1).Control(0)=   "FrmEdita"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "REGISTRO PLAN DE CUOTAS"
       TabPicture(2)   =   "mw_ventas_cabecera.frx":BB2F
@@ -1060,7 +1061,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   108855297
+            Format          =   108396545
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1369,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   108855299
+            Format          =   108396547
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -1821,7 +1822,7 @@ Begin VB.Form mw_ventas_cabecera
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   4350
-         Left            =   -74960
+         Left            =   40
          TabIndex        =   36
          Top             =   380
          Width           =   12015
@@ -2850,7 +2851,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   40
+         Left            =   -74960
          TabIndex        =   23
          Top             =   380
          Width           =   12015
@@ -3068,7 +3069,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   108855297
+               Format          =   108396545
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6091,33 +6092,42 @@ Dim VAR_CANT0, VAR_CANT9  As Integer
 Dim VAR_CODANT, Var_Comp, VAR_SOL, VAR_TIPOS As Integer
 Dim VAR_NUM As Integer
 Dim VAR_PARADA As Integer
+Dim VAR_ZONA, VAR_ZPILOTO As Integer
+Dim VAR_DIA, VAR_MES As Integer
+Dim VAR_IDTAREA, VAR_NRODIAS As Integer
+
 'contabilidad
 Dim VAR_EMPRESA, VAR_TIPOCOMPID, VAR_MONEDAID As Integer
 Dim VAR_TIPOCAMBIO As Double
 Dim EntregadoA, VAR_CONCEPTO As String
 
-Dim VAR_COMPM As Long
+Dim VAR_COMPM, VAR_PLANID As Long
+
+Dim VAR_FECHAINI, VAR_FECHAFIN As Date
+Dim VAR_FCTRLINI, VAR_FCTRLFIN, VAR_FECHACTRL As Date
 
 Dim VAR_DCORR, VAR_HCORR As String
 
 Dim Cobrobs, VAR_COBR, VAR_AUX, VAR_AUX2 As Double
 Dim VAR_Bs, VAR_Dol, VAR_BS2, VAR_DOL2, VAR_MBS2, VAR_MDOL2 As Double
 Dim VAR_AUX4, VAR_AUX5 As Double
+Dim VAR_RECORRIDO, VAR_VELOCIDAD As Double
+Dim VAR_PASAJEROS, VAR_PARADAS As String
 
 Dim gestion0, var_literal, VAR_PROY2, VAR_CITE, VAR_CTA As String
 Dim VAR_CODTIPO, VAR_ORG, VAR_FTE, VAR_BENEF, VAR_GLOSA, VAR_GLOSA2, VAR_MONEDA As String
 Dim VAR_BEND, VAR_EDIFD, VARG_ORGD, VAR_CTAD, VAR_UNID, VAR_DPTO, VAR_DPTOD As String
-Dim VAR_COD1, VAR_COD2, VAR_COD3, VAR_COD4 As String
+Dim VAR_COD1, VAR_COD2, VAR_COD3, VAR_UNIDCOD As String
 Dim VAR_TIPOV, VAR_UNIMED As String
 Dim VAR_COBR0, VAR_OA, VAR_OA2, VAR_NEW As String
 Dim VAR_PAIS, VAR_EQP, VAR_TIPOEQP As String
 Dim VAR_DA, VAR_UORIGEN As String
 Dim VAR_NOMD, VAR_NOMH As String
 Dim VAR_JQ, VAR_VAL As String
-Dim VAR_PASAJEROS As String
-Dim VAR_PARADAS As String
 Dim VAR_TRAMITE As String
 Dim VAR_COMPRA, VAR_DOCFAC As String
+Dim VAR_DESTAREA, VAR_BIEN As String
+Dim VAR_BENINST, VAR_BENAJST, VAR_AUX1 As String
     
 Private Sub CmdDetalle_Click()
     FrmCobranza.Visible = True
@@ -6546,10 +6556,12 @@ Private Sub BtnAprobar_Click()
        If sino = vbYes Then
            'ASIGNA A VARIABLES CAMPOS CLAVES
            correlv = Ado_datos.Recordset!venta_codigo
+           NumComp = Ado_datos.Recordset!venta_codigo
            VAR_SOL = Ado_datos.Recordset!solicitud_codigo
            VAR_TIPOV = Ado_datos.Recordset!venta_tipo
            VAR_PROY2 = Ado_datos.Recordset!edif_codigo
-           VAR_COD4 = Ado_datos.Recordset!unidad_codigo
+           GlEdificio = Ado_datos.Recordset!edif_codigo
+           VAR_UNIDCOD = Ado_datos.Recordset!unidad_codigo
            VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
            VAR_CITE = Ado_datos.Recordset!unidad_codigo_ant
            VAR_GLOSA = Ado_datos.Recordset!venta_descripcion
@@ -6571,29 +6583,16 @@ Private Sub BtnAprobar_Click()
                 If rs_datos6.RecordCount > 0 Then
                     VAR_ZONA = rs_datos6!zpiloto_codigo
                 Else
-                    'MsgBox "El Edificio de este contrato no tiene una ZONA PILOTO asignada, Consulte con Area Técnica ...", , "Atención"
-                    MsgBox "NO se puede Aprobar, debe registrar la Zona Piloto para su Mantenimiento Gratuito !!. Consulte con Area Técnica. ", vbExclamation, "Atención!"
-                    Exit Sub
+                    VAR_ZONA = 0
+                    MsgBox "El Edificio de este contrato no tiene una ZONA PILOTO, se le asignará la Zona de Gratuitos que le corresponda ...", , "Atención"
+                    'MsgBox "NO se puede Aprobar, debe registrar la Zona Piloto para su Mantenimiento Gratuito !!. Consulte con Area Técnica. ", vbExclamation, "Atención!"
+                    'Exit Sub
                 End If
-
-                '
-                'FraZona.Visible = True
-                '
-                
            End If
-           'APRUEBA ALCANCE DEL CONTRATO
+           db.Execute "update ao_ventas_cabecera set zpiloto_codigo = " & VAR_ZONA & " Where venta_codigo = " & correlv & " "
+           'APRUEBA ALCANCE DEL CONTRATO Y EL CONTRATO
            db.Execute "update ao_ventas_alcance set estado_codigo = 'APR' Where venta_codigo = " & correlv & " "
            db.Execute "update ao_ventas_cabecera set estado_alcance = 'S' Where venta_codigo = " & correlv & " "
-           db.Execute "update ao_ventas_cabecera set zpiloto_codigo = " & VAR_ZONA & " Where venta_codigo = " & correlv & " "
-'           If Ado_datos.Recordset("venta_tipo") = "C" Or Ado_datos.Recordset("venta_tipo") = "V" Or (Ado_datos.Recordset("venta_tipo") = "G") Or Ado_datos.Recordset("venta_tipo") = "L" Then
-'                db.Execute "update gc_beneficiario set beneficiario_deudor = 'SI' where beneficiario_codigo = '" & dtc_codigo2 & "' "
-'           End If
-'           ' APRUEBA ao_ventas_cabecera
-'           db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo = 'APR' Where ao_ventas_cabecera.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_cabecera.venta_codigo = " & correlv & " "
-           
-           ' Actualiza Saldos ac_bienes
-           'db.Execute "update ac_bienes set ac_bienes.bien_stock_salida = av_acumula_ventas_detalle.venta_det_cantidad from ac_bienes, av_acumula_ventas_detalle Where ac_bienes.grupo_codigo = av_acumula_ventas_detalle.grupo_codigo And ac_bienes.subgrupo_codigo = av_acumula_ventas_detalle.subgrupo_codigo And ac_bienes.bien_codigo = av_acumula_ventas_detalle.bien_codigo"
-           'db.Execute "update ac_bienes set bien_stock_actual = bien_stock_inicial + bien_stock_ingreso - bien_stock_salida"
            
            'INI Deptos de Bolivia
             Select Case VAR_DPTO
@@ -6665,7 +6664,7 @@ Private Sub BtnAprobar_Click()
                     'VAR_TIPOV = Ado_datos.Recordset!venta_tipo
                     Set rs_aux3 = New ADODB.Recordset
                     If rs_aux3.State = 1 Then rs_aux3.Close
-                    rs_aux3.Open "select * from ao_compra_cabecera where unidad_codigo = '" & VAR_COD4 & "' AND solicitud_codigo = " & VAR_SOL & " ", db, adOpenKeyset, adLockOptimistic
+                    rs_aux3.Open "select * from ao_compra_cabecera where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " ", db, adOpenKeyset, adLockOptimistic
                     If rs_aux3.RecordCount = 0 Then
                     'CAMPOS FALTANTES
                     ' beneficiario_codigo_resp, doc_numero, nro_nota_remision, estado_codigo_tra, estado_codigo_nac, estado_codigo_des,
@@ -6675,7 +6674,7 @@ Private Sub BtnAprobar_Click()
                         'rs_aux3!compra_codigo = 0      'Autonumerico
                         rs_aux3!unidad_codigo_adm = VAR_COD1
                         rs_aux3!solicitud_codigo_adm = correldetalle
-                        rs_aux3!unidad_codigo = VAR_COD4
+                        rs_aux3!unidad_codigo = VAR_UNIDCOD
                         rs_aux3!solicitud_codigo = VAR_SOL
                         rs_aux3!edif_codigo = VAR_PROY2
                         rs_aux3!beneficiario_codigo = VAR_BENEF
@@ -6717,7 +6716,7 @@ Private Sub BtnAprobar_Click()
                         Else
                             VAR_NUM = 1
                         End If
-                        db.Execute "UPDATE ao_compra_cabecera SET doc_numero_alm = " & VAR_NUM & " where unidad_codigo = '" & VAR_COD4 & "' AND solicitud_codigo = " & VAR_SOL & " "
+                        db.Execute "UPDATE ao_compra_cabecera SET doc_numero_alm = " & VAR_NUM & " where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " "
                         'FIN ACTUALIZA CORRELATIVO POR ALMACEN
                         'db.Execute "INSERT INTO ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto, grupo_codigo, subgrupo_codigo, par_codigo, tipo_descuento, almacen_codigo , usr_usuario, fecha_registro) " &
                             '"VALUES ('" & glGestion & "', " & rs_aux3!compra_codigo & ", '" & rs_aux4!bien_codigo & "', '1', " & rs_aux4!venta_precio_unitario_bs & ", '0', " & rs_aux4!venta_precio_total_bs & ", " & rs_aux4!venta_precio_unitario_dol & ", '0', " & rs_aux4!venta_precio_total_dol & ", '" & concepto_venta & "', '" & rs_aux4!grupo_codigo & "', '" & rs_aux4!subgrupo_codigo & "', '" & rs_aux4!par_codigo & "', '1', '0', '" & glusuario & "', '" & Date & "')"
@@ -6797,157 +6796,46 @@ Private Sub BtnAprobar_Click()
                     End If
                     'WWWWWWWWWW
                  Else
+                    If rs_aux1!solicitud_tipo = 4 Then
+                        'BUSCA ZONA PILOTO INSTALACION
+                        VAR_ZPILOTO = Ado_datos.Recordset!depto_codigo
+                        VAR_FECHAINI = rs_aux1!fecha_inicio_alcance
+                        VAR_FECHAFIN = rs_aux1!fecha_fin_alcance
+                        Set rs_aux2 = New ADODB.Recordset
+                        If rs_aux2.State = 1 Then rs_aux2.Close
+                        rs_aux2.Open "SELECT * FROM tc_zona_piloto_edif_inst WHERE EDIF_codigo = '" & GlEdificio & "' ", db, adOpenKeyset, adLockOptimistic
+                        If rs_aux2.RecordCount > 0 Then
+                            VAR_ZPILOTO = rs_aux2!zpiloto_codigo
+                        Else
+                            Set rs_aux18 = New ADODB.Recordset
+                            If rs_aux18.State = 1 Then rs_aux18.Close
+                            rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif_inst where zpiloto_codigo = " & VAR_ZPILOTO & " ", db, adOpenKeyset, adLockOptimistic
+                            If rs_aux18.RecordCount > 0 Then
+                                VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
+                                DIA_ORDEN = VAR_ORDEN
+                            Else
+                                VAR_ORDEN = 1
+                            End If
+                            'CREA EDIFICIO EN ORGANIZACION DE ZONAS
+                            db.Execute "INSERT INTO tc_zona_piloto_edif_inst (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
+                                      " Gratuito, fecha_ini_max,           fecha_fin_max,       venta_codigo, estado_codigo, estado_activo, fecha_registro, usr_codigo,     unimed_codigo,      codigo_empresa,     solicitud_tipo) " & _
+                                      " VALUES (" & VAR_ZPILOTO & ", '" & GlEdificio & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
+                                      " 'SI', '" & VAR_FECHAINI & "', '" & VAR_FECHAFIN & "',  " & NumComp & ",  'REG',         'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ") "
+                                      
+                            ' ASIGNA ZPILOTO EN ao_ventas_cabecera
+                            'db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo = " & VAR_ZPILOTO & " WHERE venta_codigo = " & NumComp & "    "
+                            
+                            'MsgBox "Se asignó la ZONA PILOTO=" + Str(VAR_ZPILOTO) + ", para generar el Cronograma de Mantenimiento Gratuito... ", , "Atencion"
+                            'Exit Sub
+                        End If
+                        'GENERA CRONOGRAMA INSTALACION
+                        Call CRONO_INSTALACION
+                    End If
                     'If VAR_COD1 = "DNMAN" Then          'INI GRABA CRONOGRAMA MANTENIMIENTO
                         
                         'Call CRONO_MTTO
                     'End If
                     '
-'                    Set rs_aux16 = New ADODB.Recordset
-'                    If rs_aux16.State = 1 Then rs_aux16.Close
-'                    rs_aux16.Open "select * from to_cronograma where edif_codigo = '" & VAR_PROY2 & "' and unidad_codigo_tec = '" & VAR_COD1 & "'  ", db, adOpenKeyset, adLockOptimistic
-'                    If rs_aux16.RecordCount = 0 Then
-'
-'                    Set rs_aux2 = New ADODB.Recordset
-'                    If rs_aux2.State = 1 Then rs_aux2.Close
-'                    rs_aux2.Open "select * from gc_unidad_ejecutora where unidad_codigo = '" & VAR_COD1 & "'  ", db, adOpenKeyset, adLockOptimistic
-'                    If rs_aux2.RecordCount > 0 Then
-'                       rs_aux2!correl_crono = rs_aux2!correl_crono + 1
-'                       correldetalle = rs_aux2!correl_crono
-'                       rs_aux2.Update
-'                    End If
-'                    '   CONTROLAR POR EDIFICIO WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-'                    Set rs_aux3 = New ADODB.Recordset
-'                    If rs_aux3.State = 1 Then rs_aux3.Close
-'                    rs_aux3.Open "select * from to_cronograma where unidad_codigo_tec = '" & VAR_COD1 & "' AND tec_plan_codigo = " & correldetalle & " ", db, adOpenKeyset, adLockOptimistic
-'                    If rs_aux3.RecordCount = 0 Then
-'                        rs_aux3.AddNew
-'                        rs_aux3!ges_gestion = glGestion     'Year(Date)
-'                        rs_aux3!unidad_codigo_tec = VAR_COD1
-'                        rs_aux3!tec_plan_codigo = correldetalle
-'                        rs_aux3!unidad_codigo = VAR_COD4        'Ado_datos.Recordset!unidad_codigo
-'                        rs_aux3!solicitud_codigo = VAR_SOL    'Ado_datos.Recordset!solicitud_codigo
-'                        rs_aux3!EDIF_CODIGO = VAR_PROY2      'Ado_datos.Recordset!edif_codigo
-'                        rs_aux3!venta_codigo = correlv  'Ado_datos.Recordset!venta_codigo
-'                        rs_aux3!compra_codigo = 0
-'                        rs_aux3!adjudica_codigo = 0
-'                        rs_aux3!tec_plan_fecha = Date
-'                        rs_aux3!beneficiario_codigo = VAR_BENEF
-'                        rs_aux3!unidad_codigo_ant = VAR_CITE
-'                        rs_aux3!unimed_codigo = VAR_UNIMED
-'                        ' Fechas de ao_ventas_alcance
-'                        rs_aux3!fecha_inicio_tec = rs_aux1!fecha_inicio_alcance
-'                        rs_aux3!fecha_fin_tec = rs_aux1!fecha_fin_alcance
-'                        rs_aux3!tec_tiempo_dias = rs_aux1!venta_tiempo_dias
-'                        rs_aux3!tec_cantidad_unidades = VAR_CANT0
-'                        rs_aux3!solicitud_tipo = rs_aux1!solicitud_tipo
-'                        Select Case VAR_COD1
-'                            Case "DNINS", "DNAJS"                        'INI GRABA CRONOGRAMA INSTALACIONES
-'                                rs_aux3!tec_plan_concepto = "INSTALACION DE: " + VAR_GLOSA
-'                                rs_aux3!proceso_codigo = "COM"
-'                                rs_aux3!subproceso_codigo = "COM-03"
-'                                rs_aux3!etapa_codigo = "COM-03-02"
-'                                rs_aux3!clasif_codigo = "TEC"
-'                                rs_aux3!doc_codigo = "R-362"
-'                                rs_aux3!poa_codigo = "3.2.2"
-'
-'                                   'db.Execute "INSERT INTO to_cronograma (ges_gestion, unidad_codigo_tec, tec_plan_codigo, unidad_codigo, solicitud_codigo, venta_codigo, compra_codigo, adjudica_codigo, tec_plan_concepto, tec_plan_fecha, beneficiario_codigo, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, poa_codigo, estado_codigo, usr_codigo, fecha_registro)
-'                                   ' values ('" & year(date) & "', '" & rs_aux1!unidad_codigo_tec & "', " & correldetalle & ", '" & Ado_datos.Recordset!unidad_codigo & "', " & Ado_datos.Recordset!solicitud_codigo & ", " & Ado_datos.Recordset!venta_codigo & ", '0', '0', '" & Ado_datos.Recordset!venta_descripcion & "', '" & DATE & "')
-'                                   'SELECT " & rs_aux4!almacen_codigo & ", '" & rs_aux4!bien_codigo & "', '" & rs_aux4!grupo_codigo & "', '" & rs_aux4!subgrupo_codigo & "', '" & rs_aux4!par_codigo & "' , '" & rs_aux4!bien_cantidad_adjudica & "' FROM av_acumula_compras_detalle WHERE almacen_codigo = '" & rs_almacen2!almacen_codigo & "'   And bien_codigo = '" & rs_almacen2!bien_codigo & "'    "
-'                                   'FIN GRABA CRONOGRAMA INSTALACIONES
-'                                '      rs_aux2("tipo_moneda") = VAR_MONEDA
-'
-'                            Case "DNAJS"
-'                                rs_aux3!tec_plan_concepto = "AJUSTE DE: " + VAR_GLOSA
-'                                rs_aux3!proceso_codigo = "TEC"
-'                                rs_aux3!subproceso_codigo = "TEC-01"
-'                                rs_aux3!etapa_codigo = "TEC-01-02"
-'                                rs_aux3!clasif_codigo = "TEC"
-'                                rs_aux3!doc_codigo = "R-378"
-'                                rs_aux3!doc_numero = correldetalle
-'                                rs_aux3!poa_codigo = "3.2.6"     'OJO
-'
-'                            Case "DNMAN", "DMANS", "DMANB", "DMANC"
-'                                rs_aux3!tec_plan_concepto = "MANTENIMIENTO GRATUITO DE: " + VAR_GLOSA
-'                                rs_aux3!proceso_codigo = "TEC"
-'                                rs_aux3!subproceso_codigo = "TEC-02"
-'                                rs_aux3!etapa_codigo = "TEC-02-02"
-'                                rs_aux3!clasif_codigo = "TEC"
-'                                rs_aux3!doc_codigo = "R-302"
-'                                rs_aux3!doc_numero = correldetalle
-'                                rs_aux3!poa_codigo = "3.2.3"     'OJO
-'
-'
-'                            Case Else
-'                                rs_aux3!tec_plan_concepto = "REPARACIONES Y OTROS SERVICIOS DE: " + VAR_GLOSA
-'                                rs_aux3!proceso_codigo = "TEC"
-'                                rs_aux3!subproceso_codigo = "TEC-01"
-'                                rs_aux3!etapa_codigo = "TEC-02-03"
-'                                rs_aux3!clasif_codigo = "TEC"
-'                                rs_aux3!doc_codigo = "R-306"
-'                                rs_aux3!doc_numero = correldetalle
-'                                rs_aux3!poa_codigo = "3.2.4"     'OJO
-'
-'                                'rs_aux3!tec_plan_concepto = VAR_GLOSA
-'                                'rs_aux3!proceso_codigo = "CMX"
-'                                'rs_aux3!subproceso_codigo = "CMX-01"
-'                                'rs_aux3!etapa_codigo = "CMX-01-01"
-'                                'rs_aux3!clasif_codigo = "CMX"
-'                                'rs_aux3!doc_codigo = "R-207"
-'                                'rs_aux3!poa_codigo = "4.1.1"
-'                                ''rs_aux3!doc_codigo_alm = "R-207"
-'                                'rs_aux3!beneficiario_codigo_resp = "4908774"
-'
-'
-'
-'                                'MsgBox "No se ha definido el tipo " & vbCrLf & " de registro que está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
-'                                'If rstdestino.State = 1 Then rstdestino.Close
-'                                'Exit Sub
-'                        End Select
-'                        rs_aux3!estado_codigo = "REG"
-'                        rs_aux3!usr_codigo = glusuario
-'                        rs_aux3!fecha_registro = Date
-'                        rs_aux3.Update
-'                        'DETALLE
-'                        Set rstdestino = New ADODB.Recordset
-'                        If rstdestino.State = 1 Then rstdestino.Close
-'                        rstdestino.Open "select * from to_cronograma_detalle  ", db, adOpenKeyset, adLockBatchOptimistic
-'
-'                        Set rs_aux4 = New ADODB.Recordset
-'                        If rs_aux4.State = 1 Then rs_aux4.Close
-'                        rs_aux4.Open "select * from ao_ventas_detalle where venta_codigo= " & correlv & "  ", db, adOpenKeyset, adLockBatchOptimistic
-'                        If rs_aux4.RecordCount > 0 Then
-'                           rs_aux4.MoveFirst
-'                           While Not rs_aux4.EOF
-''                                rstdestino.AddNew
-''                                rstdestino!ges_gestion = rs_aux4!ges_gestion
-''                                rstdestino!unidad_codigo_tec = VAR_COD1
-''                                rstdestino!tec_plan_codigo = correldetalle
-''                                rstdestino!bien_codigo = rs_aux4!bien_codigo
-''                                rstdestino!beneficiario_codigo = "0"
-''                                rstdestino!grupo_codigo = rs_aux4!grupo_codigo
-''                                rstdestino!subgrupo_codigo = rs_aux4!subgrupo_codigo
-''                                rstdestino!par_codigo = rs_aux4!par_codigo
-''                                rstdestino!munic_codigo = Left(VAR_PROY2, 5)
-''                                rstdestino!fecha_inicio = rs_aux1!fecha_inicio_alcance
-''                                rstdestino!fecha_fin = rs_aux1!fecha_fin_alcance
-''                                rstdestino!bien_tiempo_dias = rs_aux1!venta_tiempo_dias
-''                                rstdestino!hora_inicio = "8:00"
-''                                rstdestino!hora_fin = "18:30"
-''                                rstdestino!estado_codigo = "REG"
-''                                rstdestino!usr_codigo = GlUsuario
-''                                rstdestino!fecha_registro = Date
-''                                rstdestino.Update
-'                                VAR_CANT9 = IIf(IsNull(rs_aux4!bien_cantidad_por_empaque), 1, rs_aux4!bien_cantidad_por_empaque)
-'                                db.Execute "INSERT INTO to_cronograma_detalle (ges_gestion, unidad_codigo_tec, tec_plan_codigo, bien_codigo, beneficiario_codigo, grupo_codigo, subgrupo_codigo, par_codigo, munic_codigo, fecha_inicio, fecha_fin, bien_tiempo_dias, hora_inicio, hora_fin, estado_codigo, usr_codigo, fecha_registro, bien_cantidad_por_empaque) " & _
-'                                "VALUES ('" & glGestion & "', '" & VAR_COD1 & "', " & correldetalle & ", '" & rs_aux4!bien_codigo & "', '0', '" & rs_aux4!grupo_codigo & "', '" & rs_aux4!subgrupo_codigo & "', '" & rs_aux4!par_codigo & "', '" & Left(VAR_PROY2, 5) & "', '" & Format(rs_aux1!fecha_inicio_alcance, "dd/mm/yyyy") & "', '" & Format(rs_aux1!fecha_fin_alcance, "dd/mm/yyyy") & "', " & rs_aux1!venta_tiempo_dias & ", '8:00', '18:30', 'REG', '" & glusuario & "', '" & Date & "', " & VAR_CANT9 & ")"
-'                                rs_aux4.MoveNext
-'                           Wend
-'                        End If
-'                        If rstdestino.State = 1 Then rstdestino.Close
-'                    End If
-'                    Else
-'                        MsgBox "Ya fue registrado en Cronograma..."
-'                    End If
                  End If
                  rs_aux1.MoveNext
                Wend
@@ -6974,87 +6862,12 @@ Private Sub BtnAprobar_Click()
     MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
  End If
 
-''ENTREGADO
-'  If Ado_datos.Recordset("estado_codigo") = "S" Then
-'    sino = MsgBox("Confirma la entrega de los productos al Cliente ?", vbYesNo, "Confirmando")
-'    If sino = vbYes Then
-'            If Ado_datos.Recordset("venta_tipo") = "E" Then
-'                db.Execute "INSERT INTO ao_ventas_cobranza_prog (venta_codigo, ges_gestion, beneficiario_codigo, beneficiario_codigo_resp, cobranza_deuda_bs, cobranza_deuda_dol, cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs, cobranza_total_dol, cobranza_fecha_prog, cobranza_fecha_cobro, cobranza_observaciones, literal, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, factura_impresa, poa_codigo, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
-'                "VALUES ('" & Ado_datos.Recordset!venta_codigo & "', '" & Ado_datos.Recordset!ges_gestion & "', '" & Ado_datos.Recordset!beneficiario_codigo & "', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "', " & Ado_datos.Recordset!venta_monto_total_bs & ", '" & Ado_datos.Recordset!venta_monto_total_dol & "', '0', '0', " & Ado_datos.Recordset!venta_monto_total_bs & ", " & Ado_datos.Recordset!venta_monto_total_dol & ", '" & Date & "', '" & Date & "', 'CANCELADO', 'CERO', 'COM', 'COM-02', 'COM-02-02', 'ADM', 'R-103', '0', 'R-101', '0', '0', 'N', '3.1.2', 'REG', '" & GlUsuario & "', '" & Date & "', '09:00')"
-'                '  cobranza_codigo
-'            End If
-'        If Ado_datos.Recordset("venta_tipo") = "C" Then
-'            db.Execute "update gc_beneficiario set beneficiario_deudor = 'SI' where beneficiario_codigo = '" & dtc_codigo2 & "' "
-'        End If
-'        Dim rstdestino As New ADODB.Recordset
-'        Set rstdestino = New ADODB.Recordset
-'        If rstdestino.State = 1 Then rstdestino.Close
-'        rstdestino.Open "select * from ao_ventas_cabecera where ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' and correl_venta = " & Ado_datos.Recordset("correl_venta") & " and venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  ", db, adOpenDynamic, adLockOptimistic
-'        If Not rstdestino.BOF Then rstdestino.MoveFirst
-'        If Not rstdestino.BOF And Not rstdestino.EOF Then
-'            rstdestino("estado_codigo") = "S"
-'            If Ado_datos.Recordset("venta_tipo") = "E" Then
-'               Ado_datos.Recordset("deuda_cobrada") = Ado_datos.Recordset("monto_total_Bs")
-'               Ado_datos.Recordset("saldo_p_cobrar") = Ado_datos.Recordset("monto_total_Bs") - Ado_datos.Recordset("monto_cobrado") - Ado_datos.Recordset("deuda_cobrada")
-'            End If
-'            rstdestino.Update
-'        End If
-'        If rstdestino.State = 1 Then rstdestino.Close
-'        'Ado_datos.Recordset.Move marca1 - 1
-'        'Ado_datos.Recordset.MoveLast
-'        db.Execute "update AlCldetalle set AlCldetalle.stocksalida = av_acumula_venta.cantidad_vendida from AlCldetalle, av_acumula_venta Where AlCldetalle.CodGrupo = av_acumula_venta.CodGrupo And AlCldetalle.cod_MONTADOR = av_acumula_venta.cod_MONTADOR And AlCldetalle.codDetalle = av_acumula_venta.codDetalle"
-'        db.Execute "update AlCldetalle set StockActual= Stockinicial + stockingreso - StockSalida"
-'        Set rsAuxDetalle = New ADODB.Recordset
-'        If rsAuxDetalle.State = 1 Then rsAuxDetalle.Close
-'        rsAuxDetalle.Open "select * from ao_ventas_detalle where venta_codigo= " & Ado_datos.Recordset!venta_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
-'        Set AdoAux.Recordset = rsAuxDetalle
-'        If AdoAux.Recordset.RecordCount > 0 Then
-'           AdoAux.Recordset.MoveFirst
-'           While Not AdoAux.Recordset.EOF
-'             Set rs_almacen2 = New ADODB.Recordset
-'             If rs_almacen2.State = 1 Then rs_almacen2.Close
-'             rs_almacen2.Open "select * from ALCLDestino_Det where CodDestino = '" & AdoAux.Recordset!CodDestino & "' And nro_licitacion = " & AdoAux.Recordset!nro_licitacion & " and CodDetalle = '" & AdoAux.Recordset!codDetalle & "' ", db, adOpenKeyset, adLockOptimistic
-'             If rs_almacen2.RecordCount > 0 Then
-'                 db.Execute "update ALCLDestino_Det set ALCLDestino_Det.StockSalida = " & AdoAux.Recordset!cantidad_vendida & "  from ALCLDestino_Det, ao_ventas_detalle Where ALCLDestino_Det.CodDestino = '" & AdoAux.Recordset!CodDestino & "'   And ALCLDestino_Det.codDetalle = '" & AdoAux.Recordset!codDetalle & "'  And ALCLDestino_Det.nro_licitacion = " & AdoAux.Recordset!nro_licitacion & "  "
-'             Else
-'                 db.Execute "INSERT INTO AlClDestino_Det (CodDestino, nro_licitacion, CodDetalle, Nro_Lote, fechaVenc, CodGrupo, COD_montador, StockIngreso) SELECT '" & adoAdjudicaDetalle.Recordset!CodDestino & "', " & adoAdjudicaDetalle.Recordset!nro_licitacion & ", '" & adoAdjudicaDetalle.Recordset!codDetalle & "', '" & adoAdjudicaDetalle.Recordset!Nro_Lote & "', '" & adoAdjudicaDetalle.Recordset!fechaVenc & "' , '" & adoAdjudicaDetalle.Recordset!CodGrupo & "', '" & adoAdjudicaDetalle.Recordset!cod_MONTADOR & "', " & adoAdjudicaDetalle.Recordset!cantidad_cotizada & " FROM av_acumula_compra_det WHERE CodDestino = '" & adoAdjudicaDetalle.Recordset!CodDestino & "'   And codDetalle = '" & adoAdjudicaDetalle.Recordset!codDetalle & "'  And nro_licitacion = " & adoAdjudicaDetalle.Recordset!nro_licitacion & "  "
-'                 MsgBox "Error Verifique la Adjudicación de Productos..."
-'             End If
-'           AdoAux.Recordset.MoveNext
-'           Wend
-'           db.Execute "update ALCLDestino_Det set StockActual = stockingreso - StockSalida"
-'           'CALL Contabiliza_venta
-'        Else
-'            MsgBox "Error Verifique la Venta de Productos..."
-'        End If
-'        marca1 = Ado_datos.Recordset.Bookmark
-'        Ado_datos.Recordset.Requery
-'        Ado_datos.Refresh
-'        Set rs_aux2 = New ADODB.Recordset
-'        If rs_aux2.State = 1 Then rs_aux2.Close
-'        SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & Ado_datos.Recordset!doc_codigo & "'  "
-'        rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If rs_aux2.RecordCount > 0 Then
-'            rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-'            rs_datos!doc_numero = rs_aux2!correl_doc
-'            'Txt_campo1.Caption = rs_aux2!correl_doc
-'            rs_aux2.Update
-'        End If
-'        'rs_datos!doc_numero = Txt_campo1.Caption
-'        VAR_ARCH = RTrim(RTrim(rs_datos!doc_codigo) + "-") + LTrim(Str(rs_datos!doc_numero))
-'        rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
-'        rs_datos!archivo_respaldo_cargado = "N"
-
-'    End If
-'  Else
-'    MsgBox "No se puede ENTREGAR!!. Debe Aprobar previamente el registro ...", , "Atención"
-'  End If
 End Sub
 
-Private Sub CRONO_MTTO()
+Private Sub CRONO_INSTALACION()
     Set rs_aux0 = New ADODB.Recordset
     If rs_aux0.State = 1 Then rs_aux0.Close
-    rs_aux0.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & VAR_PROY2 & "'   ", db, adOpenStatic
+    rs_aux0.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & GlEdificio & "'   ", db, adOpenStatic
     If rs_aux0.RecordCount > 0 Then
         VAR_EDIF = Ado_datos.Recordset!edif_descripcion                      'RTrim(dtc_desc3.Text)          'edif_descripcion
     End If
@@ -7062,82 +6875,164 @@ Private Sub CRONO_MTTO()
     VAR_PRIM = "SI"                                                 'Ado_datos.Recordset!primero_mes
     
     'VAR_EMES = "Error: No se encontró el Mes de Inicio del Cronograma, verifique y vuelva a intentar..."
-    ' jalar ORDEN de tc_zona_piloto_edif
-    Set rs_datos6 = New ADODB.Recordset
-    If rs_datos6.State = 1 Then rs_datos6.Close
-    rs_datos6.Open "Select * from tc_zona_piloto_edif WHERE edif_codigo = '" & VAR_PROY2 & "'    ", db, adOpenStatic
-    If rs_datos6.RecordCount > 0 Then
-        DIA_ORDEN = rs_datos6!zona_edif_orden
+'    ' jalar ORDEN de tc_zona_piloto_edif
+'    Set rs_datos6 = New ADODB.Recordset
+'    If rs_datos6.State = 1 Then rs_datos6.Close
+'    rs_datos6.Open "Select * from tc_zona_piloto_edif_inst WHERE edif_codigo = '" & GlEdificio & "'    ", db, adOpenStatic
+'    If rs_datos6.RecordCount > 0 Then
+'        DIA_ORDEN = rs_datos6!zona_edif_orden
+'    Else
+'        Set rs_aux18 = New ADODB.Recordset
+'        If rs_aux18.State = 1 Then rs_aux18.Close
+'        rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = " & VAR_ZONA & " ", db, adOpenKeyset, adLockOptimistic
+'        If rs_aux18.RecordCount > 0 Then
+'            VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
+'        Else
+'            VAR_ORDEN = 1
+'        End If
+'
+'       db.Execute "INSERT INTO tc_zona_piloto_edif (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
+'                  " estado_codigo , estado_activo, fecha_registro, usr_codigo, unimed_codigo, codigo_empresa, solicitud_tipo) " & _
+'                  " VALUES (" & VAR_ZONA & ", '" & VAR_PROY2 & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
+'                  " 'REG',              'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ")"
+'        DIA_ORDEN = "1"
+'    End If
+'    'DIA_ORDEN = Ado_datos.Recordset!zona_edif_orden
+'    MControl = Ado_datos.Recordset!mes_inicio_crono_tec                     'mes_inicio_crono
+    MControl = UCase(MonthName(Month(VAR_FECHAINI)))
+    'MonthName(Month(fecha))
+    VAR_FECHACTRL = VAR_FECHAINI
+    VAR_FCTRLINI = VAR_FECHACTRL
+    VAR_FCTRLFIN = VAR_FECHACTRL - 1
+    Set rs_aux2 = New ADODB.Recordset
+    If rs_aux2.State = 1 Then rs_aux2.Close
+    rs_aux2.Open "SELECT * FROM tc_zona_piloto_edif_inst WHERE EDIF_codigo = '" & GlEdificio & "' ", db, adOpenKeyset, adLockOptimistic
+    If rs_aux2.RecordCount > 0 Then
+        VAR_PLANID = rs_aux2!correlativo
+        VAR_BENINST = rs_aux2!beneficiario_codigo         'RESP. INSTALACION
+        VAR_BENAJST = rs_aux2!beneficiario_codigo_rep    'RESP. AJUSTE
+        VAR_AUX1 = rs_aux2!beneficiario_codigo_cobr   'AUX. INSTALACION
     Else
-        Set rs_aux18 = New ADODB.Recordset
-        If rs_aux18.State = 1 Then rs_aux18.Close
-        rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = " & VAR_ZONA & " ", db, adOpenKeyset, adLockOptimistic
-        If rs_aux18.RecordCount > 0 Then
-            VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
-        Else
-            VAR_ORDEN = 1
-        End If
-    
-       db.Execute "INSERT INTO tc_zona_piloto_edif (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
-                  " estado_codigo , estado_activo, fecha_registro, usr_codigo, unimed_codigo, codigo_empresa, solicitud_tipo) " & _
-                  " VALUES (" & VAR_ZONA & ", '" & VAR_PROY2 & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
-                  " 'REG',              'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ")"
-        DIA_ORDEN = "1"
+        VAR_PLANID = 1
+        VAR_BENINST = "0"         'RESP. INSTALACION
+        VAR_BENAJST = "0"    'RESP. AJUSTE
+        VAR_AUX1 = "0"   'AUX. INSTALACIO
     End If
-    'DIA_ORDEN = Ado_datos.Recordset!zona_edif_orden
-    MControl = Ado_datos.Recordset!mes_inicio_crono_tec                     'mes_inicio_crono
-
     Set rs_aux1 = New ADODB.Recordset
-    'rs_aux1.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
-    rs_aux1.Open "select * from ao_ventas_cobranza_prog where venta_codigo = " & NumComp & "   ", db, adOpenKeyset, adLockBatchOptimistic
+    'rs_aux1.Open "select * from ao_ventas_cobranza_prog where venta_codigo = " & NumComp & "   ", db, adOpenKeyset, adLockBatchOptimistic
+    rs_aux1.Open "select * from tc_tareas_crono_instalacion  ", db, adOpenKeyset, adLockBatchOptimistic
     If rs_aux1.RecordCount > 0 Then
-        var_cod5 = rs_aux1.RecordCount
+        'var_cod5 = rs_aux1.RecordCount
         rs_aux1.MoveFirst
         While Not rs_aux1.EOF
-            VAR_AUX2 = rs_aux1!fmes_plan
+            'FECHA, MES Y DIA
+            VAR_DIA = Day(VAR_FECHACTRL)
+            VAR_MES = Month(VAR_FECHACTRL)
+            VAR_NRODIAS = rs_aux1!NroEstimadoDias
+            VAR_FCTRLINI = VAR_FCTRLFIN + 1
+            VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS
+            
+            VAR_IDTAREA = rs_aux1!IdTareaInst
+            VAR_DESTAREA = rs_aux1!TareaDescripcion
+            
             Set rs_aux2 = New ADODB.Recordset
             If rs_aux2.State = 1 Then rs_aux2.Close
-            'rs_aux2.Open "select * from to_cronograma_mensual where ges_gestion = '" & gestion0 & "' and fmes_correl = " & VAR_MES & " and zpiloto_codigo = " & VAR_ZONA & "    ", db, adOpenKeyset, adLockOptimistic
-            rs_aux2.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
+            rs_aux2.Open "select * from ao_ventas_detalle where venta_codigo = " & correlv & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
             If rs_aux2.RecordCount > 0 Then
                 rs_aux2.MoveFirst
                 While Not rs_aux2.EOF
+                    VAR_BIEN = rs_aux2!bien_codigo
+                    Select Case rs_aux2!cotiza_codigo
+                        Case 1
+                            Set rs_aux4 = New ADODB.Recordset
+                            If rs_aux4.State = 1 Then rs_aux4.Close
+                            rs_aux4.Open "select * from av_arreglo1 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo1 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux4.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            End If
+                        Case 2
+                            Set rs_aux4 = New ADODB.Recordset
+                            If rs_aux4.State = 1 Then rs_aux4.Close
+                            rs_aux4.Open "select * from av_arreglo2 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo2 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux4.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            End If
+                        Case 3
+                            Set rs_aux4 = New ADODB.Recordset
+                            If rs_aux4.State = 1 Then rs_aux4.Close
+                            rs_aux4.Open "select * from av_arreglo3 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo3 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux4.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            End If
+                        Case 4
+                            Set rs_aux4 = New ADODB.Recordset
+                            If rs_aux4.State = 1 Then rs_aux4.Close
+                            rs_aux4.Open "select * from av_arreglo4 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo4 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux4.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            End If
+                        Case Else
+                            Set rs_aux4 = New ADODB.Recordset
+                            If rs_aux4.State = 1 Then rs_aux4.Close
+                            rs_aux4.Open "select * from av_arreglo1 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo1 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux4.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            End If
+                    End Select
+                    Select Case rs_aux1!IdTareaInst
+                        Case 4
+                            VAR_NRODIAS = Round((((CDbl(VAR_RECORRIDO) + 1 + 3) * 4) / 6) / 3, 0)
+                        Case 10
+                            VAR_NRODIAS = Round(CDbl(VAR_PARADAS) / 1.9, 0)
+                        Case 15
+                            VAR_NRODIAS = Round(CDbl(VAR_PASAJEROS) * CDbl(VAR_VELOCIDAD) / CDbl(VAR_PASAJEROS) * CDbl(VAR_VELOCIDAD) - 2, 0)
+                        Case Else
+                            VAR_NRODIAS = VAR_NRODIAS
+                    End Select
                     'VERIFICA SI EXITE EQUIPO EN ESTE MES
                     Set rs_aux21 = New ADODB.Recordset
                     If rs_aux21.State = 1 Then rs_aux21.Close
-                    rs_aux21.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  ", db, adOpenKeyset, adLockBatchOptimistic
+                    rs_aux21.Open "select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_PLANID & " AND bien_codigo = '" & VAR_BIEN & "' AND horario_codigo = " & VAR_IDTAREA & " AND dia_correl = " & VAR_DIA & " ", db, adOpenKeyset, adLockBatchOptimistic
                     If rs_aux21.RecordCount > 0 Then
-                        db.Execute "update to_cronograma_diario set unidad_codigo_tec = '" & VAR_COD4 & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "  "
-                        db.Execute "update to_cronograma_diario set bien_orden = " & DIA_ORDEN & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "   "
-                        db.Execute "update to_cronograma_diario set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "  "
+                        'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                        db.Execute "update to_cronograma_diario_final_INST set unidad_codigo_tec = '" & VAR_UNIDCOD & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = '" & VAR_DESTAREA & "', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & GlEdificio & "' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set bien_orden = " & VAR_IDTAREA & ", venta_codigo = " & correlv & " WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "   "
+                        db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'APR' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
                     Else
-                        Set rs_aux3 = New ADODB.Recordset
-                        If rs_aux3.State = 1 Then rs_aux3.Close
-                        rs_aux3.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & " AND bien_codigo = ''  ", db, adOpenKeyset, adLockBatchOptimistic
-                        If rs_aux3.RecordCount > 0 Then
-                            rs_aux3.MoveFirst
-                            'If VAR_COD0 < var_cod5 Then     'And rs_aux3!estado_activo = "REG"
-                                'db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & VAR_UNITEC & "',  tec_plan_codigo = " & VAR_TECCOD & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "'   WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-                                db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & VAR_COD4 & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-                                db.Execute "update to_cronograma_diario set bien_orden = " & DIA_ORDEN & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  and bien_orden='0' "
-                                db.Execute "update to_cronograma_diario set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
-                                'VAR_COD0 = VAR_COD0 + 1
-                                'CONT3 = 1
-                                db.Execute "Update ao_ventas_cabecera Set estado_crono = 'APR' Where venta_codigo = " & NumComp & "  "
-                                'VAR_EMES = "NADA"
-                            'End If
-                        Else
-                            'POR SI NO TIENE fmes_plan
-                        End If
+                        db.Execute "INSERT INTO to_cronograma_diario_final_INST (fmes_plan, dia_correl, horario_codigo, bien_orden,     bien_codigo,        unidad_codigo_tec, tec_plan_codigo,     beneficiario_codigo_resp, beneficiario_codigo_resp2, dia_fecha,             dia_nombre,         hora_ingreso,           hora_salida,            nro_total_horas,      observaciones,      edif_descripcion, bien_codigo1, " & _
+                        " bien_codigo2, bien_codigo3, bien_codigo4, bien_codigo5, cantidad1, cantidad2, cantidad3, cantidad4, cantidad5, carta, doc_numero_carta, nro_fojas, doc_numero, estado_activo, estado_codigo, usr_codigo,      fecha_registro, " & _
+                        " hora_registro, estado_almacen, ok_almacen, doc_codigo, doc_numero_m, observaciones2, almacen_codigo, cite_certificado, estado_certificado, venta_codigo,  edif_codigo) " & _
+                        " VALUES ( " & VAR_PLANID & ",      " & VAR_DIA & ",        " & VAR_IDTAREA & ",        " & VAR_IDTAREA & ", '" & VAR_BIEN & "', '" & VAR_UNIDCOD & "', " & VAR_SOL & ", '" & VAR_BENINST & "',     '" & VAR_BENAJST & "',  '" & VAR_FECHACTRL & "', '" & MControl & "', '" & VAR_FCTRLINI & "', '" & VAR_FCTRLFIN & "', " & VAR_NRODIAS & ", '" & VAR_DESTAREA & "', '" & VAR_EDIFD & "', '4211', " & _
+                        " '479',        '500',          '4529',         '3113',     '0',        '0',        '0',      '0',       '0',   'NO',       '0',            '0',        '0',        'APR',      'REG',          '" & glusuario & "', '" & Date & "',  " & _
+                        " '0',              'REG',      '0',          'R-115',    '0',          '',             '0',            '0',                'REG',          " & correlv & ", '" & GlEdificio & "'     )"
+                        
+                        ' fecha_carta, fecha_conformidad, fecha_equipo_hdm, fecha_almacen, fecha_almi, fecha_certificado, correl_prog,
+                        '  '" & VAR_AUX1 & "',
+                        
                     End If
                     rs_aux2.MoveNext
                 Wend
+            VAR_FECHACTRL = VAR_FCTRLFIN + 1
             rs_aux1.MoveNext
             End If
         Wend
     End If
 End Sub
-
 
 Private Sub Contabiliza_Contratos()
     ' Contabilizacion al momento de aprobacion
@@ -8361,7 +8256,7 @@ Private Sub Contabiliza_venta()
       rs_aux2("ges_gestion") = Year(Date)     'glGestion
       rs_aux2("beneficiario_codigo") = VAR_BENEF
       rs_aux2("glosa") = "INGRESO POR: " + VAR_GLOSA
-      rs_aux2("unidad_codigo") = VAR_COD4       'Ado_datos.Recordset("unidad_codigo")
+      rs_aux2("unidad_codigo") = VAR_UNIDCOD       'Ado_datos.Recordset("unidad_codigo")
       rs_aux2("solicitud_codigo") = VAR_SOL     'Ado_datos.Recordset("solicitud_codigo")
       rs_aux2("tipo_moneda") = VAR_MONEDA
       rs_aux2("unidad_codigo_ant") = VAR_CITE
@@ -8561,7 +8456,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("D_Cta_Aux1") = VAR_PROY2
                 rstdestino2("D_Des_Aux1") = VAR_EDIFD
             Case "04"
-                rstdestino2("D_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("D_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("D_Des_Aux1") = VAR_UNID
             Case "05"
                 rstdestino2("D_Cta_Aux1") = ""
@@ -8603,7 +8498,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("D_Cta_Aux2") = VAR_PROY2
                 rstdestino2("D_Des_Aux2") = VAR_EDIFD
             Case "04"
-                rstdestino2("D_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("D_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("D_Des_Aux2") = VAR_UNID
             Case "05"
                 rstdestino2("D_Cta_Aux2") = ""
@@ -8645,7 +8540,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("D_Cta_Aux3") = VAR_PROY2
                 rstdestino2("D_Des_Aux3") = VAR_EDIFD
             Case "04"
-                rstdestino2("D_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("D_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("D_Des_Aux3") = VAR_UNID
             Case "05"
                 rstdestino2("D_Cta_Aux3") = ""
@@ -8720,7 +8615,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("H_Cta_Aux1") = VAR_PROY2
                 rstdestino2("H_Des_Aux1") = VAR_EDIFD
             Case "04"
-                rstdestino2("H_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("H_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("H_Des_Aux1") = VAR_UNID
             Case "05"
                 rstdestino2("H_Cta_Aux1") = ""
@@ -8762,7 +8657,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("H_Cta_Aux2") = VAR_PROY2
                 rstdestino2("H_Des_Aux2") = VAR_EDIFD
             Case "04"
-                rstdestino2("H_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("H_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("H_Des_Aux2") = VAR_UNID
             Case "05"
                 rstdestino2("H_Cta_Aux2") = ""
@@ -8804,7 +8699,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("H_Cta_Aux3") = VAR_PROY2
                 rstdestino2("H_Des_Aux3") = VAR_EDIFD
             Case "04"
-                rstdestino2("H_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("H_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("H_Des_Aux3") = VAR_UNID
             Case "05"
                 rstdestino2("H_Cta_Aux3") = ""
@@ -8880,7 +8775,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("D_Cta_Aux1") = VAR_PROY2
                 rstdestino2("D_Des_Aux1") = VAR_EDIFD
             Case "04"
-                rstdestino2("D_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("D_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("D_Des_Aux1") = VAR_UNID
             Case "05"
                 rstdestino2("D_Cta_Aux1") = ""
@@ -8922,7 +8817,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("D_Cta_Aux2") = VAR_PROY2
                 rstdestino2("D_Des_Aux2") = VAR_EDIFD
             Case "04"
-                rstdestino2("D_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("D_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("D_Des_Aux2") = VAR_UNID
             Case "05"
                 rstdestino2("D_Cta_Aux2") = ""
@@ -8964,7 +8859,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("D_Cta_Aux3") = VAR_PROY2
                 rstdestino2("D_Des_Aux3") = VAR_EDIFD
             Case "04"
-                rstdestino2("D_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("D_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("D_Des_Aux3") = VAR_UNID
             Case "05"
                 rstdestino2("D_Cta_Aux3") = ""
@@ -9029,7 +8924,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("H_Cta_Aux1") = VAR_PROY2
                 rstdestino2("H_Des_Aux1") = VAR_EDIFD
             Case "04"
-                rstdestino2("H_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("H_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("H_Des_Aux1") = VAR_UNID
             Case "05"
                 rstdestino2("H_Cta_Aux1") = ""
@@ -9071,7 +8966,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("H_Cta_Aux2") = VAR_PROY2
                 rstdestino2("H_Des_Aux2") = VAR_EDIFD
             Case "04"
-                rstdestino2("H_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("H_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("H_Des_Aux2") = VAR_UNID
             Case "05"
                 rstdestino2("H_Cta_Aux2") = ""
@@ -9113,7 +9008,7 @@ Private Sub Contabiliza_venta()
                 rstdestino2("H_Cta_Aux3") = VAR_PROY2
                 rstdestino2("H_Des_Aux3") = VAR_EDIFD
             Case "04"
-                rstdestino2("H_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+                rstdestino2("H_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
                 rstdestino2("H_Des_Aux3") = VAR_UNID
             Case "05"
                 rstdestino2("H_Cta_Aux3") = ""
@@ -9398,7 +9293,7 @@ End Sub
 'End Sub
 
 Private Sub graba_proyecto()
-    Select Case VAR_COD4
+    Select Case VAR_UNIDCOD
         Case "DNAJS", "DNEME", "DNINS", "DNMAN", "DNMOD", "DNREP"
             VAR_PROY = 12
         Case "GCOM"
@@ -9417,7 +9312,7 @@ Private Sub graba_proyecto()
         db.Execute "update fo_proyectos_ejecucion set pro_codigo_det_descripcion = '" & RTrim(dtc_desc3.Text) & "' Where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & VAR_PROY2 & "' "
     Else
         db.Execute "INSERT INTO fo_proyectos_ejecucion (pro_codigo, pro_codigo_det, pro_codigo_det_descripcion, unidad_codigo, ges_gestion, estado_codigo, usr_codigo, fecha_registro) " & _
-           "VALUES (" & VAR_PROY & ", '" & VAR_PROY2 & "', '" & RTrim(dtc_desc3.Text) & "', '" & VAR_COD4 & "', " & Ado_datos.Recordset!ges_gestion & ", 'APR', '" & glusuario & "', '" & Date & "')"
+           "VALUES (" & VAR_PROY & ", '" & VAR_PROY2 & "', '" & RTrim(dtc_desc3.Text) & "', '" & VAR_UNIDCOD & "', " & Ado_datos.Recordset!ges_gestion & ", 'APR', '" & glusuario & "', '" & Date & "')"
     End If
 End Sub
 
@@ -9425,8 +9320,8 @@ Private Sub graba_ingreso()
     '======= Ini grabado de datos
    'swgraba = 0
    'Call valida
-   'VAR_COD4 = Ado_datos.Recordset!unidad_codigo
-   Select Case VAR_COD4
+   'VAR_UNIDCOD = Ado_datos.Recordset!unidad_codigo
+   Select Case VAR_UNIDCOD
         Case "DVTA", "DCOMB", "DCOMS", "DCOMC"             'INI COMERCIAL
             VAR_ORG = "111"
             VAR_TIPOS = 3
@@ -9491,7 +9386,7 @@ Private Sub graba_ingreso()
          rstdestino("clasif_codigo") = "ADM"
          rstdestino("doc_codigo") = "R-110"
          rstdestino("doc_numero") = correlativo1
-         rstdestino("unidad_codigo") = VAR_COD4     'Ado_datos.Recordset("unidad_codigo")
+         rstdestino("unidad_codigo") = VAR_UNIDCOD     'Ado_datos.Recordset("unidad_codigo")
          rstdestino("solicitud_codigo") = VAR_SOL   'Ado_datos.Recordset("solicitud_codigo")
          rstdestino("solicitud_tipo") = VAR_TIPOS   '"3"
 
@@ -10612,7 +10507,7 @@ Private Sub Command1_Click()
 '           VAR_SOL = Ado_datos.Recordset!solicitud_codigo
 '           VAR_TIPOV = Ado_datos.Recordset!venta_tipo
 '           VAR_PROY2 = Ado_datos.Recordset!edif_codigo
-'           VAR_COD4 = Ado_datos.Recordset!unidad_codigo
+'           VAR_UNIDCOD = Ado_datos.Recordset!unidad_codigo
 '           VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
 '           VAR_CITE = Ado_datos.Recordset!unidad_codigo_ant
 '           VAR_GLOSA = Ado_datos.Recordset!venta_descripcion
@@ -10760,7 +10655,7 @@ Private Sub Command1_Click()
 '
 '                    Set rs_aux3 = New ADODB.Recordset
 '                    If rs_aux3.State = 1 Then rs_aux3.Close
-'                    rs_aux3.Open "select * from ao_compra_cabecera where unidad_codigo = '" & VAR_COD4 & "' AND solicitud_codigo = " & VAR_SOL & " ", db, adOpenKeyset, adLockOptimistic
+'                    rs_aux3.Open "select * from ao_compra_cabecera where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " ", db, adOpenKeyset, adLockOptimistic
 '                    If rs_aux3.RecordCount = 0 Then
 '                    'beneficiario_codigo_resp,'doc_numero,estado_codigo_tra, estado_codigo_nac, estado_codigo_des, hora_registro, usr_codigo_aprueba,'                      fecha_registro_aprueba
 '
@@ -10769,7 +10664,7 @@ Private Sub Command1_Click()
 '                        'rs_aux3!compra_codigo = 0      'Autonumerico
 '                        rs_aux3!unidad_codigo_adm = VAR_COD1
 '                        rs_aux3!solicitud_codigo_adm = correldetalle
-'                        rs_aux3!unidad_codigo = VAR_COD4
+'                        rs_aux3!unidad_codigo = VAR_UNIDCOD
 '                        rs_aux3!solicitud_codigo = VAR_SOL
 '                        rs_aux3!edif_codigo = VAR_PROY2
 '                        rs_aux3!beneficiario_codigo = VAR_BENEF
@@ -10835,7 +10730,7 @@ Private Sub Command1_Click()
 '                        rs_aux3!ges_gestion = glGestion     'Year(Date)
 '                        rs_aux3!unidad_codigo_tec = VAR_COD1
 '                        rs_aux3!tec_plan_codigo = correldetalle
-'                        rs_aux3!unidad_codigo = VAR_COD4        'Ado_datos.Recordset!unidad_codigo
+'                        rs_aux3!unidad_codigo = VAR_UNIDCOD        'Ado_datos.Recordset!unidad_codigo
 '                        rs_aux3!solicitud_codigo = VAR_SOL    'Ado_datos.Recordset!solicitud_codigo
 '                        rs_aux3!edif_codigo = VAR_PROY2      'Ado_datos.Recordset!edif_codigo
 '                        rs_aux3!venta_codigo = correlv  'Ado_datos.Recordset!venta_codigo
@@ -11388,7 +11283,7 @@ Private Sub Form_Load()
     lbl_titulo2.Caption = lbl_titulo.Caption
     VAR_NEW = "X"
     Chk_plazo.Value = 0
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
