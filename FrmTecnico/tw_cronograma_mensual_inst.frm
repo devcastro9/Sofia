@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_mensual_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   14400
+   ScaleWidth      =   20250
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumos 
@@ -35,7 +35,7 @@ Begin VB.Form tw_cronograma_mensual_inst
       Height          =   2400
       Left            =   5400
       TabIndex        =   159
-      Top             =   4080
+      Top             =   9840
       Visible         =   0   'False
       Width           =   7980
       Begin VB.OptionButton Option11 
@@ -122,7 +122,7 @@ Begin VB.Form tw_cronograma_mensual_inst
       Height          =   3375
       Left            =   2880
       TabIndex        =   4
-      Top             =   600
+      Top             =   9840
       Visible         =   0   'False
       Width           =   13260
       Begin VB.PictureBox FraGrabarCancelar 
@@ -498,7 +498,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   128974849
+         Format          =   107741185
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -909,7 +909,7 @@ Begin VB.Form tw_cronograma_mensual_inst
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   2160
-      Left            =   6360
+      Left            =   10080
       TabIndex        =   128
       Top             =   6720
       Visible         =   0   'False
@@ -1040,9 +1040,9 @@ Begin VB.Form tw_cronograma_mensual_inst
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   2400
-      Left            =   6240
+      Left            =   9840
       TabIndex        =   123
-      Top             =   2760
+      Top             =   6840
       Visible         =   0   'False
       Width           =   6900
       Begin VB.PictureBox Picture1 
@@ -1156,9 +1156,9 @@ Begin VB.Form tw_cronograma_mensual_inst
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   2760
-      Left            =   6360
+      Left            =   9960
       TabIndex        =   116
-      Top             =   3120
+      Top             =   4440
       Visible         =   0   'False
       Width           =   6300
       Begin VB.PictureBox Picture5 
@@ -1322,9 +1322,9 @@ Begin VB.Form tw_cronograma_mensual_inst
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   1680
-      Left            =   6360
+      Left            =   3240
       TabIndex        =   59
-      Top             =   7440
+      Top             =   5640
       Visible         =   0   'False
       Width           =   4860
       Begin VB.CommandButton BtnCancelar2 
@@ -2114,6 +2114,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Left            =   5520
          TabIndex        =   3
          Top             =   2835
+         Value           =   -1  'True
          Width           =   915
       End
       Begin VB.OptionButton OptFilGral1 
@@ -2133,7 +2134,6 @@ Begin VB.Form tw_cronograma_mensual_inst
          Left            =   2640
          TabIndex        =   2
          Top             =   2835
-         Value           =   -1  'True
          Visible         =   0   'False
          Width           =   1095
       End
@@ -2216,10 +2216,10 @@ Begin VB.Form tw_cronograma_mensual_inst
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   9
+         ColumnCount     =   6
          BeginProperty Column00 
-            DataField       =   "ges_gestion"
-            Caption         =   "Gestion"
+            DataField       =   "zpiloto_codigo"
+            Caption         =   "Codigo.Grupo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2231,8 +2231,8 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column01 
-            DataField       =   "fmes_correl"
-            Caption         =   "Mes"
+            DataField       =   "zpiloto_descripcion"
+            Caption         =   "Grupo.Descripcion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2244,20 +2244,20 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column02 
-            DataField       =   "observaciones"
-            Caption         =   "Grupo.Piloto"
+            DataField       =   "depto_codigo"
+            Caption         =   "Depto.Codigo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
                HaveTrueFalseNull=   0
                FirstDayOfWeek  =   0
                FirstWeekOfYear =   0
-               LCID            =   16394
+               LCID            =   3082
                SubFormatType   =   0
             EndProperty
          EndProperty
          BeginProperty Column03 
-            DataField       =   "beneficiario_codigo_resp"
+            DataField       =   "beneficiario_codigo"
             Caption         =   "Responsable"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -2270,45 +2270,6 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column04 
-            DataField       =   "fmes_nro_dias"
-            Caption         =   "Nro.Dias"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column05 
-            DataField       =   "fmes_plan"
-            Caption         =   "Correlativo"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
-            DataField       =   "beneficiario_codigo_resp"
-            Caption         =   "Responsable"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column07 
             DataField       =   "estado_codigo"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2321,7 +2282,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column05 
             DataField       =   "usr_codigo"
             Caption         =   "Usuario"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2338,35 +2299,24 @@ Begin VB.Form tw_cronograma_mensual_inst
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   705.26
+               ColumnWidth     =   1110.047
             EndProperty
             BeginProperty Column01 
-               Alignment       =   2
-               ColumnWidth     =   420.095
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   3869.858
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   3465.071
+               ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column03 
-               Object.Visible         =   0   'False
+               ColumnWidth     =   1049.953
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   794.835
-            EndProperty
-            BeginProperty Column05 
-               ColumnWidth     =   929.764
-            EndProperty
-            BeginProperty Column06 
-               ColumnWidth     =   1049.953
-            EndProperty
-            BeginProperty Column07 
-               Alignment       =   2
                ColumnWidth     =   629.858
             EndProperty
-            BeginProperty Column08 
+            BeginProperty Column05 
                Object.Visible         =   0   'False
             EndProperty
          EndProperty
@@ -2386,9 +2336,9 @@ Begin VB.Form tw_cronograma_mensual_inst
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   2160
-      Left            =   9840
+      Left            =   11760
       TabIndex        =   54
-      Top             =   7320
+      Top             =   6960
       Visible         =   0   'False
       Width           =   7140
       Begin VB.PictureBox Picture11 
@@ -2547,6 +2497,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          TabIndex        =   44
          ToolTipText     =   "Aprueba Cronograma"
          Top             =   0
+         Visible         =   0   'False
          Width           =   1320
       End
       Begin VB.PictureBox BtnEliminar 
@@ -2578,6 +2529,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          TabIndex        =   42
          ToolTipText     =   "Modifica Datos Cabecera"
          Top             =   0
+         Visible         =   0   'False
          Width           =   1430
       End
       Begin VB.PictureBox BtnAñadir 
@@ -2676,6 +2628,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Left            =   3480
          TabIndex        =   78
          Top             =   8760
+         Visible         =   0   'False
          Width           =   2475
       End
       Begin VB.OptionButton Option2 
@@ -2696,6 +2649,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          TabIndex        =   75
          Top             =   8760
          Value           =   -1  'True
+         Visible         =   0   'False
          Width           =   2415
       End
       Begin VB.OptionButton Option1 
@@ -2715,6 +2669,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Left            =   360
          TabIndex        =   74
          Top             =   8760
+         Visible         =   0   'False
          Width           =   2835
       End
       Begin VB.PictureBox fraOpciones2 
@@ -2740,6 +2695,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             TabIndex        =   114
             ToolTipText     =   "Actualiza Insumos desde Cronograma por Contrato"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1200
          End
          Begin VB.PictureBox BtnAñadir2 
@@ -2755,6 +2711,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             TabIndex        =   85
             ToolTipText     =   "Habilita Horario (cambia a  HORARIO LABORABLE)"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1320
          End
          Begin VB.PictureBox BtnModDetalle 
@@ -2785,6 +2742,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             TabIndex        =   72
             ToolTipText     =   "Anula Horario (cambia a NO LABORABLE)"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1215
          End
          Begin VB.PictureBox BtnImprimir 
@@ -2866,24 +2824,24 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column01 
-            DataField       =   "dia_correl"
-            Caption         =   "#.Dia"
+            DataField       =   "horario_codigo"
+            Caption         =   "#.Tarea"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
                HaveTrueFalseNull=   0
                FirstDayOfWeek  =   0
                FirstWeekOfYear =   0
-               LCID            =   16394
+               LCID            =   3082
                SubFormatType   =   0
             EndProperty
          EndProperty
          BeginProperty Column02 
-            DataField       =   "dia_fecha"
-            Caption         =   "Fecha"
+            DataField       =   "observaciones"
+            Caption         =   "Tarea.Descripcion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
+               Type            =   1
+               Format          =   "###,###,##0.00"
                HaveTrueFalseNull=   0
                FirstDayOfWeek  =   0
                FirstWeekOfYear =   0
@@ -2892,71 +2850,6 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column03 
-            DataField       =   "dia_nombre"
-            Caption         =   "Nombre.Dia"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column04 
-            DataField       =   "horario_codigo"
-            Caption         =   "Horario"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column05 
-            DataField       =   "hora_ingreso"
-            Caption         =   "Hora.Inicio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   "0.00%"
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
-            DataField       =   "hora_salida"
-            Caption         =   "Hora.Fin"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   "###,###,##0.00"
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column07 
-            DataField       =   "nro_total_horas"
-            Caption         =   "#.Horas"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   1
-               Format          =   "###,###,##0.00"
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column08 
             DataField       =   "bien_codigo"
             Caption         =   "Codigo.Equipo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2969,7 +2862,111 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
+         BeginProperty Column04 
+            DataField       =   "nro_total_horas"
+            Caption         =   "#.Dias"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column05 
+            DataField       =   "hora_ingreso"
+            Caption         =   "Fecha.Inicio"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   "0.00%"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
+            DataField       =   "hora_salida"
+            Caption         =   "Fecha.Fin"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "estado_activo"
+            Caption         =   "Estado.Tarea"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "estado_codigo"
+            Caption         =   "Estado.Todo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
          BeginProperty Column09 
+            DataField       =   "dia_nombre"
+            Caption         =   "Nombre.Mes"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "horario_codigo"
+            Caption         =   "Horario"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "nro_total_horas"
+            Caption         =   "#.Horas"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column12 
             DataField       =   "beneficiario_codigo_resp"
             Caption         =   "Tec.Mantenimiento"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2982,7 +2979,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column10 
+         BeginProperty Column13 
             DataField       =   "beneficiario_codigo_resp2"
             Caption         =   "Tec.Emergencias"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2995,33 +2992,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column11 
-            DataField       =   "estado_activo"
-            Caption         =   "Estado"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column12 
-            DataField       =   "edif_descripcion"
-            Caption         =   "Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column13 
+         BeginProperty Column14 
             DataField       =   "cantidad1"
             Caption         =   "Haipe/Trapo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -3034,7 +3005,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column14 
+         BeginProperty Column15 
             DataField       =   "cantidad2"
             Caption         =   "Gasolina"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -3047,7 +3018,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column15 
+         BeginProperty Column16 
             DataField       =   "cantidad3"
             Caption         =   "ISO-680"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -3060,7 +3031,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column16 
+         BeginProperty Column17 
             DataField       =   "cantidad4"
             Caption         =   "ISO-2050"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -3073,25 +3044,12 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column17 
+         BeginProperty Column18 
             DataField       =   "cantidad5"
             Caption         =   "Grasa"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column18 
-            DataField       =   "observaciones"
-            Caption         =   "Observaciones"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   1
-               Format          =   "###,###,##0.00"
                HaveTrueFalseNull=   0
                FirstDayOfWeek  =   0
                FirstWeekOfYear =   0
@@ -3106,66 +3064,72 @@ Begin VB.Form tw_cronograma_mensual_inst
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column01 
-               Alignment       =   2
-               Locked          =   -1  'True
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   494.929
+               ColumnWidth     =   659.906
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   900.284
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   3764.977
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   989.858
-            EndProperty
-            BeginProperty Column04 
-               Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column05 
-               Alignment       =   2
-               ColumnWidth     =   840.189
-            EndProperty
-            BeginProperty Column06 
-               Alignment       =   2
-               Locked          =   -1  'True
-               ColumnWidth     =   854.929
-            EndProperty
-            BeginProperty Column07 
-               Alignment       =   2
-               Locked          =   -1  'True
-               Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column08 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
                ColumnWidth     =   1110.047
             EndProperty
-            BeginProperty Column09 
+            BeginProperty Column04 
+               Alignment       =   2
                Locked          =   -1  'True
-               Object.Visible         =   0   'False
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   629.858
+            EndProperty
+            BeginProperty Column05 
+               Alignment       =   2
+               ColumnWidth     =   989.858
+            EndProperty
+            BeginProperty Column06 
+               Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   975.118
+            EndProperty
+            BeginProperty Column07 
+               ColumnWidth     =   615.118
+            EndProperty
+            BeginProperty Column08 
+               ColumnWidth     =   900.284
+            EndProperty
+            BeginProperty Column09 
+               ColumnWidth     =   989.858
             EndProperty
             BeginProperty Column10 
-               Locked          =   -1  'True
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column11 
-               ColumnWidth     =   615.118
+               Alignment       =   2
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   2984.882
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column13 
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column14 
+               ColumnWidth     =   1035.213
             EndProperty
             BeginProperty Column15 
+               ColumnWidth     =   750.047
             EndProperty
             BeginProperty Column16 
+               ColumnWidth     =   824.882
             EndProperty
             BeginProperty Column17 
+               ColumnWidth     =   810.142
             EndProperty
             BeginProperty Column18 
-               Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               ColumnWidth     =   629.858
             EndProperty
          EndProperty
       End
@@ -3187,7 +3151,267 @@ Begin VB.Form tw_cronograma_mensual_inst
       Left            =   0
       TabIndex        =   14
       Top             =   3960
-      Width           =   8565
+      Width           =   9885
+      Begin MSDataGridLib.DataGrid dg_det1 
+         Bindings        =   "tw_cronograma_mensual_inst.frx":E706
+         Height          =   4455
+         Left            =   120
+         TabIndex        =   165
+         Top             =   960
+         Width           =   9735
+         _ExtentX        =   17171
+         _ExtentY        =   7858
+         _Version        =   393216
+         AllowUpdate     =   0   'False
+         BackColor       =   16777215
+         Enabled         =   -1  'True
+         ForeColor       =   0
+         HeadLines       =   1
+         RowHeight       =   17
+         FormatLocked    =   -1  'True
+         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ColumnCount     =   13
+         BeginProperty Column00 
+            DataField       =   "zona_edif_orden"
+            Caption         =   "Orden"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column01 
+            DataField       =   "zpiloto_codigo"
+            Caption         =   "Zona.Piloto"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column02 
+            DataField       =   "edif_codigo"
+            Caption         =   "Cod_Edificio"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
+            DataField       =   "edif_descripcion"
+            Caption         =   "Nombre_Edificio"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column04 
+            DataField       =   "fecha_ini_max"
+            Caption         =   "Fecha.Inicio"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column05 
+            DataField       =   "fecha_fin_max"
+            Caption         =   "Fecha.Fin"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
+            DataField       =   "estado_activo"
+            Caption         =   "Estado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "zona_denominacion"
+            Caption         =   "Zona.Geografica"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "calle_tipo"
+            Caption         =   "Via"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "calle_denominacion"
+            Caption         =   "Nombre.Calle, Av, Plaza...."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "beneficiario_codigo"
+            Caption         =   "Tec.Instalacion"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "beneficiario_codigo_rep"
+            Caption         =   "Tec.Ajuste"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   4105
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column12 
+            DataField       =   "beneficiario_codigo_cobr"
+            Caption         =   "Tec.Auxiliar"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         SplitCount      =   1
+         BeginProperty Split0 
+            BeginProperty Column00 
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   569.764
+            EndProperty
+            BeginProperty Column01 
+               Alignment       =   2
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
+               ColumnWidth     =   915.024
+            EndProperty
+            BeginProperty Column02 
+               ColumnWidth     =   1184.882
+            EndProperty
+            BeginProperty Column03 
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   4635.213
+            EndProperty
+            BeginProperty Column04 
+               ColumnWidth     =   1094.74
+            EndProperty
+            BeginProperty Column05 
+               Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   1005.165
+            EndProperty
+            BeginProperty Column06 
+               ColumnWidth     =   615.118
+            EndProperty
+            BeginProperty Column07 
+               ColumnWidth     =   2190.047
+            EndProperty
+            BeginProperty Column08 
+               ColumnWidth     =   615.118
+            EndProperty
+            BeginProperty Column09 
+               ColumnWidth     =   2489.953
+            EndProperty
+            BeginProperty Column10 
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1470.047
+            EndProperty
+            BeginProperty Column11 
+               Locked          =   -1  'True
+               ColumnWidth     =   1335.118
+            EndProperty
+            BeginProperty Column12 
+               ColumnWidth     =   1319.811
+            EndProperty
+         EndProperty
+      End
       Begin VB.OptionButton Option4 
          BackColor       =   &H00C0C0C0&
          Caption         =   "Ver Solo los Horarios Pendientes"
@@ -3206,6 +3430,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          TabIndex        =   77
          Top             =   5520
          Value           =   -1  'True
+         Visible         =   0   'False
          Width           =   3075
       End
       Begin VB.OptionButton Option3 
@@ -3225,6 +3450,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Left            =   720
          TabIndex        =   76
          Top             =   5520
+         Visible         =   0   'False
          Width           =   3015
       End
       Begin VB.PictureBox fraOpciones3 
@@ -3233,10 +3459,10 @@ Begin VB.Form tw_cronograma_mensual_inst
          Height          =   660
          Left            =   120
          ScaleHeight     =   660
-         ScaleWidth      =   8415
+         ScaleWidth      =   9735
          TabIndex        =   67
          Top             =   240
-         Width           =   8415
+         Width           =   9735
          Begin VB.PictureBox BtnVer2 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
@@ -3244,12 +3470,13 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   120
-            Picture         =   "tw_cronograma_mensual_inst.frx":E706
+            Picture         =   "tw_cronograma_mensual_inst.frx":E721
             ScaleHeight     =   615
             ScaleWidth      =   1575
             TabIndex        =   127
             ToolTipText     =   "Actualiza #Horas y Orden"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1575
          End
          Begin VB.PictureBox BtnAnlDetalle4 
@@ -3259,12 +3486,13 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2520
-            Picture         =   "tw_cronograma_mensual_inst.frx":F6EF
+            Picture         =   "tw_cronograma_mensual_inst.frx":F70A
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   69
             ToolTipText     =   "Anula Horario"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1215
          End
          Begin VB.PictureBox BtnImprimir2 
@@ -3274,24 +3502,26 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4560
-            Picture         =   "tw_cronograma_mensual_inst.frx":FE3B
+            Picture         =   "tw_cronograma_mensual_inst.frx":FE56
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   68
             ToolTipText     =   "Imprime R-302 Origen (Borrador)"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1400
          End
       End
-      Begin MSDataGridLib.DataGrid dg_det1 
-         Bindings        =   "tw_cronograma_mensual_inst.frx":10708
-         Height          =   4560
+      Begin MSDataGridLib.DataGrid dg_det1_Old 
+         Bindings        =   "tw_cronograma_mensual_inst.frx":10723
+         Height          =   2040
          Left            =   75
          TabIndex        =   15
-         Top             =   960
+         Top             =   3360
+         Visible         =   0   'False
          Width           =   8415
          _ExtentX        =   14843
-         _ExtentY        =   8043
+         _ExtentY        =   3598
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   16777215
@@ -3945,10 +4175,10 @@ Begin VB.Form tw_cronograma_mensual_inst
    Begin MSAdodcLib.Adodc Ado_detalle1 
       Height          =   330
       Left            =   0
-      Top             =   10560
+      Top             =   9840
       Visible         =   0   'False
-      Width           =   2280
-      _ExtentX        =   4022
+      Width           =   2640
+      _ExtentX        =   4657
       _ExtentY        =   582
       ConnectMode     =   0
       CursorLocation  =   3
@@ -4105,12 +4335,13 @@ Begin VB.Form tw_cronograma_mensual_inst
       BackColor       =   &H80000015&
       FillColor       =   &H00FFFFFF&
       ForeColor       =   &H80000008&
-      Height          =   9105
+      Height          =   3585
       Left            =   8640
-      ScaleHeight     =   9075
+      ScaleHeight     =   3555
       ScaleWidth      =   1245
       TabIndex        =   18
       Top             =   600
+      Visible         =   0   'False
       Width           =   1275
       Begin VB.PictureBox BtnAnlDetalle3 
          Appearance      =   0  'Flat
@@ -4119,11 +4350,11 @@ Begin VB.Form tw_cronograma_mensual_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "tw_cronograma_mensual_inst.frx":10723
+         Picture         =   "tw_cronograma_mensual_inst.frx":1073E
          ScaleHeight     =   615
          ScaleWidth      =   1095
          TabIndex        =   137
-         Top             =   7800
+         Top             =   3000
          Width           =   1095
       End
       Begin VB.PictureBox BtnModDetalle2 
@@ -4133,11 +4364,11 @@ Begin VB.Form tw_cronograma_mensual_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "tw_cronograma_mensual_inst.frx":11171
+         Picture         =   "tw_cronograma_mensual_inst.frx":1118C
          ScaleHeight     =   615
          ScaleWidth      =   1095
          TabIndex        =   136
-         Top             =   7080
+         Top             =   2280
          Width           =   1095
       End
       Begin VB.PictureBox BtnAddDetalle3 
@@ -4147,11 +4378,11 @@ Begin VB.Form tw_cronograma_mensual_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   120
-         Picture         =   "tw_cronograma_mensual_inst.frx":11A8B
+         Picture         =   "tw_cronograma_mensual_inst.frx":11AA6
          ScaleHeight     =   615
          ScaleWidth      =   1095
          TabIndex        =   135
-         Top             =   6120
+         Top             =   1560
          Width           =   1095
       End
       Begin VB.PictureBox BtnAnlDetalle2 
@@ -4161,11 +4392,11 @@ Begin VB.Form tw_cronograma_mensual_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "tw_cronograma_mensual_inst.frx":123E0
+         Picture         =   "tw_cronograma_mensual_inst.frx":123FB
          ScaleHeight     =   615
          ScaleWidth      =   1095
          TabIndex        =   134
-         Top             =   5160
+         Top             =   840
          Width           =   1095
       End
       Begin VB.PictureBox BtnAddDetalle 
@@ -4175,11 +4406,11 @@ Begin VB.Form tw_cronograma_mensual_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "tw_cronograma_mensual_inst.frx":12D09
+         Picture         =   "tw_cronograma_mensual_inst.frx":12D24
          ScaleHeight     =   615
          ScaleWidth      =   1095
          TabIndex        =   133
-         Top             =   4440
+         Top             =   120
          Width           =   1095
       End
       Begin VB.CommandButton BtnImprimir3 
@@ -4196,11 +4427,11 @@ Begin VB.Form tw_cronograma_mensual_inst
          EndProperty
          Height          =   640
          Left            =   0
-         Picture         =   "tw_cronograma_mensual_inst.frx":13656
+         Picture         =   "tw_cronograma_mensual_inst.frx":13671
          Style           =   1  'Graphical
          TabIndex        =   31
          ToolTipText     =   "Imprime Edificios por Zonas"
-         Top             =   1200
+         Top             =   2880
          Visible         =   0   'False
          Width           =   1125
       End
@@ -4325,6 +4556,7 @@ Dim DIAS_HAB, NRO_HRS, NRO_HORARIO As Integer
 Dim VAR_ORDEN, VAR_MES, VAR_FMES As Integer
 Dim buscados, busca3, VAR_CONT As Integer
 Dim VAR_REG, VAR_CANT1 As Integer
+Dim VAR_SW0 As Integer
 
 Dim VAR_FECH1, VAR_FECH2 As Date
 Dim mvBookMark, marca1 As Variant
@@ -4342,7 +4574,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '
 '        End Select
         If Ado_datos.Recordset.RecordCount > 0 Then
-            VAR_FMES = Ado_datos.Recordset!fmes_plan
+            'VAR_FMES = Ado_datos.Recordset!fmes_plan
             buscados = buscados + 1
             If busca3 = 1 Then
                 If buscados = 1 Then
@@ -4363,6 +4595,8 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 buscados = buscados + 1
             End If
         Else
+            
+            'Set dg_det1.DataSource = rsNada
             Set dg_det1.DataSource = rsNada
             Set dg_det2.DataSource = rsNada
         End If
@@ -4388,6 +4622,27 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         Set dg_det1.DataSource = rsNada
         Set dg_det2.DataSource = rsNada
         'Set DtgLaborales.DataSource = rsNada
+    End If
+End Sub
+
+Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
+    If VAR_SW0 = 1 Then
+        VAR_FMES = Ado_detalle1.Recordset!correlativo
+        Set rs_det2 = New ADODB.Recordset
+        If rs_det2.State = 1 Then rs_det2.Close
+        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND bien_codigo <> '' ORDER BY horario_codigo ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        'rs_det2.Sort = "bien_orden"
+        Set Ado_detalle2.Recordset = rs_det2
+        If Ado_detalle2.Recordset.RecordCount > 0 Then
+            Ado_detalle2.Recordset.MoveLast
+            Set dg_det2.DataSource = Ado_detalle2.Recordset
+            dg_det2.Visible = True
+        Else
+            Set dg_det2.DataSource = rsNada
+            dg_det2.Visible = False
+        End If
+    Else
+        dg_det2.Visible = False
     End If
 End Sub
 
@@ -5585,7 +5840,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     
     Dim iResult As Integer
     'Dim co As New ADODB.Command
-    CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_R302_cronograma_mensual_eqp.rpt"
+    CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_R302_Instalacion.rpt"
     CR01.WindowShowPrintSetupBtn = True
     CR01.WindowShowRefreshBtn = True
     'MsgBox rs.RecordCount
@@ -6005,6 +6260,7 @@ Private Sub Form_Load()
     VAR_SW = ""
     VAR_SW2 = ""
     busca3 = 0
+    VAR_SW0 = 0
     cmd_campo2.Text = "2"
     'Fra_Gestion.Visible = True
     VAR_GES = Year(Date)        'Cmb_gestion.Text
@@ -6022,70 +6278,10 @@ Private Sub Form_Load()
         VAR_DPTOC = "2"
     End If
     VAR_UORIGEN = "DNINS"
-'    If Aux = "DNINS" Then
-'        Select Case VAR_DPTOC
-'            Case "1"    ' Chuquisaca
-'                VAR_UORIGEN = "DMANC"
-'            Case "2"    'La Paz - Tecnico
-'                VAR_UORIGEN = "DNMAN"
-'            Case "3"    'Cochabamba
-'                VAR_UORIGEN = "DMANB"
-'                'VAR_DPTOC = "3"
-'            Case "7"    'Santa Cruz
-'                VAR_UORIGEN = "DMANS"
-'                'VAR_DPTOC = "7"
-'            Case "4"    'Oruro - Tecnico
-'                VAR_UORIGEN = "DNMAN"
-'                'VAR_DPTOC = "2"
-'            Case "5"    ' Potosi
-'                VAR_UORIGEN = "DMANC"
-'            Case "6"    ' Tarija
-'                VAR_UORIGEN = "DMANC"
-'            Case "8"    ' Beni
-'                VAR_UORIGEN = "DMANC"
-'            Case "9"    ' Pando
-'                VAR_UORIGEN = "DMANC"
-'            Case Else    ' TODO
-'                VAR_UORIGEN = "DNMAN"
-'                VAR_DPTOC = "0"
-'         End Select
-'     End If
-    
     parametro = Aux
     VAR_ANL = ""
-'    If glusuario = "MLLOSA" Then
-'        'fraOpciones.Enabled = False
-'        'FrmABMDet.Enabled = False
-'        'Picture1.Enabled = False
-'        BtnModificar.Visible = False
-'        BtnEliminar.Visible = False
-'        BtnAprobar.Visible = False
-'        BtnAnlDetalle4.Visible = False
-'        BtnModDetalle.Visible = False
-'        BtnAnlDetalle.Visible = False
-'        BtnAñadir2.Visible = False
-'        BtnGraba4.Visible = False
-'        BtnGrabar2.Visible = False
-'        BtnGraba3.Visible = False
-'        BtnAddDetalle.Visible = False
-'        BtnAnlDetalle2.Visible = False
-'        BtnAddDetalle3.Visible = False
-'        BtnModDetalle2.Visible = False
-'        BtnAnlDetalle3.Visible = False
-'    End If
-    
-'    ' Actualiza Nombre de Edificios
-'    db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.edif_descripcion   = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_inst INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_inst.bien_codigo  = av_bienes_vs_edificios.bien_codigo"
-'    'Actualiza Zona Geografica
-'    db.Execute "update tc_zona_piloto_edif set tc_zona_piloto_edif.zona_codigo  = gc_edificaciones.zona_codigo from tc_zona_piloto_edif inner join gc_edificaciones on tc_zona_piloto_edif.edif_codigo   = gc_edificaciones.edif_codigo"
-'    'Actualiza Orden Edificio a Cronograma Diario por equipo
-'    db.Execute "update ac_bienes set ac_bienes.kit  = '0' where par_codigo = '43340'"
-'    db.Execute "update ac_bienes set ac_bienes.kit  = tc_zona_piloto_edif.zona_edif_orden, ac_bienes.observaciones = tc_zona_piloto_edif.observaciones from ac_bienes inner join tc_zona_piloto_edif on ac_bienes.edif_codigo  = tc_zona_piloto_edif.edif_codigo"
-'
-'    db.Execute "update to_cronograma_diario_inst set bien_orden = '0' where bien_orden <> '0' "
-'    db.Execute "update to_cronograma_diario_inst set to_cronograma_diario_inst.bien_orden = ac_bienes.kit, to_cronograma_diario_inst.observaciones   = ac_bienes.observaciones from to_cronograma_diario_inst inner join ac_bienes on to_cronograma_diario_inst.bien_codigo   = ac_bienes.bien_codigo "
-'    'Actualiza Observaciones de Organizacion de Zonas vs. Edificios
     'Actualiza Responsables de Zona
+    db.Execute " UPDATE tc_zona_piloto_edif_inst SET tc_zona_piloto_edif_inst.fecha_ini_max  = av_ventas_alcance_INST.fecha_inicio_alcance, tc_zona_piloto_edif_inst.fecha_fin_max = av_ventas_alcance_INST.fecha_fin_alcance FROM tc_zona_piloto_edif_inst INNER JOIN av_ventas_alcance_INST ON tc_zona_piloto_edif_inst.edif_codigo = av_ventas_alcance_INST .edif_codigo where tc_zona_piloto_edif_inst.fecha_ini_max Is Null "
     Call ABRIR_TABLAS_AUX
     Call OptFilGral2_Click
     
@@ -6180,76 +6376,77 @@ Private Sub dtc_desc3_Click(Area As Integer)
 End Sub
 
 Private Sub OptFilGral0_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2019)
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DPTOC
-        Case "1"    ' Chuquisaca
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2019' ) "
-        Case "2"    'La Paz - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2019' ) "
-        Case "3"    'Cochabamba
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2019' ) "
-        Case "7"    'Santa Cruz
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2019' ) "
-        Case "4"    'Oruro - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2019' ) "
-        Case "5"    ' Potosi
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2019' ) "
-        Case "6"    ' Tarija
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2019' ) "
-        Case "8"    ' Beni
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2019' ) "
-        Case "9"    ' Pando
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2019' ) "
-        Case Else    ' TODO
-            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2019' ) "
-     End Select
-    'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
+'    '===== Proceso para filtrado general de datos (todos los registros 2019)
+'    Set rs_datos = New Recordset
+'    If rs_datos.State = 1 Then rs_datos.Close
+'    Select Case VAR_DPTOC
+'        Case "1"    ' Chuquisaca
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2019' ) "
+'        Case "2"    'La Paz - Tecnico
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2019' ) "
+'        Case "3"    'Cochabamba
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2019' ) "
+'        Case "7"    'Santa Cruz
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2019' ) "
+'        Case "4"    'Oruro - Tecnico
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2019' ) "
+'        Case "5"    ' Potosi
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2019' ) "
+'        Case "6"    ' Tarija
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2019' ) "
+'        Case "8"    ' Beni
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2019' ) "
+'        Case "9"    ' Pando
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2019' ) "
+'        Case Else    ' TODO
+'            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2019' ) "
+'     End Select
+'    'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
+'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+'    Set Ado_datos.Recordset = rs_datos.DataSource
+'    Set dg_datos.DataSource = Ado_datos.Recordset
 
 End Sub
 
 Private Sub OptFilGral1_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2020)
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DPTOC
-        Case "1"    ' Chuquisaca
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2020' ) "
-        Case "2"    'La Paz - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2020' ) "
-        Case "3"    'Cochabamba
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2020' ) "
-        Case "7"    'Santa Cruz
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2020' ) "
-        Case "4"    'Oruro - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2020' ) "
-        Case "5"    ' Potosi
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2020' ) "
-        Case "6"    ' Tarija
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2020' ) "
-        Case "8"    ' Beni
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2020' ) "
-        Case "9"    ' Pando
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2020' ) "
-        Case Else    ' TODO
-            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2020' ) "
-     End Select
-
-    'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
+'    '===== Proceso para filtrado general de datos (todos los registros 2020)
+'    Set rs_datos = New Recordset
+'    If rs_datos.State = 1 Then rs_datos.Close
+'    Select Case VAR_DPTOC
+'        Case "1"    ' Chuquisaca
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2020' ) "
+'        Case "2"    'La Paz - Tecnico
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2020' ) "
+'        Case "3"    'Cochabamba
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2020' ) "
+'        Case "7"    'Santa Cruz
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2020' ) "
+'        Case "4"    'Oruro - Tecnico
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2020' ) "
+'        Case "5"    ' Potosi
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2020' ) "
+'        Case "6"    ' Tarija
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2020' ) "
+'        Case "8"    ' Beni
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2020' ) "
+'        Case "9"    ' Pando
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2020' ) "
+'        Case Else    ' TODO
+'            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2020' ) "
+'     End Select
+'
+'    'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
+'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+'    Set Ado_datos.Recordset = rs_datos.DataSource
+'    Set dg_datos.DataSource = Ado_datos.Recordset
 End Sub
 
 Private Sub OptFilGral2_Click()
     '===== Proceso para filtrado general de datos (todos los registros 2021)
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    queryinicial = "select * From to_cronograma_mensual_inst  "      'WHERE (ges_gestion = '2022' )
+    queryinicial = "select * From tc_zonas_piloto_inst  "      'WHERE (ges_gestion = '2022' )
+    'queryinicial = "select * From to_cronograma_mensual_inst  "      'WHERE (ges_gestion = '2022' )
 '    Select Case VAR_DPTOC
 '        Case "1"    ' Chuquisaca
 '            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2022' ) "
@@ -6277,7 +6474,7 @@ Private Sub OptFilGral2_Click()
 '            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2022' ) "
 '     End Select
 
-    rs_datos.Sort = "ges_gestion, fmes_correl, zpiloto_codigo"
+    rs_datos.Sort = "zpiloto_codigo"           'ges_gestion, fmes_correl,
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
@@ -6445,112 +6642,135 @@ End Sub
 
 Private Sub ABRIR_TABLA_DET()
 On Error GoTo UpdateErr
-    If Option3.Value = True Then
-        Set rs_det1 = New ADODB.Recordset
-        If rs_det1.State = 1 Then rs_det1.Close
-        rs_det1.Open "select * from to_cronograma_diario_inst where fmes_plan = '" & VAR_FMES & "'  and estado_activo <> 'ANL' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Sort = "bien_orden"
-        Set Ado_detalle1.Recordset = rs_det1
-        If Ado_detalle1.Recordset.RecordCount > 0 Then
-            Set dg_det1.DataSource = Ado_detalle1.Recordset
-        Else
-            Set dg_det1.DataSource = rsNada
-        End If
+
+    Set rs_det1 = New ADODB.Recordset
+    If rs_det1.State = 1 Then rs_det1.Close
+    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    'rs_det1.Open "select * from tc_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    Set Ado_detalle1.Recordset = rs_det1
+    Set dg_det1.DataSource = Ado_detalle1.Recordset
+    If Ado_detalle1.Recordset.RecordCount > 0 Then
+        dg_det1.Visible = True
+        VAR_SW0 = 1
+'        If swnuevo = 0 Then
+'            'gc_edificaciones
+'            Set rs_datos5 = New ADODB.Recordset
+'            If rs_datos5.State = 1 Then rs_datos5.Close
+'            rs_datos5.Open "Select * from gc_edificaciones where estado_codigo = 'APR' order by edif_descripcion", db, adOpenStatic
+'            Set Ado_datos5.Recordset = rs_datos5
+'            dtc_desc5.BoundText = dtc_codigo5.BoundText
+'        End If
+    Else
+        dg_det1.Visible = False
+        VAR_SW0 = 2
     End If
-    If Option4.Value = True Then
-        Set rs_det1 = New ADODB.Recordset
-        If rs_det1.State = 1 Then rs_det1.Close
-        'rs_det1.Open "select * from to_cronograma_diario_inst where fmes_plan = '" & Ado_datos.Recordset!fmes_plan & "' and estado_activo <> 'ANL' AND estado_activo <> 'APR'  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Open "select * from to_cronograma_diario_inst where fmes_plan = '" & VAR_FMES & "' and estado_codigo =  'REG' AND bien_codigo <> ''  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Sort = "bien_orden"
-        Set Ado_detalle1.Recordset = rs_det1
-        If Ado_detalle1.Recordset.RecordCount > 0 Then
-            Set dg_det1.DataSource = Ado_detalle1.Recordset
-        Else
-            Set dg_det1.DataSource = rsNada
-        End If
-    End If
-    If Option1.Value = True Then
-        Set rs_det2 = New ADODB.Recordset
-        If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        'rs_det2.Sort = "bien_orden"
-        Set Ado_detalle2.Recordset = rs_det2
-        If Ado_detalle2.Recordset.RecordCount > 0 Then
-            Ado_detalle2.Recordset.MoveLast
-            Set dg_det2.DataSource = Ado_detalle2.Recordset
-            dg_det2.Visible = True
-        Else
-            Set dg_det2.DataSource = rsNada
-            dg_det2.Visible = False
-        End If
-    End If
-    If Option2.Value = True Then
-        Set rs_det2 = New ADODB.Recordset
-        If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        'rs_det2.Sort = "bien_orden"
-        Set Ado_detalle2.Recordset = rs_det2
-        If Ado_detalle2.Recordset.RecordCount > 0 Then
-            Ado_detalle2.Recordset.MoveLast
-            Set dg_det2.DataSource = Ado_detalle2.Recordset
-            dg_det2.Visible = True
-        Else
-            Set dg_det2.DataSource = rsNada
-            dg_det2.Visible = False
-        End If
-    End If
-    If Option5.Value = True Then
-        Set rs_det2 = New ADODB.Recordset
-        If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND estado_activo <> 'APR' ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        'rs_det2.Sort = "bien_orden"
-        Set Ado_detalle2.Recordset = rs_det2
-        If Ado_detalle2.Recordset.RecordCount > 0 Then
-            Ado_detalle2.Recordset.MoveLast
-            Set dg_det2.DataSource = Ado_detalle2.Recordset
-            dg_det2.Visible = True
-        Else
-            Set dg_det2.DataSource = rsNada
-            dg_det2.Visible = False
-        End If
-    End If
+    
+'    If Option3.Value = True Then
+'        Set rs_det1 = New ADODB.Recordset
+'        If rs_det1.State = 1 Then rs_det1.Close
+'        rs_det1.Open "select * from to_cronograma_diario_inst where fmes_plan = '" & VAR_FMES & "'  and estado_activo <> 'ANL' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'        rs_det1.Sort = "bien_orden"
+'        Set Ado_detalle1.Recordset = rs_det1
+'        If Ado_detalle1.Recordset.RecordCount > 0 Then
+'            Set dg_det1.DataSource = Ado_detalle1.Recordset
+'        Else
+'            Set dg_det1.DataSource = rsNada
+'        End If
+'    End If
+'    If Option4.Value = True Then
+'        Set rs_det1 = New ADODB.Recordset
+'        If rs_det1.State = 1 Then rs_det1.Close
+'        'rs_det1.Open "select * from to_cronograma_diario_inst where fmes_plan = '" & Ado_datos.Recordset!fmes_plan & "' and estado_activo <> 'ANL' AND estado_activo <> 'APR'  ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'        rs_det1.Open "select * from to_cronograma_diario_inst where fmes_plan = '" & VAR_FMES & "' and estado_codigo =  'REG' AND bien_codigo <> ''  ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'        rs_det1.Sort = "bien_orden"
+'        Set Ado_detalle1.Recordset = rs_det1
+'        If Ado_detalle1.Recordset.RecordCount > 0 Then
+'            Set dg_det1.DataSource = Ado_detalle1.Recordset
+'        Else
+'            Set dg_det1.DataSource = rsNada
+'        End If
+'    End If
+'    If Option1.Value = True Then
+'        Set rs_det2 = New ADODB.Recordset
+'        If rs_det2.State = 1 Then rs_det2.Close
+'        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND bien_codigo <> '' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'        'rs_det2.Sort = "bien_orden"
+'        Set Ado_detalle2.Recordset = rs_det2
+'        If Ado_detalle2.Recordset.RecordCount > 0 Then
+'            Ado_detalle2.Recordset.MoveLast
+'            Set dg_det2.DataSource = Ado_detalle2.Recordset
+'            dg_det2.Visible = True
+'        Else
+'            Set dg_det2.DataSource = rsNada
+'            dg_det2.Visible = False
+'        End If
+'    End If
+'    If Option2.Value = True Then
+'        Set rs_det2 = New ADODB.Recordset
+'        If rs_det2.State = 1 Then rs_det2.Close
+'        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'        'rs_det2.Sort = "bien_orden"
+'        Set Ado_detalle2.Recordset = rs_det2
+'        If Ado_detalle2.Recordset.RecordCount > 0 Then
+'            Ado_detalle2.Recordset.MoveLast
+'            Set dg_det2.DataSource = Ado_detalle2.Recordset
+'            dg_det2.Visible = True
+'        Else
+'            Set dg_det2.DataSource = rsNada
+'            dg_det2.Visible = False
+'        End If
+'    End If
+'    If Option5.Value = True Then
+'        Set rs_det2 = New ADODB.Recordset
+'        If rs_det2.State = 1 Then rs_det2.Close
+'        rs_det2.Open "select * from to_cronograma_diario_final_INST where fmes_plan = '" & VAR_FMES & "' and estado_activo <> 'ANL' AND estado_activo <> 'APR' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'        'rs_det2.Sort = "bien_orden"
+'        Set Ado_detalle2.Recordset = rs_det2
+'        If Ado_detalle2.Recordset.RecordCount > 0 Then
+'            Ado_detalle2.Recordset.MoveLast
+'            Set dg_det2.DataSource = Ado_detalle2.Recordset
+'            dg_det2.Visible = True
+'        Else
+'            Set dg_det2.DataSource = rsNada
+'            dg_det2.Visible = False
+'        End If
+'    End If
    Exit Sub
 UpdateErr:
   MsgBox Err.Description
 End Sub
 
 Private Sub OptFilGral3_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2020)
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DPTOC
-        Case "1"    ' Chuquisaca
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2021' ) "
-        Case "2"    'La Paz - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2021' ) "
-        Case "3"    'Cochabamba
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2021' ) "
-        Case "7"    'Santa Cruz
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2021' ) "
-        Case "4"    'Oruro - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2021' ) "
-        Case "5"    ' Potosi
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2021' ) "
-        Case "6"    ' Tarija
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2021' ) "
-        Case "8"    ' Beni
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2021' ) "
-        Case "9"    ' Pando
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2021' ) "
-        Case Else    ' TODO
-            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2021' ) "
-     End Select
-
-    'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
+'    '===== Proceso para filtrado general de datos (todos los registros 2020)
+'    Set rs_datos = New Recordset
+'    If rs_datos.State = 1 Then rs_datos.Close
+'    Select Case VAR_DPTOC
+'        Case "1"    ' Chuquisaca
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2021' ) "
+'        Case "2"    'La Paz - Tecnico
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' )  AND ges_gestion = '2021' ) "
+'        Case "3"    'Cochabamba
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2021' ) "
+'        Case "7"    'Santa Cruz
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2021' ) "
+'        Case "4"    'Oruro - Tecnico
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2021' ) "
+'        Case "5"    ' Potosi
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2021' ) "
+'        Case "6"    ' Tarija
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2021' ) "
+'        Case "8"    ' Beni
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2021' ) "
+'        Case "9"    ' Pando
+'            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2021' ) "
+'        Case Else    ' TODO
+'            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2021' ) "
+'     End Select
+'
+'    'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
+'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+'    Set Ado_datos.Recordset = rs_datos.DataSource
+'    Set dg_datos.DataSource = Ado_datos.Recordset
 
 End Sub
 

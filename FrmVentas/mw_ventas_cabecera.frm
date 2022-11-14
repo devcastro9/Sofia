@@ -589,7 +589,6 @@ Begin VB.Form mw_ventas_cabecera
       _ExtentY        =   8414
       _Version        =   393216
       Tabs            =   4
-      Tab             =   1
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -605,14 +604,14 @@ Begin VB.Form mw_ventas_cabecera
       EndProperty
       TabCaption(0)   =   "REGISTRO DE VENTAS"
       TabPicture(0)   =   "mw_ventas_cabecera.frx":BAF7
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Equipos)"
       TabPicture(1)   =   "mw_ventas_cabecera.frx":BB13
-      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "REGISTRO PLAN DE CUOTAS"
       TabPicture(2)   =   "mw_ventas_cabecera.frx":BB2F
@@ -1061,7 +1060,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   108396545
+            Format          =   107610113
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1369,7 +1368,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   108396547
+            Format          =   107610115
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -1822,7 +1821,7 @@ Begin VB.Form mw_ventas_cabecera
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   4350
-         Left            =   40
+         Left            =   -74960
          TabIndex        =   36
          Top             =   380
          Width           =   12015
@@ -2851,7 +2850,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   -74960
+         Left            =   40
          TabIndex        =   23
          Top             =   380
          Width           =   12015
@@ -3069,7 +3068,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   108396545
+               Format          =   107610113
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6904,103 +6903,106 @@ Private Sub CRONO_INSTALACION()
     VAR_FECHACTRL = VAR_FECHAINI
     VAR_FCTRLINI = VAR_FECHACTRL
     VAR_FCTRLFIN = VAR_FECHACTRL - 1
-    Set rs_aux2 = New ADODB.Recordset
-    If rs_aux2.State = 1 Then rs_aux2.Close
-    rs_aux2.Open "SELECT * FROM tc_zona_piloto_edif_inst WHERE EDIF_codigo = '" & GlEdificio & "' ", db, adOpenKeyset, adLockOptimistic
-    If rs_aux2.RecordCount > 0 Then
-        VAR_PLANID = rs_aux2!correlativo
-        VAR_BENINST = rs_aux2!beneficiario_codigo         'RESP. INSTALACION
-        VAR_BENAJST = rs_aux2!beneficiario_codigo_rep    'RESP. AJUSTE
-        VAR_AUX1 = rs_aux2!beneficiario_codigo_cobr   'AUX. INSTALACION
+    Set rs_aux5 = New ADODB.Recordset
+    If rs_aux5.State = 1 Then rs_aux5.Close
+    rs_aux5.Open "SELECT * FROM tc_zona_piloto_edif_inst WHERE EDIF_codigo = '" & GlEdificio & "' ", db, adOpenKeyset, adLockOptimistic
+    If rs_aux5.RecordCount > 0 Then
+        VAR_PLANID = rs_aux5!correlativo
+        VAR_BENINST = rs_aux5!beneficiario_codigo         'RESP. INSTALACION
+        VAR_BENAJST = rs_aux5!beneficiario_codigo_rep    'RESP. AJUSTE
+        VAR_AUX1 = rs_aux5!beneficiario_codigo_cobr   'AUX. INSTALACION
     Else
         VAR_PLANID = 1
         VAR_BENINST = "0"         'RESP. INSTALACION
         VAR_BENAJST = "0"    'RESP. AJUSTE
         VAR_AUX1 = "0"   'AUX. INSTALACIO
     End If
-    Set rs_aux1 = New ADODB.Recordset
-    'rs_aux1.Open "select * from ao_ventas_cobranza_prog where venta_codigo = " & NumComp & "   ", db, adOpenKeyset, adLockBatchOptimistic
-    rs_aux1.Open "select * from tc_tareas_crono_instalacion  ", db, adOpenKeyset, adLockBatchOptimistic
-    If rs_aux1.RecordCount > 0 Then
-        'var_cod5 = rs_aux1.RecordCount
-        rs_aux1.MoveFirst
-        While Not rs_aux1.EOF
+    Set rs_aux6 = New ADODB.Recordset
+    'rs_aux6.Open "select * from ao_ventas_cobranza_prog where venta_codigo = " & NumComp & "   ", db, adOpenKeyset, adLockBatchOptimistic
+    rs_aux6.Open "select * from tc_tareas_crono_instalacion  ", db, adOpenKeyset, adLockBatchOptimistic
+    If rs_aux6.RecordCount > 0 Then
+        'var_cod5 = rs_aux6.RecordCount
+        rs_aux6.MoveFirst
+        While Not rs_aux6.EOF
             'FECHA, MES Y DIA
             VAR_DIA = Day(VAR_FECHACTRL)
             VAR_MES = Month(VAR_FECHACTRL)
-            VAR_NRODIAS = rs_aux1!NroEstimadoDias
+            VAR_NRODIAS = rs_aux6!NroEstimadoDias
             VAR_FCTRLINI = VAR_FCTRLFIN + 1
             VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS
+            MControl = UCase(MonthName(Month(VAR_FCTRLINI)))
+            VAR_IDTAREA = rs_aux6!IdTareaInst
+            VAR_DESTAREA = rs_aux6!TareaDescripcion
             
-            VAR_IDTAREA = rs_aux1!IdTareaInst
-            VAR_DESTAREA = rs_aux1!TareaDescripcion
-            
-            Set rs_aux2 = New ADODB.Recordset
-            If rs_aux2.State = 1 Then rs_aux2.Close
-            rs_aux2.Open "select * from ao_ventas_detalle where venta_codigo = " & correlv & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
-            If rs_aux2.RecordCount > 0 Then
-                rs_aux2.MoveFirst
-                While Not rs_aux2.EOF
-                    VAR_BIEN = rs_aux2!bien_codigo
-                    Select Case rs_aux2!cotiza_codigo
+            Set rs_aux7 = New ADODB.Recordset
+            If rs_aux7.State = 1 Then rs_aux7.Close
+            rs_aux7.Open "select * from ao_ventas_detalle where venta_codigo = " & correlv & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
+            If rs_aux7.RecordCount > 0 Then
+                rs_aux7.MoveFirst
+                While Not rs_aux7.EOF
+                    VAR_BIEN = rs_aux7!bien_codigo
+                    Select Case rs_aux7!cotiza_codigo
                         Case 1
-                            Set rs_aux4 = New ADODB.Recordset
-                            If rs_aux4.State = 1 Then rs_aux4.Close
-                            rs_aux4.Open "select * from av_arreglo1 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo1 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
-                            If rs_aux4.RecordCount > 0 Then
-                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
-                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
-                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
-                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            Set rs_aux8 = New ADODB.Recordset
+                            If rs_aux8.State = 1 Then rs_aux8.Close
+                            rs_aux8.Open "select * from av_arreglo1 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo1 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux8.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux8!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux8!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux8!trafico_num_paradas
                             End If
                         Case 2
-                            Set rs_aux4 = New ADODB.Recordset
-                            If rs_aux4.State = 1 Then rs_aux4.Close
-                            rs_aux4.Open "select * from av_arreglo2 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo2 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
-                            If rs_aux4.RecordCount > 0 Then
-                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
-                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
-                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
-                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            Set rs_aux8 = New ADODB.Recordset
+                            If rs_aux8.State = 1 Then rs_aux8.Close
+                            rs_aux8.Open "select * from av_arreglo2 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo2 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux8.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux8!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux8!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux8!trafico_num_paradas
                             End If
                         Case 3
-                            Set rs_aux4 = New ADODB.Recordset
-                            If rs_aux4.State = 1 Then rs_aux4.Close
-                            rs_aux4.Open "select * from av_arreglo3 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo3 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
-                            If rs_aux4.RecordCount > 0 Then
-                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
-                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
-                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
-                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            Set rs_aux8 = New ADODB.Recordset
+                            If rs_aux8.State = 1 Then rs_aux8.Close
+                            rs_aux8.Open "select * from av_arreglo3 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo3 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux8.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux8!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux8!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux8!trafico_num_paradas
                             End If
                         Case 4
-                            Set rs_aux4 = New ADODB.Recordset
-                            If rs_aux4.State = 1 Then rs_aux4.Close
-                            rs_aux4.Open "select * from av_arreglo4 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo4 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
-                            If rs_aux4.RecordCount > 0 Then
-                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
-                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
-                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
-                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            Set rs_aux8 = New ADODB.Recordset
+                            If rs_aux8.State = 1 Then rs_aux8.Close
+                            rs_aux8.Open "select * from av_arreglo4 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo4 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux8.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux8!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux8!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux8!trafico_num_paradas
                             End If
                         Case Else
-                            Set rs_aux4 = New ADODB.Recordset
-                            If rs_aux4.State = 1 Then rs_aux4.Close
-                            rs_aux4.Open "select * from av_arreglo1 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo1 = " & rs_aux2!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
-                            If rs_aux4.RecordCount > 0 Then
-                                VAR_RECORRIDO = rs_aux4!recorrido_codigo
-                                VAR_VELOCIDAD = rs_aux4!vel_equipo_m_s
-                                VAR_PASAJEROS = rs_aux4!pasajeros_descripcion
-                                VAR_PARADAS = rs_aux4!trafico_num_paradas
+                            Set rs_aux8 = New ADODB.Recordset
+                            If rs_aux8.State = 1 Then rs_aux8.Close
+                            rs_aux8.Open "select * from av_arreglo1 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo1 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            If rs_aux8.RecordCount > 0 Then
+                                VAR_RECORRIDO = rs_aux8!recorrido_codigo
+                                VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
+                                VAR_PASAJEROS = rs_aux8!pasajeros_descripcion
+                                VAR_PARADAS = rs_aux8!trafico_num_paradas
                             End If
                     End Select
-                    Select Case rs_aux1!IdTareaInst
+                    Select Case rs_aux6!IdTareaInst
                         Case 4
                             VAR_NRODIAS = Round((((CDbl(VAR_RECORRIDO) + 1 + 3) * 4) / 6) / 3, 0)
                         Case 10
                             VAR_NRODIAS = Round(CDbl(VAR_PARADAS) / 1.9, 0)
                         Case 15
-                            VAR_NRODIAS = Round(CDbl(VAR_PASAJEROS) * CDbl(VAR_VELOCIDAD) / CDbl(VAR_PASAJEROS) * CDbl(VAR_VELOCIDAD) - 2, 0)
+                            VAR_NRODIAS = Round(Abs(CDbl(VAR_PASAJEROS) * CDbl(VAR_VELOCIDAD) / CDbl(VAR_PASAJEROS) * CDbl(VAR_VELOCIDAD) - 2), 0)
+                            If VAR_NRODIAS = 0 Then
+                                VAR_NRODIAS = 1
+                            End If
                         Case Else
                             VAR_NRODIAS = VAR_NRODIAS
                     End Select
@@ -7025,136 +7027,136 @@ Private Sub CRONO_INSTALACION()
                         '  '" & VAR_AUX1 & "',
                         
                     End If
-                    rs_aux2.MoveNext
+                    rs_aux7.MoveNext
                 Wend
             VAR_FECHACTRL = VAR_FCTRLFIN + 1
-            rs_aux1.MoveNext
+            rs_aux6.MoveNext
             End If
         Wend
     End If
 End Sub
 
 Private Sub Contabiliza_Contratos()
-    ' Contabilizacion al momento de aprobacion
-    'Base de datos
-    Dim db2 As New ADODB.Connection
-    ' Recordset
-    Dim rs_aux100 As New ADODB.Recordset
-    Dim rs_aux101 As New ADODB.Recordset
-    'Declaracion de variables
-    Dim VAR_CODTIPO As String
-    Dim VAR_EMPRESA As Integer
-    Dim VAR_TIPOCOMPID As Integer
-    Dim VAR_FECHA As Date
-    Dim VAR_MONEDAID As Integer
-    Dim VAR_TIPOCAMBIO As Double
-    Dim EntregadoA As String
-    Dim VAR_DEBEORG As Double
-    Dim VAR_HABERORG As Double
-    'Impuestos
-    Dim VAR_PorIVA As Double
-    Dim VAR_PorIT As Double
-    Dim VAR_PorITF As Double
-    'Otros valores
-    Dim VAR_ConFac As Integer
-    Dim VAR_SinFac As Integer
-    Dim VAR_Automatico As Integer
-    Dim VAR_TipoNotaId As Integer
-    Dim VAR_NotaNro As Integer
-    Dim VAR_EstadoId As Integer
-    Dim VAR_iConcurrency_id As Integer
-    Dim VAR_TipoAsientoId As Integer
-    Dim VAR_CentroCostoId As Integer
-    Dim VAR_TipoRetencionId As Integer
-    Dim VAR_TipoId As Integer
-    Dim VAR_CompDetIdOrg As Integer
-    ' Variables intermedias
-    Dim VAR_transDescripcion As String
-    ' Asignacion de valores del procedimiento Call graba_ingreso
-    VAR_BS2 = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
-    VAR_DOL2 = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
-    ' Codigo Tipo
-    VAR_CODTIPO = "DEI"
-    ' Rubro codigo, descripcion, centro de costo id
-    Set rs_aux100 = New ADODB.Recordset
-    If rs_aux100.State = 1 Then rs_aux100.Close
-    rs_aux100.Open "SELECT trans_descripcion, rubro_codigo, CentroCostoId FROM gc_tipo_transaccion WHERE trans_codigo = '" & Ado_datos.Recordset!trans_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
-    If rs_aux100.RecordCount > 0 Then
-        VAR_transDescripcion = rs_aux100!trans_descripcion
-        VAR_PARTIDA = rs_aux100!rubro_codigo
-        VAR_CentroCostoId = rs_aux100!CentroCostoId
-        rs_aux100.Close
-    Else
-        VAR_transDescripcion = "None"
-        VAR_PARTIDA = "None"
-        VAR_CentroCostoId = "None"
-    End If
-    ' Empresa
-    If VAR_TIPOV = "G" Then
-        VAR_EMPRESA = 2
-    Else
-        VAR_EMPRESA = 1
-    End If
-    ' Fecha de venta
-    VAR_FECHA = CDate(Ado_datos.Recordset!venta_fecha)
-    ' Tipo de cambio -> BOB - USD
-    If IsNull(Ado_datos.Recordset!venta_tipo_cambio) Or (Ado_datos.Recordset!venta_tipo_cambio = 0) Or (Ado_datos.Recordset!venta_tipo_cambio = 1) Then
-        VAR_TIPOCAMBIO = GlTipoCambioOficial
-    Else
-        VAR_TIPOCAMBIO = Ado_datos.Recordset!venta_tipo_cambio
-    End If
-    'VAR_TIPOCAMBIO = Ado_datos.Recordset!venta_tipo_cambio
-    ' Tipo moneda/Debe/Haber
-    VAR_MONEDAID = 1
-    VAR_DEBEORG = VAR_BS2 'Boliviano
-    VAR_HABERORG = VAR_BS2 'Boliviano
-    ' If Ado_datos.Recordset!tipo_moneda = "USD" Then
-    '     VAR_MONEDAID = 2
-    '     VAR_DEBEORG = VAR_DOL2 'Dolar
-    '     VAR_HABERORG = VAR_DOL2 'Dolar
-    ' Else
-    '     VAR_MONEDAID = 1
-    '     VAR_DEBEORG = VAR_BS2 'Boliviano
-    '     VAR_HABERORG = VAR_BS2 'Boliviano
-    ' End If
-    ' Entregado A
-    EntregadoA = "Responsable: " & Ado_datos.Recordset!beneficiario_codigo + " - " + Ado_datos.Recordset!beneficiario_denominacion
-    ' Por Concepto
-    VAR_CONCEPTO = "Devengamiento de contrato: " & Ado_datos.Recordset!unidad_codigo_ant & " - Edificio " & Ado_datos.Recordset!edif_codigo_corto
-    Set rs_aux101 = New ADODB.Recordset
-    If rs_aux101.State = 1 Then rs_aux101.Close
-    rs_aux101.Open "select edif_descripcion from gc_edificaciones where edif_codigo = '" & VAR_PROY2 & "'  ", db, adOpenKeyset, adLockOptimistic
-    If rs_aux101.RecordCount > 0 Then
-        VAR_CONCEPTO = VAR_CONCEPTO & " " & rs_aux101!edif_descripcion
-        rs_aux101.Close
-    End If
-    If VAR_transDescripcion <> "None" Then
-        VAR_CONCEPTO = VAR_CONCEPTO & " - " & VAR_transDescripcion
-    End If
-    ' TipoCompId (Tipo comprobante id) Traspaso
-    VAR_TIPOCOMPID = 3
-    ' Impuestos
-    VAR_PorIVA = 0.13
-    VAR_PorIT = 0.03
-    VAR_PorITF = 0.0015
-    ' Otros valores
-    VAR_ConFac = 0
-    VAR_SinFac = 1
-    VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
-    VAR_TipoNotaId = Ado_datos.Recordset!solicitud_tipo
-    VAR_NotaNro = Ado_datos.Recordset!venta_codigo
-    ' Glosa general
-    VAR_GLOSA = "INGRESO POR: " & Ado_datos.Recordset!venta_descripcion & " - Nro. Venta: " & VAR_NotaNro
-    VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
-    VAR_TipoAsientoId = 0 ' Operativo
-    VAR_TipoRetencionId = 0
-    VAR_TipoId = 0
-    VAR_CompDetIdOrg = 0
-    ' Creamos conexion unica para CONDOBO
-    db2.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CONDOBO;Data Source=SSOFIA"
-    ' Procedimiento almacenado
-    db2.Execute ("EXEC fp_contabiliza_ingresos '" & VAR_CODTIPO & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', " & VAR_MONEDAID & ", '" & VAR_TIPOCAMBIO & "', '" & VAR_DEBEORG & "', '" & VAR_HABERORG & "', '" & EntregadoA & "', '" & VAR_CONCEPTO & "', '" & VAR_PorIVA & "', '" & VAR_PorIT & "', '" & VAR_PorITF & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_PROY2 & "'")
-    db2.Close
+'    ' Contabilizacion al momento de aprobacion
+'    'Base de datos
+'    Dim db2 As New ADODB.Connection
+'    ' Recordset
+'    Dim rs_aux100 As New ADODB.Recordset
+'    Dim rs_aux101 As New ADODB.Recordset
+'    'Declaracion de variables
+'    Dim VAR_CODTIPO As String
+'    Dim VAR_EMPRESA As Integer
+'    Dim VAR_TIPOCOMPID As Integer
+'    Dim VAR_FECHA As Date
+'    Dim VAR_MONEDAID As Integer
+'    Dim VAR_TIPOCAMBIO As Double
+'    Dim EntregadoA As String
+'    Dim VAR_DEBEORG As Double
+'    Dim VAR_HABERORG As Double
+'    'Impuestos
+'    Dim VAR_PorIVA As Double
+'    Dim VAR_PorIT As Double
+'    Dim VAR_PorITF As Double
+'    'Otros valores
+'    Dim VAR_ConFac As Integer
+'    Dim VAR_SinFac As Integer
+'    Dim VAR_Automatico As Integer
+'    Dim VAR_TipoNotaId As Integer
+'    Dim VAR_NotaNro As Integer
+'    Dim VAR_EstadoId As Integer
+'    Dim VAR_iConcurrency_id As Integer
+'    Dim VAR_TipoAsientoId As Integer
+'    Dim VAR_CentroCostoId As Integer
+'    Dim VAR_TipoRetencionId As Integer
+'    Dim VAR_TipoId As Integer
+'    Dim VAR_CompDetIdOrg As Integer
+'    ' Variables intermedias
+'    Dim VAR_transDescripcion As String
+'    ' Asignacion de valores del procedimiento Call graba_ingreso
+'    VAR_BS2 = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
+'    VAR_DOL2 = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
+'    ' Codigo Tipo
+'    VAR_CODTIPO = "DEI"
+'    ' Rubro codigo, descripcion, centro de costo id
+'    Set rs_aux100 = New ADODB.Recordset
+'    If rs_aux100.State = 1 Then rs_aux100.Close
+'    rs_aux100.Open "SELECT trans_descripcion, rubro_codigo, CentroCostoId FROM gc_tipo_transaccion WHERE trans_codigo = '" & Ado_datos.Recordset!trans_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
+'    If rs_aux100.RecordCount > 0 Then
+'        VAR_transDescripcion = rs_aux100!trans_descripcion
+'        VAR_PARTIDA = rs_aux100!rubro_codigo
+'        VAR_CentroCostoId = rs_aux100!CentroCostoId
+'        rs_aux100.Close
+'    Else
+'        VAR_transDescripcion = "None"
+'        VAR_PARTIDA = "None"
+'        VAR_CentroCostoId = "None"
+'    End If
+'    ' Empresa
+'    If VAR_TIPOV = "G" Then
+'        VAR_EMPRESA = 2
+'    Else
+'        VAR_EMPRESA = 1
+'    End If
+'    ' Fecha de venta
+'    VAR_FECHA = CDate(Ado_datos.Recordset!venta_fecha)
+'    ' Tipo de cambio -> BOB - USD
+'    If IsNull(Ado_datos.Recordset!venta_tipo_cambio) Or (Ado_datos.Recordset!venta_tipo_cambio = 0) Or (Ado_datos.Recordset!venta_tipo_cambio = 1) Then
+'        VAR_TIPOCAMBIO = GlTipoCambioOficial
+'    Else
+'        VAR_TIPOCAMBIO = Ado_datos.Recordset!venta_tipo_cambio
+'    End If
+'    'VAR_TIPOCAMBIO = Ado_datos.Recordset!venta_tipo_cambio
+'    ' Tipo moneda/Debe/Haber
+'    VAR_MONEDAID = 1
+'    VAR_DEBEORG = VAR_BS2 'Boliviano
+'    VAR_HABERORG = VAR_BS2 'Boliviano
+'    ' If Ado_datos.Recordset!tipo_moneda = "USD" Then
+'    '     VAR_MONEDAID = 2
+'    '     VAR_DEBEORG = VAR_DOL2 'Dolar
+'    '     VAR_HABERORG = VAR_DOL2 'Dolar
+'    ' Else
+'    '     VAR_MONEDAID = 1
+'    '     VAR_DEBEORG = VAR_BS2 'Boliviano
+'    '     VAR_HABERORG = VAR_BS2 'Boliviano
+'    ' End If
+'    ' Entregado A
+'    EntregadoA = "Responsable: " & Ado_datos.Recordset!beneficiario_codigo + " - " + Ado_datos.Recordset!beneficiario_denominacion
+'    ' Por Concepto
+'    VAR_CONCEPTO = "Devengamiento de contrato: " & Ado_datos.Recordset!unidad_codigo_ant & " - Edificio " & Ado_datos.Recordset!edif_codigo_corto
+'    Set rs_aux101 = New ADODB.Recordset
+'    If rs_aux101.State = 1 Then rs_aux101.Close
+'    rs_aux101.Open "select edif_descripcion from gc_edificaciones where edif_codigo = '" & VAR_PROY2 & "'  ", db, adOpenKeyset, adLockOptimistic
+'    If rs_aux101.RecordCount > 0 Then
+'        VAR_CONCEPTO = VAR_CONCEPTO & " " & rs_aux101!edif_descripcion
+'        rs_aux101.Close
+'    End If
+'    If VAR_transDescripcion <> "None" Then
+'        VAR_CONCEPTO = VAR_CONCEPTO & " - " & VAR_transDescripcion
+'    End If
+'    ' TipoCompId (Tipo comprobante id) Traspaso
+'    VAR_TIPOCOMPID = 3
+'    ' Impuestos
+'    VAR_PorIVA = 0.13
+'    VAR_PorIT = 0.03
+'    VAR_PorITF = 0.0015
+'    ' Otros valores
+'    VAR_ConFac = 0
+'    VAR_SinFac = 1
+'    VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
+'    VAR_TipoNotaId = Ado_datos.Recordset!solicitud_tipo
+'    VAR_NotaNro = Ado_datos.Recordset!venta_codigo
+'    ' Glosa general
+'    VAR_GLOSA = "INGRESO POR: " & Ado_datos.Recordset!venta_descripcion & " - Nro. Venta: " & VAR_NotaNro
+'    VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
+'    VAR_TipoAsientoId = 0 ' Operativo
+'    VAR_TipoRetencionId = 0
+'    VAR_TipoId = 0
+'    VAR_CompDetIdOrg = 0
+'    ' Creamos conexion unica para CONDOBO
+'    db2.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CONDOBO;Data Source=SSOFIA"
+'    ' Procedimiento almacenado
+'    db2.Execute ("EXEC fp_contabiliza_ingresos '" & VAR_CODTIPO & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', " & VAR_MONEDAID & ", '" & VAR_TIPOCAMBIO & "', '" & VAR_DEBEORG & "', '" & VAR_HABERORG & "', '" & EntregadoA & "', '" & VAR_CONCEPTO & "', '" & VAR_PorIVA & "', '" & VAR_PorIT & "', '" & VAR_PorITF & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_PROY2 & "'")
+'    db2.Close
 End Sub
 
 Private Sub BtnAprobar1_Click()
@@ -7981,1293 +7983,1293 @@ Private Sub cmdElige_Click()
 End Sub
 
 Private Sub Contabiliza_venta()
-    Call graba_proyecto
-    Call graba_ingreso
-  '===== Proceso para generar Asientos Contables Automáticos "DEI" y "REC"
-  'sino = MsgBox("¿Está seguro de aprobar el Registro?", vbYesNo + vbQuestion, "CONFIRMAR...")
-  'If sino = vbYes Then
-    ' INI CORRECCION 18-JUN-2014
-    Dim i As Integer
-    Dim j As Integer
-    Dim v_Tipo_Comp(1, 2)
-
-    '**** INI VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
-    Set rstdestino = New ADODB.Recordset
-    If rstdestino.State = 1 Then rstdestino.Close
-    Select Case VAR_CODTIPO
-        Case "DEI"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-              'cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
-              'Subcta_deb11 = rstdestino!Subcta_cred1
-              'Subcta_deb21 = rstdestino!Subcta_cred2
-    
-              'cta_credito1 = rstdestino2!cta_deb
-              'Subcta_cred11 = rstdestino2!Subcta_deb1
-              'Subcta_cred21 = rstdestino2!Subcta_deb2
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-        Case "DEY"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEY' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-        Case "REC"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-                        
-            If rs_aux1.State = 1 Then rs_aux1.Close
-            rs_aux1.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-            If (Not rs_aux1.BOF) And (Not rs_aux1.EOF) Then
-              If rs_aux1("monto_bolivianos") < rs_aux1("monto_recaudado_bolivianos") + VAR_BS2 Then
-                MsgBox "El monto que está intentando recaudar en Bs. es mayor al DEVENGADO, por favor Verifique el Monto Devengado: " & CStr(rs_aux1("monto_bolivianos")) & " Solo puede recaudar :" & CStr(rs_aux1("monto_bolivianos") - rs_aux1("monto_recaudado_bolivianos")), vbOKOnly + vbCritical, "ERROR en el Monto Recaudado"
-                Exit Sub
-              End If
-            End If
-            If rs_aux1.State = 1 Then rs_aux1.Close
-        
-        Case "DYR"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-            
-        Case "DES"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-        Case "ANI"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-        Case "DVI"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-            
-            '' 02/07/2014 VERIFICAR
-            'If rstdestino.State = 1 Then rstdestino.Close
-            'rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
-            'If rstdestino2.State = 1 Then rstdestino2.Close
-            'rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            'If rstdestino.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
-            '  MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-            '  Exit Sub
-            'End If
-        Case Else
-            MsgBox "No se ha definido el tipo " & vbCrLf & " de registro que está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
-            If rstdestino.State = 1 Then rstdestino.Close
-            Exit Sub
-    End Select
-    'If rstdestino.State = 1 Then rstdestino.Close
-    '**** FIN VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
-
-    Dim cta_deb1 As String
-    Dim Subcta_deb11 As String
-    Dim Subcta_deb21 As String
-
-    Dim cta_credito1 As String
-    Dim Subcta_cred11 As String
-    Dim Subcta_cred21 As String
-
-    Dim cod_ant As Integer
-    Dim org_ant As String
-
-    'If DtCCta_codigo.Text <> "01" Then
-    '  If rstdestino.State = 1 Then rstdestino.Close
-    '  rstFc_cuenta_bancaria.Find " cta_codigo = '" & DtCCta_codigo & "'", , adSearchForward, 1
-    '  If Not rstFc_cuenta_bancaria.EOF Then
-    '    fte_codigo1 = rstFc_cuenta_bancaria("fte_codigo")
-    '  Else
-    '  End If
-    'Else
-    '    fte_codigo1 = Me.DtCFte_codigo.Text
-    'End If
-    'If VAR_CODTIPO = "DEI" Or VAR_CODTIPO = "DES" Then
-    '  fte_codigo1 = Me.DtCFte_codigo.Text
-    'End If
-    
-'    fte_codigo1 = VAR_FTE
-'
+'    Call graba_proyecto
+'    Call graba_ingreso
+'  '===== Proceso para generar Asientos Contables Automáticos "DEI" y "REC"
+'  'sino = MsgBox("¿Está seguro de aprobar el Registro?", vbYesNo + vbQuestion, "CONFIRMAR...")
+'  'If sino = vbYes Then
+'    ' INI CORRECCION 18-JUN-2014
 '    Dim i As Integer
 '    Dim j As Integer
 '    Dim v_Tipo_Comp(1, 2)
 '
-'    v_Tipo_Comp(1, 1) = VAR_CODTIPO
-    
-'    If VAR_CODTIPO = "DYR" Then
-'      'j = 2
-'      'v_Tipo_Comp(1, 1) = "CAD"
-'      'v_Tipo_Comp(1, 2) = "CAR"
-'      j = 2
-'      v_Tipo_Comp(1, 1) = "DYR"
-'    Else
-'      j = 1
-'      v_Tipo_Comp(1, 1) = IIf(VAR_CODTIPO = "DEI", "DEI", IIf(VAR_CODTIPO = "REC", "REC", IIf(VAR_CODTIPO = "DES", "DES", IIf(VAR_CODTIPO = "ANI", "ANI", ""))))
-'    End If
+'    '**** INI VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
+'    Set rstdestino = New ADODB.Recordset
+'    If rstdestino.State = 1 Then rstdestino.Close
+'    Select Case VAR_CODTIPO
+'        Case "DEI"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'              'cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
+'              'Subcta_deb11 = rstdestino!Subcta_cred1
+'              'Subcta_deb21 = rstdestino!Subcta_cred2
 '
-'    If VAR_CODTIPO = "DVI" Then
-'      j = 1
-'      v_Tipo_Comp(1, 1) = "DVI"
-'    End If
-
-'    For i = 1 To j
-'      If rstdestino.State = 1 Then rstdestino.Close
-'      If v_Tipo_Comp(1, i) = "DEI" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "REC" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DYR" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DES" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "ANI" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DVI" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "" Then
-'        MsgBox "Antes de aprobar defina que tipo " & vbCrLf & "de registro está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
-'        Exit Sub
-'      End If
-
-    ' INI CORRECCION 18-JUN-2014
-'      If v_Tipo_Comp(1, i) = "DVI" Then
-'        ' 02/07/2014 VERIFICAR
-'        If rs_aux2.State = 1 Then rs_aux2.Close
-'        rs_aux2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
-'        If rstdestino2.State = 1 Then rstdestino2.Close
-'        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'        If rs_aux2.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
-'          MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-'          Exit Sub
-'        End If
-'      End If
+'              'cta_credito1 = rstdestino2!cta_deb
+'              'Subcta_cred11 = rstdestino2!Subcta_deb1
+'              'Subcta_cred21 = rstdestino2!Subcta_deb2
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'        Case "DEY"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEY' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'        Case "REC"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
 '
-'      If rs_aux2.RecordCount < 1 Then
-'        MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-'        Exit Sub
-'      End If
-'    Next
-
-    'If rstdestino.State = 1 Then rstdestino.Close
-    
-    fte_codigo1 = VAR_FTE
-    v_Tipo_Comp(1, 1) = VAR_CODTIPO
-    
-    db.BeginTrans
-'    Frmmensaje.Visible = True
-'    LblMensaje.Caption = "Este proceso tomará solo unos segundos, gracias"
-    '========================================
-    '==== verifica si ya fue contabilizado
-      yacontabilizo = 0
-      Set rs_aux2 = New ADODB.Recordset
-      If rs_aux2.State = 1 Then rs_aux2.Close
-      rs_aux2.Open "select * from co_comprobante_m where Cod_trans = '" & VAR_CODANT & "' and org_codigo = '" & VAR_ORG & "' and tipo_comp = '" & VAR_CODTIPO & "' AND estado_codigo = 'APR'", db, adOpenKeyset, adLockOptimistic
-      If rs_aux2.RecordCount > 0 Then
-        yacontabilizo = 1
-      Else
-        yacontabilizo = 0
-      End If
-      If yacontabilizo = 1 Then
-        'MsgBox "aqui recontabilizar" & rstdestino!Cod_trans & " -- " & rstdestino!org_codigo & " / " & rstdestino!Cod_Comp
-        Var_Comp = rs_aux2!Cod_Comp
-      Else
-        '===== ini GENERA EL CODIGO DE COMPROBANTE ====
-        Set rstCodComp = New ADODB.Recordset
-        rstCodComp.CursorLocation = adUseClient
-        If rstCodComp.State = 1 Then rstCodComp.Close
-        rstCodComp.Open "select * from fc_Correl  where tipo_tramite = 'CMBTE'", db, adOpenDynamic, adLockOptimistic
-        If rstCodComp.RecordCount > 0 Then
-          Var_Comp = CDbl(rstCodComp!numero_correlativo)
-          Var_Comp = Var_Comp + 1
-          rstCodComp!numero_correlativo = Trim(Str(Var_Comp))
-          rstCodComp.Update
-        End If
-        If rstCodComp.State = 1 Then rstCodComp.Close
-        
-        'R-112, R-110, R-111
-          Set rs_aux14 = New ADODB.Recordset
-          SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = 'R-112' "          '  '" & txt_codigo1 & "' "
-          rs_aux14.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-          If rs_aux14.RecordCount > 0 Then
-                rs_aux14!correl_doc = rs_aux14!correl_doc + 1
-                VAR_COMPM = rs_aux14!correl_doc
-                rs_aux14.Update
-          End If
-        '===== fin TERMINA GENERACION DE COMPROBANTE =====
-
-      '==== ini registro co_comprobante_m
-
-        rs_aux2.AddNew
-        rs_aux2("cod_comp") = Var_Comp
-      End If
-    '========================================
-    'anterior
-    '      If rstdestino.State = 1 Then rstdestino.Close
-    '      rstdestino.Open "select * from co_comprobante_m where Cod_Comp = 0", db, adOpenKeyset, adLockOptimistic
-    '      If rstdestino.RecordCount > 0 Then
-    '      End If
-    '      rstdestino.AddNew
-    
-    '      rstdestino("cod_comp") = Var_Comp
-    'anterior
-      rs_aux2("Tipo_Comp") = VAR_CODTIPO        'v_Tipo_Comp(1, i)
-      rs_aux2("cod_trans") = VAR_CODANT
-      rs_aux2("org_codigo") = VAR_ORG
-      rs_aux2("venta_compra") = correlv
-      If yacontabilizo = 0 Then
-        rs_aux2("Fecha_transacion") = Date
-      End If
-      rs_aux2("mes_trasaccion") = UCase(MonthName(Month(Date)))
-      rs_aux2("ges_gestion") = Year(Date)     'glGestion
-      rs_aux2("beneficiario_codigo") = VAR_BENEF
-      rs_aux2("glosa") = "INGRESO POR: " + VAR_GLOSA
-      rs_aux2("unidad_codigo") = VAR_UNIDCOD       'Ado_datos.Recordset("unidad_codigo")
-      rs_aux2("solicitud_codigo") = VAR_SOL     'Ado_datos.Recordset("solicitud_codigo")
-      rs_aux2("tipo_moneda") = VAR_MONEDA
-      rs_aux2("unidad_codigo_ant") = VAR_CITE
-      
-      rs_aux2("proceso_codigo") = "FIN"
-      rs_aux2("subproceso_codigo") = "FIN-02"
-      Select Case VAR_CODTIPO
-        Case "DEI"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "DEY"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "REC"
-            rs_aux2("etapa_codigo") = "FIN-02-02"
-        Case "DYR"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "DES"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "ANI"
-            rs_aux2("etapa_codigo") = "FIN-02-02"
-        Case "DVI"
-            rs_aux2("etapa_codigo") = "FIN-02-02"
-      End Select
-      
-      rs_aux2("clasif_codigo") = "ADM"
-      rs_aux2("doc_codigo") = "R-112"
-      rs_aux2("doc_numero") = VAR_COMPM         'Var_Comp
-      rs_aux2("pro_codigo_det") = VAR_PROY2
-    
-      rs_aux2("estado_codigo") = "APR"
-
-      If yacontabilizo = 0 Then
-        rs_aux2("usr_codigo") = glusuario
-        rs_aux2("Fecha_registro") = Format(Date, "dd/mm/yyyy")
-        rs_aux2("Hora_registro") = Format(Time, "hh:mm:ss")
-      End If
-      rs_aux2.Update
-      '==== fin registro co_comprobantre_m
-
-    Dim d_cta_nombre_1 As String
-    Dim d_aux1_1 As String
-    Dim d_aux2_1 As String
-    Dim d_aux3_1 As String
-    Dim h_cta_nombre_1 As String
-    Dim h_aux1_1 As String
-    Dim h_aux2_1 As String
-    Dim h_aux3_1 As String
-    'If rstdestino.State = 1 Then rstdestino.Close
-
-    For i = 1 To j
-'    ' nuevo ini
-'      If v_Tipo_Comp(1, i) = "DEI" Then     'Devengado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "REC" Then     'Recaudado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DYR" Then     'Devengado y Recaudado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DES" Then     'Desafectado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "ANI" Then     'Anulado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DVI" Then     'Desafectado y Anulado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-
-'      If v_Tipo_Comp(1, i) = "DVI" Then
-'        ' VERIFICAR SI SE ESTA CONTROLANDA con el DYR
-'        If rstdestino.State = 1 Then rstdestino.Close
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
-'        If rstdestino2.State = 1 Then rstdestino2.Close
-'        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'        If rstdestino.RecordCount > 0 And rstdestino2.RecordCount > 0 Then
-'          cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
-'          Subcta_deb11 = rstdestino!Subcta_cred1
-'          Subcta_deb21 = rstdestino!Subcta_cred2
+'            If rs_aux1.State = 1 Then rs_aux1.Close
+'            rs_aux1.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'            If (Not rs_aux1.BOF) And (Not rs_aux1.EOF) Then
+'              If rs_aux1("monto_bolivianos") < rs_aux1("monto_recaudado_bolivianos") + VAR_BS2 Then
+'                MsgBox "El monto que está intentando recaudar en Bs. es mayor al DEVENGADO, por favor Verifique el Monto Devengado: " & CStr(rs_aux1("monto_bolivianos")) & " Solo puede recaudar :" & CStr(rs_aux1("monto_bolivianos") - rs_aux1("monto_recaudado_bolivianos")), vbOKOnly + vbCritical, "ERROR en el Monto Recaudado"
+'                Exit Sub
+'              End If
+'            End If
+'            If rs_aux1.State = 1 Then rs_aux1.Close
 '
-'          cta_credito1 = rstdestino2!cta_deb
-'          Subcta_cred11 = rstdestino2!Subcta_deb1
-'          Subcta_cred21 = rstdestino2!Subcta_deb2
-'        Else
-'          MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
+'        Case "DYR"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'        Case "DES"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'        Case "ANI"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'        Case "DVI"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'            '' 02/07/2014 VERIFICAR
+'            'If rstdestino.State = 1 Then rstdestino.Close
+'            'rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
+'            'If rstdestino2.State = 1 Then rstdestino2.Close
+'            'rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            'If rstdestino.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
+'            '  MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'            '  Exit Sub
+'            'End If
+'        Case Else
+'            MsgBox "No se ha definido el tipo " & vbCrLf & " de registro que está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
+'            If rstdestino.State = 1 Then rstdestino.Close
+'            Exit Sub
+'    End Select
+'    'If rstdestino.State = 1 Then rstdestino.Close
+'    '**** FIN VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
+'
+'    Dim cta_deb1 As String
+'    Dim Subcta_deb11 As String
+'    Dim Subcta_deb21 As String
+'
+'    Dim cta_credito1 As String
+'    Dim Subcta_cred11 As String
+'    Dim Subcta_cred21 As String
+'
+'    Dim cod_ant As Integer
+'    Dim org_ant As String
+'
+'    'If DtCCta_codigo.Text <> "01" Then
+'    '  If rstdestino.State = 1 Then rstdestino.Close
+'    '  rstFc_cuenta_bancaria.Find " cta_codigo = '" & DtCCta_codigo & "'", , adSearchForward, 1
+'    '  If Not rstFc_cuenta_bancaria.EOF Then
+'    '    fte_codigo1 = rstFc_cuenta_bancaria("fte_codigo")
+'    '  Else
+'    '  End If
+'    'Else
+'    '    fte_codigo1 = Me.DtCFte_codigo.Text
+'    'End If
+'    'If VAR_CODTIPO = "DEI" Or VAR_CODTIPO = "DES" Then
+'    '  fte_codigo1 = Me.DtCFte_codigo.Text
+'    'End If
+'
+''    fte_codigo1 = VAR_FTE
+''
+''    Dim i As Integer
+''    Dim j As Integer
+''    Dim v_Tipo_Comp(1, 2)
+''
+''    v_Tipo_Comp(1, 1) = VAR_CODTIPO
+'
+''    If VAR_CODTIPO = "DYR" Then
+''      'j = 2
+''      'v_Tipo_Comp(1, 1) = "CAD"
+''      'v_Tipo_Comp(1, 2) = "CAR"
+''      j = 2
+''      v_Tipo_Comp(1, 1) = "DYR"
+''    Else
+''      j = 1
+''      v_Tipo_Comp(1, 1) = IIf(VAR_CODTIPO = "DEI", "DEI", IIf(VAR_CODTIPO = "REC", "REC", IIf(VAR_CODTIPO = "DES", "DES", IIf(VAR_CODTIPO = "ANI", "ANI", ""))))
+''    End If
+''
+''    If VAR_CODTIPO = "DVI" Then
+''      j = 1
+''      v_Tipo_Comp(1, 1) = "DVI"
+''    End If
+'
+''    For i = 1 To j
+''      If rstdestino.State = 1 Then rstdestino.Close
+''      If v_Tipo_Comp(1, i) = "DEI" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "REC" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DYR" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DES" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "ANI" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DVI" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "" Then
+''        MsgBox "Antes de aprobar defina que tipo " & vbCrLf & "de registro está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
+''        Exit Sub
+''      End If
+'
+'    ' INI CORRECCION 18-JUN-2014
+''      If v_Tipo_Comp(1, i) = "DVI" Then
+''        ' 02/07/2014 VERIFICAR
+''        If rs_aux2.State = 1 Then rs_aux2.Close
+''        rs_aux2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
+''        If rstdestino2.State = 1 Then rstdestino2.Close
+''        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''        If rs_aux2.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
+''          MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
 ''          Exit Sub
-'        End If
-'      End If
+''        End If
+''      End If
+''
+''      If rs_aux2.RecordCount < 1 Then
+''        MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+''        Exit Sub
+''      End If
+''    Next
 '
-'      If rstdestino.RecordCount > 0 And v_Tipo_Comp(1, i) <> "DVI" Then
+'    'If rstdestino.State = 1 Then rstdestino.Close
+'
+'    fte_codigo1 = VAR_FTE
+'    v_Tipo_Comp(1, 1) = VAR_CODTIPO
+'
+'    db.BeginTrans
+''    Frmmensaje.Visible = True
+''    LblMensaje.Caption = "Este proceso tomará solo unos segundos, gracias"
+'    '========================================
+'    '==== verifica si ya fue contabilizado
+'      yacontabilizo = 0
+'      Set rs_aux2 = New ADODB.Recordset
+'      If rs_aux2.State = 1 Then rs_aux2.Close
+'      rs_aux2.Open "select * from co_comprobante_m where Cod_trans = '" & VAR_CODANT & "' and org_codigo = '" & VAR_ORG & "' and tipo_comp = '" & VAR_CODTIPO & "' AND estado_codigo = 'APR'", db, adOpenKeyset, adLockOptimistic
+'      If rs_aux2.RecordCount > 0 Then
+'        yacontabilizo = 1
+'      Else
+'        yacontabilizo = 0
+'      End If
+'      If yacontabilizo = 1 Then
+'        'MsgBox "aqui recontabilizar" & rstdestino!Cod_trans & " -- " & rstdestino!org_codigo & " / " & rstdestino!Cod_Comp
+'        Var_Comp = rs_aux2!Cod_Comp
+'      Else
+'        '===== ini GENERA EL CODIGO DE COMPROBANTE ====
+'        Set rstCodComp = New ADODB.Recordset
+'        rstCodComp.CursorLocation = adUseClient
+'        If rstCodComp.State = 1 Then rstCodComp.Close
+'        rstCodComp.Open "select * from fc_Correl  where tipo_tramite = 'CMBTE'", db, adOpenDynamic, adLockOptimistic
+'        If rstCodComp.RecordCount > 0 Then
+'          Var_Comp = CDbl(rstCodComp!numero_correlativo)
+'          Var_Comp = Var_Comp + 1
+'          rstCodComp!numero_correlativo = Trim(Str(Var_Comp))
+'          rstCodComp.Update
+'        End If
+'        If rstCodComp.State = 1 Then rstCodComp.Close
+'
+'        'R-112, R-110, R-111
+'          Set rs_aux14 = New ADODB.Recordset
+'          SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = 'R-112' "          '  '" & txt_codigo1 & "' "
+'          rs_aux14.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+'          If rs_aux14.RecordCount > 0 Then
+'                rs_aux14!correl_doc = rs_aux14!correl_doc + 1
+'                VAR_COMPM = rs_aux14!correl_doc
+'                rs_aux14.Update
+'          End If
+'        '===== fin TERMINA GENERACION DE COMPROBANTE =====
+'
+'      '==== ini registro co_comprobante_m
+'
+'        rs_aux2.AddNew
+'        rs_aux2("cod_comp") = Var_Comp
+'      End If
+'    '========================================
+'    'anterior
+'    '      If rstdestino.State = 1 Then rstdestino.Close
+'    '      rstdestino.Open "select * from co_comprobante_m where Cod_Comp = 0", db, adOpenKeyset, adLockOptimistic
+'    '      If rstdestino.RecordCount > 0 Then
+'    '      End If
+'    '      rstdestino.AddNew
+'
+'    '      rstdestino("cod_comp") = Var_Comp
+'    'anterior
+'      rs_aux2("Tipo_Comp") = VAR_CODTIPO        'v_Tipo_Comp(1, i)
+'      rs_aux2("cod_trans") = VAR_CODANT
+'      rs_aux2("org_codigo") = VAR_ORG
+'      rs_aux2("venta_compra") = correlv
+'      If yacontabilizo = 0 Then
+'        rs_aux2("Fecha_transacion") = Date
+'      End If
+'      rs_aux2("mes_trasaccion") = UCase(MonthName(Month(Date)))
+'      rs_aux2("ges_gestion") = Year(Date)     'glGestion
+'      rs_aux2("beneficiario_codigo") = VAR_BENEF
+'      rs_aux2("glosa") = "INGRESO POR: " + VAR_GLOSA
+'      rs_aux2("unidad_codigo") = VAR_UNIDCOD       'Ado_datos.Recordset("unidad_codigo")
+'      rs_aux2("solicitud_codigo") = VAR_SOL     'Ado_datos.Recordset("solicitud_codigo")
+'      rs_aux2("tipo_moneda") = VAR_MONEDA
+'      rs_aux2("unidad_codigo_ant") = VAR_CITE
+'
+'      rs_aux2("proceso_codigo") = "FIN"
+'      rs_aux2("subproceso_codigo") = "FIN-02"
+'      Select Case VAR_CODTIPO
+'        Case "DEI"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "DEY"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "REC"
+'            rs_aux2("etapa_codigo") = "FIN-02-02"
+'        Case "DYR"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "DES"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "ANI"
+'            rs_aux2("etapa_codigo") = "FIN-02-02"
+'        Case "DVI"
+'            rs_aux2("etapa_codigo") = "FIN-02-02"
+'      End Select
+'
+'      rs_aux2("clasif_codigo") = "ADM"
+'      rs_aux2("doc_codigo") = "R-112"
+'      rs_aux2("doc_numero") = VAR_COMPM         'Var_Comp
+'      rs_aux2("pro_codigo_det") = VAR_PROY2
+'
+'      rs_aux2("estado_codigo") = "APR"
+'
+'      If yacontabilizo = 0 Then
+'        rs_aux2("usr_codigo") = glusuario
+'        rs_aux2("Fecha_registro") = Format(Date, "dd/mm/yyyy")
+'        rs_aux2("Hora_registro") = Format(Time, "hh:mm:ss")
+'      End If
+'      rs_aux2.Update
+'      '==== fin registro co_comprobantre_m
+'
+'    Dim d_cta_nombre_1 As String
+'    Dim d_aux1_1 As String
+'    Dim d_aux2_1 As String
+'    Dim d_aux3_1 As String
+'    Dim h_cta_nombre_1 As String
+'    Dim h_aux1_1 As String
+'    Dim h_aux2_1 As String
+'    Dim h_aux3_1 As String
+'    'If rstdestino.State = 1 Then rstdestino.Close
+'
+'    For i = 1 To j
+''    ' nuevo ini
+''      If v_Tipo_Comp(1, i) = "DEI" Then     'Devengado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "REC" Then     'Recaudado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DYR" Then     'Devengado y Recaudado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DES" Then     'Desafectado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "ANI" Then     'Anulado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DVI" Then     'Desafectado y Anulado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+'
+''      If v_Tipo_Comp(1, i) = "DVI" Then
+''        ' VERIFICAR SI SE ESTA CONTROLANDA con el DYR
+''        If rstdestino.State = 1 Then rstdestino.Close
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
+''        If rstdestino2.State = 1 Then rstdestino2.Close
+''        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''        If rstdestino.RecordCount > 0 And rstdestino2.RecordCount > 0 Then
+''          cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
+''          Subcta_deb11 = rstdestino!Subcta_cred1
+''          Subcta_deb21 = rstdestino!Subcta_cred2
+''
+''          cta_credito1 = rstdestino2!cta_deb
+''          Subcta_cred11 = rstdestino2!Subcta_deb1
+''          Subcta_cred21 = rstdestino2!Subcta_deb2
+''        Else
+''          MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
+'''          Exit Sub
+''        End If
+''      End If
+''
+''      If rstdestino.RecordCount > 0 And v_Tipo_Comp(1, i) <> "DVI" Then
+''        cta_deb1 = rstdestino("cta_deb")
+''        Subcta_deb11 = rstdestino("Subcta_deb1")
+''        Subcta_deb21 = rstdestino("Subcta_deb2")
+''        cta_credito1 = rstdestino("cta_cred")
+''        Subcta_cred11 = rstdestino("Subcta_cred1")
+''        Subcta_cred21 = rstdestino("Subcta_cred2")
+''      Else
+''        'MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
+''        'Exit Sub
+''
+''      End If
+'      '2115
+'      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "DEY") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
 '        cta_deb1 = rstdestino("cta_deb")
 '        Subcta_deb11 = rstdestino("Subcta_deb1")
 '        Subcta_deb21 = rstdestino("Subcta_deb2")
+'
 '        cta_credito1 = rstdestino("cta_cred")
 '        Subcta_cred11 = rstdestino("Subcta_cred1")
 '        Subcta_cred21 = rstdestino("Subcta_cred2")
 '      Else
-'        'MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
-'        'Exit Sub
+'        cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
+'        Subcta_deb11 = rstdestino!Subcta_cred1
+'        Subcta_deb21 = rstdestino!Subcta_cred2
 '
+'        cta_credito1 = rstdestino!cta_deb
+'        Subcta_cred11 = rstdestino!Subcta_deb1
+'        Subcta_cred21 = rstdestino!Subcta_deb2
 '      End If
-      '2115
-      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "DEY") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
-        cta_deb1 = rstdestino("cta_deb")
-        Subcta_deb11 = rstdestino("Subcta_deb1")
-        Subcta_deb21 = rstdestino("Subcta_deb2")
-        
-        cta_credito1 = rstdestino("cta_cred")
-        Subcta_cred11 = rstdestino("Subcta_cred1")
-        Subcta_cred21 = rstdestino("Subcta_cred2")
-      Else
-        cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
-        Subcta_deb11 = rstdestino!Subcta_cred1
-        Subcta_deb21 = rstdestino!Subcta_cred2
-    
-        cta_credito1 = rstdestino!cta_deb
-        Subcta_cred11 = rstdestino!Subcta_deb1
-        Subcta_cred21 = rstdestino!Subcta_deb2
-      End If
-      
-      If rs_aux1.State = 1 Then rs_aux1.Close
-      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_deb1 & "' and SubCta1 = '" & Subcta_deb11 & "' and SubCta2 = '" & Subcta_deb21 & "' ", db, adOpenKeyset, adLockReadOnly
-      If rs_aux1.RecordCount > 0 Then
-        d_cta_nombre_1 = rs_aux1("NombreCta")
-        d_aux1_1 = rs_aux1("aux1")
-        d_aux2_1 = rs_aux1("aux2")
-        d_aux3_1 = rs_aux1("aux3")
-        VAR_DCORR = rs_aux1("correl")
-      End If
-      If rs_aux1.State = 1 Then rs_aux1.Close
-      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_credito1 & "' and SubCta1 = '" & Subcta_cred11 & "' and SubCta2 = '" & Subcta_cred21 & "' ", db, adOpenKeyset, adLockReadOnly
-      If rs_aux1.RecordCount > 0 Then
-        h_cta_nombre_1 = rs_aux1("NombreCta")
-        h_aux1_1 = rs_aux1("aux1")
-        h_aux2_1 = rs_aux1("aux2")
-        h_aux3_1 = rs_aux1("aux3")
-        VAR_HCORR = rs_aux1("correl")
-      End If
-      If rs_aux1.State = 1 Then rs_aux1.Close
-      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_deb1 & "' and nivel = '4' ", db, adOpenKeyset, adLockReadOnly
-      If rs_aux1.RecordCount > 0 Then
-        VAR_NOMD = rs_aux1("NombreCta")
-      End If
-      If rs_aux1.State = 1 Then rs_aux1.Close
-      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_credito1 & "' and nivel = '4' ", db, adOpenKeyset, adLockReadOnly
-      If rs_aux1.RecordCount > 0 Then
-        VAR_NOMH = rs_aux1("NombreCta")
-      End If
-    ' nuevo fin
-    
-      '===== ini registra CO_diaRIO =========
-      Set rstdestino2 = New ADODB.Recordset
-      If rstdestino2.State = 1 Then rstdestino2.Close
-      rstdestino2.Open "select * from co_diario where Cod_Comp = " & Var_Comp, db, adOpenKeyset, adLockOptimistic
-      'If rstdestino2.RecordCount > 0 Then
-      '  MsgBox "Ya Existe el asiento, se reemplazará con los nuevos datos..."
-      'Else
-        rstdestino2.AddNew
-        rstdestino2("Cod_Comp") = Var_Comp
-      'End If
-        rstdestino2("Cod_Comp_Detalle") = rstdestino2.RecordCount
-      'rstdestino2("Tipo_Comp") = "DEI"   'v_Tipo_Comp(1, i)
-      'rstdestino2("Cod_Comp_C") = Var_Comp
-      'If v_Tipo_Comp(1, i) = "DEI" Or v_Tipo_Comp(1, i) = "REC" Then
-      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "DEY") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
-        rstdestino2("D_Cuenta") = cta_deb1
-        rstdestino2("D_Nombre") = d_cta_nombre_1 ' CAMPO PARA ELIMINAR
-        rstdestino2("D_Subcta1") = Subcta_deb11
-        rstdestino2("D_SubCta2") = Subcta_deb21
-        rstdestino2("D_Aux1") = d_aux1_1
-        rstdestino2("D_Aux2") = d_aux2_1
-        rstdestino2("D_Aux3") = d_aux3_1
-        rstdestino2("NOMCTADEBE") = VAR_NOMD
-        rstdestino2("D_Correl") = VAR_DCORR
-        ' ini PARA EL FUTURO ******** REVISAR
-'        Set rs_aux4 = New ADODB.Recordset
-'        If rs_aux4.State = 1 Then rs_aux4.Close
-'        SQL_FOR = "select * from cc_tipo_auxiliar where aux = '" & d_aux1_1 & "' "
-'        rs_aux4.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If rs_aux4.RecordCount > 0 Then
-'            Set rs_aux1 = New ADODB.Recordset
-'            If rs_aux1.State = 1 Then rs_aux1.Close
-'            SQL_FOR = "select * from " + rs_aux4!NombreTabla + " where " + rs_aux4!nombre_codigo + " = " + VAR_COD1
-'            rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'            If rs_aux1.RecordCount > 0 Then
-'        Else
-'        End If
-        ' fin PARA EL FUTURO ******** REVISAR
-        Select Case d_aux1_1
-            Case "01"
-                rstdestino2("D_Cta_Aux1") = VAR_BENEF
-                rstdestino2("D_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux1") = VAR_CTA
-                rstdestino2("D_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux1") = VAR_PROY2
-                rstdestino2("D_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux1") = VAR_DPTO
-                rstdestino2("D_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux1") = VAR_ORG
-                rstdestino2("D_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-        End Select
-        
-        Select Case d_aux2_1
-            Case "01"
-                rstdestino2("D_Cta_Aux2") = VAR_BENEF
-                rstdestino2("D_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux2") = VAR_CTA
-                rstdestino2("D_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux2") = VAR_PROY2
-                rstdestino2("D_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux2") = VAR_DPTO
-                rstdestino2("D_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux2") = VAR_ORG
-                rstdestino2("D_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-        End Select
-        
-        Select Case d_aux3_1
-            Case "01"
-                rstdestino2("D_Cta_Aux3") = VAR_BENEF
-                rstdestino2("D_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux3") = VAR_CTA
-                rstdestino2("D_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux3") = VAR_PROY2
-                rstdestino2("D_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux3") = VAR_DPTO
-                rstdestino2("D_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux3") = VAR_ORG
-                rstdestino2("D_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-        End Select
-'        If d_aux1_1 = "01" Then
-'          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'        End If
-'        If d_aux1_1 = "02" Then
-'          rstdestino2("D_Cta_Aux1") = VAR_CTA
-'        End If
-'        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
-        ' CORREGIR MONTOS JQA 2014-JUL-08
-        If j > 1 Then
-            If i = 1 Then
-                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-            Else
-                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-            End If
-        Else
-            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
-            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
-        End If
-        rstdestino2("D_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
-        'AQUI MONEDA 02/07/01
-        'rstdestino2("D_Cambio") = GlTipoCambioMercado
-        'AAAAAAAAAAAAAAQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUUIIIIIIIIIIIII JQA
-        rstdestino2("H_Cuenta") = cta_credito1
-        rstdestino2("H_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
-        rstdestino2("H_SubCta1") = Subcta_cred11
-        rstdestino2("H_SubCta2") = Subcta_cred21
-        rstdestino2("H_Aux1") = h_aux1_1
-        rstdestino2("H_Aux2") = h_aux2_1
-        rstdestino2("H_Aux3") = h_aux3_1
-        rstdestino2("NOMCTAHABER") = VAR_NOMH
-        rstdestino2("h_Correl") = VAR_HCORR
-        'rstdestino2("H_Cta_Aux1") = ""
-        Select Case h_aux1_1
-            Case "01"
-                rstdestino2("H_Cta_Aux1") = VAR_BENEF
-                rstdestino2("H_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux1") = VAR_CTA
-                rstdestino2("H_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux1") = VAR_PROY2
-                rstdestino2("H_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux1") = VAR_DPTO
-                rstdestino2("H_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux1") = VAR_ORG
-                rstdestino2("H_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-        End Select
-        
-        Select Case h_aux2_1
-            Case "01"
-                rstdestino2("H_Cta_Aux2") = VAR_BENEF
-                rstdestino2("H_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux2") = VAR_CTA
-                rstdestino2("H_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux2") = VAR_PROY2
-                rstdestino2("H_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux2") = VAR_DPTO
-                rstdestino2("H_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux2") = VAR_ORG
-                rstdestino2("H_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-        End Select
-        
-        Select Case h_aux3_1
-            Case "01"
-                rstdestino2("H_Cta_Aux3") = VAR_BENEF
-                rstdestino2("H_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux3") = VAR_CTA
-                rstdestino2("H_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux3") = VAR_PROY2
-                rstdestino2("H_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux3") = VAR_DPTO
-                rstdestino2("H_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux3") = VAR_ORG
-                rstdestino2("H_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-        End Select
-        
-'        If h_aux1_1 = "01" Then
-'          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'          'DtCCta_descripcion_larga
-'        End If
-'        If h_aux1_1 = "02" Then
-'          rstdestino2("H_Cta_Aux1") = VAR_CTA
-'        End If
-'        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
-        If j > 1 Then
-            If i = 1 Then
-                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-            Else
-                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-            End If
-        Else
-            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
-            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
-        End If
-        rstdestino2("H_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
-      End If
-
-      'If (v_Tipo_Comp(1, i) = "DES") Or (v_Tipo_Comp(1, i) = "ANI") Then
-      If (VAR_CODTIPO = "DES") Or (VAR_CODTIPO = "ANI") Or (VAR_CODTIPO = "DVI") Then
-        'desafecta un devengado
-        rstdestino2("D_Cuenta") = cta_credito1
-        rstdestino2("D_Nombre") = RTrim(h_cta_nombre_1) ' CAMPO PARA ELIMINAR
-        rstdestino2("D_Subcta1") = Subcta_cred11
-        rstdestino2("D_SubCta2") = Subcta_cred21
-        rstdestino2("D_Aux1") = h_aux1_1
-        rstdestino2("D_Aux2") = h_aux2_1
-        rstdestino2("D_Aux3") = h_aux3_1
-'        rstdestino2("D_Cta_Aux1") = "VESCT"
-        Select Case h_aux1_1
-            Case "01"
-                rstdestino2("D_Cta_Aux1") = VAR_BENEF
-                rstdestino2("D_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux1") = VAR_CTA
-                rstdestino2("D_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux1") = VAR_PROY2
-                rstdestino2("D_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux1") = VAR_DPTO
-                rstdestino2("D_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux1") = VAR_ORG
-                rstdestino2("D_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-        End Select
-        
-        Select Case h_aux2_1
-            Case "01"
-                rstdestino2("D_Cta_Aux2") = VAR_BENEF
-                rstdestino2("D_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux2") = VAR_CTA
-                rstdestino2("D_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux2") = VAR_PROY2
-                rstdestino2("D_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux2") = VAR_DPTO
-                rstdestino2("D_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux2") = VAR_ORG
-                rstdestino2("D_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-        End Select
-        
-        Select Case h_aux3_1
-            Case "01"
-                rstdestino2("D_Cta_Aux3") = VAR_BENEF
-                rstdestino2("D_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux3") = VAR_CTA
-                rstdestino2("D_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux3") = VAR_PROY2
-                rstdestino2("D_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux3") = VAR_DPTO
-                rstdestino2("D_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux3") = VAR_ORG
-                rstdestino2("D_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-        End Select
-'        If h_aux1_1 = "01" Then
-'          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'        End If
-'        If h_aux1_1 = "02" Then
-'          rstdestino2("D_Cta_Aux1") = VAR_CTA
-'        End If
-'        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
-        If i = 1 Then
-            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-        Else
-            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-        End If
-        rstdestino2("D_Cambio") = GlTipoCambioMercado
-
-        rstdestino2("H_Cuenta") = cta_deb1
-        rstdestino2("H_Nombre") = d_cta_nombre_1  ' CAMPO PARA ELIMINAR
-        rstdestino2("H_SubCta1") = Subcta_deb11
-        rstdestino2("H_SubCta2") = Subcta_deb21
-        rstdestino2("H_Aux1") = d_aux1_1
-        rstdestino2("H_Aux2") = d_aux2_1
-        rstdestino2("H_Aux3") = d_aux3_1
-'        rstdestino2("H_Cta_Aux1") = "VESCT"
-        Select Case d_aux1_1
-            Case "01"
-                rstdestino2("H_Cta_Aux1") = VAR_BENEF
-                rstdestino2("H_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux1") = VAR_CTA
-                rstdestino2("H_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux1") = VAR_PROY2
-                rstdestino2("H_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux1") = VAR_DPTO
-                rstdestino2("H_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux1") = VAR_ORG
-                rstdestino2("H_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-        End Select
-        
-        Select Case d_aux2_1
-            Case "01"
-                rstdestino2("H_Cta_Aux2") = VAR_BENEF
-                rstdestino2("H_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux2") = VAR_CTA
-                rstdestino2("H_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux2") = VAR_PROY2
-                rstdestino2("H_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux2") = VAR_DPTO
-                rstdestino2("H_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux2") = VAR_ORG
-                rstdestino2("H_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-        End Select
-        
-        Select Case d_aux3_1
-            Case "01"
-                rstdestino2("H_Cta_Aux3") = VAR_BENEF
-                rstdestino2("H_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux3") = VAR_CTA
-                rstdestino2("H_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux3") = VAR_PROY2
-                rstdestino2("H_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux3") = VAR_DPTO
-                rstdestino2("H_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux3") = VAR_ORG
-                rstdestino2("H_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-        End Select
-'        If d_aux1_1 = "01" Then
-'          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'          'DtCCta_descripcion_larga
-'        End If
-'        If d_aux1_1 = "02" Then
-'          rstdestino2("H_Cta_Aux1") = VAR_CTA
-'        End If
-        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
-        If i = 1 Then
-            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-        Else
-            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-        End If
-        rstdestino2("H_Cambio") = GlTipoCambioMercado
-      End If
-
-'      '==== INI DVI ====
-'      If (VAR_CODTIPO = "DVI") Then
+'
+'      If rs_aux1.State = 1 Then rs_aux1.Close
+'      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_deb1 & "' and SubCta1 = '" & Subcta_deb11 & "' and SubCta2 = '" & Subcta_deb21 & "' ", db, adOpenKeyset, adLockReadOnly
+'      If rs_aux1.RecordCount > 0 Then
+'        d_cta_nombre_1 = rs_aux1("NombreCta")
+'        d_aux1_1 = rs_aux1("aux1")
+'        d_aux2_1 = rs_aux1("aux2")
+'        d_aux3_1 = rs_aux1("aux3")
+'        VAR_DCORR = rs_aux1("correl")
+'      End If
+'      If rs_aux1.State = 1 Then rs_aux1.Close
+'      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_credito1 & "' and SubCta1 = '" & Subcta_cred11 & "' and SubCta2 = '" & Subcta_cred21 & "' ", db, adOpenKeyset, adLockReadOnly
+'      If rs_aux1.RecordCount > 0 Then
+'        h_cta_nombre_1 = rs_aux1("NombreCta")
+'        h_aux1_1 = rs_aux1("aux1")
+'        h_aux2_1 = rs_aux1("aux2")
+'        h_aux3_1 = rs_aux1("aux3")
+'        VAR_HCORR = rs_aux1("correl")
+'      End If
+'      If rs_aux1.State = 1 Then rs_aux1.Close
+'      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_deb1 & "' and nivel = '4' ", db, adOpenKeyset, adLockReadOnly
+'      If rs_aux1.RecordCount > 0 Then
+'        VAR_NOMD = rs_aux1("NombreCta")
+'      End If
+'      If rs_aux1.State = 1 Then rs_aux1.Close
+'      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_credito1 & "' and nivel = '4' ", db, adOpenKeyset, adLockReadOnly
+'      If rs_aux1.RecordCount > 0 Then
+'        VAR_NOMH = rs_aux1("NombreCta")
+'      End If
+'    ' nuevo fin
+'
+'      '===== ini registra CO_diaRIO =========
+'      Set rstdestino2 = New ADODB.Recordset
+'      If rstdestino2.State = 1 Then rstdestino2.Close
+'      rstdestino2.Open "select * from co_diario where Cod_Comp = " & Var_Comp, db, adOpenKeyset, adLockOptimistic
+'      'If rstdestino2.RecordCount > 0 Then
+'      '  MsgBox "Ya Existe el asiento, se reemplazará con los nuevos datos..."
+'      'Else
+'        rstdestino2.AddNew
+'        rstdestino2("Cod_Comp") = Var_Comp
+'      'End If
+'        rstdestino2("Cod_Comp_Detalle") = rstdestino2.RecordCount
+'      'rstdestino2("Tipo_Comp") = "DEI"   'v_Tipo_Comp(1, i)
+'      'rstdestino2("Cod_Comp_C") = Var_Comp
+'      'If v_Tipo_Comp(1, i) = "DEI" Or v_Tipo_Comp(1, i) = "REC" Then
+'      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "DEY") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
 '        rstdestino2("D_Cuenta") = cta_deb1
-''        rstdestino2("D_Nombre") = d_cta_nombre_1 ' CAMPO PARA ELIMINAR
+'        rstdestino2("D_Nombre") = d_cta_nombre_1 ' CAMPO PARA ELIMINAR
 '        rstdestino2("D_Subcta1") = Subcta_deb11
 '        rstdestino2("D_SubCta2") = Subcta_deb21
 '        rstdestino2("D_Aux1") = d_aux1_1
 '        rstdestino2("D_Aux2") = d_aux2_1
 '        rstdestino2("D_Aux3") = d_aux3_1
-'        If d_aux1_1 = "01" Then
-'          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'        End If
-'        If d_aux1_1 = "02" Then
-'          rstdestino2("D_Cta_Aux1") = VAR_CTA
-'        End If
+'        rstdestino2("NOMCTADEBE") = VAR_NOMD
+'        rstdestino2("D_Correl") = VAR_DCORR
+'        ' ini PARA EL FUTURO ******** REVISAR
+''        Set rs_aux4 = New ADODB.Recordset
+''        If rs_aux4.State = 1 Then rs_aux4.Close
+''        SQL_FOR = "select * from cc_tipo_auxiliar where aux = '" & d_aux1_1 & "' "
+''        rs_aux4.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+''        If rs_aux4.RecordCount > 0 Then
+''            Set rs_aux1 = New ADODB.Recordset
+''            If rs_aux1.State = 1 Then rs_aux1.Close
+''            SQL_FOR = "select * from " + rs_aux4!NombreTabla + " where " + rs_aux4!nombre_codigo + " = " + VAR_COD1
+''            rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+''            If rs_aux1.RecordCount > 0 Then
+''        Else
+''        End If
+'        ' fin PARA EL FUTURO ******** REVISAR
+'        Select Case d_aux1_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("D_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux1") = VAR_CTA
+'                rstdestino2("D_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("D_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("D_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux1") = VAR_ORG
+'                rstdestino2("D_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case d_aux2_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("D_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux2") = VAR_CTA
+'                rstdestino2("D_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("D_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("D_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux2") = VAR_ORG
+'                rstdestino2("D_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case d_aux3_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("D_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux3") = VAR_CTA
+'                rstdestino2("D_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("D_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("D_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux3") = VAR_ORG
+'                rstdestino2("D_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'        End Select
+''        If d_aux1_1 = "01" Then
+''          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''        End If
+''        If d_aux1_1 = "02" Then
+''          rstdestino2("D_Cta_Aux1") = VAR_CTA
+''        End If
 ''        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
-'        rstdestino2("D_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
-'        rstdestino2("D_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
-'        rstdestino2("D_Cambio") = GlTipoCambioMercado
+'        ' CORREGIR MONTOS JQA 2014-JUL-08
+'        If j > 1 Then
+'            If i = 1 Then
+'                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'            Else
+'                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'            End If
+'        Else
+'            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
+'            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
+'        End If
+'        rstdestino2("D_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
+'        'AQUI MONEDA 02/07/01
+'        'rstdestino2("D_Cambio") = GlTipoCambioMercado
+'        'AAAAAAAAAAAAAAQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUUIIIIIIIIIIIII JQA
 '        rstdestino2("H_Cuenta") = cta_credito1
-''        rstdestino2("H_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
+'        rstdestino2("H_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
 '        rstdestino2("H_SubCta1") = Subcta_cred11
 '        rstdestino2("H_SubCta2") = Subcta_cred21
 '        rstdestino2("H_Aux1") = h_aux1_1
 '        rstdestino2("H_Aux2") = h_aux2_1
 '        rstdestino2("H_Aux3") = h_aux3_1
-'        'rstdestino2("H_Cta_Aux1") = "VESCT"
-'        If h_aux1_1 = "01" Then
-'          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'          'DtCCta_descripcion_larga
-'        End If
-'        If h_aux1_1 = "02" Then
-'          rstdestino2("H_Cta_Aux1") = VAR_CTA
-'        End If
+'        rstdestino2("NOMCTAHABER") = VAR_NOMH
+'        rstdestino2("h_Correl") = VAR_HCORR
+'        'rstdestino2("H_Cta_Aux1") = ""
+'        Select Case h_aux1_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("H_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux1") = VAR_CTA
+'                rstdestino2("H_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("H_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("H_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux1") = VAR_ORG
+'                rstdestino2("H_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case h_aux2_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("H_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux2") = VAR_CTA
+'                rstdestino2("H_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("H_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("H_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux2") = VAR_ORG
+'                rstdestino2("H_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case h_aux3_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("H_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux3") = VAR_CTA
+'                rstdestino2("H_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("H_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("H_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux3") = VAR_ORG
+'                rstdestino2("H_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'        End Select
+'
+''        If h_aux1_1 = "01" Then
+''          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''          'DtCCta_descripcion_larga
+''        End If
+''        If h_aux1_1 = "02" Then
+''          rstdestino2("H_Cta_Aux1") = VAR_CTA
+''        End If
 ''        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
-'        rstdestino2("H_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
-'        rstdestino2("H_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
+'        If j > 1 Then
+'            If i = 1 Then
+'                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'            Else
+'                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'            End If
+'        Else
+'            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
+'            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
+'        End If
+'        rstdestino2("H_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
+'      End If
+'
+'      'If (v_Tipo_Comp(1, i) = "DES") Or (v_Tipo_Comp(1, i) = "ANI") Then
+'      If (VAR_CODTIPO = "DES") Or (VAR_CODTIPO = "ANI") Or (VAR_CODTIPO = "DVI") Then
+'        'desafecta un devengado
+'        rstdestino2("D_Cuenta") = cta_credito1
+'        rstdestino2("D_Nombre") = RTrim(h_cta_nombre_1) ' CAMPO PARA ELIMINAR
+'        rstdestino2("D_Subcta1") = Subcta_cred11
+'        rstdestino2("D_SubCta2") = Subcta_cred21
+'        rstdestino2("D_Aux1") = h_aux1_1
+'        rstdestino2("D_Aux2") = h_aux2_1
+'        rstdestino2("D_Aux3") = h_aux3_1
+''        rstdestino2("D_Cta_Aux1") = "VESCT"
+'        Select Case h_aux1_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("D_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux1") = VAR_CTA
+'                rstdestino2("D_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("D_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("D_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux1") = VAR_ORG
+'                rstdestino2("D_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case h_aux2_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("D_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux2") = VAR_CTA
+'                rstdestino2("D_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("D_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("D_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux2") = VAR_ORG
+'                rstdestino2("D_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case h_aux3_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("D_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux3") = VAR_CTA
+'                rstdestino2("D_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("D_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("D_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux3") = VAR_ORG
+'                rstdestino2("D_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'        End Select
+''        If h_aux1_1 = "01" Then
+''          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''        End If
+''        If h_aux1_1 = "02" Then
+''          rstdestino2("D_Cta_Aux1") = VAR_CTA
+''        End If
+''        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
+'        If i = 1 Then
+'            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'        Else
+'            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'        End If
+'        rstdestino2("D_Cambio") = GlTipoCambioMercado
+'
+'        rstdestino2("H_Cuenta") = cta_deb1
+'        rstdestino2("H_Nombre") = d_cta_nombre_1  ' CAMPO PARA ELIMINAR
+'        rstdestino2("H_SubCta1") = Subcta_deb11
+'        rstdestino2("H_SubCta2") = Subcta_deb21
+'        rstdestino2("H_Aux1") = d_aux1_1
+'        rstdestino2("H_Aux2") = d_aux2_1
+'        rstdestino2("H_Aux3") = d_aux3_1
+''        rstdestino2("H_Cta_Aux1") = "VESCT"
+'        Select Case d_aux1_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("H_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux1") = VAR_CTA
+'                rstdestino2("H_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("H_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux1") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("H_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux1") = VAR_ORG
+'                rstdestino2("H_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case d_aux2_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("H_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux2") = VAR_CTA
+'                rstdestino2("H_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("H_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux2") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("H_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux2") = VAR_ORG
+'                rstdestino2("H_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case d_aux3_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("H_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux3") = VAR_CTA
+'                rstdestino2("H_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("H_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux3") = VAR_UNIDCOD        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("H_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux3") = VAR_ORG
+'                rstdestino2("H_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'        End Select
+''        If d_aux1_1 = "01" Then
+''          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''          'DtCCta_descripcion_larga
+''        End If
+''        If d_aux1_1 = "02" Then
+''          rstdestino2("H_Cta_Aux1") = VAR_CTA
+''        End If
+'        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
+'        If i = 1 Then
+'            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'        Else
+'            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'        End If
 '        rstdestino2("H_Cambio") = GlTipoCambioMercado
 '      End If
-'      '==== FIN DVI ====
-
-      If yacontabilizo = 0 Then
-        rstdestino2("Usr_codigo") = glusuario
-        rstdestino2("Fecha_registro") = Date
-        rstdestino2("Hora_registro") = Format(Time, "hh:mm:ss")
-      End If
-      
-      rstdestino2.Update
-      If rstdestino2.State = 1 Then rstdestino2.Close
-      '======= fin registra co_diario ==========
-      rstdestino.MoveNext
-    Next i
-      '-Actualiza SubTitulo Debe
-      db.Execute "UPDATE co_diario SET co_diario.NOMCTADEBE = ltrim(cv_diario_subtitulo_debe.NombreCta) FROM co_diario INNER JOIN cv_diario_subtitulo_debe on co_diario.D_Cuenta = cv_diario_subtitulo_debe.Cuenta where co_diario.Cod_Comp = " & Var_Comp & " "
-      '--Actualiza SubTitulo Haber
-      db.Execute "UPDATE co_diario SET co_diario.NOMCTAHABER = ltrim(cv_diario_subtitulo_haber.NombreCta) FROM co_diario INNER JOIN cv_diario_subtitulo_haber on co_diario.H_Cuenta = cv_diario_subtitulo_haber.Cuenta where co_diario.Cod_Comp = " & Var_Comp & " "
-      '--Actualiza D_Nombre Debe
-      db.Execute "UPDATE co_diario SET co_diario.D_Nombre  = ltrim(cc_plan_cuentas.NombreCta) FROM co_diario INNER JOIN cc_plan_cuentas on co_diario.D_Cuenta = cc_plan_cuentas.Cuenta and co_diario.D_Subcta1 = cc_plan_cuentas.SubCta1 and co_diario.D_SubCta2 = cc_plan_cuentas.SubCta2 where co_diario.Cod_Comp = " & Var_Comp & " "
-      '--Actualiza H_Nombre Haber
-      db.Execute "UPDATE co_diario SET co_diario.H_Nombre  = ltrim(cc_plan_cuentas.NombreCta) FROM co_diario INNER JOIN cc_plan_cuentas on co_diario.H_Cuenta  = cc_plan_cuentas.Cuenta and co_diario.H_Subcta1  = cc_plan_cuentas.SubCta1 and co_diario.H_SubCta2  = cc_plan_cuentas.SubCta2 where co_diario.Cod_Comp = " & Var_Comp & " "
-    
-    '======= inI Actualiza campos de estatus de ingresos ==========
-'    If rstdestino.State = 1 Then rstdestino.Close
-'    rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = '" & correlativo1 & "' and org_codigo = '" & VAR_ORG & "' and ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' ", db, adOpenDynamic, adLockOptimistic
-'    rstdestino.MoveFirst
-'    If Not (rstdestino.EOF) Then
-'      rstdestino("estado_aprobacion") = "S"
-'        If VAR_CODTIPO = "DEI" Then
-'          rstdestino("estado_devengado") = "S"
-'        End If
-'        If VAR_CODTIPO = "REC" Then
-'          rstdestino("estado_recaudado") = "S"
-'        End If
-'        If VAR_CODTIPO = "DYR" Then
-'          rstdestino("estado_devengado") = "S"
-'          rstdestino("estado_recaudado") = "S"
-'        End If
 '
-'        If VAR_CODTIPO = "DES" Then
-'          rstdestino("estado_desafectado") = "S"
-'        End If
-'        If VAR_CODTIPO = "ANI" Then
-'          rstdestino("estado_anulado") = "S"
-'        End If
-'        If VAR_CODTIPO = "DVI" Then
-'          rstdestino!estado_desafectado = "S"
-'          rstdestino!estado_anulado = "S"
-'        End If
-'       rstdestino.Update
-'       If rstdestino.State = 1 Then rstdestino.Close
-'    End If
-    '======= fin Actualiza campos de estatus de ingresos ==========
-    ' AAAAAAAAAQQQQQQQQQQQUUUUUUUUUUUIIIIIIIIIII
-    cod_ant = 0
-    org_ant = ""
-    '======= ini Actualiza el monto recaudado  ==========
-    If (VAR_CODTIPO = "REC") Then
-      '      If rstdestino.State = 1 Then rstdestino.Close
-      '      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      '      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-      '        cod_ant = rstdestino("ingreso_codigo_anterior")
-      '        org_ant = rstdestino("org_codigo")
-      '      End If
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") + VAR_DOL2
-          rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") + VAR_BS2
-          rstdestino.Update
-      End If
-      If rstdestino.State = 1 Then rstdestino.Close
-    End If
-
-    If (VAR_CODTIPO = "DES") Then
+''      '==== INI DVI ====
+''      If (VAR_CODTIPO = "DVI") Then
+''        rstdestino2("D_Cuenta") = cta_deb1
+'''        rstdestino2("D_Nombre") = d_cta_nombre_1 ' CAMPO PARA ELIMINAR
+''        rstdestino2("D_Subcta1") = Subcta_deb11
+''        rstdestino2("D_SubCta2") = Subcta_deb21
+''        rstdestino2("D_Aux1") = d_aux1_1
+''        rstdestino2("D_Aux2") = d_aux2_1
+''        rstdestino2("D_Aux3") = d_aux3_1
+''        If d_aux1_1 = "01" Then
+''          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''        End If
+''        If d_aux1_1 = "02" Then
+''          rstdestino2("D_Cta_Aux1") = VAR_CTA
+''        End If
+'''        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
+''        rstdestino2("D_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
+''        rstdestino2("D_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
+''        rstdestino2("D_Cambio") = GlTipoCambioMercado
+''        rstdestino2("H_Cuenta") = cta_credito1
+'''        rstdestino2("H_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
+''        rstdestino2("H_SubCta1") = Subcta_cred11
+''        rstdestino2("H_SubCta2") = Subcta_cred21
+''        rstdestino2("H_Aux1") = h_aux1_1
+''        rstdestino2("H_Aux2") = h_aux2_1
+''        rstdestino2("H_Aux3") = h_aux3_1
+''        'rstdestino2("H_Cta_Aux1") = "VESCT"
+''        If h_aux1_1 = "01" Then
+''          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''          'DtCCta_descripcion_larga
+''        End If
+''        If h_aux1_1 = "02" Then
+''          rstdestino2("H_Cta_Aux1") = VAR_CTA
+''        End If
+'''        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
+''        rstdestino2("H_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
+''        rstdestino2("H_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
+''        rstdestino2("H_Cambio") = GlTipoCambioMercado
+''      End If
+''      '==== FIN DVI ====
+'
+'      If yacontabilizo = 0 Then
+'        rstdestino2("Usr_codigo") = glusuario
+'        rstdestino2("Fecha_registro") = Date
+'        rstdestino2("Hora_registro") = Format(Time, "hh:mm:ss")
+'      End If
+'
+'      rstdestino2.Update
+'      If rstdestino2.State = 1 Then rstdestino2.Close
+'      '======= fin registra co_diario ==========
+'      rstdestino.MoveNext
+'    Next i
+'      '-Actualiza SubTitulo Debe
+'      db.Execute "UPDATE co_diario SET co_diario.NOMCTADEBE = ltrim(cv_diario_subtitulo_debe.NombreCta) FROM co_diario INNER JOIN cv_diario_subtitulo_debe on co_diario.D_Cuenta = cv_diario_subtitulo_debe.Cuenta where co_diario.Cod_Comp = " & Var_Comp & " "
+'      '--Actualiza SubTitulo Haber
+'      db.Execute "UPDATE co_diario SET co_diario.NOMCTAHABER = ltrim(cv_diario_subtitulo_haber.NombreCta) FROM co_diario INNER JOIN cv_diario_subtitulo_haber on co_diario.H_Cuenta = cv_diario_subtitulo_haber.Cuenta where co_diario.Cod_Comp = " & Var_Comp & " "
+'      '--Actualiza D_Nombre Debe
+'      db.Execute "UPDATE co_diario SET co_diario.D_Nombre  = ltrim(cc_plan_cuentas.NombreCta) FROM co_diario INNER JOIN cc_plan_cuentas on co_diario.D_Cuenta = cc_plan_cuentas.Cuenta and co_diario.D_Subcta1 = cc_plan_cuentas.SubCta1 and co_diario.D_SubCta2 = cc_plan_cuentas.SubCta2 where co_diario.Cod_Comp = " & Var_Comp & " "
+'      '--Actualiza H_Nombre Haber
+'      db.Execute "UPDATE co_diario SET co_diario.H_Nombre  = ltrim(cc_plan_cuentas.NombreCta) FROM co_diario INNER JOIN cc_plan_cuentas on co_diario.H_Cuenta  = cc_plan_cuentas.Cuenta and co_diario.H_Subcta1  = cc_plan_cuentas.SubCta1 and co_diario.H_SubCta2  = cc_plan_cuentas.SubCta2 where co_diario.Cod_Comp = " & Var_Comp & " "
+'
+'    '======= inI Actualiza campos de estatus de ingresos ==========
+''    If rstdestino.State = 1 Then rstdestino.Close
+''    rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = '" & correlativo1 & "' and org_codigo = '" & VAR_ORG & "' and ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' ", db, adOpenDynamic, adLockOptimistic
+''    rstdestino.MoveFirst
+''    If Not (rstdestino.EOF) Then
+''      rstdestino("estado_aprobacion") = "S"
+''        If VAR_CODTIPO = "DEI" Then
+''          rstdestino("estado_devengado") = "S"
+''        End If
+''        If VAR_CODTIPO = "REC" Then
+''          rstdestino("estado_recaudado") = "S"
+''        End If
+''        If VAR_CODTIPO = "DYR" Then
+''          rstdestino("estado_devengado") = "S"
+''          rstdestino("estado_recaudado") = "S"
+''        End If
+''
+''        If VAR_CODTIPO = "DES" Then
+''          rstdestino("estado_desafectado") = "S"
+''        End If
+''        If VAR_CODTIPO = "ANI" Then
+''          rstdestino("estado_anulado") = "S"
+''        End If
+''        If VAR_CODTIPO = "DVI" Then
+''          rstdestino!estado_desafectado = "S"
+''          rstdestino!estado_anulado = "S"
+''        End If
+''       rstdestino.Update
+''       If rstdestino.State = 1 Then rstdestino.Close
+''    End If
+'    '======= fin Actualiza campos de estatus de ingresos ==========
+'    ' AAAAAAAAAQQQQQQQQQQQUUUUUUUUUUUIIIIIIIIIII
+'    cod_ant = 0
+'    org_ant = ""
+'    '======= ini Actualiza el monto recaudado  ==========
+'    If (VAR_CODTIPO = "REC") Then
+'      '      If rstdestino.State = 1 Then rstdestino.Close
+'      '      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      '      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'      '        cod_ant = rstdestino("ingreso_codigo_anterior")
+'      '        org_ant = rstdestino("org_codigo")
+'      '      End If
 '      If rstdestino.State = 1 Then rstdestino.Close
 '      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-'      Print VAR_CODANT
 '      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-'        cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
-'        org_ant = rstdestino("org_codigo")
+'          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") + VAR_DOL2
+'          rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") + VAR_BS2
+'          rstdestino.Update
 '      End If
-
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-        If rstdestino("codigo_tipo") = "DEI" Or (VAR_CODTIPO = "DEY") Then
-'          rstdestino!estado_desafectado = "S" 02/07/01
-          rstdestino!estado_codigo = "DES"
-          rstdestino.Update
-          If rstdestino.State = 1 Then rstdestino.Close
-        Else
-          rstdestino("estado_codigo") = "DES"
-'          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
-          cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
-          org_ant = rstdestino("org_codigo")
-          rstdestino.Update
-          If rstdestino.State = 1 Then rstdestino.Close
-          'rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & cod_ant & " and org_codigo = '" & org_ant & "' ", db, adOpenKeyset, adLockOptimistic
-          rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-          If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-            rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
-            rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") - VAR_BS2
-          End If
-          rstdestino.Update
-          If rstdestino.State = 1 Then rstdestino.Close
-        End If
-      End If
-    End If
-
-    If (VAR_CODTIPO = "ANI") Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-        If rstdestino("codigo_tipo") = "REC" Then
-'          rstdestino("estado_desafectado") = ""
-          rstdestino("estado_codigo") = "ANI"
-'          rstdestino("estado_devengado") = "S" 02/07/01
-'          rstdestino("estado_anulado") = ""
-'          rstdestino("codigo_tipo") = "DEI" 02/07/01
-          rstdestino("monto_recaudado_dolares") = 0
-        End If
-      End If
-      rstdestino.Update
-'      Print rstdestino!ingreso_codigo_anterior
-'      Print rstdestino!monto_recaudado
-      cod_ant = 0
-      org_ant = ""
-      
-      'Call f_actual_rec(rstdestino!org_codigo, rstdestino!ingreso_codigo_anterior)
-      If rstdestino.State = 1 Then rstdestino.Close
-    End If
-    If (VAR_CODTIPO = "DVI") Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-        rstdestino!estado_codigo = "DVI"
-      End If
-      rstdestino.Update
-      If rstdestino.State = 1 Then rstdestino.Close
-    End If
-    '======= fin Actualiza el monto recaudado  ==========
-
-    '======= ini Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
-    If VAR_CODTIPO = "REC" Or VAR_CODTIPO = "DYR" Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
-      If Not rstdestino.EOF Then
-        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
-        rstdestino.Update
-      End If
-    End If
-    If VAR_CODTIPO = "ANI" Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
-      If Not rstdestino.EOF Then
-        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
-        rstdestino.Update
-      End If
-    End If
-    '======= fin Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
-    'LblMensaje.Caption = "El proceso concluyó exitosamente, gracias"
-    'Frmmensaje.Visible = False
-    db.CommitTrans
-  'End If
-  'marca1 = Ado_datos.Recordset.Bookmark
-  rs_datos.Update
-  rs_datos.Requery
-  Set Ado_datos.Recordset = rs_datos
-  If rs_datos.RecordCount > 0 Then
-    Ado_datos.Recordset.Move marca1 - 1
-  End If
-  'db.Execute "EXEC ts_mf_ActualizaCtaBancaria"
+'      If rstdestino.State = 1 Then rstdestino.Close
+'    End If
+'
+'    If (VAR_CODTIPO = "DES") Then
+''      If rstdestino.State = 1 Then rstdestino.Close
+''      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+''      Print VAR_CODANT
+''      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+''        cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
+''        org_ant = rstdestino("org_codigo")
+''      End If
+'
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'        If rstdestino("codigo_tipo") = "DEI" Or (VAR_CODTIPO = "DEY") Then
+''          rstdestino!estado_desafectado = "S" 02/07/01
+'          rstdestino!estado_codigo = "DES"
+'          rstdestino.Update
+'          If rstdestino.State = 1 Then rstdestino.Close
+'        Else
+'          rstdestino("estado_codigo") = "DES"
+''          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
+'          cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
+'          org_ant = rstdestino("org_codigo")
+'          rstdestino.Update
+'          If rstdestino.State = 1 Then rstdestino.Close
+'          'rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & cod_ant & " and org_codigo = '" & org_ant & "' ", db, adOpenKeyset, adLockOptimistic
+'          rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'          If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'            rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
+'            rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") - VAR_BS2
+'          End If
+'          rstdestino.Update
+'          If rstdestino.State = 1 Then rstdestino.Close
+'        End If
+'      End If
+'    End If
+'
+'    If (VAR_CODTIPO = "ANI") Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'        If rstdestino("codigo_tipo") = "REC" Then
+''          rstdestino("estado_desafectado") = ""
+'          rstdestino("estado_codigo") = "ANI"
+''          rstdestino("estado_devengado") = "S" 02/07/01
+''          rstdestino("estado_anulado") = ""
+''          rstdestino("codigo_tipo") = "DEI" 02/07/01
+'          rstdestino("monto_recaudado_dolares") = 0
+'        End If
+'      End If
+'      rstdestino.Update
+''      Print rstdestino!ingreso_codigo_anterior
+''      Print rstdestino!monto_recaudado
+'      cod_ant = 0
+'      org_ant = ""
+'
+'      'Call f_actual_rec(rstdestino!org_codigo, rstdestino!ingreso_codigo_anterior)
+'      If rstdestino.State = 1 Then rstdestino.Close
+'    End If
+'    If (VAR_CODTIPO = "DVI") Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'        rstdestino!estado_codigo = "DVI"
+'      End If
+'      rstdestino.Update
+'      If rstdestino.State = 1 Then rstdestino.Close
+'    End If
+'    '======= fin Actualiza el monto recaudado  ==========
+'
+'    '======= ini Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
+'    If VAR_CODTIPO = "REC" Or VAR_CODTIPO = "DYR" Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
+'      If Not rstdestino.EOF Then
+'        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
+'        rstdestino.Update
+'      End If
+'    End If
+'    If VAR_CODTIPO = "ANI" Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
+'      If Not rstdestino.EOF Then
+'        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
+'        rstdestino.Update
+'      End If
+'    End If
+'    '======= fin Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
+'    'LblMensaje.Caption = "El proceso concluyó exitosamente, gracias"
+'    'Frmmensaje.Visible = False
+'    db.CommitTrans
+'  'End If
+'  'marca1 = Ado_datos.Recordset.Bookmark
+'  rs_datos.Update
+'  rs_datos.Requery
+'  Set Ado_datos.Recordset = rs_datos
+'  If rs_datos.RecordCount > 0 Then
+'    Ado_datos.Recordset.Move marca1 - 1
+'  End If
+'  'db.Execute "EXEC ts_mf_ActualizaCtaBancaria"
 
 End Sub
 
@@ -10346,7 +10348,7 @@ Private Sub BtnModDetalle_Click()
     Set rs_datos12 = New ADODB.Recordset
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "select * from Gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
-    Set Ado_Datos12.Recordset = rs_datos12
+    Set Ado_datos12.Recordset = rs_datos12
     'Ado_datos12.Refresh
     Dtc_aux12.BoundText = dtc_codigo12.BoundText
     dtc_desc12.BoundText = dtc_codigo12.BoundText

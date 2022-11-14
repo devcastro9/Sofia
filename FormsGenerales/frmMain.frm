@@ -1757,10 +1757,10 @@ End Sub
 Private Sub Mnu_EjecucionInstalaciones_Click()
     If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "NPAREDES" Then
         Aux = "DNINS"
-        tw_cronograma_mensual_inst.lbl_titulo = Mnu_EjecucionInstalaciones.Caption
-        tw_cronograma_mensual_inst.FraNavega = Mnu_EjecucionInstalaciones.Caption
-        tw_cronograma_mensual_inst.lbl_titulo2 = Mnu_EjecucionInstalaciones.Caption
-        tw_cronograma_mensual_inst.Show
+        tw_cronograma_certifica_inst.lbl_titulo = Mnu_EjecucionInstalaciones.Caption
+        tw_cronograma_certifica_inst.FraNavega = Mnu_EjecucionInstalaciones.Caption
+        tw_cronograma_certifica_inst.lbl_titulo2 = Mnu_EjecucionInstalaciones.Caption
+        tw_cronograma_certifica_inst.Show
     Else
         MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
     End If
