@@ -416,7 +416,7 @@ Begin VB.Form aw_p_ao_solicitud_calculo_trafico
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   116195331
+         Format          =   119275523
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   32874
@@ -5779,8 +5779,8 @@ On Error GoTo UpdateErr
                 Case Else
                     VAR_CONTI = "AMERICA"
              End Select
-             db.Execute "DELETE ao_solicitud_cotiza_modelo where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_Campo1) & "   "
-             db.Execute "DELETE ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_Campo1) & "   "
+             db.Execute "DELETE ao_solicitud_cotiza_modelo where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_campo1) & "   "
+             db.Execute "DELETE ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_campo1) & "   "
               'corrprog = 0
              'Call GRABA_ARREGLO1
              Call GRABA_ARREGLO_1
@@ -6206,7 +6206,7 @@ Private Sub GRABA_ARREGLO_1()
           rs_aux1!ges_gestion = Year(Date)
           rs_aux1!unidad_codigo = parametro   'Ado_datos.Recordset!unidad_codigo
           rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-          rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
+          rs_aux1!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
           rs_aux1!trafico_codigo = Ado_datos.Recordset!trafico_codigo
           rs_aux1!pais_continente = Ado_datos.Recordset!pais_continente
           rs_aux1!cotiza_codigo = var_cod
@@ -6229,7 +6229,7 @@ Private Sub GRABA_ARREGLO_1()
           rs_aux1!fecha_registro = Date
           rs_aux1!usr_codigo = glusuario
           rs_aux1.Update
-          db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'  "
+          db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "'  "
           'GRABA ao_solicitud_cotiza_modelo
             Set rs_aux4 = New ADODB.Recordset
             If rs_aux4.State = 1 Then rs_aux4.Close
@@ -6238,7 +6238,7 @@ Private Sub GRABA_ARREGLO_1()
             rs_aux4!ges_gestion = Year(Date)
             rs_aux4!unidad_codigo = parametro
             rs_aux4!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-            rs_aux4!edif_codigo = Ado_datos.Recordset!edif_codigo
+            rs_aux4!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
             rs_aux4!trafico_codigo = Ado_datos.Recordset!trafico_codigo
             rs_aux4!pais_continente = Ado_datos.Recordset!pais_continente
             rs_aux4!cotiza_codigo = var_cod
@@ -6386,7 +6386,7 @@ Private Sub GRABA_ARREGLO_2()
       rs_aux1!ges_gestion = Year(Date)
       rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
       rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-      rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
+      rs_aux1!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
       rs_aux1!trafico_codigo = Ado_datos.Recordset!trafico_codigo
       rs_aux1!pais_continente = Ado_datos.Recordset!pais_continente2
       rs_aux1!cotiza_codigo = var_cod
@@ -6408,7 +6408,7 @@ Private Sub GRABA_ARREGLO_2()
       rs_aux1!fecha_registro = Date
       rs_aux1!usr_codigo = glusuario
       rs_aux1.Update
-      db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'  "
+      db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "'  "
           'GRABA ao_solicitud_cotiza_modelo
             Set rs_aux4 = New ADODB.Recordset
             If rs_aux4.State = 1 Then rs_aux4.Close
@@ -6417,7 +6417,7 @@ Private Sub GRABA_ARREGLO_2()
             rs_aux4!ges_gestion = Year(Date)
             rs_aux4!unidad_codigo = parametro
             rs_aux4!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-            rs_aux4!edif_codigo = Ado_datos.Recordset!edif_codigo
+            rs_aux4!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
             rs_aux4!trafico_codigo = Ado_datos.Recordset!trafico_codigo
             rs_aux4!pais_continente = Ado_datos.Recordset!pais_continente2
             rs_aux4!cotiza_codigo = var_cod
@@ -6546,7 +6546,7 @@ Private Sub GRABA_ARREGLO_3()
       'Graba en Cotiza    3
       Set rs_aux2 = New ADODB.Recordset
       If rs_aux2.State = 1 Then rs_aux2.Close
-      rs_aux2.Open "Select max(cotiza_codigo) as Codigo from ao_solicitud_cotiza_venta where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'   ", db, adOpenStatic
+      rs_aux2.Open "Select max(cotiza_codigo) as Codigo from ao_solicitud_cotiza_venta where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " and edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "'   ", db, adOpenStatic
       If Not rs_aux2.EOF Then
            var_cod = IIf(IsNull(rs_aux2!Codigo), 1, rs_aux2!Codigo + 1)
       End If
@@ -6554,7 +6554,7 @@ Private Sub GRABA_ARREGLO_3()
       rs_aux1!ges_gestion = Year(Date)
       rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
       rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-      rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
+      rs_aux1!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
       rs_aux1!trafico_codigo = Ado_datos.Recordset!trafico_codigo
       rs_aux1!pais_continente = Ado_datos.Recordset!pais_continente3
       rs_aux1!cotiza_codigo = var_cod
@@ -6577,7 +6577,7 @@ Private Sub GRABA_ARREGLO_3()
       rs_aux1!fecha_registro = Date
       rs_aux1!usr_codigo = glusuario
       rs_aux1.Update
-      db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'  "
+      db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "'  "
         'GRABA ao_solicitud_cotiza_modelo
             Set rs_aux4 = New ADODB.Recordset
             If rs_aux4.State = 1 Then rs_aux4.Close
@@ -6586,7 +6586,7 @@ Private Sub GRABA_ARREGLO_3()
             rs_aux4!ges_gestion = Year(Date)
             rs_aux4!unidad_codigo = parametro
             rs_aux4!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-            rs_aux4!edif_codigo = Ado_datos.Recordset!edif_codigo
+            rs_aux4!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
             rs_aux4!trafico_codigo = Ado_datos.Recordset!trafico_codigo
             rs_aux4!pais_continente = Ado_datos.Recordset!pais_continente3
             rs_aux4!cotiza_codigo = var_cod
@@ -6715,7 +6715,7 @@ Private Sub GRABA_ARREGLO_4()
       'Graba en Cotiza    4
       Set rs_aux2 = New ADODB.Recordset
       If rs_aux2.State = 1 Then rs_aux2.Close
-      rs_aux2.Open "Select max(cotiza_codigo) as Codigo from ao_solicitud_cotiza_venta where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'   ", db, adOpenStatic
+      rs_aux2.Open "Select max(cotiza_codigo) as Codigo from ao_solicitud_cotiza_venta where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " and edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "'   ", db, adOpenStatic
       If Not rs_aux2.EOF Then
            var_cod = IIf(IsNull(rs_aux2!Codigo), 1, rs_aux2!Codigo + 1)
       End If
@@ -6723,7 +6723,7 @@ Private Sub GRABA_ARREGLO_4()
       rs_aux1!ges_gestion = Year(Date)
       rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
       rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-      rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
+      rs_aux1!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
       rs_aux1!trafico_codigo = Ado_datos.Recordset!trafico_codigo
       rs_aux1!pais_continente = Ado_datos.Recordset!pais_continente4
       rs_aux1!cotiza_codigo = var_cod
@@ -6746,7 +6746,7 @@ Private Sub GRABA_ARREGLO_4()
       rs_aux1!fecha_registro = Date
       rs_aux1!usr_codigo = glusuario
       rs_aux1.Update
-      db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'  "
+      db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "'  "
         'GRABA ao_solicitud_cotiza_modelo
             Set rs_aux4 = New ADODB.Recordset
             If rs_aux4.State = 1 Then rs_aux4.Close
@@ -6755,7 +6755,7 @@ Private Sub GRABA_ARREGLO_4()
             rs_aux4!ges_gestion = Year(Date)
             rs_aux4!unidad_codigo = parametro
             rs_aux4!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-            rs_aux4!edif_codigo = Ado_datos.Recordset!edif_codigo
+            rs_aux4!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
             rs_aux4!trafico_codigo = Ado_datos.Recordset!trafico_codigo
             rs_aux4!pais_continente = Ado_datos.Recordset!pais_continente4
             rs_aux4!cotiza_codigo = var_cod
@@ -7523,7 +7523,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!etapa_codigo = "TEC-05-03"
         rs_datos!clasif_codigo = "TEC"
         rs_datos!doc_codigo = "R-313"
-        rs_datos!doc_numero = Txt_Campo1.Text
+        rs_datos!doc_numero = Txt_campo1.Text
         rs_datos!poa_codigo = "3.2.7"
         'REVISAR !!! JQA 2014_07_08
         rs_datos!archivo_respaldo = "TEC_R313-" + Trim(Ado_datos.Recordset!trafico_codigo) + ".PDF"
@@ -7533,7 +7533,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!etapa_codigo = "COM-01-03"
         rs_datos!clasif_codigo = "COM"
         rs_datos!doc_codigo = "R-221"
-        rs_datos!doc_numero = Txt_Campo1.Text
+        rs_datos!doc_numero = Txt_campo1.Text
         rs_datos!poa_codigo = "3.1.1"
         'REVISAR !!! JQA 2014_07_08
         rs_datos!archivo_respaldo = "COM_R221-" + Trim(Ado_datos.Recordset!trafico_codigo) + ".PDF"
@@ -7660,7 +7660,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     CR01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
     CR01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
     CR01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!edif_codigo
+    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!EDIF_CODIGO
     iResult = CR01.PrintReport
     If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
 Else
@@ -8109,7 +8109,7 @@ Private Sub Form_Load()
 '        End If
 '     End If
    End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -8376,7 +8376,7 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "Select * from ac_bienes_equipo_ctrl_maquina ", db, adOpenStatic
     'rs_datos8.Open "gp_listar_apr_gc_documentos_clasificacion", db, adOpenStatic
-    Set Ado_Datos12.Recordset = rs_datos12
+    Set Ado_datos12.Recordset = rs_datos12
     dtc_desc12.BoundText = dtc_codigo12.BoundText
     
     Set rs_datos13 = New ADODB.Recordset
