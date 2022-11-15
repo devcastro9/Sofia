@@ -16,8 +16,8 @@ Begin VB.Form mw_solicitud
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.Frame fra_reportes 
       BackColor       =   &H00E0E0E0&
@@ -102,7 +102,7 @@ Begin VB.Form mw_solicitud
       BackColor       =   &H80000015&
       BorderStyle     =   0  'None
       Height          =   660
-      Left            =   0
+      Left            =   120
       ScaleHeight     =   660
       ScaleWidth      =   20280
       TabIndex        =   87
@@ -255,7 +255,7 @@ Begin VB.Form mw_solicitud
          Height          =   285
          Left            =   12990
          TabIndex        =   97
-         Top             =   195
+         Top             =   240
          Width           =   1545
       End
    End
@@ -1929,7 +1929,7 @@ Begin VB.Form mw_solicitud
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   117506049
+         Format          =   126812161
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   2
@@ -2438,10 +2438,10 @@ Begin VB.Form mw_solicitud
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   11280
       TabIndex        =   6
-      Top             =   10935
-      Width           =   20250
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3198,7 +3198,7 @@ Dim VAR_DPTO As String
 Dim VAR_AUX, VAR_CONT2 As Double
 
 Dim VAR_VALI As Integer
-Dim VAR_SOLA As Integer
+Dim VAR_SOLA As Long
 
 Dim mvBookMark As Variant
 Dim mbDataChanged As Boolean
@@ -3223,7 +3223,7 @@ On Error GoTo AddErr
     Fra_datos.Enabled = False
     GlUnidad = Ado_datos.Recordset!unidad_codigo
     GlSolicitud = Ado_datos.Recordset!solicitud_codigo
-    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+    GlEdificio = Ado_datos.Recordset!edif_codigo
     glGestion = Ado_datos.Recordset!ges_gestion
     mw_solicitud_edificacion.Show vbModal
 '    Select Case dtc_codigo2.Text
@@ -3319,7 +3319,7 @@ On Error GoTo AddErr
     Fra_datos.Enabled = False
     Call ABRIR_TABLA_DET3
     aw_p_ao_negociacion_bitacora.txt_codigo.Caption = Me.txt_codigo.Caption
-    aw_p_ao_negociacion_bitacora.txt_campo1.Caption = Me.dtc_codigo1.Text
+    aw_p_ao_negociacion_bitacora.Txt_campo1.Caption = Me.dtc_codigo1.Text
     aw_p_ao_negociacion_bitacora.Txt_descripcion.Caption = Me.dtc_desc1.Text
     aw_p_ao_negociacion_bitacora.Txt_Correl.Caption = 0
     aw_p_ao_negociacion_bitacora.Txt_estado.Caption = "REG"
@@ -3468,7 +3468,7 @@ Private Sub BtnAprobar_Click()
                           rs_aux1!ges_gestion = Year(Date)
                           rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
                           rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-                          rs_aux1!EDIF_CODIGO = Ado_detalle1.Recordset!EDIF_CODIGO
+                          rs_aux1!edif_codigo = Ado_detalle1.Recordset!edif_codigo
                           rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                           rs_aux1!trafico_codigo = var_cod
                           rs_aux1!h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
@@ -3487,13 +3487,13 @@ Private Sub BtnAprobar_Click()
               rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
               If rs_aux2.RecordCount > 0 Then
                   rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-                  txt_campo1.Caption = rs_aux2!correl_doc
+                  Txt_campo1.Caption = rs_aux2!correl_doc
                   rs_aux2.Update
               End If
-              rs_datos!doc_numero = txt_campo1.Caption
+              rs_datos!doc_numero = Txt_campo1.Caption
               'REVISAR !!! JQA 2014_07_08
               'VAR_ARCH = RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
-              VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
+              VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(Txt_campo1.Caption)))
               rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
               rs_datos!archivo_respaldo_cargado = "N"
               rs_datos!estado_codigo = "APR"
@@ -4074,7 +4074,7 @@ On Error GoTo EditErr
     Fra_datos.Enabled = False
     GlUnidad = Ado_datos.Recordset!unidad_codigo
     GlSolicitud = Ado_datos.Recordset!solicitud_codigo
-    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+    GlEdificio = Ado_datos.Recordset!edif_codigo
     glGestion = Ado_datos.Recordset!ges_gestion
 '    Select Case dtc_codigo2.Text
 '        Case "1"
@@ -4163,7 +4163,7 @@ On Error GoTo QError
     
     VAR_SOL = Ado_datos.Recordset!solicitud_codigo
     Aux = Ado_datos.Recordset!unidad_codigo               'Unidad
-    aw_p_ao_negociacion_bitacora.txt_campo1.Caption = Aux  'Unidad
+    aw_p_ao_negociacion_bitacora.Txt_campo1.Caption = Aux  'Unidad
     aw_p_ao_negociacion_bitacora.txt_codigo.Caption = VAR_SOL  'Tramite
       
     'aw_p_ao_negociacion_bitacora.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'solicitud_codigo
@@ -4179,7 +4179,7 @@ On Error GoTo QError
     aw_p_ao_negociacion_bitacora.Txt_monto1.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!negocia_gasto_estimado), 0, Me.Ado_detalle2.Recordset!negocia_gasto_estimado)
     aw_p_ao_negociacion_bitacora.dtc_codigo2.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!beneficiario_codigo), "0", Me.Ado_detalle2.Recordset!beneficiario_codigo)
     aw_p_ao_negociacion_bitacora.dtc_codigo3.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!beneficiario_codigo_cgi), "0", Me.Ado_detalle2.Recordset!beneficiario_codigo_cgi)
-    aw_p_ao_negociacion_bitacora.Txt_campo3.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!negocia_tarea_realizada), "NINGUNA", Me.Ado_detalle2.Recordset!negocia_tarea_realizada)
+    aw_p_ao_negociacion_bitacora.txt_campo3.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!negocia_tarea_realizada), "NINGUNA", Me.Ado_detalle2.Recordset!negocia_tarea_realizada)
     aw_p_ao_negociacion_bitacora.txt_campo4.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!negocia_observaciones), "", Me.Ado_detalle2.Recordset!negocia_observaciones)
     aw_p_ao_negociacion_bitacora.txt_campo5.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!bitacora_cite), "-", Me.Ado_detalle2.Recordset!bitacora_cite)
     If swnuevo = 2 Then
@@ -4641,7 +4641,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
