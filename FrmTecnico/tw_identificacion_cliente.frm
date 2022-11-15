@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDatLst.Ocx"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form tw_identificacion_cliente 
    BackColor       =   &H00C0C0C0&
@@ -15,8 +15,8 @@ Begin VB.Form tw_identificacion_cliente
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   13035
-   ScaleWidth      =   23880
+   ScaleHeight     =   10935
+   ScaleWidth      =   20250
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprimeRepara 
@@ -32,28 +32,12 @@ Begin VB.Form tw_identificacion_cliente
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   4695
+      Height          =   6615
       Left            =   9600
       TabIndex        =   119
       Top             =   840
       Visible         =   0   'False
       Width           =   9375
-      Begin VB.CommandButton btnPanelSalir 
-         Caption         =   "Salir"
-         Height          =   495
-         Left            =   2040
-         TabIndex        =   127
-         Top             =   3840
-         Width           =   1335
-      End
-      Begin VB.CommandButton btnPanelImprimir 
-         Caption         =   "Imprimir"
-         Height          =   495
-         Left            =   600
-         TabIndex        =   126
-         Top             =   3840
-         Width           =   1335
-      End
       Begin VB.OptionButton Option1 
          BackColor       =   &H80000018&
          Caption         =   "1. Con datos del Cliente (Nombre, Cargo, Institución, etc.)"
@@ -68,7 +52,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   123
+         TabIndex        =   124
          Top             =   960
          Width           =   5655
       End
@@ -86,7 +70,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   122
+         TabIndex        =   123
          Top             =   1440
          Width           =   5535
       End
@@ -104,7 +88,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   121
+         TabIndex        =   122
          Top             =   2760
          Width           =   5655
       End
@@ -122,8 +106,27 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   120
+         TabIndex        =   121
          Top             =   3240
+         Width           =   5535
+      End
+      Begin VB.OptionButton Option5 
+         BackColor       =   &H80000018&
+         Caption         =   "5. CERRAR sin Imprimir ..."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   375
+         Left            =   600
+         TabIndex        =   120
+         Top             =   4440
          Width           =   5535
       End
       Begin VB.Label Label5 
@@ -141,7 +144,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   125
+         TabIndex        =   126
          Top             =   600
          Width           =   6615
       End
@@ -160,7 +163,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   124
+         TabIndex        =   125
          Top             =   2280
          Width           =   7215
       End
@@ -860,7 +863,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   129499137
+         Format          =   117506049
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -3150,10 +3153,10 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   23880
+      ScaleWidth      =   20250
       TabIndex        =   5
-      Top             =   13035
-      Width           =   23880
+      Top             =   10935
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -6112,6 +6115,7 @@ Private Sub BtnImprimir2_Click()
                 End If
                 db.Execute "update ao_solicitud set literal = '" & var_literal & "' where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & VAR_SOL & " "
                 'FIN LITERAL
+                Option5.Value = True
                 FraImprimeRepara.Visible = True
                 fraOpciones.Visible = False
                 FraNavega.Enabled = False
@@ -6888,89 +6892,6 @@ EditErr:
   MsgBox Err.Description
 End Sub
 
-Private Sub btnPanelImprimir_Click()
-    Dim iResult As Integer
-    If Option1.Value = True Then
-        ' 1. Con datos del Cliente (Nombre, Cargo, Institución, etc.)   -    - OPCION 1
-        '-----------------------------------------------------------------     PAGINA 1
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_cliente.rpt"
-        CR02.WindowShowPrintSetupBtn = True
-        CR02.WindowShowRefreshBtn = True
-
-        CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
-        CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
-
-        CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-        CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
-        CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = CR02.PrintReport
-        If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
-        CR02.WindowState = crptMaximized
-        Call CotizaRep_Pag1Op1_2
-    ElseIf Option2.Value = True Then
-        '2. Sólo con Nombre de Edificio (Sin Datos del Cliente)         - OPCION 2
-        '-----------------------------------------------------------------PAGINA 1
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1.rpt"
-        CR02.WindowShowPrintSetupBtn = True
-        CR02.WindowShowRefreshBtn = True
-
-        CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
-        CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
-
-        CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-        CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
-        CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = CR02.PrintReport
-        If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
-        CR02.WindowState = crptMaximized
-        Call CotizaRep_Pag1Op1_2
-    ElseIf Option3.Value = True Then
-        ' 3. Con datos del Cliente (Nombre, Cargo, Institución, etc.)   -    - OPCION 3
-        '-----------------------------------------------------------------     PAGINA 1
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_cliente_SM.rpt"
-        CR02.WindowShowPrintSetupBtn = True
-        CR02.WindowShowRefreshBtn = True
-
-        CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
-        CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
-
-        CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-        CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
-        CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = CR02.PrintReport
-        If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
-        CR02.WindowState = crptMaximized
-        Call CotizaRep_Pag1Op1_2SM
-    ElseIf Option4.Value = True Then
-        '4. Sólo con Nombre de Edificio (Sin Datos del Cliente)         - OPCION 4
-        '-----------------------------------------------------------------PAGINA 1
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1_SM.rpt"
-        CR02.WindowShowPrintSetupBtn = True
-        CR02.WindowShowRefreshBtn = True
-
-        CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
-        CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
-
-        CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-        CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
-        CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = CR02.PrintReport
-        If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
-        CR02.WindowState = crptMaximized
-        Call CotizaRep_Pag1Op1_2SM
-    Else
-        MsgBox "Debe Elegir una de las opciones", vbExclamation, "Atencion"
-    End If
-End Sub
-
-Private Sub btnPanelSalir_Click()
-    FraImprimeRepara.Visible = False
-    fraOpciones.Visible = True
-    FraNavega.Enabled = True
-    FraDet3.Visible = True
-    FraDet6.Visible = True
-End Sub
-
 Private Sub BtnSalir_Click()
 '  If glPersOtro = "O" Then
 '    frmmo_pacientes.Dtc_ocupac = rs_datos!ocup_codigo
@@ -7466,7 +7387,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
     FraNavega.Caption = lbl_titulo.Caption
     lbl_titulo2.Caption = lbl_titulo.Caption
-        Call SeguridadSet(Me)
+	Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -7890,6 +7811,46 @@ End Sub
 '    KeyAscii = Asc(UCase(Chr(KeyAscii)))
 'End Sub
 
+Private Sub Option1_Click()
+    Dim iResult As Integer
+    ' 1. Con datos del Cliente (Nombre, Cargo, Institución, etc.)   -    - OPCION 1
+    '-----------------------------------------------------------------     PAGINA 1
+    CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_cliente.rpt"
+    CR02.WindowShowPrintSetupBtn = True
+    CR02.WindowShowRefreshBtn = True
+
+    CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
+    CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
+
+    CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+    CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
+    CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
+    iResult = CR02.PrintReport
+    If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
+    CR02.WindowState = crptMaximized
+    Call CotizaRep_Pag1Op1_2
+End Sub
+
+Private Sub Option2_Click()
+    Dim iResult As Integer
+    '2. Sólo con Nombre de Edificio (Sin Datos del Cliente)         - OPCION 2
+    '-----------------------------------------------------------------PAGINA 1
+    CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1.rpt"
+    CR02.WindowShowPrintSetupBtn = True
+    CR02.WindowShowRefreshBtn = True
+
+    CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
+    CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
+
+    CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+    CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
+    CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
+    iResult = CR02.PrintReport
+    If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
+    CR02.WindowState = crptMaximized
+    Call CotizaRep_Pag1Op1_2
+End Sub
+
 Private Sub CotizaRep_Pag1Op1_2()
     Dim iResult As Integer
     '-----------------------------------------------------------------PAGINA 2 - OPCION 1 y 2
@@ -7913,6 +7874,47 @@ Private Sub CotizaRep_Pag1Op1_2()
     FraDet6.Visible = True
 End Sub
 
+Private Sub Option3_Click()
+    Dim iResult As Integer
+    ' 3. Con datos del Cliente (Nombre, Cargo, Institución, etc.)   -    - OPCION 3
+    '-----------------------------------------------------------------     PAGINA 1
+    CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_cliente_SM.rpt"
+    CR02.WindowShowPrintSetupBtn = True
+    CR02.WindowShowRefreshBtn = True
+
+    CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
+    CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
+
+    CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+    CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
+    CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
+    iResult = CR02.PrintReport
+    If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
+    CR02.WindowState = crptMaximized
+    Call CotizaRep_Pag1Op1_2SM
+    
+End Sub
+
+Private Sub Option4_Click()
+    Dim iResult As Integer
+    '4. Sólo con Nombre de Edificio (Sin Datos del Cliente)         - OPCION 4
+    '-----------------------------------------------------------------PAGINA 1
+    CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1_SM.rpt"
+    CR02.WindowShowPrintSetupBtn = True
+    CR02.WindowShowRefreshBtn = True
+
+    CR02.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
+    CR02.Formulas(1) = "Subtitulo = '" & FraDet2.Caption & "' "
+
+    CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+    CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
+    CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
+    iResult = CR02.PrintReport
+    If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
+    CR02.WindowState = crptMaximized
+    Call CotizaRep_Pag1Op1_2SM
+End Sub
+
 Private Sub CotizaRep_Pag1Op1_2SM()
     Dim iResult As Integer
     '-----------------------------------------------------------------PAGINA 2 - OPCION 1 y 2
@@ -7929,6 +7931,14 @@ Private Sub CotizaRep_Pag1Op1_2SM()
     iResult = CR04.PrintReport
     If iResult <> 0 Then MsgBox CR04.LastErrorNumber & " : " & CR04.LastErrorString, vbCritical, "Error de impresión"
     CR04.WindowState = crptMaximized
+    FraImprimeRepara.Visible = False
+    fraOpciones.Visible = True
+    FraNavega.Enabled = True
+    FraDet3.Visible = True
+    FraDet6.Visible = True
+End Sub
+
+Private Sub Option5_Click()
     FraImprimeRepara.Visible = False
     fraOpciones.Visible = True
     FraNavega.Enabled = True
