@@ -433,7 +433,7 @@ Begin VB.Form fw_ventas_cobranzas
       Height          =   6105
       Left            =   4200
       TabIndex        =   25
-      Top             =   840
+      Top             =   120
       Visible         =   0   'False
       Width           =   11055
       Begin VB.TextBox Text1 
@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118554625
+            Format          =   137494529
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118554625
+            Format          =   137494529
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   118554625
+            Format          =   137494529
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -9771,7 +9771,7 @@ Private Sub Form_Load()
     BtnModificar.Visible = False
     BtnBuscar1.Visible = False
     FrmCobrosDet.Visible = False
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -9948,21 +9948,25 @@ Private Sub OptFilGral01_Click()
     Set rs_datos01 = New Recordset
     If rs_datos01.State = 1 Then rs_datos01.Close
     Select Case glusuario
-        Case "ADMIN", "VPAREDES", "APALACIOS", "JCASTRO", "GSOLIZ", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO", "CSALINAS"
+        Case "ADMIN", "VPAREDES", "APALACIOS", "GSOLIZ", "CSALINAS"
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') "
+        Case "JCASTRO", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO"
+            BtnAprobar.Visible = True
+            BtnModificar.Visible = False
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') "
         Case "FCABRERA", "FDELGADILLO", "DPANIAGUA", "MARTEAGA", "KGARCIA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '3' or depto_codigo = '4' or depto_codigo = '5') "
         Case "TCASTILLO", "HMARIN", "ULEDESMA", "CPAREDES", "RGIL", "RPRIETO"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '7' or depto_codigo = '8' or depto_codigo = '9' or depto_codigo = '1') "
         Case "EVILLALOBOS", "GMORA", "LVEDIA"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '5' or depto_codigo = '6' or depto_codigo = '1') "
         Case Else
             BtnAprobar.Visible = False
@@ -9973,7 +9977,7 @@ Private Sub OptFilGral01_Click()
     rs_datos01.Sort = "cobranza_fecha_fac desc"
     Set Ado_datos01.Recordset = rs_datos01.DataSource
     Set dg_datos1.DataSource = Ado_datos01.Recordset
-    BtnModificar.Visible = True
+'    BtnModificar.Visible = True
     BtnBuscar1.Visible = True
     'buscados = 1
 End Sub
@@ -9994,21 +9998,25 @@ Private Sub OptFilGral02_Click()
     Set rs_datos01 = New Recordset
     If rs_datos01.State = 1 Then rs_datos01.Close
     Select Case glusuario
-        Case "ADMIN", "VPAREDES", "APALACIOS", "JCASTRO", "GSOLIZ", "SQUISPE", "ASANTIVAÑEZ", "GSOLIZ", "CPLATA", "DTERCEROS", "RROMERO", "BINFANTE", "RVALDIVIEZO", "CORTEGA", "CSALINAS", "DGOMEZ"
-            BtnAprobar.Visible = True
+        Case "ADMIN", "VPAREDES", "APALACIOS", "GSOLIZ", "CSALINAS"
+            BtnAprobar.Visible = False
             BtnModificar.Visible = True
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') "
+        Case "JCASTRO", "SQUISPE", "ASANTIVAÑEZ", "GSOLIZ", "CPLATA", "DTERCEROS", "RROMERO", "BINFANTE", "RVALDIVIEZO", "CORTEGA", "DGOMEZ"
+            BtnAprobar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') "
         Case "FCABRERA", "FDELGADILLO", "RFRIAS", "JSOLIZ", "JHERESSI", "MARTEAGA", "DPANIAGUA", "KGARCIA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') AND (depto_codigo = '3' or depto_codigo = '4' or depto_codigo = '5') "
         Case "TCASTILLO", "HMARIN", "CPAREDES", "CURDIDINEA", "AACOSTA", "LESCOBAR", "ULEDESMA", "RGIL", "RPRIETO"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') AND (depto_codigo = '7' or depto_codigo = '8' or depto_codigo = '9' or depto_codigo = '1' or depto_codigo = '6') "
         Case "EVILLALOBOS", "CESCALANTE", "GMORA", "LVEDIA"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') AND (depto_codigo = '1' or depto_codigo = '5' or depto_codigo = '6') "
         Case Else
             BtnAprobar.Visible = False
@@ -10019,7 +10027,7 @@ Private Sub OptFilGral02_Click()
     rs_datos01.Sort = "cobranza_fecha_fac desc"
     Set Ado_datos01.Recordset = rs_datos01.DataSource
     Set dg_datos1.DataSource = Ado_datos01.Recordset
-    BtnModificar.Visible = True
+    BtnModificar.Visible = False
     BtnBuscar1.Visible = True
 '    buscados = 1
 End Sub
@@ -10057,14 +10065,18 @@ Private Sub OptFilGral03_Click()
     rs_datos9.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
     Set rs_datos01 = New Recordset
     If rs_datos01.State = 1 Then rs_datos01.Close
-    Select Case glusuario       '
-        Case "ADMIN", "VPAREDES", "ULEDESMA", "SQUISPE", "RCUELA", "RVALDIVIEZO", "MARTEAGA", "GSOLIZ", "EVILLALOBOS", "CPAREDES", "APALACIOS", "KGARCIA", "RROMERO", "CORTEGA", "AACOSTA", "CURDININEA", "JSOLIZ", "DGOMEZ"
+    Select Case glusuario
+        Case "ADMIN", "VPAREDES", "APALACIOS", "GSOLIZ", "CSALINAS"
             BtnAprobar.Visible = False
             BtnModificar.Visible = True
             queryinicial = "select DISTINCT * From av_venta_cobranza_APR  "
-        Case "RGIL", "GMORA", "ASANTIVAÑEZ", "CSALINAS", "OPLAZA", "RLAVAYEN", "LVEDIA", "JCASTRO"
+        Case "JCASTRO", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO"
             BtnAprobar.Visible = False
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
+            queryinicial = "select DISTINCT * From av_venta_cobranza_APR  "
+        Case "RGIL", "GMORA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN", "LVEDIA"
+            BtnAprobar.Visible = False
+            BtnModificar.Visible = False
             queryinicial = "select DISTINCT * From av_venta_cobranza_APR  "
         Case Else
             BtnAprobar.Visible = False
@@ -10075,7 +10087,7 @@ Private Sub OptFilGral03_Click()
     rs_datos01.Sort = "cobranza_fecha_fac desc"
     Set Ado_datos01.Recordset = rs_datos01.DataSource
     Set dg_datos1.DataSource = Ado_datos01.Recordset
-    BtnModificar.Visible = True
+    BtnModificar.Visible = False
     BtnBuscar1.Visible = True
 End Sub
 
@@ -10088,25 +10100,33 @@ Private Sub OptFilGral05_Click()
     Set rs_datos01 = New Recordset
     If rs_datos01.State = 1 Then rs_datos01.Close
     Select Case glusuario
-        Case "ADMIN", "VPAREDES", "GSOLIZ", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO", "CSALINAS"
+        Case "ADMIN", "VPAREDES", "GSOLIZ", "CSALINAS"
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') "
-        Case "APALACIOS", "JCASTRO"
+        Case "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO"
+            BtnAprobar.Visible = True
+            BtnModificar.Visible = False
+            queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') "
+        Case "APALACIOS"
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '1' or depto_codigo = '2' OR depto_codigo = '5' or depto_codigo = '6' OR depto_codigo = '8' or depto_codigo = '9') "
+        Case "JCASTRO"
+            BtnAprobar.Visible = True
+            BtnModificar.Visible = False
+            queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '1' or depto_codigo = '2' OR depto_codigo = '5' or depto_codigo = '6' OR depto_codigo = '8' or depto_codigo = '9') "
         Case "FCABRERA", "FDELGADILLO", "DPANIAGUA", "MARTEAGA", "KGARCIA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '3' or depto_codigo = '4') "
         Case "TCASTILLO", "HMARIN", "ULEDESMA", "CPAREDES", "RGIL"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '7'  or depto_codigo = '1' or depto_codigo = '9' or depto_codigo = '8' or depto_codigo = '6') "
         Case "EVILLALOBOS", "GMORA", "LVEDIA"
             BtnAprobar.Visible = True
-            BtnModificar.Visible = True
+            BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '1'  or depto_codigo = '5' or depto_codigo = '6' ) "
         Case Else
             BtnAprobar.Visible = False
@@ -10117,7 +10137,7 @@ Private Sub OptFilGral05_Click()
     rs_datos01.Sort = "cobranza_fecha_fac desc"
     Set Ado_datos01.Recordset = rs_datos01.DataSource
     Set dg_datos1.DataSource = Ado_datos01.Recordset
-    BtnModificar.Visible = True
+    BtnModificar.Visible = False
     BtnBuscar1.Visible = True
 '----------------------------
 End Sub

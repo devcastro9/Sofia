@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_certifica_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   10620
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   108199939
+         Format          =   137494531
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2607,7 +2607,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   108199939
+         Format          =   137494531
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
