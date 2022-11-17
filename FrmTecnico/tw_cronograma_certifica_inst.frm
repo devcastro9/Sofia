@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   126877699
+         Format          =   120455171
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2287,35 +2287,51 @@ Begin VB.Form tw_cronograma_certifica_inst
       _Version        =   393216
    End
    Begin Crystal.CrystalReport CR02 
-      Left            =   5160
-      Top             =   9360
+      Left            =   240
+      Top             =   9720
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   348160
+      WindowLeft      =   10
+      WindowTop       =   10
+      WindowWidth     =   600
+      WindowHeight    =   900
       WindowControlBox=   -1  'True
       WindowMaxButton =   -1  'True
       WindowMinButton =   -1  'True
-      WindowState     =   2
       PrintFileLinesPerPage=   60
-      WindowShowGroupTree=   -1  'True
+      WindowShowNavigationCtls=   -1  'True
+      WindowShowCancelBtn=   -1  'True
+      WindowShowPrintBtn=   -1  'True
+      WindowShowExportBtn=   -1  'True
+      WindowShowZoomCtl=   -1  'True
       WindowShowCloseBtn=   -1  'True
+      WindowShowProgressCtls=   -1  'True
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
    End
    Begin Crystal.CrystalReport CR03 
-      Left            =   5760
-      Top             =   9360
+      Left            =   840
+      Top             =   9720
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   348160
+      WindowLeft      =   600
+      WindowTop       =   10
+      WindowWidth     =   600
+      WindowHeight    =   900
       WindowControlBox=   -1  'True
       WindowMaxButton =   -1  'True
       WindowMinButton =   -1  'True
-      WindowState     =   2
       PrintFileLinesPerPage=   60
-      WindowShowGroupTree=   -1  'True
+      WindowShowNavigationCtls=   -1  'True
+      WindowShowCancelBtn=   -1  'True
+      WindowShowPrintBtn=   -1  'True
+      WindowShowExportBtn=   -1  'True
+      WindowShowZoomCtl=   -1  'True
       WindowShowCloseBtn=   -1  'True
+      WindowShowProgressCtls=   -1  'True
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
@@ -2607,7 +2623,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   126877699
+         Format          =   120455171
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3450,57 +3466,69 @@ Private Sub BtnImprimir2_Click()
         CR02.WindowShowRefreshBtn = True
         CR02.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR02.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
-        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
+        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
         iResult = CR02.PrintReport
         If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
         CR02.WindowState = crptMaximized
+        
+        
+        CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA2.rpt"
+        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos.rpt"
+        CR03.WindowShowPrintSetupBtn = True
+        CR03.WindowShowRefreshBtn = True
+        CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
+        CR03.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
+        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
+        iResult = CR03.PrintReport
+        If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
+        CR03.WindowState = crptMaximized
     Else
         MsgBox "No se puede Imprimir. Debe registrar los datos correspondientes ...", , "Atención"
     End If
 End Sub
 
 Private Sub BtnImprimir3_Click()
-If Ado_detalle2.Recordset.RecordCount > 0 Then
-    If glusuario = "JORAQUENI" Then
-        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
-        Exit Sub
-    End If
-    Dim iResult As Integer
-    'Dim co As New ADODB.Command
-    CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mensual_ejecucion_eqp.rpt"
-    CR03.WindowShowPrintSetupBtn = True
-    CR03.WindowShowRefreshBtn = True
-    'MsgBox rs.RecordCount
-    Select Case Me.Ado_detalle2.Recordset!unidad_codigo_tec
-          Case "DNINS"
-              var_titulo = "Módulo Instalaciones"
-          Case "DNAJS"
-              var_titulo = "Módulo Ajustes"
-          Case "DNMAN", "DMANS", "DMANB", "DMANC"
-              var_titulo = "Módulo Mantenimiento"
-          Case "DNREP"
-              var_titulo = "Módulo Reparaciones"
-          Case "DNEME"
-              var_titulo = "Módulo Emergencias"
-          Case "DNMOD"
-              var_titulo = "Módulo Modernización"
-      End Select
-      'Cmb_Mes.Text = "ENERO"
-      VAR_TIT = "EJECUCION SERVICIO DE MANTENIMIENTO"
-      CR03.Formulas(0) = "titulo = '" & VAR_TIT & "' "
-      CR03.Formulas(1) = "subtitulo = '" & lbl_titulo.Caption & "' "
-      CR03.Formulas(2) = "periodo = '" & lbl_texto2 & "' "
-      
-     CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
-     CR03.StoredProcParam(1) = Ado_detalle2.Recordset!zpiloto_codigo
-'    'CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-
-    iResult = CR03.PrintReport
-    If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
-Else
-    MsgBox "No se puede Imprimir. Debe registrar los datos correspondientes ...", , "Atención"
-End If
-    CR03.WindowState = crptMaximized
+'If Ado_detalle2.Recordset.RecordCount > 0 Then
+'    If glusuario = "JORAQUENI" Then
+'        MsgBox "El Usuario No tiene acceso, Consulte con el Administrador del Sistema ...", , "Atención"
+'        Exit Sub
+'    End If
+'    Dim iResult As Integer
+'    'Dim co As New ADODB.Command
+'    CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mensual_ejecucion_eqp.rpt"
+'    CR03.WindowShowPrintSetupBtn = True
+'    CR03.WindowShowRefreshBtn = True
+'    'MsgBox rs.RecordCount
+'    Select Case Me.Ado_detalle2.Recordset!unidad_codigo_tec
+'          Case "DNINS"
+'              var_titulo = "Módulo Instalaciones"
+'          Case "DNAJS"
+'              var_titulo = "Módulo Ajustes"
+'          Case "DNMAN", "DMANS", "DMANB", "DMANC"
+'              var_titulo = "Módulo Mantenimiento"
+'          Case "DNREP"
+'              var_titulo = "Módulo Reparaciones"
+'          Case "DNEME"
+'              var_titulo = "Módulo Emergencias"
+'          Case "DNMOD"
+'              var_titulo = "Módulo Modernización"
+'      End Select
+'      'Cmb_Mes.Text = "ENERO"
+'      VAR_TIT = "EJECUCION SERVICIO DE MANTENIMIENTO"
+'      CR03.Formulas(0) = "titulo = '" & VAR_TIT & "' "
+'      CR03.Formulas(1) = "subtitulo = '" & lbl_titulo.Caption & "' "
+'      CR03.Formulas(2) = "periodo = '" & lbl_texto2 & "' "
+'
+'     CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
+'     CR03.StoredProcParam(1) = Ado_detalle2.Recordset!zpiloto_codigo
+''    'CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+'
+'    iResult = CR03.PrintReport
+'    If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
+'Else
+'    MsgBox "No se puede Imprimir. Debe registrar los datos correspondientes ...", , "Atención"
+'End If
+'    CR03.WindowState = crptMaximized
 
 End Sub
 
