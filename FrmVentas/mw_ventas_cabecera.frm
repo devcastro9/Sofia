@@ -621,9 +621,9 @@ Begin VB.Form mw_ventas_cabecera
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":BB4B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1060,7 +1060,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   107610113
+            Format          =   119537665
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1368,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   107610115
+            Format          =   119537667
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3068,7 +3068,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   107610113
+               Format          =   119537665
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6554,6 +6554,7 @@ Private Sub BtnAprobar_Click()
        sino = MsgBox("Esta seguro de Aprobar el registro?", vbYesNo, "Confirmando")
        If sino = vbYes Then
            'ASIGNA A VARIABLES CAMPOS CLAVES
+           gestion0 = Ado_datos.Recordset!ges_gestion
            correlv = Ado_datos.Recordset!venta_codigo
            NumComp = Ado_datos.Recordset!venta_codigo
            VAR_SOL = Ado_datos.Recordset!solicitud_codigo
@@ -6573,7 +6574,9 @@ Private Sub BtnAprobar_Click()
            VAR_DPTO = Left(VAR_PROY2, 1)    'Ado_datos.Recordset!depto_codigo
            VARG_ORGD = ""
            VAR_CTAD = ""
-           
+           VAR_MED = IIf(Ado_datos.Recordset!unimed_codigo <> "MES", "MES", Ado_datos.Recordset!unimed_codigo)
+           VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
+           VAR_TIPO = Ado_datos.Recordset!solicitud_tipo
            VAR_ZONA = Ado_datos.Recordset!zpiloto_codigo
            If VAR_ZONA = "" Or IsNull(VAR_ZONA) Or VAR_ZONA = 0 Then
                 Set rs_datos6 = New ADODB.Recordset
@@ -6815,6 +6818,10 @@ Private Sub BtnAprobar_Click()
                             Else
                                 VAR_ORDEN = 1
                             End If
+                            'gestion0 = Ado_datos.Recordset!ges_gestion
+                            'VAR_MED = IIf(Ado_datos.Recordset!unimed_codigo <> "MES", "MES", Ado_datos.Recordset!unimed_codigo)
+                            'VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
+                            'VAR_TIPO = Ado_datos.Recordset!solicitud_tipo
                             'CREA EDIFICIO EN ORGANIZACION DE ZONAS
                             db.Execute "INSERT INTO tc_zona_piloto_edif_inst (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
                                       " Gratuito, fecha_ini_max,           fecha_fin_max,       venta_codigo, estado_codigo, estado_activo, fecha_registro, usr_codigo,     unimed_codigo,      codigo_empresa,     solicitud_tipo) " & _
@@ -11351,7 +11358,7 @@ Private Sub ABRIR_TABLAS_AUX()
     'If parametro = "DNMOD" Then
     '    rs_datos11.Open "select * from ac_tipo_compra_venta where venta_tipo = 'C'  ", db, adOpenStatic
     'Else
-        rs_datos11.Open "select * from ac_tipo_compra_venta where venta_tipo = 'L' or venta_tipo = 'V'  ", db, adOpenStatic     'or venta_tipo = 'G'
+        rs_datos11.Open "select * from ac_tipo_compra_venta where venta_tipo = 'L' or venta_tipo = 'V' or venta_tipo = 'G' ", db, adOpenStatic     'or venta_tipo = 'G'
     'End If
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText

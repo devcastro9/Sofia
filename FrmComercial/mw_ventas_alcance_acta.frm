@@ -731,7 +731,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   126812161
+               Format          =   127139841
                CurrentDate     =   44334
             End
             Begin MSComCtl2.DTPicker DTPfechasol 
@@ -745,7 +745,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   126812161
+               Format          =   127139841
                CurrentDate     =   44334
             End
             Begin VB.TextBox Txt_Campo1 
@@ -3481,7 +3481,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             End If
             
         End If
-        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        GlEdificio = Ado_datos.Recordset!edif_codigo
         Call ABRIR_TABLA_DET
 '        FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
@@ -3680,8 +3680,26 @@ Private Sub BtnAprobar_Click()
 '        Exit Sub
 '   End If
     If Ado_datos.Recordset("estado_acta") = "REG" Then
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='41' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '1') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='42' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '2') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='43' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '3') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='44' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '4') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='45' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '5') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='46' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '6') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='47' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '7') "
+
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='48' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '8') "
+        
+        db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='48' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '8') "
+        
         NumComp = Ado_datos.Recordset!venta_codigo
-        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        GlEdificio = Ado_datos.Recordset!edif_codigo
         VAR_EDIF = Ado_datos.Recordset!edif_descripcion
         VAR_COD4 = Ado_datos.Recordset!unidad_codigo
         VAR_SOL = Ado_datos.Recordset!solicitud_codigo
@@ -4060,7 +4078,7 @@ Private Sub BtnVer2_Click()
     'If Ado_datos.Recordset!estado_codigo = "REG" Then
   If Ado_datos.Recordset!estado_acta = "REG" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+    GlEdificio = Ado_datos.Recordset!edif_codigo
     VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
     VAR_TIPO = 6
     VAR_FECHAMAX = Ado_datos.Recordset!fecha_fin_real
@@ -4365,7 +4383,6 @@ Private Sub CRONO2()
 '       MsgBox "Error Verifique la Venta de Productos..."
 '    End If
 End Sub
-
 
 Private Sub CRONO_MTTO()
     Set rs_aux0 = New ADODB.Recordset
