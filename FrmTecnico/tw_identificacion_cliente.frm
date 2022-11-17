@@ -32,8 +32,8 @@ Begin VB.Form tw_identificacion_cliente
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   5055
-      Left            =   9600
+      Height          =   6615
+      Left            =   9480
       TabIndex        =   119
       Top             =   840
       Visible         =   0   'False
@@ -343,7 +343,7 @@ Begin VB.Form tw_identificacion_cliente
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       Height          =   7880
-      Left            =   7785
+      Left            =   7665
       TabIndex        =   11
       Top             =   660
       Visible         =   0   'False
@@ -860,7 +860,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   143261697
+         Format          =   120455169
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -6112,7 +6112,7 @@ Private Sub BtnImprimir2_Click()
                 End If
                 db.Execute "update ao_solicitud set literal = '" & var_literal & "' where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & VAR_SOL & " "
                 'FIN LITERAL
-                Option5.Value = True
+                'Option5.Value = True
                 FraImprimeRepara.Visible = True
                 fraOpciones.Visible = False
                 FraNavega.Enabled = False
