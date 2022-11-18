@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   109576193
+         Format          =   118489089
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109576193
+         Format          =   118489089
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109576193
+            Format          =   118489089
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -4233,7 +4233,7 @@ Private Sub BtnAddDetalle_Click()
 '  Else
 '        MsgBox "El USUARIO no tiene Acceso !!. Consulte con el Administrador del Sistema. ", vbExclamation, "Atención!"
 '  End If
- If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
+ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
     FraDet3.Visible = True
     
     FraNavega.Enabled = False
@@ -4249,7 +4249,7 @@ End Sub
 Private Sub BtnAñadir_Click()
 accion = "NEW"
 On Error GoTo UpdateErr
-  If glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
+  If glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -4593,7 +4593,7 @@ End Sub
 
 Private Sub BtnAprobar1_Click()
  On Error GoTo UpdateErr
-  If (Ado_datos.Recordset!estado_verificado = "REG") And (glusuario = "ADMIN" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS") Then
+  If (Ado_datos.Recordset!estado_verificado = "REG") And (glusuario = "ADMIN" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS") Then
     VAR_RECIBO = Ado_datos.Recordset!IdTraspasoBancos
     'Actualiza Totales
     db.Execute "UPDATE fo_traspaso_bancos set fo_traspaso_bancos.total_bs  = fv_recibos_detalle_sum.cobranza_bs, fo_traspaso_bancos.total_dol   = fv_recibos_detalle_sum.cobranza_dol from fo_traspaso_bancos inner join fv_recibos_detalle_sum " & _
@@ -4774,7 +4774,7 @@ End Sub
 
 Private Sub BtnCancelar2_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -5034,7 +5034,7 @@ On Error GoTo UpdateErr
     MsgBox "No se puede Procesar una Fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
     Exit Sub
  End If
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -5170,7 +5170,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
+If glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
         accion = "MOD"
@@ -6883,7 +6883,7 @@ End Sub
 
 Private Sub BtnAnlDetalle_Click()
 On Error GoTo UpdateErr
-If glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then          '
+If glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then           '
  If Ado_datos11.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
           sino = MsgBox("Está Seguro de ANULAR el Registro Activo --> ", vbYesNo + vbQuestion, "Atención")
@@ -6944,7 +6944,7 @@ Private Sub Extracto()
 End Sub
 
 Private Sub BtnModDetalle_Click()
-If glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then          '
+If glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then           '
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" And Ado_datos.Recordset!estado_verificado = "REG" Then
         If Ado_datos11.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -7505,7 +7505,7 @@ Private Sub Form_Load()
     lbl_titulo2.Caption = lbl_titulo.Caption
 
   
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -7624,8 +7624,8 @@ Private Sub OptFilGral1_Click()
             queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG')  "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG' AND  beneficiario_codigo_resp ='" & VAR_BENI & "') "
-        Case "TCASTILLO", "RVALDIVIEZO"
-            queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG' AND  beneficiario_codigo_resp ='" & VAR_BENI & "') "
+        Case "TCASTILLO", "RGIL"
+            queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG' AND  (beneficiario_codigo_resp ='" & VAR_BENI & "' OR beneficiario_codigo_resp = '2375079')) "
         Case "EVILLALOBOS"
             queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG' AND  beneficiario_codigo_resp ='" & VAR_BENI & "') "
 '        Case "ASANTIVAÑEZ"
@@ -7657,8 +7657,8 @@ Private Sub OptFilGral2_Click()
             queryinicial = "select * From fo_traspaso_bancos   "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos WHERE (beneficiario_codigo_resp ='" & VAR_BENI & "') "
-        Case "TCASTILLO", "RVALDIVIEZO"
-            queryinicial = "select * From fo_traspaso_bancos WHERE (beneficiario_codigo_resp ='" & VAR_BENI & "') "
+        Case "TCASTILLO", "RGIL"
+            queryinicial = "select * From fo_traspaso_bancos WHERE (beneficiario_codigo_resp ='" & VAR_BENI & "' OR  beneficiario_codigo_resp='2375079') "
         Case "EVILLALOBOS"
             queryinicial = "select * From fo_traspaso_bancos WHERE (beneficiario_codigo_resp ='" & VAR_BENI & "') "
 '        Case "PRODAS"

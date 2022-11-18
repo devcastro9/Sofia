@@ -17,9 +17,9 @@ Begin VB.Form aw_almacen_salida_rep
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   73290.33
+   ScaleHeight     =   68827.45
    ScaleMode       =   0  'User
-   ScaleWidth      =   4.87135e5
+   ScaleWidth      =   2.58253e5
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -788,7 +788,6 @@ Begin VB.Form aw_almacen_salida_rep
       TabPicture(1)   =   "aw_almacen_salida_rep.frx":AE07
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       Begin VB.Frame FrmEdita 
          BackColor       =   &H00C0C0C0&
@@ -4401,7 +4400,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnModificar2.Visible = False
         End If
 
-        If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
+        If Ado_datos.Recordset!EDIF_CODIGO = "20101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "70101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "30101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "10101-2" Then
             dtc_desc20.Visible = True
             lbl_Adestino.Visible = True
             dtc_desc22.Visible = True
@@ -4548,7 +4547,7 @@ Private Sub BtnAddDetalle_Click()
 On Error GoTo UpdateErr
 If Ado_datos.Recordset("estado_almacen") = "REG" Then
   If Ado_datos.Recordset!almacen_codigoR <> "" Then
-    If (Ado_datos.Recordset!doc_numero_alm > 0) Or (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "20101-2") Or (Ado_datos.Recordset!edif_codigo = "30101-2") Or (Ado_datos.Recordset!edif_codigo = "70101-2") Then
+    If (Ado_datos.Recordset!doc_numero_alm > 0) Or (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "20101-2") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-2") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-2") Then
         Text9.Visible = False
         FraNavega.Enabled = False
         BtnModificar1.Visible = False
@@ -4660,9 +4659,9 @@ On Error GoTo UpdateErr
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False
-    DTPFechaIni.Visible = False
+    DTPfechaIni.Visible = False
     'lbl_campo5.Visible = False
-    DTPFechaFin.Visible = False
+    DTPfechaFin.Visible = False
     'DTPfechasol.Value = Date
     swgrabar = 1
     FrmCabecera.Enabled = True
@@ -5139,7 +5138,7 @@ On Error GoTo UpdateErr
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
           rs_datos.UpdateBatch adAffectAll
-          db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+          db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
           'VERIFICARRRRRRRRRRRRRRRRRR LO SIGUIENTE, YA DEBERIA ESTAR ACTUALIZADO
           Set rs_almacen2 = New ADODB.Recordset
           If rs_almacen2.State = 1 Then rs_almacen2.Close
@@ -5488,8 +5487,8 @@ Private Sub SalidaAlmacen()
             MsgBox "El Traspaso NO puede realizarse, debe registrar el Almacen Destino, verifique y vuelva a intentar ... ", vbQuestion, "Advertencia ..."
             Exit Sub
         Else
-            db.Execute "ap_ventas_grla 2 ,'" & glGestion & "', " & ado_datos18.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos18.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & ado_datos18.Recordset!fecha_ingreso_salida & "', " & VAR_CANT3 & ", " & precio_tot & ", " & precio_tot_dol & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
-            db.Execute "ap_compras_grla 2,'" & glGestion & "', " & ado_datos18.Recordset!modelo_elegido_x & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos18.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!venta_codigo & ", '" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & ado_datos18.Recordset!fecha_ingreso_salida & "', " & VAR_CANT3 & ", " & precio_tot & ", " & precio_tot_dol & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "', " & precio_uni & ""
+            db.Execute "ap_ventas_grla 2 ,'" & glGestion & "', " & ado_datos18.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos18.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & ado_datos18.Recordset!fecha_ingreso_salida & "', " & VAR_CANT3 & ", " & precio_tot & ", " & precio_tot_dol & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+            db.Execute "ap_compras_grla 2,'" & glGestion & "', " & ado_datos18.Recordset!modelo_elegido_x & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos18.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "', " & Ado_datos.Recordset!venta_codigo & ", '" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & ado_datos18.Recordset!fecha_ingreso_salida & "', " & VAR_CANT3 & ", " & precio_tot & ", " & precio_tot_dol & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "', " & precio_uni & ""
         End If
         Set rs_almacen2 = New ADODB.Recordset
         If rs_almacen2.State = 1 Then rs_almacen2.Close
@@ -5501,7 +5500,7 @@ Private Sub SalidaAlmacen()
         End If
     Else
         'SALIDAS
-        db.Execute "ap_ventas_grla 2 ,'" & glGestion & "', " & ado_datos18.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos18.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & ado_datos18.Recordset!fecha_ingreso_salida & "', " & VAR_CANT3 & ", " & precio_tot & ", " & precio_tot_dol & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+        db.Execute "ap_ventas_grla 2 ,'" & glGestion & "', " & ado_datos18.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos18.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & ado_datos18.Recordset!fecha_ingreso_salida & "', " & VAR_CANT3 & ", " & precio_tot & ", " & precio_tot_dol & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
         Set rs_almacen2 = New ADODB.Recordset
         If rs_almacen2.State = 1 Then rs_almacen2.Close
         rs_almacen2.Open "select * from ao_almacen_totales where almacen_codigo = " & ado_datos18.Recordset!almacen_codigo & " and bien_codigo = '" & ado_datos18.Recordset!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
@@ -7083,13 +7082,13 @@ Private Sub graba_proyecto()
 
     Set rs_aux1 = New ADODB.Recordset
     If rs_aux1.State = 1 Then rs_aux1.Close
-    SQL_FOR = "select * from fo_proyectos_ejecucion where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!edif_codigo & "' "
+    SQL_FOR = "select * from fo_proyectos_ejecucion where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!EDIF_CODIGO & "' "
     rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
     If rs_aux1.RecordCount > 0 Then
-        db.Execute "update fo_proyectos_ejecucion set pro_codigo_det_descripcion = '" & dtc_desc3.Text & "' Where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!edif_codigo & "' "
+        db.Execute "update fo_proyectos_ejecucion set pro_codigo_det_descripcion = '" & dtc_desc3.Text & "' Where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!EDIF_CODIGO & "' "
     Else
         db.Execute "INSERT INTO fo_proyectos_ejecucion (pro_codigo, pro_codigo_det, pro_codigo_det_descripcion, unidad_codigo, ges_gestion, estado_codigo, usr_codigo, fecha_registro) " & _
-           "VALUES (" & VAR_PROY & ", '" & Ado_datos.Recordset!edif_codigo & "', '" & dtc_desc3.Text & "', '" & Ado_datos.Recordset!unidad_codigo & "', " & glGestion & ", 'APR', '" & glusuario & "', '" & Date & "')"
+           "VALUES (" & VAR_PROY & ", '" & Ado_datos.Recordset!EDIF_CODIGO & "', '" & dtc_desc3.Text & "', '" & Ado_datos.Recordset!unidad_codigo & "', " & glGestion & ", 'APR', '" & glusuario & "', '" & Date & "')"
     End If
     '
 End Sub
@@ -7449,7 +7448,7 @@ Private Sub CmdGrabaDet_Click()
     'VARIABLES DE LA CABECERA
     VAR_ALMX = IIf(IsNull(dtc_codigo13.Text), "0", dtc_codigo13.Text)        ' Ado_datos.Recordset!almacen_codigoR
     correlv = Ado_datos.Recordset!venta_codigo
-    VAR_PROY2 = Ado_datos.Recordset!edif_codigo
+    VAR_PROY2 = Ado_datos.Recordset!EDIF_CODIGO
     VAR_BEN3 = Ado_datos.Recordset!beneficiario_codigo_almR
     VAR_DOC = Ado_datos.Recordset!doc_codigo_alm
     FAlmacen = IIf(IsNull(Ado_datos.Recordset!fecha_verif), Date, Ado_datos.Recordset!fecha_verif)
@@ -7667,7 +7666,7 @@ Private Sub BtnModDetalle_Click()
         End If
         Set Ado_datos11.Recordset = rs_datos11
         dtc_desc13.BoundText = dtc_codigo13.BoundText
-        If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
+        If Ado_datos.Recordset!EDIF_CODIGO = "20101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "30101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "70101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "10101-2" Then
             'TRASPASOS
             LabDestino.Visible = True
             dtc_codigo6.Visible = True
@@ -8865,7 +8864,7 @@ Private Sub grabar()
                 'rs_aux5!correl_sal = rs_aux5!correl_sal + 1
                 'VAR_NUM = rs_aux5!correl_sal
            Else
-              If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
+              If Ado_datos.Recordset!EDIF_CODIGO = "20101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "70101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "30101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "10101-2" Then
                 '===== ini GENERA EL CORRELATIVO POR TRANSFERENCIA DE ALMACEN ====
                 Set rs_aux7 = New ADODB.Recordset
                 rs_aux7.CursorLocation = adUseClient
@@ -9090,7 +9089,7 @@ Private Sub grabar()
 '                    rs_aux5!correl_sal = rs_aux5!correl_sal + 1
 '                    VAR_NUM = rs_aux5!correl_sal
 '               Else
-                    If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
+                    If Ado_datos.Recordset!EDIF_CODIGO = "20101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "70101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "30101-2" Or Ado_datos.Recordset!EDIF_CODIGO = "10101-2" Then
                       '===== ini GENERA EL CORRELATIVO POR TRANSFERENCIA DE ALMACEN ====
                         Set rs_aux7 = New ADODB.Recordset
                         rs_aux7.CursorLocation = adUseClient
@@ -9241,7 +9240,7 @@ Private Sub grabar()
          rs_aux1!solicitud_fecha_solicitud = Format(IIf(IsNull(DTPfechasol.Value), Date, DTPfechasol.Value), "dd,mm,yyyy")
          
          rs_aux1!solicitud_tipo = VAR_TIPO      '"25"    'dtc_codigo2.Text
-         rs_aux1!edif_codigo = dtc_codigo3.Text
+         rs_aux1!EDIF_CODIGO = dtc_codigo3.Text
          rs_aux1!beneficiario_codigo = dtc_codigo5.Text        'Entregado a:
          
          rs_aux1!solicitud_justificacion = Trim(TxtConcepto.Text)

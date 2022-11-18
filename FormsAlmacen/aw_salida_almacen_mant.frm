@@ -83,6 +83,7 @@ Begin VB.Form aw_salida_almacen_mant
             Locked          =   -1  'True
             TabIndex        =   76
             Top             =   600
+            Visible         =   0   'False
             Width           =   1560
          End
          Begin VB.TextBox txt_hdm 
@@ -245,6 +246,7 @@ Begin VB.Form aw_salida_almacen_mant
             Left            =   5280
             TabIndex        =   79
             Top             =   360
+            Visible         =   0   'False
             Width           =   1530
          End
          Begin VB.Label Label4 
@@ -304,12 +306,12 @@ Begin VB.Form aw_salida_almacen_mant
          Begin MSDataListLib.DataCombo dtc_codigo2 
             Bindings        =   "aw_salida_almacen_mant.frx":0E48
             Height          =   315
-            Left            =   6600
+            Left            =   8760
             TabIndex        =   52
-            Top             =   0
+            Top             =   120
             Visible         =   0   'False
-            Width           =   1365
-            _ExtentX        =   2408
+            Width           =   765
+            _ExtentX        =   1349
             _ExtentY        =   556
             _Version        =   393216
             Locked          =   -1  'True
@@ -322,11 +324,12 @@ Begin VB.Form aw_salida_almacen_mant
          Begin MSDataListLib.DataCombo dtc_desc2 
             Bindings        =   "aw_salida_almacen_mant.frx":0E63
             Height          =   315
-            Left            =   3240
+            Left            =   7560
             TabIndex        =   53
-            Top             =   240
-            Width           =   4965
-            _ExtentX        =   8758
+            Top             =   120
+            Visible         =   0   'False
+            Width           =   1245
+            _ExtentX        =   2196
             _ExtentY        =   556
             _Version        =   393216
             ListField       =   "edif_descripcion"
@@ -385,14 +388,13 @@ Begin VB.Form aw_salida_almacen_mant
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   6360
+            Left            =   3240
             Picture         =   "aw_salida_almacen_mant.frx":27CD
             ScaleHeight     =   615
             ScaleWidth      =   1320
             TabIndex        =   58
             ToolTipText     =   "Envia a Cobranzas"
             Top             =   0
-            Visible         =   0   'False
             Width           =   1320
          End
          Begin VB.PictureBox BtnCancelarDet 
@@ -401,7 +403,7 @@ Begin VB.Form aw_salida_almacen_mant
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   5040
+            Left            =   6240
             Picture         =   "aw_salida_almacen_mant.frx":3000
             ScaleHeight     =   615
             ScaleWidth      =   1395
@@ -416,7 +418,7 @@ Begin VB.Form aw_salida_almacen_mant
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   3720
+            Left            =   4920
             Picture         =   "aw_salida_almacen_mant.frx":38EC
             ScaleHeight     =   615
             ScaleWidth      =   1275
@@ -471,10 +473,11 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H0080FFFF&
             Height          =   195
             Index           =   9
-            Left            =   3480
+            Left            =   8880
             TabIndex        =   62
-            Top             =   0
-            Width           =   2250
+            Top             =   360
+            Visible         =   0   'False
+            Width           =   690
          End
       End
       Begin TrueOleDBGrid60.TDBGrid TDBGrid1 
@@ -846,7 +849,7 @@ Begin VB.Form aw_salida_almacen_mant
       Width           =   6540
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "2020"
+         Caption         =   "Todos"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -858,7 +861,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   2160
+         Left            =   1800
          TabIndex        =   87
          Top             =   2835
          Width           =   855
@@ -880,7 +883,8 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   960
          TabIndex        =   86
          Top             =   2835
-         Width           =   855
+         Visible         =   0   'False
+         Width           =   735
       End
       Begin VB.OptionButton OptFilGral3 
          BackColor       =   &H00C0C0C0&
@@ -896,14 +900,15 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   3480
+         Left            =   3000
          TabIndex        =   85
          Top             =   2835
-         Width           =   915
+         Visible         =   0   'False
+         Width           =   675
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "2022"
+         Caption         =   "En Proceso"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -915,11 +920,11 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   4680
+         Left            =   3840
          TabIndex        =   3
          Top             =   2835
          Value           =   -1  'True
-         Width           =   915
+         Width           =   1395
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
@@ -2421,6 +2426,23 @@ Begin VB.Form aw_salida_almacen_mant
       EndProperty
       _Version        =   393216
    End
+   Begin Crystal.CrystalReport CR04 
+      Left            =   8040
+      Top             =   9360
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      WindowState     =   2
+      PrintFileLinesPerPage=   60
+      WindowShowGroupTree=   -1  'True
+      WindowShowCloseBtn=   -1  'True
+      WindowShowSearchBtn=   -1  'True
+      WindowShowPrintSetupBtn=   -1  'True
+      WindowShowRefreshBtn=   -1  'True
+   End
    Begin VB.Label lblLabels 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
@@ -2488,6 +2510,7 @@ Dim VAR_DOC As String
 Dim VAR_DC As Integer
 Dim VAR_ALMH, VAR_ALMI As Integer
 Dim VAR_CRTL, VAR_CRONO As Integer
+Dim VAR_NUMGRP As Integer
 
 'OTROS
 'Dim swnuevo As String
@@ -2551,6 +2574,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 lblcant4.Caption = "0"
                 lblcant5.Caption = "0"
             End If
+            VAR_NUMGRP = 0
             Call ABRIR_TABLA_DET(1)
             If lbl_texto1.Caption <> "" And lbl_texto1.Caption <> "0" Then
                 lbl_texto2.Caption = UCase(MonthName(Val(lbl_texto1.Caption)))
@@ -2565,7 +2589,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 End Sub
 
 Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
-
+  If Not Ado_detalle2.Recordset.EOF Then
     If Ado_detalle2.Recordset!estado_almacen = "APR" Then
         TDBGrid2.Visible = True
         Set rs_det3 = New ADODB.Recordset
@@ -2580,6 +2604,7 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
     Else
         TDBGrid2.Visible = False
     End If
+   End If
 End Sub
 
 Private Sub BtnAnlDetalle_Click()
@@ -2771,6 +2796,56 @@ Private Sub BtnAprobar_Click()
 'UpdateErr:
 '  MsgBox Err.Description
 
+End Sub
+
+Private Sub BtnAprobarDet_Click()
+    If Ado_detalle3.Recordset.RecordCount > 0 Then
+      If Ado_detalle3.Recordset!ok_almacen Then
+        MsgBox "Los registros YA fueron aprobados y enviados a Almacenes... ", vbExclamation, "Atención!"
+        Exit Sub
+      Else
+        VAR_ED = Ado_detalle3.Recordset!EDIF_CODIGO
+        Set rs_aux10 = New ADODB.Recordset
+        If rs_aux10.State = 1 Then rs_aux10.Close
+        Select Case Left(VAR_ED, 1)
+            Case "1"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-01' "
+            Case "2"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-02' "
+            Case "3"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-03' "
+            Case "4"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-04' "
+            Case "5"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-05' "
+            Case "6"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-06' "
+            Case "7"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-07' "
+            Case "8"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-08' "
+            Case "9"
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-09' "
+            Case Else
+                SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-01' "
+        End Select
+        rs_aux10.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+        If rs_aux10.RecordCount > 0 Then
+            rs_aux10!numero_correlativo = rs_aux10!numero_correlativo + 1
+            VAR_NUMGRP = rs_aux10!numero_correlativo
+            rs_aux10.Update
+        Else
+            VAR_NUMGRP = 1
+        End If
+        db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'True' Where fmes_plan=" & Ado_datos.Recordset!fmes_plan & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & "  "
+        db.Execute "Update to_cronograma_diario_final SET correl_prog = " & VAR_NUMGRP & " Where fmes_plan= " & Ado_datos.Recordset!fmes_plan & " AND correl_prog = " & Ado_detalle3.Recordset!correl_prog & "  "
+        
+        ' rs_det3.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "  AND correl_prog = " & Ado_detalle2.Recordset!correl_prog & " ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        MsgBox "Los registros se enviaron a Almacenes satisfactoriamente !!. ", vbInformation, "Información"
+      End If
+    Else
+        MsgBox "NO se puede Procesar !!. Verifique si existen registros. ", vbExclamation, "Atención!"
+    End If
 End Sub
 
 Private Sub BtnBuscar_Click()
@@ -3187,40 +3262,6 @@ Private Sub valida_campos()
 End Sub
 
 Private Sub BtnGrabarDet_Click()
-    Set rs_aux10 = New ADODB.Recordset
-            If rs_aux10.State = 1 Then rs_aux10.Close
-            Select Case Left(VAR_ED, 1)
-                Case "1"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-01' "
-                    VAR_ALMI = 2            '13
-                Case "2"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-02' "
-                    VAR_ALMI = 2
-                Case "3"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-03' "
-                    VAR_ALMI = 12
-                Case "4"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-04' "
-                    VAR_ALMI = 12           '14
-                Case "5"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-05' "
-                    VAR_ALMI = 2            '13
-                Case "6"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-06' "
-                    VAR_ALMI = 2            '24
-                Case "7"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-07' "
-                    VAR_ALMI = 11
-                Case "8"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-08' "
-                    VAR_ALMI = 11
-                Case "9"
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-09' "
-                    VAR_ALMI = 11
-                Case Else
-                    SQL_FOR = "select * from fc_Correl where tipo_tramite = 'CROM-01' "
-                    VAR_ALMI = 2
-            End Select
 
 'VAR_DOC = "R-115"
 'db.Execute "Update to_cronograma_diario_final SET doc_codigo  =  '" & VAR_DOC & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "'"
@@ -3338,46 +3379,58 @@ Private Sub BtnImprimir2_Click()
 End Sub
 
 Private Sub BtnImprimir4_Click()
-If Ado_datos.Recordset.RecordCount > 0 Then
+If Ado_detalle3.Recordset.RecordCount > 0 Then
+    'to_cronograma_diario_final
+    Set rs_datos1 = New ADODB.Recordset
+    If rs_datos1.State = 1 Then rs_datos1.Close
+    rs_datos1.Open "select distinct bien_codigo  from to_cronograma_diario_final where fmes_plan = " & Ado_detalle3.Recordset!fmes_plan & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & " ", db, adOpenStatic
+    If rs_datos1.RecordCount > 0 Then
+        VAR_REG = rs_datos1.RecordCount
+        VAR_CANT1 = rs_datos1.RecordCount
+    Else
+        VAR_REG = "0"
+        VAR_CANT1 = "0"
+    End If
+    'lbl_texto2.Caption = UCase(MonthName(Ado_datos.Recordset!fmes_correl))
+    
     Dim iResult As Integer
     'Dim co As New ADODB.Command
-    CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mensual_ejecucion.rpt"
-    CR02.WindowShowPrintSetupBtn = True
-    CR02.WindowShowRefreshBtn = True
+    CR04.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mtto_salida_almacen.rpt"
+    CR04.WindowShowPrintSetupBtn = True
+    CR04.WindowShowRefreshBtn = True
+    var_titulo = "Salida Almacen Insumos"
     'MsgBox rs.RecordCount
-    Select Case Me.Ado_datos.Recordset!unidad_codigo_tec
-          Case "DNINS"
-              var_titulo = "Módulo Instalaciones"
-          Case "DNAJS"
-              var_titulo = "Módulo Ajustes"
-          Case "DNMAN"
-              var_titulo = "Módulo Mantenimiento"
-          Case "DNREP"
-              var_titulo = "Módulo Reparaciones"
-          Case "DNEME"
-              var_titulo = "Módulo Emergencias"
-          Case "DNMOD"
-              var_titulo = "Módulo Modernización"
-      End Select
+'    Select Case Me.Ado_detalle2.Recordset!unidad_codigo_tec
+'          Case "DNINS"
+'              var_titulo = "Módulo Instalaciones"
+'          Case "DNAJS"
+'              var_titulo = "Módulo Ajustes"
+'          Case "DNMAN", "DMANS", "DMANB", "DMANC"
+'              var_titulo = "Módulo Mantenimiento"
+'          Case "DNREP"
+'              var_titulo = "Módulo Reparaciones"
+'          Case "DNEME"
+'              var_titulo = "Módulo Emergencias"
+'          Case "DNMOD"
+'              var_titulo = "Módulo Modernización"
+'      End Select
       'Cmb_Mes.Text = "ENERO"
-      VAR_TIT = "EJECUCION SERVICIO DE MANTENIMMIENTO"
-      CR02.Formulas(0) = "titulo = '" & var_titulo & "' "
-      CR02.Formulas(1) = "subtitulo = '" & VAR_TIT & "' "
-      'CR02.Formulas(1) = "subtitulo = '" & lbl_titulo.Caption & "' "
-      CR02.Formulas(2) = "periodo = '" & lbl_texto2 & "' "
-      'CR02.Formulas(2) = "periodo = '" & Cmb_Mes & "' "
-
-    CR02.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-    CR02.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo_tec
-    CR02.StoredProcParam(2) = Me.Ado_datos.Recordset!zpiloto_codigo
-    CR02.StoredProcParam(3) = Me.Ado_datos.Recordset!fmes_correl
-    
-    iResult = CR02.PrintReport
-    If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
+      CR04.Formulas(0) = "titulo = '" & var_titulo & "' "
+      CR04.Formulas(1) = "subtitulo = '" & lbl_titulo.Caption & "' "
+      CR04.Formulas(2) = "periodo = '" & lbl_texto2 & "' "
+      CR04.Formulas(3) = "TotalReg = " & VAR_REG & " "
+      CR04.Formulas(4) = "CANT1 = " & VAR_CANT1 & " "
+      
+     CR04.StoredProcParam(0) = Me.Ado_detalle3.Recordset!fmes_plan
+     CR04.StoredProcParam(1) = Me.Ado_detalle3.Recordset!correl_prog             'Me.Ado_detalle2.Recordset!zpiloto_codigo
+     
+    iResult = CR04.PrintReport
+    If iResult <> 0 Then MsgBox CR04.LastErrorNumber & " : " & CR04.LastErrorString, vbCritical, "Error de impresión"
 Else
     MsgBox "No se puede Imprimir. Debe registrar los datos correspondientes ...", , "Atención"
 End If
-    CR02.WindowState = crptMaximized
+    CR04.WindowState = crptMaximized
+
 
 End Sub
 
@@ -3423,18 +3476,18 @@ Private Sub SalidaAlmacen()
     VAR_DOC = "R-115"
     VAR_DC = IIf(IsNull(Ado_detalle2.Recordset!doc_numero_m), 0, Ado_detalle2.Recordset!doc_numero_m)
     VAR_B = Ado_detalle2.Recordset!bien_codigo
-    VAR_ED = Ado_detalle2.Recordset!edif_codigo
+    VAR_ED = Ado_detalle2.Recordset!EDIF_CODIGO
     VAR_VT = Ado_detalle2.Recordset!venta_codigo
     VAR_BC = Ado_detalle2.Recordset!beneficiario_codigo
     If VAR_CRTL = 1 Then
         VAR_FSAL = IIf(IsNull(DTPEjecucion.Value), Date, DTPEjecucion.Value)
         'db.Execute "Update to_cronograma_mensual SET beneficiario_codigo_resp = '" & dtc_codigo4A & "' Where fmes_plan= " & Ado_detalle2.Recordset!fmes_plan & " "                     'edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "'
-        db.Execute "Update to_cronograma_diario_final SET beneficiario_codigo_resp = '" & dtc_codigo4A & "' Where fmes_plan= " & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "' "
+        db.Execute "Update to_cronograma_diario_final SET beneficiario_codigo_resp = '" & dtc_codigo4A & "' Where fmes_plan= " & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' "
     Else
         VAR_FSAL = Date
     End If
     '
-    db.Execute "Update to_cronograma_diario_final SET doc_codigo = '" & VAR_DOC & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "' "
+    db.Execute "Update to_cronograma_diario_final SET doc_codigo = '" & VAR_DOC & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' "
     'ACTUALIZA CORRELATIVO DE DOC. RESPALDO
     'If Ado_detalle2.Recordset!doc_numero_m = 0 Or IsNull(Ado_detalle2.Recordset!doc_numero_m) Then
     If VAR_DC = 0 Then
@@ -3517,15 +3570,15 @@ Private Sub SalidaAlmacen()
 '    End If
     'edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "'         'ANTES, SE CAMBIO POR EDIF_CODIGO
     If (Ado_detalle2.Recordset!doc_numero_m = 0 Or IsNull(Ado_detalle2.Recordset!doc_numero_m)) Or (glusuario = "ADMIN" Or glusuario = "LVASQUEZ" Or glusuario = "RCUELA") Then
-           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = " & VAR_NUM & "  Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!edif_codigo & "'"
-           db.Execute "Update to_cronograma_diario_final SET fecha_almi = '" & VAR_FSAL & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
-           db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'True' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
-           db.Execute "Update to_cronograma_diario_final SET observaciones2 = '" & txt_obs.Text & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
-           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'APR' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
-           db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "' and unidad_codigo_tec like '%MAN%' "
+           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = " & VAR_NUM & "  Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET fecha_almi = '" & VAR_FSAL & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           'db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'True' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET observaciones2 = '" & txt_obs.Text & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'APR' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' and unidad_codigo_tec like '%MAN%' "
            'db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "' and unidad_codigo_tec = 'DNMAN' "
            
-           db.Execute "Update to_cronograma_diario_final SET fecha_almacen = '" & Date & "', correl_prog = " & Ado_datos.Recordset!fmes_plan & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET fecha_almacen = '" & Date & "', correl_prog = " & Ado_datos.Recordset!fmes_plan & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 '            'SQL_FOR = "select * from ac_almacenes where almacen_codigo = '2'"        ''" & VAR_DOC & "' "
 '            Set rs_aux2 = New ADODB.Recordset
@@ -3640,7 +3693,7 @@ Private Sub SalidaAlmacen()
              
              VAR_ALMH = VAR_ALMI     '"2"
              'ACTUALIZA TODAS LAS SALIDAS WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-             db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!edif_codigo & "' and unidad_codigo_tec like '%MAN%' "
+             db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' and unidad_codigo_tec like '%MAN%' "
              'ACTUALIZA ao_almacen_totales   'Actualiza en el Almacen Especificado
 
              db.Execute "update ao_almacen_totales set stock_salida  = tatales_almacenes_js.cantidad_salida FROM tatales_almacenes_js WHERE tatales_almacenes_js.bien_codigo = ao_almacen_totales.bien_codigo and tatales_almacenes_js.almacen_codigo = ao_almacen_totales.almacen_codigo"
@@ -3842,7 +3895,8 @@ Private Sub Form_Load()
 '    db.Execute "UPDATE to_cronograma_diario_final SET to_cronograma_diario_final.beneficiario_codigo_resp = to_cronograma_mensual.beneficiario_codigo_resp, to_cronograma_diario_final.beneficiario_codigo_resp2 = to_cronograma_mensual.beneficiario_codigo_resp From to_cronograma_diario_final " & _
 '    " INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan  = to_cronograma_mensual.fmes_plan) where to_cronograma_diario_final.beneficiario_codigo_resp is null or to_cronograma_diario_final.beneficiario_codigo_resp =''  "
     
-    Call OptFilGral1_Click
+    Call OptFilGral2_Click
+'    Call OptFilGral1_Click
     
 '    var_cod = "0"
 '    Set rs_det1 = New ADODB.Recordset
@@ -3982,15 +4036,15 @@ Private Sub OptFilGral1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DA
        Case "1.8"    'Cochabamba
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND (ges_gestion = '2020')) "
+           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') ) "            'AND (ges_gestion = '2020')
        Case "1.7"    'Santa Cruz
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') AND (ges_gestion = '2020')) "
+           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') ) "      'AND (ges_gestion = '2020')
        Case "1.3"    'La Paz - Tecnico
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) AND (ges_gestion = '2020')) "
+           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) ) "         'AND (ges_gestion = '2020')
        Case "1.9"    ' Chuquisaca
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' ) AND (ges_gestion = '2020'))"
+           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' ) )"           'AND (ges_gestion = '2020')
        Case Else    ' TODO
-           queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2020') "
+           queryinicial = "select * From to_cronograma_mensual  "           'WHERE (ges_gestion = '2020')
     End Select
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     Set Ado_datos.Recordset = rs_datos.DataSource
