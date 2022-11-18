@@ -1060,7 +1060,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119537665
+            Format          =   119865345
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1368,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   119537667
+            Format          =   119865347
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3068,7 +3068,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119537665
+               Format          =   119865345
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6322,7 +6322,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE TRAMITE NRO. " + Str((Ado_datos.Recordset("solicitud_codigo")))
 
         End If
-        GlEdificio = Ado_datos.Recordset!edif_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
         FrmDetalle.Visible = True
         FrmCobranza.Visible = True
 '        FrmAlcance.Visible = True
@@ -6559,8 +6559,8 @@ Private Sub BtnAprobar_Click()
            NumComp = Ado_datos.Recordset!venta_codigo
            VAR_SOL = Ado_datos.Recordset!solicitud_codigo
            VAR_TIPOV = Ado_datos.Recordset!venta_tipo
-           VAR_PROY2 = Ado_datos.Recordset!edif_codigo
-           GlEdificio = Ado_datos.Recordset!edif_codigo
+           VAR_PROY2 = Ado_datos.Recordset!EDIF_CODIGO
+           GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
            VAR_UNIDCOD = Ado_datos.Recordset!unidad_codigo
            VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
            VAR_CITE = Ado_datos.Recordset!unidad_codigo_ant
@@ -6678,7 +6678,7 @@ Private Sub BtnAprobar_Click()
                         rs_aux3!solicitud_codigo_adm = correldetalle
                         rs_aux3!unidad_codigo = VAR_UNIDCOD
                         rs_aux3!solicitud_codigo = VAR_SOL
-                        rs_aux3!edif_codigo = VAR_PROY2
+                        rs_aux3!EDIF_CODIGO = VAR_PROY2
                         rs_aux3!beneficiario_codigo = VAR_BENEF
                         rs_aux3!beneficiario_codigo_alm = IIf(IsNull(Ado_datos.Recordset!beneficiario_codigo_resp), "0", Ado_datos.Recordset!beneficiario_codigo_resp)
                         rs_aux3!solicitud_tipo = rs_aux1!solicitud_tipo     '"15"
@@ -6962,7 +6962,7 @@ Private Sub CRONO_INSTALACION()
                         Case 2
                             Set rs_aux8 = New ADODB.Recordset
                             If rs_aux8.State = 1 Then rs_aux8.Close
-                            rs_aux8.Open "select * from av_arreglo2 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo2 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            rs_aux8.Open "select * from av_arreglo2 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
                             If rs_aux8.RecordCount > 0 Then
                                 VAR_RECORRIDO = rs_aux8!recorrido_codigo
                                 VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
@@ -6972,7 +6972,7 @@ Private Sub CRONO_INSTALACION()
                         Case 3
                             Set rs_aux8 = New ADODB.Recordset
                             If rs_aux8.State = 1 Then rs_aux8.Close
-                            rs_aux8.Open "select * from av_arreglo3 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo3 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            rs_aux8.Open "select * from av_arreglo3 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
                             If rs_aux8.RecordCount > 0 Then
                                 VAR_RECORRIDO = rs_aux8!recorrido_codigo
                                 VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
@@ -6982,7 +6982,7 @@ Private Sub CRONO_INSTALACION()
                         Case 4
                             Set rs_aux8 = New ADODB.Recordset
                             If rs_aux8.State = 1 Then rs_aux8.Close
-                            rs_aux8.Open "select * from av_arreglo4 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo4 = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
+                            rs_aux8.Open "select * from av_arreglo4 where unidad_codigo = '" & VAR_UNIDCOD & "' AND solicitud_codigo = " & VAR_SOL & " AND arreglo = " & rs_aux7!cotiza_codigo & "  ", db, adOpenKeyset, adLockBatchOptimistic
                             If rs_aux8.RecordCount > 0 Then
                                 VAR_RECORRIDO = rs_aux8!recorrido_codigo
                                 VAR_VELOCIDAD = rs_aux8!vel_equipo_m_s
@@ -7179,7 +7179,7 @@ Private Sub BtnAprobar1_Click()
         End If
 
         correlv = Ado_datos.Recordset!venta_codigo
-        GlEdificio = Ado_datos.Recordset!edif_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
         'VALIDA EDIFICIO Y EQUIPOS
         Set rs_aux10 = New ADODB.Recordset     'Proyecto de Edificación
         If rs_aux10.State = 1 Then rs_aux10.Close
@@ -7304,7 +7304,7 @@ Private Sub BtnAprobar2_Click()
                 " VALUES ('" & glGestion & "',  " & nroventa & ", '" & VAR_DOCFAC & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_programada_bs & ",  " & Ado_datos16.Recordset!cobranza_programada_dol & ",  " & GlTipoCambioOficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
                         " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
+                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!EDIF_CODIGO & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
                         
             Set rs_aux20 = New ADODB.Recordset
             If rs_aux20.State = 1 Then rs_aux20.Close
@@ -10196,7 +10196,7 @@ Private Sub CmdGrabaDet_Click()
             db.Execute "insert into ac_bienes(grupo_codigo, subgrupo_codigo, bien_codigo, par_codigo, bien_descripcion, observaciones, bien_precio_compra, bien_precio_venta_base, bien_precio_venta_final, bien_precio_compra_dol, bien_precio_venta_base_dol, bien_precio_venta_final_dol, unimed_codigo, unimed_codigo_empaque, bien_cantidad_por_empaque, marca_codigo, modelo_codigo, bien_stock_minimo, bien_stock_inicial, bien_stock_ingreso, bien_stock_salida, bien_stock_actual, " & _
             "bien_total_compra_bs, bien_total_venta_bs, bien_utilidad_Bs, bien_codigo_anterior, bien_codigo_universal, bien_descripcion_anterior, bien_rotacion, pais_codigo, edif_codigo , archivo_foto2, archivo_foto, kit, estado_vigente, estado_codigo, usr_codigo, fecha_registro,  usr_codigo_apr, fecha_registro_apr) " & _
             "VALUES ('40000', '43000', '" & VAR_OA & "', '43340', '" & txt_descripcion_venta & "', '" & txt_descripcion_venta.Text & "', " & CDbl(TxtPrecioU.Text) & ", '0', '0',                  '0',                    '0',                        '0',                         'EQP',      'EQP',                    '1', '" & IIf(IsNull(rs_datos5!marca_codigo), "OTIS", rs_datos5!marca_codigo) & "', '" & Txt_modelo.Text & "', '1', '0', '0',   '0',  '0', " & _
-            "'0',                  '0',                '0',               '" & VAR_EQP & "',  '" & VAR_TIPOEQP & "',   '-',                      'PROMEDIO', '" & VAR_PAIS & "', '" & rs_datos5!edif_codigo & "', '" & VAR_OA & "' + '.JPG', '" & VAR_OA & "' + '.JPG', '0', 'APR', 'APR', '" & glusuario & "', '" & Date & "', '" & glusuario & "', '" & Date & "' ) "
+            "'0',                  '0',                '0',               '" & VAR_EQP & "',  '" & VAR_TIPOEQP & "',   '-',                      'PROMEDIO', '" & VAR_PAIS & "', '" & rs_datos5!EDIF_CODIGO & "', '" & VAR_OA & "' + '.JPG', '" & VAR_OA & "' + '.JPG', '0', 'APR', 'APR', '" & glusuario & "', '" & Date & "', '" & glusuario & "', '" & Date & "' ) "
              
             'db.Execute "insert into ac_bienes(grupo_codigo, subgrupo_codigo, bien_codigo, par_codigo, bien_descripcion, bien_precio_compra, bien_precio_venta_base, bien_precio_venta_final, unimed_codigo, unimed_codigo_empaque, bien_cantidad_por_empaque, marca_codigo, bien_stock_minimo, bien_stock_inicial, bien_stock_ingreso, bien_stock_salida, bien_stock_actual, bien_total_compra_bs, bien_total_venta_bs, bien_utilidad_Bs, bien_codigo_anterior, bien_codigo_universal, bien_descripcion_anterior, pais_codigo, archivo_foto2, archivo_foto, estado_codigo, fecha_registro, usr_codigo) " & _
             '"VALUES ('40000', '43000', '" & VAR_OA & "', '43340', '" & txt_descripcion_venta & "', " & CDbl(TxtPrecioU.Text) & ", '0', '0', 'EQP', 'EQP', '1', 'S/M', '1', '0', '0', '0', '0', '0', '0', '0', '" & VAR_EQP & "', '" & VAR_TIPOEQP & "', '-', '" & VAR_PAIS & "', '" & VAR_OA & "' + '.JPG', '" & VAR_OA & "' + '.JPG', 'REG', '" & Date & "', '" & glusuario & "') "
@@ -11397,7 +11397,7 @@ End Sub
 Private Sub ABRIR_TABLA_DET()
     Set rs_datos14 = New ADODB.Recordset
         If rs_datos14.State = 1 Then rs_datos14.Close
-        rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & nroventa & "'  ", db, adOpenKeyset, adLockOptimistic
+        rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = " & nroventa & "  ", db, adOpenKeyset, adLockOptimistic
         'rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & correlv & "'  ", db, adOpenKeyset, adLockOptimistic
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
         Set ado_datos14.Recordset = rs_datos14
@@ -11429,7 +11429,7 @@ Private Sub ABRIR_TABLA_DET()
         
         Set rs_datos16 = New ADODB.Recordset
         If rs_datos16.State = 1 Then rs_datos16.Close
-        rs_datos16.Open "select * from ao_ventas_cobranza_prog where venta_codigo = '" & nroventa & "'  ", db, adOpenKeyset, adLockOptimistic
+        rs_datos16.Open "select * from ao_ventas_cobranza_prog where venta_codigo = " & nroventa & "  ", db, adOpenKeyset, adLockOptimistic
         Set Ado_datos16.Recordset = rs_datos16
         Set DtgCobro.DataSource = Ado_datos16.Recordset
         'Ado_datos16.Recordset.Requery
