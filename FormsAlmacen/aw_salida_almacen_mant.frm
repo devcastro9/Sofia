@@ -17,14 +17,14 @@ Begin VB.Form aw_salida_almacen_mant
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   10620
    WindowState     =   2  'Maximized
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "DETALLE DE INSUMOS (ORIGEN)"
+      Caption         =   "ORIGEN - Detalle de Insumos"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   8.25
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -33,10 +33,10 @@ Begin VB.Form aw_salida_almacen_mant
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   8175
-      Left            =   6720
+      Left            =   6600
       TabIndex        =   50
       Top             =   720
-      Width           =   12645
+      Width           =   12765
       Begin VB.Frame FraDet2 
          BackColor       =   &H00C0C0C0&
          Caption         =   "Datos Complementarios"
@@ -161,7 +161,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   117964801
+            Format          =   123011073
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -349,7 +349,6 @@ Begin VB.Form aw_salida_almacen_mant
             TabIndex        =   61
             ToolTipText     =   "Estado de Ejecución"
             Top             =   0
-            Visible         =   0   'False
             Width           =   1400
          End
          Begin VB.PictureBox BtnBuscar2 
@@ -438,7 +437,7 @@ Begin VB.Form aw_salida_almacen_mant
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   55
-            Top             =   0
+            Top             =   20
             Width           =   1430
          End
          Begin VB.PictureBox BtnAnlDetalle 
@@ -448,11 +447,11 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1680
-            Picture         =   "aw_salida_almacen_mant.frx":49D7
+            Picture         =   "aw_salida_almacen_mant.frx":4A80
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   54
-            Top             =   0
+            Top             =   20
             Visible         =   0   'False
             Width           =   1215
          End
@@ -481,24 +480,44 @@ Begin VB.Form aw_salida_almacen_mant
          End
       End
       Begin TrueOleDBGrid60.TDBGrid TDBGrid1 
-         Bindings        =   "aw_salida_almacen_mant.frx":5123
+         Bindings        =   "aw_salida_almacen_mant.frx":5542
          Height          =   4095
          Left            =   120
          Negotiate       =   -1  'True
-         OleObjectBlob   =   "aw_salida_almacen_mant.frx":513E
+         OleObjectBlob   =   "aw_salida_almacen_mant.frx":555D
          TabIndex        =   63
          Top             =   240
-         Width           =   12375
+         Width           =   12600
       End
       Begin TrueOleDBGrid60.TDBGrid TDBGrid2 
-         Bindings        =   "aw_salida_almacen_mant.frx":1428B
-         Height          =   2895
+         Bindings        =   "aw_salida_almacen_mant.frx":1529A
+         Height          =   2775
          Left            =   120
          Negotiate       =   -1  'True
-         OleObjectBlob   =   "aw_salida_almacen_mant.frx":142A6
+         OleObjectBlob   =   "aw_salida_almacen_mant.frx":152B5
          TabIndex        =   88
-         Top             =   5160
+         Top             =   5400
          Width           =   12375
+      End
+      Begin VB.Label Label8 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00C0C0C0&
+         Caption         =   "DESTINO - Detalle de Insumos"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   225
+         Left            =   120
+         TabIndex        =   89
+         Top             =   5160
+         Width           =   2565
       End
       Begin VB.Label lbl_campo5 
          AutoSize        =   -1  'True
@@ -520,6 +539,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   2760
          TabIndex        =   69
          Top             =   7680
+         Visible         =   0   'False
          Width           =   765
       End
       Begin VB.Label lblcant1 
@@ -543,6 +563,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   3600
          TabIndex        =   68
          Top             =   7680
+         Visible         =   0   'False
          Width           =   1095
       End
       Begin VB.Label lblcant2 
@@ -566,6 +587,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   4680
          TabIndex        =   67
          Top             =   7680
+         Visible         =   0   'False
          Width           =   1095
       End
       Begin VB.Label lblcant4 
@@ -589,6 +611,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   6840
          TabIndex        =   66
          Top             =   7680
+         Visible         =   0   'False
          Width           =   1095
       End
       Begin VB.Label lblcant5 
@@ -612,6 +635,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   7920
          TabIndex        =   65
          Top             =   7680
+         Visible         =   0   'False
          Width           =   1095
       End
       Begin VB.Label lblcant3 
@@ -635,6 +659,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   5760
          TabIndex        =   64
          Top             =   7680
+         Visible         =   0   'False
          Width           =   1095
       End
    End
@@ -669,7 +694,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "aw_salida_almacen_mant.frx":233F3
+            Picture         =   "aw_salida_almacen_mant.frx":24FFA
             ScaleHeight     =   615
             ScaleWidth      =   1200
             TabIndex        =   48
@@ -684,7 +709,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1305
-            Picture         =   "aw_salida_almacen_mant.frx":23BB2
+            Picture         =   "aw_salida_almacen_mant.frx":257B9
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   47
@@ -699,7 +724,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2640
-            Picture         =   "aw_salida_almacen_mant.frx":244C7
+            Picture         =   "aw_salida_almacen_mant.frx":260CE
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   46
@@ -714,7 +739,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   7320
-            Picture         =   "aw_salida_almacen_mant.frx":24C13
+            Picture         =   "aw_salida_almacen_mant.frx":2681A
             ScaleHeight     =   615
             ScaleWidth      =   1320
             TabIndex        =   45
@@ -729,7 +754,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3720
-            Picture         =   "aw_salida_almacen_mant.frx":25446
+            Picture         =   "aw_salida_almacen_mant.frx":2704D
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   44
@@ -743,7 +768,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5760
-            Picture         =   "aw_salida_almacen_mant.frx":25BFB
+            Picture         =   "aw_salida_almacen_mant.frx":27802
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   43
@@ -758,7 +783,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   17880
-            Picture         =   "aw_salida_almacen_mant.frx":264C8
+            Picture         =   "aw_salida_almacen_mant.frx":280CF
             ScaleHeight     =   615
             ScaleWidth      =   1245
             TabIndex        =   42
@@ -795,7 +820,7 @@ Begin VB.Form aw_salida_almacen_mant
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "aw_salida_almacen_mant.frx":26C8A
+         Picture         =   "aw_salida_almacen_mant.frx":28891
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   39
@@ -809,7 +834,7 @@ Begin VB.Form aw_salida_almacen_mant
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "aw_salida_almacen_mant.frx":27576
+         Picture         =   "aw_salida_almacen_mant.frx":2917D
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   38
@@ -842,19 +867,19 @@ Begin VB.Form aw_salida_almacen_mant
       BackColor       =   &H00C0C0C0&
       Caption         =   "LISTADO"
       ForeColor       =   &H00800000&
-      Height          =   3240
+      Height          =   5040
       Left            =   0
       TabIndex        =   1
       Top             =   720
       Width           =   6540
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "Todos"
+         Caption         =   "Cerrados"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   8.25
+            Size            =   9
             Charset         =   0
-            Weight          =   700
+            Weight          =   400
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -863,8 +888,8 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   210
          Left            =   1800
          TabIndex        =   87
-         Top             =   2835
-         Width           =   855
+         Top             =   4635
+         Width           =   1215
       End
       Begin VB.OptionButton OptFilGral0 
          BackColor       =   &H00C0C0C0&
@@ -882,7 +907,7 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   210
          Left            =   960
          TabIndex        =   86
-         Top             =   2835
+         Top             =   4635
          Visible         =   0   'False
          Width           =   735
       End
@@ -902,18 +927,18 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   210
          Left            =   3000
          TabIndex        =   85
-         Top             =   2835
+         Top             =   4635
          Visible         =   0   'False
          Width           =   675
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "En Proceso"
+         Caption         =   "Pendientes"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   8.25
+            Size            =   9
             Charset         =   0
-            Weight          =   700
+            Weight          =   400
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -922,14 +947,14 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   210
          Left            =   3840
          TabIndex        =   3
-         Top             =   2835
+         Top             =   4635
          Value           =   -1  'True
          Width           =   1395
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
          Left            =   120
-         Top             =   2760
+         Top             =   4560
          Width           =   6345
          _ExtentX        =   11192
          _ExtentY        =   582
@@ -973,13 +998,13 @@ Begin VB.Form aw_salida_almacen_mant
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Height          =   2490
+         Height          =   4170
          Left            =   120
          TabIndex        =   2
          Top             =   240
          Width           =   6345
          _ExtentX        =   11192
-         _ExtentY        =   4392
+         _ExtentY        =   7355
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   16777215
@@ -1058,8 +1083,8 @@ Begin VB.Form aw_salida_almacen_mant
             EndProperty
          EndProperty
          BeginProperty Column04 
-            DataField       =   "fmes_nro_dias"
-            Caption         =   "Nro.Dias"
+            DataField       =   "fmes_plan"
+            Caption         =   "#Crono"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1071,7 +1096,7 @@ Begin VB.Form aw_salida_almacen_mant
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "estado_certifica"
+            DataField       =   "estado_activo"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1107,18 +1132,17 @@ Begin VB.Form aw_salida_almacen_mant
                ColumnWidth     =   510.236
             EndProperty
             BeginProperty Column02 
-               Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   2835.213
+               ColumnWidth     =   3314.835
             EndProperty
             BeginProperty Column03 
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   1154.835
+               Object.Visible         =   0   'False
+               ColumnWidth     =   1049.953
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
-               Object.Visible         =   0   'False
-               ColumnWidth     =   750.047
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
@@ -1684,10 +1708,10 @@ Begin VB.Form aw_salida_almacen_mant
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       ForeColor       =   &H00000040&
-      Height          =   5055
+      Height          =   3135
       Left            =   0
       TabIndex        =   4
-      Top             =   3840
+      Top             =   5760
       Width           =   6540
       Begin VB.TextBox Text2 
          Appearance      =   0  'Flat
@@ -1698,18 +1722,17 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   285
          Left            =   6105
          TabIndex        =   32
-         Top             =   3660
+         Top             =   2580
          Width           =   255
       End
       Begin MSDataListLib.DataCombo dtc_codigo4 
-         Bindings        =   "aw_salida_almacen_mant.frx":27D4C
+         Bindings        =   "aw_salida_almacen_mant.frx":29953
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   4800
          TabIndex        =   24
-         Top             =   3645
-         Visible         =   0   'False
+         Top             =   2565
          Width           =   1575
          _ExtentX        =   2778
          _ExtentY        =   556
@@ -1729,7 +1752,7 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   285
          Left            =   6135
          TabIndex        =   36
-         Top             =   2235
+         Top             =   1035
          Width           =   255
       End
       Begin VB.TextBox Text6 
@@ -1753,7 +1776,8 @@ Begin VB.Form aw_salida_almacen_mant
          Locked          =   -1  'True
          MaxLength       =   15
          TabIndex        =   33
-         Top             =   1680
+         Top             =   1560
+         Visible         =   0   'False
          Width           =   1090
       End
       Begin VB.TextBox Txt_campo2 
@@ -1764,7 +1788,7 @@ Begin VB.Form aw_salida_almacen_mant
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   25
-         Top             =   4080
+         Top             =   2280
          Visible         =   0   'False
          Width           =   1200
       End
@@ -1788,7 +1812,7 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   195
          Locked          =   -1  'True
          TabIndex        =   12
-         Top             =   520
+         Top             =   525
          Width           =   975
       End
       Begin VB.TextBox Text3 
@@ -1800,7 +1824,7 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   285
          Left            =   6090
          TabIndex        =   11
-         Top             =   3015
+         Top             =   1815
          Width           =   270
       End
       Begin VB.TextBox Txt_campo1 
@@ -1824,7 +1848,8 @@ Begin VB.Form aw_salida_almacen_mant
          Locked          =   -1  'True
          MaxLength       =   15
          TabIndex        =   6
-         Top             =   1680
+         Top             =   1800
+         Visible         =   0   'False
          Width           =   1090
       End
       Begin VB.TextBox Txt_estado 
@@ -1847,17 +1872,18 @@ Begin VB.Form aw_salida_almacen_mant
          Left            =   5520
          Locked          =   -1  'True
          TabIndex        =   5
-         Top             =   4440
+         Top             =   2280
+         Visible         =   0   'False
          Width           =   855
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "aw_salida_almacen_mant.frx":27D65
+         Bindings        =   "aw_salida_almacen_mant.frx":2996C
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5640
          TabIndex        =   7
-         Top             =   2220
+         Top             =   1020
          Width           =   765
          _ExtentX        =   1349
          _ExtentY        =   556
@@ -1870,14 +1896,13 @@ Begin VB.Form aw_salida_almacen_mant
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "aw_salida_almacen_mant.frx":27D7E
+         Bindings        =   "aw_salida_almacen_mant.frx":29985
          DataField       =   "unidad_codigo_tec"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   4920
          TabIndex        =   8
-         Top             =   3000
-         Visible         =   0   'False
+         Top             =   1800
          Width           =   1455
          _ExtentX        =   2566
          _ExtentY        =   556
@@ -1890,13 +1915,13 @@ Begin VB.Form aw_salida_almacen_mant
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "aw_salida_almacen_mant.frx":27D97
+         Bindings        =   "aw_salida_almacen_mant.frx":2999E
          DataField       =   "unidad_codigo_tec"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   240
          TabIndex        =   9
-         Top             =   3000
+         Top             =   1800
          Width           =   4965
          _ExtentX        =   8758
          _ExtentY        =   556
@@ -1933,7 +1958,8 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   315
          Left            =   1560
          TabIndex        =   0
-         Top             =   4440
+         Top             =   2280
+         Visible         =   0   'False
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
@@ -1949,19 +1975,19 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   117964803
+         Format          =   123011075
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "aw_salida_almacen_mant.frx":27DB0
+         Bindings        =   "aw_salida_almacen_mant.frx":299B7
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   1320
          TabIndex        =   10
-         Top             =   2220
+         Top             =   1020
          Width           =   4605
          _ExtentX        =   8123
          _ExtentY        =   556
@@ -1984,13 +2010,13 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc4 
-         Bindings        =   "aw_salida_almacen_mant.frx":27DC9
+         Bindings        =   "aw_salida_almacen_mant.frx":299D0
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   240
          TabIndex        =   23
-         Top             =   3645
+         Top             =   2565
          Width           =   4845
          _ExtentX        =   8546
          _ExtentY        =   556
@@ -2020,7 +2046,8 @@ Begin VB.Form aw_salida_almacen_mant
          Index           =   8
          Left            =   3240
          TabIndex        =   35
-         Top             =   1680
+         Top             =   1800
+         Visible         =   0   'False
          Width           =   1980
       End
       Begin VB.Label Label3 
@@ -2044,7 +2071,8 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   300
          Left            =   5280
          TabIndex        =   31
-         Top             =   1080
+         Top             =   1200
+         Visible         =   0   'False
          Width           =   1095
       End
       Begin VB.Label lblLabels 
@@ -2066,7 +2094,8 @@ Begin VB.Form aw_salida_almacen_mant
          Index           =   4
          Left            =   3600
          TabIndex        =   30
-         Top             =   1100
+         Top             =   1215
+         Visible         =   0   'False
          Width           =   1650
       End
       Begin VB.Label lbl_campo4 
@@ -2074,42 +2103,24 @@ Begin VB.Form aw_salida_almacen_mant
          BackColor       =   &H80000012&
          BackStyle       =   0  'Transparent
          Caption         =   "Técnico Responsable de la Zona"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
          TabIndex        =   29
-         Top             =   3420
-         Width           =   2820
+         Top             =   2265
+         Width           =   2370
       End
       Begin VB.Label lbl_campo1 
          AutoSize        =   -1  'True
          BackColor       =   &H80000012&
          BackStyle       =   0  'Transparent
          Caption         =   "Unidad Ejecutora"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
          TabIndex        =   28
-         Top             =   2775
-         Width           =   1485
+         Top             =   1500
+         Width           =   1230
       End
       Begin VB.Label lblLabels 
          AutoSize        =   -1  'True
@@ -2130,7 +2141,8 @@ Begin VB.Form aw_salida_almacen_mant
          Index           =   7
          Left            =   240
          TabIndex        =   27
-         Top             =   1680
+         Top             =   1800
+         Visible         =   0   'False
          Width           =   1770
       End
       Begin VB.Label lblLabels 
@@ -2152,7 +2164,8 @@ Begin VB.Form aw_salida_almacen_mant
          Index           =   6
          Left            =   4800
          TabIndex        =   26
-         Top             =   4455
+         Top             =   2295
+         Visible         =   0   'False
          Width           =   600
       End
       Begin VB.Label Label2 
@@ -2171,9 +2184,10 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
-         Left            =   240
+         Left            =   1680
          TabIndex        =   22
-         Top             =   4460
+         Top             =   2175
+         Visible         =   0   'False
          Width           =   1305
       End
       Begin VB.Label Label1 
@@ -2197,8 +2211,9 @@ Begin VB.Form aw_salida_almacen_mant
          Height          =   300
          Left            =   2040
          TabIndex        =   21
-         Top             =   1080
-         Width           =   1090
+         Top             =   1200
+         Visible         =   0   'False
+         Width           =   1095
       End
       Begin VB.Label lblLabels 
          AutoSize        =   -1  'True
@@ -2219,7 +2234,8 @@ Begin VB.Form aw_salida_almacen_mant
          Index           =   3
          Left            =   240
          TabIndex        =   20
-         Top             =   1095
+         Top             =   1215
+         Visible         =   0   'False
          Width           =   1740
       End
       Begin VB.Label lblLabels 
@@ -2227,22 +2243,13 @@ Begin VB.Form aw_salida_almacen_mant
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Correlativo Crono."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
          Index           =   2
          Left            =   4680
          TabIndex        =   19
          Top             =   285
-         Width           =   1545
+         Width           =   1260
       End
       Begin VB.Label lbl_texto2 
          Alignment       =   2  'Center
@@ -2271,65 +2278,38 @@ Begin VB.Form aw_salida_almacen_mant
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Mes"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
          Index           =   1
          Left            =   1800
          TabIndex        =   17
          Top             =   285
-         Width           =   360
+         Width           =   300
       End
       Begin VB.Label lblLabels 
          AutoSize        =   -1  'True
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Gestion"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
          Index           =   0
          Left            =   240
          TabIndex        =   16
-         Top             =   280
-         Width           =   660
+         Top             =   285
+         Width           =   540
       End
       Begin VB.Label lbl_campo3 
          AutoSize        =   -1  'True
          BackColor       =   &H80000012&
          BackStyle       =   0  'Transparent
          Caption         =   "Zona Piloto"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
          TabIndex        =   15
-         Top             =   2235
-         Width           =   990
+         Top             =   1035
+         Width           =   810
       End
       Begin VB.Label lbl_texto1 
          Alignment       =   2  'Center
@@ -2348,11 +2328,11 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   300
-         Left            =   2640
+         Left            =   1200
          TabIndex        =   14
-         Top             =   240
+         Top             =   480
          Visible         =   0   'False
-         Width           =   735
+         Width           =   615
       End
       Begin VB.Label txt_codigo 
          Alignment       =   2  'Center
@@ -2510,7 +2490,7 @@ Dim VAR_DOC As String
 Dim VAR_DC As Integer
 Dim VAR_ALMH, VAR_ALMI As Integer
 Dim VAR_CRTL, VAR_CRONO As Integer
-Dim VAR_NUMGRP As Integer
+Dim VAR_NUMGRP, VAR_REG As Integer
 
 'OTROS
 'Dim swnuevo As String
@@ -2529,7 +2509,7 @@ Dim VAR_VAL, VAR_ARCH, VAR_ARCH2 As String
 Dim VAR_SW, VAR_SOLA, VAR_TIT, VAR_B, VAR_ED, VAR_BC  As String
 Dim VAR_B1, VAR_B2, VAR_B3, VAR_B4, VAR_B5 As String
 Dim VAR_EDIFD, VAR_DA As String
-Dim VAR_UORIGEN, VAR_DPTOC As String
+Dim VAR_UORIGEN, VAR_DPTOC, VAR_DPTODES As String
 Dim VAR_AUX, VAR_CONT2 As Double
 Dim VAR_AUX2, VAR_COD0, CONT3, VAR_VT As Integer
 Dim DIAS_HAB, NRO_HRS, NRO_HORARIO As Integer
@@ -2574,6 +2554,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 lblcant4.Caption = "0"
                 lblcant5.Caption = "0"
             End If
+            If rs_aux6.State = 1 Then rs_aux6.Close
             VAR_NUMGRP = 0
             Call ABRIR_TABLA_DET(1)
             If lbl_texto1.Caption <> "" And lbl_texto1.Caption <> "0" Then
@@ -2600,7 +2581,15 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         Set Ado_detalle3.Recordset = rs_det3
         Set TDBGrid2.DataSource = Ado_detalle3.Recordset
         Set TDBGrid2.DataSource = rs_det3   ' Ado_detalle2.Recordset
-        'dtc_codigo2.BoundText = dtc_desc2.BoundText
+        ' dtc_codigo2.BoundText = dtc_desc2.BoundText
+        If Ado_detalle3.Recordset.RecordCount > 0 Then
+            BtnAnlDetalle.Visible = True
+            BtnAprobarDet.Visible = True
+        Else
+            BtnAnlDetalle.Visible = False
+            BtnAprobarDet.Visible = False
+        End If
+        '
     Else
         TDBGrid2.Visible = False
     End If
@@ -2608,21 +2597,52 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
 End Sub
 
 Private Sub BtnAnlDetalle_Click()
-   If Ado_detalle2.Recordset("estado_almacen") = "APR" Then
-      sino = MsgBox("Está Seguro de cambiar a ANULAR LA SALIDA DE ALMACEN ? (Este ya no podrá ser habilitado ...) ", vbYesNo + vbQuestion, "Atención")
-      If sino = vbYes Then
-        VAR_DC = Ado_detalle2.Recordset!doc_numero_m
-        VAR_GES = Year(Ado_detalle2.Recordset!fecha_almacen)
-        Ado_detalle2.Recordset!estado_almacen = "ANL"
-        Ado_detalle2.Recordset!ok_almacen = "False"
-        Ado_detalle2.Recordset.Update
-        'Call ABRIR_TABLA_DET
-        'rs_aux7.Open "Select * from ao_almacen_salidas where ges_gestion = '" & glGestion & "' AND almacen_codigo = " & VAR_ALMH & " AND doc_codigo = 'R-115' AND doc_numero = " & VAR_DC & "  and bien_codigo = '" & VAR_B5 & "'   ", db, adOpenKeyset, adLockOptimistic
-        db.Execute "delete ao_almacen_salidas where ges_gestion = '" & VAR_GES & "' AND almacen_codigo = '2' AND doc_codigo = 'R-115' AND doc_numero = " & VAR_DC & " "
-      End If
-   Else
-        MsgBox "No se puede ANULAR, el registro NO fue procesado (Estado=REG) o ya fue Anulado anteriormente (Estado=ANL)...", vbExclamation, "Validación de Registro"
-   End If
+    If Ado_detalle3.Recordset.RecordCount > 0 Then
+            db.Execute " DELETE ao_almacen_salidas WHERE venta_codigo  =  " & Ado_detalle3.Recordset!venta_codigo & "  AND bien_codigo = '" & Ado_detalle3.Recordset!bien_codigo & "' "
+            
+            db.Execute " update ac_bienes set ac_bienes.bien_stock_ingreso = total_ingresos_js.cantidad_ingreso from total_ingresos_js Where ac_bienes.bien_codigo = total_ingresos_js.bien_codigo"
+            db.Execute " update ac_bienes set ac_bienes.bien_stock_salida = total_salidas_js.cantidad_salida from total_salidas_js Where ac_bienes.bien_codigo = total_salidas_js.bien_codigo"
+            db.Execute " update ac_bienes set bien_stock_actual = bien_stock_ingreso - ISNULL(bien_stock_salida,0)"
+    
+            db.Execute " update ao_almacen_totales set stock_ingreso  = ISNULL(totales_almacen.cantidad_ingreso,0) FROM totales_almacen WHERE totales_almacen.bien_codigo = ao_almacen_totales.bien_codigo and totales_almacen.almacen_codigo = ao_almacen_totales.almacen_codigo"
+            db.Execute " UPDATE ao_almacen_totales SET ao_almacen_totales.stock_salida = av_almacen_salidas_alm.cantidad_salida FROM ao_almacen_totales INNER JOIN av_almacen_salidas_alm ON ao_almacen_totales.almacen_codigo = av_almacen_salidas_alm.almacen_codigo  AND ao_almacen_totales.bien_codigo = av_almacen_salidas_alm.bien_codigo"
+            db.Execute " update ao_almacen_totales set stock_actual = stock_ingreso - ISNULL(stock_salida,0)"
+    
+            db.Execute " update ac_bienes set ac_bienes.bien_total_compra_bs = av_almacen_ingresos_tot_ponderado.importe_compra_bs from av_almacen_ingresos_tot_ponderado Where ac_bienes.bien_codigo = av_almacen_ingresos_tot_ponderado.bien_codigo"
+            db.Execute " update ac_bienes set ac_bienes.bien_total_venta_bs = av_almacen_salidas_tot_ponderado.importe_venta_bs from av_almacen_salidas_tot_ponderado Where ac_bienes.bien_codigo = av_almacen_salidas_tot_ponderado.bien_codigo"
+            db.Execute " update ac_bienes set bien_utilidad_Bs = bien_total_compra_bs - ISNULL(bien_total_venta_bs,0)"
+    
+            db.Execute " UPDATE ao_almacen_totales SET total_compra_bs = av_almacen_ingresos_alm.importe_compra_bs FROM ao_almacen_totales INNER JOIN av_almacen_ingresos_alm ON ao_almacen_totales.almacen_codigo = av_almacen_ingresos_alm.almacen_codigo  AND ao_almacen_totales.bien_codigo = av_almacen_ingresos_alm.bien_codigo"
+            db.Execute " UPDATE ao_almacen_totales SET total_venta_bs = av_almacen_salidas_alm.importe_venta_bs FROM ao_almacen_totales INNER JOIN av_almacen_salidas_alm ON ao_almacen_totales.almacen_codigo = av_almacen_salidas_alm.almacen_codigo  AND ao_almacen_totales.bien_codigo = av_almacen_salidas_alm.bien_codigo"
+            db.Execute " update ao_almacen_totales set utilidad_Bs = total_compra_bs - ISNULL(total_venta_bs,0)"
+            
+            
+           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0'  Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'False' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'REG' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET correl_prog = '0' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "' "
+           
+           Call ABRIR_TABLA_DET(1)
+    Else
+        MsgBox "No existen Registros para procesar, verifique y vuelva a intentar...", vbQuestion, "Advertencia ..."
+    End If
+
+
+'   If Ado_detalle2.Recordset("estado_almacen") = "APR" Then
+'      sino = MsgBox("Está Seguro de cambiar a ANULAR LA SALIDA DE ALMACEN ? (Este ya no podrá ser habilitado ...) ", vbYesNo + vbQuestion, "Atención")
+'      If sino = vbYes Then
+'        VAR_DC = Ado_detalle2.Recordset!doc_numero_m
+'        VAR_GES = Year(Ado_detalle2.Recordset!fecha_almacen)
+'        Ado_detalle2.Recordset!estado_almacen = "ANL"
+'        Ado_detalle2.Recordset!ok_almacen = "False"
+'        Ado_detalle2.Recordset.Update
+'        'Call ABRIR_TABLA_DET
+'        'rs_aux7.Open "Select * from ao_almacen_salidas where ges_gestion = '" & glGestion & "' AND almacen_codigo = " & VAR_ALMH & " AND doc_codigo = 'R-115' AND doc_numero = " & VAR_DC & "  and bien_codigo = '" & VAR_B5 & "'   ", db, adOpenKeyset, adLockOptimistic
+'        db.Execute "delete ao_almacen_salidas where ges_gestion = '" & VAR_GES & "' AND almacen_codigo = '2' AND doc_codigo = 'R-115' AND doc_numero = " & VAR_DC & " "
+'      End If
+'   Else
+'        MsgBox "No se puede ANULAR, el registro NO fue procesado (Estado=REG) o ya fue Anulado anteriormente (Estado=ANL)...", vbExclamation, "Validación de Registro"
+'   End If
 End Sub
 
 Private Sub BtnAprobar_Click()
@@ -3395,10 +3415,14 @@ If Ado_detalle3.Recordset.RecordCount > 0 Then
     
     Dim iResult As Integer
     'Dim co As New ADODB.Command
-    CR04.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mtto_salida_almacen.rpt"
+    If GlBaseDatos = "ADMIN_EMPRESA" Then
+        CR04.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mtto_salida_almacen.rpt"
+    Else
+        CR04.ReportFileName = App.Path & "\Reportes\tecnico\tr_cronograma_mtto_salida_almacen_PRUEBA.rpt"
+    End If
     CR04.WindowShowPrintSetupBtn = True
     CR04.WindowShowRefreshBtn = True
-    var_titulo = "Salida Almacen Insumos"
+    var_titulo = "SALIDA ALMACEN INSUMOS " + VAR_DPTODES
     'MsgBox rs.RecordCount
 '    Select Case Me.Ado_detalle2.Recordset!unidad_codigo_tec
 '          Case "DNINS"
@@ -3856,33 +3880,56 @@ Private Sub Form_Load()
     If rs_aux9.RecordCount > 0 Then
         usuario2 = rs_aux9!beneficiario_codigo
         VAR_DA = rs_aux9!da_codigo
+        VAR_DPTOC = rs_aux9!depto_codigo
     Else
         usuario2 = "3361040"
         VAR_DA = "1.3"
+        VAR_DPTOC = "2"
     End If
-    Select Case VAR_DA
-        Case "1.8"    'Cochabamba
-            VAR_UORIGEN = "UALMB"
-            VAR_DPTOC = "3"
-            VAR_ALMI = 12
-        Case "1.7"    'Santa Cruz
-            VAR_UORIGEN = "UALMS"
-            VAR_DPTOC = "7"
-            VAR_ALMI = 11
-        Case "1.3"    'La Paz - Tecnico
-            VAR_UORIGEN = "UALMI"
-            VAR_DPTOC = "2"
-            VAR_ALMI = 2
-        Case "1.9"    ' Chuquisaca
+    Select Case VAR_DPTOC
+        Case "1"    ' Chuquisaca
             VAR_UORIGEN = "UALMC"
-            VAR_DPTOC = "1"
             VAR_ALMI = 13
+            VAR_DPTODES = "CHUQUISACA"
+        Case "2"    'La Paz - Tecnico
+            VAR_UORIGEN = "UALMI"
+            VAR_ALMI = 2
+            VAR_DPTODES = "LA PAZ"
+        Case "3"    'Cochabamba
+            VAR_UORIGEN = "UALMB"
+            VAR_ALMI = 12
+            VAR_DPTODES = "COCHABAMBA"
+        Case "4"    'Oruro
+            VAR_UORIGEN = "UALMB"
+            VAR_ALMI = 12
+            VAR_DPTODES = "ORURO"
+        Case "5"    'Potosi
+            VAR_UORIGEN = "UALMC"
+            VAR_ALMI = 13
+            VAR_DPTODES = "POTOSI"
+        Case "6"    'Tarija
+            VAR_UORIGEN = "UALMI"
+            VAR_ALMI = 2
+            VAR_DPTODES = "TARIJA"
+        Case "7"    'Santa Cruz
+            VAR_UORIGEN = "UALMS"
+            VAR_ALMI = 11
+            VAR_DPTODES = "SANTA CRUZ"
+        Case "8"    'Beni
+            VAR_UORIGEN = "UALMS"
+            VAR_ALMI = 11
+            VAR_DPTODES = "BENI"
+        Case "9"    'Pando
+            VAR_UORIGEN = "UALMS"
+            VAR_ALMI = 11
+            VAR_DPTODES = "PANDO"
         Case Else    ' TODO
             VAR_UORIGEN = "UALMI"
             VAR_DPTOC = "0"
             VAR_ALMI = 2
+            VAR_DPTODES = "LA PAZ"
      End Select
-    
+       
     If Aux = "" Then
         Aux = "DNMAN"
     End If
@@ -3896,27 +3943,7 @@ Private Sub Form_Load()
 '    " INNER JOIN to_cronograma_mensual ON (to_cronograma_diario_final.fmes_plan  = to_cronograma_mensual.fmes_plan) where to_cronograma_diario_final.beneficiario_codigo_resp is null or to_cronograma_diario_final.beneficiario_codigo_resp =''  "
     
     Call OptFilGral2_Click
-'    Call OptFilGral1_Click
     
-'    var_cod = "0"
-'    Set rs_det1 = New ADODB.Recordset
-'    If rs_det1.State = 1 Then rs_det1.Close
-'    rs_det1.Open "select * from to_cronograma_diario_final where bien_codigo <> ''  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-'    'Set Ado_detalle1.Recordset = rs_det1
-'    'Set dg_det1.DataSource = Ado_detalle1.Recordset
-''    TDBGrid1.Enabled = False
-'    If rs_det1.RecordCount > 0 Then
-'             rs_det1.MoveFirst
-'             While Not rs_det1.EOF
-'                rs_det1!hora_registro = "0"
-'                If var_cod = rs_det1!bien_codigo Then
-'                    rs_det1!hora_registro = "1"
-'                End If
-'                var_cod = rs_det1!bien_codigo
-'                rs_det1.Update
-'                rs_det1.MoveNext
-'             Wend
-'    End If
     If glusuario = "MLLOSA" Then
         BtnModificar.Visible = False
         BtnEliminar.Visible = False
@@ -3928,16 +3955,7 @@ Private Sub Form_Load()
 
     Fra_datos.Enabled = False
     dg_datos.Enabled = True
-'    dg_det2.Enabled = False
-    'lbl_aux1.Visible = False
-'    FraNavega.Caption = lbl_titulo.Caption
-'    lbl_titulo2.Caption = lbl_titulo.Caption
-   'If Not Ado_datos.Recordset.EOF Then
-            'SSTab1.Tab = 0
-            'SSTab1.TabEnabled(0) = True
-            ''SSTab1.TabEnabled(1) = False
-            'SSTab1.TabVisible(1) = False
-   'End If
+        
         Call SeguridadSet(Me)
 End Sub
 
@@ -4009,42 +4027,52 @@ Private Sub dtc_desc3_Click(Area As Integer)
 End Sub
 
 Private Sub OptFilGral0_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2019)
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DA
-       Case "1.8"    'Cochabamba
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND (ges_gestion = '2019')) "
-       Case "1.7"    'Santa Cruz
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') AND (ges_gestion = '2019')) "
-       Case "1.3"    'La Paz - Tecnico
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) AND (ges_gestion = '2019')) "
-       Case "1.9"    ' Chuquisaca
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36') AND (ges_gestion = '2019'))"
-       Case Else    ' TODO
-           queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2019') "
-    End Select
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
+'    '===== Proceso para filtrado general de datos (todos los registros 2019)
+'    Set rs_datos = New Recordset
+'    If rs_datos.State = 1 Then rs_datos.Close
+'    Select Case VAR_DA
+'       Case "1.8"    'Cochabamba
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND (ges_gestion = '2019')) "
+'       Case "1.7"    'Santa Cruz
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') AND (ges_gestion = '2019')) "
+'       Case "1.3"    'La Paz - Tecnico
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) AND (ges_gestion = '2019')) "
+'       Case "1.9"    ' Chuquisaca
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36') AND (ges_gestion = '2019'))"
+'       Case Else    ' TODO
+'           queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2019') "
+'    End Select
+'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+'    Set Ado_datos.Recordset = rs_datos.DataSource
+'    Set dg_datos.DataSource = Ado_datos.Recordset
 
 End Sub
 
 Private Sub OptFilGral1_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2020)
+    '===== Proceso para filtrado general de datos de los registros ya CERRADOS (estado_activo = 'APR')
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DA
-       Case "1.8"    'Cochabamba
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') ) "            'AND (ges_gestion = '2020')
-       Case "1.7"    'Santa Cruz
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') ) "      'AND (ges_gestion = '2020')
-       Case "1.3"    'La Paz - Tecnico
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) ) "         'AND (ges_gestion = '2020')
-       Case "1.9"    ' Chuquisaca
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' ) )"           'AND (ges_gestion = '2020')
+        Select Case VAR_DPTOC
+       Case "1"    ' Chuquisaca
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' or depto_codigo ='5' ) AND (estado_activo = 'APR')) "
+       Case "2"    'La Paz - Tecnico
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' OR depto_codigo='6' OR depto_codigo='4' OR depto_codigo='5' ) AND (estado_activo = 'APR')) "
+       Case "3"    'Cochabamba
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' or depto_codigo='4' ) AND (estado_activo = 'APR')) "
+       Case "4"    'Oruro
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='3' or depto_codigo='" & VAR_DPTOC & "' ) AND (estado_activo = 'APR')) "
+       Case "5"    ' Potosi
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo ='" & VAR_DPTOC & "' ) AND (estado_activo = 'APR')) "
+       Case "6"    'Tarija
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "'  ) AND (estado_activo = 'APR')) "
+       Case "7"    'Santa Cruz
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' or depto_codigo='8' or depto_codigo='9') AND (estado_activo = 'APR')) "
+       Case "8"    'Beni
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' ) AND (estado_activo = 'APR')) "
+       Case "9"    'Pando
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' ) AND (estado_activo = 'APR')) "
        Case Else    ' TODO
-           queryinicial = "select * From to_cronograma_mensual  "           'WHERE (ges_gestion = '2020')
+           queryinicial = "select * From to_cronograma_mensual WHERE (estado_activo = 'APR') "
     End Select
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     Set Ado_datos.Recordset = rs_datos.DataSource
@@ -4052,20 +4080,30 @@ Private Sub OptFilGral1_Click()
 End Sub
 
 Private Sub OptFilGral2_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2022)
+    '===== Proceso para filtrado general de datos de todos los registros en Proceso (estado_activo = 'REG')
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DA
-       Case "1.8"    'Cochabamba
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND (ges_gestion = '2022')) "
-       Case "1.7"    'Santa Cruz
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') AND (ges_gestion = '2022')) "
-       Case "1.3"    'La Paz - Tecnico
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) AND (ges_gestion = '2022')) "
-       Case "1.9"    ' Chuquisaca
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' ) AND (ges_gestion = '2022'))"
+    Select Case VAR_DPTOC
+       Case "1"    ' Chuquisaca
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' or depto_codigo ='5' ) AND (estado_activo = 'REG')) "
+       Case "2"    'La Paz - Tecnico
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' OR depto_codigo='6' OR depto_codigo='4' OR depto_codigo='5' ) AND (estado_activo = 'REG')) "
+       Case "3"    'Cochabamba
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' or depto_codigo='4' ) AND (estado_activo = 'REG')) "
+       Case "4"    'Oruro
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='3' or depto_codigo='" & VAR_DPTOC & "' ) AND (estado_activo = 'REG')) "
+       Case "5"    ' Potosi
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo ='" & VAR_DPTOC & "' ) AND (estado_activo = 'REG')) "
+       Case "6"    'Tarija
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "'  ) AND (estado_activo = 'REG')) "
+       Case "7"    'Santa Cruz
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' or depto_codigo='8' or depto_codigo='9') AND (estado_activo = 'REG')) "
+       Case "8"    'Beni
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' ) AND (estado_activo = 'REG')) "
+       Case "9"    'Pando
+           queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo='" & VAR_DPTOC & "' ) AND (estado_activo = 'REG')) "
        Case Else    ' TODO
-           queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2022') "
+           queryinicial = "select * From to_cronograma_mensual WHERE (estado_activo = 'REG') "
     End Select
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     Set Ado_datos.Recordset = rs_datos.DataSource
@@ -4279,22 +4317,22 @@ Private Sub ABRIR_TABLA_DET(posicion As Integer)
 End Sub
 
 Private Sub OptFilGral3_Click()
-    '===== Proceso para filtrado general de datos (todos los registros 2021)
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DA
-       Case "1.8"    'Cochabamba
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND (ges_gestion = '2021')) "
-       Case "1.7"    'Santa Cruz
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') AND (ges_gestion = '2021')) "
-       Case "1.3"    'La Paz - Tecnico
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) AND (ges_gestion = '2021')) "
-       Case "1.9"    ' Chuquisaca
-           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' ) AND (ges_gestion = '2021'))"
-       Case Else    ' TODO
-           queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2021') "
-    End Select
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
+'    '===== Proceso para filtrado general de datos (todos los registros 2021)
+'    Set rs_datos = New Recordset
+'    If rs_datos.State = 1 Then rs_datos.Close
+'    Select Case VAR_DA
+'       Case "1.8"    'Cochabamba
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND (ges_gestion = '2021')) "
+'       Case "1.7"    'Santa Cruz
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33') AND (ges_gestion = '2021')) "
+'       Case "1.3"    'La Paz - Tecnico
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'17' OR zpiloto_codigo>'27' ) AND (ges_gestion = '2021')) "
+'       Case "1.9"    ' Chuquisaca
+'           queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' ) AND (ges_gestion = '2021'))"
+'       Case Else    ' TODO
+'           queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2021') "
+'    End Select
+'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+'    Set Ado_datos.Recordset = rs_datos.DataSource
+'    Set dg_datos.DataSource = Ado_datos.Recordset
 End Sub

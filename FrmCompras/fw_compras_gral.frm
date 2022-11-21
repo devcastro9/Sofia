@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109314049
+         Format          =   117964801
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -7464,7 +7464,7 @@ On Error GoTo UpdateErr
 Exit Sub
 UpdateErr:
   MsgBox Err.Description
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

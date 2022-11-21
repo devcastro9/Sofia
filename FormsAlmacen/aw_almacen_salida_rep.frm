@@ -17,9 +17,9 @@ Begin VB.Form aw_almacen_salida_rep
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   68827.45
+   ScaleHeight     =   73290.33
    ScaleMode       =   0  'User
-   ScaleWidth      =   2.58253e5
+   ScaleWidth      =   4.87135e5
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117964801
+         Format          =   126877697
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117964801
+         Format          =   126877697
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   117964801
+            Format          =   126877697
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
