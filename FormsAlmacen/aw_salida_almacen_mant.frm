@@ -161,7 +161,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   123011073
+            Format          =   118685697
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -347,7 +347,7 @@ Begin VB.Form aw_salida_almacen_mant
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   61
-            ToolTipText     =   "Estado de Ejecución"
+            ToolTipText     =   "GRUPO de Cmpbtes. de Salida Almacen"
             Top             =   0
             Width           =   1400
          End
@@ -377,7 +377,7 @@ Begin VB.Form aw_salida_almacen_mant
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   59
-            ToolTipText     =   "Comprobante de Salida Almacen"
+            ToolTipText     =   "Cmpbte.INDIVIDUAL de Salida Almacen"
             Top             =   0
             Width           =   1400
          End
@@ -497,7 +497,7 @@ Begin VB.Form aw_salida_almacen_mant
          OleObjectBlob   =   "aw_salida_almacen_mant.frx":152B5
          TabIndex        =   88
          Top             =   5400
-         Width           =   12375
+         Width           =   12615
       End
       Begin VB.Label Label8 
          AutoSize        =   -1  'True
@@ -1975,7 +1975,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   123011075
+         Format          =   118685699
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
@@ -2598,6 +2598,7 @@ End Sub
 
 Private Sub BtnAnlDetalle_Click()
     If Ado_detalle3.Recordset.RecordCount > 0 Then
+        If Ado_detalle3.Recordset!ok_almacen = 0 Or glusuario = "LVASQUEZ" Then
             db.Execute " DELETE ao_almacen_salidas WHERE venta_codigo  =  " & Ado_detalle3.Recordset!venta_codigo & "  AND bien_codigo = '" & Ado_detalle3.Recordset!bien_codigo & "' "
             
             db.Execute " update ac_bienes set ac_bienes.bien_stock_ingreso = total_ingresos_js.cantidad_ingreso from total_ingresos_js Where ac_bienes.bien_codigo = total_ingresos_js.bien_codigo"
@@ -2616,13 +2617,16 @@ Private Sub BtnAnlDetalle_Click()
             db.Execute " UPDATE ao_almacen_totales SET total_venta_bs = av_almacen_salidas_alm.importe_venta_bs FROM ao_almacen_totales INNER JOIN av_almacen_salidas_alm ON ao_almacen_totales.almacen_codigo = av_almacen_salidas_alm.almacen_codigo  AND ao_almacen_totales.bien_codigo = av_almacen_salidas_alm.bien_codigo"
             db.Execute " update ao_almacen_totales set utilidad_Bs = total_compra_bs - ISNULL(total_venta_bs,0)"
             
-            
            db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0'  Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
            db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'False' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
            db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'REG' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
            db.Execute "Update to_cronograma_diario_final SET correl_prog = '0' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "' "
            
            Call ABRIR_TABLA_DET(1)
+           
+        Else
+            MsgBox "No se puede RETORNAR, porque el registro ya fue APROBADO ..., verifique y vuelva a intentar...", vbQuestion, "Advertencia ..."
+        End If
     Else
         MsgBox "No existen Registros para procesar, verifique y vuelva a intentar...", vbQuestion, "Advertencia ..."
     End If
@@ -4259,7 +4263,6 @@ End Sub
 '    If SSTab1.Tab = 0 Then
 '    End If
 'End Sub
-
 
 Private Sub Form_Unload(Cancel As Integer)
   If glPersNew = "P" Then

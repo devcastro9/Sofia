@@ -1929,7 +1929,7 @@ Begin VB.Form mw_solicitud
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   126812161
+         Format          =   118161409
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   2
@@ -3223,7 +3223,7 @@ On Error GoTo AddErr
     Fra_datos.Enabled = False
     GlUnidad = Ado_datos.Recordset!unidad_codigo
     GlSolicitud = Ado_datos.Recordset!solicitud_codigo
-    GlEdificio = Ado_datos.Recordset!edif_codigo
+    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
     glGestion = Ado_datos.Recordset!ges_gestion
     mw_solicitud_edificacion.Show vbModal
 '    Select Case dtc_codigo2.Text
@@ -3468,7 +3468,7 @@ Private Sub BtnAprobar_Click()
                           rs_aux1!ges_gestion = Year(Date)
                           rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
                           rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-                          rs_aux1!edif_codigo = Ado_detalle1.Recordset!edif_codigo
+                          rs_aux1!EDIF_CODIGO = Ado_detalle1.Recordset!EDIF_CODIGO
                           rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                           rs_aux1!trafico_codigo = var_cod
                           rs_aux1!h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
@@ -4074,7 +4074,7 @@ On Error GoTo EditErr
     Fra_datos.Enabled = False
     GlUnidad = Ado_datos.Recordset!unidad_codigo
     GlSolicitud = Ado_datos.Recordset!solicitud_codigo
-    GlEdificio = Ado_datos.Recordset!edif_codigo
+    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
     glGestion = Ado_datos.Recordset!ges_gestion
 '    Select Case dtc_codigo2.Text
 '        Case "1"

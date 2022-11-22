@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.10897e9
+   ScaleHeight     =   7.09936e9
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.06853e5
+   ScaleWidth      =   1.40814e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -38,7 +38,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   5760
+      Top             =   4800
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -122,7 +122,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   5640
+      Top             =   4800
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -237,7 +237,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   4455
       Left            =   6720
       TabIndex        =   143
-      Top             =   5880
+      Top             =   1200
       Visible         =   0   'False
       Width           =   11775
       Begin VB.OptionButton Option3 
@@ -707,7 +707,6 @@ Begin VB.Form tw_tecnico_venta
       _ExtentY        =   8837
       _Version        =   393216
       Tabs            =   4
-      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -723,8 +722,9 @@ Begin VB.Form tw_tecnico_venta
       EndProperty
       TabCaption(0)   =   "Registro DATOS CONTRATO"
       TabPicture(0)   =   "tw_tecnico_venta.frx":C329
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Registro DATOS CRONO.MTTO."
       TabPicture(1)   =   "tw_tecnico_venta.frx":C345
@@ -733,16 +733,16 @@ Begin VB.Form tw_tecnico_venta
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
       TabPicture(2)   =   "tw_tecnico_venta.frx":C361
-      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
       Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":C37D
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1082,7 +1082,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   0
+         Left            =   -75000
          TabIndex        =   27
          Top             =   380
          Width           =   11895
@@ -1301,7 +1301,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   120193025
+            Format          =   118292481
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1563,7 +1563,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   120193025
+            Format          =   118292481
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1591,7 +1591,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   120193025
+            Format          =   118292481
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2089,7 +2089,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   120193025
+               Format          =   118292481
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2114,7 +2114,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120193025
+               Format          =   118292481
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2319,7 +2319,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   -74940
+         Left            =   60
          TabIndex        =   14
          Top             =   380
          Width           =   11895
@@ -2558,7 +2558,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120193025
+               Format          =   118292481
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2641,7 +2641,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120193025
+               Format          =   118292481
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3367,7 +3367,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   120193025
+            Format          =   118292481
             CurrentDate     =   44348
             MinDate         =   2
          End

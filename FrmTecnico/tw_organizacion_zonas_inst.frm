@@ -43,8 +43,8 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   120
          TabIndex        =   82
          Top             =   240
-         Width           =   16215
-         _ExtentX        =   28601
+         Width           =   18855
+         _ExtentX        =   33258
          _ExtentY        =   2011
          _Version        =   393216
          AllowUpdate     =   0   'False
@@ -310,6 +310,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             BeginProperty Column04 
             EndProperty
             BeginProperty Column05 
+               Alignment       =   2
                Locked          =   -1  'True
                ColumnWidth     =   840.189
             EndProperty
@@ -318,22 +319,21 @@ Begin VB.Form tw_organizacion_zonas_inst
                ColumnWidth     =   810.142
             EndProperty
             BeginProperty Column07 
-               Alignment       =   1
+               Alignment       =   2
                Locked          =   -1  'True
                ColumnWidth     =   915.024
             EndProperty
             BeginProperty Column08 
-               Alignment       =   1
+               Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
                ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column09 
-               Alignment       =   1
+               Alignment       =   2
                ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column10 
-               Alignment       =   2
                Locked          =   -1  'True
                ColumnWidth     =   1200.189
             EndProperty
@@ -342,15 +342,16 @@ Begin VB.Form tw_organizacion_zonas_inst
                ColumnWidth     =   1124.787
             EndProperty
             BeginProperty Column12 
-               Alignment       =   2
                ColumnWidth     =   1080
             EndProperty
             BeginProperty Column13 
                ColumnWidth     =   1080
             EndProperty
             BeginProperty Column14 
+               ColumnWidth     =   1319.811
             EndProperty
             BeginProperty Column15 
+               ColumnWidth     =   1319.811
             EndProperty
             BeginProperty Column16 
             EndProperty
@@ -385,7 +386,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   123011073
+         Format          =   118161409
          CurrentDate     =   44885
       End
       Begin VB.PictureBox fra_opciones2 
@@ -703,7 +704,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   123011073
+         Format          =   118161409
          CurrentDate     =   44885
       End
       Begin VB.Label Label6 

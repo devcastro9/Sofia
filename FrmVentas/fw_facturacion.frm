@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   127991809
+         Format          =   118292481
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -4652,6 +4652,7 @@ Private Sub BtnEliminar_Click()
           rs_aux10.Open "Select MAX(IdFactura) AS maxId from ao_ventas_cobranza_fac ", db, adOpenStatic
           If rs_aux10.RecordCount > 0 Then
                 VAR_IDFAC = rs_aux10!maxId
+                db.Execute "update ao_ventas_cobranza set estado_codigo_fac = 'REG' Where venta_codigo = " & NumComp & "  and venta_codigo_new = " & VAR_ID & "  "
                 db.Execute "update ao_ventas_cobranza set venta_codigo_new = " & rs_aux10!maxId & " Where venta_codigo = " & NumComp & "  and venta_codigo_new = " & VAR_ID & "  "
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET estado_codigo_fac = 'ANL', estado_codigo = 'ANL', estado_fac = 'ANL'  WHERE IdFactura = " & VAR_ID & "  "
           End If
@@ -4808,7 +4809,7 @@ Private Sub BtnGrabar_Click()
             VARFACIMPR = "S"
             VARFECHA = Format(DTPFechaCobro.Value, "dd/mm/yyyy")        '"08/04/2021"
     End Select
-    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
+    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & Txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo2 = '" & TIPOPROC & "', trans_codigo = '" & TIPOTRAM & "', proceso_codigo='" & VARPROC & "', subproceso_codigo = '" & VARSUB & "', etapa_codigo = '" & VARETAPA & "', Literal = '" & var_literal & "', cobranza_nro_factura = '" & VARFactura & "', cobranza_fecha_fac = '" & VARFECHA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo = 'NN', cobranza_deuda_bs = '0', cobranza_deuda_dol = '0', cobranza_descuento_bs = " & VAR_13 & ", cobranza_descuento_dol = " & VAR_87 & ", cmpbte_deposito = '0', factura_impresa = '" & VARFACIMPR & "', poa_codigo = '3.1.2', estado_codigo_fac = '" & VARESTADO & "', cobranza_fecha_fac2 ='', usr_codigo = '" & glusuario & "', Fecha_Registro = '" & Format(Date, "dd/mm/yyyy") & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
 
@@ -6091,7 +6092,7 @@ Private Sub BtnModificar_Click()
 '            TxtObs.Text = Ado_datos2.Recordset!cobranza_observaciones
 '        End If
         TxtObs.Text = Ado_datos1.Recordset!glosa_Descripcion
-        txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+        Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
 '      SSTab1.Tab = 0
 '      SSTab1.TabEnabled(0) = False
 '      SSTab1.TabEnabled(1) = True
@@ -8995,7 +8996,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
     End If
 End Sub
 
@@ -9162,7 +9163,7 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
 End Sub
 
 
