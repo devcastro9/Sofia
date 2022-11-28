@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_mensual_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   14400
+   ScaleWidth      =   20250
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumos 
@@ -1805,7 +1805,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   13
+         ColumnCount     =   14
          BeginProperty Column00 
             DataField       =   "correlativo"
             Caption         =   "#Crono"
@@ -1885,6 +1885,19 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column06 
+            DataField       =   "unidad_codigo_ant"
+            Caption         =   "Cite.Contrato"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
             DataField       =   "estado_activo"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1897,7 +1910,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
+         BeginProperty Column08 
             DataField       =   "zona_denominacion"
             Caption         =   "Zona.Geografica"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1910,7 +1923,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column09 
             DataField       =   "calle_tipo"
             Caption         =   "Via"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1923,7 +1936,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column09 
+         BeginProperty Column10 
             DataField       =   "calle_denominacion"
             Caption         =   "Nombre.Calle, Av, Plaza...."
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1936,7 +1949,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column10 
+         BeginProperty Column11 
             DataField       =   "beneficiario_codigo"
             Caption         =   "Tec.Instalacion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1949,7 +1962,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column11 
+         BeginProperty Column12 
             DataField       =   "beneficiario_codigo_rep"
             Caption         =   "Tec.Ajuste"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1962,7 +1975,7 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column12 
+         BeginProperty Column13 
             DataField       =   "beneficiario_codigo_cobr"
             Caption         =   "Tec.Auxiliar"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1989,12 +2002,12 @@ Begin VB.Form tw_cronograma_mensual_inst
                ColumnWidth     =   915.024
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   1184.882
+               ColumnWidth     =   989.858
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   4635.213
+               ColumnWidth     =   4064.882
             EndProperty
             BeginProperty Column04 
                ColumnWidth     =   1094.74
@@ -2005,27 +2018,30 @@ Begin VB.Form tw_cronograma_mensual_inst
                ColumnWidth     =   1005.165
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   615.118
+               ColumnWidth     =   1035.213
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   2190.047
-            EndProperty
-            BeginProperty Column08 
                ColumnWidth     =   615.118
             EndProperty
+            BeginProperty Column08 
+               ColumnWidth     =   2190.047
+            EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   2489.953
+               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column10 
+               ColumnWidth     =   2489.953
+            EndProperty
+            BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
                ColumnWidth     =   1470.047
             EndProperty
-            BeginProperty Column11 
+            BeginProperty Column12 
                Locked          =   -1  'True
                ColumnWidth     =   1335.118
             EndProperty
-            BeginProperty Column12 
+            BeginProperty Column13 
                ColumnWidth     =   1319.811
             EndProperty
          EndProperty
@@ -3402,33 +3418,26 @@ Private Sub BtnAddDetalle3_Click()
         rs_aux6.MoveFirst
         While Not rs_aux6.EOF
             'FECHA, MES Y DIA
-            VAR_MOD2 = UCase(WeekdayName(Weekday(VAR_FCTRLINI)))
+            VAR_FCTRLINI = VAR_FCTRLFIN + 1
+            VAR_MOD2 = UCase(WeekdayName(Weekday(VAR_FCTRLINI - 1)))
             If VAR_MOD2 = "SABADO" Or VAR_MOD2 = "S핦ADO" Then
-                VAR_FECHAINI = VAR_FECHAINI + 1
-                VAR_FECHACTRL = VAR_FECHAINI
-                VAR_FCTRLINI = VAR_FECHACTRL
-                VAR_FCTRLFIN = VAR_FECHACTRL - 1
-                VAR_MOD2 = UCase(WeekdayName(Weekday(VAR_FCTRLINI)))
+                VAR_FCTRLINI = VAR_FCTRLINI + 1
+                VAR_FECHACTRL = VAR_FCTRLINI
+                VAR_MOD2 = UCase(WeekdayName(Weekday(VAR_FCTRLINI - 1)))
             End If
             If VAR_MOD2 = "DOMINGO" Then
-                VAR_FECHAINI = VAR_FECHAINI + 1
-                VAR_FECHACTRL = VAR_FECHAINI
-                VAR_FCTRLINI = VAR_FECHACTRL
-                VAR_FCTRLFIN = VAR_FECHACTRL - 1
-                VAR_MOD2 = UCase(WeekdayName(Weekday(VAR_FCTRLINI)))
+                VAR_FCTRLINI = VAR_FCTRLINI + 1
+                VAR_FECHACTRL = VAR_FCTRLINI
+                VAR_MOD2 = UCase(WeekdayName(Weekday(VAR_FCTRLINI - 1)))
             End If
-            VAR_NRODIAS = rs_aux6!NroEstimadoDias
-            VAR_FCTRLINI = VAR_FCTRLFIN + 1
-            VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS - 1
-            VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN)))
-            If VAR_MOD1 = "SABADO" Or VAR_MOD1 = "S핦ADO" Or VAR_MOD1 = "DOMINGO" Then
-                VAR_FCTRLFIN = VAR_FCTRLFIN + 2
-                VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN)))
-            End If
-            'If VAR_MOD1 = "DOMINGO" Then
-            '    VAR_FCTRLFIN = VAR_FCTRLFIN + 1
-            '    VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN)))
-            'End If
+'            VAR_NRODIAS = rs_aux6!NroEstimadoDias
+'            'VAR_FCTRLINI = VAR_FCTRLFIN + 1
+'            VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS - 1
+'            VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
+'            If VAR_MOD1 = "SABADO" Or VAR_MOD1 = "S핦ADO" Or VAR_MOD1 = "DOMINGO" Then
+'                VAR_FCTRLFIN = VAR_FCTRLFIN + 2
+'                VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
+'            End If
             VAR_DIA = Day(VAR_FECHACTRL)
             VAR_MES = Month(VAR_FECHACTRL)
             MControl = UCase(MonthName(Month(VAR_FCTRLINI)))
@@ -3494,6 +3503,7 @@ Private Sub BtnAddDetalle3_Click()
                                 VAR_PARADAS = CDbl(rs_aux8!trafico_num_paradas)
                             End If
                     End Select
+                    VAR_NRODIAS = rs_aux6!NroEstimadoDias
                     Select Case rs_aux6!IdTareaInst
                         Case 4
                             VAR_NRODIAS = Round((((CDbl(VAR_RECORRIDO) + 1 + 3) * 4) / 6) / 3, 0)
@@ -3507,6 +3517,40 @@ Private Sub BtnAddDetalle3_Click()
                         Case Else
                             VAR_NRODIAS = VAR_NRODIAS
                     End Select
+                    VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS - 1
+                    VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
+                    If VAR_MOD1 = "SABADO" Or VAR_MOD1 = "S핦ADO" Or VAR_MOD1 = "DOMINGO" Then
+                        If VAR_NRODIAS >= 1 And VAR_NRODIAS <= 13 Then
+                            VAR_FCTRLFIN = VAR_FCTRLFIN + 2
+                        End If
+'                        If VAR_NRODIAS >= 14 And VAR_NRODIAS <= 20 Then
+'                            VAR_FCTRLFIN = VAR_FCTRLFIN + 4
+'                        End If
+'                        If VAR_NRODIAS >= 21 And VAR_NRODIAS <= 27 Then
+'                            VAR_FCTRLFIN = VAR_FCTRLFIN + 6
+'                        End If
+'                        If VAR_NRODIAS >= 28 And VAR_NRODIAS <= 34 Then
+'                            VAR_FCTRLFIN = VAR_FCTRLFIN + 8
+'                        End If
+                        VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
+                    Else
+'                        If VAR_NRODIAS >= 1 And VAR_NRODIAS <= 13 Then
+'                            VAR_FCTRLFIN = VAR_FCTRLFIN + 2
+'                        End If
+                        If VAR_NRODIAS >= 14 And VAR_NRODIAS <= 20 Then
+                            VAR_FCTRLFIN = VAR_FCTRLFIN + 4
+                        End If
+                        If VAR_NRODIAS >= 21 And VAR_NRODIAS <= 27 Then
+                            VAR_FCTRLFIN = VAR_FCTRLFIN + 6
+                        End If
+                        If VAR_NRODIAS >= 28 And VAR_NRODIAS <= 34 Then
+                            VAR_FCTRLFIN = VAR_FCTRLFIN + 8
+                        End If
+                        VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
+                        If VAR_MOD1 = "SABADO" Or VAR_MOD1 = "S핦ADO" Or VAR_MOD1 = "DOMINGO" Then
+                            VAR_FCTRLFIN = VAR_FCTRLFIN + 2
+                        End If
+                    End If
                     'VERIFICA SI EXITE EQUIPO EN ESTE MES
                     Set rs_aux4 = New ADODB.Recordset
                     If rs_aux4.State = 1 Then rs_aux4.Close
@@ -3515,7 +3559,7 @@ Private Sub BtnAddDetalle3_Click()
                         'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
                         db.Execute "update to_cronograma_diario_final_INST set unidad_codigo_tec = '" & VAR_UNIDCOD & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = '" & VAR_DESTAREA & "', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & GlEdificio & "' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
                         db.Execute "update to_cronograma_diario_final_INST set bien_orden = " & VAR_IDTAREA & ", venta_codigo = " & NumComp & " WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "   "
-                        db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'APR' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
+                        db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'REG' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
                     Else
                         db.Execute "INSERT INTO to_cronograma_diario_final_INST (fmes_plan, dia_correl, horario_codigo, bien_orden,     bien_codigo,        unidad_codigo_tec, tec_plan_codigo,     beneficiario_codigo_resp, beneficiario_codigo_resp2, dia_fecha,             dia_nombre,         hora_ingreso,           hora_salida,            nro_total_horas,      observaciones,      edif_descripcion, bien_codigo1, " & _
                         " bien_codigo2, bien_codigo3, bien_codigo4, bien_codigo5, cantidad1, cantidad2, cantidad3, cantidad4, cantidad5, carta, doc_numero_carta, nro_fojas, doc_numero, estado_activo, estado_codigo, usr_codigo,      fecha_registro, " & _
@@ -4547,8 +4591,8 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     
     Dim iResult As Integer
     'Dim co As New ADODB.Command
-    'CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_R302_Instalacion.rpt"
-    CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_R302_Instalacion_PRUEBA.rpt"
+    CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_R302_Instalacion.rpt"
+    'CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_R302_Instalacion_PRUEBA.rpt"
     CR01.WindowShowPrintSetupBtn = True
     CR01.WindowShowRefreshBtn = True
     'MsgBox rs.RecordCount
@@ -4851,6 +4895,7 @@ Private Sub Form_Load()
     VAR_ANL = ""
     'ACTUALIZA DATOS DEL CONTRATO
     db.Execute " update tc_zona_piloto_edif_inst SET tc_zona_piloto_edif_inst.venta_codigo  = AV_VENTAS_NUEVAS_APR.venta_codigo , tc_zona_piloto_edif_inst.unimed_codigo = 'MES', tc_zona_piloto_edif_inst.codigo_empresa =codigo_empresa, tc_zona_piloto_edif_inst.solicitud_tipo ='3', tc_zona_piloto_edif_inst.Gratuito ='SI' FROM tc_zona_piloto_edif_inst INNER JOIN AV_VENTAS_NUEVAS_APR ON tc_zona_piloto_edif_inst.edif_codigo = AV_VENTAS_NUEVAS_APR.edif_codigo where tc_zona_piloto_edif_inst.venta_codigo Is Null "
+    db.Execute " update tc_zona_piloto_edif_inst SET tc_zona_piloto_edif_inst.unidad_codigo_ant  = AV_VENTAS_NUEVAS_APR.unidad_codigo_ant FROM tc_zona_piloto_edif_inst INNER JOIN AV_VENTAS_NUEVAS_APR ON tc_zona_piloto_edif_inst.venta_codigo = AV_VENTAS_NUEVAS_APR.venta_codigo where tc_zona_piloto_edif_inst.unidad_codigo_ant Is Null "
     'Actualiza Responsables de Zona
     db.Execute " UPDATE tc_zona_piloto_edif_inst SET tc_zona_piloto_edif_inst.fecha_ini_max  = av_ventas_alcance_INST.fecha_inicio_alcance, tc_zona_piloto_edif_inst.fecha_fin_max = av_ventas_alcance_INST.fecha_fin_alcance FROM tc_zona_piloto_edif_inst INNER JOIN av_ventas_alcance_INST ON tc_zona_piloto_edif_inst.edif_codigo = av_ventas_alcance_INST .edif_codigo where tc_zona_piloto_edif_inst.fecha_ini_max Is Null "
     
