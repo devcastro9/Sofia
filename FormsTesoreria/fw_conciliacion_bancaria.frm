@@ -8,7 +8,7 @@ Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form fw_conciliacion_bancaria 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "Financiero - TesorerÃ­a - ConciliaciÃ³n Bancaria"
+   Caption         =   "Financiero - Tesorería - Conciliación Bancaria"
    ClientHeight    =   8790
    ClientLeft      =   1110
    ClientTop       =   345
@@ -17,8 +17,8 @@ Begin VB.Form fw_conciliacion_bancaria
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8790
-   ScaleWidth      =   14835
+   ScaleHeight     =   10935
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
    Begin VB.Frame FraBusca4 
       BackColor       =   &H00C0C0C0&
@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119013377
+         Format          =   118292481
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119013377
+         Format          =   118292481
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119013377
+         Format          =   118292481
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -367,14 +367,14 @@ Begin VB.Form fw_conciliacion_bancaria
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "FrmABMDet"
-      Tab(1).Control(1)=   "FrmDetalle2"
-      Tab(1).Control(2)=   "Frame2"
-      Tab(1).Control(3)=   "FrmDetalle"
-      Tab(1).Control(4)=   "Frame3"
-      Tab(1).Control(5)=   "BtnBuscar3"
-      Tab(1).Control(6)=   "BtnBuscar2"
-      Tab(1).Control(7)=   "BtnImprimir2"
+      Tab(1).Control(0)=   "BtnImprimir2"
+      Tab(1).Control(1)=   "BtnBuscar2"
+      Tab(1).Control(2)=   "BtnBuscar3"
+      Tab(1).Control(3)=   "Frame3"
+      Tab(1).Control(4)=   "FrmDetalle"
+      Tab(1).Control(5)=   "Frame2"
+      Tab(1).Control(6)=   "FrmDetalle2"
+      Tab(1).Control(7)=   "FrmABMDet"
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
@@ -2598,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   119013377
+            Format          =   118292481
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -2869,10 +2869,10 @@ Begin VB.Form fw_conciliacion_bancaria
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   14835
+      ScaleWidth      =   20250
       TabIndex        =   0
-      Top             =   8790
-      Width           =   14835
+      Top             =   10935
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4266,21 +4266,47 @@ Private Sub sstab1_Click(PreviousTab As Integer)
 
     db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.edif_codigo_corto = av_venta_cobranza_APR.edif_codigo_corto FROM fo_recibos_detalle inner JOIN av_venta_cobranza_APR ON fo_recibos_detalle.correl_cobro = av_venta_cobranza_APR.correl_cobro WHERE fo_recibos_detalle.edif_codigo_corto IS NULL"
 
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
-    db.Execute "UPDATE fo_extracto_BMSC_202101 SET fo_extracto_BMSC_202101.estado_conciliado = 'APR' FROM fo_extracto_BMSC_202101 INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'    db.Execute "UPDATE fo_extracto_BMSC_202101 SET fo_extracto_BMSC_202101.estado_conciliado = 'APR' FROM fo_extracto_BMSC_202101 INNER JOIN fo_recibos_detalle ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion "
+'
+'    '-- 1. TODOS = (#BANCARIZACION, CUENTA, FECHA, MONTO, CLIENTE)
+'    db.Execute "UPDATE fo_recibos_detalle SET  fo_recibos_detalle.nivel_conciliado = 1 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  = fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' "
+'
+'    '-- 2. = (#BANCARIZACION, CUENTA, FECHA, MONTO ) Y <> (CLIENTE)
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 2 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 "
+'
+'    '-- 3. = (#BANCARIZACION, CUENTA, FECHA) Y <> (CLIENTE, MONTO)
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 3 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 "
+'
+'    '-- 4. = (#BANCARIZACION, CUENTA) Y <> (CLIENTE, MONTO, FECHA)
+'    'db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR', nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  <> fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente "
+'    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 AND  fo_recibos_detalle.nivel_conciliado <> 3 "
 
-    '-- 1. TODOS = (#BANCARIZACION, CUENTA, FECHA, MONTO, CLIENTE)
-    db.Execute "UPDATE fo_recibos_detalle SET  fo_recibos_detalle.nivel_conciliado = 1 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  = fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' "
+    '-- ACTUALIZA ESTADO TRASPASOS EN fo_recibos_detalle
+    db.Execute "UPDATE fo_recibos_detalle SET estado_conciliado = 'REG' "
+    '-- EN BOLIVIANOS
+    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_ingreso_GRAL ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta " & _
+        " AND fo_recibos_detalle.cobranza_bs  = fo_extracto_ingreso_GRAL.monto_bs WHERE (fo_extracto_ingreso_GRAL.cuenta ='2015046557-03-054' OR fo_extracto_ingreso_GRAL.cuenta ='4010439742' OR fo_extracto_ingreso_GRAL.cuenta ='4010620792' OR fo_extracto_ingreso_GRAL.cuenta ='4010644195' OR fo_extracto_ingreso_GRAL.cuenta ='4010772049' " & _
+        " OR fo_extracto_ingreso_GRAL.cuenta ='4011005599' OR fo_extracto_ingreso_GRAL.cuenta ='4011048967' OR fo_extracto_ingreso_GRAL.cuenta ='4011048981' OR fo_extracto_ingreso_GRAL.cuenta ='4069626219' OR fo_extracto_ingreso_GRAL.cuenta ='4069626233' OR fo_extracto_ingreso_GRAL.cuenta ='10000019133060') AND (fo_recibos_detalle.estado_aprueba  ='APR') "
+    '-- EN DOLARES
+    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_ingreso_GRAL ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta " & _
+        " AND fo_recibos_detalle.cobranza_dol = fo_extracto_ingreso_GRAL.monto_dol WHERE (fo_extracto_ingreso_GRAL.cuenta ='201-5041743-2-18' OR fo_extracto_ingreso_GRAL.cuenta ='096359-201-9' OR fo_extracto_ingreso_GRAL.cuenta ='4010038393' OR fo_extracto_ingreso_GRAL.cuenta ='4010620785' OR fo_extracto_ingreso_GRAL.cuenta ='4010780124' OR fo_extracto_ingreso_GRAL.cuenta ='4011005601' " & _
+        " OR fo_extracto_ingreso_GRAL.cuenta ='4011048974' OR fo_extracto_ingreso_GRAL.cuenta ='4069626242' OR fo_extracto_ingreso_GRAL.cuenta ='4069626265' ) AND (fo_recibos_detalle.estado_aprueba  ='APR') "
 
-    '-- 2. = (#BANCARIZACION, CUENTA, FECHA, MONTO ) Y <> (CLIENTE)
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 2 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  = fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 "
+    '-- ACTUALIZA ESTADO TRASPASOS EN fo_extracto_ingreso_GRAL
+    db.Execute "UPDATE fo_extracto_ingreso_GRAL SET estado_conciliado = 'REG' "
+    '-- EN BOLIVIANOS        'fv_recibos_detalle_sum_cmpbte_APR
+        db.Execute "UPDATE fo_extracto_ingreso_GRAL SET fo_extracto_ingreso_GRAL.estado_conciliado = 'APR' FROM fo_extracto_ingreso_GRAL INNER JOIN fv_recibos_detalle_sum_cmpbte_APR ON fv_recibos_detalle_sum_cmpbte_APR.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fv_recibos_detalle_sum_cmpbte_APR.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fv_recibos_detalle_sum_cmpbte_APR.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta " & _
+        " AND fv_recibos_detalle_sum_cmpbte_APR.cobranzaBs  = fo_extracto_ingreso_GRAL.monto_bs WHERE (fo_extracto_ingreso_GRAL.cuenta ='2015046557-03-054' OR fo_extracto_ingreso_GRAL.cuenta ='4010439742' OR fo_extracto_ingreso_GRAL.cuenta ='4010620792' OR fo_extracto_ingreso_GRAL.cuenta ='4010644195' OR fo_extracto_ingreso_GRAL.cuenta ='4010772049' OR fo_extracto_ingreso_GRAL.cuenta ='4011005599' " & _
+        " OR fo_extracto_ingreso_GRAL.cuenta ='4011048967' OR fo_extracto_ingreso_GRAL.cuenta ='4011048981' OR fo_extracto_ingreso_GRAL.cuenta ='4069626219' OR fo_extracto_ingreso_GRAL.cuenta ='4069626233' OR fo_extracto_ingreso_GRAL.cuenta ='10000019133060')  "
+    '-- EN DOLARES
+        'fv_recibos_detalle_sum_cmpbte_APR
+        db.Execute "UPDATE fo_extracto_ingreso_GRAL SET estado_conciliado = 'APR' FROM fo_extracto_ingreso_GRAL INNER JOIN fv_recibos_detalle_sum_cmpbte_APR ON fv_recibos_detalle_sum_cmpbte_APR.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fv_recibos_detalle_sum_cmpbte_APR.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fv_recibos_detalle_sum_cmpbte_APR.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta AND fv_recibos_detalle_sum_cmpbte_APR.cobranzaDol = fo_extracto_ingreso_GRAL.monto_dol " & _
+        " WHERE (fo_extracto_ingreso_GRAL.cuenta ='201-5041743-2-18' OR fo_extracto_ingreso_GRAL.cuenta ='096359-201-9' OR fo_extracto_ingreso_GRAL.cuenta ='4010038393' OR fo_extracto_ingreso_GRAL.cuenta ='4010620785' OR fo_extracto_ingreso_GRAL.cuenta ='4010780124' OR fo_extracto_ingreso_GRAL.cuenta ='4011005601' OR fo_extracto_ingreso_GRAL.cuenta ='4011048974' OR fo_extracto_ingreso_GRAL.cuenta ='4069626242' OR fo_extracto_ingreso_GRAL.cuenta ='4069626265' ) "
 
-    '-- 3. = (#BANCARIZACION, CUENTA, FECHA) Y <> (CLIENTE, MONTO)
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 3 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 "
-
-    '-- 4. = (#BANCARIZACION, CUENTA) Y <> (CLIENTE, MONTO, FECHA)
-    'db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR', nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  <> fo_extracto_BMSC_202101.fecha_transaccion AND fo_recibos_detalle.cobranza_bs  <> fo_extracto_BMSC_202101.credito AND fo_recibos_detalle.edif_codigo_corto  <> fo_extracto_BMSC_202101.cod_cliente "
-    db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.nivel_conciliado = 4 FROM fo_recibos_detalle INNER JOIN fo_extracto_BMSC_202101 ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_BMSC_202101.cod_bancarizacion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_BMSC_202101.cuenta AND fo_recibos_detalle.fecha_registro_bco  = fo_extracto_BMSC_202101.fecha_transaccion WHERE fo_recibos_detalle.estado_conciliado = 'APR' AND  fo_recibos_detalle.nivel_conciliado <> 1 AND  fo_recibos_detalle.nivel_conciliado <> 2 AND  fo_recibos_detalle.nivel_conciliado <> 3 "
+     '--- APROBAR: VARIOS EN SOFIA VS. UNO EN EXTRACTO
+        db.Execute "UPDATE fo_recibos_detalle SET fo_recibos_detalle.estado_conciliado = 'APR' FROM fo_recibos_detalle INNER JOIN fo_extracto_ingreso_GRAL ON fo_recibos_detalle.cmpbte_deposito_bco = fo_extracto_ingreso_GRAL.cod_bancarizacion AND fo_recibos_detalle.fecha_registro_bco = fo_extracto_ingreso_GRAL.fecha_transaccion AND fo_recibos_detalle.cta_codigo_destino = fo_extracto_ingreso_GRAL.cuenta WHERE (fo_extracto_ingreso_GRAL.estado_conciliado = 'APR') AND (fo_recibos_detalle.estado_conciliado  ='REG') "
+    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
     Call ABRIR_LAS4
   End If

@@ -16,10 +16,519 @@ Begin VB.Form fw_traspaso_bancos_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   3.82546e5
+   ScaleHeight     =   4.07351e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   6.16686e6
+   ScaleWidth      =   1.16324e7
    WindowState     =   2  'Maximized
+   Begin VB.Frame Fra_reporte 
+      BackColor       =   &H00E0E0E0&
+      Caption         =   "Elija un item del Extracto Bancario ..."
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000080&
+      Height          =   3135
+      Left            =   1560
+      TabIndex        =   102
+      Top             =   3840
+      Visible         =   0   'False
+      Width           =   16935
+      Begin VB.TextBox Text12 
+         Height          =   285
+         Left            =   3000
+         TabIndex        =   119
+         Text            =   "0"
+         Top             =   1800
+         Visible         =   0   'False
+         Width           =   9015
+      End
+      Begin VB.PictureBox Picture1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         FillColor       =   &H00404040&
+         FillStyle       =   2  'Horizontal Line
+         ForeColor       =   &H80000008&
+         Height          =   676
+         Left            =   120
+         ScaleHeight     =   675
+         ScaleWidth      =   16680
+         TabIndex        =   109
+         Top             =   2040
+         Width           =   16680
+         Begin VB.PictureBox BtnImprimir2 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   1560
+            ScaleHeight     =   615
+            ScaleWidth      =   1455
+            TabIndex        =   112
+            ToolTipText     =   "Imprimir el Listado de los Registros"
+            Top             =   120
+            Width           =   1455
+         End
+         Begin VB.PictureBox BtnCancelar3 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   8760
+            Picture         =   "fw_traspaso_bancos_egresos.frx":0A02
+            ScaleHeight     =   615
+            ScaleWidth      =   1395
+            TabIndex        =   111
+            Top             =   0
+            Width           =   1400
+         End
+         Begin VB.PictureBox Picture2 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   6480
+            Picture         =   "fw_traspaso_bancos_egresos.frx":12EE
+            ScaleHeight     =   615
+            ScaleWidth      =   1275
+            TabIndex        =   110
+            Top             =   0
+            Width           =   1280
+         End
+         Begin VB.Label Label22 
+            Alignment       =   2  'Center
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "VENTAS"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FFFFC0&
+            Height          =   285
+            Left            =   14175
+            TabIndex        =   113
+            Top             =   195
+            Visible         =   0   'False
+            Width           =   1005
+         End
+      End
+      Begin VB.TextBox Text11 
+         BackColor       =   &H80000004&
+         Height          =   285
+         Left            =   2640
+         Locked          =   -1  'True
+         TabIndex        =   108
+         Text            =   "0"
+         Top             =   1320
+         Width           =   2415
+      End
+      Begin MSDataListLib.DataCombo DctOrigina18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1AC4
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   12960
+         TabIndex        =   103
+         Top             =   720
+         Width           =   3885
+         _ExtentX        =   6853
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "descripcion"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DctDeposita18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1ADE
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   9720
+         TabIndex        =   104
+         Top             =   720
+         Width           =   3525
+         _ExtentX        =   6218
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "nombre_depositante"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DctCliente18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1AF8
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   8640
+         TabIndex        =   105
+         Top             =   720
+         Width           =   1365
+         _ExtentX        =   2408
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "cod_cliente"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DctCuenta18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1B12
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   6360
+         TabIndex        =   106
+         Top             =   720
+         Width           =   2565
+         _ExtentX        =   4524
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "cuenta"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DctMontoDol18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1B2C
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   5040
+         TabIndex        =   107
+         Top             =   720
+         Width           =   1605
+         _ExtentX        =   2831
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "monto_dol"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSComCtl2.DTPicker DTP_Finicio 
+         DataField       =   "Fecha_Alerta"
+         Height          =   315
+         Left            =   8280
+         TabIndex        =   114
+         Top             =   1320
+         Width           =   1605
+         _ExtentX        =   2831
+         _ExtentY        =   556
+         _Version        =   393216
+         Enabled         =   0   'False
+         Format          =   118030337
+         CurrentDate     =   44457
+      End
+      Begin MSComCtl2.DTPicker DTP_Ffin 
+         DataField       =   "Fecha_Alerta"
+         Height          =   315
+         Left            =   8280
+         TabIndex        =   115
+         Top             =   1320
+         Visible         =   0   'False
+         Width           =   1485
+         _ExtentX        =   2619
+         _ExtentY        =   556
+         _Version        =   393216
+         Format          =   118030337
+         CurrentDate     =   42880
+      End
+      Begin MSDataListLib.DataCombo DctMonto18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1B46
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   3720
+         TabIndex        =   116
+         Top             =   720
+         Width           =   1605
+         _ExtentX        =   2831
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "monto_bs"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DctCod18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1B60
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   240
+         TabIndex        =   117
+         Top             =   720
+         Width           =   1965
+         _ExtentX        =   3466
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "cod_bancarizacion"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DctFecha18 
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":1B7A
+         DataField       =   "cmpbte_deposito_bco"
+         DataSource      =   "Ado_datos02"
+         Height          =   315
+         Left            =   2160
+         TabIndex        =   118
+         Top             =   720
+         Width           =   1845
+         _ExtentX        =   3254
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   16777215
+         ForeColor       =   0
+         ListField       =   "fecha_transaccion"
+         BoundColumn     =   "cod_bancarizacion"
+         Text            =   "Todos"
+      End
+      Begin VB.Label Label29 
+         Appearance      =   0  'Flat
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000005&
+         BackStyle       =   0  'Transparent
+         Caption         =   "FECHA TRANSACCION"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   6360
+         TabIndex        =   130
+         Top             =   1365
+         Width           =   1725
+      End
+      Begin VB.Label Label28 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000005&
+         BackStyle       =   0  'Transparent
+         Caption         =   "# COMPROBANTE DEPOSITO"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   165
+         TabIndex        =   129
+         Top             =   1365
+         Width           =   2295
+      End
+      Begin VB.Label Label27 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000005&
+         BackStyle       =   0  'Transparent
+         Caption         =   "REFERENCIAS DEL DEPOSITANTE"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   240
+         TabIndex        =   128
+         Top             =   1800
+         Visible         =   0   'False
+         Width           =   2685
+      End
+      Begin VB.Label Label26 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Descripción"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   13080
+         TabIndex        =   127
+         Top             =   360
+         Width           =   1080
+      End
+      Begin VB.Label Label25 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Nombre.Depositante"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   9960
+         TabIndex        =   126
+         Top             =   360
+         Width           =   1875
+      End
+      Begin VB.Label Label24 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Cod.Cliente"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   8640
+         TabIndex        =   125
+         Top             =   360
+         Width           =   1035
+      End
+      Begin VB.Label Label23 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Importe.Bs."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   3960
+         TabIndex        =   124
+         Top             =   360
+         Width           =   1005
+      End
+      Begin VB.Label Label20 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Codigo.Bancarizacion"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   123
+         Top             =   360
+         Width           =   1980
+      End
+      Begin VB.Label Label6 
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha.Extracto"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   2400
+         TabIndex        =   122
+         Top             =   360
+         Width           =   1335
+      End
+      Begin VB.Label Label3 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Importe.Dol."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   5160
+         TabIndex        =   121
+         Top             =   360
+         Width           =   1080
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Cuenta.Bancaria"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00400000&
+         Height          =   240
+         Left            =   6480
+         TabIndex        =   120
+         Top             =   360
+         Width           =   1485
+      End
+   End
    Begin VB.Frame frm_benef 
       BackColor       =   &H00808080&
       Caption         =   "Elije un Beneficiario y Registra su Cuenta Bancaria"
@@ -35,8 +544,8 @@ Begin VB.Form fw_traspaso_bancos_egresos
       ForeColor       =   &H00FF0000&
       Height          =   2535
       Left            =   4560
-      TabIndex        =   47
-      Top             =   6720
+      TabIndex        =   34
+      Top             =   720
       Visible         =   0   'False
       Width           =   12015
       Begin VB.TextBox dtc_nom8 
@@ -45,8 +554,8 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Height          =   315
          Left            =   3840
          MultiLine       =   -1  'True
-         TabIndex        =   60
-         Text            =   "fw_traspaso_bancos_egresos.frx":0A02
+         TabIndex        =   47
+         Text            =   "fw_traspaso_bancos_egresos.frx":1B94
          Top             =   1680
          Width           =   5805
       End
@@ -57,7 +566,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   9345
-         TabIndex        =   58
+         TabIndex        =   45
          Top             =   1215
          Visible         =   0   'False
          Width           =   255
@@ -68,8 +577,8 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Height          =   315
          Left            =   720
          MultiLine       =   -1  'True
-         TabIndex        =   56
-         Text            =   "fw_traspaso_bancos_egresos.frx":0A04
+         TabIndex        =   43
+         Text            =   "fw_traspaso_bancos_egresos.frx":1B96
          Top             =   1680
          Width           =   3045
       End
@@ -80,7 +589,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   9360
-         TabIndex        =   50
+         TabIndex        =   37
          Top             =   855
          Visible         =   0   'False
          Width           =   255
@@ -90,9 +599,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Height          =   635
          Left            =   10200
          MaskColor       =   &H00000000&
-         Picture         =   "fw_traspaso_bancos_egresos.frx":0A06
+         Picture         =   "fw_traspaso_bancos_egresos.frx":1B98
          Style           =   1  'Graphical
-         TabIndex        =   49
+         TabIndex        =   36
          ToolTipText     =   "Cancelar"
          Top             =   1560
          Width           =   1365
@@ -101,19 +610,19 @@ Begin VB.Form fw_traspaso_bancos_egresos
          BackColor       =   &H80000015&
          Height          =   635
          Left            =   10200
-         Picture         =   "fw_traspaso_bancos_egresos.frx":12F2
+         Picture         =   "fw_traspaso_bancos_egresos.frx":2484
          Style           =   1  'Graphical
-         TabIndex        =   48
+         TabIndex        =   35
          Top             =   600
          Width           =   1365
       End
       Begin MSDataListLib.DataCombo dtc_codigo8 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":1AE0
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":2C72
          DataField       =   "beneficiario_codigo_fac"
          DataSource      =   "Ado_datos2"
          Height          =   315
          Left            =   7320
-         TabIndex        =   51
+         TabIndex        =   38
          Top             =   1200
          Visible         =   0   'False
          Width           =   2310
@@ -128,12 +637,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Text            =   "00000000000004"
       End
       Begin MSDataListLib.DataCombo dtc_desc8 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":1AF9
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":2C8B
          DataField       =   "beneficiario_codigo_fac"
          DataSource      =   "Ado_datos2"
          Height          =   315
          Left            =   720
-         TabIndex        =   52
+         TabIndex        =   39
          Top             =   840
          Width           =   6480
          _ExtentX        =   11430
@@ -146,12 +655,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux8 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":1B12
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":2CA4
          DataField       =   "beneficiario_codigo_fac"
          DataSource      =   "Ado_datos2"
          Height          =   315
          Left            =   7320
-         TabIndex        =   53
+         TabIndex        =   40
          Top             =   840
          Width           =   2310
          _ExtentX        =   4075
@@ -181,7 +690,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   720
-         TabIndex        =   57
+         TabIndex        =   44
          Top             =   1365
          Width           =   7245
       End
@@ -201,7 +710,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   720
-         TabIndex        =   55
+         TabIndex        =   42
          Top             =   585
          Width           =   2025
       End
@@ -221,7 +730,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   7440
-         TabIndex        =   54
+         TabIndex        =   41
          Top             =   600
          Width           =   2025
       End
@@ -237,7 +746,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       Left            =   0
       ScaleHeight     =   555
       ScaleWidth      =   18600
-      TabIndex        =   101
+      TabIndex        =   88
       Top             =   0
       Width           =   18600
       Begin VB.PictureBox BtnBuscar1 
@@ -247,10 +756,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   10200
-         Picture         =   "fw_traspaso_bancos_egresos.frx":1B2B
+         Picture         =   "fw_traspaso_bancos_egresos.frx":2CBD
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   106
+         TabIndex        =   93
          ToolTipText     =   "Busca Registros "
          Top             =   0
          Width           =   1215
@@ -262,10 +771,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17040
-         Picture         =   "fw_traspaso_bancos_egresos.frx":22E0
+         Picture         =   "fw_traspaso_bancos_egresos.frx":3472
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   105
+         TabIndex        =   92
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
@@ -277,10 +786,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8715
-         Picture         =   "fw_traspaso_bancos_egresos.frx":2AA2
+         Picture         =   "fw_traspaso_bancos_egresos.frx":3C34
          ScaleHeight     =   615
          ScaleWidth      =   1455
-         TabIndex        =   103
+         TabIndex        =   90
          Top             =   0
          Visible         =   0   'False
          Width           =   1455
@@ -292,10 +801,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7440
-         Picture         =   "fw_traspaso_bancos_egresos.frx":338E
+         Picture         =   "fw_traspaso_bancos_egresos.frx":4520
          ScaleHeight     =   615
          ScaleWidth      =   1275
-         TabIndex        =   102
+         TabIndex        =   89
          Top             =   0
          Visible         =   0   'False
          Width           =   1280
@@ -316,7 +825,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   255
-         TabIndex        =   104
+         TabIndex        =   91
          Top             =   180
          Width           =   8025
       End
@@ -334,8 +843,8 @@ Begin VB.Form fw_traspaso_bancos_egresos
       EndProperty
       Height          =   4830
       Left            =   4680
-      TabIndex        =   61
-      Top             =   3120
+      TabIndex        =   48
+      Top             =   720
       Visible         =   0   'False
       Width           =   11895
       Begin VB.PictureBox FraGrabarCancelar 
@@ -349,7 +858,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Left            =   120
          ScaleHeight     =   675
          ScaleWidth      =   11640
-         TabIndex        =   95
+         TabIndex        =   82
          Top             =   3960
          Width           =   11640
          Begin VB.PictureBox BtnGrabar 
@@ -359,10 +868,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4680
-            Picture         =   "fw_traspaso_bancos_egresos.frx":3B64
+            Picture         =   "fw_traspaso_bancos_egresos.frx":4CF6
             ScaleHeight     =   615
             ScaleWidth      =   1275
-            TabIndex        =   97
+            TabIndex        =   84
             Top             =   0
             Width           =   1280
          End
@@ -373,10 +882,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5955
-            Picture         =   "fw_traspaso_bancos_egresos.frx":433A
+            Picture         =   "fw_traspaso_bancos_egresos.frx":54CC
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   96
+            TabIndex        =   83
             Top             =   0
             Width           =   1455
          End
@@ -397,7 +906,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H00FFFF80&
             Height          =   285
             Left            =   8775
-            TabIndex        =   98
+            TabIndex        =   85
             Top             =   180
             Width           =   1005
          End
@@ -408,7 +917,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Enabled         =   0   'False
          Height          =   290
          Left            =   8025
-         TabIndex        =   80
+         TabIndex        =   67
          Top             =   390
          Width           =   270
       End
@@ -418,7 +927,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Enabled         =   0   'False
          Height          =   290
          Left            =   8715
-         TabIndex        =   79
+         TabIndex        =   66
          Top             =   30
          Visible         =   0   'False
          Width           =   270
@@ -438,7 +947,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00C00000&
          Height          =   2445
          Left            =   45
-         TabIndex        =   71
+         TabIndex        =   58
          Top             =   1395
          Width           =   5895
          Begin VB.ComboBox cmd_unimed2 
@@ -446,19 +955,19 @@ Begin VB.Form fw_traspaso_bancos_egresos
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   6210
-            TabIndex        =   73
+            TabIndex        =   60
             Text            =   "ANUAL"
             Top             =   1080
             Visible         =   0   'False
             Width           =   555
          End
          Begin MSDataListLib.DataCombo dtc_desc4 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4C26
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5DB8
             DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1260
-            TabIndex        =   72
+            TabIndex        =   59
             Top             =   660
             Width           =   4395
             _ExtentX        =   7752
@@ -469,12 +978,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo4 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4C3F
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5DD1
             DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   120
-            TabIndex        =   74
+            TabIndex        =   61
             Top             =   660
             Width           =   1455
             _ExtentX        =   2566
@@ -486,12 +995,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   "0"
          End
          Begin MSDataListLib.DataCombo dtc_desc21 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4C58
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5DEA
             DataField       =   "cta_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   120
-            TabIndex        =   75
+            TabIndex        =   62
             Top             =   1920
             Width           =   5595
             _ExtentX        =   9869
@@ -503,12 +1012,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo21 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4C72
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5E04
             DataField       =   "cta_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   120
-            TabIndex        =   76
+            TabIndex        =   63
             Top             =   1560
             Width           =   2970
             _ExtentX        =   5239
@@ -535,7 +1044,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   120
-            TabIndex        =   78
+            TabIndex        =   65
             Top             =   1245
             Width           =   2985
          End
@@ -556,7 +1065,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   120
-            TabIndex        =   77
+            TabIndex        =   64
             Top             =   360
             Width           =   1320
          End
@@ -576,7 +1085,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00C00000&
          Height          =   2445
          Left            =   5960
-         TabIndex        =   62
+         TabIndex        =   49
          Top             =   1395
          Width           =   5895
          Begin VB.CommandButton BtnNuevaCta 
@@ -594,17 +1103,17 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Height          =   405
             Left            =   5120
             Style           =   1  'Graphical
-            TabIndex        =   63
+            TabIndex        =   50
             Top             =   1080
             Width           =   645
          End
          Begin MSDataListLib.DataCombo dtc_desc5 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4C8C
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5E1E
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1395
-            TabIndex        =   64
+            TabIndex        =   51
             Top             =   660
             Width           =   4395
             _ExtentX        =   7752
@@ -615,12 +1124,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo5 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4CA5
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5E37
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   195
-            TabIndex        =   65
+            TabIndex        =   52
             Top             =   660
             Width           =   1575
             _ExtentX        =   2778
@@ -632,12 +1141,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   "0"
          End
          Begin MSDataListLib.DataCombo dtc_desc22 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4CBE
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5E50
             DataField       =   "cta_codigo_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   195
-            TabIndex        =   66
+            TabIndex        =   53
             Top             =   1920
             Width           =   5595
             _ExtentX        =   9869
@@ -649,12 +1158,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo22 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4CD8
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5E6A
             DataField       =   "cta_codigo_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   195
-            TabIndex        =   67
+            TabIndex        =   54
             Top             =   1560
             Width           =   3180
             _ExtentX        =   5609
@@ -665,12 +1174,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_moneda22 
-            Bindings        =   "fw_traspaso_bancos_egresos.frx":4CF2
+            Bindings        =   "fw_traspaso_bancos_egresos.frx":5E84
             DataField       =   "cta_codigo_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   3400
-            TabIndex        =   68
+            TabIndex        =   55
             Top             =   1560
             Width           =   2370
             _ExtentX        =   4180
@@ -697,7 +1206,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   195
-            TabIndex        =   70
+            TabIndex        =   57
             Top             =   360
             Width           =   1305
          End
@@ -718,18 +1227,18 @@ Begin VB.Form fw_traspaso_bancos_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   195
-            TabIndex        =   69
+            TabIndex        =   56
             Top             =   1245
             Width           =   4215
          End
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":4D0C
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":5E9E
          DataField       =   "doc_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   7065
-         TabIndex        =   81
+         TabIndex        =   68
          Top             =   375
          Width           =   1245
          _ExtentX        =   2196
@@ -745,12 +1254,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":4D25
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":5EB7
          DataField       =   "doc_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   1725
-         TabIndex        =   82
+         TabIndex        =   69
          Top             =   370
          Width           =   5715
          _ExtentX        =   10081
@@ -765,12 +1274,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux3 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":4D3E
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":5ED0
          DataField       =   "doc_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   6960
-         TabIndex        =   83
+         TabIndex        =   70
          Top             =   240
          Visible         =   0   'False
          Width           =   1245
@@ -796,13 +1305,13 @@ Begin VB.Form fw_traspaso_bancos_egresos
          DataSource      =   "Ado_datos"
          Height          =   300
          Left            =   1755
-         TabIndex        =   84
+         TabIndex        =   71
          Top             =   960
          Width           =   1485
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109445121
+         Format          =   118030337
          CurrentDate     =   44856
          MaxDate         =   55153
          MinDate         =   2
@@ -823,7 +1332,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00000000&
          Height          =   285
          Left            =   8460
-         TabIndex        =   94
+         TabIndex        =   81
          Top             =   960
          Width           =   1845
       End
@@ -845,7 +1354,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Height          =   240
          Index           =   0
          Left            =   4440
-         TabIndex        =   93
+         TabIndex        =   80
          Top             =   960
          Width           =   1395
       End
@@ -869,7 +1378,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   5880
-         TabIndex        =   92
+         TabIndex        =   79
          Top             =   960
          Width           =   1245
       End
@@ -890,7 +1399,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   180
-         TabIndex        =   91
+         TabIndex        =   78
          Top             =   360
          Width           =   1650
       End
@@ -914,7 +1423,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H000000C0&
          Height          =   300
          Left            =   10395
-         TabIndex        =   90
+         TabIndex        =   77
          Top             =   370
          Width           =   1365
       End
@@ -936,7 +1445,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Height          =   240
          Index           =   13
          Left            =   8760
-         TabIndex        =   89
+         TabIndex        =   76
          Top             =   360
          Width           =   1515
       End
@@ -960,7 +1469,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   10440
-         TabIndex        =   88
+         TabIndex        =   75
          Top             =   960
          Width           =   1245
       End
@@ -981,7 +1490,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H000000FF&
          Height          =   480
          Left            =   3480
-         TabIndex        =   87
+         TabIndex        =   74
          Top             =   -30
          Width           =   4875
       End
@@ -1001,7 +1510,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   180
-         TabIndex        =   86
+         TabIndex        =   73
          Top             =   960
          Width           =   1710
       End
@@ -1026,7 +1535,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00C00000&
          Height          =   300
          Left            =   10395
-         TabIndex        =   85
+         TabIndex        =   72
          Top             =   1200
          Visible         =   0   'False
          Width           =   1335
@@ -1047,7 +1556,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       ForeColor       =   &H00000080&
       Height          =   2280
       Left            =   4800
-      TabIndex        =   37
+      TabIndex        =   24
       Top             =   3120
       Visible         =   0   'False
       Width           =   11820
@@ -1056,9 +1565,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Caption         =   "Todos de la Orden de Pago"
          Height          =   735
          Left            =   5280
-         Picture         =   "fw_traspaso_bancos_egresos.frx":4D57
+         Picture         =   "fw_traspaso_bancos_egresos.frx":5EE9
          Style           =   1  'Graphical
-         TabIndex        =   41
+         TabIndex        =   28
          ToolTipText     =   "Acepta todos los Registro del Recibo de Tesorería ""RboTes"""
          Top             =   1320
          Width           =   1485
@@ -1068,9 +1577,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Caption         =   "Registro Elegido"
          Height          =   735
          Left            =   960
-         Picture         =   "fw_traspaso_bancos_egresos.frx":5759
+         Picture         =   "fw_traspaso_bancos_egresos.frx":68EB
          Style           =   1  'Graphical
-         TabIndex        =   40
+         TabIndex        =   27
          ToolTipText     =   "Acepta SOLO el Registro elegido..."
          Top             =   1320
          Width           =   1365
@@ -1091,8 +1600,8 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Left            =   1320
          Locked          =   -1  'True
          MultiLine       =   -1  'True
-         TabIndex        =   39
-         Text            =   "fw_traspaso_bancos_egresos.frx":5963
+         TabIndex        =   26
+         Text            =   "fw_traspaso_bancos_egresos.frx":6AF5
          Top             =   720
          Visible         =   0   'False
          Width           =   645
@@ -1101,20 +1610,20 @@ Begin VB.Form fw_traspaso_bancos_egresos
          BackColor       =   &H00E0E0E0&
          Height          =   615
          Left            =   9360
-         Picture         =   "fw_traspaso_bancos_egresos.frx":5965
+         Picture         =   "fw_traspaso_bancos_egresos.frx":6AF7
          Style           =   1  'Graphical
-         TabIndex        =   38
+         TabIndex        =   25
          ToolTipText     =   "Acepta SOLO el Registro elegido..."
          Top             =   1440
          Width           =   1365
       End
       Begin MSDataListLib.DataCombo dtc_desc6 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":6324
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":74B6
          DataField       =   "IdRecibo"
          DataSource      =   "ado_datos14"
          Height          =   315
          Left            =   4380
-         TabIndex        =   42
+         TabIndex        =   29
          Top             =   1680
          Visible         =   0   'False
          Width           =   3555
@@ -1126,12 +1635,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo6 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":633D
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":74CF
          DataField       =   "IdRecibo"
          DataSource      =   "ado_datos14"
          Height          =   315
          Left            =   6720
-         TabIndex        =   43
+         TabIndex        =   30
          Top             =   720
          Visible         =   0   'False
          Width           =   975
@@ -1144,12 +1653,12 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_recibo6 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":6356
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":74E8
          DataField       =   "IdRecibo"
          DataSource      =   "ado_datos14"
          Height          =   315
          Left            =   5520
-         TabIndex        =   44
+         TabIndex        =   31
          Top             =   720
          Width           =   1095
          _ExtentX        =   1931
@@ -1177,7 +1686,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   840
-         TabIndex        =   46
+         TabIndex        =   33
          Top             =   360
          Width           =   1665
       End
@@ -1197,183 +1706,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00C00000&
          Height          =   555
          Left            =   4320
-         TabIndex        =   45
+         TabIndex        =   32
          Top             =   375
          Width           =   3375
-      End
-   End
-   Begin VB.Frame Fra_reporte 
-      BackColor       =   &H00E0E0E0&
-      ForeColor       =   &H00FFFF00&
-      Height          =   2655
-      Left            =   4680
-      TabIndex        =   8
-      Top             =   4800
-      Visible         =   0   'False
-      Width           =   9735
-      Begin VB.TextBox Text12 
-         Height          =   285
-         Left            =   3000
-         TabIndex        =   36
-         Text            =   "0"
-         Top             =   2160
-         Visible         =   0   'False
-         Width           =   6615
-      End
-      Begin VB.TextBox Text11 
-         Height          =   285
-         Left            =   3000
-         TabIndex        =   29
-         Text            =   "0"
-         Top             =   1680
-         Width           =   2655
-      End
-      Begin VB.PictureBox Picture1 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000006&
-         BorderStyle     =   0  'None
-         FillColor       =   &H00404040&
-         FillStyle       =   2  'Horizontal Line
-         ForeColor       =   &H80000008&
-         Height          =   676
-         Left            =   120
-         ScaleHeight     =   675
-         ScaleWidth      =   9480
-         TabIndex        =   13
-         Top             =   240
-         Width           =   9480
-         Begin VB.PictureBox Picture2 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   3120
-            Picture         =   "fw_traspaso_bancos_egresos.frx":636F
-            ScaleHeight     =   615
-            ScaleWidth      =   1275
-            TabIndex        =   28
-            Top             =   0
-            Width           =   1280
-         End
-         Begin VB.PictureBox BtnCancelar3 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   4920
-            Picture         =   "fw_traspaso_bancos_egresos.frx":6B45
-            ScaleHeight     =   615
-            ScaleWidth      =   1395
-            TabIndex        =   15
-            Top             =   0
-            Width           =   1400
-         End
-         Begin VB.PictureBox BtnImprimir2 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   1560
-            ScaleHeight     =   615
-            ScaleWidth      =   1455
-            TabIndex        =   14
-            ToolTipText     =   "Imprimir el Listado de los Registros"
-            Top             =   0
-            Width           =   1455
-         End
-         Begin VB.Label Label22 
-            Alignment       =   2  'Center
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "VENTAS"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00FFFFC0&
-            Height          =   285
-            Left            =   14175
-            TabIndex        =   16
-            Top             =   195
-            Width           =   1005
-         End
-      End
-      Begin MSComCtl2.DTPicker DTP_Finicio 
-         DataField       =   "Fecha_Alerta"
-         Height          =   315
-         Left            =   3000
-         TabIndex        =   9
-         Top             =   1200
-         Width           =   1605
-         _ExtentX        =   2831
-         _ExtentY        =   556
-         _Version        =   393216
-         Format          =   109445121
-         CurrentDate     =   44730
-      End
-      Begin MSComCtl2.DTPicker DTP_Ffin 
-         DataField       =   "Fecha_Alerta"
-         Height          =   315
-         Left            =   3000
-         TabIndex        =   10
-         Top             =   1200
-         Visible         =   0   'False
-         Width           =   1485
-         _ExtentX        =   2619
-         _ExtentY        =   556
-         _Version        =   393216
-         Format          =   109445121
-         CurrentDate     =   42880
-      End
-      Begin VB.Label Label3 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000005&
-         BackStyle       =   0  'Transparent
-         Caption         =   "REFERENCIAS DEL DEPOSITANTE"
-         ForeColor       =   &H00000000&
-         Height          =   195
-         Left            =   240
-         TabIndex        =   35
-         Top             =   2160
-         Visible         =   0   'False
-         Width           =   2685
-      End
-      Begin VB.Label Label6 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000005&
-         BackStyle       =   0  'Transparent
-         Caption         =   "COMPROBANTE DEPOSITO"
-         ForeColor       =   &H00000000&
-         Height          =   195
-         Left            =   240
-         TabIndex        =   12
-         Top             =   1680
-         Width           =   2145
-      End
-      Begin VB.Label Label1 
-         Appearance      =   0  'Flat
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000005&
-         BackStyle       =   0  'Transparent
-         Caption         =   "FECHA TRANSACCION"
-         ForeColor       =   &H00000000&
-         Height          =   195
-         Left            =   240
-         TabIndex        =   11
-         Top             =   1200
-         Width           =   1725
       End
    End
    Begin VB.Frame FrmDetalle2 
@@ -1391,14 +1726,14 @@ Begin VB.Form fw_traspaso_bancos_egresos
       ForeColor       =   &H00C00000&
       Height          =   2025
       Left            =   1560
-      TabIndex        =   30
+      TabIndex        =   19
       Top             =   7320
       Width           =   17055
       Begin MSDataGridLib.DataGrid DtGLista11 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":7431
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":7501
          Height          =   1740
          Left            =   120
-         TabIndex        =   59
+         TabIndex        =   46
          Top             =   240
          Width           =   16860
          _ExtentX        =   29739
@@ -1787,7 +2122,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       Left            =   0
       ScaleHeight     =   660
       ScaleWidth      =   18600
-      TabIndex        =   18
+      TabIndex        =   9
       Top             =   3120
       Width           =   18600
       Begin VB.PictureBox BtnAprobar1 
@@ -1797,10 +2132,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   14400
-         Picture         =   "fw_traspaso_bancos_egresos.frx":744B
+         Picture         =   "fw_traspaso_bancos_egresos.frx":751B
          ScaleHeight     =   735
          ScaleWidth      =   1320
-         TabIndex        =   31
+         TabIndex        =   20
          ToolTipText     =   "Verifica Comprobante de Traspaso"
          Top             =   0
          Width           =   1320
@@ -1812,10 +2147,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   14400
-         Picture         =   "fw_traspaso_bancos_egresos.frx":7C83
+         Picture         =   "fw_traspaso_bancos_egresos.frx":7D53
          ScaleHeight     =   735
          ScaleWidth      =   1320
-         TabIndex        =   32
+         TabIndex        =   21
          ToolTipText     =   "Aprueba Comprobante de Traspaso"
          Top             =   0
          Width           =   1320
@@ -1827,10 +2162,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   13080
-         Picture         =   "fw_traspaso_bancos_egresos.frx":867A
+         Picture         =   "fw_traspaso_bancos_egresos.frx":874A
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   19
+         TabIndex        =   10
          ToolTipText     =   "Busca Registros "
          Top             =   0
          Width           =   1215
@@ -1842,10 +2177,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   15720
-         Picture         =   "fw_traspaso_bancos_egresos.frx":8E2F
+         Picture         =   "fw_traspaso_bancos_egresos.frx":8EFF
          ScaleHeight     =   735
          ScaleWidth      =   1320
-         TabIndex        =   20
+         TabIndex        =   11
          ToolTipText     =   "Aprueba Comprobante de Traspaso"
          Top             =   0
          Visible         =   0   'False
@@ -1858,10 +2193,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   11880
-         Picture         =   "fw_traspaso_bancos_egresos.frx":9662
+         Picture         =   "fw_traspaso_bancos_egresos.frx":9732
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   21
+         TabIndex        =   12
          ToolTipText     =   "Anula Registro"
          Top             =   0
          Visible         =   0   'False
@@ -1874,10 +2209,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   17040
-         Picture         =   "fw_traspaso_bancos_egresos.frx":9DAE
+         Picture         =   "fw_traspaso_bancos_egresos.frx":9E7E
          ScaleHeight     =   735
          ScaleWidth      =   1395
-         TabIndex        =   24
+         TabIndex        =   15
          ToolTipText     =   "Comprobante de Arqueo de Traspasos"
          Top             =   0
          Width           =   1400
@@ -1889,10 +2224,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   9360
-         Picture         =   "fw_traspaso_bancos_egresos.frx":A67B
+         Picture         =   "fw_traspaso_bancos_egresos.frx":A74B
          ScaleHeight     =   615
          ScaleWidth      =   1200
-         TabIndex        =   23
+         TabIndex        =   14
          ToolTipText     =   "Nuevo Arqueo de Traspasos"
          Top             =   0
          Width           =   1200
@@ -1904,10 +2239,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   10545
-         Picture         =   "fw_traspaso_bancos_egresos.frx":AE3A
+         Picture         =   "fw_traspaso_bancos_egresos.frx":AF0A
          ScaleHeight     =   615
          ScaleWidth      =   1425
-         TabIndex        =   22
+         TabIndex        =   13
          ToolTipText     =   "Modifica datos del arqueo"
          Top             =   0
          Width           =   1430
@@ -1928,7 +2263,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   360
-         TabIndex        =   25
+         TabIndex        =   16
          Top             =   195
          Width           =   1815
       End
@@ -2346,10 +2681,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
       Top             =   660
       Width           =   17295
       Begin MSDataGridLib.DataGrid DtgLista 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":B74F
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":B81F
          Height          =   2100
          Left            =   120
-         TabIndex        =   17
+         TabIndex        =   8
          Top             =   240
          Width           =   17100
          _ExtentX        =   30163
@@ -3666,15 +4001,15 @@ Begin VB.Form fw_traspaso_bancos_egresos
       ForeColor       =   &H00C00000&
       Height          =   2040
       Left            =   1800
-      TabIndex        =   99
+      TabIndex        =   86
       Top             =   720
       Visible         =   0   'False
       Width           =   9225
       Begin MSDataGridLib.DataGrid DataGrid1 
-         Bindings        =   "fw_traspaso_bancos_egresos.frx":B769
+         Bindings        =   "fw_traspaso_bancos_egresos.frx":B839
          Height          =   1410
          Left            =   75
-         TabIndex        =   100
+         TabIndex        =   87
          Top             =   240
          Width           =   8985
          _ExtentX        =   15849
@@ -3948,7 +4283,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       ScaleHeight     =   10.688
       ScaleMode       =   4  'Character
       ScaleWidth      =   9.625
-      TabIndex        =   107
+      TabIndex        =   94
       Top             =   480
       Width           =   1215
       Begin VB.PictureBox BtnAddDetalle 
@@ -3958,10 +4293,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   1095
          Left            =   0
-         Picture         =   "fw_traspaso_bancos_egresos.frx":B781
+         Picture         =   "fw_traspaso_bancos_egresos.frx":B851
          ScaleHeight     =   1095
          ScaleWidth      =   1200
-         TabIndex        =   108
+         TabIndex        =   95
          ToolTipText     =   "Aprueba Comprobante de Traspaso"
          Top             =   1320
          Width           =   1200
@@ -3982,17 +4317,17 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   690
          Left            =   0
-         TabIndex        =   112
+         TabIndex        =   99
          Top             =   480
          Width           =   1185
       End
       Begin VB.Label Label16 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
-         Caption         =   "PASO 2.   --->"
+         Caption         =   "PASO 2. --->"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   8.25
+            Size            =   9
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -4002,7 +4337,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H0080FFFF&
          Height          =   210
          Left            =   0
-         TabIndex        =   111
+         TabIndex        =   98
          Top             =   240
          Width           =   1185
       End
@@ -4016,7 +4351,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       ScaleHeight     =   23.188
       ScaleMode       =   4  'Character
       ScaleWidth      =   11.625
-      TabIndex        =   26
+      TabIndex        =   17
       Top             =   3720
       Visible         =   0   'False
       Width           =   1455
@@ -4027,10 +4362,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   1095
          Left            =   120
-         Picture         =   "fw_traspaso_bancos_egresos.frx":C2C8
+         Picture         =   "fw_traspaso_bancos_egresos.frx":C398
          ScaleHeight     =   1095
          ScaleWidth      =   1335
-         TabIndex        =   34
+         TabIndex        =   23
          ToolTipText     =   "Anula Registro"
          Top             =   3480
          Visible         =   0   'False
@@ -4043,10 +4378,10 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "fw_traspaso_bancos_egresos.frx":CF16
+         Picture         =   "fw_traspaso_bancos_egresos.frx":CFE6
          ScaleHeight     =   615
          ScaleWidth      =   1425
-         TabIndex        =   33
+         TabIndex        =   22
          ToolTipText     =   "Modifica Fecha y Código de Bancarización"
          Top             =   4680
          Width           =   1430
@@ -4055,9 +4390,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
          BackColor       =   &H80000018&
          Height          =   525
          Left            =   0
-         Picture         =   "fw_traspaso_bancos_egresos.frx":D82B
+         Picture         =   "fw_traspaso_bancos_egresos.frx":D8FB
          Style           =   1  'Graphical
-         TabIndex        =   27
+         TabIndex        =   18
          ToolTipText     =   "Imprime Kardex del Bien"
          Top             =   2790
          Visible         =   0   'False
@@ -4079,7 +4414,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   690
          Left            =   0
-         TabIndex        =   114
+         TabIndex        =   101
          Top             =   1920
          Width           =   1425
       End
@@ -4089,7 +4424,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Caption         =   "PASO 3.   --->"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   8.25
+            Size            =   9
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -4099,7 +4434,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H0080FFFF&
          Height          =   210
          Left            =   0
-         TabIndex        =   113
+         TabIndex        =   100
          Top             =   1680
          Width           =   1305
       End
@@ -4119,7 +4454,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H00FFFFFF&
          Height          =   930
          Left            =   0
-         TabIndex        =   110
+         TabIndex        =   97
          Top             =   480
          Width           =   1425
       End
@@ -4129,7 +4464,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          Caption         =   "PASO 1.   --->"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   8.25
+            Size            =   9
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -4139,10 +4474,57 @@ Begin VB.Form fw_traspaso_bancos_egresos
          ForeColor       =   &H0080FFFF&
          Height          =   210
          Left            =   60
-         TabIndex        =   109
+         TabIndex        =   96
          Top             =   240
          Width           =   1305
       End
+   End
+   Begin MSAdodcLib.Adodc Ado_datos18 
+      Height          =   330
+      Left            =   2160
+      Top             =   9840
+      Visible         =   0   'False
+      Width           =   2295
+      _ExtentX        =   4048
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Ado_datos18"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
    End
    Begin VB.Label LblUsuario 
       BackStyle       =   0  'Transparent
@@ -5164,7 +5546,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -5692,29 +6074,15 @@ UpdateErr:
 End Sub
 
 Private Sub BtnModDetalle_Click()
-If glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Then          '
+If glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" And Ado_datos.Recordset!estado_verificado = "REG" Then
         If Ado_datos11.Recordset.RecordCount > 0 Then         '<> "" Then
-'            'GRABA RECIBO DETALLE
-'            db.Execute "update fo_recibos_detalle_egresos set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where adjudica_codigo = " & ado_datos14.Recordset!adjudica_codigo & " "
-'            'db.Execute "INSERT INTO fo_recibos_detalle_egresos (IdRecibo, adjudica_codigo, cta_codigo, cmpbte_deposito, doc_numero, cobranza_bs, adjudica_dol, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
-'            '" values (" & Ado_datos.Recordset!IdRecibo & ", " & ado_datos14.Recordset!adjudica_codigo & ", '" & ado_datos14.Recordset!cta_codigo & "', '" & ado_datos14.Recordset!cmpbte_deposito & "', " & ado_datos14.Recordset!doc_numero & ", " & ado_datos14.Recordset!cobranza_bs & ", " & ado_datos14.Recordset!adjudica_dol & ",  " & _
-'            '"  'APR', '" & glusuario & "', '" & Date & "', ''  ) "
-'
-'            'ACTUALIZA APRUEBA ao_ventas_cobranza_det
-'            db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE cobranza_codigo = " & ado_datos14.Recordset!cobranza_codigo & " and cobranza_detalle = " & ado_datos14.Recordset!cobranza_detalle & " "
-'
-'            ' ACTUALIZA TOTALES fo_traspaso_bancos_Egresos
-'            db.Execute "update fo_traspaso_bancos_Egresos set total_bs = (select sum(fo_recibos_detalle_egresos.adjudica_bs) from fo_recibos_detalle_egresos where fo_recibos_detalle_egresos.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & ")   " & _
-'            " from fo_traspaso_bancos_Egresos inner join fo_recibos_detalle_egresos on  fo_traspaso_bancos_Egresos.IdTraspasoBancos = fo_recibos_detalle_egresos.IdTraspasoBancos where fo_traspaso_bancos_Egresos.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & " "
-'
-'            Call AbrirDetalle
+            'MODIFICA TRASPASO DETALLE
             Text11.Text = IIf(IsNull(Ado_datos11.Recordset!cmpbte_deposito_bco), 0, Ado_datos11.Recordset!cmpbte_deposito_bco)
             DTP_Finicio.Value = IIf(IsNull(Ado_datos11.Recordset!fecha_registro_bco), Date, Ado_datos11.Recordset!fecha_registro_bco)
-            
-            Label6.Caption = Ado_datos11.Recordset!trans_descripcion
-            Fra_reporte.Visible = True
+            'Label6.Caption = Ado_datos11.Recordset!trans_descripcion
+            Call Extracto
             'DtGLista.Enabled = True
         Else
             MsgBox "Debe elegir un registro cobrado para modificar, verifique y vuelva a intentar ...", , "Atención"
@@ -5726,7 +6094,7 @@ If glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or g
                 DTP_Finicio.Value = IIf(IsNull(Ado_datos11.Recordset!fecha_registro_bco), Date, Ado_datos11.Recordset!fecha_registro_bco)
                 
                 Label6.Caption = Ado_datos11.Recordset!trans_descripcion
-                Fra_reporte.Visible = True
+                Call Extracto
             Else
                 MsgBox "Debe elegir un registro cobrado para modificar, verifique y vuelva a intentar ...", , "Atención"
             End If
@@ -5742,15 +6110,124 @@ Else
 End If
 End Sub
 
-'Private Sub dtc_Aux11_Click(Area As Integer)
-'    dtc_codigo11.BoundText = dtc_Aux11.BoundText
-'    dtc_desc11.BoundText = dtc_Aux11.BoundText
-'End Sub
+Private Sub Extracto()
+    fraOpciones.Visible = False
+    FraGrabarCancelar.Visible = False
+    FrmABMDet.Visible = False
+    FrmABMDet2.Visible = False
+    FraNavega.Enabled = False
+    'FraExtracto.Visible = True
+    Fra_reporte.Visible = True
+    '-- ACTUALIZA ESTADO TRASPASOS EN fo_extracto_egreso_GRAL
+    db.Execute "UPDATE fo_extracto_egreso_GRAL SET estado_conciliado = 'REG' "
+    '-- EN BOLIVIANOS
+        db.Execute "UPDATE fo_extracto_egreso_GRAL SET fo_extracto_egreso_GRAL.estado_conciliado = 'APR' FROM fo_extracto_egreso_GRAL INNER JOIN fv_recibos_detEgreso_sum_cmpbte_APR ON fv_recibos_detEgreso_sum_cmpbte_APR.cmpbte_deposito_bco = fo_extracto_egreso_GRAL.cod_bancarizacion AND fv_recibos_detEgreso_sum_cmpbte_APR.fecha_registro_bco = fo_extracto_egreso_GRAL.fecha_transaccion AND fv_recibos_detEgreso_sum_cmpbte_APR.cta_codigo_destino = fo_extracto_egreso_GRAL.cuenta " & _
+        " AND fv_recibos_detEgreso_sum_cmpbte_APR.adjudicaBs  = fo_extracto_egreso_GRAL.monto_bs WHERE (fo_extracto_egreso_GRAL.cuenta ='2015046557-03-054' OR fo_extracto_egreso_GRAL.cuenta ='4010439742' OR fo_extracto_egreso_GRAL.cuenta ='4010620792' OR fo_extracto_egreso_GRAL.cuenta ='4010644195' OR fo_extracto_egreso_GRAL.cuenta ='4010772049' OR fo_extracto_egreso_GRAL.cuenta ='4011005599' " & _
+        " OR fo_extracto_egreso_GRAL.cuenta ='4011048967' OR fo_extracto_egreso_GRAL.cuenta ='4011048981' OR fo_extracto_egreso_GRAL.cuenta ='4069626219' OR fo_extracto_egreso_GRAL.cuenta ='4069626233' OR fo_extracto_egreso_GRAL.cuenta ='10000019133060')  "
+    '-- EN DOLARES
+        db.Execute "UPDATE fo_extracto_egreso_GRAL SET estado_conciliado = 'APR' FROM fo_extracto_egreso_GRAL INNER JOIN fv_recibos_detEgreso_sum_cmpbte_APR ON fv_recibos_detEgreso_sum_cmpbte_APR.cmpbte_deposito_bco = fo_extracto_egreso_GRAL.cod_bancarizacion AND fv_recibos_detEgreso_sum_cmpbte_APR.fecha_registro_bco = fo_extracto_egreso_GRAL.fecha_transaccion AND fv_recibos_detEgreso_sum_cmpbte_APR.cta_codigo_destino = fo_extracto_egreso_GRAL.cuenta AND fv_recibos_detEgreso_sum_cmpbte_APR.adjudicaDol = fo_extracto_egreso_GRAL.monto_dol " & _
+        " WHERE (fo_extracto_egreso_GRAL.cuenta ='201-5041743-2-18' OR fo_extracto_egreso_GRAL.cuenta ='096359-201-9' OR fo_extracto_egreso_GRAL.cuenta ='4010038393' OR fo_extracto_egreso_GRAL.cuenta ='4010620785' OR fo_extracto_egreso_GRAL.cuenta ='4010780124' OR fo_extracto_egreso_GRAL.cuenta ='4011005601' OR fo_extracto_egreso_GRAL.cuenta ='4011048974' OR fo_extracto_egreso_GRAL.cuenta ='4069626242' OR fo_extracto_egreso_GRAL.cuenta ='4069626265' ) "
+    '---APROBAR: VARIOS EN SOFIA VS. UNO EN EXTRACTO
+        'db.Execute "UPDATE fo_recibos_oficiales_egresos SET fo_recibos_oficiales_egresos.estado_conciliado = 'APR' FROM fo_recibos_oficiales_egresos INNER JOIN fo_extracto_egreso_GRAL ON fo_recibos_oficiales_egresos.cmpbte_deposito_bco = fo_extracto_egreso_GRAL.cod_bancarizacion AND fo_recibos_oficiales_egresos.fecha_registro_bco = fo_extracto_egreso_GRAL.fecha_transaccion AND fo_recibos_oficiales_egresos.cta_codigo_destino = fo_extracto_egreso_GRAL.cuenta AND fo_recibos_oficiales_egresos.total_bs = fo_extracto_egreso_GRAL.monto_bs WHERE (fo_extracto_egreso_GRAL.estado_conciliado = 'APR') AND (fo_recibos_oficiales_egresos.estado_conciliado  ='REG') "
+    '---ACTUALIZA estado_conciliado (Anterior)
+    'db.Execute "update fo_extracto_egreso_GRAL SET estado_conciliado = 'REG' "
+    'db.Execute "update fo_extracto_egreso_GRAL SET estado_conciliado = 'APR' FROM fo_extracto_egreso_GRAL INNER JOIN fo_recibos_oficiales_egresos ON fo_extracto_egreso_GRAL.cod_bancarizacion = fo_recibos_oficiales_egresos.cmpbte_deposito_bco AND fo_extracto_egreso_GRAL.cuenta  = fo_recibos_oficiales_egresos.cta_codigo_destino AND fo_extracto_egreso_GRAL.fecha_transaccion = fo_recibos_oficiales_egresos.fecha_registro_bco AND fo_extracto_egreso_GRAL.monto_bs = fo_recibos_oficiales_egresos.cobranza_bs "
 
-'Private Sub dtc_Aux20_Click(Area As Integer)
-'    dtc_desc20.BoundText = dtc_Aux20.BoundText
-'    dtc_codigo20.BoundText = dtc_Aux20.BoundText
-'End Sub
+    Set rs_datos18 = New ADODB.Recordset
+    If rs_datos18.State = 1 Then rs_datos18.Close
+    rs_datos18.Open "Select * from fv_extracto_egresos_NO_conciliados order by cod_bancarizacion", db, adOpenStatic        'fecha_transaccion, hora_transaccion
+    Set ado_datos18.Recordset = rs_datos18
+    If ado_datos18.Recordset.RecordCount > 0 Then
+        DctFecha18.BoundText = DctCod18.BoundText
+        DctMonto18.BoundText = DctCod18.BoundText
+        DctCliente18.BoundText = DctCod18.BoundText
+        DctDeposita18.BoundText = DctCod18.BoundText
+        DctOrigina18.BoundText = DctCod18.BoundText
+    Else
+        MsgBox "No Existen registros de Extractos Pendientes, Debe Migrar los Extactos de esta Cuenta y vuelva a intentar ...", , "Atención"
+    End If
+End Sub
+
+Private Sub DctCliente18_Click(Area As Integer)
+    DctCod18.BoundText = DctCliente18.BoundText
+    DctFecha18.BoundText = DctCliente18.BoundText
+    DctMonto18.BoundText = DctCliente18.BoundText
+    DctDeposita18.BoundText = DctCliente18.BoundText
+    DctOrigina18.BoundText = DctCliente18.BoundText
+    DctMontoDol18.BoundText = DctCliente18.BoundText
+    DctCuenta18.BoundText = DctCliente18.BoundText
+End Sub
+
+Private Sub DctCod18_Click(Area As Integer)
+    DctFecha18.BoundText = DctCod18.BoundText
+    DctMonto18.BoundText = DctCod18.BoundText
+    DctCliente18.BoundText = DctCod18.BoundText
+    DctDeposita18.BoundText = DctCod18.BoundText
+    DctOrigina18.BoundText = DctCod18.BoundText
+    DctMontoDol18.BoundText = DctCod18.BoundText
+    DctCuenta18.BoundText = DctCod18.BoundText
+End Sub
+
+Private Sub DctCuenta18_Click(Area As Integer)
+    DctCod18.BoundText = DctCuenta18.BoundText
+    DctFecha18.BoundText = DctCuenta18.BoundText
+    DctCliente18.BoundText = DctCuenta18.BoundText
+    DctDeposita18.BoundText = DctCuenta18.BoundText
+    DctOrigina18.BoundText = DctCuenta18.BoundText
+    DctMonto18.BoundText = DctCuenta18.BoundText
+    DctMontoDol18.BoundText = DctCuenta18.BoundText
+End Sub
+
+Private Sub DctDeposita18_Click(Area As Integer)
+    DctCod18.BoundText = DctDeposita18.BoundText
+    DctFecha18.BoundText = DctDeposita18.BoundText
+    DctMonto18.BoundText = DctDeposita18.BoundText
+    DctCliente18.BoundText = DctDeposita18.BoundText
+    DctOrigina18.BoundText = DctDeposita18.BoundText
+    DctMontoDol18.BoundText = DctDeposita18.BoundText
+    DctCuenta18.BoundText = DctDeposita18.BoundText
+End Sub
+
+Private Sub DctFecha18_Click(Area As Integer)
+    DctCod18.BoundText = DctFecha18.BoundText
+    DctMonto18.BoundText = DctFecha18.BoundText
+    DctCliente18.BoundText = DctFecha18.BoundText
+    DctDeposita18.BoundText = DctFecha18.BoundText
+    DctOrigina18.BoundText = DctFecha18.BoundText
+    DctMontoDol18.BoundText = DctFecha18.BoundText
+    DctCuenta18.BoundText = DctFecha18.BoundText
+End Sub
+
+Private Sub DctMonto18_Click(Area As Integer)
+    DctCod18.BoundText = DctMonto18.BoundText
+    DctFecha18.BoundText = DctMonto18.BoundText
+    DctCliente18.BoundText = DctMonto18.BoundText
+    DctDeposita18.BoundText = DctMonto18.BoundText
+    DctOrigina18.BoundText = DctMonto18.BoundText
+    DctMontoDol18.BoundText = DctMonto18.BoundText
+    DctCuenta18.BoundText = DctMonto18.BoundText
+End Sub
+
+Private Sub DctMontoDol18_Click(Area As Integer)
+    DctCod18.BoundText = DctMontoDol18.BoundText
+    DctFecha18.BoundText = DctMontoDol18.BoundText
+    DctCliente18.BoundText = DctMontoDol18.BoundText
+    DctDeposita18.BoundText = DctMontoDol18.BoundText
+    DctOrigina18.BoundText = DctMontoDol18.BoundText
+    DctMonto18.BoundText = DctMontoDol18.BoundText
+    DctCuenta18.BoundText = DctMontoDol18.BoundText
+End Sub
+
+Private Sub DctOrigina18_Click(Area As Integer)
+    DctCod18.BoundText = DctOrigina18.BoundText
+    DctFecha18.BoundText = DctOrigina18.BoundText
+    DctMonto18.BoundText = DctOrigina18.BoundText
+    DctCliente18.BoundText = DctOrigina18.BoundText
+    DctDeposita18.BoundText = DctOrigina18.BoundText
+    DctMontoDol18.BoundText = DctOrigina18.BoundText
+    DctCuenta18.BoundText = DctOrigina18.BoundText
+End Sub
+
 
 Private Sub dtc_aux3_Click(Area As Integer)
     dtc_codigo3.BoundText = dtc_aux3.BoundText
@@ -6195,7 +6672,7 @@ Private Sub Form_Load()
     lbl_titulo2.Caption = lbl_titulo.Caption
 
   
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -6668,10 +7145,23 @@ Private Sub acumulaMont(ges, Nro)
 End Sub
 
 Private Sub Picture2_Click()
+    Text11.Text = DctCod18.Text
+    DTP_Finicio.Value = Format(CDate(DctFecha18.Text), "DD/MM/YYYY")
+    Text12.Text = Trim(DctDeposita18.Text) + " " + Trim(DctOrigina18.Text)
+    
     db.Execute "update fo_recibos_detalle_egresos set cmpbte_deposito_bco = '" & Text11.Text & "', fecha_registro_bco = '" & DTP_Finicio & "', fecha_destino = '" & Date & "', observaciones = '" & Text12.Text & "'  where adjudica_codigo = " & Ado_datos11.Recordset!adjudica_codigo & " "
     Fra_reporte.Visible = False
-    Call AbrirOrigen
+    fraOpciones.Visible = True
+    FraGrabarCancelar.Visible = True
+    FrmABMDet.Visible = True
+    FrmABMDet2.Visible = True
+    FraNavega.Enabled = True
     Call AbrirDetalle
+    
+'    db.Execute "update fo_recibos_detalle_egresos set cmpbte_deposito_bco = '" & Text11.Text & "', fecha_registro_bco = '" & DTP_Finicio & "', fecha_destino = '" & Date & "', observaciones = '" & Text12.Text & "'  where adjudica_codigo = " & Ado_datos11.Recordset!adjudica_codigo & " "
+'    Fra_reporte.Visible = False
+'    Call AbrirOrigen
+'    Call AbrirDetalle
 End Sub
 
 'Private Sub txtCantidad_KeyPress(KeyAscii As Integer)

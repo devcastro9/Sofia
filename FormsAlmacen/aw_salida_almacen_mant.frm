@@ -161,7 +161,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   118685697
+            Format          =   124649473
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -1975,7 +1975,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   118685699
+         Format          =   124649475
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
@@ -2529,6 +2529,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         '            Case "4"
         '        End Select
         If Ado_datos.Recordset.RecordCount > 0 Then
+            TDBGrid2.Visible = False
             buscados = buscados + 1
             If buscados = 1 Then
                 Call ABRIR_TABLA_DET(1)
@@ -2565,6 +2566,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
      Else
         'Set rs_det1 = New ADODB.Recordset
         Set TDBGrid1.DataSource = rsNada
+        TDBGrid2.Visible = True
         'Set DtgLaborales.DataSource = rsNada
      End If
 End Sub

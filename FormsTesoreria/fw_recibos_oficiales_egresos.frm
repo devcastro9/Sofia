@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   108789761
+         Format          =   118030337
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -3302,6 +3302,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '        BtnAnlDetalle.Visible = True
 '    End If
     If Not IsNull(Ado_datos.Recordset!IdRecibo) Then
+        VAR_BUSCA = 1
         If buscados = 0 Then
            OptFilGral1.Visible = True
            OptFilGral2.Visible = True
@@ -3372,7 +3373,7 @@ Private Sub AbrirDetalle()
                 If VAR_BUSCA = 0 Then
                     queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "
                 Else
-                    queryinicial2 = queryinicial99
+                    queryinicial2 = queryinicial0
                 End If
                 'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "
 '            Case "1"
@@ -3390,7 +3391,7 @@ Private Sub AbrirDetalle()
                 If VAR_BUSCA = 0 Then
                     queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo_adm & "'   "
                 Else
-                    queryinicial2 = queryinicial99
+                    queryinicial2 = queryinicial0
                 End If
         End Select
         rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
@@ -3868,7 +3869,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -4747,7 +4748,7 @@ Private Sub Form_Load()
     lbl_titulo2.Caption = lbl_titulo.Caption
 
   
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

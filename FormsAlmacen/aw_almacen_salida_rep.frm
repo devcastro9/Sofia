@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   126877697
+         Format          =   123011073
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   126877697
+         Format          =   123011073
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   126877697
+            Format          =   123011073
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -9375,7 +9375,8 @@ Private Sub OptFilGral2_Click()
                 Case "CARIZACA"
                     queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case "RRONDAL"
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo = '1'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo = '1'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case Else
                     queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End Select

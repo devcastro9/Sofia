@@ -814,17 +814,17 @@ Begin VB.MDIForm frmMain
          Begin VB.Menu Mnu_Descarguio 
             Caption         =   "DESCARGUIO"
          End
-         Begin VB.Menu Mnu_ContratacionTecnicos 
-            Caption         =   "CONTRATACION TECNICOS"
-         End
          Begin VB.Menu Mnu_SeguimientoPago 
             Caption         =   "BITACORA COMEX"
          End
       End
       Begin VB.Menu mnu_instalaciones 
          Caption         =   "INSTALACIONES"
-         Begin VB.Menu Mnu_SeguimientoInstalaciones 
-            Caption         =   "ACTA DE ENTREGA DEFINITIVA"
+         Begin VB.Menu Mnu_CronogramaInstalaciones 
+            Caption         =   "ELABORACION CRONOGRAMA INSTALACIONES"
+         End
+         Begin VB.Menu Mnu_ContratacionTecnicos 
+            Caption         =   "CONTRATACION TECNICOS"
          End
          Begin VB.Menu Mnu_IdentificacionClienteInstalacion 
             Caption         =   "IDENTIFICACION DEL CLIENTE INSTALACIONES"
@@ -832,11 +832,11 @@ Begin VB.MDIForm frmMain
          Begin VB.Menu Mnu_ProcesoInstalaciones 
             Caption         =   "VENTA SERVICIO DE INSTALACIONES"
          End
-         Begin VB.Menu Mnu_CronogramaInstalaciones 
-            Caption         =   "ELABORACION CRONOGRAMA INSTALACIONES"
-         End
          Begin VB.Menu Mnu_EjecucionInstalaciones 
             Caption         =   "EJECUCION CRONOGRAMA INSTALACIONES"
+         End
+         Begin VB.Menu Mnu_SeguimientoInstalaciones 
+            Caption         =   "ACTA DE ENTREGA DEFINITIVA"
          End
          Begin VB.Menu Mnu_BitacoraInstalaciones 
             Caption         =   "BITACORA DE INSTALACIONES"
@@ -1620,7 +1620,7 @@ Private Sub Mnu_CronogramaInstalaciones_Click()
         'tw_cronograma_mensual_inst
         tw_cronograma_mensual_inst.lbl_titulo = Mnu_CronogramaInstalaciones.Caption
         tw_cronograma_mensual_inst.FraNavega = Mnu_CronogramaInstalaciones.Caption
-        tw_cronograma_mensual_inst.lbl_titulo2 = Mnu_CronogramaInstalaciones.Caption
+        'tw_cronograma_mensual_inst.lbl_titulo2 = Mnu_CronogramaInstalaciones.Caption
         tw_cronograma_mensual_inst.Show
         
 '        tw_tecnico_cronograma.lbl_titulo = Mnu_CronogramaInstalaciones.Caption

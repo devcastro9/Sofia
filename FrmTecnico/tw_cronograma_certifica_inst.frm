@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   120455171
+         Format          =   128712707
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2623,7 +2623,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   120455171
+         Format          =   128712707
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3239,6 +3239,7 @@ End Sub
 Private Sub BtnGraba3_Click()
     'db.Execute "update to_cronograma_diario_final set fecha_conformidad = '" & DTPEjecucion.Value & "', nro_fojas = " & txt_hdm.Text & ", doc_numero = " & txt_cm.Text & ", observaciones = '" & txt_obs.Text & "', carta = '" & Cmb_carta.Text & "', doc_numero_carta = '" & txt_correl_carta.Text & "' where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' "
     db.Execute "update to_cronograma_diario_final_INST set fecha_conformidad = '" & DTPEjecucion.Value & "', doc_numero = " & txt_cm.Text & ", observaciones = '" & txt_obs.Text & "', carta = '" & Cmb_carta.Text & "', doc_numero_carta = '" & txt_correl_carta.Text & "'  where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & "  "
+    db.Execute "update tc_zona_piloto_edif_inst set estado_activo = 'APR'  where correlativo = " & Ado_detalle2.Recordset!fmes_plan & " "
     FraDet2.Visible = False
     BtnImprimir2.Visible = True
     VAR_EQUIPO = Ado_detalle2.Recordset!bien_codigo
@@ -3466,7 +3467,7 @@ Private Sub BtnImprimir2_Click()
         CR02.WindowShowRefreshBtn = True
         CR02.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR02.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
-        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
+        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
         iResult = CR02.PrintReport
         If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
         CR02.WindowState = crptMaximized
@@ -3478,7 +3479,7 @@ Private Sub BtnImprimir2_Click()
         CR03.WindowShowRefreshBtn = True
         CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR03.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
-        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
+        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
         iResult = CR03.PrintReport
         If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
         CR03.WindowState = crptMaximized

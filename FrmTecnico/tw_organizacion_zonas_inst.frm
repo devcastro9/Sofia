@@ -16,7 +16,7 @@ Begin VB.Form tw_organizacion_zonas_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   11280
+   ScaleWidth      =   20250
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmDetalle 
@@ -99,6 +99,19 @@ Begin VB.Form tw_organizacion_zonas_inst
             EndProperty
          EndProperty
          BeginProperty Column02 
+            DataField       =   "tipo_eqp_descripcion"
+            Caption         =   "Tipo.Equipo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
             DataField       =   "marca_descripcion"
             Caption         =   "Marca.de.Equipo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -111,22 +124,9 @@ Begin VB.Form tw_organizacion_zonas_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column03 
-            DataField       =   "modelo_descripcion"
-            Caption         =   "Modelo.de.Equipo"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
          BeginProperty Column04 
-            DataField       =   "tipo_eqp_descripcion"
-            Caption         =   "Tipo.Equipo"
+            DataField       =   "modelo_codigo"
+            Caption         =   "Modelo.de.Equipo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -255,7 +255,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             EndProperty
          EndProperty
          BeginProperty Column14 
-            DataField       =   "sist_puerta"
+            DataField       =   "sist_puerta_descripcion"
             Caption         =   "Sistema.Puertas"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -386,7 +386,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118161409
+         Format          =   127533057
          CurrentDate     =   44885
       End
       Begin VB.PictureBox fra_opciones2 
@@ -704,7 +704,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118161409
+         Format          =   127533057
          CurrentDate     =   44885
       End
       Begin VB.Label Label6 
@@ -1208,7 +1208,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       Top             =   720
       Width           =   12885
       Begin VB.OptionButton Option2 
-         BackColor       =   &H00C0C0C0&
+         BackColor       =   &H80000018&
          Caption         =   "Terminados"
          BeginProperty Font 
             Name            =   "Arial"
@@ -1224,11 +1224,10 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   7440
          TabIndex        =   80
          Top             =   6915
-         Visible         =   0   'False
          Width           =   2295
       End
       Begin VB.OptionButton Option1 
-         BackColor       =   &H00C0C0C0&
+         BackColor       =   &H80000018&
          Caption         =   "Pendentes (En proceso)"
          BeginProperty Font 
             Name            =   "Arial"
@@ -1244,7 +1243,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   3120
          TabIndex        =   79
          Top             =   6915
-         Visible         =   0   'False
+         Value           =   -1  'True
          Width           =   2295
       End
       Begin VB.PictureBox fra_opciones_det 
@@ -1269,6 +1268,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ScaleWidth      =   1545
             TabIndex        =   69
             Top             =   0
+            Visible         =   0   'False
             Width           =   1545
          End
          Begin VB.PictureBox BtnAddDetalle 
@@ -1318,13 +1318,13 @@ Begin VB.Form tw_organizacion_zonas_inst
       End
       Begin MSDataGridLib.DataGrid dg_det1 
          Bindings        =   "tw_organizacion_zonas_inst.frx":97B3
-         Height          =   6135
+         Height          =   5895
          Left            =   120
          TabIndex        =   30
          Top             =   960
          Width           =   12615
          _ExtentX        =   22251
-         _ExtentY        =   10821
+         _ExtentY        =   10398
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   16777215
@@ -1638,6 +1638,52 @@ Begin VB.Form tw_organizacion_zonas_inst
             EndProperty
          EndProperty
       End
+      Begin MSAdodcLib.Adodc Ado_detalle1 
+         Height          =   330
+         Left            =   120
+         Top             =   6840
+         Width           =   12600
+         _ExtentX        =   22225
+         _ExtentY        =   582
+         ConnectMode     =   0
+         CursorLocation  =   3
+         IsolationLevel  =   -1
+         ConnectionTimeout=   15
+         CommandTimeout  =   30
+         CursorType      =   3
+         LockType        =   3
+         CommandType     =   8
+         CursorOptions   =   0
+         CacheSize       =   50
+         MaxRecords      =   0
+         BOFAction       =   0
+         EOFAction       =   0
+         ConnectStringType=   3
+         Appearance      =   1
+         BackColor       =   -2147483624
+         ForeColor       =   -2147483640
+         Orientation     =   0
+         Enabled         =   -1
+         Connect         =   ""
+         OLEDBString     =   ""
+         OLEDBFile       =   ""
+         DataSourceName  =   ""
+         OtherAttributes =   ""
+         UserName        =   ""
+         Password        =   ""
+         RecordSource    =   ""
+         Caption         =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _Version        =   393216
+      End
    End
    Begin VB.Frame FraNavega 
       BackColor       =   &H00C0C0C0&
@@ -1652,7 +1698,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00800000&
-      Height          =   7200
+      Height          =   7080
       Left            =   0
       TabIndex        =   22
       Top             =   720
@@ -1673,8 +1719,9 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   210
          Left            =   1560
          TabIndex        =   25
-         Top             =   6795
+         Top             =   6675
          Value           =   -1  'True
+         Visible         =   0   'False
          Width           =   1155
       End
       Begin VB.OptionButton OptFilGral1 
@@ -1693,14 +1740,14 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   210
          Left            =   3600
          TabIndex        =   24
-         Top             =   6795
+         Top             =   6675
          Visible         =   0   'False
          Width           =   1335
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
          Left            =   120
-         Top             =   6720
+         Top             =   6600
          Width           =   5955
          _ExtentX        =   10504
          _ExtentY        =   582
@@ -1779,7 +1826,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ColumnCount     =   7
          BeginProperty Column00 
             DataField       =   "zpiloto_codigo"
-            Caption         =   "Codigo"
+            Caption         =   "#Grupo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1805,7 +1852,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          EndProperty
          BeginProperty Column02 
             DataField       =   "zpiloto_descripcion"
-            Caption         =   "Grupo.Piloto"
+            Caption         =   "Grupo.Descripcion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1818,7 +1865,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          EndProperty
          BeginProperty Column03 
             DataField       =   "Observaciones"
-            Caption         =   "Responsable"
+            Caption         =   "Responsable.Supervisor"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2096,53 +2143,6 @@ Begin VB.Form tw_organizacion_zonas_inst
       Password        =   ""
       RecordSource    =   ""
       Caption         =   "Ado_detalle2"
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      _Version        =   393216
-   End
-   Begin MSAdodcLib.Adodc Ado_detalle1 
-      Height          =   330
-      Left            =   5640
-      Top             =   9600
-      Visible         =   0   'False
-      Width           =   2280
-      _ExtentX        =   4022
-      _ExtentY        =   582
-      ConnectMode     =   0
-      CursorLocation  =   3
-      IsolationLevel  =   -1
-      ConnectionTimeout=   15
-      CommandTimeout  =   30
-      CursorType      =   3
-      LockType        =   3
-      CommandType     =   8
-      CursorOptions   =   0
-      CacheSize       =   50
-      MaxRecords      =   0
-      BOFAction       =   0
-      EOFAction       =   0
-      ConnectStringType=   3
-      Appearance      =   1
-      BackColor       =   -2147483643
-      ForeColor       =   -2147483640
-      Orientation     =   0
-      Enabled         =   -1
-      Connect         =   ""
-      OLEDBString     =   ""
-      OLEDBFile       =   ""
-      DataSourceName  =   ""
-      OtherAttributes =   ""
-      UserName        =   ""
-      Password        =   ""
-      RecordSource    =   ""
-      Caption         =   "Ado_detalle1"
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -2858,7 +2858,7 @@ Dim var_titulo As String
 Dim VAR_SubTitulo As String
 Dim var_cod, VAR_GES As String
 Dim VAR_VAL, VAR_ARCH, VAR_ARCH2 As String
-Dim VAR_SW As String
+Dim VAR_SW, VAR_SQL As String
 
 Dim imag2 As Long
 
@@ -2887,8 +2887,10 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
      '<-- Inicio                Identificación del Cliente                Fin -->
      If VAR_SW <> "MOD" Then
         If Ado_datos.Recordset.RecordCount > 0 Then
+            BtnModificar2_Click
             dg_det1.Visible = True
-            Call ABRIR_TABLA_DET
+            Call Option1_Click
+            'Call ABRIR_TABLA_DET
         Else
             dg_det1.Visible = False
         End If
@@ -2944,13 +2946,13 @@ Private Sub BtnAddDetalle_Click()
   Else
     MsgBox "No se puede Adicionar un nuevo registro, porque este ya está Aprobado!! ", vbExclamation
   End If
-  If Ado_datos.Recordset!estado_codigo = "REG" Then
-'    Call OptFilGral1_Click
-  Else
+'  If Ado_datos.Recordset!estado_codigo = "REG" Then
+''    Call OptFilGral1_Click
+'  Else
     Call OptFilGral2_Click
     Ado_datos.Recordset.Move marca1 - 1
-  End If
-  'Call ABRIR_TABLA_DET
+'  End If
+'  'Call ABRIR_TABLA_DET
 End Sub
 
 Private Sub ABRIR_DET()
@@ -2979,7 +2981,7 @@ Private Sub BtnAnlDetalle_Click()
             db.Execute "delete tc_zona_piloto_edif_inst where correlativo = " & Text1.Text & " "
             db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = '0'  where zorden_cambio > '0'"
         'End If
-        Call ABRIR_TABLA_DET
+        'Call ABRIR_TABLA_DET
       End If
    Else
       MsgBox "No se puede ANULAR, el registro ya fue APROBADO o ya fue ANULADO anteriormente ...", vbExclamation, "Validación de Registro"
@@ -3045,21 +3047,21 @@ Private Sub BtnBuscar_Click()
 End Sub
 
 Private Sub BtnCancelar_Click()
-  On Error Resume Next
-   sino = MsgBox("Está Seguro de CANCELAR la operación ? ", vbYesNo + vbQuestion, "Atención")
-   If sino = vbYes Then
-        rs_datos.CancelUpdate
-        Call ABRIR_TABLA
-        'rs_datos.MoveFirst
-        'mbDataChanged = False
-        Fra_datos.Enabled = False
-        fra_opciones.Visible = True
-        FraGrabarCancelar.Visible = False
-        dg_datos.Enabled = True
-        VAR_SW = ""
-        'fra_opciones_det.Visible = True
-        FraDet1.Visible = True
-    End If
+'  On Error Resume Next
+'   sino = MsgBox("Está Seguro de CANCELAR la operación ? ", vbYesNo + vbQuestion, "Atención")
+'   If sino = vbYes Then
+'        rs_datos.CancelUpdate
+'        Call ABRIR_TABLA
+'        'rs_datos.MoveFirst
+'        'mbDataChanged = False
+'        Fra_datos.Enabled = False
+'        fra_opciones.Visible = True
+'        FraGrabarCancelar.Visible = False
+'        dg_datos.Enabled = True
+'        VAR_SW = ""
+'        'fra_opciones_det.Visible = True
+'        FraDet1.Visible = True
+'    End If
 End Sub
 
 Private Sub BtnCancelarDet_Click()
@@ -3231,7 +3233,7 @@ Private Sub BtnGrabarDet_Click()
      'rs_datos.MoveFirst
 '     mbDataChanged = False
 
-    Call ABRIR_TABLA_DET
+'    Call ABRIR_TABLA_DET
     swnuevo = 0
     fra_opciones.Enabled = True
     FraNavega.Enabled = True
@@ -3300,8 +3302,12 @@ End If
 End Sub
 
 Private Sub BtnModDetalle_Click()
+  If Ado_detalle1.Recordset.RecordCount = 0 Then
+    MsgBox "No existen registros para Modificar, Verifique y vuelva a intentar!! ", vbExclamation
+    Exit Sub
+  End If
   marca1 = Ado_datos.Recordset.Bookmark
-  If Ado_detalle1.Recordset.RecordCount > 0 And Ado_datos.Recordset!estado_codigo = "REG" Then
+  If Ado_detalle1.Recordset.RecordCount > 0 And Ado_detalle1.Recordset!estado_codigo = "REG" Then
     swnuevo = 2
     fra_opciones.Enabled = False
     FraNavega.Enabled = False
@@ -3321,6 +3327,13 @@ Private Sub BtnModDetalle_Click()
     dtc_desc5.Locked = True
     dtc_aux5.Visible = True
     dtc_desc5.Visible = False
+    If Ado_detalle1.Recordset!estado_activo = "REG" Then
+        DTPicker1.Enabled = True
+        DTPicker2.Enabled = True
+    Else
+        DTPicker1.Enabled = False
+        DTPicker2.Enabled = False
+    End If
   Else
     MsgBox "No se puede Modificar el registro, porque este ya está Aprobado!! ", vbExclamation
   End If
@@ -3362,8 +3375,8 @@ Private Sub BtnModificar2_Click()
         Wend
         db.Execute "UPDATE tc_zona_piloto_edif_inst SET zona_edif_orden = zorden_cambio WHERE zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' "
         db.Execute "UPDATE tc_zona_piloto_edif_inst SET zorden_cambio ='0' WHERE zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' "
-        Call ABRIR_TABLA_DET
-        MsgBox "Se recodificó la columna ORDEN, satisfactoriamente ...", vbInformation, "Información"
+'        Call ABRIR_TABLA_DET
+        'MsgBox "Se recodificó la columna ORDEN, satisfactoriamente ...", vbInformation, "Información"
     Else
         MsgBox "No Existen Registros para Ordenar ...", vbExclamation, "Información"
     End If
@@ -3484,53 +3497,26 @@ Private Sub Form_Load()
         VAR_DPTO = "2"
     End If
     VAR_UORIGEN = Aux
-    If Aux = "DNMAN" Then
-        Select Case VAR_DPTO
-            Case "1"    ' Chuquisaca
-                VAR_UORIGEN = "DMANC"
-            Case "2"    'La Paz - Tecnico
-                VAR_UORIGEN = "DNMAN"
-            Case "3"    'Cochabamba
-                VAR_UORIGEN = "DMANB"
-                'VAR_DPTOC = "3"
-            Case "4"    'Oruro - Tecnico
-                VAR_UORIGEN = "DNMAN"
-                'VAR_DPTOC = "2"
-            Case "5"    ' Potosi
-                VAR_UORIGEN = "DMANC"
-            Case "6"    ' Tarija
-                VAR_UORIGEN = "DMANC"
-            Case "7"    'Santa Cruz
-                VAR_UORIGEN = "DMANS"
-                'VAR_DPTOC = "7"
-            Case "8"    ' Beni
-                VAR_UORIGEN = "DMANS"
-            Case "9"    ' Pando
-                VAR_UORIGEN = "DMANS"
-            Case Else    ' TODO
-                VAR_UORIGEN = "DNMAN"
-                VAR_DPTO = "0"
-         End Select
-    End If
-    If Aux = "DNINS" Then
-        Select Case VAR_DA
-            Case "1.8"    'Cochabamba
-                Aux = "DINSB"
-                VAR_DPTO = "3"
-            Case "1.7"    'Santa Cruz
-                Aux = "DINSS"
-                VAR_DPTO = "7"
-            Case "1.3", "1.2"    'La Paz - Tecnico
-                Aux = "DNINS"
-                VAR_DPTO = "2"
-            Case "1.9"    ' Chuquisaca
-                Aux = "DINSC"
-                VAR_DPTO = "1"
-            Case Else    ' TODO
-                Aux = "DNINS"
-                VAR_DPTO = "2"
-         End Select
-    End If
+    'HABILITAR CUANDO SE AUTORICE UTILIZAR EN LAS REGIONALES
+'    If Aux = "DNINS" Then
+'        Select Case VAR_DA
+'            Case "1.8"    'Cochabamba
+'                Aux = "DINSB"
+'                VAR_DPTO = "3"
+'            Case "1.7"    'Santa Cruz
+'                Aux = "DINSS"
+'                VAR_DPTO = "7"
+'            Case "1.3", "1.2"    'La Paz - Tecnico
+'                Aux = "DNINS"
+'                VAR_DPTO = "2"
+'            Case "1.9"    ' Chuquisaca
+'                Aux = "DINSC"
+'                VAR_DPTO = "1"
+'            Case Else    ' TODO
+'                Aux = "DNINS"
+'                VAR_DPTO = "2"
+'         End Select
+'    End If
     parametro = Aux
     'Actualiza Edificios tomadoInsts en Organizacion de Zonas
     'db.Execute "update gc_edificaciones set tomadoInst = 'N' "
@@ -3705,79 +3691,27 @@ Private Sub OptFilGral1_Click()
     Set dg_datos.DataSource = Ado_datos.Recordset
 End Sub
 
-'Private Sub OptFilGral1_Click()
-'    '===== Proceso para filtrado general de datos (registros no aprobados)
-'    Set rs_datos = New Recordset
-'    If rs_datos.State = 1 Then rs_datos.Close
-'    'queryinicial = "select * From to_cronograma_mensual WHERE estado_codigo = 'REG' AND unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & VAR_GES & "' "
-'    queryinicial = "select * From to_cronograma_mensual WHERE estado_codigo = 'REG' AND unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '2015' "
-'    'queryinicial = "Select * from ao_solicitud where " + parametro
-'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-'    Set Ado_datos.Recordset = rs_datos.DataSource
-'    Set dg_datos.DataSource = Ado_datos.Recordset
-'End Sub
-
 Private Sub OptFilGral2_Click()
     '===== Proceso para filtrado general de datos (todos los registros)
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    If VAR_UORIGEN = "DNINS" Then
         queryinicial = "Select * from tc_zonas_piloto_inst WHERE zpiloto_codigo <> '0' "
-    Else
 '        Select Case VAR_DPTO
 '           Case "1"    ' Chuquisaca
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '5') "
 '           Case "2"    'La Paz - Tecnico
-'               If glusuario = "ADMIN" Or glusuario = "OCOLODRO" Or glusuario = "JSAAVEDRA" Or glusuario = "CSALINAS" Or glusuario = "JAVIER" Then
-'                    queryinicial = "Select * from tc_zonas_piloto  "
-'               Else
-'                    queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
-'               End If
 '           Case "3"    'Cochabamba
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
 '           Case "7"    'Santa Cruz
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '1' OR depto_codigo = '8') "
 '           Case "4"    'Oruro - Tecnico
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
 '           Case "5"    ' Potosi
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
 '           Case "6"    ' Tarija
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
 '           Case "8"    ' Beni
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
 '           Case "9"    ' Pando
-'               queryinicial = "Select * from tc_zonas_piloto WHERE (depto_codigo = '" & VAR_DPTO & "') "
 '           Case Else    ' TODO
-'               queryinicial = "select * From tc_zonas_piloto  "     'tv_cronograma_edificaciones
 '        End Select
-    End If
+'    End If
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
-End Sub
-
-Private Sub ABRIR_TABLA()
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    queryinicial = "Select * from ao_solicitud_cotiza_venta where " + parametro
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
-        
-'    dtc_desc31.BoundText = dtc_codigo31.BoundText
-'    dtc_desc32.BoundText = dtc_codigo31.BoundText
-'    dtc_desc33.BoundText = dtc_codigo31.BoundText
-'    dtc_desc34.BoundText = dtc_codigo31.BoundText
-'
-'    dtc_desc41.BoundText = dtc_codigo41.BoundText
-'    dtc_desc42.BoundText = dtc_codigo41.BoundText
-'    dtc_desc43.BoundText = dtc_codigo41.BoundText
-'    dtc_desc44.BoundText = dtc_codigo41.BoundText
-'
-'    dtc_desc51.BoundText = dtc_codigo51.BoundText
-'    dtc_desc52.BoundText = dtc_codigo51.BoundText
-'    dtc_desc53.BoundText = dtc_codigo51.BoundText
-'    dtc_desc54.BoundText = dtc_codigo51.BoundText
 End Sub
 
 'Private Sub Img_03_Click()
@@ -3900,11 +3834,6 @@ End Sub
 '  End If
 'End Sub
 
-'Private Sub SSTab1_DblClick()
-'    If SSTab1.Tab = 0 Then
-'    End If
-'End Sub
-
 Private Sub Form_Unload(Cancel As Integer)
   If glPersNew = "P" Then
   End If
@@ -3917,33 +3846,46 @@ Private Sub CmdSalir_Click()
    Unload Me
 End Sub
 
-Private Sub ABRIR_TABLA_DET()
+Private Function ExisteReg(Codigo As String) As Boolean
+    Dim rs As ADODB.Recordset
+    Set rs = New ADODB.Recordset
+    'estado_codigo = 'APR' and
+    GlSqlAux = "SELECT Count(*) AS Cuantos FROM to_cronograma_diario_final_INST WHERE edif_codigo = '" & Codigo & "'"
+    rs.Open GlSqlAux, db, adOpenStatic
+    ExisteReg = rs!Cuantos > 0
+End Function
+
+Private Sub Option1_Click()
     Set rs_det1 = New ADODB.Recordset
     If rs_det1.State = 1 Then rs_det1.Close
-    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' and estado_codigo = 'REG' order by fecha_ini_max ", db, adOpenKeyset, adLockOptimistic, adCmdText
     Set Ado_detalle1.Recordset = rs_det1
     Set dg_det1.DataSource = Ado_detalle1.Recordset
     If Ado_detalle1.Recordset.RecordCount > 0 Then
         dg_det1.Visible = True
-        If swnuevo = 0 Then
-            'gc_edificaciones
-            Set rs_datos5 = New ADODB.Recordset
-            If rs_datos5.State = 1 Then rs_datos5.Close
-            rs_datos5.Open "Select * from gc_edificaciones where estado_codigo = 'APR' order by edif_descripcion", db, adOpenStatic
-            Set Ado_datos5.Recordset = rs_datos5
-            dtc_desc5.BoundText = dtc_codigo5.BoundText
-        End If
+        'If swnuevo = 0 Then
+        '    'gc_edificaciones
+        '    Set rs_datos5 = New ADODB.Recordset
+        '    If rs_datos5.State = 1 Then rs_datos5.Close
+        '    rs_datos5.Open "Select * from gc_edificaciones where estado_codigo = 'APR' order by edif_descripcion", db, adOpenStatic
+        '    Set Ado_datos5.Recordset = rs_datos5
+        '    dtc_desc5.BoundText = dtc_codigo5.BoundText
+        'End If
     Else
         dg_det1.Visible = False
     End If
 End Sub
 
-Private Function ExisteReg(Codigo As String) As Boolean
-    Dim rs As ADODB.Recordset
-    Set rs = New ADODB.Recordset
-    'estado_codigo = 'APR' and
-    GlSqlAux = "SELECT Count(*) AS Cuantos FROM to_cronograma WHERE zpiloto_codigo = '" & Codigo & "'"
-    rs.Open GlSqlAux, db, adOpenStatic
-    ExisteReg = rs!Cuantos > 0
-End Function
-
+Private Sub Option2_Click()
+        Set rs_det1 = New ADODB.Recordset
+    If rs_det1.State = 1 Then rs_det1.Close
+    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' and estado_codigo = 'APR' order by fecha_ini_max ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    'rs_det1.Open VAR_SQL, db, adOpenKeyset, adLockOptimistic, adCmdText
+    Set Ado_detalle1.Recordset = rs_det1
+    Set dg_det1.DataSource = Ado_detalle1.Recordset
+    If Ado_detalle1.Recordset.RecordCount > 0 Then
+        dg_det1.Visible = True
+    Else
+        dg_det1.Visible = False
+    End If
+End Sub
