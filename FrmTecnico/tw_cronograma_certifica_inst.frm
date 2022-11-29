@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_certifica_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   10620
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   128712707
+         Format          =   128581635
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2300,13 +2300,7 @@ Begin VB.Form tw_cronograma_certifica_inst
       WindowMaxButton =   -1  'True
       WindowMinButton =   -1  'True
       PrintFileLinesPerPage=   60
-      WindowShowNavigationCtls=   -1  'True
-      WindowShowCancelBtn=   -1  'True
-      WindowShowPrintBtn=   -1  'True
-      WindowShowExportBtn=   -1  'True
-      WindowShowZoomCtl=   -1  'True
       WindowShowCloseBtn=   -1  'True
-      WindowShowProgressCtls=   -1  'True
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
@@ -2325,13 +2319,7 @@ Begin VB.Form tw_cronograma_certifica_inst
       WindowMaxButton =   -1  'True
       WindowMinButton =   -1  'True
       PrintFileLinesPerPage=   60
-      WindowShowNavigationCtls=   -1  'True
-      WindowShowCancelBtn=   -1  'True
-      WindowShowPrintBtn=   -1  'True
-      WindowShowExportBtn=   -1  'True
-      WindowShowZoomCtl=   -1  'True
       WindowShowCloseBtn=   -1  'True
-      WindowShowProgressCtls=   -1  'True
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
@@ -2623,7 +2611,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   128712707
+         Format          =   128581635
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3461,25 +3449,25 @@ Private Sub BtnImprimir2_Click()
     If Ado_detalle2.Recordset.RecordCount > 0 Then
         Dim iResult As Integer
         'Dim co As New ADODB.Command
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA.rpt"
-        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos.rpt"
+        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA.rpt"
+        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos.rpt"
         CR02.WindowShowPrintSetupBtn = True
         CR02.WindowShowRefreshBtn = True
         CR02.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR02.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
-        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
+        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
         iResult = CR02.PrintReport
         If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
         CR02.WindowState = crptMaximized
         
         
-        CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA2.rpt"
-        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos.rpt"
+        'CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA2.rpt"
+        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos2.rpt"
         CR03.WindowShowPrintSetupBtn = True
         CR03.WindowShowRefreshBtn = True
         CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR03.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
-        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
+        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
         iResult = CR03.PrintReport
         If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
         CR03.WindowState = crptMaximized

@@ -16,9 +16,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   4.07351e5
+   ScaleHeight     =   4.33764e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.16324e7
+   ScaleWidth      =   2.19418e7
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_reporte 
       BackColor       =   &H00E0E0E0&
@@ -245,7 +245,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   118030337
+         Format          =   120127489
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -259,7 +259,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118030337
+         Format          =   120127489
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1311,7 +1311,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118030337
+         Format          =   120127489
          CurrentDate     =   44856
          MaxDate         =   55153
          MinDate         =   2
@@ -4902,7 +4902,7 @@ Private Sub AbreGrupoRecibo()
     Set rs_datos6 = New ADODB.Recordset
     If rs_datos6.State = 1 Then rs_datos6.Close
     rs_datos6.Open "select * from fv_tes_orden_pago_pendientes_agrupados WHERE (unidad_codigo_resp = '" & ado_datos14.Recordset!unidad_codigo_adm & "')   ", db, adOpenKeyset, adLockOptimistic
-    Set Ado_datos6.Recordset = rs_datos6
+    Set ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 End Sub
 

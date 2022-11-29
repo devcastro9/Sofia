@@ -1309,7 +1309,7 @@ Begin VB.Form fw_recibos_oficiales
             _ExtentX        =   2778
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   118292481
+            Format          =   120127489
             CurrentDate     =   44419
          End
          Begin VB.TextBox Text8 
@@ -3997,7 +3997,7 @@ Private Sub AbreOrigen()
         rs_datos7.Open "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic
     'End If
     'rs_datos7.Sort = "cobranza_fecha desc"
-    Set Ado_datos7.Recordset = rs_datos7.DataSource
+    Set ado_datos7.Recordset = rs_datos7.DataSource
     'ado_datos7.Recordset.Requery
     'dtc_desc7.BoundText = dtc_codigo7.BoundText
     dtc_fecha7.BoundText = dtc_codigo7.BoundText
@@ -4029,7 +4029,7 @@ End Sub
 
 Private Sub BtnAddDetalle_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then      '
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then       '
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -4076,7 +4076,7 @@ Private Sub BtnAñadir_Click()
 accion = "NEW"
     
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -4114,7 +4114,7 @@ End Sub
 Private Sub BtnAprobar_Click()
  On Error GoTo UpdateErr
   If Ado_datos.Recordset!estado_codigo = "REG" Then
-    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
       VAR_RECIBO = Ado_datos.Recordset!IdRecibo
       'Actualiza Totales
       'db.Execute "update fo_recibos_oficiales set fo_recibos_oficiales.total_bs = fv_recibos_detalle_acumulado.totalCobro_Bs,  -.total_dol = fv_recibos_detalle_acumulado.totalCobro_dol from fo_recibos_oficiales inner join fv_recibos_detalle_acumulado on fo_recibos_oficiales.IdRecibo = fv_recibos_detalle_acumulado.IdRecibo WHERE fo_recibos_oficiales.IdRecibo =  " & VAR_RECIBO & "  "
@@ -4555,7 +4555,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
         accion = "MOD"
@@ -7204,7 +7204,7 @@ Private Sub OptFilGral1_Click()
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG') "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  beneficiario_codigo ='" & VAR_BENI & "') "
-        Case "TCASTILLO", "RGIL"
+        Case "TCASTILLO", "RGIL", "LMORALES"
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo='2375079')) "
         Case "EVILLALOBOS"
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  beneficiario_codigo ='" & VAR_BENI & "') "
@@ -7242,7 +7242,7 @@ Private Sub OptFilGral2_Click()
             queryinicial = "select * From fo_recibos_oficiales  "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_recibos_oficiales WHERE (beneficiario_codigo ='" & VAR_BENI & "') "
-        Case "TCASTILLO", "RGIL"
+        Case "TCASTILLO", "RGIL", "LMORALES"
             queryinicial = "select * From fo_recibos_oficiales WHERE (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo='2375079') "
         Case "EVILLALOBOS"
             queryinicial = "select * From fo_recibos_oficiales WHERE (beneficiario_codigo ='" & VAR_BENI & "') "
