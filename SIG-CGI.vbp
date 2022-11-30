@@ -269,6 +269,7 @@ Form=FrmTecnico\tw_ventas_cuotas_vs_fac.frm
 Module=ModSeguridad; Modulos\ModSeguridad.bas
 Form=FrmTecnico\tw_cronograma_certifica_inst.frm
 Form=FrmTecnico\tw_cronograma_certifica.frm
+Module=ModContabAutom; Modulos\ModContabAutom.bas
 IconForm="frmLogin"
 Startup="Sub Main"
 HelpFile=""
