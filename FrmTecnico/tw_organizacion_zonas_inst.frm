@@ -386,7 +386,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   127533057
+         Format          =   120193025
          CurrentDate     =   44885
       End
       Begin VB.PictureBox fra_opciones2 
@@ -704,7 +704,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   127533057
+         Format          =   120193025
          CurrentDate     =   44885
       End
       Begin VB.Label Label6 
