@@ -17,9 +17,9 @@ Begin VB.Form mw_ventas_cabecera
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.28916e6
+   ScaleHeight     =   7.52331e6
    ScaleMode       =   0  'User
-   ScaleWidth      =   2.23075e9
+   ScaleWidth      =   2.70153e9
    WindowState     =   2  'Maximized
    Begin VB.Frame FraZona 
       BackColor       =   &H00404040&
@@ -617,13 +617,14 @@ Begin VB.Form mw_ventas_cabecera
       TabPicture(2)   =   "mw_ventas_cabecera.frx":BB2F
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":BB4B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1060,7 +1061,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119865345
+            Format          =   129171457
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1369,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   119865347
+            Format          =   129171459
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3068,7 +3069,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119865345
+               Format          =   129171457
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -10355,7 +10356,7 @@ Private Sub BtnModDetalle_Click()
     Set rs_datos12 = New ADODB.Recordset
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "select * from Gc_tipo_beneficiario where tipoben_codigo = '" & Ado_datos.Recordset!tipoben_codigo & "' ", db, adOpenKeyset, adLockReadOnly     'where venta_codigo = '" & TxtNroVenta.Text & "'
-    Set Ado_datos12.Recordset = rs_datos12
+    Set Ado_Datos12.Recordset = rs_datos12
     'Ado_datos12.Refresh
     Dtc_aux12.BoundText = dtc_codigo12.BoundText
     dtc_desc12.BoundText = dtc_codigo12.BoundText

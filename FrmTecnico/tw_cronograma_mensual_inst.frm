@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_mensual_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   14400
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumos 
@@ -157,7 +157,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   129171457
+         Format          =   127991809
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -209,7 +209,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   129171457
+         Format          =   127991809
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -506,7 +506,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   129171457
+         Format          =   127991809
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -520,7 +520,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   129171457
+         Format          =   127991809
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -3233,7 +3233,7 @@ Dim VAR_ORDEN, VAR_MES, VAR_FMES As Integer
 Dim buscados, busca3, VAR_CONT As Integer
 Dim VAR_REG, VAR_CANT1 As Integer
 Dim VAR_SW0, VAR_PLANID, VAR_SOL As Integer
-Dim VAR_DIA, VAR_NRODIAS, VAR_IDTAREA As Integer
+Dim VAR_DIA, VAR_NRODIAS, VAR_IDTAREA, VAR_PERIODOS As Integer
 Dim VAR_PASAJEROS, VAR_PARADAS As Integer
 
 Dim VAR_FECH1, VAR_FECH2 As Date
@@ -3377,7 +3377,7 @@ Private Sub BtnAddDetalle3_Click()
     End If
     GlEdificio = Ado_detalle1.Recordset!EDIF_CODIGO
     VAR_FECHAINI = Ado_detalle1.Recordset!fecha_ini_max
-    VAR_PLANID = Ado_detalle1.Recordset!correlativo
+    VAR_PLANID = Ado_detalle1.Recordset!fmes_plan                 'Ado_detalle1.Recordset!correlativo
     VAR_BENINST = Ado_detalle1.Recordset!beneficiario_codigo        'RESPONSABLE INSTALACION
     VAR_BENAJST = Ado_detalle1.Recordset!beneficiario_codigo_rep    'RESPONSABLE AJUSTE
     VAR_BENSUP = Ado_detalle1.Recordset!beneficiario_codigo_cobr      'SUPERVISOR INSTALACION
@@ -3504,9 +3504,11 @@ Private Sub BtnAddDetalle3_Click()
                             End If
                     End Select
                     VAR_NRODIAS = rs_aux6!NroEstimadoDias
+                    VAR_PERIODOS = rs_aux6!NroTiempoPeriodos
                     Select Case rs_aux6!IdTareaInst
                         Case 4
                             VAR_NRODIAS = Round((((CDbl(VAR_RECORRIDO) + 1 + 3) * 4) / 6) / 3, 0)
+                            VAR_PERIODOS = VAR_NRODIAS * 2
                         Case 10
                             VAR_NRODIAS = Round(CDbl(VAR_PARADAS) / 1.9, 0)
                         Case 15
@@ -3517,6 +3519,13 @@ Private Sub BtnAddDetalle3_Click()
                         Case Else
                             VAR_NRODIAS = VAR_NRODIAS
                     End Select
+                    VAR_PERIODOS = VAR_NRODIAS * 2
+                    If (VAR_PERIODOS Mod 2) <> 0 Then
+                        
+                    Else
+                        
+                    End If
+                    
                     VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS - 1
                     VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
                     If VAR_MOD1 = "SABADO" Or VAR_MOD1 = "SÁBADO" Or VAR_MOD1 = "DOMINGO" Then
@@ -3577,6 +3586,94 @@ Private Sub BtnAddDetalle3_Click()
         Wend
     End If
 End Sub
+
+Private Sub CRONO_MTTO()
+'    Set rs_aux0 = New ADODB.Recordset
+'    If rs_aux0.State = 1 Then rs_aux0.Close
+'    rs_aux0.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & VAR_PROY2 & "'   ", db, adOpenStatic
+'    If rs_aux0.RecordCount > 0 Then
+'        VAR_EDIF = Ado_datos.Recordset!edif_descripcion                      'RTrim(dtc_desc3.Text)          'edif_descripcion
+'    End If
+'    VAR_LUN = "SI"                                                  'Ado_datos.Recordset!lunes_cambia
+'    VAR_PRIM = "SI"                                                 'Ado_datos.Recordset!primero_mes
+'
+'    'VAR_EMES = "Error: No se encontró el Mes de Inicio del Cronograma, verifique y vuelva a intentar..."
+'    ' jalar ORDEN de tc_zona_piloto_edif
+'    Set rs_datos6 = New ADODB.Recordset
+'    If rs_datos6.State = 1 Then rs_datos6.Close
+'    rs_datos6.Open "Select * from tc_zona_piloto_edif WHERE edif_codigo = '" & VAR_PROY2 & "'    ", db, adOpenStatic
+'    If rs_datos6.RecordCount > 0 Then
+'        DIA_ORDEN = rs_datos6!zona_edif_orden
+'    Else
+'        Set rs_aux18 = New ADODB.Recordset
+'        If rs_aux18.State = 1 Then rs_aux18.Close
+'        rs_aux18.Open "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = " & VAR_ZONA & " ", db, adOpenKeyset, adLockOptimistic
+'        If rs_aux18.RecordCount > 0 Then
+'            VAR_ORDEN = IIf(IsNull(rs_aux18!Orden), 1, rs_aux18!Orden + 1)
+'        Else
+'            VAR_ORDEN = 1
+'        End If
+'
+'       db.Execute "INSERT INTO tc_zona_piloto_edif (zpiloto_codigo, edif_codigo, ges_gestion, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, mes_par_impar, observaciones, " & _
+'                  " estado_codigo , estado_activo, fecha_registro, usr_codigo, unimed_codigo, codigo_empresa, solicitud_tipo) " & _
+'                  " VALUES (" & VAR_ZONA & ", '" & VAR_PROY2 & "', '" & gestion0 & "',      " & VAR_ORDEN & ",       '0',            '0',                    '0',                    '0',                    '0',            '1',        '',  " & _
+'                  " 'REG',              'APR', '" & Date & "', '" & glusuario & "', '" & VAR_MED & "', " & VAR_EMPRESA & ", " & VAR_TIPO & ")"
+'        DIA_ORDEN = "1"
+'    End If
+'    'DIA_ORDEN = Ado_datos.Recordset!zona_edif_orden
+'    MControl = Ado_datos.Recordset!mes_inicio_crono_tec                     'mes_inicio_crono
+'
+'    Set rs_aux1 = New ADODB.Recordset
+'    'rs_aux1.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
+'    rs_aux1.Open "select * from ao_ventas_cobranza_prog where venta_codigo = " & NumComp & "   ", db, adOpenKeyset, adLockBatchOptimistic
+'    If rs_aux1.RecordCount > 0 Then
+'        var_cod5 = rs_aux1.RecordCount
+'        rs_aux1.MoveFirst
+'        While Not rs_aux1.EOF
+'            VAR_AUX2 = rs_aux1!fmes_plan
+'            Set rs_aux2 = New ADODB.Recordset
+'            If rs_aux2.State = 1 Then rs_aux2.Close
+'            'rs_aux2.Open "select * from to_cronograma_mensual where ges_gestion = '" & gestion0 & "' and fmes_correl = " & VAR_MES & " and zpiloto_codigo = " & VAR_ZONA & "    ", db, adOpenKeyset, adLockOptimistic
+'            rs_aux2.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & " and par_codigo = '43340'   ", db, adOpenKeyset, adLockBatchOptimistic
+'            If rs_aux2.RecordCount > 0 Then
+'                rs_aux2.MoveFirst
+'                While Not rs_aux2.EOF
+'                    'VERIFICA SI EXITE EQUIPO EN ESTE MES
+'                    Set rs_aux21 = New ADODB.Recordset
+'                    If rs_aux21.State = 1 Then rs_aux21.Close
+'                    rs_aux21.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & " AND bien_codigo = '" & rs_aux2!bien_codigo & "'  ", db, adOpenKeyset, adLockBatchOptimistic
+'                    If rs_aux21.RecordCount > 0 Then
+'                        db.Execute "update to_cronograma_diario set unidad_codigo_tec = '" & VAR_COD4 & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "  "
+'                        db.Execute "update to_cronograma_diario set bien_orden = " & DIA_ORDEN & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "   "
+'                        db.Execute "update to_cronograma_diario set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux21!dia_correl & " AND horario_codigo = " & rs_aux21!horario_codigo & "  "
+'                    Else
+'                        Set rs_aux3 = New ADODB.Recordset
+'                        If rs_aux3.State = 1 Then rs_aux3.Close
+'                        rs_aux3.Open "select * from to_cronograma_diario where fmes_plan = " & VAR_AUX2 & " AND bien_codigo = ''  ", db, adOpenKeyset, adLockBatchOptimistic
+'                        If rs_aux3.RecordCount > 0 Then
+'                            rs_aux3.MoveFirst
+'                            'If VAR_COD0 < var_cod5 Then     'And rs_aux3!estado_activo = "REG"
+'                                'db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & VAR_UNITEC & "',  tec_plan_codigo = " & VAR_TECCOD & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "'   WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                                db.Execute "update to_cronograma_diario set bien_codigo = '" & rs_aux2!bien_codigo & "', unidad_codigo_tec = '" & VAR_COD4 & "',  tec_plan_codigo = " & VAR_SOL & ", observaciones = 'HORARIO LABORABLE', edif_descripcion = '" & VAR_EDIF & "', edif_codigo = '" & VAR_PROY2 & "' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                                db.Execute "update to_cronograma_diario set bien_orden = " & DIA_ORDEN & " WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  and bien_orden='0' "
+'                                db.Execute "update to_cronograma_diario set estado_activo = 'APR' WHERE fmes_plan = " & VAR_AUX2 & " AND dia_correl = " & rs_aux3!dia_correl & " AND horario_codigo = " & rs_aux3!horario_codigo & "  "
+'                                'VAR_COD0 = VAR_COD0 + 1
+'                                'CONT3 = 1
+'                                db.Execute "Update ao_ventas_cabecera Set estado_crono = 'APR' Where venta_codigo = " & NumComp & "  "
+'                                'VAR_EMES = "NADA"
+'                            'End If
+'                        Else
+'                            'POR SI NO TIENE fmes_plan
+'                        End If
+'                    End If
+'                    rs_aux2.MoveNext
+'                Wend
+'            rs_aux1.MoveNext
+'            End If
+'        Wend
+'    End If
+End Sub
+
 
 Private Sub BtnAnlDetalle_Click()
   
