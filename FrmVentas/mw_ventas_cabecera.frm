@@ -622,9 +622,9 @@ Begin VB.Form mw_ventas_cabecera
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":BB4B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1061,7 +1061,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   129171457
+            Format          =   127598593
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1369,7 +1369,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   129171459
+            Format          =   127598595
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3069,7 +3069,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   129171457
+               Format          =   127598593
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6836,7 +6836,7 @@ Private Sub BtnAprobar_Click()
                             'Exit Sub
                         End If
                         'GENERA CRONOGRAMA INSTALACION
-                        Call CRONO_INSTALACION
+                        'Call CRONO_INSTALACION
                     End If
                     'If VAR_COD1 = "DNMAN" Then          'INI GRABA CRONOGRAMA MANTENIMIENTO
                         
@@ -7494,7 +7494,7 @@ Private Sub BtnGrabar_Click()
     MsgBox "Debe Elejir un Cliente para la Venta!! , Vuelva a Intentar ...", vbExclamation, "Atención"
     Exit Sub
   End If
-  If Txt_campo2.Text = "" And Txt_campo2.Text = " " Then
+  If txt_campo2.Text = "" And txt_campo2.Text = " " Then
      MsgBox "Debe registrar el CITE de TRAMITE !!,  Vuelva a intentar ...", vbExclamation, "Atención"
   End If
     FrmCabecera.Enabled = False
@@ -7889,7 +7889,7 @@ Private Sub BtnAddDetalle2_Click()
   'If Ado_datos.Recordset!venta_saldo_p_cobrar_bs > 0 Then
   '      MsgBox "Ya se registró el total de la deuda, Verifique por favor !! ", vbExclamation, "Atención!"
   '  End If
-    If (glusuario = "CPAREDES" Or glusuario = "ADMIN" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "GMORA" Or glusuario = "CSALINAS") Or Ado_datos.Recordset!venta_saldo_p_cobrar_bs > 0 Then            'Or glusuario = "ADMIN"
+    If (glusuario = "CPAREDES" Or glusuario = "ADMIN" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "CSALINAS") Or Ado_datos.Recordset!venta_saldo_p_cobrar_bs > 0 Then             'Or glusuario = "ADMIN"
     'If Ado_datos.Recordset!venta_monto_total_bs - Ado_datos.Recordset!venta_monto_cobrado_bs > 0 Then
         swnuevo = 1
         SSTab1.Tab = 2
@@ -9737,7 +9737,7 @@ Private Sub CmdGrabaCobro_Click()
     Else
         If swnuevo = 1 Then
             If (rs_aux3!totbs2) + CDbl(TxtMonto) > Ado_datos.Recordset!venta_monto_total_bs Then
-                If (glusuario = "NROMERO" Or glusuario = "GSOLIZ" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "GMORA" Or glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS") Then
+                If (glusuario = "NROMERO" Or glusuario = "GSOLIZ" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS") Then
                     MsgBox "ADVERTENCIA, el Monto acumulado de cobranzas <" + lbl_monto.Caption + "> sobrepasaran <" + lbl_totalBs.Caption + "> . Solo en Caso de Liquidaciones ...", vbExclamation, "Atención"
                 Else
                     MsgBox "No puede programar un <" + lbl_monto.Caption + "> que sobrepase el <" + lbl_totalBs.Caption + "> . !! Vuelva a Intentar ...", vbExclamation, "Atención"
@@ -9747,7 +9747,7 @@ Private Sub CmdGrabaCobro_Click()
             End If
         Else
             If (rs_aux3!totbs2) - VAR_MBS2 + CDbl(TxtMonto) > Ado_datos.Recordset!venta_monto_total_bs Then
-                If (glusuario = "MARTEAGA" Or glusuario = "GSOLIZ" Or glusuario = "RGIL" Or glusuario = "GMORA" Or glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS") Then
+                If (glusuario = "MARTEAGA" Or glusuario = "GSOLIZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS") Then
                     MsgBox "ADVERTENCIA, el Monto acumulado de cobranzas <" + lbl_monto.Caption + "> sobrepasaran <" + lbl_totalBs.Caption + "> . Solo en Caso de Liquidaciones ...", vbExclamation, "Atención"
                 Else
                     MsgBox "No puede programar un <" + lbl_monto.Caption + "> que sobrepase el Monto <" + lbl_totalBs.Caption + "> . !! Verifique por favor ...", vbExclamation, "Atención"
@@ -10158,7 +10158,7 @@ Private Sub CmdGrabaDet_Click()
                   VAR_OA2 = VAR_OA
               Case "2"
                   VAR_EQP = "B"
-                  VAR_OA2 = LTrim(Txt_campo2.Text + "-" + LTrim(Right(VAR_OA, 2)))
+                  VAR_OA2 = LTrim(txt_campo2.Text + "-" + LTrim(Right(VAR_OA, 2)))
 '              Case "3"
 '                  VAR_EQP = "C"
 '                  VAR_OA2 = LTrim(Left(Txt_campo2.Text, 8) + "-" + LTrim(Right(VAR_OA, 2)))
@@ -10187,10 +10187,10 @@ Private Sub CmdGrabaDet_Click()
                   rs_aux17.Open "select * from gc_alfabeto where opcion = " & ado_datos14.Recordset!venta_codigo_det & " ", db, adOpenKeyset, adLockReadOnly
                   If rs_aux17.RecordCount > 0 Then
                      VAR_EQP = rs_aux17!letra
-                     VAR_OA2 = LTrim(Left(Txt_campo2.Text, 8) + "-" + LTrim(Right(VAR_OA, 2)))
+                     VAR_OA2 = LTrim(Left(txt_campo2.Text, 8) + "-" + LTrim(Right(VAR_OA, 2)))
                   Else
                      VAR_EQP = "XX"
-                     VAR_OA2 = LTrim(Left(Txt_campo2.Text, 8) + "-" + LTrim(Right(VAR_OA, 2)))
+                     VAR_OA2 = LTrim(Left(txt_campo2.Text, 8) + "-" + LTrim(Right(VAR_OA, 2)))
                   End If
             End Select
             
@@ -10202,7 +10202,7 @@ Private Sub CmdGrabaDet_Click()
             'db.Execute "insert into ac_bienes(grupo_codigo, subgrupo_codigo, bien_codigo, par_codigo, bien_descripcion, bien_precio_compra, bien_precio_venta_base, bien_precio_venta_final, unimed_codigo, unimed_codigo_empaque, bien_cantidad_por_empaque, marca_codigo, bien_stock_minimo, bien_stock_inicial, bien_stock_ingreso, bien_stock_salida, bien_stock_actual, bien_total_compra_bs, bien_total_venta_bs, bien_utilidad_Bs, bien_codigo_anterior, bien_codigo_universal, bien_descripcion_anterior, pais_codigo, archivo_foto2, archivo_foto, estado_codigo, fecha_registro, usr_codigo) " & _
             '"VALUES ('40000', '43000', '" & VAR_OA & "', '43340', '" & txt_descripcion_venta & "', " & CDbl(TxtPrecioU.Text) & ", '0', '0', 'EQP', 'EQP', '1', 'S/M', '1', '0', '0', '0', '0', '0', '0', '0', '" & VAR_EQP & "', '" & VAR_TIPOEQP & "', '-', '" & VAR_PAIS & "', '" & VAR_OA & "' + '.JPG', '" & VAR_OA & "' + '.JPG', 'REG', '" & Date & "', '" & glusuario & "') "
             
-            Txt_campo2.Text = VAR_OA2
+            txt_campo2.Text = VAR_OA2
             db.Execute "update ao_ventas_cabecera set unidad_codigo_ant = '" & VAR_OA2 & "' where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " "
             
             '"VALUES ('" & Trim(dtc_grupo15.Text) & "', '" & Trim(dtc_subgrupo15.Text) & "', '" & VAR_OA & "', '" & Dtc_partida15 & "', '" & txt_descripcion_venta & "', " & CDbl(TxtPrecioU.Text) & ", '0', '0', 'EQP', 'EQP', '1', 'S/M', '1', '0', '0', '0', '0', '0', '0', '0', '-', '-', '-', 'NN', '-' + '2.JPG', '-' + '.JPG', 'REG', '" & Date & "', '" & glusuario & "') "
@@ -10436,7 +10436,7 @@ End Sub
 
 Private Sub dtc_desc2A_LostFocus()
     'txt_plazo.Text = "SERVICIO DE PROVISION E INSTALACION DE ASCENSORES Y ESCALERAS MECANICAS, SEGUN CONTRATO " + Txt_campo2.Text
-    txt_plazo.Text = "SERVICIO DE PROVISION E INSTALACION DE ASCENSORES, SEGUN CONTRATO " + Txt_campo2.Text
+    txt_plazo.Text = "SERVICIO DE PROVISION E INSTALACION DE ASCENSORES, SEGUN CONTRATO " + txt_campo2.Text
 End Sub
 
 Private Sub dtc_desc3_Click(Area As Integer)
@@ -10866,7 +10866,7 @@ Private Sub dtc_desc11_LostFocus()
             TxtBstotal.Text = CDbl(TxtMontoBs.Text)
             TxtBstotalUsd.Text = CDbl(TxtMontoUsd.Text)
         End If
-        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + Txt_campo2.Text
+        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + txt_campo2.Text
     End If
     If dtc_codigo11.Text = "V" Then     'Facturación Local
         'cotiza_precio_total_dol_cge
@@ -10882,11 +10882,11 @@ Private Sub dtc_desc11_LostFocus()
             TxtBstotal.Text = CDbl(TxtMontoBs.Text)
             TxtBstotalUsd.Text = CDbl(TxtMontoUsd.Text)
         End If
-        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + Txt_campo2.Text
+        TxtConcepto.Text = lbl_titulo + " - " + dtc_desc11 + " - " + txt_campo2.Text
         'TxtPlazo.Visible = True
     End If
     If dtc_codigo11.Text = "C" Or dtc_codigo11.Text = "E" Then
-            TxtConcepto.Text = "VENTA AL CONTADO - " + Txt_campo2.Text
+            TxtConcepto.Text = "VENTA AL CONTADO - " + txt_campo2.Text
             TxtPlazo.Text = 0
             TxtPlazo.Visible = False
 '        Else
@@ -11206,7 +11206,7 @@ Private Sub DTPfechasol_LostFocus()
     If rs_TipoCambio.State = 1 Then rs_TipoCambio.Close
     rs_TipoCambio.Open "select * from gc_tipo_cambio WHERE Fecha_Cambio='" & DTPfechasol & "'  ", db, adOpenKeyset, adLockReadOnly
     If rs_TipoCambio.RecordCount > 0 Then
-        txtTDC.Text = rs_TipoCambio!cambio_oficial_compra
+        TxtTDC.Text = rs_TipoCambio!cambio_oficial_compra
     End If
 '    Ado_datos4.Refresh
 End Sub
@@ -11486,7 +11486,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If Txt_campo2 = "" Then
+  If txt_campo2 = "" Then
     MsgBox "Debe Registrar el Cite de Trámite, Vuelva a Intentar ...", vbExclamation, "Atención"
     VAR_VAL = "ERR"
     Exit Sub
@@ -11499,8 +11499,8 @@ Private Sub valida_campos()
   If TxtOrigenUsd.Text = "" Then
     TxtOrigenUsd.Text = "1"
   End If
-  If txtTDC.Text = "" Then
-    txtTDC.Text = "6.96"
+  If TxtTDC.Text = "" Then
+    TxtTDC.Text = "6.96"
   End If
   If DTPfechasol.Value = "" Or DTPfechasol.Value = "01/01/1900" Then
     MsgBox "Debe Registrar la Fecha de Venta ... ", vbExclamation, "Atención"
@@ -11529,9 +11529,9 @@ Private Sub grabar()
 '    TxtBstotal.Text =              'OK
     
        nroventa = Ado_datos.Recordset!venta_codigo
-       db.Execute " update ao_ventas_cabecera set venta_tipo = '" & dtc_codigo11.Text & "', venta_fecha= '" & DTPfechasol.Value & "' , venta_fecha_inicio= '" & DTPfechasol.Value & "' , unidad_codigo_ant = '" & Txt_campo2.Text & "' , beneficiario_codigo_resp= '" & dtc_codigo4.Text & "', beneficiario_codigo_cobr= '" & dtc_codigo4.Text & "', beneficiario_codigo= '" & dtc_codigo2.Text & "', venta_descripcion='" & TxtConcepto.Text & "' ,  estado_codigo = 'REG', usr_codigo = '" & glusuario & "', fecha_registro = '" & Format(Date, "dd/mm/yyyy") & "'  where venta_codigo =  " & nroventa & " "
+       db.Execute " update ao_ventas_cabecera set venta_tipo = '" & dtc_codigo11.Text & "', venta_fecha= '" & DTPfechasol.Value & "' , venta_fecha_inicio= '" & DTPfechasol.Value & "' , unidad_codigo_ant = '" & txt_campo2.Text & "' , beneficiario_codigo_resp= '" & dtc_codigo4.Text & "', beneficiario_codigo_cobr= '" & dtc_codigo4.Text & "', beneficiario_codigo= '" & dtc_codigo2.Text & "', venta_descripcion='" & TxtConcepto.Text & "' ,  estado_codigo = 'REG', usr_codigo = '" & glusuario & "', fecha_registro = '" & Format(Date, "dd/mm/yyyy") & "'  where venta_codigo =  " & nroventa & " "
        db.Execute " update ao_ventas_cabecera set venta_monto_origen_dol=" & CDbl(TxtOrigenUsd.Text) & ", venta_monto_origen_bs=" & CDbl(TxtOrigenBs.Text) & ", venta_monto_adenda_bs=" & CDbl(TxtAdendaBs.Text) & ", venta_monto_adenda_dol= " & CDbl(TxtAdendaUsd.Text) & ", venta_monto_total_dol = " & CDbl(TxtMontoUsd.Text) & " , venta_monto_total_bs= " & CDbl(TxtMontoBs.Text) & "  where venta_codigo =  " & nroventa & " "
-       db.Execute " update ao_ventas_cabecera set venta_tipo_cambio=" & CDbl(txtTDC.Text) & ", venta_monto_cobrado_dol=" & CDbl(TxtCobradoUsd.Text) & ", venta_monto_cobrado_bs=" & CDbl(TxtCobrado.Text) & ", venta_saldo_p_cobrar_dol= " & CDbl(TxtBstotalUsd.Text) & ", venta_saldo_p_cobrar_bs= " & CDbl(TxtBstotal.Text) & ", codigo_empresa = " & dtc_codigo8.Text & "   where venta_codigo =  " & nroventa & " "
+       db.Execute " update ao_ventas_cabecera set venta_tipo_cambio=" & CDbl(TxtTDC.Text) & ", venta_monto_cobrado_dol=" & CDbl(TxtCobradoUsd.Text) & ", venta_monto_cobrado_bs=" & CDbl(TxtCobrado.Text) & ", venta_saldo_p_cobrar_dol= " & CDbl(TxtBstotalUsd.Text) & ", venta_saldo_p_cobrar_bs= " & CDbl(TxtBstotal.Text) & ", codigo_empresa = " & dtc_codigo8.Text & "   where venta_codigo =  " & nroventa & " "
        If VAR_UORIGEN = "DNMOD" Then
             db.Execute " update ao_ventas_cabecera set proceso_codigo = 'TEC', subproceso_codigo= 'TEC-05' , etapa_codigo = 'TEC-05-01' , clasif_codigo= 'TEC', doc_codigo= 'R-313' , poa_codigo= '3.2.7'  where venta_codigo =  " & nroventa & " "
        Else
@@ -11724,7 +11724,7 @@ Private Sub OptFilGral2_Click()
                 queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' )))  "
             End If
         Case "1.7"    'Santa Cruz
-            If (glusuario = "RGIL" Or glusuario = "CPAREDES") Then        'SCZ
+            If (glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "CPAREDES") Then         'SCZ
                 queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = 'DCOMS' AND left(edif_codigo,1) = '7' ) OR (unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' or left(edif_codigo,1) = '9'  )))  "
             Else
                 queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' )))  "
@@ -11914,7 +11914,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  txtTDC.Text = GlTipoCambioOficial
+  TxtTDC.Text = GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
@@ -12173,14 +12173,14 @@ Private Sub TxtOrigenUsd_LostFocus()
         TxtOrigenUsd.Text = "0"
         TxtAdendaUsd.Text = "0"
         TxtAdendaBs.Text = "0"
-        txtTDC.Text = "0"
+        TxtTDC.Text = "0"
         TxtMontoUsd.Text = CDbl(TxtOrigenUsd.Text) + CDbl(TxtAdendaUsd.Text)
         TxtMontoBs.Text = CDbl(TxtOrigenBs.Text) + CDbl(TxtAdendaBs.Text)
     Else
-        If txtTDC.Text = "" Or txtTDC.Text = "0" Or txtTDC.Text = "0.00" Or txtTDC.Text = "1" Then
-            txtTDC.Text = "6.96"
+        If TxtTDC.Text = "" Or TxtTDC.Text = "0" Or TxtTDC.Text = "0.00" Or TxtTDC.Text = "1" Then
+            TxtTDC.Text = "6.96"
         End If
-        TxtOrigenBs.Text = Round(CDbl(TxtOrigenUsd.Text) * CDbl(txtTDC.Text), 2)
+        TxtOrigenBs.Text = Round(CDbl(TxtOrigenUsd.Text) * CDbl(TxtTDC.Text), 2)
         TxtAdendaUsd.Text = "0"
         TxtAdendaBs.Text = "0"
         TxtMontoUsd.Text = Round(CDbl(TxtOrigenUsd.Text) + CDbl(TxtAdendaUsd.Text), 2)
@@ -12219,14 +12219,14 @@ Private Sub txtTDC_LostFocus()
         TxtOrigenUsd.Text = "0"
         TxtAdendaUsd.Text = "0"
         TxtAdendaBs.Text = "0"
-        txtTDC.Text = "0"
+        TxtTDC.Text = "0"
         TxtMontoUsd.Text = CDbl(TxtOrigenUsd.Text) + CDbl(TxtAdendaUsd.Text)
         TxtMontoBs.Text = CDbl(TxtOrigenBs.Text) + CDbl(TxtAdendaBs.Text)
     Else
-        If txtTDC.Text = "" Or txtTDC.Text = "0" Or txtTDC.Text = "0.00" Or txtTDC.Text = "1" Then
-            txtTDC.Text = "6.96"
+        If TxtTDC.Text = "" Or TxtTDC.Text = "0" Or TxtTDC.Text = "0.00" Or TxtTDC.Text = "1" Then
+            TxtTDC.Text = "6.96"
         End If
-        TxtOrigenBs.Text = Round(CDbl(TxtOrigenUsd.Text) * CDbl(txtTDC.Text), 2)
+        TxtOrigenBs.Text = Round(CDbl(TxtOrigenUsd.Text) * CDbl(TxtTDC.Text), 2)
         TxtAdendaUsd.Text = "0"
         TxtAdendaBs.Text = "0"
         TxtMontoUsd.Text = Round(CDbl(TxtOrigenUsd.Text) + CDbl(TxtAdendaUsd.Text), 2)

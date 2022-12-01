@@ -250,7 +250,7 @@ Begin VB.Form tw_calendario_zonas
       ForeColor       =   -2147483630
       BackColor       =   -2147483637
       Appearance      =   1
-      StartOfWeek     =   208666626
+      StartOfWeek     =   274595842
       TitleBackColor  =   -2147483635
       TitleForeColor  =   -2147483637
       CurrentDate     =   42828
@@ -850,7 +850,7 @@ Begin VB.Form tw_calendario_zonas
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   208666627
+         Format          =   274595843
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526

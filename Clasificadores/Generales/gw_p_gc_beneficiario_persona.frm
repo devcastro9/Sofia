@@ -1298,7 +1298,7 @@ Begin VB.Form gw_p_gc_beneficiario_persona
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   118554625
+         Format          =   127598593
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -2870,7 +2870,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
   On Error GoTo EditErr
-  If glusuario = "SQUISPE" Or glusuario = "RGIL" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "MARTEAGA" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "CSALINAS" Or glusuario = "GSOLIZ" Or glusuario = "EVILLALOBOS" Or glusuario = "EHALKYER" Or glusuario = "LVEDIA" Then
+  If glusuario = "SQUISPE" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "MARTEAGA" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "CSALINAS" Or glusuario = "GSOLIZ" Or glusuario = "EVILLALOBOS" Or glusuario = "EHALKYER" Or glusuario = "LVEDIA" Then
     fraDatos.Enabled = True
     fraOpciones.Visible = False
     FraGrabarCancelar.Visible = True
@@ -3167,7 +3167,7 @@ Private Sub Form_Load()
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
     Fra_aux1.Visible = False
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
