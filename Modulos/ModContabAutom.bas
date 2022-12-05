@@ -171,10 +171,13 @@ Public Sub Contabiliza_Facturacion(ByVal IdFactura As Long)
     'Contabilizacion al momento de aprobacion
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Dim sql_exec As String
     sql_exec = "EXECUTE [dbo].[conta_fac_elec] " & IdFactura
     Call ExecProcedure(sql_exec)
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     'Vista relativa a contabilizacion
@@ -303,6 +306,9 @@ Public Sub Contabiliza_Facturacion(ByVal IdFactura As Long)
     If rs_data99.State = adStateOpen Then rs_data99.Close
     MsgBox "Factura contabilizada", vbInformation, "Hecho"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -375,6 +381,7 @@ Public Sub Contabiliza_Cobranzas(ByVal IdTraspasoBancos As Long)
         Do While Not rs_data99.EOF
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             VAR_CUENTA = rs_data99!Cta
             VAR_PARTIDA = rs_data99!par
             VAR_EMPRESA = IIf(rs_data99!vtipo = "G", 2, 1)
@@ -382,11 +389,16 @@ Public Sub Contabiliza_Cobranzas(ByVal IdTraspasoBancos As Long)
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             VAR_CUENTA = rs_data99!cta
             VAR_PARTIDA = rs_data99!par
             VAR_EMPRESA = IIf(rs_data99!vtipo = "G", 2, 1)
             VAR_DPTO = rs_data99!depto
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -408,7 +420,11 @@ Public Sub Contabiliza_Cobranzas(ByVal IdTraspasoBancos As Long)
             VAR_CentroCostoId = rs_data99!CentroCostoId
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             VAR_AuxAna = rs_data99!EDIF_CODIGO
+=======
+            VAR_AuxAna = rs_data99!edif_codigo
+>>>>>>> Stashed changes
 =======
             VAR_AuxAna = rs_data99!edif_codigo
 >>>>>>> Stashed changes
