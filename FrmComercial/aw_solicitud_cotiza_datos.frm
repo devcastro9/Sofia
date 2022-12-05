@@ -376,7 +376,7 @@ Begin VB.Form aw_solicitud_cotiza_datos
          CalendarBackColor=   12632256
          CalendarTitleBackColor=   -2147483638
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   229507073
+         Format          =   118816769
          CurrentDate     =   44508
          MaxDate         =   55153
          MinDate         =   32874
@@ -1895,14 +1895,21 @@ Private Sub BtnGrabar_Click()
 '             'IIf((dtc_codigo61.Text = ""), 1, dtc_codigo61.Text)
 ''             'hora_registro
             'proceso_codigo = 'COM', subproceso_codigo = 'COM-01',
-
-             db.Execute "update ao_solicitud_cotiza_modelo set pais_codigo = '" & dtc_codigo7.Text & "', bien_codigo = 'NA1', cotiza_fecha = '" & Date & "', modelo_codigo = '" & Txt_campo4.Text & "', modelo_codigo_h = 'S/M', cotiza_energia = '" & Txt_campo2.Text & "', cotiza_luz = '" & Txt_campo3.Text & "', " & _
-             " bien_cotiza_num_accesos = '" & Txt_campo7.Text & "', dimension_fosa_m = '" & Txt_campo8.Text & "', dimension_fosa_fondo = '" & Txt_campo9.Text & "', dimension_fosa_frente = '" & Txt_campo10.Text & "', cuadro_ctrl_codigo = '" & dtc_codigo61.Text & "', cotiza_nro_montador = " & Txt_campo5.Text & " , " & _
-             " etapa_codigo = 'COM-01-04', clasif_codigo = 'COM', doc_codigo = 'R-224', doc_numero = '0', poa_codigo = '3.1.1', marca_codigo = '" & dtc_codigo3.Text & "', dimension_cabina_frente = '" & Txt_campo11.Text & "', dimension_cabina_lado = '" & Txt_campo12.Text & "',  " & _
+            If dtc_codigo4.Text = "" Then dtc_codigo4.Text = "0"
+            'End If
+            If dtc_codigo5.Text = "" Then dtc_codigo5.Text = "0"
+            'End If
+            If dtc_codigo6.Text = "" Then dtc_codigo6.Text = "0"
+            'End If
+            If Txt_campo14.Text = "" Then Txt_campo14.Text = "0"
+            
+             db.Execute "update ao_solicitud_cotiza_modelo set pais_codigo = '" & dtc_codigo7.Text & "', bien_codigo = 'NA1', cotiza_fecha = '" & Date & "', modelo_codigo = '" & txt_campo4.Text & "', modelo_codigo_h = 'S/M', cotiza_energia = '" & Txt_campo2.Text & "', cotiza_luz = '" & txt_campo3.Text & "', " & _
+             " bien_cotiza_num_accesos = '" & txt_campo7.Text & "', dimension_fosa_m = '" & txt_campo8.Text & "', dimension_fosa_fondo = '" & txt_campo9.Text & "', dimension_fosa_frente = '" & txt_campo10.Text & "', cuadro_ctrl_codigo = '" & dtc_codigo61.Text & "', cotiza_nro_montador = " & txt_campo5.Text & " , " & _
+             " etapa_codigo = 'COM-01-04', clasif_codigo = 'COM', doc_codigo = 'R-224', doc_numero = '0', poa_codigo = '3.1.1', marca_codigo = '" & dtc_codigo3.Text & "', dimension_cabina_frente = '" & txt_campo11.Text & "', dimension_cabina_lado = '" & txt_campo12.Text & "',  " & _
              " dimension_cabina_alto = '" & Txt_campo13.Text & "', modelo_motor = '" & dtc_codigo4.Text & "', boton_codigo = '" & dtc_codigo5.Text & "', senal_codigo = '" & dtc_codigo6.Text & "', modelo_otras_caracteristicas = '" & Txt_campo14.Text & "', tipo_eqp = '" & dtc_codigo2.Text & "', fecha_registro = '" & Date & "', usr_codigo = '" & glusuario & "'  " & _
              " where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and cotiza_codigo = " & GlCotiza & "  "
              
-             db.Execute "Update ao_solicitud_cotiza_venta Set cotiza_nro_montador = " & Txt_campo5.Text & "  where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & GlConti & "' and cotiza_codigo = " & GlCotiza & "  "
+             db.Execute "Update ao_solicitud_cotiza_venta Set cotiza_nro_montador = " & txt_campo5.Text & "  where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & GlConti & "' and cotiza_codigo = " & GlCotiza & "  "
 
              db.Execute "Update ao_solicitud_cotiza_venta Set pais_codigo = '" & dtc_codigo7.Text & "'  where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & GlConti & "' and cotiza_codigo = " & GlCotiza & "  "
              
@@ -1931,7 +1938,7 @@ UpdateErr:
 End Sub
 
 Private Sub valida_campos()
-    If (Txt_campo4 = "") Then
+    If (txt_campo4 = "") Then
     MsgBox "Debe registrar el Modelo del Equipo ... ", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -1941,7 +1948,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If (Txt_campo5.Text = "") Then
+  If (txt_campo5.Text = "") Then
     MsgBox "Debe registrar cantidad de Montadores (Instaladores / Ajustadores) ... ", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -1956,27 +1963,27 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If Txt_campo3.Text = "" Then
+  If txt_campo3.Text = "" Then
     MsgBox "Debe registrar ... " + lbl_campo7.Caption, vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If Txt_campo9.Text = "" Then
+  If txt_campo9.Text = "" Then
     MsgBox "Debe registrar: Dimención Fosa Fondo (mm) ...", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If Txt_campo10.Text = "" Then
+  If txt_campo10.Text = "" Then
     MsgBox "Debe registrar: Dimención Fosa Frente (mm) ", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If Txt_campo7.Text = "" Then
+  If txt_campo7.Text = "" Then
     MsgBox "Debe registrar:Número de Accesos ", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If Txt_campo8.Text = "" Then
+  If txt_campo8.Text = "" Then
     MsgBox "Debe registrar: Espacio Libre Bajo Dintel (mm) ", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -2106,7 +2113,7 @@ Private Sub Form_Load()
 '        dtc_desc2.BoundText = dtc_codigo2.BoundText
 '        dtc_desc3.BoundText = dtc_codigo3.BoundText
 '    End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

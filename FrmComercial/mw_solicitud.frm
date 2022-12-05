@@ -1929,7 +1929,7 @@ Begin VB.Form mw_solicitud
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118161409
+         Format          =   119865345
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   2
@@ -3204,7 +3204,7 @@ Dim mvBookMark As Variant
 Dim mbDataChanged As Boolean
 
 Private Sub BtnAñadir1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -3300,7 +3300,7 @@ AddErr:
 End Sub
 
 Private Sub BtnAñadir2_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -3319,7 +3319,7 @@ On Error GoTo AddErr
     Fra_datos.Enabled = False
     Call ABRIR_TABLA_DET3
     aw_p_ao_negociacion_bitacora.txt_codigo.Caption = Me.txt_codigo.Caption
-    aw_p_ao_negociacion_bitacora.Txt_campo1.Caption = Me.dtc_codigo1.Text
+    aw_p_ao_negociacion_bitacora.txt_campo1.Caption = Me.dtc_codigo1.Text
     aw_p_ao_negociacion_bitacora.Txt_descripcion.Caption = Me.dtc_desc1.Text
     aw_p_ao_negociacion_bitacora.Txt_Correl.Caption = 0
     aw_p_ao_negociacion_bitacora.Txt_estado.Caption = "REG"
@@ -3361,7 +3361,7 @@ AddErr:
 End Sub
 
 Private Sub BtnEliminar1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -3387,7 +3387,7 @@ Private Sub BtnEliminar1_Click()
 End Sub
 
 Private Sub BtnEliminar2_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -3413,7 +3413,7 @@ Private Sub BtnEliminar2_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -3487,13 +3487,13 @@ Private Sub BtnAprobar_Click()
               rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
               If rs_aux2.RecordCount > 0 Then
                   rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-                  Txt_campo1.Caption = rs_aux2!correl_doc
+                  txt_campo1.Caption = rs_aux2!correl_doc
                   rs_aux2.Update
               End If
-              rs_datos!doc_numero = Txt_campo1.Caption
+              rs_datos!doc_numero = txt_campo1.Caption
               'REVISAR !!! JQA 2014_07_08
               'VAR_ARCH = RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
-              VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(Txt_campo1.Caption)))
+              VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
               rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
               rs_datos!archivo_respaldo_cargado = "N"
               rs_datos!estado_codigo = "APR"
@@ -3604,7 +3604,7 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4055,7 +4055,7 @@ End If
 End Sub
 
 Private Sub BtnModificar1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4143,7 +4143,7 @@ EditErr:
 End Sub
 
 Private Sub BtnModificar2_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4163,7 +4163,7 @@ On Error GoTo QError
     
     VAR_SOL = Ado_datos.Recordset!solicitud_codigo
     Aux = Ado_datos.Recordset!unidad_codigo               'Unidad
-    aw_p_ao_negociacion_bitacora.Txt_campo1.Caption = Aux  'Unidad
+    aw_p_ao_negociacion_bitacora.txt_campo1.Caption = Aux  'Unidad
     aw_p_ao_negociacion_bitacora.txt_codigo.Caption = VAR_SOL  'Tramite
       
     'aw_p_ao_negociacion_bitacora.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'solicitud_codigo
@@ -4229,7 +4229,7 @@ QError:
 End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4866,7 +4866,7 @@ End Sub
 'End Sub
 
 Private Sub BtnAñadir_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If

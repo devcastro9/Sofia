@@ -666,7 +666,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   117506049
+         Format          =   119865345
          CurrentDate     =   44197
          MinDate         =   32874
       End
@@ -682,7 +682,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   117506049
+         Format          =   119865345
          CurrentDate     =   44197
          MinDate         =   36526
       End
@@ -1137,7 +1137,7 @@ Dim mvBookMark, marca1 As Variant
 Dim mbDataChanged As Boolean
 
 Private Sub BtnAprobar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -1204,7 +1204,7 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -1443,7 +1443,7 @@ Private Sub BtnImprimir_Click()
 End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -1592,7 +1592,7 @@ Private Sub Form_Load()
     
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
@@ -1665,7 +1665,7 @@ Private Sub Ado_datos_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub BtnAñadir_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If

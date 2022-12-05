@@ -17,9 +17,9 @@ Begin VB.Form fw_traspaso_bancos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   5.93854e5
+   ScaleHeight     =   6.3236e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   5.23949e8
+   ScaleWidth      =   9.88309e8
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet3 
       BackColor       =   &H00E0E0E0&
@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   118620161
+         Format          =   119603201
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118620161
+         Format          =   119603201
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   118620161
+            Format          =   119603201
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -7828,7 +7828,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioOficial
 
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0

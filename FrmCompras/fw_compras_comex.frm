@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
@@ -25,7 +25,7 @@ Begin VB.Form fw_compras_comex
       Left            =   10080
       ScaleHeight     =   1245
       ScaleWidth      =   8355
-      TabIndex        =   97
+      TabIndex        =   95
       Top             =   1920
       Visible         =   0   'False
       Width           =   8410
@@ -39,7 +39,7 @@ Begin VB.Form fw_compras_comex
          Picture         =   "fw_compras_comex.frx":0A02
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   99
+         TabIndex        =   97
          Top             =   0
          Width           =   1395
       End
@@ -53,7 +53,7 @@ Begin VB.Form fw_compras_comex
          Picture         =   "fw_compras_comex.frx":11F0
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   98
+         TabIndex        =   96
          Top             =   600
          Width           =   1400
       End
@@ -63,7 +63,7 @@ Begin VB.Form fw_compras_comex
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   1560
-         TabIndex        =   100
+         TabIndex        =   98
          Top             =   480
          Width           =   5280
          _ExtentX        =   9313
@@ -83,7 +83,7 @@ Begin VB.Form fw_compras_comex
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   120
-         TabIndex        =   101
+         TabIndex        =   99
          Top             =   480
          Width           =   1710
          _ExtentX        =   3016
@@ -115,7 +115,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   120
-         TabIndex        =   103
+         TabIndex        =   101
          Top             =   120
          Width           =   1260
       End
@@ -136,7 +136,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   1680
-         TabIndex        =   102
+         TabIndex        =   100
          Top             =   120
          Width           =   2370
       End
@@ -151,7 +151,7 @@ Begin VB.Form fw_compras_comex
       Picture         =   "fw_compras_comex.frx":1B10
       ScaleHeight     =   615
       ScaleWidth      =   1245
-      TabIndex        =   89
+      TabIndex        =   87
       ToolTipText     =   "Cierra la Ventana Activa"
       Top             =   360
       Width           =   1245
@@ -165,7 +165,7 @@ Begin VB.Form fw_compras_comex
       Height          =   5280
       Left            =   4560
       TabIndex        =   13
-      Top             =   2760
+      Top             =   4200
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -179,7 +179,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   435
          ScaleWidth      =   10080
-         TabIndex        =   90
+         TabIndex        =   88
          Top             =   160
          Visible         =   0   'False
          Width           =   10080
@@ -200,7 +200,7 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   2760
-            TabIndex        =   91
+            TabIndex        =   89
             Top             =   100
             Width           =   4575
          End
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118095873
+         Format          =   119865345
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -625,7 +625,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   180
-         TabIndex        =   96
+         TabIndex        =   94
          Top             =   960
          Width           =   1095
       End
@@ -636,7 +636,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   95
+         TabIndex        =   93
          Top             =   720
          Width           =   645
       End
@@ -1043,7 +1043,7 @@ Begin VB.Form fw_compras_comex
          Picture         =   "fw_compras_comex.frx":36F3
          ScaleHeight     =   735
          ScaleWidth      =   1080
-         TabIndex        =   88
+         TabIndex        =   86
          Top             =   240
          Visible         =   0   'False
          Width           =   1080
@@ -1055,7 +1055,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   8760
-         TabIndex        =   78
+         TabIndex        =   76
          Top             =   240
          Width           =   8760
          Begin VB.PictureBox BtnImprimir2 
@@ -1068,7 +1068,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":42B2
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   82
+            TabIndex        =   80
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -1083,7 +1083,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":4B7F
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   81
+            TabIndex        =   79
             Top             =   0
             Width           =   1215
          End
@@ -1097,7 +1097,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":52CB
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   80
+            TabIndex        =   78
             Top             =   0
             Width           =   1430
          End
@@ -1111,7 +1111,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":5BE0
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   79
+            TabIndex        =   77
             Top             =   0
             Width           =   1200
          End
@@ -1134,7 +1134,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":639F
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   104
+            TabIndex        =   102
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -1148,7 +1148,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":6CCD
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   93
+            TabIndex        =   91
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -1775,7 +1775,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   9600
-         TabIndex        =   83
+         TabIndex        =   81
          Top             =   240
          Width           =   9600
          Begin VB.PictureBox BtnAprobar4 
@@ -1787,7 +1787,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":7EB6
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   94
+            TabIndex        =   92
             Top             =   0
             Width           =   1320
          End
@@ -1797,7 +1797,7 @@ Begin VB.Form fw_compras_comex
             Left            =   6720
             Picture         =   "fw_compras_comex.frx":87A7
             Style           =   1  'Graphical
-            TabIndex        =   92
+            TabIndex        =   90
             ToolTipText     =   "Imprime Nota de Venta"
             Top             =   0
             Width           =   1365
@@ -1811,7 +1811,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":90D5
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   87
+            TabIndex        =   85
             Top             =   0
             Visible         =   0   'False
             Width           =   1320
@@ -1825,7 +1825,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":99EC
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   86
+            TabIndex        =   84
             Top             =   0
             Width           =   1215
          End
@@ -1838,7 +1838,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":A1E4
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   85
+            TabIndex        =   83
             Top             =   0
             Width           =   1430
          End
@@ -1851,7 +1851,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":ABF9
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   84
+            TabIndex        =   82
             Top             =   0
             Width           =   1200
          End
@@ -2181,7 +2181,7 @@ Begin VB.Form fw_compras_comex
             Left            =   10800
             Picture         =   "fw_compras_comex.frx":B4C4
             Style           =   1  'Graphical
-            TabIndex        =   76
+            TabIndex        =   74
             ToolTipText     =   "Guarda en Archivo Digital"
             Top             =   0
             Visible         =   0   'False
@@ -2193,7 +2193,7 @@ Begin VB.Form fw_compras_comex
             Left            =   11760
             Picture         =   "fw_compras_comex.frx":B906
             Style           =   1  'Graphical
-            TabIndex        =   75
+            TabIndex        =   73
             Top             =   0
             Visible         =   0   'False
             Width           =   1125
@@ -2208,7 +2208,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":BB10
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   74
+            TabIndex        =   72
             Top             =   0
             Width           =   1200
          End
@@ -2222,7 +2222,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":C2CF
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   73
+            TabIndex        =   71
             Top             =   0
             Width           =   1430
          End
@@ -2236,7 +2236,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":CBE4
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   72
+            TabIndex        =   70
             Top             =   0
             Width           =   1215
          End
@@ -2246,12 +2246,12 @@ Begin VB.Form fw_compras_comex
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   6960
+            Left            =   7320
             Picture         =   "fw_compras_comex.frx":D330
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   71
-            Top             =   0
+            TabIndex        =   69
+            Top             =   480
             Visible         =   0   'False
             Width           =   1320
          End
@@ -2265,7 +2265,7 @@ Begin VB.Form fw_compras_comex
             Picture         =   "fw_compras_comex.frx":DB63
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   70
+            TabIndex        =   68
             Top             =   0
             Width           =   1215
          End
@@ -2275,38 +2275,57 @@ Begin VB.Form fw_compras_comex
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   5520
+            Left            =   5400
             Picture         =   "fw_compras_comex.frx":E318
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   69
+            TabIndex        =   67
             Top             =   0
             Width           =   1400
          End
-         Begin VB.PictureBox BtnSalirA 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   8520
-            Picture         =   "fw_compras_comex.frx":EBE5
-            ScaleHeight     =   615
-            ScaleWidth      =   1245
-            TabIndex        =   68
-            ToolTipText     =   "Cierra la Ventana Activa"
-            Top             =   0
-            Visible         =   0   'False
-            Width           =   1245
+         Begin VB.Label LblModalidad 
+            Alignment       =   2  'Center
+            AutoSize        =   -1  'True
+            BackColor       =   &H00C0C0C0&
+            BackStyle       =   0  'Transparent
+            Caption         =   "Importacion.Directa"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C0FFFF&
+            Height          =   195
+            Left            =   7080
+            TabIndex        =   104
+            Top             =   360
+            Width           =   1695
          End
-         Begin VB.CommandButton Command2 
-            Caption         =   "Command2"
-            Height          =   255
-            Left            =   8640
-            TabIndex        =   67
-            Top             =   240
-            Visible         =   0   'False
-            Width           =   975
+         Begin VB.Label LblEmpresa 
+            Alignment       =   2  'Center
+            AutoSize        =   -1  'True
+            BackColor       =   &H00C0C0C0&
+            BackStyle       =   0  'Transparent
+            Caption         =   "CGI"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   13.5
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C0FFFF&
+            Height          =   360
+            Left            =   7710
+            TabIndex        =   103
+            Top             =   0
+            Width           =   555
          End
          Begin VB.Label lbl_titulo 
             Alignment       =   2  'Center
@@ -2325,7 +2344,7 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   12855
-            TabIndex        =   77
+            TabIndex        =   75
             Top             =   195
             Width           =   1815
          End
@@ -2346,12 +2365,13 @@ Begin VB.Form fw_compras_comex
          Height          =   210
          Left            =   2160
          TabIndex        =   62
-         Top             =   3840
+         Top             =   3960
+         Visible         =   0   'False
          Width           =   675
       End
       Begin VB.OptionButton opt_directa 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Importacion Directa"
+         Caption         =   "Repuestos APR"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2361,16 +2381,16 @@ Begin VB.Form fw_compras_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00C00000&
          Height          =   210
-         Left            =   5040
+         Left            =   6840
          TabIndex        =   61
          Top             =   3840
-         Width           =   1995
+         Width           =   1635
       End
       Begin VB.OptionButton opt_local 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Facturacion Local"
+         Caption         =   "Aprobados EQP"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2382,10 +2402,10 @@ Begin VB.Form fw_compras_comex
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   3120
+         Left            =   2640
          TabIndex        =   60
          Top             =   3840
-         Width           =   1755
+         Width           =   1635
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Height          =   2760
@@ -2420,7 +2440,7 @@ Begin VB.Form fw_compras_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   13
+         ColumnCount     =   14
          BeginProperty Column00 
             DataField       =   "doc_numero_alm"
             Caption         =   "Nro. Doc"
@@ -2487,8 +2507,8 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "estado_codigo_eqp"
-            Caption         =   "Estado1"
+            DataField       =   "codigo_empresa"
+            Caption         =   "Empresa"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2501,7 +2521,7 @@ Begin VB.Form fw_compras_comex
          EndProperty
          BeginProperty Column06 
             DataField       =   "unidad_codigo"
-            Caption         =   "U.Ejecutora"
+            Caption         =   "Unidad"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2539,8 +2559,8 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
          BeginProperty Column09 
-            DataField       =   "estado_codigo_tra"
-            Caption         =   "Etapa2"
+            DataField       =   "estado_codigo_eqp"
+            Caption         =   "1.Fabrica"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2552,8 +2572,8 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
          BeginProperty Column10 
-            DataField       =   "estado_codigo_nac"
-            Caption         =   "Etapa3"
+            DataField       =   "estado_codigo_tra"
+            Caption         =   "2.Transp"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2565,8 +2585,8 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
          BeginProperty Column11 
-            DataField       =   "estado_codigo_des"
-            Caption         =   "Etapa5"
+            DataField       =   "estado_codigo_nac"
+            Caption         =   "3.Aduana"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2578,6 +2598,19 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
          BeginProperty Column12 
+            DataField       =   "estado_codigo_des"
+            Caption         =   "4.Descarg"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column13 
             DataField       =   "estado_codigo"
             Caption         =   "Estado.Gral"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2612,12 +2645,13 @@ Begin VB.Form fw_compras_comex
                ColumnWidth     =   3809.764
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   705.26
+               Alignment       =   2
+               ColumnWidth     =   734.74
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   1035.213
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
@@ -2633,20 +2667,23 @@ Begin VB.Form fw_compras_comex
                ColumnWidth     =   705.26
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   705.26
+               ColumnWidth     =   750.047
             EndProperty
             BeginProperty Column11 
-               ColumnWidth     =   705.26
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column12 
+               ColumnWidth     =   810.142
+            EndProperty
+            BeginProperty Column13 
                Alignment       =   2
-               ColumnWidth     =   1260.284
+               ColumnWidth     =   975.118
             EndProperty
          EndProperty
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Pendientes"
+         Caption         =   "Pendientes EQP"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2662,11 +2699,11 @@ Begin VB.Form fw_compras_comex
          TabIndex        =   10
          Top             =   3840
          Value           =   -1  'True
-         Width           =   1335
+         Width           =   1695
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Repuestos"
+         Caption         =   "Repuestos Pendientes"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2676,12 +2713,12 @@ Begin VB.Form fw_compras_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00C00000&
          Height          =   210
-         Left            =   7200
+         Left            =   4440
          TabIndex        =   11
          Top             =   3840
-         Width           =   1275
+         Width           =   2235
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
@@ -2738,10 +2775,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   10935
-      Width           =   20250
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4017,7 +4054,7 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
 End Sub
 
 Private Sub BtnAddDetalle1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4113,7 +4150,7 @@ On Error GoTo UpdateErr
             'Ado_detalle1.Recordset.AddNew
             GlCotiza = 2
             fw_solicitud_bienes_comex.txt_codigo.Caption = Me.txt_codigo.Caption
-            fw_solicitud_bienes_comex.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            fw_solicitud_bienes_comex.txt_campo1.Caption = Me.dtc_codigo1.Text
             fw_solicitud_bienes_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_solicitud_bienes_comex.lbl_edif.Caption = Label1.Caption
             fw_solicitud_bienes_comex.lbl_det.Caption = Glaux
@@ -4164,7 +4201,7 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAddDetalle2_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4263,7 +4300,7 @@ On Error GoTo UpdateErr
 '        rs_aux4.Open "select max(adjudica_codigo) as correla from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_comex.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA           ' Me.Ado_datos.Recordset!compra_codigo
 '        If rs_aux4!correla > 0 Then
@@ -4482,7 +4519,7 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAnlDetalle1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4546,7 +4583,7 @@ Private Sub BtnAnlDetalle1_Click()
 End Sub
 
 Private Sub BtnAnlDetalle2_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4566,7 +4603,7 @@ Private Sub BtnAnlDetalle2_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4739,7 +4776,7 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAprobar1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -5147,7 +5184,7 @@ AddErr:
 End Sub
 
 Private Sub BtnAprobar4_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -5319,7 +5356,7 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -5897,7 +5934,7 @@ Private Sub BtnImprimir4_Click()
 End Sub
 
 Private Sub BtnModDetalle1_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -6042,7 +6079,7 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     fw_solicitud_bienes_comex.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                fw_solicitud_bienes_comex.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                fw_solicitud_bienes_comex.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
@@ -6136,7 +6173,7 @@ End If
 End Sub
 
 Private Sub BtnModDetalle2_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -6206,7 +6243,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
         fw_adjudica_comex.txt_codigo.Caption = VAR_SOL2                 'Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA               'Me.Ado_detalle2.Recordset("compra_codigo")
         'fw_adjudica_comex.Txt_estado.Caption = "REG"
@@ -6355,7 +6392,7 @@ UpdateErr:
 End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -6441,7 +6478,6 @@ Private Sub BtnSalir_Click()
 '  glPersOtro = "N"
   Unload Me
 End Sub
-
 Private Sub BtnVer_Click()
   On Error GoTo QError
   If rs_datos!estado_codigo = "APR" Then
@@ -6704,26 +6740,6 @@ End If
 AddErr:
   MsgBox Err.Description
 
-End Sub
-
-Private Sub Command2_Click()
-  Set rs_det2 = New ADODB.Recordset
-    If rs_det2.State = 1 Then rs_det2.Close
-    rs_det2.Open "select * from ao_compra_adjudica", db, adOpenKeyset, adLockOptimistic, adCmdText '"select * from ao_compra_adjudica where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-    sino = rs_det2.RecordCount
-    rs_det2.MoveFirst
-    
-    While Not rs_det2.EOF
-    
-'   If rs_det2!bien_codigo = "479" Then
-'   rs_det2!literal_neto = Literal(rs_det2!importe_cred_fisc - rs_det2!credito_fiscal_13)
-'   Else
-If rs_det2!adjudica_monto_bs_87 <> "NULL" Then
-    rs_det2!literal_neto = Literal(rs_det2!adjudica_monto_bs_87)
-End If
-   
-    rs_det2.MoveNext
-    Wend
 End Sub
 
 Private Sub BtnImprimir3_Click()
@@ -7174,7 +7190,7 @@ On Error GoTo UpdateErr
         dtc_desc_ben.backColor = &HC0C0C0
         Text5.Visible = True
         BtnAñadir.Visible = False
-        BtnAprobar.Visible = True
+'        BtnAprobar.Visible = True
 '        If Glaux = "PROVI" Then
 ''            BtnAddDetalle1.Visible = False
             BtnAnlDetalle1.Visible = False
@@ -7198,7 +7214,7 @@ On Error GoTo UpdateErr
         dtc_desc_ben.backColor = &HFFFFFF
         Text5.Visible = False
         BtnAñadir.Visible = True
-        BtnAprobar.Visible = False
+'        BtnAprobar.Visible = False
     End If
     '    Aux = "COMEX"
     Call ABRIR_TABLAS_AUX
@@ -7230,7 +7246,7 @@ On Error GoTo UpdateErr
 Exit Sub
 UpdateErr:
   MsgBox Err.Description
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -7634,6 +7650,19 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
   'Esto mostrará la posición de registro actual para este Recordset
   If Ado_datos.Recordset.BOF = False Then
     If Ado_datos.Recordset.RecordCount > 0 Then
+       If Ado_datos.Recordset!codigo_empresa = 2 Then
+            LblEmpresa.Caption = "CGE"
+       Else
+            LblEmpresa.Caption = "CGI"
+       End If
+       Select Case Ado_datos.Recordset!venta_tipo
+            Case "V"
+                LblModalidad.Caption = "Facturacion.Local"
+            Case "L"
+                LblModalidad.Caption = "Importacion.Directa"
+            Case Else
+                LblModalidad.Caption = "Corregir Modalidad"
+       End Select
        If IsNull(DTPfecha1.Value) = True Then
           DTPfecha1.Value = Ado_datos.Recordset!compra_fecha
        End If
@@ -7708,7 +7737,7 @@ Private Sub Ado_datos_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub BtnAñadir_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -7796,41 +7825,41 @@ Private Function ExisteReg(Unidad As String) As Boolean
 End Function
 
 Private Sub Opt_CGE_Click()
-    Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    If parametro = "COMEX" Then
-      Select Case Glaux
-        Case "PROVI"
-            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-        Case "TRANS"
-            lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-        Case "ADUAN"
-            lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-        Case "DESCA"
-            lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-        Case "CONTR"
-            lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-        Case "REPTO"
-            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-        Case Else
-            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-      End Select
-    Else
-        queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-    End If
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    rs_datos.Sort = "compra_codigo"
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
-    FraNavega.Caption = lbl_titulo.Caption
-    fw_compras_comex.Caption = lbl_titulo.Caption
+'    Set rs_datos = New Recordset
+'    If rs_datos.State = 1 Then rs_datos.Close
+'    If parametro = "COMEX" Then
+'      Select Case Glaux
+'        Case "PROVI"
+'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "TRANS"
+'            lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "ADUAN"
+'            lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "DESCA"
+'            lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "CONTR"
+'            lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "REPTO"
+'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case Else
+'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'      End Select
+'    Else
+'        queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'    End If
+'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+'    rs_datos.Sort = "compra_codigo"
+'    Set Ado_datos.Recordset = rs_datos.DataSource
+'    Set dg_datos.DataSource = Ado_datos.Recordset
+'    FraNavega.Caption = lbl_titulo.Caption
+'    fw_compras_comex.Caption = lbl_titulo.Caption
 End Sub
 
 Private Sub opt_directa_Click()
@@ -7878,26 +7907,49 @@ Private Sub opt_local_Click()
       Select Case Glaux
         Case "PROVI"
             lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_eqp = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
         Case "TRANS"
             lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_tra = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
         Case "ADUAN"
             lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_nac = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
         Case "DESCA"
             lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_des = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
         Case "CONTR"
             lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
         Case "REPTO"
             lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
         Case Else
             lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_eqp = 'APR' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
       End Select
+'      Select Case Glaux
+'        Case "PROVI"
+'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "TRANS"
+'            lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "ADUAN"
+'            lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "DESCA"
+'            lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "CONTR"
+'            lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case "REPTO"
+'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'        Case Else
+'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
+'      End Select
     Else
         queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'V' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
     End If

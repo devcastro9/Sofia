@@ -731,7 +731,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   127139841
+               Format          =   119865345
                CurrentDate     =   44334
             End
             Begin MSComCtl2.DTPicker DTPfechasol 
@@ -745,7 +745,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   127139841
+               Format          =   119865345
                CurrentDate     =   44334
             End
             Begin VB.TextBox Txt_Campo1 
@@ -3481,7 +3481,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             End If
             
         End If
-        GlEdificio = Ado_datos.Recordset!edif_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
         Call ABRIR_TABLA_DET
 '        FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
@@ -3699,7 +3699,7 @@ Private Sub BtnAprobar_Click()
         db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='48' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '8') "
         
         NumComp = Ado_datos.Recordset!venta_codigo
-        GlEdificio = Ado_datos.Recordset!edif_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
         VAR_EDIF = Ado_datos.Recordset!edif_descripcion
         VAR_COD4 = Ado_datos.Recordset!unidad_codigo
         VAR_SOL = Ado_datos.Recordset!solicitud_codigo
@@ -3936,7 +3936,7 @@ Private Sub BtnImprimir_Click()
 End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4078,7 +4078,7 @@ Private Sub BtnVer2_Click()
     'If Ado_datos.Recordset!estado_codigo = "REG" Then
   If Ado_datos.Recordset!estado_acta = "REG" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    GlEdificio = Ado_datos.Recordset!edif_codigo
+    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
     VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
     VAR_TIPO = 6
     VAR_FECHAMAX = Ado_datos.Recordset!fecha_fin_real
@@ -4969,7 +4969,7 @@ Private Sub grabar()
     If Ado_datos.Recordset.RecordCount > 0 Then
         NumComp = Ado_datos.Recordset!venta_codigo
        marca1 = Ado_datos.Recordset.Bookmark
-       db.Execute "Update ao_ventas_alcance set fecha_inicio_real = '" & DTPfechasol.Value & "', fecha_fin_real = '" & DTPfechaFin.Value & "', doc_codigo='R-321', correl_doc=" & Val(Txt_campo1.Text) & "  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
+       db.Execute "Update ao_ventas_alcance set fecha_inicio_real = '" & DTPfechasol.Value & "', fecha_fin_real = '" & DTPfechaFin.Value & "', doc_codigo='R-321', correl_doc=" & Val(txt_campo1.Text) & "  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
 '       If Ado_datos.Recordset("venta_tipo") = "E" Then
 '           db.Execute "INSERT INTO ao_ventas_cobranza_inst (venta_codigo, ges_gestion, beneficiario_codigo, beneficiario_codigo_resp, cobranza_deuda_bs, cobranza_deuda_dol, cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs, cobranza_total_dol, cobranza_fecha_prog, cobranza_fecha_cobro, cobranza_observaciones, literal, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, factura_impresa, poa_codigo, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
 '           "VALUES ('" & Ado_datos.Recordset!venta_codigo & "', '" & Ado_datos.Recordset!ges_gestion & "', '" & Ado_datos.Recordset!beneficiario_codigo & "', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "', " & Ado_datos.Recordset!venta_monto_total_bs & ", '" & Ado_datos.Recordset!venta_monto_total_dol & "', '0', '0', " & Ado_datos.Recordset!venta_monto_total_bs & ", " & Ado_datos.Recordset!venta_monto_total_dol & ", '" & Date & "', '" & Date & "', 'CANCELADO', 'CERO', 'COM', 'COM-02', 'COM-02-02', 'ADM', 'R-103', '0', 'R-101', '0', '0', 'N', '3.1.2', 'REG', '" & glusuario & "', '" & Date & "', '09:00')"

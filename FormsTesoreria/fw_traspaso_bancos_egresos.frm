@@ -245,7 +245,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   120127489
+         Format          =   119144449
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -259,7 +259,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120127489
+         Format          =   119144449
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1311,7 +1311,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   120127489
+         Format          =   119144449
          CurrentDate     =   44856
          MaxDate         =   55153
          MinDate         =   2
@@ -4902,7 +4902,7 @@ Private Sub AbreGrupoRecibo()
     Set rs_datos6 = New ADODB.Recordset
     If rs_datos6.State = 1 Then rs_datos6.Close
     rs_datos6.Open "select * from fv_tes_orden_pago_pendientes_agrupados WHERE (unidad_codigo_resp = '" & ado_datos14.Recordset!unidad_codigo_adm & "')   ", db, adOpenKeyset, adLockOptimistic
-    Set ado_datos6.Recordset = rs_datos6
+    Set Ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 End Sub
 
@@ -7145,6 +7145,13 @@ Private Sub acumulaMont(ges, Nro)
 End Sub
 
 Private Sub Picture2_Click()
+    If DctMonto18.Text <> Ado_datos11.Recordset!adjudica_bs Then
+        sino = MsgBox("El Importe del Extracto es DIFERENTE al pago solicitado, esta seguro de Aceptar el registro ?", vbYesNo, "Confirmando")
+        If sino = vbYes Then
+        Else
+            Exit Sub
+        End If
+    End If
     Text11.Text = DctCod18.Text
     DTP_Finicio.Value = Format(CDate(DctFecha18.Text), "DD/MM/YYYY")
     Text12.Text = Trim(DctDeposita18.Text) + " " + Trim(DctOrigina18.Text)

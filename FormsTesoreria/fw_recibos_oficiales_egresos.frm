@@ -16,9 +16,9 @@ Begin VB.Form fw_recibos_oficiales_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   2.17033e5
+   ScaleHeight     =   2.31106e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   7.40874e9
+   ScaleWidth      =   1.39749e10
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCabecera 
       BackColor       =   &H00E0E0E0&
@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118030337
+         Format          =   127139841
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -1410,7 +1410,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
       Width           =   6465
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H80000018&
-         Caption         =   "Todos"
+         Caption         =   "Aprobados"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -1425,7 +1425,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Left            =   3840
          TabIndex        =   14
          Top             =   3915
-         Width           =   915
+         Width           =   1275
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H80000018&
@@ -3295,7 +3295,6 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
   Dim descri_bien As String
   Dim Cant_Alm As Integer
   If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
-
 '    If parametro <> Ado_datos.Recordset!unidad_codigo Then
 '        BtnAnlDetalle.Visible = False
 '    Else
@@ -3364,7 +3363,7 @@ Private Sub AbrirDetalle()
     'ORIGEN - DETALLE DE COBRANZAS
     If Ado_datos.Recordset!estado_codigo = "REG" Or IsNull(Ado_datos.Recordset!estado_codigo) Then
         deta2 = 1
-        DtGLista.Visible = True
+        DtgLista.Visible = True
 '        FraBuscaDet.Visible = True
         Set rs_datos14 = New ADODB.Recordset
         If rs_datos14.State = 1 Then rs_datos14.Close
@@ -3400,21 +3399,21 @@ Private Sub AbrirDetalle()
         ado_datos14.Recordset.Requery
         If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
-            DtGLista.Visible = True
+            DtgLista.Visible = True
 '            FraBuscaDet.Visible = True
-            Set DtGLista.DataSource = ado_datos14.Recordset
+            Set DtgLista.DataSource = ado_datos14.Recordset
 '            If VAR_OPCION = 0 Then
 '                Call AbreOrigen
 '            End If
         Else
             deta2 = 0
-            DtGLista.Visible = False
+            DtgLista.Visible = False
 '            FraBuscaDet.Visible = False
         End If
     
     Else
         deta2 = 0
-        DtGLista.Visible = False
+        DtgLista.Visible = False
 '        FraBuscaDet.Visible = False
     End If
     
@@ -3770,7 +3769,7 @@ Private Sub BtnBuscar2_Click()
       Set ClBuscaGrid = New ClBuscaEnGridExterno
       Set ClBuscaGrid.Conexión = db
       ClBuscaGrid.EsTdbGrid = False
-      Set ClBuscaGrid.GridTrabajo = DtGLista
+      Set ClBuscaGrid.GridTrabajo = DtgLista
       ClBuscaGrid.QueryUtilizado = queryinicial2
       Set ClBuscaGrid.RecordsetTrabajo = ado_datos14.Recordset
       ClBuscaGrid.CamposVisibles = "110"
@@ -4332,14 +4331,14 @@ Private Sub CmdOK0_Click()
     VAR_OPCION = "0"
     Call AbrirDetalle
     BtnAddDetalle.Visible = False
-    DtGLista.Enabled = False
+    DtgLista.Enabled = False
 End Sub
 
 Private Sub CmdOK1_Click()
     VAR_OPCION = "1"
     Call AbrirDetalle
     BtnAddDetalle.Visible = True
-    DtGLista.Enabled = True
+    DtgLista.Enabled = True
 End Sub
 
 'Private Sub BtnBuscar2_Click()
@@ -4358,14 +4357,14 @@ Private Sub CmdOK2_Click()
     VAR_OPCION = "2"
     Call AbrirDetalle
     BtnAddDetalle.Visible = True
-    DtGLista.Enabled = True
+    DtgLista.Enabled = True
 End Sub
 
 Private Sub CmdOK3_Click()
     VAR_OPCION = "3"
     Call AbrirDetalle
     BtnAddDetalle.Visible = True
-    DtGLista.Enabled = True
+    DtgLista.Enabled = True
 End Sub
 
 
@@ -5236,13 +5235,13 @@ Private Sub Option1_Click()
     ado_datos14.Recordset.Requery
     If ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
-        DtGLista.Visible = True
+        DtgLista.Visible = True
         FraBuscaDet.Visible = True
-        Set DtGLista.DataSource = ado_datos14.Recordset
+        Set DtgLista.DataSource = ado_datos14.Recordset
         'Call AbreAlmacen
     Else
         deta2 = 0
-        DtGLista.Visible = False
+        DtgLista.Visible = False
         FraBuscaDet.Visible = False
     End If
     

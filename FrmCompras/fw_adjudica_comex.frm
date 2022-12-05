@@ -22,7 +22,7 @@ Begin VB.Form fw_adjudica_comex
       Height          =   4575
       Left            =   1560
       TabIndex        =   119
-      Top             =   1680
+      Top             =   1560
       Visible         =   0   'False
       Width           =   11055
       Begin VB.TextBox TxtDIM 
@@ -269,9 +269,9 @@ Begin VB.Form fw_adjudica_comex
    Begin VB.Frame FraQR 
       BackColor       =   &H00E0E0E0&
       Height          =   3735
-      Left            =   960
+      Left            =   240
       TabIndex        =   89
-      Top             =   3120
+      Top             =   1680
       Visible         =   0   'False
       Width           =   14055
       Begin VB.TextBox TxtTexto 
@@ -418,7 +418,7 @@ Begin VB.Form fw_adjudica_comex
       Height          =   3855
       Left            =   240
       TabIndex        =   67
-      Top             =   2880
+      Top             =   3240
       Visible         =   0   'False
       Width           =   14055
       Begin VB.PictureBox Picture4 
@@ -1401,7 +1401,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   117374977
+            Format          =   119734273
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1417,7 +1417,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   117374977
+            Format          =   119734273
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1427,14 +1427,14 @@ Begin VB.Form fw_adjudica_comex
             Height          =   315
             Left            =   7875
             TabIndex        =   110
-            Top             =   720
+            Top             =   360
             Visible         =   0   'False
             Width           =   1575
             _ExtentX        =   2778
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   117374977
+            Format          =   119734273
             CurrentDate     =   44470
             MinDate         =   32874
          End
@@ -2038,7 +2038,7 @@ Begin VB.Form fw_adjudica_comex
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   117374977
+         Format          =   119734273
          CurrentDate     =   44466
          MinDate         =   2
       End
@@ -3797,7 +3797,7 @@ Private Sub Form_Load()
     '     Command1.Visible = True
     '     lblLabels(0).Visible = True
     End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub opt_bs_Click()

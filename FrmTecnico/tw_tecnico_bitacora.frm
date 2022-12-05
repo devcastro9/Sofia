@@ -374,7 +374,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   117702657
+         Format          =   119865345
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -406,7 +406,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   117702657
+         Format          =   119865345
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -421,7 +421,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   117702657
+         Format          =   119865345
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -3029,7 +3029,7 @@ Dim mvBookMark As Variant
 Dim mbDataChanged As Boolean
 
 Private Sub BtnAddDetalle_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -3048,7 +3048,7 @@ Private Sub BtnAddDetalle_Click()
     Call ABRIR_TABLA_DET
     If Ado_datos.Recordset!unidad_codigo = "DNEME" Then
         tw_bitacora_emergencia.txt_codigo.Caption = Me.txt_codigo.Caption
-        tw_bitacora_emergencia.Txt_campo1.Caption = Me.dtc_codigo1.Text
+        tw_bitacora_emergencia.txt_campo1.Caption = Me.dtc_codigo1.Text
         tw_bitacora_emergencia.Txt_descripcion.Caption = Me.dtc_desc1.Text
         tw_bitacora_emergencia.Txt_Correl.Caption = 0    'rs_datos!correl_bitacora + 1
         tw_bitacora_emergencia.Txt_estado.Caption = "REG"
@@ -3057,7 +3057,7 @@ Private Sub BtnAddDetalle_Click()
         tw_bitacora_emergencia.Show vbModal
     Else
         tw_solicitud_bitacora.txt_codigo.Caption = Me.txt_codigo.Caption
-        tw_solicitud_bitacora.Txt_campo1.Caption = Me.dtc_codigo1.Text
+        tw_solicitud_bitacora.txt_campo1.Caption = Me.dtc_codigo1.Text
         tw_solicitud_bitacora.Txt_descripcion.Caption = Me.dtc_desc1.Text
         tw_solicitud_bitacora.Txt_Correl.Caption = 0    'rs_datos!correl_bitacora + 1
         tw_solicitud_bitacora.Txt_estado.Caption = "REG"
@@ -3152,7 +3152,7 @@ Private Sub NuevoDetalle()
             If VAR_DET = "30000" Then
                 Ado_detalle3.Recordset.AddNew
                 tw_solicitud_bienes3.txt_codigo.Caption = Me.txt_codigo.Caption
-                tw_solicitud_bienes3.Txt_campo1.Caption = Me.dtc_codigo1.Text
+                tw_solicitud_bienes3.txt_campo1.Caption = Me.dtc_codigo1.Text
                 tw_solicitud_bienes3.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 tw_solicitud_bienes3.lbl_edif.Caption = dtc_codigo3.Text
                 tw_solicitud_bienes3.lbl_det.Caption = VAR_DET     '"34110"
@@ -3162,7 +3162,7 @@ Private Sub NuevoDetalle()
             If VAR_DET = "39800" Then       'REPUESTOS
                 Ado_detalle5.Recordset.AddNew
                 tw_solicitud_bienes5.txt_codigo.Caption = Me.txt_codigo.Caption
-                tw_solicitud_bienes5.Txt_campo1.Caption = Me.dtc_codigo1.Text
+                tw_solicitud_bienes5.txt_campo1.Caption = Me.dtc_codigo1.Text
                 tw_solicitud_bienes5.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 tw_solicitud_bienes5.lbl_edif.Caption = dtc_codigo3.Text
                 tw_solicitud_bienes5.lbl_det.Caption = VAR_DET     '"34110"
@@ -3172,7 +3172,7 @@ Private Sub NuevoDetalle()
             If VAR_DET = "34800" Then
                 Ado_detalle6.Recordset.AddNew
                 tw_solicitud_bienes6.txt_codigo.Caption = Me.txt_codigo.Caption
-                tw_solicitud_bienes6.Txt_campo1.Caption = Me.dtc_codigo1.Text
+                tw_solicitud_bienes6.txt_campo1.Caption = Me.dtc_codigo1.Text
                 tw_solicitud_bienes6.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 tw_solicitud_bienes6.lbl_edif.Caption = dtc_codigo3.Text
                 tw_solicitud_bienes6.lbl_det.Caption = VAR_DET     '"34110"
@@ -3182,7 +3182,7 @@ Private Sub NuevoDetalle()
             If VAR_DET = "24300" Then       'SERVICIOS
                 Ado_detalle7.Recordset.AddNew
                 tw_solicitud_bienes7.txt_codigo.Caption = Me.txt_codigo.Caption
-                tw_solicitud_bienes7.Txt_campo1.Caption = Me.dtc_codigo1.Text
+                tw_solicitud_bienes7.txt_campo1.Caption = Me.dtc_codigo1.Text
                 tw_solicitud_bienes7.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 tw_solicitud_bienes7.lbl_edif.Caption = dtc_codigo3.Text
                 tw_solicitud_bienes7.lbl_det.Caption = VAR_DET     '"34110"
@@ -3229,7 +3229,7 @@ Private Sub NuevoDetalle()
 End Sub
 
 Private Sub BtnAnlDetalle_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4444,7 +4444,7 @@ Private Sub BtnImprimir2_Click()
 End Sub
 
 Private Sub BtnModDetalle_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4462,7 +4462,7 @@ Private Sub BtnModDetalle_Click()
       VAR_SOL = Ado_datos.Recordset!solicitud_codigo
       Aux = Ado_datos.Recordset!unidad_codigo  'Unidad
       If Aux = "DNEME" Then
-          tw_bitacora_emergencia.Txt_campo1.Caption = Aux  'Unidad
+          tw_bitacora_emergencia.txt_campo1.Caption = Aux  'Unidad
           tw_bitacora_emergencia.txt_codigo.Caption = VAR_SOL  'Tramite
           'tw_bitacora_emergencia.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo")  'cod_cabecera
           'tw_bitacora_emergencia.Txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")  'Unidad
@@ -4507,7 +4507,7 @@ Private Sub BtnModDetalle_Click()
           End If
           tw_bitacora_emergencia.Show vbModal
       Else
-          tw_solicitud_bitacora.Txt_campo1.Caption = Aux  'Unidad
+          tw_solicitud_bitacora.txt_campo1.Caption = Aux  'Unidad
           tw_solicitud_bitacora.txt_codigo.Caption = VAR_SOL  'Tramite
           'tw_solicitud_bitacora.Txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")  'Unidad
           'tw_solicitud_bitacora.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo")  'cod_cabecera
@@ -4574,7 +4574,7 @@ Private Sub ModifDetalle()
             If VAR_DET = "30000" Then
                 'marca1 = Ado_detalle3.Recordset.Bookmark
                 tw_solicitud_bienes3.txt_codigo.Caption = Me.Ado_detalle3.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes3.Txt_campo1.Caption = Me.Ado_detalle3.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes3.txt_campo1.Caption = Me.Ado_detalle3.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes3.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes3.lbl_edif.Caption = dtc_codigo3.Text
@@ -4599,7 +4599,7 @@ Private Sub ModifDetalle()
             If VAR_DET = "39800" Then   'REPUESTOS
                 tw_solicitud_bienes5.lbl_det.Caption = VAR_DET
                 tw_solicitud_bienes5.txt_codigo.Caption = Me.Ado_detalle5.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes5.Txt_campo1.Caption = Me.Ado_detalle5.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes5.txt_campo1.Caption = Me.Ado_detalle5.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes5.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes5.lbl_edif.Caption = dtc_codigo3.Text
@@ -4624,7 +4624,7 @@ Private Sub ModifDetalle()
             If VAR_DET = "34800" Then
                  tw_solicitud_bienes6.lbl_det.Caption = VAR_DET
                 tw_solicitud_bienes6.txt_codigo.Caption = Me.Ado_detalle6.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes6.Txt_campo1.Caption = Me.Ado_detalle6.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes6.txt_campo1.Caption = Me.Ado_detalle6.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes6.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes6.lbl_edif.Caption = dtc_codigo3.Text
@@ -4648,7 +4648,7 @@ Private Sub ModifDetalle()
 
             If VAR_DET = "24300" Then
                 tw_solicitud_bienes7.txt_codigo.Caption = Me.Ado_detalle7.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes7.Txt_campo1.Caption = Me.Ado_detalle7.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes7.txt_campo1.Caption = Me.Ado_detalle7.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes7.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes7.lbl_edif.Caption = dtc_codigo3.Text
@@ -5229,7 +5229,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
     FraNavega.Caption = lbl_titulo.Caption
     lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

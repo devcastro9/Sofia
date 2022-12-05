@@ -17,7 +17,7 @@ Begin VB.Form tw_organizacion_zonas_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   11280
+   ScaleWidth      =   20250
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
@@ -35,7 +35,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00C00000&
       Height          =   5760
       Left            =   7920
-      TabIndex        =   52
+      TabIndex        =   51
       Top             =   2160
       Visible         =   0   'False
       Width           =   9300
@@ -44,13 +44,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   2400
-         TabIndex        =   75
+         TabIndex        =   74
          Top             =   3240
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   127533057
+         Format          =   118554625
          CurrentDate     =   44885
       End
       Begin VB.PictureBox fra_opciones2 
@@ -60,7 +60,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   30
          ScaleHeight     =   660
          ScaleWidth      =   9225
-         TabIndex        =   66
+         TabIndex        =   65
          Top             =   4920
          Width           =   9225
          Begin VB.PictureBox BtnGrabarDet 
@@ -73,7 +73,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":0A02
             ScaleHeight     =   615
             ScaleWidth      =   1275
-            TabIndex        =   68
+            TabIndex        =   67
             Top             =   0
             Width           =   1280
          End
@@ -87,7 +87,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":11D8
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   67
+            TabIndex        =   66
             Top             =   0
             Width           =   1400
          End
@@ -119,7 +119,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Enabled         =   0   'False
          Height          =   290
          Left            =   2160
-         TabIndex        =   63
+         TabIndex        =   62
          Top             =   855
          Width           =   270
       End
@@ -182,7 +182,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   360
          Left            =   5400
          Locked          =   -1  'True
-         TabIndex        =   53
+         TabIndex        =   52
          Top             =   360
          Visible         =   0   'False
          Width           =   1335
@@ -209,7 +209,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   54
+         TabIndex        =   53
          Top             =   1320
          Visible         =   0   'False
          Width           =   885
@@ -294,7 +294,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   60
+         TabIndex        =   59
          Top             =   1800
          Visible         =   0   'False
          Width           =   885
@@ -312,7 +312,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   61
+         TabIndex        =   60
          Top             =   2280
          Visible         =   0   'False
          Width           =   885
@@ -330,7 +330,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   3360
-         TabIndex        =   71
+         TabIndex        =   70
          Top             =   2760
          Width           =   5685
          _ExtentX        =   10028
@@ -347,7 +347,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   72
+         TabIndex        =   71
          Top             =   2760
          Visible         =   0   'False
          Width           =   885
@@ -364,13 +364,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   7320
-         TabIndex        =   77
+         TabIndex        =   76
          Top             =   3240
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   127533057
+         Format          =   118554625
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -378,13 +378,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   2400
-         TabIndex        =   84
+         TabIndex        =   83
          Top             =   3720
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   127533057
+         Format          =   118554625
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -392,13 +392,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   7320
-         TabIndex        =   85
+         TabIndex        =   84
          Top             =   3720
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   127533057
+         Format          =   118554625
          CurrentDate     =   44885
       End
       Begin VB.Label Label8 
@@ -418,7 +418,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   5280
-         TabIndex        =   87
+         TabIndex        =   86
          Top             =   3720
          Width           =   1755
       End
@@ -439,7 +439,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   86
+         TabIndex        =   85
          Top             =   3720
          Width           =   1950
       End
@@ -460,7 +460,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   78
+         TabIndex        =   77
          Top             =   360
          Width           =   5025
       End
@@ -481,7 +481,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   5280
-         TabIndex        =   76
+         TabIndex        =   75
          Top             =   3240
          Width           =   1890
       End
@@ -502,7 +502,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   74
+         TabIndex        =   73
          Top             =   3240
          Width           =   2085
       End
@@ -523,7 +523,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   73
+         TabIndex        =   72
          Top             =   2760
          Width           =   1785
       End
@@ -547,7 +547,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H80000008&
          Height          =   315
          Left            =   2400
-         TabIndex        =   65
+         TabIndex        =   64
          Top             =   840
          Visible         =   0   'False
          Width           =   6645
@@ -569,7 +569,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   64
+         TabIndex        =   63
          Top             =   4320
          Width           =   1380
       End
@@ -590,7 +590,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   62
+         TabIndex        =   61
          Top             =   885
          Width           =   660
       End
@@ -611,7 +611,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   4200
-         TabIndex        =   59
+         TabIndex        =   58
          Top             =   4335
          Visible         =   0   'False
          Width           =   1200
@@ -633,7 +633,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   1680
-         TabIndex        =   58
+         TabIndex        =   57
          Top             =   4335
          Visible         =   0   'False
          Width           =   1830
@@ -655,7 +655,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   57
+         TabIndex        =   56
          Top             =   1815
          Width           =   2610
       End
@@ -676,7 +676,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   56
+         TabIndex        =   55
          Top             =   2280
          Width           =   2730
       End
@@ -697,7 +697,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   55
+         TabIndex        =   54
          Top             =   1320
          Width           =   3015
       End
@@ -717,14 +717,14 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00800000&
       Height          =   1425
       Left            =   0
-      TabIndex        =   81
+      TabIndex        =   80
       Top             =   7920
       Width           =   19095
       Begin MSDataGridLib.DataGrid DtGLista 
          Bindings        =   "tw_organizacion_zonas_inst.frx":1DA9
          Height          =   1140
          Left            =   120
-         TabIndex        =   82
+         TabIndex        =   81
          Top             =   240
          Width           =   18855
          _ExtentX        =   33258
@@ -1048,7 +1048,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       Left            =   0
       ScaleHeight     =   660
       ScaleWidth      =   20280
-      TabIndex        =   47
+      TabIndex        =   46
       Top             =   0
       Width           =   20280
       Begin VB.PictureBox BtnImprimir1 
@@ -1061,7 +1061,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Picture         =   "tw_organizacion_zonas_inst.frx":1DC4
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   70
+         TabIndex        =   69
          ToolTipText     =   "Edificios en Cronograma vs. Contratos de Mantenimiento"
          Top             =   0
          Visible         =   0   'False
@@ -1172,7 +1172,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Picture         =   "tw_organizacion_zonas_inst.frx":5766
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   48
+         TabIndex        =   47
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
@@ -1194,7 +1194,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   12735
-         TabIndex        =   49
+         TabIndex        =   48
          Top             =   180
          Width           =   1815
       End
@@ -1210,7 +1210,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       Left            =   0
       ScaleHeight     =   675
       ScaleWidth      =   20280
-      TabIndex        =   43
+      TabIndex        =   42
       Top             =   0
       Visible         =   0   'False
       Width           =   20280
@@ -1224,7 +1224,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Picture         =   "tw_organizacion_zonas_inst.frx":5F28
          ScaleHeight     =   615
          ScaleWidth      =   1275
-         TabIndex        =   45
+         TabIndex        =   44
          Top             =   0
          Width           =   1280
       End
@@ -1238,7 +1238,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Picture         =   "tw_organizacion_zonas_inst.frx":66FE
          ScaleHeight     =   615
          ScaleWidth      =   1455
-         TabIndex        =   44
+         TabIndex        =   43
          Top             =   0
          Width           =   1455
       End
@@ -1259,7 +1259,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   13095
-         TabIndex        =   46
+         TabIndex        =   45
          Top             =   180
          Width           =   1005
       End
@@ -1297,7 +1297,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00C00000&
          Height          =   210
          Left            =   7440
-         TabIndex        =   80
+         TabIndex        =   79
          Top             =   6915
          Width           =   2295
       End
@@ -1316,7 +1316,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00C00000&
          Height          =   210
          Left            =   3120
-         TabIndex        =   79
+         TabIndex        =   78
          Top             =   6915
          Value           =   -1  'True
          Width           =   2295
@@ -1328,7 +1328,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   30
          ScaleHeight     =   660
          ScaleWidth      =   12825
-         TabIndex        =   50
+         TabIndex        =   49
          Top             =   240
          Width           =   12825
          Begin VB.PictureBox BtnModificar2 
@@ -1341,7 +1341,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":6FEA
             ScaleHeight     =   615
             ScaleWidth      =   1545
-            TabIndex        =   69
+            TabIndex        =   68
             Top             =   0
             Visible         =   0   'False
             Width           =   1545
@@ -1391,466 +1391,6 @@ Begin VB.Form tw_organizacion_zonas_inst
             Width           =   1215
          End
       End
-      Begin MSDataGridLib.DataGrid dg_det1XX 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":97B3
-         Height          =   3015
-         Left            =   120
-         TabIndex        =   30
-         Top             =   3120
-         Visible         =   0   'False
-         Width           =   12615
-         _ExtentX        =   22251
-         _ExtentY        =   5318
-         _Version        =   393216
-         AllowUpdate     =   -1  'True
-         BackColor       =   16777215
-         Enabled         =   -1  'True
-         ForeColor       =   0
-         HeadLines       =   1
-         RowHeight       =   17
-         FormatLocked    =   -1  'True
-         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ColumnCount     =   24
-         BeginProperty Column00 
-            DataField       =   "correlativo"
-            Caption         =   "#Crono"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column01 
-            DataField       =   "zpiloto_codigo"
-            Caption         =   "Zona.Piloto"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column02 
-            DataField       =   "edif_codigo"
-            Caption         =   "Cod_Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column03 
-            DataField       =   "edif_descripcion"
-            Caption         =   "Nombre_Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column04 
-            DataField       =   "edif_tipo"
-            Caption         =   "Tipo.Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column05 
-            DataField       =   "fecha_ini_max"
-            Caption         =   "Fecha.Inicio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
-            DataField       =   "fecha_fin_max"
-            Caption         =   "Fech.Fin"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column07 
-            DataField       =   "zona_denominacion"
-            Caption         =   "Zona.Geografica"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column08 
-            DataField       =   "calle_tipo"
-            Caption         =   "Via"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column09 
-            DataField       =   "calle_denominacion"
-            Caption         =   "Nombre.Calle, Av, Plaza...."
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column10 
-            DataField       =   "beneficiario_Inst"
-            Caption         =   "Tec.Instalacion"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column11 
-            DataField       =   "beneficiario_Ajuste"
-            Caption         =   "Tecnico.Ajuste"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   4105
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column12 
-            DataField       =   "beneficiario_Sup"
-            Caption         =   "Supervisor.Inst.y.Ajuste"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column13 
-            DataField       =   "beneficiario_Cobr"
-            Caption         =   "Ejecutivo.Ventas"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column14 
-            DataField       =   "zona_edif_orden"
-            Caption         =   "Orden"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column15 
-            DataField       =   "observaciones"
-            Caption         =   "Observaciones"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column16 
-            DataField       =   "estado_activo"
-            Caption         =   "Estado"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column17 
-            DataField       =   "LUNES"
-            Caption         =   "LUNES"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   5
-               Format          =   ""
-               HaveTrueFalseNull=   1
-               TrueValue       =   "True"
-               FalseValue      =   "False"
-               NullValue       =   "False"
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   7
-            EndProperty
-         EndProperty
-         BeginProperty Column18 
-            DataField       =   "MARTES"
-            Caption         =   "MARTES"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   5
-               Format          =   ""
-               HaveTrueFalseNull=   1
-               TrueValue       =   "True"
-               FalseValue      =   "False"
-               NullValue       =   "False"
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   7
-            EndProperty
-         EndProperty
-         BeginProperty Column19 
-            DataField       =   "MIERCOLES"
-            Caption         =   "MIERCOLES"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   4
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   8
-            EndProperty
-         EndProperty
-         BeginProperty Column20 
-            DataField       =   "JUEVES"
-            Caption         =   "JUEVES"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   4
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   8
-            EndProperty
-         EndProperty
-         BeginProperty Column21 
-            DataField       =   "VIERNES"
-            Caption         =   "VIERNES"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   4
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   8
-            EndProperty
-         EndProperty
-         BeginProperty Column22 
-            DataField       =   "SABADO"
-            Caption         =   "SABADO"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   4
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   8
-            EndProperty
-         EndProperty
-         BeginProperty Column23 
-            DataField       =   "DOMINGO"
-            Caption         =   "DOMINGO"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   4
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   8
-            EndProperty
-         EndProperty
-         SplitCount      =   1
-         BeginProperty Split0 
-            BeginProperty Column00 
-               Locked          =   -1  'True
-               ColumnWidth     =   675.213
-            EndProperty
-            BeginProperty Column01 
-               Alignment       =   2
-               Locked          =   -1  'True
-               Object.Visible         =   0   'False
-               ColumnWidth     =   915.024
-            EndProperty
-            BeginProperty Column02 
-               Locked          =   -1  'True
-               ColumnWidth     =   1184.882
-            EndProperty
-            BeginProperty Column03 
-               Locked          =   -1  'True
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   4199.811
-            EndProperty
-            BeginProperty Column04 
-               Locked          =   -1  'True
-               ColumnWidth     =   989.858
-            EndProperty
-            BeginProperty Column05 
-               Locked          =   -1  'True
-               ColumnWidth     =   1035.213
-            EndProperty
-            BeginProperty Column06 
-               Locked          =   -1  'True
-               ColumnWidth     =   989.858
-            EndProperty
-            BeginProperty Column07 
-               Locked          =   -1  'True
-               ColumnWidth     =   1950.236
-            EndProperty
-            BeginProperty Column08 
-               Locked          =   -1  'True
-               ColumnWidth     =   615.118
-            EndProperty
-            BeginProperty Column09 
-               Locked          =   -1  'True
-               ColumnWidth     =   2489.953
-            EndProperty
-            BeginProperty Column10 
-               Locked          =   -1  'True
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   1755.213
-            EndProperty
-            BeginProperty Column11 
-               Locked          =   -1  'True
-               ColumnWidth     =   1755.213
-            EndProperty
-            BeginProperty Column12 
-               Locked          =   -1  'True
-               ColumnWidth     =   1755.213
-            EndProperty
-            BeginProperty Column13 
-               Locked          =   -1  'True
-               ColumnWidth     =   1755.213
-            EndProperty
-            BeginProperty Column14 
-               Locked          =   -1  'True
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   569.764
-            EndProperty
-            BeginProperty Column15 
-               Locked          =   -1  'True
-               ColumnWidth     =   2310.236
-            EndProperty
-            BeginProperty Column16 
-               Locked          =   -1  'True
-               ColumnWidth     =   615.118
-            EndProperty
-            BeginProperty Column17 
-               Alignment       =   2
-               ColumnWidth     =   1005.165
-            EndProperty
-            BeginProperty Column18 
-               Alignment       =   2
-               ColumnWidth     =   1005.165
-            EndProperty
-            BeginProperty Column19 
-               Alignment       =   2
-               ColumnWidth     =   1019.906
-            EndProperty
-            BeginProperty Column20 
-               Alignment       =   2
-               ColumnWidth     =   1005.165
-            EndProperty
-            BeginProperty Column21 
-               Alignment       =   2
-               ColumnWidth     =   1005.165
-            EndProperty
-            BeginProperty Column22 
-               Alignment       =   2
-               ColumnWidth     =   1005.165
-            EndProperty
-            BeginProperty Column23 
-               Alignment       =   2
-               ColumnWidth     =   1005.165
-            EndProperty
-         EndProperty
-      End
       Begin MSAdodcLib.Adodc Ado_detalle1 
          Height          =   330
          Left            =   120
@@ -1898,11 +1438,11 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin TrueOleDBGrid60.TDBGrid dg_det1 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":97CE
+         Bindings        =   "tw_organizacion_zonas_inst.frx":97B3
          Height          =   5775
          Left            =   120
-         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":97E9
-         TabIndex        =   83
+         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":97CE
+         TabIndex        =   82
          Top             =   960
          Width           =   12615
       End
@@ -2013,7 +1553,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":161F5
+         Bindings        =   "tw_organizacion_zonas_inst.frx":161DA
          Height          =   6330
          Left            =   120
          TabIndex        =   23
@@ -2713,7 +2253,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   360
          Left            =   2445
          Locked          =   -1  'True
-         TabIndex        =   51
+         TabIndex        =   50
          Top             =   600
          Width           =   1335
       End
@@ -2724,7 +2264,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   240
          MultiLine       =   -1  'True
          TabIndex        =   0
-         Text            =   "tw_organizacion_zonas_inst.frx":1620D
+         Text            =   "tw_organizacion_zonas_inst.frx":161F2
          Top             =   1320
          Width           =   5685
       End
@@ -2775,12 +2315,12 @@ Begin VB.Form tw_organizacion_zonas_inst
          Width           =   735
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1620F
+         Bindings        =   "tw_organizacion_zonas_inst.frx":161F4
          DataField       =   "munic_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5040
-         TabIndex        =   37
+         TabIndex        =   36
          Top             =   3525
          Visible         =   0   'False
          Width           =   885
@@ -2793,12 +2333,12 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo2 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":16228
+         Bindings        =   "tw_organizacion_zonas_inst.frx":1620D
          DataField       =   "prov_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5040
-         TabIndex        =   38
+         TabIndex        =   37
          Top             =   3120
          Visible         =   0   'False
          Width           =   885
@@ -2811,7 +2351,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc2 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":16241
+         Bindings        =   "tw_organizacion_zonas_inst.frx":16226
          DataField       =   "prov_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2829,7 +2369,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1625A
+         Bindings        =   "tw_organizacion_zonas_inst.frx":1623F
          DataField       =   "munic_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2847,7 +2387,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc4 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":16273
+         Bindings        =   "tw_organizacion_zonas_inst.frx":16258
          DataField       =   "beneficiario_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2864,12 +2404,12 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo4 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1628C
+         Bindings        =   "tw_organizacion_zonas_inst.frx":16271
          DataField       =   "beneficiario_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5040
-         TabIndex        =   39
+         TabIndex        =   38
          Top             =   2400
          Visible         =   0   'False
          Width           =   885
@@ -2882,7 +2422,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":162A5
+         Bindings        =   "tw_organizacion_zonas_inst.frx":1628A
          DataField       =   "depto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2899,12 +2439,12 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":162BE
+         Bindings        =   "tw_organizacion_zonas_inst.frx":162A3
          DataField       =   "depto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5040
-         TabIndex        =   42
+         TabIndex        =   41
          Top             =   1680
          Visible         =   0   'False
          Width           =   885
@@ -2924,7 +2464,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   41
+         TabIndex        =   40
          Top             =   1740
          Width           =   1005
       End
@@ -2936,7 +2476,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   40
+         TabIndex        =   39
          Top             =   2460
          Width           =   2055
       End
@@ -2957,7 +2497,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   36
+         TabIndex        =   35
          Top             =   3525
          Visible         =   0   'False
          Width           =   825
@@ -2979,7 +2519,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   35
+         TabIndex        =   34
          Top             =   3180
          Visible         =   0   'False
          Width           =   810
@@ -2993,7 +2533,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   195
          Index           =   6
          Left            =   5145
-         TabIndex        =   34
+         TabIndex        =   33
          Top             =   375
          Width           =   495
       End
@@ -3005,7 +2545,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   2445
-         TabIndex        =   33
+         TabIndex        =   32
          Top             =   375
          Width           =   1080
       End
@@ -3018,7 +2558,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   195
          Index           =   0
          Left            =   240
-         TabIndex        =   32
+         TabIndex        =   31
          Top             =   375
          Width           =   975
       End
@@ -3030,7 +2570,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   31
+         TabIndex        =   30
          Top             =   1095
          Width           =   1320
       End

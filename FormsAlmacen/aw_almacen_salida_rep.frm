@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   123011073
+         Format          =   119734273
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   123011073
+         Format          =   119734273
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   123011073
+            Format          =   119734273
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4640,7 +4640,7 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAñadir_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -4655,7 +4655,7 @@ On Error GoTo UpdateErr
     End If
     dtc_desc3.backColor = &H80000005
     dtc_desc3.ForeColor = &H80000008
-    Txt_campo1.Caption = "0"
+    txt_campo1.Caption = "0"
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False
@@ -4688,7 +4688,7 @@ On Error GoTo UpdateErr
             dtc_desc4.BoundText = dtc_codigo4.BoundText
             dtc_codigo11.Text = VAR_ALMX
             dtc_desc11.BoundText = dtc_codigo11.BoundText
-            dtc_Aux11.BoundText = dtc_codigo11.BoundText
+            dtc_aux11.BoundText = dtc_codigo11.BoundText
             dtc_codigo21.Text = VAR_DPTO
             dtc_desc21.BoundText = dtc_codigo21.BoundText
         End If
@@ -7773,9 +7773,9 @@ End Sub
 'End Sub
 
 Private Sub dtc_Aux11_Click(Area As Integer)
-    dtc_codigo4.BoundText = dtc_Aux11.BoundText
-    dtc_desc4.BoundText = dtc_Aux11.BoundText
-    dtc_tipo4.BoundText = dtc_Aux11.BoundText
+    dtc_codigo4.BoundText = dtc_aux11.BoundText
+    dtc_desc4.BoundText = dtc_aux11.BoundText
+    dtc_tipo4.BoundText = dtc_aux11.BoundText
 End Sub
 
 Private Sub dtc_Aux20_Click(Area As Integer)
@@ -7827,7 +7827,7 @@ End Sub
 Private Sub dtc_codigo4_Click(Area As Integer)
     dtc_desc4.BoundText = dtc_codigo4.BoundText
     dtc_tipo4.BoundText = dtc_codigo4.BoundText
-    dtc_Aux11.BoundText = dtc_codigo4.BoundText
+    dtc_aux11.BoundText = dtc_codigo4.BoundText
 End Sub
 
 Private Sub dtc_codigo5_Click(Area As Integer)
@@ -7965,7 +7965,7 @@ End Sub
 Private Sub dtc_desc4_Click(Area As Integer)
     dtc_codigo4.BoundText = dtc_desc4.BoundText
     dtc_tipo4.BoundText = dtc_desc4.BoundText
-    dtc_Aux11.BoundText = dtc_desc4.BoundText
+    dtc_aux11.BoundText = dtc_desc4.BoundText
     VAR_BEN2 = dtc_codigo4.Text
     'Call pAlmacen(dtc_codigo4.BoundText)
     'dtc_desc11.Enabled = True
@@ -7986,10 +7986,10 @@ Private Sub pAlmacen(CodigoA As String)
    dtc_desc11.ReFill
    dtc_desc11.BoundText = Empty
 
-   Set dtc_Aux11.RowSource = Nothing
-   Set dtc_Aux11.RowSource = db.Execute(strConsultaF, , adCmdText)
-   dtc_Aux11.ReFill
-   dtc_Aux11.BoundText = Empty
+   Set dtc_aux11.RowSource = Nothing
+   Set dtc_aux11.RowSource = db.Execute(strConsultaF, , adCmdText)
+   dtc_aux11.ReFill
+   dtc_aux11.BoundText = Empty
 
 End Sub
 
@@ -8354,7 +8354,7 @@ End Sub
 Private Sub dtc_tipo4_Click(Area As Integer)
     dtc_codigo4.BoundText = dtc_tipo4.BoundText
     dtc_desc4.BoundText = dtc_tipo4.BoundText
-    dtc_Aux11.BoundText = dtc_tipo4.BoundText
+    dtc_aux11.BoundText = dtc_tipo4.BoundText
 End Sub
 
 Private Sub dtc_unimed15_Click(Area As Integer)

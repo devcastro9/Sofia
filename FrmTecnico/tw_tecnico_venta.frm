@@ -739,9 +739,9 @@ Begin VB.Form tw_tecnico_venta
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":C37D
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1300,7 +1300,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   127598593
+            Format          =   120127489
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1562,7 +1562,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   127598593
+            Format          =   120127489
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1590,7 +1590,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   127598593
+            Format          =   120127489
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2088,7 +2088,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   127598593
+               Format          =   120127489
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2113,7 +2113,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   127598593
+               Format          =   120127489
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2557,7 +2557,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   127598593
+               Format          =   120127489
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2640,7 +2640,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   127598593
+               Format          =   120127489
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3366,7 +3366,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   127598593
+            Format          =   120127489
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -7706,7 +7706,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPFechaFin.Value = "" Then
+  If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechaFin.Value = "" Then
       MsgBox "Debe registrar la Fecha de Inicio !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7717,13 +7717,13 @@ Private Sub valida_campos()
     Exit Sub
   End If
   If parametro = "DNMAN" Then
-    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
     End If
   Else
-    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR o IGUAL a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7762,7 +7762,7 @@ Private Sub valida_campos()
 '        Exit Sub
 '    End If
 '  End If
-  If Month(CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
+  If Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
     'If Val(VAR_MES2) < Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) Then
         MsgBox "El 'MES Inicio del Plan de Cuotas' NO puede ser DIFERENTE al MES de la Fecha de Inicio del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
         VAR_VAL = "ERR"
@@ -7773,7 +7773,7 @@ Private Sub valida_campos()
     'DTPFechaFin
     'meses = DateDiff("m", Text1.Text, Text2.Text)
     'txtCantCobr
-    CONT4 = DateDiff("m", DTPFechaIni.Value, DTPFechaFin.Value)
+    CONT4 = DateDiff("m", DTPfechaIni.Value, DTPfechaFin.Value)
   If (txtCantCobr.Text <> CONT4 + 1) And (cmd_unimed2.Text = "MES") Then
      sino = MsgBox("El 'Número de Cuotas' es DIFERENTE al número de meses de la Fecha de INICIO y FIN, aún así desea continuar ??...", vbYesNo + vbQuestion, "Atención ...")
      If sino = vbYes Then
@@ -7838,8 +7838,8 @@ Private Sub BtnGrabar_Click()
   Call valida_campos2
   If VAR_VAL = "OK" And VAR_VALD = "OK" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    FInicio = IIf(DTPFechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
-    FFin = IIf(DTPFechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaFin.Value)
+    FInicio = IIf(DTPfechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
+    FFin = IIf(DTPfechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaFin.Value)
     CANTOT = Ado_datos.Recordset!venta_cantidad_total
     gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
     VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
@@ -8133,7 +8133,7 @@ Private Sub CRONO2()
                   rs_aux2!cobranza_observaciones = "SERVICIO DE MANTENIMIENTO INTEGRAL - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Trámite: " + VAR_CITE + "-C-" + Str(corrprog)
                   rs_aux2!cobranza_concepto_plazo = "SERVICIO DE MANTENIMIENTO INTEGRAL - CUOTA Nº " + Str(corrprog)
               Case "DNREP", "DREPS", "DREPB", "DREPC"
-                  rs_aux2!cobranza_observaciones = "SERVICIO DE REPARACIONES, SEGÚN " + txt_campo2.Text + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Cite: " + VAR_CITE + "-C-" + Str(corrprog)
+                  rs_aux2!cobranza_observaciones = "SERVICIO DE REPARACIONES, SEGÚN " + Txt_campo2.Text + " - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Cite: " + VAR_CITE + "-C-" + Str(corrprog)
                   rs_aux2!cobranza_concepto_plazo = "SERVICIO DE REPARACION, SEGÚN " + VAR_CITE
               Case "DNINS", "DINSS", "DINSB", "DINSC"
                   rs_aux2!cobranza_observaciones = "SERVICIO DE INSTALACION - Mes: " + UCase(VAR_FEC2) + "-" + Str(Year(IIf(IsNull(rs_aux2!cobranza_fecha_prog), FControl, rs_aux2!cobranza_fecha_prog))) + " - " + "Cite: " + VAR_CITE + "-C-" + Str(corrprog)
@@ -8391,7 +8391,7 @@ End Sub
 'End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -10687,7 +10687,7 @@ Private Sub grabar()
 '       Ado_datos.Recordset("poa_codigo") = "3.2.3"
      Select Case dtc_codigo1.Text             'dtc_codigo2.Text
         Case "DNINS", "DNAJS", "DINSS", "DINSB", "DINSC"    'VENTA DE SERVICIOS INSTTALACIONES
-            VAR_CITE = txt_campo2.Text
+            VAR_CITE = Txt_campo2.Text
             VAR_CODDOC = "R-362"
             VAR_PRO = "COM"
             VAR_SUB = "COM-03"
@@ -10716,7 +10716,7 @@ Private Sub grabar()
             'Ado_datos.Recordset("poa_codigo") = "3.2.3"
             'VAR_CITE = Txt_campo2.Text
         Case "DNREP", "DREPS", "DREPB", "DREPC"             'REPARACIONES
-            VAR_CITE = txt_campo2.Text
+            VAR_CITE = Txt_campo2.Text
             VAR_CODDOC = "R-306"
             VAR_PRO = "TEC"
             VAR_SUB = "TEC-03"
@@ -10734,7 +10734,7 @@ Private Sub grabar()
             'rs_datos!doc_codigo = "R-306"
 '                rs_datos!unidad_codigo_ant = Txt_campo2.Text
         Case "DNEME"                                        '10 EMERGENCIAS
-            VAR_CITE = txt_campo2.Text
+            VAR_CITE = Txt_campo2.Text
             VAR_CODDOC = "R-306"
             VAR_PRO = "TEC"
             VAR_SUB = "TEC-04"
@@ -11243,7 +11243,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioOficial
 
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
@@ -11595,8 +11595,8 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
                 cmd_unimed_tec.Text = cmd_unimed2.Text
             End If
-            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPFechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
-            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPFechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
+            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
+            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
             
             If cmb_mes_ini_tec.Text = "" Or cmb_mes_ini_tec.Text = "0" Then                                   'Mes de Inicio Crono.
                 cmb_mes_ini_tec.Text = cmb_mes_ini.Text
