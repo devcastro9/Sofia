@@ -11,13 +11,13 @@ Begin VB.Form tw_cronograma_mensual_inst
    ClientHeight    =   10935
    ClientLeft      =   225
    ClientTop       =   555
-   ClientWidth     =   14400
+   ClientWidth     =   13260
    Icon            =   "tw_cronograma_mensual_inst.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   14400
+   ScaleWidth      =   13260
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet7 
@@ -2921,11 +2921,11 @@ Private Sub BtnAddDetalle3_Click()
                             VAR_NRODIAS = VAR_NRODIAS
                     End Select
                     VAR_PERIODOS = VAR_NRODIAS * 2
-                    If (VAR_PERIODOS Mod 2) <> 0 Then
+                    'If (VAR_PERIODOS Mod 2) <> 0 Then
                         
-                    Else
+                    'Else
                         
-                    End If
+                    'End If
                     
                     VAR_FCTRLFIN = VAR_FCTRLINI + VAR_NRODIAS - 1
                     VAR_MOD1 = UCase(WeekdayName(Weekday(VAR_FCTRLFIN - 1)))
@@ -2971,12 +2971,12 @@ Private Sub BtnAddDetalle3_Click()
                     Set rs_aux4 = New ADODB.Recordset
                     If rs_aux4.State = 1 Then rs_aux4.Close
                     'rs_aux4.Open "select * from to_cronograma_diario_final_INST where fmes_plan = " & VAR_PLANID & " AND bien_codigo = '" & VAR_BIEN & "' AND horario_codigo = " & VAR_IDTAREA & " AND dia_correl = " & VAR_DIA & " ", db, adOpenKeyset, adLockBatchOptimistic
-                    rs_aux4.Open "Select * from to_cronograma_mensual_inst WHERE fmes_plan = " & VAR_PLANID & " AND estado_activo = 'APR' AND bien_codigo <> '0' ORDER BY dia_fecha, horario_codigo ", db, adOpenStatic
+                    rs_aux4.Open "Select * from to_cronograma_mensual_inst WHERE fmes_plan = " & VAR_PLANID & " AND estado_activo <> 'ANL' AND bien_codigo = '0' ORDER BY dia_fecha, horario_codigo ", db, adOpenStatic
                     If rs_aux4.RecordCount > 0 Then
                         VAR_CONT = 1
                         rs_aux4.MoveFirst
                         While VAR_CONT <= VAR_PERIODOS
-                            db.Execute "update to_cronograma_mensual_inst set bien_codigo = '" & rs_aux7!bien_codigo & "', IdTareaInst = " & VAR_IDTAREA & "  WHERE fmes_plan = " & VAR_PLANID & " AND dia_fecha = " & rs_aux4!dia_fecha & " AND horario_codigo = " & rs_aux4!horario_codigo & "  "
+                            db.Execute "update to_cronograma_mensual_inst set bien_codigo = '" & rs_aux7!bien_codigo & "', IdTareaInst = " & VAR_IDTAREA & "  WHERE fmes_plan = " & VAR_PLANID & " AND dia_fecha = '" & rs_aux4!dia_fecha & "' AND horario_codigo = " & rs_aux4!horario_codigo & "  "
                             VAR_CONT = VAR_CONT + 1
                             rs_aux4.MoveNext
                         Wend
