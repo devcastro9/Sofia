@@ -16,8 +16,8 @@ Begin VB.Form tw_cronograma_mensual_inst
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10935
+   ScaleWidth      =   13260
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet7 
@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120717313
+         Format          =   128581633
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120717313
+         Format          =   128581633
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120717313
+         Format          =   128581633
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120717313
+         Format          =   128581633
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -2641,9 +2641,11 @@ Dim VAR_REG, VAR_CANT1 As Integer
 Dim VAR_SW0, VAR_PLANID, VAR_SOL As Integer
 Dim VAR_DIA, VAR_NRODIAS, VAR_IDTAREA, VAR_PERIODOS As Integer
 Dim VAR_PASAJEROS, VAR_PARADAS As Integer
+Dim VAR_HORARIO As Integer
 
 Dim VAR_FECH1, VAR_FECH2 As Date
 Dim VAR_FECHAINI, VAR_FECHACTRL, VAR_FCTRLINI, VAR_FCTRLFIN As Date
+Dim VAR_DIAFECHA As Date
 
 Dim mvBookMark, marca1 As Variant
 Dim mbDataChanged As Boolean
@@ -2975,7 +2977,8 @@ Private Sub BtnAddDetalle3_Click()
                     If rs_aux4.RecordCount > 0 Then
                         VAR_CONT = 1
                         rs_aux4.MoveFirst
-                        While VAR_CONT <= VAR_PERIODOS
+                        While VAR_CONT <= VAR_PERIODOS And Not rs_aux4.EOF
+                            'VAR_HORARIO    VAR_DIAFECHA
                             db.Execute "update to_cronograma_mensual_inst set bien_codigo = '" & rs_aux7!bien_codigo & "', IdTareaInst = " & VAR_IDTAREA & "  WHERE fmes_plan = " & VAR_PLANID & " AND dia_fecha = '" & rs_aux4!dia_fecha & "' AND horario_codigo = " & rs_aux4!horario_codigo & "  "
                             VAR_CONT = VAR_CONT + 1
                             rs_aux4.MoveNext
@@ -3000,6 +3003,7 @@ Private Sub BtnAddDetalle3_Click()
             End If
         Wend
     End If
+    Call CRONO_INST
 End Sub
 
 Private Sub CRONO_INST()
@@ -3035,8 +3039,7 @@ Private Sub CRONO_INST()
 '            rs_datos9.MoveNext
 '        Wend
 '    End If
-'
-'
+
 '    Set rs_aux1 = New ADODB.Recordset
 '    rs_aux1.Open "Select * from to_cronograma_mensual_inst WHERE fmes_plan = " & VAR_PLANID & "    ", db, adOpenStatic
 '    If rs_aux1.RecordCount > 0 Then
