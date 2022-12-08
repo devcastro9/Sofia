@@ -169,149 +169,9 @@ End Sub
 Public Sub Contabiliza_Facturacion(ByVal IdFactura As Long)
     On Error GoTo Handler
     'Contabilizacion al momento de aprobacion
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     Dim sql_exec As String
     sql_exec = "EXECUTE [dbo].[conta_fac_elec] " & IdFactura
     Call ExecProcedure(sql_exec)
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-    'Vista relativa a contabilizacion
-    Dim rs_data99 As New ADODB.Recordset
-    'Declaracion de variables
-    Dim VAR_CODTIPO As String
-    Dim VAR_PARTIDA As String
-    Dim VAR_EMPRESA As Integer
-    Dim VAR_DEPTO As Integer
-    Dim VAR_TIPOCOMPID As Integer
-    Dim VAR_FECHA As Date
-    Dim VAR_MONEDAID As Integer
-    Dim VAR_TIPOCAMBIO As Double
-    Dim VAR_DEBEORG As Double
-    Dim VAR_HABERORG As Double
-    'Glosas superiores
-    Dim VAR_EntregadoA As String
-    Dim VAR_CONCEPTO As String
-    'Otros valores
-    Dim VAR_ConFac As Integer
-    Dim VAR_SinFac As Integer
-    Dim VAR_Automatico As Integer
-    Dim VAR_GLOSA As String
-    Dim VAR_TipoNotaId As Integer
-    Dim VAR_NotaNro As Integer
-    Dim VAR_EstadoId As Integer
-    Dim VAR_iConcurrency_id As Integer
-    Dim VAR_TipoAsientoId As Integer
-    Dim VAR_CentroCostoId As Integer
-    Dim VAR_TipoRetencionId As Integer
-    Dim VAR_TipoId As Integer
-    Dim VAR_CompDetIdOrg As Integer
-    Dim VAR_AuxAna As String
-    'Reverse identification
-    Dim cod1 As Long
-    Dim cod2 As Long
-    Dim idCAutom As Integer
-    ' Variables adicionales
-    Dim query_data As String
-    Dim query_stored As String
-    ' Data
-    query_data = "SELECT [par], [empresaid], [dpto], [fecha], IIF([tm] = 'BOB', 1, 2), [tc], [bs], [dol], CONCAT('FACTURA A NOMBRE:', [nit], ' - ', [denom]) AS EntregadoA, CONCAT('CONTABILIZACION FACTURA NRO. ', [nrofac], ' - EDIFICIO: ', [edif_codigo_corto], ' ', [edif_descripcion], ' ', [trans_descripcion2], ' ', [glosa], ' SEGUN ', [contratoOds], ' ', [unidad_codigo_ant]) AS PorConcepto, [tiponota], [nrofac], [glosa], [CentroCostoId], [edif_codigo] " & _
-        "FROM [dbo].[conta_facturacion] " & _
-        "WHERE [cod1] = " & IdFactura
-    Set rs_data99 = GetSelect(query_data)
-    If rs_data99 Is Nothing Then
-        If rs_data99.State = adStateOpen Then rs_data99.Close
-        Exit Sub
-    End If
-    With rs_data99
-        .Open query_data, db, adOpenStatic, adLockReadOnly
-        ' Si no se encontro ningun registro
-        If .RecordCount = 0 Then
-            If .State = adStateOpen Then .Close
-            Exit Sub
-        End If
-        ' Si existen registros se asignan a variables
-        .MoveFirst
-        
-        ' Cierra el recordset
-        .Close
-    End With
-    
-    
-    
-    
-    query_data = "SELECT [par], [vtipo], [dpto], [fecha], [tm], [tc], [bs], [dol], CONCAT('FACTURA A NOMBRE:', [nit], ' - ', [denom]) AS EntregadoA, CONCAT('CONTABILIZACION FACTURA NRO. ', [nrofac], ' - EDIFICIO: ', [edif_codigo_corto], ' ', [edif_descripcion], ' ', [trans_descripcion2], ' ', [glosa], ' SEGUN ', [contratoOds], ' ', [unidad_codigo_ant]) AS PorConcepto, [tiponota], [nrofac], [glosa], [CentroCostoId], [edif_codigo] FROM [dbo].[conta_facturacion] WHERE [cod1] = " & venta_codigo & " AND [cod2] = " & cobranza_codigo
-    Set rs_data99 = GetSelect(query_data)
-    If rs_data99 Is Nothing Then
-        If rs_data99.State = adStateOpen Then rs_data99.Close
-        Exit Sub
-    End If
-    
-    
-    If rs_data99.State = adStateOpen Then rs_data99.Close
-    Set rs_data99 = GetSelect(query_data)
-    If rs_data99.State = adStateClosed Then Exit Sub
-    If rs_data99.RecordCount > 0 Then
-        VAR_CODTIPO = "REF"
-        VAR_PARTIDA = rs_data99!par
-        VAR_EMPRESA = IIf(rs_data99!vtipo = "G", 2, 1)
-        VAR_DEPTO = rs_data99!dpto
-        VAR_TIPOCOMPID = 3
-        VAR_FECHA = CDate(rs_data99!Fecha)
-        VAR_TIPOCAMBIO = IIf(IsNull(rs_data99!TC), GlTipoCambioOficial, rs_data99!TC)
-        VAR_MONEDAID = 1
-        VAR_DEBEORG = Round(rs_data99!BS, 2)
-        VAR_HABERORG = Round(rs_data99!BS, 2)
-'        If rs_data99!tm = "BOB" Then
-'            VAR_MONEDAID = 1
-'            VAR_DEBEORG = rs_data99!bs
-'            VAR_HABERORG = rs_data99!bs
-'        Else
-'            VAR_MONEDAID = 2
-'            VAR_DEBEORG = rs_data99!dol
-'            VAR_HABERORG = rs_data99!dol
-'        End If
-        'Glosas superiores
-        VAR_EntregadoA = rs_data99!EntregadoA
-        VAR_CONCEPTO = rs_data99!PorConcepto
-        ' Otros valores
-        VAR_ConFac = 0
-        VAR_SinFac = 1
-        VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
-        VAR_TipoNotaId = rs_data99!tiponota
-        VAR_NotaNro = rs_data99!nrofac
-        ' Glosa general
-        VAR_GLOSA = rs_data99!glosa
-        VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
-        VAR_TipoAsientoId = 0 ' Operativo
-        VAR_CentroCostoId = rs_data99!CentroCostoId
-        VAR_TipoRetencionId = 0
-        VAR_TipoId = 0
-        VAR_CompDetIdOrg = 0
-        VAR_AuxAna = rs_data99!edif_codigo
-        'Reverse identification
-        cod1 = venta_codigo
-        cod2 = cobranza_codigo
-        idCAutom = 2 'Caso Facturacion
-        ' query_stored
-        query_stored = "EXECUTE [dbo].[conta_ingresos] '" & VAR_CODTIPO & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DEPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', " & VAR_MONEDAID & ", '" & ADec(VAR_TIPOCAMBIO) & "', '" & ADec(VAR_DEBEORG) & "', '" & ADec(VAR_HABERORG) & "', '" & VAR_EntregadoA & "', '" & VAR_CONCEPTO & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_AuxAna & "', " & cod1 & ", " & cod2 & ", " & idCAutom
-        Debug.Print query_stored
-        ' EXEC stored procedured
-        Call ExecProcedure(query_stored)
-    End If
-    If rs_data99.State = adStateOpen Then rs_data99.Close
-    MsgBox "Factura contabilizada", vbInformation, "Hecho"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 Handler:
     If Err.Number > 0 Then
         MsgBox ("Contabilizacion de facturacion: " & Err.Number & " : " & Err.Description)
@@ -320,128 +180,97 @@ End Sub
 
 Public Sub Contabiliza_Cobranzas(ByVal IdTraspasoBancos As Long)
     On Error GoTo Handler
-    'Contabilizacion al momento de aprobacion
-    'Vista relativa a contabilizacion
-    Dim rs_data99 As New ADODB.Recordset
-    'Declaracion de variables
-    Dim VAR_CUENTA As String
-    Dim VAR_PARTIDA As String
-    Dim VAR_EMPRESA As Integer
-    Dim VAR_DPTO As Integer
-    Dim VAR_TIPOCOMPID As Integer
-    Dim VAR_FECHA As Date
-    Dim VAR_TIPOCAMBIO As Double
-    Dim VAR_BOB As Double
-    Dim VAR_USD As Double
-    'Glosas superiores
-    Dim VAR_EntregadoA As String
-    Dim VAR_CONCEPTO As String
-    'Glosa general
-    Dim VAR_GLOSA As String
-    'Otros valores
-    Dim VAR_ConFac As Integer
-    Dim VAR_SinFac As Integer
-    Dim VAR_Automatico As Integer
-    Dim VAR_TipoNotaId As Integer
-    Dim VAR_NotaNro As String
-    Dim VAR_EstadoId As Integer
-    Dim VAR_iConcurrency_id As Integer
-    Dim VAR_TipoAsientoId As Integer
-    Dim VAR_CentroCostoId As Integer
-    Dim VAR_TipoRetencionId As Integer
-    Dim VAR_TipoId As Integer
-    Dim VAR_CompDetIdOrg As Integer
-    Dim VAR_AuxAna As String
-    ' Reverse identification
-    Dim cod1 As Long
-    Dim idCAutom As Integer
-    ' Variables adicionales
-    Dim query_data As String
-    Dim query_stored As String
-    ' Data
-    query_data = "SELECT [cta], [par], [vtipo], [depto], [fecha], [bs2], [dol2], CONCAT([edcorto], ' -  EDIFICIO: ', [eddesc]) AS EntregadoA, CONCAT('REGISTRO FACTURA NRO. ', [nrofac], ' CON REGISTRO DE COBRANZA NRO. ', [doc_nro], ' ', [transdes], ' EDIFICIO ', [edcorto], ' ', [eddesc], ' S/G ', [contratoOds], ' ', [cods], ' ', [mes], ' TRASP.TES. ', [correl]) AS PorConcepto, CONCAT([glosa], ' Codigo de bancarizacion: ', [codBancarizacion]) AS glosa, [soltipo], [notaNro], [CentroCostoId], [edif_codigo] FROM [dbo].[conta_cobranzas] WHERE [cod3] = " & IdTraspasoBancos
-    Debug.Print query_data
-    If rs_data99.State = adStateOpen Then rs_data99.Close
-    Set rs_data99 = GetSelect(query_data)
-    If rs_data99.State = adStateClosed Then Exit Sub
-    If rs_data99.RecordCount > 0 Then
-        rs_data99.MoveFirst
-        VAR_TIPOCOMPID = 1
-        VAR_ConFac = 0 'Con factura
-        VAR_SinFac = 1 'Sin factura
-        VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
-        VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
-        VAR_TipoAsientoId = 0 'Operativo
-        VAR_TipoRetencionId = 0
-        VAR_TipoId = 0
-        VAR_CompDetIdOrg = 0
-        'Reverse identification
-        cod1 = IdTraspasoBancos
-        idCAutom = 3 'Caso Cobranzas
-        Do While Not rs_data99.EOF
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            VAR_CUENTA = rs_data99!Cta
-            VAR_PARTIDA = rs_data99!par
-            VAR_EMPRESA = IIf(rs_data99!vtipo = "G", 2, 1)
-            VAR_DPTO = rs_data99!Depto
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-            VAR_CUENTA = rs_data99!cta
-            VAR_PARTIDA = rs_data99!par
-            VAR_EMPRESA = IIf(rs_data99!vtipo = "G", 2, 1)
-            VAR_DPTO = rs_data99!depto
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-            VAR_FECHA = rs_data99!Fecha
-            VAR_BOB = CDbl(rs_data99!bs2)
-            VAR_USD = CDbl(rs_data99!dol2)
-            'Glosas superiores
-            VAR_EntregadoA = rs_data99!EntregadoA
-            VAR_CONCEPTO = rs_data99!PorConcepto
-'            VAR_EntregadoA = rs_data99!edcorto & " - EDIFICIO: " & rs_data99!eddesc
-'            VAR_CONCEPTO = "REGISTRO FACTURA NRO. " & rs_data99!nrofac & " CON RECIBO DE COBRANZA NRO. " & rs_data99!doc_nro
-'            VAR_CONCEPTO = VAR_CONCEPTO & " " & rs_data99!transdes & " EDIFICIO " & rs_data99!edcorto & " " & rs_data99!eddesc
-'            VAR_CONCEPTO = VAR_CONCEPTO & " S/G " & rs_data99!contratoOds & " " & rs_data99!cods & " " & rs_data99!mes & " TRASP.TES. " & rs_data99!correl
-            'Glosa general
-            VAR_GLOSA = rs_data99!glosa
-            'Otros
-            VAR_TipoNotaId = rs_data99!soltipo
-            VAR_NotaNro = rs_data99!notaNro
-            VAR_CentroCostoId = rs_data99!CentroCostoId
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            VAR_AuxAna = rs_data99!EDIF_CODIGO
-=======
-            VAR_AuxAna = rs_data99!edif_codigo
->>>>>>> Stashed changes
-=======
-            VAR_AuxAna = rs_data99!edif_codigo
->>>>>>> Stashed changes
-=======
-            VAR_AuxAna = rs_data99!edif_codigo
->>>>>>> Stashed changes
-            'query stored
-            query_stored = "EXECUTE [dbo].[conta_cobranzas] '" & VAR_CUENTA & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', '" & ADec(VAR_BOB) & "', '" & ADec(VAR_USD) & "', '" & VAR_EntregadoA & "', '" & VAR_CONCEPTO & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_AuxAna & "', " & cod1 & ", " & 0 & ", " & idCAutom
-            Debug.Print query_stored
-            ' EXEC stored procedured
-            Call ExecProcedure(query_stored)
-            ' Siguiente
-            rs_data99.MoveNext
-        Loop
-    End If
-    If rs_data99.State = adStateOpen Then rs_data99.Close
-    MsgBox "Cobranza contabilizada", vbInformation, "Hecho"
+    '====================================
+    'Falta mejorar
+    '====================================
+'    Dim rs_data99 As New ADODB.Recordset
+'    Dim VAR_CUENTA As String
+'    Dim VAR_PARTIDA As String
+'    Dim VAR_EMPRESA As Integer
+'    Dim VAR_DPTO As Integer
+'    Dim VAR_TIPOCOMPID As Integer
+'    Dim VAR_FECHA As Date
+'    Dim VAR_TIPOCAMBIO As Double
+'    Dim VAR_BOB As Double
+'    Dim VAR_USD As Double
+'    'Glosas superiores
+'    Dim VAR_EntregadoA As String
+'    Dim VAR_CONCEPTO As String
+'    'Glosa general
+'    Dim VAR_GLOSA As String
+'    'Otros valores
+'    Dim VAR_ConFac As Integer
+'    Dim VAR_SinFac As Integer
+'    Dim VAR_Automatico As Integer
+'    Dim VAR_TipoNotaId As Integer
+'    Dim VAR_NotaNro As String
+'    Dim VAR_EstadoId As Integer
+'    Dim VAR_iConcurrency_id As Integer
+'    Dim VAR_TipoAsientoId As Integer
+'    Dim VAR_CentroCostoId As Integer
+'    Dim VAR_TipoRetencionId As Integer
+'    Dim VAR_TipoId As Integer
+'    Dim VAR_CompDetIdOrg As Integer
+'    Dim VAR_AuxAna As String
+'    ' Reverse identification
+'    Dim cod1 As Long
+'    Dim idCAutom As Integer
+'    ' Variables adicionales
+'    Dim query_data As String
+'    Dim query_stored As String
+'    ' Data
+'    query_data = "SELECT [cta], [par], [vtipo], [depto], [fecha], [bs2], [dol2], CONCAT([edcorto], ' -  EDIFICIO: ', [eddesc]) AS EntregadoA, CONCAT('REGISTRO FACTURA NRO. ', [nrofac], ' CON REGISTRO DE COBRANZA NRO. ', [doc_nro], ' ', [transdes], ' EDIFICIO ', [edcorto], ' ', [eddesc], ' S/G ', [contratoOds], ' ', [cods], ' ', [mes], ' TRASP.TES. ', [correl]) AS PorConcepto, CONCAT([glosa], ' Codigo de bancarizacion: ', [codBancarizacion]) AS glosa, [soltipo], [notaNro], [CentroCostoId], [edif_codigo] FROM [dbo].[conta_cobranzas] WHERE [cod3] = " & IdTraspasoBancos
+'    Debug.Print query_data
+'    If rs_data99.State = adStateOpen Then rs_data99.Close
+'    Set rs_data99 = GetSelect(query_data)
+'    If rs_data99.State = adStateClosed Then Exit Sub
+'    If rs_data99.RecordCount > 0 Then
+'        rs_data99.MoveFirst
+'        VAR_TIPOCOMPID = 1
+'        VAR_ConFac = 0 'Con factura
+'        VAR_SinFac = 1 'Sin factura
+'        VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
+'        VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
+'        VAR_TipoAsientoId = 0 'Operativo
+'        VAR_TipoRetencionId = 0
+'        VAR_TipoId = 0
+'        VAR_CompDetIdOrg = 0
+'        'Reverse identification
+'        cod1 = IdTraspasoBancos
+'        idCAutom = 3 'Caso Cobranzas
+'        Do While Not rs_data99.EOF
+'            VAR_CUENTA = rs_data99!cta
+'            VAR_PARTIDA = rs_data99!par
+'            VAR_EMPRESA = IIf(rs_data99!vtipo = "G", 2, 1)
+'            VAR_DPTO = rs_data99!depto
+'            VAR_FECHA = rs_data99!Fecha
+'            VAR_BOB = CDbl(rs_data99!bs2)
+'            VAR_USD = CDbl(rs_data99!dol2)
+'            'Glosas superiores
+'            VAR_EntregadoA = rs_data99!EntregadoA
+'            VAR_CONCEPTO = rs_data99!PorConcepto
+''            VAR_EntregadoA = rs_data99!edcorto & " - EDIFICIO: " & rs_data99!eddesc
+''            VAR_CONCEPTO = "REGISTRO FACTURA NRO. " & rs_data99!nrofac & " CON RECIBO DE COBRANZA NRO. " & rs_data99!doc_nro
+''            VAR_CONCEPTO = VAR_CONCEPTO & " " & rs_data99!transdes & " EDIFICIO " & rs_data99!edcorto & " " & rs_data99!eddesc
+''            VAR_CONCEPTO = VAR_CONCEPTO & " S/G " & rs_data99!contratoOds & " " & rs_data99!cods & " " & rs_data99!mes & " TRASP.TES. " & rs_data99!correl
+'            'Glosa general
+'            VAR_GLOSA = rs_data99!glosa
+'            'Otros
+'            VAR_TipoNotaId = rs_data99!soltipo
+'            VAR_NotaNro = rs_data99!notaNro
+'            VAR_CentroCostoId = rs_data99!CentroCostoId
+'            VAR_AuxAna = rs_data99!edif_codigo
+'            'query stored
+'            query_stored = "EXECUTE [dbo].[conta_cobranzas] '" & VAR_CUENTA & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', '" & ADec(VAR_BOB) & "', '" & ADec(VAR_USD) & "', '" & VAR_EntregadoA & "', '" & VAR_CONCEPTO & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_AuxAna & "', " & cod1 & ", " & 0 & ", " & idCAutom
+'            Debug.Print query_stored
+'            ' EXEC stored procedured
+'            Call ExecProcedure(query_stored)
+'            ' Siguiente
+'            rs_data99.MoveNext
+'        Loop
+'    End If
+'    If rs_data99.State = adStateOpen Then rs_data99.Close
+'    MsgBox "Cobranza contabilizada", vbInformation, "Hecho"
 Handler:
     If Err.Number <> 0 Then
         MsgBox ("Cobranzas " & Err.Number & " : " & Err.Description)
