@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -916,36 +916,36 @@ Begin VB.Form mw_ventas_cabecera
                EndProperty
                BeginProperty Column01 
                   Locked          =   -1  'True
-                  ColumnWidth     =   585.071
+                  ColumnWidth     =   585,071
                EndProperty
                BeginProperty Column02 
                   Locked          =   -1  'True
-                  ColumnWidth     =   4500.284
+                  ColumnWidth     =   4500,284
                EndProperty
                BeginProperty Column03 
                   Alignment       =   2
                   Locked          =   -1  'True
-                  ColumnWidth     =   1305.071
+                  ColumnWidth     =   1305,071
                EndProperty
                BeginProperty Column04 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1140.095
+                  ColumnWidth     =   1140,095
                EndProperty
                BeginProperty Column05 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1140.095
+                  ColumnWidth     =   1140,095
                EndProperty
                BeginProperty Column06 
                   Alignment       =   2
                   Locked          =   -1  'True
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1230.236
+                  ColumnWidth     =   1230,236
                EndProperty
                BeginProperty Column07 
                   Alignment       =   2
-                  ColumnWidth     =   615.118
+                  ColumnWidth     =   615,118
                EndProperty
             EndProperty
          End
@@ -1060,7 +1060,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119865345
+            Format          =   125501441
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1368,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   119865347
+            Format          =   151322627
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3068,7 +3068,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119865345
+               Format          =   149815297
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -4354,25 +4354,25 @@ Begin VB.Form mw_ventas_cabecera
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   2594.835
+               ColumnWidth     =   2594,835
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1200.189
+               ColumnWidth     =   1200,189
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
                ColumnWidth     =   1080
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   780.095
+               ColumnWidth     =   780,095
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   689.953
+               ColumnWidth     =   689,953
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
@@ -4380,7 +4380,7 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column07 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   959.811
+               ColumnWidth     =   959,811
             EndProperty
          EndProperty
       End
@@ -4622,29 +4622,29 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1275.024
+               ColumnWidth     =   1275,024
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4185.071
+               ColumnWidth     =   4185,071
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1335.118
+               ColumnWidth     =   1335,118
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
-               ColumnWidth     =   1184.882
+               ColumnWidth     =   1184,882
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1335.118
+               ColumnWidth     =   1335,118
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
@@ -4653,11 +4653,11 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column08 
                Alignment       =   2
                Object.Visible         =   0   'False
-               ColumnWidth     =   689.953
+               ColumnWidth     =   689,953
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   585.071
+               ColumnWidth     =   585,071
             EndProperty
          EndProperty
       End
@@ -4876,7 +4876,7 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   824.882
+               ColumnWidth     =   824,882
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
@@ -4885,39 +4885,39 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1379.906
+               ColumnWidth     =   1379,906
             EndProperty
             BeginProperty Column03 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1470.047
+               ColumnWidth     =   1470,047
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   959.811
+               ColumnWidth     =   959,811
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   0   'False
-               ColumnWidth     =   1289.764
+               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   3179.906
+               ColumnWidth     =   3179,906
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   2775.118
+               ColumnWidth     =   2775,118
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   599.811
+               ColumnWidth     =   599,811
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column10 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1005.165
+               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column11 
                Alignment       =   2
@@ -6085,7 +6085,7 @@ Dim correlativo1 As Integer
 Dim marca1 As Variant
 
 Dim swgrabar, swnuevo, deta2 As Integer
-Dim nroventa, correlv, correldet2 As Integer
+Dim nroventa, correlv, correldet2 As Long
 Dim VAR_PARTIDA, VAR_PROY, correldetalle As Integer
 Dim VAR_CANT0, VAR_CANT9  As Integer
 Dim VAR_CODANT, Var_Comp, VAR_SOL, VAR_TIPOS As Integer
@@ -6512,7 +6512,7 @@ Private Sub BtnAprobar_Click()
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
-  If Ado_datos.Recordset.RecordCount > 0 Then
+    If Ado_datos.Recordset.RecordCount > 0 Then
     'VALIDA EDIFICIO Y EQUIPOS
     Set rs_aux10 = New ADODB.Recordset     'Proyecto de Edificación
     If rs_aux10.State = 1 Then rs_aux10.Close
@@ -6619,13 +6619,12 @@ Private Sub BtnAprobar_Click()
             End Select
 
 '           'INI CONTABILIZACION NUEVA
-'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-
-            'Call Contabiliza_Contratos
+'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+            
+            Call Contabiliza_Contratos(correlv)
 
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 '            'FIN CONTABILIZACION NUEVA
-'           Call Contabiliza_venta
            
            'INI GENERA INFORMACION COMEX, INSTALACION, AJUSTE Y/O MANTENIMIENTO
            If VAR_TIPOV = "V" Or VAR_TIPOV = "L" Or VAR_TIPOV = "G" Then
@@ -7041,129 +7040,6 @@ Private Sub CRONO_INSTALACION()
             End If
         Wend
     End If
-End Sub
-
-Private Sub Contabiliza_Contratos()
-'    ' Contabilizacion al momento de aprobacion
-'    'Base de datos
-'    Dim db2 As New ADODB.Connection
-'    ' Recordset
-'    Dim rs_aux100 As New ADODB.Recordset
-'    Dim rs_aux101 As New ADODB.Recordset
-'    'Declaracion de variables
-'    Dim VAR_CODTIPO As String
-'    Dim VAR_EMPRESA As Integer
-'    Dim VAR_TIPOCOMPID As Integer
-'    Dim VAR_FECHA As Date
-'    Dim VAR_MONEDAID As Integer
-'    Dim VAR_TIPOCAMBIO As Double
-'    Dim EntregadoA As String
-'    Dim VAR_DEBEORG As Double
-'    Dim VAR_HABERORG As Double
-'    'Impuestos
-'    Dim VAR_PorIVA As Double
-'    Dim VAR_PorIT As Double
-'    Dim VAR_PorITF As Double
-'    'Otros valores
-'    Dim VAR_ConFac As Integer
-'    Dim VAR_SinFac As Integer
-'    Dim VAR_Automatico As Integer
-'    Dim VAR_TipoNotaId As Integer
-'    Dim VAR_NotaNro As Integer
-'    Dim VAR_EstadoId As Integer
-'    Dim VAR_iConcurrency_id As Integer
-'    Dim VAR_TipoAsientoId As Integer
-'    Dim VAR_CentroCostoId As Integer
-'    Dim VAR_TipoRetencionId As Integer
-'    Dim VAR_TipoId As Integer
-'    Dim VAR_CompDetIdOrg As Integer
-'    ' Variables intermedias
-'    Dim VAR_transDescripcion As String
-'    ' Asignacion de valores del procedimiento Call graba_ingreso
-'    VAR_BS2 = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
-'    VAR_DOL2 = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
-'    ' Codigo Tipo
-'    VAR_CODTIPO = "DEI"
-'    ' Rubro codigo, descripcion, centro de costo id
-'    Set rs_aux100 = New ADODB.Recordset
-'    If rs_aux100.State = 1 Then rs_aux100.Close
-'    rs_aux100.Open "SELECT trans_descripcion, rubro_codigo, CentroCostoId FROM gc_tipo_transaccion WHERE trans_codigo = '" & Ado_datos.Recordset!trans_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
-'    If rs_aux100.RecordCount > 0 Then
-'        VAR_transDescripcion = rs_aux100!trans_descripcion
-'        VAR_PARTIDA = rs_aux100!rubro_codigo
-'        VAR_CentroCostoId = rs_aux100!CentroCostoId
-'        rs_aux100.Close
-'    Else
-'        VAR_transDescripcion = "None"
-'        VAR_PARTIDA = "None"
-'        VAR_CentroCostoId = "None"
-'    End If
-'    ' Empresa
-'    If VAR_TIPOV = "G" Then
-'        VAR_EMPRESA = 2
-'    Else
-'        VAR_EMPRESA = 1
-'    End If
-'    ' Fecha de venta
-'    VAR_FECHA = CDate(Ado_datos.Recordset!venta_fecha)
-'    ' Tipo de cambio -> BOB - USD
-'    If IsNull(Ado_datos.Recordset!venta_tipo_cambio) Or (Ado_datos.Recordset!venta_tipo_cambio = 0) Or (Ado_datos.Recordset!venta_tipo_cambio = 1) Then
-'        VAR_TIPOCAMBIO = GlTipoCambioOficial
-'    Else
-'        VAR_TIPOCAMBIO = Ado_datos.Recordset!venta_tipo_cambio
-'    End If
-'    'VAR_TIPOCAMBIO = Ado_datos.Recordset!venta_tipo_cambio
-'    ' Tipo moneda/Debe/Haber
-'    VAR_MONEDAID = 1
-'    VAR_DEBEORG = VAR_BS2 'Boliviano
-'    VAR_HABERORG = VAR_BS2 'Boliviano
-'    ' If Ado_datos.Recordset!tipo_moneda = "USD" Then
-'    '     VAR_MONEDAID = 2
-'    '     VAR_DEBEORG = VAR_DOL2 'Dolar
-'    '     VAR_HABERORG = VAR_DOL2 'Dolar
-'    ' Else
-'    '     VAR_MONEDAID = 1
-'    '     VAR_DEBEORG = VAR_BS2 'Boliviano
-'    '     VAR_HABERORG = VAR_BS2 'Boliviano
-'    ' End If
-'    ' Entregado A
-'    EntregadoA = "Responsable: " & Ado_datos.Recordset!beneficiario_codigo + " - " + Ado_datos.Recordset!beneficiario_denominacion
-'    ' Por Concepto
-'    VAR_CONCEPTO = "Devengamiento de contrato: " & Ado_datos.Recordset!unidad_codigo_ant & " - Edificio " & Ado_datos.Recordset!edif_codigo_corto
-'    Set rs_aux101 = New ADODB.Recordset
-'    If rs_aux101.State = 1 Then rs_aux101.Close
-'    rs_aux101.Open "select edif_descripcion from gc_edificaciones where edif_codigo = '" & VAR_PROY2 & "'  ", db, adOpenKeyset, adLockOptimistic
-'    If rs_aux101.RecordCount > 0 Then
-'        VAR_CONCEPTO = VAR_CONCEPTO & " " & rs_aux101!edif_descripcion
-'        rs_aux101.Close
-'    End If
-'    If VAR_transDescripcion <> "None" Then
-'        VAR_CONCEPTO = VAR_CONCEPTO & " - " & VAR_transDescripcion
-'    End If
-'    ' TipoCompId (Tipo comprobante id) Traspaso
-'    VAR_TIPOCOMPID = 3
-'    ' Impuestos
-'    VAR_PorIVA = 0.13
-'    VAR_PorIT = 0.03
-'    VAR_PorITF = 0.0015
-'    ' Otros valores
-'    VAR_ConFac = 0
-'    VAR_SinFac = 1
-'    VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
-'    VAR_TipoNotaId = Ado_datos.Recordset!solicitud_tipo
-'    VAR_NotaNro = Ado_datos.Recordset!venta_codigo
-'    ' Glosa general
-'    VAR_GLOSA = "INGRESO POR: " & Ado_datos.Recordset!venta_descripcion & " - Nro. Venta: " & VAR_NotaNro
-'    VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
-'    VAR_TipoAsientoId = 0 ' Operativo
-'    VAR_TipoRetencionId = 0
-'    VAR_TipoId = 0
-'    VAR_CompDetIdOrg = 0
-'    ' Creamos conexion unica para CONDOBO
-'    db2.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CONDOBO;Data Source=SSOFIA"
-'    ' Procedimiento almacenado
-'    db2.Execute ("EXEC fp_contabiliza_ingresos '" & VAR_CODTIPO & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', " & VAR_MONEDAID & ", '" & VAR_TIPOCAMBIO & "', '" & VAR_DEBEORG & "', '" & VAR_HABERORG & "', '" & EntregadoA & "', '" & VAR_CONCEPTO & "', '" & VAR_PorIVA & "', '" & VAR_PorIT & "', '" & VAR_PorITF & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_PROY2 & "'")
-'    db2.Close
 End Sub
 
 Private Sub BtnAprobar1_Click()
