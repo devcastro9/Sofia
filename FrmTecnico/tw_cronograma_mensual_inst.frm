@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120061953
+         Format          =   121962497
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120061953
+         Format          =   121962497
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120061953
+         Format          =   121962497
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120061953
+         Format          =   121962497
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -2639,7 +2639,7 @@ End Sub
 Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If VAR_SW0 = 1 Then
         VAR_FMES = Ado_detalle1.Recordset!correlativo
-        lbl_texto2.Caption = Ado_detalle1.Recordset!correlativo
+        lbl_texto2.Caption = Ado_detalle1.Recordset!fmes_plan
         If Ado_detalle1.Recordset!estado_activo = "APR" Then
             BtnModificar.Visible = False
             BtnAddDetalle3.Visible = False

@@ -11,13 +11,13 @@ Begin VB.Form tw_organizacion_zonas_inst
    ClientHeight    =   10935
    ClientLeft      =   225
    ClientTop       =   555
-   ClientWidth     =   11280
+   ClientWidth     =   16770
    Icon            =   "tw_organizacion_zonas_inst.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10935
+   ScaleWidth      =   16770
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
@@ -934,7 +934,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128647169
+         Format          =   121962497
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -948,7 +948,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128647169
+         Format          =   121962497
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -962,7 +962,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128647169
+         Format          =   121962497
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -976,7 +976,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128647169
+         Format          =   121962497
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -2521,6 +2521,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
      '<-- Inicio                Identificación del Cliente                Fin -->
      If VAR_SW <> "MOD" Then
         If Ado_datos.Recordset.RecordCount > 0 Then
+            lbl_texto0 = Ado_datos.Recordset!zpiloto_codigo
             BtnModificar2_Click
             dg_det1.Visible = True
             Call Option1_Click
@@ -2542,6 +2543,7 @@ Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         Else
             dg_det1.AllowUpdate = True
         End If
+        lbl_texto2.Caption = Ado_detalle1.Recordset!fmes_plan
         FrmDetalle.Visible = True
         'AV_EDIF_VS_BIENES_VENTANUEVA
         Set rs_datos10 = New ADODB.Recordset
@@ -2779,61 +2781,61 @@ Private Sub BtnGrabar_Click()
 End Sub
 
 Private Sub valida_campos()
-  'Valida compos para editables
-  If (dtc_codigo1.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo1.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-  If (dtc_codigo2 = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo2.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-  If (dtc_codigo3.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo3.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-  If (dtc_codigo4.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo4.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-'  If (Txt_campo2.Text = "") Then
-'    MsgBox "Debe registrar ... " + lbl_zona.Caption, vbCritical + vbExclamation, "Validación de datos"
+'  'Valida compos para editables
+'  If (dtc_codigo1.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo1.Caption, vbCritical + vbExclamation, "Validación de datos"
 '    VAR_VAL = "ERR"
 '    Exit Sub
 '  End If
+'  If (dtc_codigo2 = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo2.Caption, vbCritical + vbExclamation, "Validación de datos"
+'    VAR_VAL = "ERR"
+'    Exit Sub
+'  End If
+'  If (dtc_codigo3.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo3.Caption, vbCritical + vbExclamation, "Validación de datos"
+'    VAR_VAL = "ERR"
+'    Exit Sub
+'  End If
+'  If (dtc_codigo4.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo4.Caption, vbCritical + vbExclamation, "Validación de datos"
+'    VAR_VAL = "ERR"
+'    Exit Sub
+'  End If
+''  If (Txt_campo2.Text = "") Then
+''    MsgBox "Debe registrar ... " + lbl_zona.Caption, vbCritical + vbExclamation, "Validación de datos"
+''    VAR_VAL = "ERR"
+''    Exit Sub
+''  End If
 End Sub
 
 Private Sub valida_det()
-  'Valida compos para editables
-  If (dtc_codigo5.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo5.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-  If (dtc_codigo6 = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo6.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-  If (dtc_codigo7.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo7.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-  If (dtc_codigo8.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo8.Caption, vbCritical + vbExclamation, "Validación de datos"
-    VAR_VAL = "ERR"
-    Exit Sub
-  End If
-'  If (Txt_campo1.Text = "") Then
-'    MsgBox "Debe registrar ... " + lbl_orden.Caption, vbCritical + vbExclamation, "Validación de datos"
+'  'Valida compos para editables
+'  If (dtc_codigo5.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo5.Caption, vbCritical + vbExclamation, "Validación de datos"
 '    VAR_VAL = "ERR"
 '    Exit Sub
 '  End If
+'  If (dtc_codigo6 = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo6.Caption, vbCritical + vbExclamation, "Validación de datos"
+'    VAR_VAL = "ERR"
+'    Exit Sub
+'  End If
+'  If (dtc_codigo7.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo7.Caption, vbCritical + vbExclamation, "Validación de datos"
+'    VAR_VAL = "ERR"
+'    Exit Sub
+'  End If
+'  If (dtc_codigo8.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_campo8.Caption, vbCritical + vbExclamation, "Validación de datos"
+'    VAR_VAL = "ERR"
+'    Exit Sub
+'  End If
+''  If (Txt_campo1.Text = "") Then
+''    MsgBox "Debe registrar ... " + lbl_orden.Caption, vbCritical + vbExclamation, "Validación de datos"
+''    VAR_VAL = "ERR"
+''    Exit Sub
+''  End If
 End Sub
 
 Private Sub BtnGrabarDet_Click()
@@ -3182,21 +3184,21 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos1.State = 1 Then rs_datos1.Close
     rs_datos1.Open "Select * from gc_departamento order by depto_codigo ", db, adOpenStatic
     Set Ado_datos1.Recordset = rs_datos1
-    dtc_desc1.BoundText = dtc_codigo1.BoundText
+'    dtc_desc1.BoundText = dtc_codigo1.BoundText
 
     'gc_provincia
     Set rs_datos2 = New ADODB.Recordset
     If rs_datos2.State = 1 Then rs_datos2.Close
     rs_datos2.Open "Select * from gc_provincia order by prov_descripcion", db, adOpenStatic
     Set Ado_datos2.Recordset = rs_datos2
-    dtc_desc2.BoundText = dtc_codigo2.BoundText
+'    dtc_desc2.BoundText = dtc_codigo2.BoundText
 
     'gc_municipio
     Set rs_datos3 = New ADODB.Recordset
     If rs_datos3.State = 1 Then rs_datos3.Close
     rs_datos3.Open "Select * from gc_municipio where region_codigo = 'SI' order by munic_descripcion", db, adOpenStatic
     Set Ado_datos3.Recordset = rs_datos3
-    dtc_desc3.BoundText = dtc_codigo3.BoundText
+'    dtc_desc3.BoundText = dtc_codigo3.BoundText
 
     'Beneficiario Funcionario CGI (Tecnico Responsable)
     Set rs_datos4 = New ADODB.Recordset

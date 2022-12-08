@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -621,9 +621,9 @@ Begin VB.Form mw_ventas_cabecera
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":BB4B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -916,36 +916,29 @@ Begin VB.Form mw_ventas_cabecera
                EndProperty
                BeginProperty Column01 
                   Locked          =   -1  'True
-                  ColumnWidth     =   585,071
                EndProperty
                BeginProperty Column02 
                   Locked          =   -1  'True
-                  ColumnWidth     =   4500,284
                EndProperty
                BeginProperty Column03 
                   Alignment       =   2
                   Locked          =   -1  'True
-                  ColumnWidth     =   1305,071
                EndProperty
                BeginProperty Column04 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1140,095
                EndProperty
                BeginProperty Column05 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1140,095
                EndProperty
                BeginProperty Column06 
                   Alignment       =   2
                   Locked          =   -1  'True
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1230,236
                EndProperty
                BeginProperty Column07 
                   Alignment       =   2
-                  ColumnWidth     =   615,118
                EndProperty
             EndProperty
          End
@@ -1060,7 +1053,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   125501441
+            Format          =   122224641
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1368,7 +1361,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   151322627
+            Format          =   122224643
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3068,7 +3061,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   149815297
+               Format          =   122224641
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -4354,25 +4347,20 @@ Begin VB.Form mw_ventas_cabecera
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   2594,835
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1200,189
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
                ColumnWidth     =   1080
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   780,095
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   689,953
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
@@ -4380,7 +4368,6 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column07 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   959,811
             EndProperty
          EndProperty
       End
@@ -4622,29 +4609,23 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1275,024
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4185,071
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1335,118
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
-               ColumnWidth     =   1184,882
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1335,118
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
@@ -4653,11 +4634,9 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column08 
                Alignment       =   2
                Object.Visible         =   0   'False
-               ColumnWidth     =   689,953
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   585,071
             EndProperty
          EndProperty
       End
@@ -4876,7 +4855,6 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   824,882
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
@@ -4885,39 +4863,30 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1379,906
             EndProperty
             BeginProperty Column03 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1470,047
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   959,811
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   0   'False
-               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   3179,906
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   2775,118
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   599,811
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column10 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column11 
                Alignment       =   2
