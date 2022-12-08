@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128581633
+         Format          =   120061953
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128581633
+         Format          =   120061953
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128581633
+         Format          =   120061953
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   128581633
+         Format          =   120061953
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -1614,7 +1614,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   19
+         ColumnCount     =   14
          BeginProperty Column00 
             DataField       =   "fmes_plan"
             Caption         =   "Mes"
@@ -1629,7 +1629,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column01 
-            DataField       =   "horario_codigo"
+            DataField       =   "IdTareaInst"
             Caption         =   "#.Tarea"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1669,7 +1669,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          EndProperty
          BeginProperty Column04 
             DataField       =   "nro_total_horas"
-            Caption         =   "#.Dias"
+            Caption         =   "#.Horas"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1681,7 +1681,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "hora_ingreso"
+            DataField       =   "dia_fecha"
             Caption         =   "Fecha.Inicio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1694,7 +1694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column06 
-            DataField       =   "hora_salida"
+            DataField       =   "dia_fecha_fin"
             Caption         =   "Fecha.Fin"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1707,6 +1707,19 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
          EndProperty
          BeginProperty Column07 
+            DataField       =   "dia_nombre"
+            Caption         =   "Nombre.Mes"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
             DataField       =   "estado_activo"
             Caption         =   "Estado.Tarea"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1719,22 +1732,9 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column09 
             DataField       =   "estado_codigo"
             Caption         =   "Estado.Todo"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column09 
-            DataField       =   "dia_nombre"
-            Caption         =   "Nombre.Mes"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1797,71 +1797,6 @@ Begin VB.Form tw_cronograma_mensual_inst
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column14 
-            DataField       =   "cantidad1"
-            Caption         =   "Haipe/Trapo"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column15 
-            DataField       =   "cantidad2"
-            Caption         =   "Gasolina"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column16 
-            DataField       =   "cantidad3"
-            Caption         =   "ISO-680"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column17 
-            DataField       =   "cantidad4"
-            Caption         =   "ISO-2050"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column18 
-            DataField       =   "cantidad5"
-            Caption         =   "Grasa"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
@@ -1874,36 +1809,36 @@ Begin VB.Form tw_cronograma_mensual_inst
             BeginProperty Column02 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   3764.977
+               ColumnWidth     =   7769.764
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   629.858
+               ColumnWidth     =   794.835
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   989.858
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   975.118
+               ColumnWidth     =   1214.929
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   615.118
+               ColumnWidth     =   1484.787
             EndProperty
             BeginProperty Column08 
-               ColumnWidth     =   900.284
+               ColumnWidth     =   1110.047
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   989.858
+               ColumnWidth     =   1049.953
             EndProperty
             BeginProperty Column10 
                Object.Visible         =   0   'False
@@ -1920,21 +1855,6 @@ Begin VB.Form tw_cronograma_mensual_inst
             BeginProperty Column13 
                Locked          =   -1  'True
                Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column14 
-               ColumnWidth     =   1035.213
-            EndProperty
-            BeginProperty Column15 
-               ColumnWidth     =   750.047
-            EndProperty
-            BeginProperty Column16 
-               ColumnWidth     =   824.882
-            EndProperty
-            BeginProperty Column17 
-               ColumnWidth     =   810.142
-            EndProperty
-            BeginProperty Column18 
-               ColumnWidth     =   629.858
             EndProperty
          EndProperty
       End
@@ -2790,9 +2710,12 @@ Private Sub BtnAddDetalle3_Click()
     VAR_BENAJST = Ado_detalle1.Recordset!beneficiario_codigo_rep    'RESPONSABLE AJUSTE
     VAR_BENSUP = Ado_detalle1.Recordset!beneficiario_codigo_cobr      'SUPERVISOR INSTALACION
     NumComp = Ado_detalle1.Recordset!venta_codigo
-    
-    db.Execute "update to_cronograma_mensual_inst SET estado_activo = 'ANL' WHERE dia_fecha < '" & VAR_FECHAINI & "' AND fmes_plan = " & VAR_PLANID & "  "
-    db.Execute "update to_cronograma_mensual_inst SET bien_codigo = '0' WHERE fmes_plan = " & VAR_PLANID & " AND bien_codigo IS NULL "
+    'Format(Date, "dd/mm/yyyy")
+    db.Execute "UPDATE to_cronograma_mensual_inst SET estado_codigo  = 'REG' WHERE fmes_plan = " & VAR_PLANID & "  "
+    db.Execute "UPDATE to_cronograma_mensual_inst SET bien_codigo  = '0' where fmes_plan = " & VAR_PLANID & "  "
+    db.Execute "update to_cronograma_mensual_inst SET estado_activo = 'ANL' WHERE dia_fecha < '" & Format(VAR_FECHAINI, "dd/mm/yyyy") & "' AND fmes_plan = " & VAR_PLANID & "  "
+    'db.Execute "UPDATE to_cronograma_mensual_inst SET estado_activo = 'ANL' WHERE (dia_fecha < CONVERT(DATETIME, '" & VAR_FECHAINI & "', 102))  AND fmes_plan = " & VAR_PLANID & "  "
+    'db.Execute "update to_cronograma_mensual_inst SET bien_codigo = '0' WHERE fmes_plan = " & VAR_PLANID & " AND bien_codigo IS NULL "
     
     'UNIDAD ORIGEN
     Set rs_aux1 = New ADODB.Recordset
@@ -2987,6 +2910,8 @@ Private Sub BtnAddDetalle3_Click()
 '                        db.Execute "update to_cronograma_mensual_inst set bien_orden = " & VAR_IDTAREA & ", venta_codigo = " & NumComp & " WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "   "
 '                        db.Execute "update to_cronograma_mensual_inst set estado_activo = 'REG' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
                     Else
+                        MsgBox "No se puede generar el Cronograma, No existe el Calendario para este contrato, consulte con Administrador del Sistema...", vbInformation, "INFORMACIÓN"
+                        Exit Sub
                         '
 '                        db.Execute "INSERT INTO to_cronograma_mensual_inst (fmes_plan, dia_correl, horario_codigo, bien_orden,     bien_codigo,        unidad_codigo_tec, tec_plan_codigo,     beneficiario_codigo_resp, beneficiario_codigo_resp2, dia_fecha,             dia_nombre,         hora_ingreso,           hora_salida,            nro_total_horas,      observaciones,      edif_descripcion, bien_codigo1, " & _
 '                        " bien_codigo2, bien_codigo3, bien_codigo4, bien_codigo5, cantidad1, cantidad2, cantidad3, cantidad4, cantidad5, carta, doc_numero_carta, nro_fojas, doc_numero, estado_activo, estado_codigo, usr_codigo,      fecha_registro, " & _
@@ -3002,8 +2927,17 @@ Private Sub BtnAddDetalle3_Click()
             rs_aux9.MoveNext
             End If
         Wend
+        'Call CRONO_INST
+        db.Execute " DELETE to_cronograma_diario_final_INST where  fmes_plan = " & VAR_PLANID & " "
+        db.Execute " INSERT INTO to_cronograma_diario_final_INST (fmes_plan, IdTareaInst, horario_codigo, bien_codigo, unidad_codigo_tec, beneficiario_codigo_resp, dia_fecha, nro_total_horas, estado_activo, estado_codigo, usr_codigo, fecha_registro) SELECT * FROM TV_crono_mensual_fecha_min WHERE TV_crono_mensual_fecha_min.fmes_plan = " & VAR_PLANID & " AND TV_crono_mensual_fecha_min.bien_codigo <>'0' "
+        
+        db.Execute " update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.observaciones  = tc_tareas_crono_instalacion.TareaDescripcion FROM to_cronograma_diario_final_INST INNER JOIN tc_tareas_crono_instalacion ON to_cronograma_diario_final_INST.IdTareaInst = tc_tareas_crono_instalacion.IdTareaInst where to_cronograma_diario_final_INST.fmes_plan = " & VAR_PLANID & " "
+        db.Execute "update to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.dia_fecha_fin = TV_crono_mensual_fecha_max.dia_fecha FROM to_cronograma_diario_final_INST INNER JOIN TV_crono_mensual_fecha_max ON to_cronograma_diario_final_INST.fmes_plan  = TV_crono_mensual_fecha_max.fmes_plan AND to_cronograma_diario_final_INST.IdTareaInst = TV_crono_mensual_fecha_max.IdTareaInst AND to_cronograma_diario_final_INST.bien_codigo  = TV_crono_mensual_fecha_max.bien_codigo where to_cronograma_diario_final_INST.fmes_plan = " & VAR_PLANID & " "
+        
+        db.Execute "UPDATE to_cronograma_diario_final_INST SET dia_nombre = upper(datename(month,dia_fecha)) WHERE fmes_plan = " & VAR_PLANID & "  and bien_codigo <> '0' "
+        
+        MsgBox "Se generó el Cronograma Satisfactoriamente ...", vbInformation, "INFORMACIÓN"
     End If
-    Call CRONO_INST
 End Sub
 
 Private Sub CRONO_INST()
@@ -3580,7 +3514,7 @@ Private Sub BtnCancelar6_Click()
 End Sub
 
 Private Sub BtnCancelar7_Click()
-'    FraDet7.Visible = False
+    FraDet7.Visible = False
 '    VAR_SW2 = ""
 '    VAR_MSG = ""
 '    fraOpciones.Visible = True
@@ -4269,6 +4203,7 @@ Private Sub BtnModDetalle2_Click()
 End Sub
 
 Private Sub BtnModificar_Click()
+    
     DTPfecha4.Value = Ado_detalle1.Recordset!fecha_ini_max
     DTPfecha5.Value = Ado_detalle1.Recordset!fecha_fin_max
     FraDet7.Visible = True

@@ -15,8 +15,8 @@ Begin VB.Form tw_cronograma_certifica_inst
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   10620
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   128581635
+         Format          =   120520707
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -1507,7 +1507,7 @@ Begin VB.Form tw_cronograma_certifica_inst
             EndProperty
          EndProperty
          BeginProperty Column04 
-            DataField       =   "edif_codigo"
+            DataField       =   "edif_codigo_corto"
             Caption         =   "Codigo.Edificio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1520,7 +1520,7 @@ Begin VB.Form tw_cronograma_certifica_inst
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "edif_descripcion"
+            DataField       =   "edif_descripcion_edif"
             Caption         =   "Edificio_Descripcion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1533,7 +1533,7 @@ Begin VB.Form tw_cronograma_certifica_inst
             EndProperty
          EndProperty
          BeginProperty Column06 
-            DataField       =   "horario_codigo"
+            DataField       =   "IdTareaInst"
             Caption         =   "#Tarea"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1559,7 +1559,7 @@ Begin VB.Form tw_cronograma_certifica_inst
             EndProperty
          EndProperty
          BeginProperty Column08 
-            DataField       =   "hora_ingreso"
+            DataField       =   "dia_fecha"
             Caption         =   "Fecha.Inicio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1572,7 +1572,7 @@ Begin VB.Form tw_cronograma_certifica_inst
             EndProperty
          EndProperty
          BeginProperty Column09 
-            DataField       =   "hora_salida"
+            DataField       =   "dia_fecha_fin"
             Caption         =   "Fecha.Fin"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -2611,7 +2611,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   128581635
+         Format          =   120520707
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3226,7 +3226,8 @@ End Sub
 
 Private Sub BtnGraba3_Click()
     'db.Execute "update to_cronograma_diario_final set fecha_conformidad = '" & DTPEjecucion.Value & "', nro_fojas = " & txt_hdm.Text & ", doc_numero = " & txt_cm.Text & ", observaciones = '" & txt_obs.Text & "', carta = '" & Cmb_carta.Text & "', doc_numero_carta = '" & txt_correl_carta.Text & "' where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' "
-    db.Execute "update to_cronograma_diario_final_INST set fecha_conformidad = '" & DTPEjecucion.Value & "', doc_numero = " & txt_cm.Text & ", observaciones = '" & txt_obs.Text & "', carta = '" & Cmb_carta.Text & "', doc_numero_carta = '" & txt_correl_carta.Text & "'  where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and horario_codigo = " & Ado_detalle2.Recordset!horario_codigo & "  "
+    db.Execute "update to_cronograma_diario_final_INST set fecha_conformidad = '" & DTPEjecucion.Value & "', doc_numero = " & txt_cm.Text & ", observaciones = '" & txt_obs.Text & "', carta = '" & Cmb_carta.Text & "', doc_numero_carta = '" & txt_correl_carta.Text & "'  where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and IdTareaInst = " & Ado_detalle2.Recordset!IdTareaInst & "  "
+    db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'APR'  where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and IdTareaInst = " & Ado_detalle2.Recordset!IdTareaInst & "  "
     db.Execute "update tc_zona_piloto_edif_inst set estado_activo = 'APR'  where correlativo = " & Ado_detalle2.Recordset!fmes_plan & " "
     FraDet2.Visible = False
     BtnImprimir2.Visible = True
@@ -3454,7 +3455,7 @@ Private Sub BtnImprimir2_Click()
         CR02.WindowShowPrintSetupBtn = True
         CR02.WindowShowRefreshBtn = True
         CR02.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
-        CR02.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
+        CR02.StoredProcParam(1) = Ado_detalle2.Recordset!IdTareaInst
         CR02.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
         iResult = CR02.PrintReport
         If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
@@ -3466,7 +3467,7 @@ Private Sub BtnImprimir2_Click()
         CR03.WindowShowPrintSetupBtn = True
         CR03.WindowShowRefreshBtn = True
         CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
-        CR03.StoredProcParam(1) = Ado_detalle2.Recordset!horario_codigo
+        CR03.StoredProcParam(1) = Ado_detalle2.Recordset!IdTareaInst
         CR03.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
         iResult = CR03.PrintReport
         If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
@@ -3721,11 +3722,11 @@ Private Sub Form_Load()
     parametro = Aux
     VAR_ANL = ""
     
-
     Call ABRIR_TABLAS_AUX
     
     'db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.carta   = 'NO' WHERE carta IS NULL"
-    
+    db.Execute "UPDATE to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.edif_codigo  = tc_zona_piloto_edif_inst.edif_codigo, to_cronograma_diario_final_INST.venta_codigo  = tc_zona_piloto_edif_inst.venta_codigo FROM to_cronograma_diario_final_INST INNER JOIN tc_zona_piloto_edif_inst ON to_cronograma_diario_final_INST.fmes_plan =  tc_zona_piloto_edif_inst.fmes_plan WHERE to_cronograma_diario_final_INST.bien_codigo <> '0' "
+
     'db.Execute "tp_certificados_res"
     
     'Call OptFilGral1_Click
