@@ -4991,7 +4991,7 @@ Private Sub BtnAprobar_Click()
     db.Execute "update fo_traspaso_bancos_Egresos set correl_doc = IdRecibo, estado_codigo = 'APR', usr_codigo_aprueba = '" & glusuario & "', fecha_registro_aprueba = '" & Date & "'  where IdTraspasoBancos = " & VAR_RECIBO & " "
     
     'CONTABILIZA COBRANZAS -----------------------------------------------
-'    Call Contabiliza_Cobranzas
+    Call Contabiliza_Pago(VAR_RECIBO, glusuario)
     
     OptFilGral2_Click
     
