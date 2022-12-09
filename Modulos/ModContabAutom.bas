@@ -281,3 +281,13 @@ Handler:
     End If
 End Sub
 
+Public Sub Contabiliza_Pago(ByVal Id As Long, ByVal usuario_apr As String)
+On Error GoTo Handler:
+    Dim sql_exec As String
+    sql_exec = "EXECUTE [dbo].[conta_tes_egreso] " & Id & ", '" & usuario_apr & "'"
+    Call ExecProcedure(sql_exec)
+Handler:
+    If Err.Number > 0 Then
+        MsgBox ("Cobranzas " & Err.Number & " : " & Err.Description)
+    End If
+End Sub
