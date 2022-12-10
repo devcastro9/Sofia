@@ -2102,7 +2102,7 @@ Private Sub dtc_aux1_Click(Area As Integer)
     dtc_desc1.BoundText = dtc_aux1.BoundText
     Dtc_aux2.BoundText = dtc_aux1.BoundText
     dtc_aux3.BoundText = dtc_aux1.BoundText
-    txt_campo2.BoundText = dtc_aux1.BoundText
+    Txt_campo2.BoundText = dtc_aux1.BoundText
     txt_campo3.BoundText = dtc_aux1.BoundText
     txt_campo4.BoundText = dtc_aux1.BoundText
     Txt_campo18.BoundText = dtc_aux1.BoundText
@@ -2114,7 +2114,7 @@ Private Sub dtc_aux2_Click(Area As Integer)
     dtc_desc1.BoundText = Dtc_aux2.BoundText
     dtc_aux1.BoundText = Dtc_aux2.BoundText
     dtc_aux3.BoundText = Dtc_aux2.BoundText
-    txt_campo2.BoundText = Dtc_aux2.BoundText
+    Txt_campo2.BoundText = Dtc_aux2.BoundText
     txt_campo3.BoundText = Dtc_aux2.BoundText
     txt_campo4.BoundText = Dtc_aux2.BoundText
     Txt_campo18.BoundText = Dtc_aux2.BoundText
@@ -2126,7 +2126,7 @@ Private Sub dtc_aux3_Click(Area As Integer)
     dtc_desc1.BoundText = dtc_aux3.BoundText
     Dtc_aux2.BoundText = dtc_aux3.BoundText
     dtc_aux1.BoundText = dtc_aux3.BoundText
-    txt_campo2.BoundText = dtc_aux3.BoundText
+    Txt_campo2.BoundText = dtc_aux3.BoundText
     txt_campo3.BoundText = dtc_aux3.BoundText
     txt_campo4.BoundText = dtc_aux3.BoundText
     Txt_campo18.BoundText = dtc_aux3.BoundText
@@ -2142,7 +2142,7 @@ Private Sub dtc_codigo1_Click(Area As Integer)
     dtc_aux1.BoundText = dtc_codigo1.BoundText
     Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
-    txt_campo2.BoundText = dtc_codigo1.BoundText
+    Txt_campo2.BoundText = dtc_codigo1.BoundText
     txt_campo3.BoundText = dtc_codigo1.BoundText
     txt_campo4.BoundText = dtc_codigo1.BoundText
     Txt_campo18.BoundText = dtc_codigo1.BoundText
@@ -2155,7 +2155,7 @@ Private Sub dtc_codigo1_LostFocus()
     'FALTA ESCALERAS Y MINICARGAS !!
     Set rs_aux6 = New ADODB.Recordset
     If rs_aux6.State = 1 Then rs_aux6.Close
-    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
+    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
     If rs_aux6.RecordCount > 0 Then
         If rs_aux6!trafico_num_paradas < 9 Then
             Txt_campo19.Text = "2"
@@ -2180,7 +2180,7 @@ Private Sub dtc_desc1_Change()
     dtc_aux1.BoundText = dtc_desc1.BoundText
     Dtc_aux2.BoundText = dtc_desc1.BoundText
     dtc_aux3.BoundText = dtc_desc1.BoundText
-    txt_campo2.BoundText = dtc_desc1.BoundText
+    Txt_campo2.BoundText = dtc_desc1.BoundText
     txt_campo3.BoundText = dtc_desc1.BoundText
     txt_campo4.BoundText = dtc_desc1.BoundText
     Txt_campo18.BoundText = dtc_desc1.BoundText
@@ -2208,7 +2208,7 @@ Private Sub dtc_desc1_LostFocus()
         End Select
         dtc_desc_alm.BoundText = dtc_cod_alm.BoundText
         Txt_campo18.Visible = False
-        txt_campo2.Visible = False
+        Txt_campo2.Visible = False
         txt_campo3.Visible = False
         Label11.Visible = False
         lbl_campo2.Visible = False
@@ -2216,7 +2216,7 @@ Private Sub dtc_desc1_LostFocus()
     Else
         fra_almacen.Visible = True
         Txt_campo18.Visible = True
-        txt_campo2.Visible = True
+        Txt_campo2.Visible = True
         txt_campo3.Visible = True
         Label11.Visible = True
         lbl_campo2.Visible = True
@@ -2340,7 +2340,7 @@ If parametro <> "COMEX" Then
     Set rs_clasif6 = New ADODB.Recordset
     If rs_clasif6.State = 1 Then rs_clasif6.Close
     'Select Case Glaux
-    rs_clasif6.Open "SELECT * FROM ac_almacenes where beneficiario_codigo = '" & VAR_BENEF & "' ORDER BY almacen_descripcion ", db, adOpenStatic
+    rs_clasif6.Open "SELECT * FROM ac_almacenes  ORDER BY almacen_descripcion ", db, adOpenStatic       'where beneficiario_codigo = '" & VAR_BENEF & "'
      Set Ado_clasif6.Recordset = rs_clasif6
      If rs_clasif6.RecordCount = 0 Then
      End If
@@ -2385,7 +2385,7 @@ End If
 ''        aw_p_ao_solicitud.Ado_detalle1.Recordset("archivo_plano_cargado").Value = "N"
 ''        aw_p_ao_solicitud.Ado_detalle1.Recordset("edif_codigo").Value = dtc_codigo1.Text
 
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
@@ -2434,7 +2434,7 @@ Private Sub ABRIR_TABLA()
     dtc_aux1.BoundText = dtc_codigo1.BoundText
     Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
-    txt_campo2.BoundText = dtc_codigo1.BoundText
+    Txt_campo2.BoundText = dtc_codigo1.BoundText
     txt_campo3.BoundText = dtc_codigo1.BoundText
     txt_campo4.BoundText = dtc_codigo1.BoundText
     Txt_campo18.BoundText = dtc_codigo1.BoundText
@@ -2640,7 +2640,7 @@ Private Sub Txt_campo14_Click(Area As Integer)
     dtc_desc1.BoundText = Txt_campo14.BoundText
     Dtc_aux2.BoundText = Txt_campo14.BoundText
     dtc_aux3.BoundText = Txt_campo14.BoundText
-    txt_campo2.BoundText = Txt_campo14.BoundText
+    Txt_campo2.BoundText = Txt_campo14.BoundText
     dtc_aux1.BoundText = Txt_campo14.BoundText
     txt_campo4.BoundText = Txt_campo14.BoundText
     txt_campo3.BoundText = Txt_campo14.BoundText
@@ -2698,7 +2698,7 @@ Private Sub Txt_campo18_Click(Area As Integer)
     dtc_desc1.BoundText = Txt_campo18.BoundText
     Dtc_aux2.BoundText = Txt_campo18.BoundText
     dtc_aux3.BoundText = Txt_campo18.BoundText
-    txt_campo2.BoundText = Txt_campo18.BoundText
+    Txt_campo2.BoundText = Txt_campo18.BoundText
     dtc_aux1.BoundText = Txt_campo18.BoundText
     txt_campo4.BoundText = Txt_campo18.BoundText
     txt_campo3.BoundText = Txt_campo18.BoundText
@@ -2720,15 +2720,15 @@ End Sub
 'End Sub
 
 Private Sub Txt_campo2_Click(Area As Integer)
-    dtc_codigo1.BoundText = txt_campo2.BoundText
-    dtc_desc1.BoundText = txt_campo2.BoundText
-    Dtc_aux2.BoundText = txt_campo2.BoundText
-    dtc_aux3.BoundText = txt_campo2.BoundText
-    dtc_aux1.BoundText = txt_campo2.BoundText
-    txt_campo3.BoundText = txt_campo2.BoundText
-    txt_campo4.BoundText = txt_campo2.BoundText
-    Txt_campo18.BoundText = txt_campo2.BoundText
-    Txt_campo14.BoundText = txt_campo2.BoundText
+    dtc_codigo1.BoundText = Txt_campo2.BoundText
+    dtc_desc1.BoundText = Txt_campo2.BoundText
+    Dtc_aux2.BoundText = Txt_campo2.BoundText
+    dtc_aux3.BoundText = Txt_campo2.BoundText
+    dtc_aux1.BoundText = Txt_campo2.BoundText
+    txt_campo3.BoundText = Txt_campo2.BoundText
+    txt_campo4.BoundText = Txt_campo2.BoundText
+    Txt_campo18.BoundText = Txt_campo2.BoundText
+    Txt_campo14.BoundText = Txt_campo2.BoundText
 End Sub
 
 Private Sub Txt_campo3_Click(Area As Integer)
@@ -2736,7 +2736,7 @@ Private Sub Txt_campo3_Click(Area As Integer)
     dtc_desc1.BoundText = txt_campo3.BoundText
     Dtc_aux2.BoundText = txt_campo3.BoundText
     dtc_aux3.BoundText = txt_campo3.BoundText
-    txt_campo2.BoundText = txt_campo3.BoundText
+    Txt_campo2.BoundText = txt_campo3.BoundText
     dtc_aux1.BoundText = txt_campo3.BoundText
     txt_campo4.BoundText = txt_campo3.BoundText
     Txt_campo18.BoundText = txt_campo3.BoundText
@@ -2748,7 +2748,7 @@ Private Sub Txt_campo4_Click(Area As Integer)
     dtc_desc1.BoundText = txt_campo4.BoundText
     Dtc_aux2.BoundText = txt_campo4.BoundText
     dtc_aux3.BoundText = txt_campo4.BoundText
-    txt_campo2.BoundText = txt_campo4.BoundText
+    Txt_campo2.BoundText = txt_campo4.BoundText
     dtc_aux1.BoundText = txt_campo4.BoundText
     txt_campo3.BoundText = txt_campo4.BoundText
     Txt_campo18.BoundText = txt_campo4.BoundText

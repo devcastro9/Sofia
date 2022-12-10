@@ -20,6 +20,279 @@ Begin VB.Form tw_organizacion_zonas_inst
    ScaleWidth      =   16770
    Visible         =   0   'False
    WindowState     =   2  'Maximized
+   Begin VB.Frame Fra_datos 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Fechas para el Cronograma por Equipo"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   2640
+      Left            =   7320
+      TabIndex        =   16
+      Top             =   7080
+      Visible         =   0   'False
+      Width           =   8460
+      Begin VB.PictureBox FraGrabarCancelar 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         FillColor       =   &H00404040&
+         FillStyle       =   2  'Horizontal Line
+         ForeColor       =   &H80000008&
+         Height          =   676
+         Left            =   120
+         ScaleHeight     =   675
+         ScaleWidth      =   8280
+         TabIndex        =   57
+         Top             =   1800
+         Visible         =   0   'False
+         Width           =   8280
+         Begin VB.PictureBox BtnCancelar 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   4395
+            Picture         =   "tw_organizacion_zonas_inst.frx":0A02
+            ScaleHeight     =   615
+            ScaleWidth      =   1455
+            TabIndex        =   59
+            Top             =   0
+            Width           =   1455
+         End
+         Begin VB.PictureBox BtnGrabar 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   2640
+            Picture         =   "tw_organizacion_zonas_inst.frx":12EE
+            ScaleHeight     =   615
+            ScaleWidth      =   1275
+            TabIndex        =   58
+            Top             =   0
+            Width           =   1280
+         End
+         Begin VB.Label lbl_titulo2 
+            Alignment       =   2  'Center
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "VENTAS"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FFFF80&
+            Height          =   285
+            Left            =   375
+            TabIndex        =   60
+            Top             =   180
+            Visible         =   0   'False
+            Width           =   1005
+         End
+      End
+      Begin MSDataListLib.DataCombo dtc_desc4 
+         Bindings        =   "tw_organizacion_zonas_inst.frx":1AC4
+         DataField       =   "beneficiario_codigo"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   240
+         TabIndex        =   0
+         Top             =   2100
+         Width           =   5685
+         _ExtentX        =   10028
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "beneficiario_denominacion"
+         BoundColumn     =   "beneficiario_codigo"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo dtc_codigo4 
+         Bindings        =   "tw_organizacion_zonas_inst.frx":1ADD
+         DataField       =   "beneficiario_codigo"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   5040
+         TabIndex        =   18
+         Top             =   1800
+         Visible         =   0   'False
+         Width           =   885
+         _ExtentX        =   1561
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "beneficiario_codigo"
+         BoundColumn     =   "beneficiario_codigo"
+         Text            =   "Todos"
+      End
+      Begin MSComCtl2.DTPicker DTPicker1 
+         DataField       =   "fecha_ini_inst"
+         DataSource      =   "Ado_detalle2"
+         Height          =   315
+         Left            =   2400
+         TabIndex        =   67
+         Top             =   480
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   556
+         _Version        =   393216
+         Format          =   109903873
+         CurrentDate     =   44885
+      End
+      Begin MSComCtl2.DTPicker DTPicker2 
+         DataField       =   "fecha_fin_inst"
+         DataSource      =   "Ado_detalle2"
+         Height          =   315
+         Left            =   6480
+         TabIndex        =   68
+         Top             =   480
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   556
+         _Version        =   393216
+         Format          =   109903873
+         CurrentDate     =   44885
+      End
+      Begin MSComCtl2.DTPicker DTPicker3 
+         DataField       =   "fecha_ini_ajuste"
+         DataSource      =   "Ado_detalle2"
+         Height          =   315
+         Left            =   2400
+         TabIndex        =   69
+         Top             =   1200
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   556
+         _Version        =   393216
+         Format          =   109903873
+         CurrentDate     =   44885
+      End
+      Begin MSComCtl2.DTPicker DTPicker4 
+         DataField       =   "fecha_fin_ajuste"
+         DataSource      =   "Ado_detalle2"
+         Height          =   315
+         Left            =   6480
+         TabIndex        =   70
+         Top             =   1200
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   556
+         _Version        =   393216
+         Format          =   109903873
+         CurrentDate     =   44885
+      End
+      Begin VB.Label Label4 
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000012&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha Inicio Instalacion"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   66
+         Top             =   480
+         Width           =   2085
+      End
+      Begin VB.Label Label5 
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000012&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha Fin Instalacion"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   4560
+         TabIndex        =   65
+         Top             =   480
+         Width           =   1890
+      End
+      Begin VB.Label Label7 
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000012&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha Inicio Ajuste . . ."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   64
+         Top             =   1200
+         Width           =   1950
+      End
+      Begin VB.Label Label8 
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000012&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha Fin Ajuste . . ."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   4560
+         TabIndex        =   63
+         Top             =   1200
+         Width           =   1755
+      End
+      Begin VB.Label lbl_campo4 
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000012&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Responsable Supervisor Nal."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   240
+         TabIndex        =   19
+         Top             =   1860
+         Width           =   2055
+      End
+   End
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Datos del Edificio en proceso de Instalación y Ajuste."
@@ -56,7 +329,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3120
-            Picture         =   "tw_organizacion_zonas_inst.frx":0A02
+            Picture         =   "tw_organizacion_zonas_inst.frx":1AF6
             ScaleHeight     =   615
             ScaleWidth      =   1275
             TabIndex        =   37
@@ -70,7 +343,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4800
-            Picture         =   "tw_organizacion_zonas_inst.frx":11D8
+            Picture         =   "tw_organizacion_zonas_inst.frx":22CC
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   36
@@ -115,9 +388,9 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          ForeColor       =   &H00000000&
          Height          =   315
-         ItemData        =   "tw_organizacion_zonas_inst.frx":1AC4
+         ItemData        =   "tw_organizacion_zonas_inst.frx":2BB8
          Left            =   5520
-         List            =   "tw_organizacion_zonas_inst.frx":1B9A
+         List            =   "tw_organizacion_zonas_inst.frx":2C8E
          TabIndex        =   6
          Text            =   "0"
          Top             =   3360
@@ -144,7 +417,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Locked          =   -1  'True
          MultiLine       =   -1  'True
          TabIndex        =   8
-         Text            =   "tw_organizacion_zonas_inst.frx":1CAD
+         Text            =   "tw_organizacion_zonas_inst.frx":2DA1
          Top             =   3360
          Visible         =   0   'False
          Width           =   645
@@ -174,7 +447,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Width           =   1335
       End
       Begin MSDataListLib.DataCombo dtc_desc6 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1CAF
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2DA3
          DataField       =   "beneficiario_codigo"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -190,7 +463,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo6 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1CC8
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2DBC
          DataField       =   "beneficiario_codigo"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -208,7 +481,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc5 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1CE1
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2DD5
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -224,7 +497,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo5 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1CFA
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2DEE
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -243,7 +516,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc7 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1D13
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E07
          DataField       =   "beneficiario_codigo_rep"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -259,7 +532,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc8 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1D2C
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E20
          DataField       =   "beneficiario_codigo_sup"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -275,7 +548,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo7 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1D45
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E39
          DataField       =   "beneficiario_codigo_rep"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -293,7 +566,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo8 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1D5E
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E52
          DataField       =   "beneficiario_codigo_sup"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -311,7 +584,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc9 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1D77
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E6B
          DataField       =   "beneficiario_codigo_cobr"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -328,7 +601,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo9 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1D90
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E84
          DataField       =   "beneficiario_codigo_cobr"
          DataSource      =   "Ado_detalle1"
          Height          =   315
@@ -636,7 +909,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   6600
-            Picture         =   "tw_organizacion_zonas_inst.frx":1DA9
+            Picture         =   "tw_organizacion_zonas_inst.frx":2E9D
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   48
@@ -651,7 +924,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2520
-            Picture         =   "tw_organizacion_zonas_inst.frx":255E
+            Picture         =   "tw_organizacion_zonas_inst.frx":3652
             ScaleHeight     =   615
             ScaleWidth      =   1545
             TabIndex        =   38
@@ -666,7 +939,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   9840
-            Picture         =   "tw_organizacion_zonas_inst.frx":3507
+            Picture         =   "tw_organizacion_zonas_inst.frx":45FB
             ScaleHeight     =   615
             ScaleWidth      =   1200
             TabIndex        =   9
@@ -681,7 +954,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4425
-            Picture         =   "tw_organizacion_zonas_inst.frx":3CC6
+            Picture         =   "tw_organizacion_zonas_inst.frx":4DBA
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   10
@@ -695,7 +968,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   11040
-            Picture         =   "tw_organizacion_zonas_inst.frx":45DB
+            Picture         =   "tw_organizacion_zonas_inst.frx":56CF
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   11
@@ -794,286 +1067,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin TrueOleDBGrid60.TDBGrid dg_det1 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":4D27
+         Bindings        =   "tw_organizacion_zonas_inst.frx":5E1B
          Height          =   5775
          Left            =   120
-         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":4D42
+         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":5E36
          TabIndex        =   47
          Top             =   960
          Width           =   12615
-      End
-   End
-   Begin VB.Frame Fra_datos 
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "Fechas para el Cronograma por Equipo"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00C00000&
-      Height          =   2640
-      Left            =   6120
-      TabIndex        =   16
-      Top             =   8040
-      Visible         =   0   'False
-      Width           =   8460
-      Begin VB.PictureBox FraGrabarCancelar 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000006&
-         BorderStyle     =   0  'None
-         FillColor       =   &H00404040&
-         FillStyle       =   2  'Horizontal Line
-         ForeColor       =   &H80000008&
-         Height          =   676
-         Left            =   120
-         ScaleHeight     =   675
-         ScaleWidth      =   8280
-         TabIndex        =   57
-         Top             =   1800
-         Visible         =   0   'False
-         Width           =   8280
-         Begin VB.PictureBox BtnCancelar 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   4395
-            Picture         =   "tw_organizacion_zonas_inst.frx":1174E
-            ScaleHeight     =   615
-            ScaleWidth      =   1455
-            TabIndex        =   59
-            Top             =   0
-            Width           =   1455
-         End
-         Begin VB.PictureBox BtnGrabar 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   2640
-            Picture         =   "tw_organizacion_zonas_inst.frx":1203A
-            ScaleHeight     =   615
-            ScaleWidth      =   1275
-            TabIndex        =   58
-            Top             =   0
-            Width           =   1280
-         End
-         Begin VB.Label lbl_titulo2 
-            Alignment       =   2  'Center
-            AutoSize        =   -1  'True
-            BackStyle       =   0  'Transparent
-            Caption         =   "VENTAS"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   12
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00FFFF80&
-            Height          =   285
-            Left            =   375
-            TabIndex        =   60
-            Top             =   180
-            Visible         =   0   'False
-            Width           =   1005
-         End
-      End
-      Begin MSDataListLib.DataCombo dtc_desc4 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":12810
-         DataField       =   "beneficiario_codigo"
-         DataSource      =   "Ado_datos"
-         Height          =   315
-         Left            =   240
-         TabIndex        =   0
-         Top             =   2100
-         Width           =   5685
-         _ExtentX        =   10028
-         _ExtentY        =   556
-         _Version        =   393216
-         Style           =   2
-         ListField       =   "beneficiario_denominacion"
-         BoundColumn     =   "beneficiario_codigo"
-         Text            =   "Todos"
-      End
-      Begin MSDataListLib.DataCombo dtc_codigo4 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":12829
-         DataField       =   "beneficiario_codigo"
-         DataSource      =   "Ado_datos"
-         Height          =   315
-         Left            =   5040
-         TabIndex        =   18
-         Top             =   1800
-         Visible         =   0   'False
-         Width           =   885
-         _ExtentX        =   1561
-         _ExtentY        =   556
-         _Version        =   393216
-         Style           =   2
-         ListField       =   "beneficiario_codigo"
-         BoundColumn     =   "beneficiario_codigo"
-         Text            =   "Todos"
-      End
-      Begin MSComCtl2.DTPicker DTPicker1 
-         DataField       =   "fecha_ini_max"
-         DataSource      =   "Ado_detalle2"
-         Height          =   315
-         Left            =   2400
-         TabIndex        =   67
-         Top             =   480
-         Width           =   1695
-         _ExtentX        =   2990
-         _ExtentY        =   556
-         _Version        =   393216
-         Format          =   121962497
-         CurrentDate     =   44885
-      End
-      Begin MSComCtl2.DTPicker DTPicker2 
-         DataField       =   "fecha_fin_max"
-         DataSource      =   "Ado_detalle2"
-         Height          =   315
-         Left            =   6480
-         TabIndex        =   68
-         Top             =   480
-         Width           =   1695
-         _ExtentX        =   2990
-         _ExtentY        =   556
-         _Version        =   393216
-         Format          =   121962497
-         CurrentDate     =   44885
-      End
-      Begin MSComCtl2.DTPicker DTPicker3 
-         DataField       =   "fecha_ini_ajuste"
-         DataSource      =   "Ado_detalle2"
-         Height          =   315
-         Left            =   2400
-         TabIndex        =   69
-         Top             =   1200
-         Width           =   1695
-         _ExtentX        =   2990
-         _ExtentY        =   556
-         _Version        =   393216
-         Format          =   121962497
-         CurrentDate     =   44885
-      End
-      Begin MSComCtl2.DTPicker DTPicker4 
-         DataField       =   "fecha_fin_ajuste"
-         DataSource      =   "Ado_detalle2"
-         Height          =   315
-         Left            =   6480
-         TabIndex        =   70
-         Top             =   1200
-         Width           =   1695
-         _ExtentX        =   2990
-         _ExtentY        =   556
-         _Version        =   393216
-         Format          =   121962497
-         CurrentDate     =   44885
-      End
-      Begin VB.Label Label4 
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000012&
-         BackStyle       =   0  'Transparent
-         Caption         =   "Fecha Inicio Instalacion"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Left            =   240
-         TabIndex        =   66
-         Top             =   480
-         Width           =   2085
-      End
-      Begin VB.Label Label5 
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000012&
-         BackStyle       =   0  'Transparent
-         Caption         =   "Fecha Fin Instalacion"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Left            =   4560
-         TabIndex        =   65
-         Top             =   480
-         Width           =   1890
-      End
-      Begin VB.Label Label7 
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000012&
-         BackStyle       =   0  'Transparent
-         Caption         =   "Fecha Inicio Ajuste . . ."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Left            =   240
-         TabIndex        =   64
-         Top             =   1200
-         Width           =   1950
-      End
-      Begin VB.Label Label8 
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000012&
-         BackStyle       =   0  'Transparent
-         Caption         =   "Fecha Fin Ajuste . . ."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Left            =   4560
-         TabIndex        =   63
-         Top             =   1200
-         Width           =   1755
-      End
-      Begin VB.Label lbl_campo4 
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000012&
-         BackStyle       =   0  'Transparent
-         Caption         =   "Responsable Supervisor Nal."
-         ForeColor       =   &H00000000&
-         Height          =   195
-         Left            =   240
-         TabIndex        =   19
-         Top             =   1860
-         Width           =   2055
       End
    End
    Begin VB.Frame FrmDetalle 
@@ -2564,7 +2564,7 @@ Private Sub BtnAddDetalle_Click()
     fra_opciones.Enabled = False
     FraNavega.Enabled = False
     dg_det1.Enabled = False
-    Fra_datos.Visible = False
+'    Fra_datos.Visible = False
     FraDet2.Visible = True
     
     fra_opciones_det.Visible = False
@@ -2633,7 +2633,7 @@ Private Sub BtnAñadir_Click()
   On Error GoTo EditErr
 '  lblStatus.Caption = "Modificar registro"
     'If Ado_datos.Recordset!estado_codigo = "REG" Then
-        Fra_datos.Enabled = True
+'        Fra_datos.Enabled = True
         fra_opciones.Visible = False
         FraGrabarCancelar.Visible = True
         dg_datos.Enabled = False
@@ -2710,7 +2710,7 @@ Private Sub BtnCancelarDet_Click()
     fra_opciones.Enabled = True
     FraNavega.Enabled = True
     dg_det1.Enabled = True
-    Fra_datos.Visible = True
+'    Fra_datos.Visible = True
     FraDet2.Visible = False
     FraDet1.Visible = True
     If Ado_detalle1.Recordset.RecordCount > 0 Then
@@ -2810,32 +2810,32 @@ Private Sub valida_campos()
 End Sub
 
 Private Sub valida_det()
-'  'Valida compos para editables
-'  If (dtc_codigo5.Text = "") Then
-'    MsgBox "Debe registrar ... " + lbl_campo5.Caption, vbCritical + vbExclamation, "Validación de datos"
+  'Valida compos para editables
+  If (dtc_codigo5.Text = "") Then
+    MsgBox "Debe registrar ... " + lbl_campo5.Caption, vbCritical + vbExclamation, "Validación de datos"
+    VAR_VAL = "ERR"
+    Exit Sub
+  End If
+  If (dtc_codigo6 = "") Then
+    MsgBox "Debe registrar ... " + lbl_campo6.Caption, vbCritical + vbExclamation, "Validación de datos"
+    VAR_VAL = "ERR"
+    Exit Sub
+  End If
+  If (dtc_codigo7.Text = "") Then
+    MsgBox "Debe registrar ... " + lbl_campo7.Caption, vbCritical + vbExclamation, "Validación de datos"
+    VAR_VAL = "ERR"
+    Exit Sub
+  End If
+  If (dtc_codigo8.Text = "") Then
+    MsgBox "Debe registrar ... " + lbl_campo8.Caption, vbCritical + vbExclamation, "Validación de datos"
+    VAR_VAL = "ERR"
+    Exit Sub
+  End If
+'  If (Txt_campo1.Text = "") Then
+'    MsgBox "Debe registrar ... " + lbl_orden.Caption, vbCritical + vbExclamation, "Validación de datos"
 '    VAR_VAL = "ERR"
 '    Exit Sub
 '  End If
-'  If (dtc_codigo6 = "") Then
-'    MsgBox "Debe registrar ... " + lbl_campo6.Caption, vbCritical + vbExclamation, "Validación de datos"
-'    VAR_VAL = "ERR"
-'    Exit Sub
-'  End If
-'  If (dtc_codigo7.Text = "") Then
-'    MsgBox "Debe registrar ... " + lbl_campo7.Caption, vbCritical + vbExclamation, "Validación de datos"
-'    VAR_VAL = "ERR"
-'    Exit Sub
-'  End If
-'  If (dtc_codigo8.Text = "") Then
-'    MsgBox "Debe registrar ... " + lbl_campo8.Caption, vbCritical + vbExclamation, "Validación de datos"
-'    VAR_VAL = "ERR"
-'    Exit Sub
-'  End If
-''  If (Txt_campo1.Text = "") Then
-''    MsgBox "Debe registrar ... " + lbl_orden.Caption, vbCritical + vbExclamation, "Validación de datos"
-''    VAR_VAL = "ERR"
-''    Exit Sub
-''  End If
 End Sub
 
 Private Sub BtnGrabarDet_Click()
@@ -2880,7 +2880,7 @@ Private Sub BtnGrabarDet_Click()
     fra_opciones.Enabled = True
     FraNavega.Enabled = True
     dg_det1.Enabled = True
-    Fra_datos.Visible = True
+'    Fra_datos.Visible = True
     FraDet2.Visible = False
     
     fra_opciones_det.Visible = True
@@ -2954,7 +2954,7 @@ Private Sub BtnModDetalle_Click()
     fra_opciones.Enabled = False
     FraNavega.Enabled = False
     dg_det1.Enabled = False
-    Fra_datos.Visible = False
+'    Fra_datos.Visible = False
     FraDet2.Visible = True
     
     fra_opciones_det.Visible = False
@@ -2988,6 +2988,11 @@ Private Sub BtnModificar_Click()
   End If
 On Error GoTo EditErr
 
+    FraNavega.Enabled = False
+    FraDet1.Enabled = False
+    
+    Fra_datos.Visible = True
+    
 ''  lblStatus.Caption = "Modificar registro"
 '    If Ado_datos.Recordset!estado_codigo = "REG" Then
 '        Fra_datos.Enabled = True
@@ -3171,7 +3176,7 @@ Private Sub Form_Load()
     Call ABRIR_TABLAS_AUX
     Call OptFilGral2_Click
     
-    Fra_datos.Enabled = False
+'    Fra_datos.Enabled = False
     dg_datos.Enabled = True
     
 

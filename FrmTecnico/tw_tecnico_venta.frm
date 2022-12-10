@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.10897e9
+   ScaleHeight     =   8.36745e9
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.06853e5
+   ScaleWidth      =   1.48476e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -376,6 +376,21 @@ Begin VB.Form tw_tecnico_venta
       TabIndex        =   100
       Top             =   0
       Width           =   20520
+      Begin VB.PictureBox BtnAprobar3 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   12480
+         Picture         =   "tw_tecnico_venta.frx":36BC
+         ScaleHeight     =   615
+         ScaleWidth      =   1440
+         TabIndex        =   212
+         ToolTipText     =   "Aprueba el Contrato Elegido (ya NO podrá ser modificado)"
+         Top             =   20
+         Width           =   1440
+      End
       Begin VB.PictureBox BtnVer2 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -383,7 +398,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   11040
-         Picture         =   "tw_tecnico_venta.frx":36BC
+         Picture         =   "tw_tecnico_venta.frx":416A
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   211
@@ -399,7 +414,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8040
-         Picture         =   "tw_tecnico_venta.frx":449D
+         Picture         =   "tw_tecnico_venta.frx":4F4B
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   126
@@ -415,7 +430,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6615
-         Picture         =   "tw_tecnico_venta.frx":4FE7
+         Picture         =   "tw_tecnico_venta.frx":5A95
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   125
@@ -430,7 +445,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   9555
-         Picture         =   "tw_tecnico_venta.frx":5AA1
+         Picture         =   "tw_tecnico_venta.frx":654F
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   124
@@ -446,7 +461,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5280
-         Picture         =   "tw_tecnico_venta.frx":6358
+         Picture         =   "tw_tecnico_venta.frx":6E06
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   106
@@ -460,8 +475,8 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   17520
-         Picture         =   "tw_tecnico_venta.frx":6C25
+         Left            =   18480
+         Picture         =   "tw_tecnico_venta.frx":76D3
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   107
@@ -476,7 +491,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   3960
-         Picture         =   "tw_tecnico_venta.frx":73E7
+         Picture         =   "tw_tecnico_venta.frx":7E95
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   105
@@ -491,7 +506,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   2640
-         Picture         =   "tw_tecnico_venta.frx":7B9C
+         Picture         =   "tw_tecnico_venta.frx":864A
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   104
@@ -506,7 +521,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1440
-         Picture         =   "tw_tecnico_venta.frx":83D2
+         Picture         =   "tw_tecnico_venta.frx":8E80
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   103
@@ -521,7 +536,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   -15
-         Picture         =   "tw_tecnico_venta.frx":8B1E
+         Picture         =   "tw_tecnico_venta.frx":95CC
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   102
@@ -545,7 +560,7 @@ Begin VB.Form tw_tecnico_venta
          EndProperty
          ForeColor       =   &H00FFFF80&
          Height          =   285
-         Left            =   14055
+         Left            =   15135
          TabIndex        =   108
          Top             =   180
          Width           =   1815
@@ -568,7 +583,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   360
-         Picture         =   "tw_tecnico_venta.frx":9433
+         Picture         =   "tw_tecnico_venta.frx":9EE1
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   131
@@ -584,7 +599,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "tw_tecnico_venta.frx":9E73
+         Picture         =   "tw_tecnico_venta.frx":A921
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   130
@@ -599,7 +614,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "tw_tecnico_venta.frx":A6A9
+         Picture         =   "tw_tecnico_venta.frx":B157
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   129
@@ -611,7 +626,7 @@ Begin VB.Form tw_tecnico_venta
          BackColor       =   &H80000015&
          Height          =   525
          Left            =   240
-         Picture         =   "tw_tecnico_venta.frx":AFBE
+         Picture         =   "tw_tecnico_venta.frx":BA6C
          Style           =   1  'Graphical
          TabIndex        =   80
          ToolTipText     =   "Solicita Anulación de la FACTURA de la Cuota elegida"
@@ -651,7 +666,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   192
-         Picture         =   "tw_tecnico_venta.frx":B70A
+         Picture         =   "tw_tecnico_venta.frx":C1B8
          ScaleHeight     =   615
          ScaleWidth      =   1575
          TabIndex        =   128
@@ -721,27 +736,27 @@ Begin VB.Form tw_tecnico_venta
          Strikethrough   =   0   'False
       EndProperty
       TabCaption(0)   =   "Registro DATOS CONTRATO"
-      TabPicture(0)   =   "tw_tecnico_venta.frx":C329
+      TabPicture(0)   =   "tw_tecnico_venta.frx":CDD7
       Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Registro DATOS CRONO.MTTO."
-      TabPicture(1)   =   "tw_tecnico_venta.frx":C345
+      TabPicture(1)   =   "tw_tecnico_venta.frx":CDF3
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
-      TabPicture(2)   =   "tw_tecnico_venta.frx":C361
+      TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
-      TabPicture(3)   =   "tw_tecnico_venta.frx":C37D
+      TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -762,7 +777,7 @@ Begin VB.Form tw_tecnico_venta
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3960
-            Picture         =   "tw_tecnico_venta.frx":C399
+            Picture         =   "tw_tecnico_venta.frx":CE47
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   156
@@ -777,7 +792,7 @@ Begin VB.Form tw_tecnico_venta
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5760
-            Picture         =   "tw_tecnico_venta.frx":CB58
+            Picture         =   "tw_tecnico_venta.frx":D606
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   155
@@ -804,7 +819,7 @@ Begin VB.Form tw_tecnico_venta
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   9360
-            Picture         =   "tw_tecnico_venta.frx":D46D
+            Picture         =   "tw_tecnico_venta.frx":DF1B
             ScaleHeight     =   615
             ScaleWidth      =   1275
             TabIndex        =   159
@@ -818,7 +833,7 @@ Begin VB.Form tw_tecnico_venta
             ForeColor       =   &H80000008&
             Height          =   590
             Left            =   7320
-            Picture         =   "tw_tecnico_venta.frx":DC5B
+            Picture         =   "tw_tecnico_venta.frx":E709
             ScaleHeight     =   585
             ScaleWidth      =   825
             TabIndex        =   158
@@ -887,7 +902,7 @@ Begin VB.Form tw_tecnico_venta
          Top             =   480
          Width           =   11775
          Begin MSDataGridLib.DataGrid DtgAlcance 
-            Bindings        =   "tw_tecnico_venta.frx":E381
+            Bindings        =   "tw_tecnico_venta.frx":EE2F
             Height          =   2985
             Left            =   120
             Negotiate       =   -1  'True
@@ -1097,7 +1112,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   255
          End
          Begin MSDataListLib.DataCombo dtc_codigo2A 
-            Bindings        =   "tw_tecnico_venta.frx":E39A
+            Bindings        =   "tw_tecnico_venta.frx":EE48
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1129,7 +1144,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             Height          =   315
             Left            =   9480
-            Picture         =   "tw_tecnico_venta.frx":E3B3
+            Picture         =   "tw_tecnico_venta.frx":EE61
             Style           =   1  'Graphical
             TabIndex        =   192
             Top             =   2880
@@ -1158,7 +1173,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   1575
          End
          Begin MSDataListLib.DataCombo dtc_email2A 
-            Bindings        =   "tw_tecnico_venta.frx":EDB5
+            Bindings        =   "tw_tecnico_venta.frx":F863
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1179,16 +1194,16 @@ Begin VB.Form tw_tecnico_venta
          Begin VB.ComboBox CmbEmision 
             DataSource      =   "Ado_datos16"
             Height          =   315
-            ItemData        =   "tw_tecnico_venta.frx":EDCE
+            ItemData        =   "tw_tecnico_venta.frx":F87C
             Left            =   6360
-            List            =   "tw_tecnico_venta.frx":EDDB
+            List            =   "tw_tecnico_venta.frx":F889
             TabIndex        =   141
             Text            =   "FACTURA FISICA"
             Top             =   2400
             Width           =   2985
          End
          Begin MSDataListLib.DataCombo dtc_desc2A 
-            Bindings        =   "tw_tecnico_venta.frx":EE0D
+            Bindings        =   "tw_tecnico_venta.frx":F8BB
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1222,7 +1237,7 @@ Begin VB.Form tw_tecnico_venta
                ForeColor       =   &H80000008&
                Height          =   615
                Left            =   6120
-               Picture         =   "tw_tecnico_venta.frx":EE26
+               Picture         =   "tw_tecnico_venta.frx":F8D4
                ScaleHeight     =   615
                ScaleWidth      =   1455
                TabIndex        =   137
@@ -1236,7 +1251,7 @@ Begin VB.Form tw_tecnico_venta
                ForeColor       =   &H80000008&
                Height          =   615
                Left            =   4560
-               Picture         =   "tw_tecnico_venta.frx":F712
+               Picture         =   "tw_tecnico_venta.frx":101C0
                ScaleHeight     =   615
                ScaleWidth      =   1275
                TabIndex        =   136
@@ -1300,7 +1315,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   119472129
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1398,7 +1413,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   255
          End
          Begin MSDataListLib.DataCombo dtc_codigo4A 
-            Bindings        =   "tw_tecnico_venta.frx":FEE8
+            Bindings        =   "tw_tecnico_venta.frx":10996
             DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1523,7 +1538,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   7695
          End
          Begin MSDataListLib.DataCombo dtc_desc4A 
-            Bindings        =   "tw_tecnico_venta.frx":FF02
+            Bindings        =   "tw_tecnico_venta.frx":109B0
             DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1562,7 +1577,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   119472129
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1590,12 +1605,12 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   119472129
             CurrentDate     =   44621
             MinDate         =   36526
          End
          Begin MSDataListLib.DataCombo dtc_benef2A 
-            Bindings        =   "tw_tecnico_venta.frx":FF1C
+            Bindings        =   "tw_tecnico_venta.frx":109CA
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1980,7 +1995,7 @@ Begin VB.Form tw_tecnico_venta
             End
          End
          Begin MSDataListLib.DataCombo dtc_codigo4 
-            Bindings        =   "tw_tecnico_venta.frx":FF35
+            Bindings        =   "tw_tecnico_venta.frx":109E3
             DataField       =   "beneficiario_codigo_tec"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -1998,7 +2013,7 @@ Begin VB.Form tw_tecnico_venta
          End
          Begin VB.Frame Frame1 
             BackColor       =   &H00C0C0C0&
-            Caption         =   $"tw_tecnico_venta.frx":FF4E
+            Caption         =   $"tw_tecnico_venta.frx":109FC
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -2018,9 +2033,9 @@ Begin VB.Form tw_tecnico_venta
                DataField       =   "mes_inicio_crono_tec"
                DataSource      =   "Ado_datos"
                Height          =   315
-               ItemData        =   "tw_tecnico_venta.frx":FFD5
+               ItemData        =   "tw_tecnico_venta.frx":10A83
                Left            =   7200
-               List            =   "tw_tecnico_venta.frx":FFFD
+               List            =   "tw_tecnico_venta.frx":10AAB
                TabIndex        =   178
                Text            =   "SEPTIEMBRE"
                Top             =   360
@@ -2045,9 +2060,9 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                ForeColor       =   &H00000000&
                Height          =   315
-               ItemData        =   "tw_tecnico_venta.frx":10066
+               ItemData        =   "tw_tecnico_venta.frx":10B14
                Left            =   1560
-               List            =   "tw_tecnico_venta.frx":1007C
+               List            =   "tw_tecnico_venta.frx":10B2A
                TabIndex        =   176
                Text            =   "ANUAL"
                Top             =   360
@@ -2057,9 +2072,9 @@ Begin VB.Form tw_tecnico_venta
                DataField       =   "dia_nombre"
                DataSource      =   "Ado_datos"
                Height          =   315
-               ItemData        =   "tw_tecnico_venta.frx":100A4
+               ItemData        =   "tw_tecnico_venta.frx":10B52
                Left            =   360
-               List            =   "tw_tecnico_venta.frx":100C0
+               List            =   "tw_tecnico_venta.frx":10B6E
                TabIndex        =   175
                Text            =   "AUTOMATICO"
                Top             =   720
@@ -2088,7 +2103,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   120127489
+               Format          =   119472129
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2113,7 +2128,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120127489
+               Format          =   119472129
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2147,7 +2162,7 @@ Begin VB.Form tw_tecnico_venta
                BackColor       =   &H80000015&
                Height          =   555
                Left            =   4680
-               Picture         =   "tw_tecnico_venta.frx":1010C
+               Picture         =   "tw_tecnico_venta.frx":10BBA
                Style           =   1  'Graphical
                TabIndex        =   117
                Top             =   120
@@ -2158,7 +2173,7 @@ Begin VB.Form tw_tecnico_venta
                Height          =   555
                Left            =   5900
                MaskColor       =   &H00000000&
-               Picture         =   "tw_tecnico_venta.frx":108E2
+               Picture         =   "tw_tecnico_venta.frx":11390
                Style           =   1  'Graphical
                TabIndex        =   118
                ToolTipText     =   "Cancelar"
@@ -2177,7 +2192,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   255
          End
          Begin MSDataListLib.DataCombo dtc_desc4 
-            Bindings        =   "tw_tecnico_venta.frx":111CE
+            Bindings        =   "tw_tecnico_venta.frx":11C7C
             DataField       =   "beneficiario_codigo_tec"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2193,7 +2208,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_aux4 
-            Bindings        =   "tw_tecnico_venta.frx":111E7
+            Bindings        =   "tw_tecnico_venta.frx":11C95
             DataField       =   "beneficiario_codigo_tec"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2210,7 +2225,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   "DataCombo1"
          End
          Begin MSDataListLib.DataCombo dtc_desc7 
-            Bindings        =   "tw_tecnico_venta.frx":11200
+            Bindings        =   "tw_tecnico_venta.frx":11CAE
             DataField       =   "zpiloto_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2227,7 +2242,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo7 
-            Bindings        =   "tw_tecnico_venta.frx":11219
+            Bindings        =   "tw_tecnico_venta.frx":11CC7
             DataField       =   "zpiloto_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2244,7 +2259,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   "0"
          End
          Begin MSDataListLib.DataCombo dtc_aux7 
-            Bindings        =   "tw_tecnico_venta.frx":11232
+            Bindings        =   "tw_tecnico_venta.frx":11CE0
             DataField       =   "zpiloto_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2334,7 +2349,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   270
          End
          Begin MSDataListLib.DataCombo dtc_aux3 
-            Bindings        =   "tw_tecnico_venta.frx":1124B
+            Bindings        =   "tw_tecnico_venta.frx":11CF9
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2396,7 +2411,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   1815
          End
          Begin MSDataListLib.DataCombo dtc_codigo3 
-            Bindings        =   "tw_tecnico_venta.frx":11264
+            Bindings        =   "tw_tecnico_venta.frx":11D12
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2418,7 +2433,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_desc3 
-            Bindings        =   "tw_tecnico_venta.frx":1127D
+            Bindings        =   "tw_tecnico_venta.frx":11D2B
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2460,7 +2475,7 @@ Begin VB.Form tw_tecnico_venta
             Width           =   260
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "tw_tecnico_venta.frx":11296
+            Bindings        =   "tw_tecnico_venta.frx":11D44
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2502,9 +2517,9 @@ Begin VB.Form tw_tecnico_venta
                DataField       =   "unimed_codigo_cobr"
                DataSource      =   "Ado_datos"
                Height          =   315
-               ItemData        =   "tw_tecnico_venta.frx":112AF
+               ItemData        =   "tw_tecnico_venta.frx":11D5D
                Left            =   10160
-               List            =   "tw_tecnico_venta.frx":112C5
+               List            =   "tw_tecnico_venta.frx":11D73
                TabIndex        =   121
                Text            =   "ANUAL"
                Top             =   1560
@@ -2514,9 +2529,9 @@ Begin VB.Form tw_tecnico_venta
                DataField       =   "mes_inicio_crono"
                DataSource      =   "Ado_datos"
                Height          =   315
-               ItemData        =   "tw_tecnico_venta.frx":112ED
+               ItemData        =   "tw_tecnico_venta.frx":11D9B
                Left            =   2400
-               List            =   "tw_tecnico_venta.frx":11315
+               List            =   "tw_tecnico_venta.frx":11DC3
                TabIndex        =   120
                Text            =   "ENERO"
                Top             =   1560
@@ -2557,7 +2572,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120127489
+               Format          =   119472129
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2596,7 +2611,7 @@ Begin VB.Form tw_tecnico_venta
                Width           =   1215
             End
             Begin MSDataListLib.DataCombo dtc_desc11 
-               Bindings        =   "tw_tecnico_venta.frx":1137E
+               Bindings        =   "tw_tecnico_venta.frx":11E2C
                DataField       =   "venta_tipo"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2612,7 +2627,7 @@ Begin VB.Form tw_tecnico_venta
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo11 
-               Bindings        =   "tw_tecnico_venta.frx":11398
+               Bindings        =   "tw_tecnico_venta.frx":11E46
                DataField       =   "venta_tipo"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2640,12 +2655,12 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120127489
+               Format          =   119472129
                CurrentDate     =   44348
                MinDate         =   36526
             End
             Begin MSDataListLib.DataCombo dtc_desc5 
-               Bindings        =   "tw_tecnico_venta.frx":113B2
+               Bindings        =   "tw_tecnico_venta.frx":11E60
                DataField       =   "beneficiario_codigo_cobr"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2661,7 +2676,7 @@ Begin VB.Form tw_tecnico_venta
                Text            =   "Todos"
             End
             Begin MSDataListLib.DataCombo dtc_codigo5 
-               Bindings        =   "tw_tecnico_venta.frx":113CB
+               Bindings        =   "tw_tecnico_venta.frx":11E79
                DataField       =   "beneficiario_codigo_cobr"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2678,7 +2693,7 @@ Begin VB.Form tw_tecnico_venta
                Text            =   "0"
             End
             Begin MSDataListLib.DataCombo dtc_desc8 
-               Bindings        =   "tw_tecnico_venta.frx":113E4
+               Bindings        =   "tw_tecnico_venta.frx":11E92
                DataField       =   "codigo_empresa"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2694,7 +2709,7 @@ Begin VB.Form tw_tecnico_venta
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo8 
-               Bindings        =   "tw_tecnico_venta.frx":113FD
+               Bindings        =   "tw_tecnico_venta.frx":11EAB
                DataField       =   "codigo_empresa"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2800,7 +2815,7 @@ Begin VB.Form tw_tecnico_venta
          End
          Begin VB.Frame Fra_Total 
             BackColor       =   &H00C0C0C0&
-            Caption         =   $"tw_tecnico_venta.frx":11416
+            Caption         =   $"tw_tecnico_venta.frx":11EC4
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   9.75
@@ -3296,7 +3311,7 @@ Begin VB.Form tw_tecnico_venta
             End
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "tw_tecnico_venta.frx":114AF
+            Bindings        =   "tw_tecnico_venta.frx":11F5D
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3315,7 +3330,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo1 
-            Bindings        =   "tw_tecnico_venta.frx":114C8
+            Bindings        =   "tw_tecnico_venta.frx":11F76
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3333,7 +3348,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc1 
-            Bindings        =   "tw_tecnico_venta.frx":114E1
+            Bindings        =   "tw_tecnico_venta.frx":11F8F
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3366,12 +3381,12 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   119472129
             CurrentDate     =   44348
             MinDate         =   2
          End
          Begin MSDataListLib.DataCombo Dtc_aux2 
-            Bindings        =   "tw_tecnico_venta.frx":114FA
+            Bindings        =   "tw_tecnico_venta.frx":11FA8
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3391,7 +3406,7 @@ Begin VB.Form tw_tecnico_venta
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Dtc_deudor2 
-            Bindings        =   "tw_tecnico_venta.frx":11513
+            Bindings        =   "tw_tecnico_venta.frx":11FC1
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3954,7 +3969,7 @@ Begin VB.Form tw_tecnico_venta
       Top             =   5820
       Width           =   16455
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "tw_tecnico_venta.frx":1152C
+         Bindings        =   "tw_tecnico_venta.frx":11FDA
          Height          =   1140
          Left            =   120
          TabIndex        =   13
@@ -4201,7 +4216,7 @@ Begin VB.Form tw_tecnico_venta
       Top             =   7275
       Width           =   16455
       Begin MSDataGridLib.DataGrid DtgCobro 
-         Bindings        =   "tw_tecnico_venta.frx":11546
+         Bindings        =   "tw_tecnico_venta.frx":11FF4
          Height          =   1860
          Left            =   120
          TabIndex        =   11
@@ -5179,7 +5194,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1320
-         Picture         =   "tw_tecnico_venta.frx":11560
+         Picture         =   "tw_tecnico_venta.frx":1200E
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   209
@@ -5195,7 +5210,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "tw_tecnico_venta.frx":11CAC
+         Picture         =   "tw_tecnico_venta.frx":1275A
          ScaleHeight     =   615
          ScaleWidth      =   1200
          TabIndex        =   210
@@ -5211,7 +5226,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "tw_tecnico_venta.frx":1246B
+         Picture         =   "tw_tecnico_venta.frx":12F19
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   111
@@ -5225,7 +5240,7 @@ Begin VB.Form tw_tecnico_venta
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "tw_tecnico_venta.frx":12D57
+         Picture         =   "tw_tecnico_venta.frx":13805
          ScaleHeight     =   615
          ScaleWidth      =   1275
          TabIndex        =   110
@@ -6684,11 +6699,16 @@ Private Sub CRONO_MTTO()
 End Sub
 
 Private Sub BtnAprobar_Click()
-  On Error GoTo UpdateErr
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   If Ado_datos.Recordset!estado_codigo_verif = "REG" Then
         MsgBox "No se puede APROBAR debe registrar el PLAN DE CUOTAS, verifique los datos y vuelva a intentar ...", , "Atención"
         Exit Sub
   End If
+  
+  On Error GoTo UpdateErr
   VAR_VAL = "OK"
   Call valida_campos
   VAR_VALD = "OK"
@@ -7572,6 +7592,69 @@ Private Sub BtnAprobar2_Click()
        End If
     End If
  End If
+End Sub
+
+Private Sub BtnAprobar3_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+    If Ado_datos.Recordset.RecordCount > 0 Then
+        If CDate(Format(DTPfechasol.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechasol.Value = "" Then
+            MsgBox "Debe registrar la Fecha de Venta !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
+            VAR_VAL = "ERR"
+            Exit Sub
+        End If
+
+        correlv = Ado_datos.Recordset!venta_codigo
+        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        'VALIDA EDIFICIO Y EQUIPOS
+        Set rs_aux10 = New ADODB.Recordset     'Proyecto de Edificación
+        If rs_aux10.State = 1 Then rs_aux10.Close
+        rs_aux10.Open "Select * from gc_edificaciones WHERE edif_codigo = '" & dtc_codigo3.Text & "' and estado_codigo = 'APR' ", db, adOpenStatic
+        If rs_aux10.RecordCount = 0 Then
+            'Si Faltarian Aprobar
+            MsgBox "No se puede CONTABILIZAR, verifique los datos del Edificio si estan correctos y si está Aprobado, luego vuelva a intentar ...", , "Atención"
+            Exit Sub
+        End If
+        
+        Set rs_aux11 = New ADODB.Recordset     'Equipos de Venta_Detalle
+        If rs_aux11.State = 1 Then rs_aux11.Close
+        rs_aux11.Open "Select * from mv_bienes_vs_venta_det WHERE venta_codigo = " & correlv & "  ", db, adOpenStatic
+        If rs_aux11.RecordCount > 0 Then
+            'Si Faltarian Aprobar
+            MsgBox "No se puede CONTABILIZAR, verifique los datos de los EQUIPOS y si estos están Aprobados, luego vuelva a intentar ...", , "Atención"
+            Exit Sub
+        End If
+        
+        Set rs_aux12 = New ADODB.Recordset     'Partidas de Venta_Detalle
+        If rs_aux12.State = 1 Then rs_aux12.Close
+        rs_aux12.Open "Select * from ao_ventas_detalle WHERE venta_codigo = " & correlv & " and par_codigo=''  ", db, adOpenStatic
+        If rs_aux12.RecordCount > 0 Then
+            'Si Faltarian Partida
+            MsgBox "No se puede CONTABILIZAR, verifique los datos de Detalle de Bienes , luego vuelva a intentar ...", , "Atención"
+            Exit Sub
+        End If
+        'rs_aux18
+        Set rs_aux18 = New ADODB.Recordset     'Alcance del Contrato
+        If rs_aux18.State = 1 Then rs_aux18.Close
+        rs_aux18.Open "Select * from ao_ventas_alcance WHERE venta_codigo = " & correlv & "  ", db, adOpenStatic
+        If rs_aux18.RecordCount < 6 Then
+            'Si Faltarian Partida
+            MsgBox "No se puede CONTABILIZAR, verifique los datos del Alcance del Contrato , luego vuelva a intentar ...", , "Atención"
+            Exit Sub
+        End If
+        If Ado_datos.Recordset!estado_contab = "REG" Then
+           sino = MsgBox("Esta seguro de CONTABILIZAR el registro?", vbYesNo, "Confirmando")
+           If sino = vbYes Then
+               ' CONTABILIZA ao_ventas_cabecera
+               ' AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+               Ado_datos.Recordset!estado_contab = "APR"
+               Ado_datos.Recordset.Update
+            Else
+            End If
+        End If
+    End If
 End Sub
 
 Private Sub BtnBuscar_Click()
