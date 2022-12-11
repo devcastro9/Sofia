@@ -157,7 +157,7 @@ Public Sub Contabiliza_Contratos(ByVal venta_codigo As Long)
         cod1 = venta_codigo
         idCAutom = 1 'Caso contratos
         query_stored = "EXECUTE [dbo].[conta_ingresos] '" & VAR_CODTIPO & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', " & VAR_MONEDAID & ", '" & ADec(VAR_TIPOCAMBIO) & "', '" & ADec(VAR_DEBEORG) & "', '" & ADec(VAR_HABERORG) & "', '" & VAR_EntregadoA & "', '" & VAR_CONCEPTO & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_AuxAna & "', " & venta_codigo & ", " & 0 & ", " & idCAutom
-        'Debug.Print query_stored
+        Debug.Print query_stored
         Call ExecProcedure(query_stored)
         .Close
     End With
