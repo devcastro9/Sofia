@@ -2423,7 +2423,8 @@ Private Sub ABRIR_TABLA()
         Case Else
             VAR_DET = " where almacen_tipo = 'A' "
     End Select
-    rs_datos1.Open "select * from ac_bienes " & VAR_DET & "AND estado_codigo = 'APR' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly    'order by descripcion
+    '" & VAR_DET & "
+    rs_datos1.Open "select * from ac_bienes where almacen_tipo <> 'Q' AND  estado_codigo = 'APR' AND observaciones = 'FONDO01' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly    'order by descripcion
     
     Set Ado_datos1.Recordset = rs_datos1
     sino = rs_datos1.RecordCount
@@ -2447,7 +2448,9 @@ Private Sub ABRIR_TABLA()
 '    Else
 '        rs_datos2.Open "select * from ac_bienes_unidad_medida where unimed_tipo <> 'T' ", db, adOpenStatic   'order by descripcion
 '    End If
-    rs_datos2.Open "select * from ac_bienes_unidad_medida where unimed_tipo <> 'T' ", db, adOpenStatic   'order by descripcion
+
+    'where unimed_tipo <> 'T'
+    rs_datos2.Open "select * from ac_bienes_unidad_medida ", db, adOpenStatic   'order by descripcion
     If rs_datos2.RecordCount > 0 Then
     Set Ado_datos2.Recordset = rs_datos2
     If swnuevo = 2 Then

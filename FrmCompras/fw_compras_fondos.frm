@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_fondos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -276,7 +276,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110952449
+         Format          =   128843777
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2043,45 +2043,8 @@ Begin VB.Form fw_compras_fondos
          Left            =   2400
          TabIndex        =   60
          Top             =   3585
+         Visible         =   0   'False
          Width           =   675
-      End
-      Begin VB.OptionButton opt_directa 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Importacion Directa"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000040&
-         Height          =   210
-         Left            =   5280
-         TabIndex        =   59
-         Top             =   3585
-         Width           =   1995
-      End
-      Begin VB.OptionButton opt_local 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Facturacion Local"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000040&
-         Height          =   210
-         Left            =   3360
-         TabIndex        =   58
-         Top             =   3585
-         Width           =   1755
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Height          =   2415
@@ -2425,6 +2388,46 @@ Begin VB.Form fw_compras_fondos
          EndProperty
          _Version        =   393216
       End
+      Begin VB.OptionButton opt_local 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "Facturacion Local"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000040&
+         Height          =   210
+         Left            =   3360
+         TabIndex        =   58
+         Top             =   3585
+         Visible         =   0   'False
+         Width           =   1755
+      End
+      Begin VB.OptionButton opt_directa 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "Importacion Directa"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000040&
+         Height          =   210
+         Left            =   5280
+         TabIndex        =   59
+         Top             =   3585
+         Visible         =   0   'False
+         Width           =   1995
+      End
    End
    Begin VB.PictureBox picStatBox 
       Align           =   2  'Align Bottom
@@ -2434,10 +2437,10 @@ Begin VB.Form fw_compras_fondos
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   21360
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   12915
-      Width           =   21360
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3764,7 +3767,7 @@ On Error GoTo UpdateErr
             
             'Ado_detalle1.Recordset.AddNew
             frm_solicitud_bienes_gral.txt_codigo.Caption = Me.txt_codigo.Caption
-            frm_solicitud_bienes_gral.txt_campo1.Caption = Me.dtc_codigo1.Text
+            frm_solicitud_bienes_gral.Txt_campo1.Caption = Me.dtc_codigo1.Text
             frm_solicitud_bienes_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             frm_solicitud_bienes_gral.lbl_edif.Caption = Label1.Caption
             frm_solicitud_bienes_gral.lbl_det.Caption = Glaux
@@ -3879,7 +3882,7 @@ On Error GoTo UpdateErr
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_gral.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -4409,7 +4412,7 @@ On Error GoTo AddErr
         Ado_detalle2.Recordset.Update
      End If
     Else
-        If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.Caption) Then
+        If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.Text) Then
             sino = MsgBox("El monto introducido en la factura es mayor al monto de la Suma del precio de cada Item, Revise Por Favor", vbCritical, "SOFIA")
             Exit Sub
         End If
@@ -4423,7 +4426,7 @@ On Error GoTo AddErr
 End If
 
 'If parametro <> "COMEX" Then
-'    If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.Caption) Then
+'    If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.text) Then
 '        sino = MsgBox("El monto introducido en la factura es mayor al monto de la Suma del precio de cada Item, Revise Por Favor", vbCritical, "SOFIA")
 '        Exit Sub
 '    End If
@@ -4672,7 +4675,7 @@ If parametro <> "COMEX" Then
         MsgBox "No se puede ENVIAR, debe registrar al menos una Factura del Proveedor ...", vbCritical, "SOFIA"
         Exit Sub
     End If
-    'If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.Caption) Then
+    'If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.text) Then
     If (Ado_detalle1.Recordset!compra_precio_total_bs) > CDbl(Ado_detalle2.Recordset!adjudica_monto_bs) Then
         sino = MsgBox("El monto del Item elegido es mayor al importe de la factura, Revise Por Favor", vbCritical, "SOFIA")
         Exit Sub
@@ -5252,7 +5255,7 @@ Private Sub BtnGrabar_Click()
     rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
     If rs_aux2.RecordCount > 0 Then
         rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-        txt_campo1.Caption = rs_aux2!correl_doc
+        Txt_campo1.Caption = rs_aux2!correl_doc
         VAR_CODF = rs_aux2!correl_doc
         rs_aux2.Update
     End If
@@ -5438,8 +5441,8 @@ Private Sub BtnGrabar_Click()
         rs_datos.Find "compra_codigo = " & var_cod & " ", , , 1
         'rs_datos.Find "solicitud_codigo = " & VAR_COMPRA & " ", , , 1
         dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
-          lbl_total_bs.Caption = "0"
-          lbl_total_dol.Caption = "0"
+          lbl_total_bs.Text = "0"
+          lbl_total_dol.Text = "0"
           Call ABRIR_TABLA_DET
           
         VAR_SW = ""
@@ -5673,7 +5676,7 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -5681,15 +5684,15 @@ Private Sub BtnModDetalle1_Click()
                 frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.Txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo18.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_codigo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo14.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 
                 'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-                frm_solicitud_bienes_gral.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-                frm_solicitud_bienes_gral.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
                 frm_solicitud_bienes_gral.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
                 
                 frm_solicitud_bienes_gral.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -5832,7 +5835,7 @@ sw_nuevo = "MOD"
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
             fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_gral.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_gral.Txt_estado.Caption = "REG"
@@ -6749,14 +6752,13 @@ Private Sub ABRIR_TABLA_DET()
 '                 'dg_det1.ClearFields
 '
 '            End If
-            
 
 '            If Ado_detalle1.Recordset.RecordCount > 0 Then
 '            BtnAddDetalle1.Visible = False
 '            Else
 '            BtnAddDetalle1.Visible = True
 '            End If
-'
+
  If parametro = "COMEX" Then
     Select Case Glaux
         Case "PROVI"    'PROVISION DE EQUIPOS
@@ -6903,8 +6905,8 @@ Private Sub ABRIR_TABLA_DET()
     Wend
     'JQA
     'Ado_detalle1.Recordset.MoveFirst
-    lbl_total_bs.Caption = IIf(IsNull(SUMbs), 0, SUMbs)
-    lbl_total_dol.Caption = IIf(IsNull(SUMdol), 0, SUMdol)
+    lbl_total_bs.Text = IIf(IsNull(SUMbs), 0, SUMbs)
+    lbl_total_dol.Text = IIf(IsNull(SUMdol), 0, SUMdol)
  End If
  '    'rs_det1.Open "select * from ao_compra_detalle where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  ", db, adOpenKeyset, adLockOptimistic, adCmdText
  If Ado_detalle1.Recordset.RecordCount > 0 Then
