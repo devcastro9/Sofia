@@ -6,7 +6,7 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form fw_compras_gral 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "Compras"
+   Caption         =   "Egresos"
    ClientHeight    =   10260
    ClientLeft      =   1110
    ClientTop       =   345
@@ -42,7 +42,7 @@ Begin VB.Form fw_compras_gral
       Height          =   5640
       Left            =   4440
       TabIndex        =   15
-      Top             =   1560
+      Top             =   3960
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109772801
+         Format          =   111280129
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 

@@ -18,7 +18,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
    Moveable        =   0   'False
    ScaleHeight     =   2.31106e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.39749e10
+   ScaleWidth      =   10815
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCabecera 
       BackColor       =   &H00E0E0E0&
@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   127139841
+         Format          =   111280129
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -3363,7 +3363,7 @@ Private Sub AbrirDetalle()
     'ORIGEN - DETALLE DE COBRANZAS
     If Ado_datos.Recordset!estado_codigo = "REG" Or IsNull(Ado_datos.Recordset!estado_codigo) Then
         deta2 = 1
-        DtgLista.Visible = True
+        DtGLista.Visible = True
 '        FraBuscaDet.Visible = True
         Set rs_datos14 = New ADODB.Recordset
         If rs_datos14.State = 1 Then rs_datos14.Close
@@ -3399,21 +3399,21 @@ Private Sub AbrirDetalle()
         ado_datos14.Recordset.Requery
         If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
-            DtgLista.Visible = True
+            DtGLista.Visible = True
 '            FraBuscaDet.Visible = True
-            Set DtgLista.DataSource = ado_datos14.Recordset
+            Set DtGLista.DataSource = ado_datos14.Recordset
 '            If VAR_OPCION = 0 Then
 '                Call AbreOrigen
 '            End If
         Else
             deta2 = 0
-            DtgLista.Visible = False
+            DtGLista.Visible = False
 '            FraBuscaDet.Visible = False
         End If
     
     Else
         deta2 = 0
-        DtgLista.Visible = False
+        DtGLista.Visible = False
 '        FraBuscaDet.Visible = False
     End If
     
@@ -3769,7 +3769,7 @@ Private Sub BtnBuscar2_Click()
       Set ClBuscaGrid = New ClBuscaEnGridExterno
       Set ClBuscaGrid.Conexión = db
       ClBuscaGrid.EsTdbGrid = False
-      Set ClBuscaGrid.GridTrabajo = DtgLista
+      Set ClBuscaGrid.GridTrabajo = DtGLista
       ClBuscaGrid.QueryUtilizado = queryinicial2
       Set ClBuscaGrid.RecordsetTrabajo = ado_datos14.Recordset
       ClBuscaGrid.CamposVisibles = "110"
@@ -4331,14 +4331,14 @@ Private Sub CmdOK0_Click()
     VAR_OPCION = "0"
     Call AbrirDetalle
     BtnAddDetalle.Visible = False
-    DtgLista.Enabled = False
+    DtGLista.Enabled = False
 End Sub
 
 Private Sub CmdOK1_Click()
     VAR_OPCION = "1"
     Call AbrirDetalle
     BtnAddDetalle.Visible = True
-    DtgLista.Enabled = True
+    DtGLista.Enabled = True
 End Sub
 
 'Private Sub BtnBuscar2_Click()
@@ -4357,14 +4357,14 @@ Private Sub CmdOK2_Click()
     VAR_OPCION = "2"
     Call AbrirDetalle
     BtnAddDetalle.Visible = True
-    DtgLista.Enabled = True
+    DtGLista.Enabled = True
 End Sub
 
 Private Sub CmdOK3_Click()
     VAR_OPCION = "3"
     Call AbrirDetalle
     BtnAddDetalle.Visible = True
-    DtgLista.Enabled = True
+    DtGLista.Enabled = True
 End Sub
 
 
@@ -5235,13 +5235,13 @@ Private Sub Option1_Click()
     ado_datos14.Recordset.Requery
     If ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
-        DtgLista.Visible = True
+        DtGLista.Visible = True
         FraBuscaDet.Visible = True
-        Set DtgLista.DataSource = ado_datos14.Recordset
+        Set DtGLista.DataSource = ado_datos14.Recordset
         'Call AbreAlmacen
     Else
         deta2 = 0
-        DtgLista.Visible = False
+        DtGLista.Visible = False
         FraBuscaDet.Visible = False
     End If
     
