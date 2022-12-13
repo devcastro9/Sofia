@@ -1467,7 +1467,10 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
     If Ado_datos.Recordset.RecordCount > 0 Then
        Call abrir_destino
     Else
-        dg_datos2.Visible = False
+        If Ado_datos2.Recordset.RecordCount > 0 Then
+            Call abrir_destino
+            'dg_datos2.Visible = False
+        End If
     End If
 End Sub
 
@@ -1617,11 +1620,11 @@ Private Sub BtnAprobar_Click()
 End Sub
 
 Private Sub BtnEliminar_Click()
-    If glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "HMARIN" Or glusuario = "CSALINAS" Then
+    If glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "HMARIN" Or glusuario = "CSALINAS" Or glusuario = "GPALLY" Then
        If Ado_datos.Recordset.RecordCount > 0 Then
           db.Execute "UPDATE ao_ventas_cobranza_prog SET es_grupo_fac = 'NO' WHERE correl_prog = " & Ado_datos2.Recordset!correl_prog & " "
           Call OptFilGral1_Click
-          'Call abrir_destino
+          Call abrir_destino
        End If
     End If
 End Sub
@@ -1633,7 +1636,7 @@ End Sub
 Private Sub Form_Load()
     db.Execute "UPDATE ao_ventas_cobranza_prog SET es_grupo_fac = 'NO' WHERE venta_codigo = " & NumComp & "  "
     Call OptFilGral1_Click
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral1_Click()

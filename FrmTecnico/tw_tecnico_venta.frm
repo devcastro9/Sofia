@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   8.36745e9
+   ScaleHeight     =   9.84872e9
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.48476e5
+   ScaleWidth      =   2.06313e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -38,7 +38,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   4800
+      Top             =   5640
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -122,7 +122,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   4800
+      Top             =   5400
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -237,7 +237,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   4455
       Left            =   6720
       TabIndex        =   143
-      Top             =   1200
+      Top             =   5760
       Visible         =   0   'False
       Width           =   11775
       Begin VB.OptionButton Option3 
@@ -722,6 +722,7 @@ Begin VB.Form tw_tecnico_venta
       _ExtentY        =   8837
       _Version        =   393216
       Tabs            =   4
+      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -737,7 +738,7 @@ Begin VB.Form tw_tecnico_venta
       EndProperty
       TabCaption(0)   =   "Registro DATOS CONTRATO"
       TabPicture(0)   =   "tw_tecnico_venta.frx":CDD7
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
@@ -748,8 +749,9 @@ Begin VB.Form tw_tecnico_venta
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "FrmCobros"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
@@ -1096,7 +1098,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   -75000
+         Left            =   0
          TabIndex        =   27
          Top             =   380
          Width           =   11895
@@ -1315,7 +1317,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   119472129
+            Format          =   110362625
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1577,7 +1579,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   119472129
+            Format          =   110362625
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1605,7 +1607,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   119472129
+            Format          =   110362625
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2103,7 +2105,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   119472129
+               Format          =   110362625
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2128,7 +2130,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119472129
+               Format          =   110362625
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2333,7 +2335,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   60
+         Left            =   -74940
          TabIndex        =   14
          Top             =   380
          Width           =   11895
@@ -2572,7 +2574,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119472129
+               Format          =   110362625
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2655,7 +2657,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119472129
+               Format          =   110362625
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3381,7 +3383,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119472129
+            Format          =   110362625
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -6796,7 +6798,7 @@ Private Sub BtnAprobar_Click()
                TimeD = Ado_datos.Recordset!venta_plazo_dias_calendario
                CANTOT = Ado_datos.Recordset!venta_cantidad_total
                VAR_GLOSA2 = Ado_datos.Recordset!venta_descripcion
-               VAR_PROY2 = Ado_datos.Recordset!EDIF_CODIGO
+               VAR_PROY2 = Ado_datos.Recordset!edif_codigo
                VAR_CITE = Ado_datos.Recordset!unidad_codigo_ant         'OS - 36AO - 36NB - 36NO...
                VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
                VAR_BEND = dtc_desc2.Text
@@ -6804,10 +6806,10 @@ Private Sub BtnAprobar_Click()
                VAR_UNID = dtc_desc1.Text
                'VAR_DPTO = Left(VAR_PROY2, 1)
                'VAR_DPTO = Ado_datos.Recordset!depto_codigo
-               If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!EDIF_CODIGO, 1) Then
+               If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!edif_codigo, 1) Then
                      VAR_DPTO = Ado_datos.Recordset!depto_codigo
                 Else
-                     VAR_DPTO = Left(Ado_datos.Recordset!EDIF_CODIGO, 1)
+                     VAR_DPTO = Left(Ado_datos.Recordset!edif_codigo, 1)
                 End If
                VARG_ORGD = ""
                VAR_CTAD = ""
@@ -7001,7 +7003,7 @@ Private Sub BtnAprobar_Click()
                    '     End If
                    '  Else
                         If VAR_PROY2 = "" Then
-                            VAR_PROY2 = Ado_datos.Recordset!EDIF_CODIGO
+                            VAR_PROY2 = Ado_datos.Recordset!edif_codigo
                         End If
                             Set rs_aux4 = New ADODB.Recordset
                             If rs_aux4.State = 1 Then rs_aux4.Close
@@ -7122,7 +7124,7 @@ Private Sub PARA_COMEX()
                    rs_aux3!solicitud_codigo_adm = correldetalle
                    rs_aux3!unidad_codigo = VAR_COD4
                    rs_aux3!solicitud_codigo = VAR_SOL
-                   rs_aux3!EDIF_CODIGO = VAR_PROY2
+                   rs_aux3!edif_codigo = VAR_PROY2
                    rs_aux3!beneficiario_codigo = VAR_BENEF
                    rs_aux3!beneficiario_codigo_alm = IIf(IsNull(Ado_datos.Recordset!beneficiario_codigo_resp), "0", Ado_datos.Recordset!beneficiario_codigo_resp)
                    rs_aux3!solicitud_tipo = rs_aux11!observaciones     '"15"
@@ -7522,7 +7524,7 @@ Private Sub BtnAprobar2_Click()
                 " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
                         " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!EDIF_CODIGO & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
+                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
                         
             'Actualiza CORREO ELECTRONICO
             db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
@@ -7607,7 +7609,7 @@ Private Sub BtnAprobar3_Click()
         End If
 
         correlv = Ado_datos.Recordset!venta_codigo
-        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        GlEdificio = Ado_datos.Recordset!edif_codigo
         'VALIDA EDIFICIO Y EQUIPOS
         Set rs_aux10 = New ADODB.Recordset     'Proyecto de Edificación
         If rs_aux10.State = 1 Then rs_aux10.Close
@@ -9398,7 +9400,8 @@ Private Sub CmdGrabaCobro_Click()
 ' db.Execute "update aa_datos_venta_detalle set aa_datos_venta_detalle.venta_precio_unitario_bs = (aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA) / aa_datos_venta_detalle_equipos_cant.eqp, aa_datos_venta_detalle.venta_precio_total_bs = aa_datos_venta_cabecera.tot_bs / aa_datos_venta_detalle_equipos_cant.eqp, aa_datos_venta_detalle.venta_precio_total_dol = aa_datos_venta_cabecera.tot_dol / aa_datos_venta_detalle_equipos_cant.eqp, aa_datos_venta_detalle.venta_precio_unitario_dol = ((aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA) * " & GlTipoCambioOficial & ") / aa_datos_venta_detalle_equipos_cant.eqp From aa_datos_venta_cabecera, aa_datos_venta_detalle_equipos_cant where aa_datos_venta_detalle.venta_codigo = aa_datos_venta_cabecera.venta_codigo and aa_datos_venta_detalle.venta_codigo = aa_datos_venta_detalle_equipos_cant.venta_codigo and aa_datos_venta_cabecera.venta_codigo =  " & NumComp & ""
 ' db.Execute "update ao_ventas_cabecera set venta_cantidad_total = " & txtCantCobr.Text & " where venta_codigo = " & NumComp & ""
  
-    db.Execute "tp_actualiza_datos_venta " & NumComp
+    'Momentaneamente SUSPENDIDO
+'    db.Execute "tp_actualiza_datos_venta " & NumComp
     Call ABRIR_TABLAS_AUX
     Call ABRIR_DETALLE
     ' db.Execute "update aa_datos_venta_detalle set aa_datos_venta_detalle.venta_precio_unitario_bs = aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA ,aa_datos_venta_detalle.venta_precio_total_bs = aa_datos_venta_cabecera.tot_bs,aa_datos_venta_detalle.venta_precio_total_dol = aa_datos_venta_cabecera.tot_dol,aa_datos_venta_detalle.venta_precio_unitario_bs = (aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA) * " & GlTipoCambioOficial & "From aa_datos_venta_cabecera where aa_datos_venta_detalle.venta_codigo = aa_datos_venta_cabecera.venta_codigo and aa_datos_venta_cabecera.venta_codigo =  " & NumComp & ""
@@ -10845,10 +10848,10 @@ Private Sub grabar()
         'Ado_datos.Recordset("fecha_aprueba") = ""
         'Ado_datos.Recordset.Update
         '
-       If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!EDIF_CODIGO, 1) Then
+       If Ado_datos.Recordset!depto_codigo = Left(Ado_datos.Recordset!edif_codigo, 1) Then
             VAR_DPTO = Ado_datos.Recordset!depto_codigo
        Else
-            VAR_DPTO = Left(Ado_datos.Recordset!EDIF_CODIGO, 1)
+            VAR_DPTO = Left(Ado_datos.Recordset!edif_codigo, 1)
        End If
         'GRABA DATOS DEL CONTRATO DE VENTA
         VAR_MED2 = cmd_unimed2.Text                                      'Ado_datos.Recordset!unimed_codigo_cobr
@@ -11688,7 +11691,7 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             If IsNull(Ado_datos.Recordset!zpiloto_codigo) Or Ado_datos.Recordset!zpiloto_codigo = "0" Then
                 Set rs_datos10 = New ADODB.Recordset
                 If rs_datos10.State = 1 Then rs_datos10.Close
-                rs_datos10.Open "Select * from tc_zona_piloto_edif where edif_codigo = '" & Ado_datos.Recordset!EDIF_CODIGO & "' ", db, adOpenStatic
+                rs_datos10.Open "Select * from tc_zona_piloto_edif where edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "' ", db, adOpenStatic
                 If rs_datos10.RecordCount > 0 Then
                     dtc_codigo7.Text = rs_datos10!zpiloto_codigo
                     dtc_desc7.BoundText = dtc_codigo7.BoundText

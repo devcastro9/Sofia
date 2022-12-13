@@ -28,7 +28,7 @@ Begin VB.Form fw_compras_fondos
       Picture         =   "fw_compras_fondos.frx":0A02
       ScaleHeight     =   615
       ScaleWidth      =   1245
-      TabIndex        =   87
+      TabIndex        =   84
       ToolTipText     =   "Cierra la Ventana Activa"
       Top             =   360
       Width           =   1245
@@ -42,7 +42,7 @@ Begin VB.Form fw_compras_fondos
       Height          =   5280
       Left            =   4440
       TabIndex        =   13
-      Top             =   3960
+      Top             =   3240
       Visible         =   0   'False
       Width           =   10335
       Begin VB.TextBox lbl_total_dol 
@@ -50,7 +50,7 @@ Begin VB.Form fw_compras_fondos
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   7440
-         TabIndex        =   96
+         TabIndex        =   93
          Text            =   "0"
          Top             =   3960
          Width           =   1335
@@ -60,7 +60,7 @@ Begin VB.Form fw_compras_fondos
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5280
-         TabIndex        =   95
+         TabIndex        =   92
          Text            =   "0"
          Top             =   3960
          Width           =   1215
@@ -76,7 +76,7 @@ Begin VB.Form fw_compras_fondos
          Left            =   120
          ScaleHeight     =   435
          ScaleWidth      =   10080
-         TabIndex        =   88
+         TabIndex        =   85
          Top             =   120
          Visible         =   0   'False
          Width           =   10080
@@ -97,7 +97,7 @@ Begin VB.Form fw_compras_fondos
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   2775
-            TabIndex        =   89
+            TabIndex        =   86
             Top             =   120
             Width           =   4545
          End
@@ -113,7 +113,7 @@ Begin VB.Form fw_compras_fondos
          Left            =   120
          ScaleHeight     =   675
          ScaleWidth      =   10080
-         TabIndex        =   61
+         TabIndex        =   58
          Top             =   4440
          Visible         =   0   'False
          Width           =   10080
@@ -127,7 +127,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":13C1
             ScaleHeight     =   615
             ScaleWidth      =   1335
-            TabIndex        =   63
+            TabIndex        =   60
             Top             =   0
             Width           =   1335
          End
@@ -141,7 +141,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":1B97
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   62
+            TabIndex        =   59
             Top             =   0
             Width           =   1455
          End
@@ -199,7 +199,7 @@ Begin VB.Form fw_compras_fondos
          Height          =   285
          Left            =   4860
          TabIndex        =   15
-         Top             =   1650
+         Top             =   1290
          Visible         =   0   'False
          Width           =   270
       End
@@ -276,7 +276,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   128843777
+         Format          =   110362625
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -522,7 +522,7 @@ Begin VB.Form fw_compras_fondos
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   180
-         TabIndex        =   94
+         TabIndex        =   91
          Top             =   960
          Width           =   1095
       End
@@ -533,7 +533,7 @@ Begin VB.Form fw_compras_fondos
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   93
+         TabIndex        =   90
          Top             =   720
          Width           =   645
       End
@@ -878,7 +878,7 @@ Begin VB.Form fw_compras_fondos
          Picture         =   "fw_compras_fondos.frx":25E5
          ScaleHeight     =   735
          ScaleWidth      =   1080
-         TabIndex        =   86
+         TabIndex        =   83
          Top             =   240
          Visible         =   0   'False
          Width           =   1080
@@ -890,7 +890,7 @@ Begin VB.Form fw_compras_fondos
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   8760
-         TabIndex        =   76
+         TabIndex        =   73
          Top             =   240
          Width           =   8760
          Begin VB.PictureBox BtnImprimir2 
@@ -903,7 +903,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":31A4
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   80
+            TabIndex        =   77
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -918,7 +918,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":3A71
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   79
+            TabIndex        =   76
             Top             =   0
             Width           =   1215
          End
@@ -932,7 +932,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":41BD
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   78
+            TabIndex        =   75
             Top             =   0
             Width           =   1430
          End
@@ -946,7 +946,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":4AD2
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   77
+            TabIndex        =   74
             Top             =   0
             Width           =   1200
          End
@@ -969,7 +969,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":5291
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   91
+            TabIndex        =   88
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -1550,7 +1550,7 @@ Begin VB.Form fw_compras_fondos
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   9600
-         TabIndex        =   81
+         TabIndex        =   78
          Top             =   240
          Width           =   9600
          Begin VB.PictureBox BtnAprobar4 
@@ -1562,7 +1562,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":647A
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   92
+            TabIndex        =   89
             Top             =   0
             Width           =   1320
          End
@@ -1572,7 +1572,7 @@ Begin VB.Form fw_compras_fondos
             Left            =   6720
             Picture         =   "fw_compras_fondos.frx":6D44
             Style           =   1  'Graphical
-            TabIndex        =   90
+            TabIndex        =   87
             ToolTipText     =   "Imprime Nota de Venta"
             Top             =   0
             Visible         =   0   'False
@@ -1587,7 +1587,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":7672
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   85
+            TabIndex        =   82
             Top             =   0
             Visible         =   0   'False
             Width           =   1320
@@ -1601,7 +1601,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":7F89
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   84
+            TabIndex        =   81
             Top             =   0
             Width           =   1215
          End
@@ -1614,7 +1614,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":8781
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   83
+            TabIndex        =   80
             Top             =   0
             Width           =   1430
          End
@@ -1627,7 +1627,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":9196
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   82
+            TabIndex        =   79
             Top             =   0
             Width           =   1200
          End
@@ -1867,7 +1867,7 @@ Begin VB.Form fw_compras_fondos
          Left            =   100
          ScaleHeight     =   660
          ScaleWidth      =   8940
-         TabIndex        =   64
+         TabIndex        =   61
          Top             =   240
          Width           =   8940
          Begin VB.CommandButton BtnVer 
@@ -1877,7 +1877,7 @@ Begin VB.Form fw_compras_fondos
             Left            =   10800
             Picture         =   "fw_compras_fondos.frx":9A61
             Style           =   1  'Graphical
-            TabIndex        =   74
+            TabIndex        =   71
             ToolTipText     =   "Guarda en Archivo Digital"
             Top             =   0
             Visible         =   0   'False
@@ -1889,7 +1889,7 @@ Begin VB.Form fw_compras_fondos
             Left            =   11760
             Picture         =   "fw_compras_fondos.frx":9EA3
             Style           =   1  'Graphical
-            TabIndex        =   73
+            TabIndex        =   70
             Top             =   0
             Visible         =   0   'False
             Width           =   1125
@@ -1904,7 +1904,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":A0AD
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   72
+            TabIndex        =   69
             Top             =   0
             Width           =   1200
          End
@@ -1918,7 +1918,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":A86C
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   71
+            TabIndex        =   68
             Top             =   0
             Width           =   1430
          End
@@ -1932,7 +1932,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":B181
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   70
+            TabIndex        =   67
             Top             =   0
             Width           =   1215
          End
@@ -1946,7 +1946,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":B8CD
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   69
+            TabIndex        =   66
             Top             =   0
             Visible         =   0   'False
             Width           =   1320
@@ -1961,7 +1961,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":C100
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   68
+            TabIndex        =   65
             Top             =   0
             Width           =   1215
          End
@@ -1975,7 +1975,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":C8B5
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   67
+            TabIndex        =   64
             Top             =   0
             Width           =   1400
          End
@@ -1989,7 +1989,7 @@ Begin VB.Form fw_compras_fondos
             Picture         =   "fw_compras_fondos.frx":D182
             ScaleHeight     =   615
             ScaleWidth      =   1245
-            TabIndex        =   66
+            TabIndex        =   63
             ToolTipText     =   "Cierra la Ventana Activa"
             Top             =   0
             Visible         =   0   'False
@@ -1999,7 +1999,7 @@ Begin VB.Form fw_compras_fondos
             Caption         =   "Command2"
             Height          =   255
             Left            =   8640
-            TabIndex        =   65
+            TabIndex        =   62
             Top             =   240
             Visible         =   0   'False
             Width           =   975
@@ -2021,30 +2021,10 @@ Begin VB.Form fw_compras_fondos
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   12855
-            TabIndex        =   75
+            TabIndex        =   72
             Top             =   195
             Width           =   1815
          End
-      End
-      Begin VB.OptionButton Opt_CGE 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "CGE"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000040&
-         Height          =   210
-         Left            =   2400
-         TabIndex        =   60
-         Top             =   3585
-         Visible         =   0   'False
-         Width           =   675
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Height          =   2415
@@ -2317,7 +2297,7 @@ Begin VB.Form fw_compras_fondos
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   840
+         Left            =   1440
          TabIndex        =   10
          Top             =   3585
          Value           =   -1  'True
@@ -2337,14 +2317,14 @@ Begin VB.Form fw_compras_fondos
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   7440
+         Left            =   6480
          TabIndex        =   11
          Top             =   3600
          Width           =   915
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
-         Left            =   100
+         Left            =   105
          Top             =   3480
          Width           =   8955
          _ExtentX        =   15796
@@ -2387,46 +2367,6 @@ Begin VB.Form fw_compras_fondos
             Strikethrough   =   0   'False
          EndProperty
          _Version        =   393216
-      End
-      Begin VB.OptionButton opt_local 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Facturacion Local"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000040&
-         Height          =   210
-         Left            =   3360
-         TabIndex        =   58
-         Top             =   3585
-         Visible         =   0   'False
-         Width           =   1755
-      End
-      Begin VB.OptionButton opt_directa 
-         BackColor       =   &H00FFFFFF&
-         Caption         =   "Importacion Directa"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000040&
-         Height          =   210
-         Left            =   5280
-         TabIndex        =   59
-         Top             =   3585
-         Visible         =   0   'False
-         Width           =   1995
       End
    End
    Begin VB.PictureBox picStatBox 
@@ -4744,7 +4684,7 @@ If parametro <> "COMEX" Then
 '                Ado_detalle2.Recordset.Update
 '          End If
          Call BIENES
-        If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
+        If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
            CORRELARIVO1 = "0"  'CORRELATIVO PARA SALDOS INICIALES
            Set rs_det1A = New ADODB.Recordset
            If rs_det1A.State = 1 Then rs_det1A.Close
@@ -4759,7 +4699,7 @@ If parametro <> "COMEX" Then
                 rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='" & Ado_datos.Recordset!doc_codigo_alm & "' AND doc_numero=" & CORRELARIVO1 & " AND bien_codigo='" & rs_det1A!bien_codigo & "' ", db, adOpenStatic
                 If rs_aux12.RecordCount > 0 Then
                 Else
-                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!EDIF_CODIGO & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
                 End If
     
                 Set rs_aux6 = New ADODB.Recordset
@@ -4850,7 +4790,7 @@ AddErr:
 End Sub
 
 Private Sub BtnAprobar4_Click()
- If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!EDIF_CODIGO <> "20101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "70101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "30101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "10101-3") Then
+ If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!edif_codigo <> "20101-3") And (Ado_datos.Recordset!edif_codigo <> "70101-3") And (Ado_datos.Recordset!edif_codigo <> "30101-3") And (Ado_datos.Recordset!edif_codigo <> "10101-3") Then
     If (Ado_detalle2.Recordset.RecordCount > 0) And (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
         VAR_COD2 = Ado_datos.Recordset!compra_codigo
         'INI correlativo ALMACEN
@@ -4896,7 +4836,7 @@ Private Sub BtnAprobar4_Click()
             rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='" & Ado_datos.Recordset!doc_codigo_alm & "' AND doc_numero=" & CORRELARTIVO1 & " AND bien_codigo='" & rs_det1A!bien_codigo & "' ", db, adOpenStatic     '
             If rs_aux12.RecordCount > 0 Then
             Else
-                db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!EDIF_CODIGO & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
             End If
 
             Set rs_aux6 = New ADODB.Recordset
@@ -5217,7 +5157,7 @@ Private Sub BtnGrabar_Click()
      
      
      rs_datos!compra_fecha = DTPfecha1.Value
-     rs_datos!EDIF_CODIGO = dtc_codigo3.Text
+     rs_datos!edif_codigo = dtc_codigo3.Text
      rs_datos!depto_codigo = Left(Trim(dtc_codigo3.Text), 1)
 '     If dtc_codigo3.Text = "20101-5" Then
 '        'rs_datos!beneficiario_codigo = dtc_aux3.Text
@@ -5977,64 +5917,74 @@ Private Sub BtnModificar_Click()
   On Error GoTo EditErr
   
   If Ado_datos.Recordset.RecordCount > 0 Then
-    If parametro = "COMEX" Then
-        Select Case Glaux
-            Case "PROVI"
-             If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado!! ", vbExclamation
-             Exit Sub
-             End If
-            Case "TRANS"
-             If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
+      If Ado_datos.Recordset!estado_codigo_eqp = "APR" Then
              MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
              Exit Sub
-             End If
-            Case "ADUAN"
-             If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-            Case "DESCA"
-             If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-            Case "CONTR"
-             If Ado_datos.Recordset!estado_codigo <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-             
-            Case Else
-              If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-        End Select
-    Else
-        If Ado_datos.Recordset!estado_codigo_eqp = "APR" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-        End If
-    End If
+      End If
+
+'    If parametro = "COMEX" Then
+'        Select Case Glaux
+'            Case "PROVI"
+'             If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado!! ", vbExclamation
+'             Exit Sub
+'             End If
+'            Case "TRANS"
+'             If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+'             Exit Sub
+'             End If
+'            Case "ADUAN"
+'             If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+'             Exit Sub
+'             End If
+'            Case "DESCA"
+'             If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+'             Exit Sub
+'             End If
+'            Case "CONTR"
+'             If Ado_datos.Recordset!estado_codigo <> "REG" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+'             Exit Sub
+'             End If
+'
+'            Case Else
+'              If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+'             Exit Sub
+'             End If
+'        End Select
+'    Else
+'        If Ado_datos.Recordset!estado_codigo_eqp = "APR" Then
+'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+'             Exit Sub
+'        End If
+'    End If
 '  lblStatus.Caption = "Modificar registro"
    ' If Ado_datos.Recordset!estado_codigo = "REG" Then
-   Fra_datos.Visible = True
+      Fra_datos.Visible = True
         Fra_datos.Enabled = True
         fraOpciones.Visible = False
         FraGrabarCancelar.Visible = True
         dg_datos.Enabled = False
-        dtc_desc3.Locked = True
+        'dtc_desc3.Locked = True
         FraDet2.Visible = False
         FraDet1.Visible = False
-'        FrmABMDet3.Visible = False
-        'FrmABMDet2.Visible = False
-'        FrmABMDet.Visible = False
-        
+        dtc_codigo1.Text = Ado_datos.Recordset!unidad_codigo
+        dtc_desc1.BoundText = dtc_codigo1.BoundText
+        dtc_aux1.BoundText = dtc_codigo1.BoundText
+        dtc_codigo3.Text = Ado_datos.Recordset!edif_codigo
+        dtc_desc3.BoundText = dtc_codigo3.BoundText
+        dtc_codigo4.Text = Ado_datos.Recordset!beneficiario_codigo_alm
+        dtc_desc_ben.BoundText = dtc_codigo4.BoundText
+        dtc_codigo11.Text = Ado_datos.Recordset!beneficiario_codigo_resp
+        dtc_desc11.BoundText = dtc_codigo11.BoundText
+        dtc_codigo2.Text = Ado_datos.Recordset!venta_tipo
+        dtc_desc2.BoundText = dtc_codigo2.BoundText
         VAR_SW = "MOD"
-    '    dtc_desc1.Visible = False
-    '    lbl_aux1.Visible = True
-    '    lbl_aux1.Caption = dtc_desc1.Text
+
         dtc_desc11.SetFocus
     '    BtnVer.Visible = True
 '        dtc_codigo9.Enabled = False
@@ -6161,7 +6111,7 @@ On Error GoTo UpdateErr
                 sino = MsgBox("No Se Puede Quitar Este ITEM, Ya Esta APROBADO(APR) como Ingreso a Almacén...", vbCritical, "ERROR")
                 Exit Sub
             End If
-            If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
+            If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
                 db.Execute "update ao_almacen_TOTALES SET stock_ingreso = stock_ingreso - " & Ado_detalle1A.Recordset!adjudica_cantidad & " WHERE WHERE almacen_codigo = " & Ado_detalle1A.Recordset!almacen & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "'  "
                 db.Execute "DELETE ao_almacen_ingresos WHERE compra_codigo = " & Ado_detalle1A.Recordset!compra_codigo & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
                 db.Execute "update ao_compra_detalle set estado_codigo = 'REG' WHERE compra_codigo = " & Ado_detalle1A.Recordset!compra_codigo & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
@@ -6570,9 +6520,7 @@ On Error GoTo UpdateErr
         BtnImprimir3.Visible = False
         BtnAprobar1.Visible = False
         BtnAprobar3.Visible = False
-        opt_local.Visible = True
-        opt_directa.Visible = True
-        
+
         DTPfecha1.Enabled = False
         'dtc_desc3.Locked = True
         'dtc_desc3.backColor = &HC0C0C0
@@ -6582,19 +6530,10 @@ On Error GoTo UpdateErr
         Text5.Visible = True
 '        BtnAñadir.Visible = False
         BtnAprobar.Visible = True
-        'If Glaux = "PROVI" Then
-        '    BtnAddDetalle1.Visible = False
-        '    BtnAnlDetalle1.Visible = False
-        'Else
-        '    BtnAddDetalle1.Visible = True
-        '    BtnAnlDetalle1.Visible = True
-        'End If
     Else
         BtnImprimir3.Visible = True
         BtnAprobar1.Visible = True
         BtnAprobar3.Visible = True
-        opt_local.Visible = False
-        opt_directa.Visible = False
         BtnAnlDetalle1.Visible = True
         DTPfecha1.Enabled = True
         BtnAddDetalle1.Visible = True
@@ -7126,89 +7065,6 @@ Private Function ExisteReg(Unidad As String) As Boolean
 '    ExisteReg = rs!Cuantos > 0
 End Function
 
-Private Sub Opt_CGE_Click()
-Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    If parametro = "COMEX" Then
-    Select Case Glaux
-             Case "PROVI"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
-             Case "TRANS"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
-             Case "ADUAN"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
-             Case "DESCA"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
-             Case "CONTR"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
-             Case Else
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
-    End Select
-    Else
-    queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' "
-    End If
-    
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    rs_datos.Sort = "doc_numero_alm"
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
-End Sub
-
-Private Sub opt_directa_Click()
-Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    If parametro = "COMEX" Then
-    Select Case Glaux
-             Case "PROVI"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'L'"
-             Case "TRANS"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'L'"
-             Case "ADUAN"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'L'"
-             Case "DESCA"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'L'"
-             Case "CONTR"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'L'"
-             Case Else
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'L'"
-    End Select
-    Else
-    queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' "
-    End If
-    
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    rs_datos.Sort = "doc_numero_alm"
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
-End Sub
-
-Private Sub opt_local_Click()
-Set rs_datos = New Recordset
-    If rs_datos.State = 1 Then rs_datos.Close
-    If parametro = "COMEX" Then
-    Select Case Glaux
-             Case "PROVI"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'V'"
-             Case "TRANS"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'V'"
-             Case "ADUAN"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'V'"
-             Case "DESCA"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'V'"
-             Case "CONTR"
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'V'"
-             Case Else
-              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'V'"
-    End Select
-    Else
-    queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' "
-    End If
-    
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    rs_datos.Sort = "doc_numero_alm"
-    Set Ado_datos.Recordset = rs_datos.DataSource
-    Set dg_datos.DataSource = Ado_datos.Recordset
-End Sub
 
 Private Sub OptFilGral1_Click()
     Set rs_datos = New Recordset
