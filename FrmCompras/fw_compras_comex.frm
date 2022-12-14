@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12495
-   ScaleWidth      =   22920
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   159907841
+         Format          =   163708929
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2775,10 +2775,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   22920
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   12495
-      Width           =   22920
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4788,9 +4788,9 @@ Private Sub BtnAprobar1_Click()
     
     Fra_aux1.Visible = True
     'Contabilizacion
-    Dim id As Long
-    id = Ado_detalle2.Recordset.Fields("adjudica_codigo")
-    Call Contabiliza_Comex(id)
+    Dim Id As Long
+    Id = Ado_detalle2.Recordset.Fields("adjudica_codigo")
+    Call Contabiliza_Comex(Id)
 
 'On Error GoTo AddErr
 ' If Ado_datos.Recordset.RecordCount > 0 Then
