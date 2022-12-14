@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -1068,7 +1068,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119603201
+            Format          =   164823041
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1376,7 +1376,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   119603203
+            Format          =   164823043
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3076,7 +3076,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119603201
+               Format          =   150667265
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6579,7 +6579,7 @@ Private Sub BtnAprobar_Click()
            'APRUEBA ALCANCE DEL CONTRATO Y EL CONTRATO
            db.Execute "update ao_ventas_alcance set estado_codigo = 'APR' Where venta_codigo = " & correlv & " "
            db.Execute "update ao_ventas_cabecera set estado_alcance = 'S' Where venta_codigo = " & correlv & " "
-           
+           db.Execute "UPDATE dbo.ao_ventas_cabecera SET usr_codigo_aprueba = '" & glusuario & "' WHERE venta_codigo = " & correlv & " "
            'INI Deptos de Bolivia
             Select Case VAR_DPTO
                  Case "1"
@@ -6832,6 +6832,7 @@ Private Sub BtnAprobar_Click()
            End If
            ' APRUEBA ao_ventas_cabecera
                Ado_datos.Recordset!estado_codigo = "APR"
+               Ado_datos.Recordset!usr_codigo_aprueba = glusuario
                Ado_datos.Recordset.Update
            'db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo = 'APR' Where ao_ventas_cabecera.venta_codigo = " & correlv & " "
            ''Actualiza Cite Trñamite (unidad_codigo_ant)
