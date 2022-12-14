@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   12495
+   ScaleWidth      =   22920
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119603201
+         Format          =   159907841
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -1371,27 +1371,27 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   1335.118
+               ColumnWidth     =   1335,118
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
-               ColumnWidth     =   3899.906
+               ColumnWidth     =   3899,906
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
-               ColumnWidth     =   764.787
+               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
-               ColumnWidth     =   915.024
+               ColumnWidth     =   915,024
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   915.024
+               ColumnWidth     =   915,024
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   585.071
+               ColumnWidth     =   585,071
             EndProperty
             BeginProperty Column08 
                Locked          =   -1  'True
@@ -1402,15 +1402,15 @@ Begin VB.Form fw_compras_comex
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   1470.047
+               ColumnWidth     =   1470,047
             EndProperty
             BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1665.071
+               ColumnWidth     =   1665,071
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   1964.976
+               ColumnWidth     =   1964,976
             EndProperty
          EndProperty
       End
@@ -1618,22 +1618,22 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   1379.906
+               ColumnWidth     =   1379,906
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
-               ColumnWidth     =   4649.953
+               ColumnWidth     =   4649,953
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
-               ColumnWidth     =   764.787
+               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   1005.165
+               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
@@ -1642,19 +1642,19 @@ Begin VB.Form fw_compras_comex
             BeginProperty Column08 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   945.071
+               ColumnWidth     =   945,071
             EndProperty
             BeginProperty Column09 
                Locked          =   -1  'True
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
          EndProperty
       End
@@ -2055,47 +2055,47 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1154.835
+               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   3374.929
+               ColumnWidth     =   3374,929
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   645.165
+               ColumnWidth     =   645,165
             EndProperty
             BeginProperty Column07 
                Alignment       =   1
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column08 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1289.764
+               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column10 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1425.26
+               ColumnWidth     =   1425,26
             EndProperty
             BeginProperty Column11 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1665.071
+               ColumnWidth     =   1665,071
             EndProperty
          EndProperty
       End
@@ -2627,57 +2627,57 @@ Begin VB.Form fw_compras_comex
          BeginProperty Split0 
             BeginProperty Column00 
                Object.Visible         =   0   'False
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   750.047
+               ColumnWidth     =   750,047
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   1214.929
+               ColumnWidth     =   1214,929
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
                ColumnWidth     =   1440
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   3809.764
+               ColumnWidth     =   3809,764
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1035.213
+               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   764.787
+               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1035.213
+               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   705.26
+               ColumnWidth     =   705,26
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   750.047
+               ColumnWidth     =   750,047
             EndProperty
             BeginProperty Column11 
-               ColumnWidth     =   780.095
+               ColumnWidth     =   780,095
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   810.142
+               ColumnWidth     =   810,142
             EndProperty
             BeginProperty Column13 
                Alignment       =   2
-               ColumnWidth     =   975.118
+               ColumnWidth     =   975,118
             EndProperty
          EndProperty
       End
@@ -2775,10 +2775,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   22920
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   12495
+      Width           =   22920
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4787,6 +4787,10 @@ Private Sub BtnAprobar1_Click()
     dtc_desc4A.BoundText = dtc_codigo4A.BoundText
     
     Fra_aux1.Visible = True
+    'Contabilizacion
+    Dim id As Long
+    id = Ado_detalle2.Recordset.Fields("adjudica_codigo")
+    Call Contabiliza_Comex(id)
 
 'On Error GoTo AddErr
 ' If Ado_datos.Recordset.RecordCount > 0 Then
@@ -7243,10 +7247,10 @@ On Error GoTo UpdateErr
     'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
     rsNada.Open "select * from gc_beneficiario where beneficiario_codigo =  'XX-1000000'", db, adOpenKeyset, adLockOptimistic, adCmdText
     sino = rsNada.RecordCount
-Exit Sub
+    Call SeguridadSet(Me)
+    Exit Sub
 UpdateErr:
   MsgBox Err.Description
-        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
