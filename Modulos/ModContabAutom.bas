@@ -291,3 +291,15 @@ Handler:
         MsgBox ("Cobranzas " & Err.Number & " : " & Err.Description)
     End If
 End Sub
+
+Public Sub Contabiliza_Comex(ByVal Id As Long)
+On Error GoTo Handler:
+    Dim sql_exec As String
+    sql_exec = "EXECUTE [dbo].[conta_comex_sub] " & Id
+    Call ExecProcedure(sql_exec)
+Handler:
+    If Err.Number > 0 Then
+        MsgBox ("Cobranzas " & Err.Number & " : " & Err.Description)
+    End If
+End Sub
+
