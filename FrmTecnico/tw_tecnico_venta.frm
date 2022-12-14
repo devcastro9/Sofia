@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -740,7 +740,6 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(0)   =   "tw_tecnico_venta.frx":CDD7
       Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Registro DATOS CRONO.MTTO."
       TabPicture(1)   =   "tw_tecnico_venta.frx":CDF3
@@ -1051,36 +1050,29 @@ Begin VB.Form tw_tecnico_venta
                EndProperty
                BeginProperty Column01 
                   Locked          =   -1  'True
-                  ColumnWidth     =   585,071
                EndProperty
                BeginProperty Column02 
                   Locked          =   -1  'True
-                  ColumnWidth     =   4500,284
                EndProperty
                BeginProperty Column03 
                   Alignment       =   2
                   Locked          =   -1  'True
-                  ColumnWidth     =   1305,071
                EndProperty
                BeginProperty Column04 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1140,095
                EndProperty
                BeginProperty Column05 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1140,095
                EndProperty
                BeginProperty Column06 
                   Alignment       =   2
                   Locked          =   -1  'True
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1230,236
                EndProperty
                BeginProperty Column07 
                   Alignment       =   2
-                  ColumnWidth     =   615,118
                EndProperty
             EndProperty
          End
@@ -1317,7 +1309,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   149291009
+            Format          =   110886913
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1579,7 +1571,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   149291009
+            Format          =   110886913
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1607,7 +1599,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   149291009
+            Format          =   110886913
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2105,7 +2097,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   161873921
+               Format          =   110886913
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2130,7 +2122,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   161873921
+               Format          =   110886913
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2574,7 +2566,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   161873921
+               Format          =   110886913
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2657,7 +2649,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   161873921
+               Format          =   110886913
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3383,7 +3375,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   163250177
+            Format          =   110886913
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -3875,25 +3867,20 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   840,189
             EndProperty
             BeginProperty Column02 
                ColumnWidth     =   720
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   945,071
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1260,284
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   585,071
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   2775,118
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
@@ -4156,20 +4143,16 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1319,811
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4529,764
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   810,142
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
@@ -4178,23 +4161,18 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
-               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1920,189
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   824,882
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   675,213
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   3374,929
             EndProperty
          EndProperty
       End
@@ -4426,16 +4404,13 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   900,284
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               ColumnWidth     =   1275,024
             EndProperty
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1709,858
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
@@ -4444,24 +4419,20 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column04 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1184,882
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1379,906
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   5955,024
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   645,165
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   0   'False
@@ -4475,7 +4446,6 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   1214,929
             EndProperty
          EndProperty
       End
@@ -7136,7 +7106,7 @@ Private Sub PARA_COMEX()
                    rs_aux3!compra_cantidad_total = Ado_datos.Recordset!venta_cantidad_total
                    rs_aux3!compra_monto_bs = VAR_BS2
                    rs_aux3!tipo_moneda = "USD"
-                   rs_aux3!compra_monto_dol = VAR_DOL2
+                   rs_aux3!compra_monto_DOL = VAR_DOL2
                    rs_aux3!proceso_codigo = "CMX"
                    rs_aux3!subproceso_codigo = "CMX-01"
                    rs_aux3!etapa_codigo = "CMX-01-01"
@@ -7791,7 +7761,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPFechaFin.Value = "" Then
+  If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechaFin.Value = "" Then
       MsgBox "Debe registrar la Fecha de Inicio !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7802,13 +7772,13 @@ Private Sub valida_campos()
     Exit Sub
   End If
   If parametro = "DNMAN" Then
-    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
     End If
   Else
-    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR o IGUAL a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7847,7 +7817,7 @@ Private Sub valida_campos()
 '        Exit Sub
 '    End If
 '  End If
-  If Month(CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
+  If Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
     'If Val(VAR_MES2) < Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) Then
         MsgBox "El 'MES Inicio del Plan de Cuotas' NO puede ser DIFERENTE al MES de la Fecha de Inicio del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
         VAR_VAL = "ERR"
@@ -7858,7 +7828,7 @@ Private Sub valida_campos()
     'DTPFechaFin
     'meses = DateDiff("m", Text1.Text, Text2.Text)
     'txtCantCobr
-    CONT4 = DateDiff("m", DTPFechaIni.Value, DTPFechaFin.Value)
+    CONT4 = DateDiff("m", DTPfechaIni.Value, DTPfechaFin.Value)
   If (txtCantCobr.Text <> CONT4 + 1) And (cmd_unimed2.Text = "MES") Then
      sino = MsgBox("El 'Número de Cuotas' es DIFERENTE al número de meses de la Fecha de INICIO y FIN, aún así desea continuar ??...", vbYesNo + vbQuestion, "Atención ...")
      If sino = vbYes Then
@@ -7923,8 +7893,8 @@ Private Sub BtnGrabar_Click()
   Call valida_campos2
   If VAR_VAL = "OK" And VAR_VALD = "OK" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    FInicio = IIf(DTPFechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
-    FFin = IIf(DTPFechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaFin.Value)
+    FInicio = IIf(DTPfechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
+    FFin = IIf(DTPfechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaFin.Value)
     CANTOT = Ado_datos.Recordset!venta_cantidad_total
     gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
     VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
@@ -11681,8 +11651,8 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
                 cmd_unimed_tec.Text = cmd_unimed2.Text
             End If
-            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPFechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
-            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPFechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
+            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
+            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
             
             If cmb_mes_ini_tec.Text = "" Or cmb_mes_ini_tec.Text = "0" Then                                   'Mes de Inicio Crono.
                 cmb_mes_ini_tec.Text = cmb_mes_ini.Text
