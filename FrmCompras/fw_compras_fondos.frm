@@ -79,7 +79,6 @@ Begin VB.Form fw_compras_fondos
          ScaleWidth      =   10080
          TabIndex        =   85
          Top             =   120
-         Visible         =   0   'False
          Width           =   10080
          Begin VB.Label lbl_titulo2 
             Alignment       =   2  'Center
@@ -294,7 +293,6 @@ Begin VB.Form fw_compras_fondos
          _ExtentX        =   9604
          _ExtentY        =   556
          _Version        =   393216
-         Locked          =   -1  'True
          Style           =   2
          BackColor       =   16777215
          ListField       =   "denominacion_empresa"
@@ -1022,6 +1020,7 @@ Begin VB.Form fw_compras_fondos
             ScaleWidth      =   1215
             TabIndex        =   76
             Top             =   0
+            Visible         =   0   'False
             Width           =   1215
          End
          Begin VB.PictureBox BtnModDetalle1 
@@ -1036,6 +1035,7 @@ Begin VB.Form fw_compras_fondos
             ScaleWidth      =   1425
             TabIndex        =   75
             Top             =   0
+            Visible         =   0   'False
             Width           =   1430
          End
          Begin VB.PictureBox BtnAddDetalle1 
@@ -2163,7 +2163,7 @@ Begin VB.Form fw_compras_fondos
          EndProperty
          ColumnCount     =   13
          BeginProperty Column00 
-            DataField       =   "doc_numero_alm"
+            DataField       =   "doc_numero"
             Caption         =   "Nro. Doc"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -3730,34 +3730,68 @@ On Error GoTo UpdateErr
  
     marca1 = Ado_datos.Recordset.Bookmark
     If rs_datos!estado_codigo = "REG" Then
-        swnuevo = 1
-        VAR_SW = "NEW"
-        fraOpciones.Visible = False
-        fraOpcionesDet.Visible = False
-        FraNavega.Enabled = False
-        FraDet2.Enabled = False
-        FrmABMDet2.Visible = False
-        FraDet1.Enabled = False
-            'Ado_detalle1.Recordset.AddNew
-            frm_solicitud_bienes_gral.txt_codigo.Caption = Me.txt_codigo.Caption
-            frm_solicitud_bienes_gral.Txt_campo1.Caption = Me.dtc_codigo1.Text
-            frm_solicitud_bienes_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
-            frm_solicitud_bienes_gral.lbl_edif.Caption = Label1.Caption
-            frm_solicitud_bienes_gral.lbl_det.Caption = Glaux
-            frm_solicitud_bienes_gral.Txt_estado.Caption = "REG"
-            frm_solicitud_bienes_gral.MOD_NEW.Caption = "NEW"
-            frm_solicitud_bienes_gral.dtc_desc1.Text = ""
-            frm_solicitud_bienes_gral.txt_gestion.Caption = Year(DTPfecha1.Value)
-            frm_solicitud_bienes_gral.Show vbModal
-'
-'    swnuevo = 0
-    fraOpciones.Visible = True
-    fraOpcionesDet.Visible = True
-    FraNavega.Enabled = True
-    FraDet2.Enabled = True
-    FrmABMDet2.Visible = True
-    FraDet1.Enabled = True
-    BtnSalir.Visible = True
+      If Ado_detalle1.Recordset.RecordCount = 0 Then
+        var_cod = Ado_datos.Recordset!compra_codigo   'Codigo Llave de la Tabla
+        VAR_COMPRA = Ado_datos.Recordset!solicitud_codigo  'Codigo Llave de la Tabla
+            Select Case Aux
+                Case "30"                           'Aux = "30" 'CCD
+                    'rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
+                    CodBien = "FONDO03"
+                Case "29"                           'Aux = "29" 'VIAJES
+                    'rs_datos!trans_codigo_egr = "46"
+                    VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
+                    CodBien = "FONDO02"
+                Case "28"                           'Aux = "28" 'CAJA CHICA
+                    'rs_datos!trans_codigo_egr = "45"
+                    VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
+                    CodBien = "FONDO01"
+                Case Else
+                    'rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"
+                    CodBien = "FONDO03"
+            End Select
+
+'        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo, subgrupo_codigo, " & _
+'             " par_codigo, tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
+'             " VALUES ('" & glGestion & "', " & var_cod & ", '" & CodBien & "', '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
+'             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
+             
+        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo, subgrupo_codigo, " & _
+             " par_codigo, tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
+             " VALUES ('" & glGestion & "', " & var_cod & ", '" & CodBien & "', '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
+             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
+     Else
+     End If
+
+'        swnuevo = 1
+'        VAR_SW = "NEW"
+'        fraOpciones.Visible = False
+'        fraOpcionesDet.Visible = False
+'        FraNavega.Enabled = False
+'        FraDet2.Enabled = False
+'        FrmABMDet2.Visible = False
+'        FraDet1.Enabled = False
+'            'Ado_detalle1.Recordset.AddNew
+'            frm_solicitud_bienes_gral.txt_codigo.Caption = Me.txt_codigo.Caption
+'            frm_solicitud_bienes_gral.Txt_campo1.Caption = Me.dtc_codigo1.Text
+'            frm_solicitud_bienes_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
+'            frm_solicitud_bienes_gral.lbl_edif.Caption = Label1.Caption
+'            frm_solicitud_bienes_gral.lbl_det.Caption = Glaux
+'            frm_solicitud_bienes_gral.Txt_estado.Caption = "REG"
+'            frm_solicitud_bienes_gral.MOD_NEW.Caption = "NEW"
+'            frm_solicitud_bienes_gral.dtc_desc1.Text = ""
+'            frm_solicitud_bienes_gral.txt_gestion.Caption = Year(DTPfecha1.Value)
+'            frm_solicitud_bienes_gral.Show vbModal
+''
+''    swnuevo = 0
+'    fraOpciones.Visible = True
+'    fraOpcionesDet.Visible = True
+'    FraNavega.Enabled = True
+'    FraDet2.Enabled = True
+'    FrmABMDet2.Visible = True
+'    FraDet1.Enabled = True
+'    BtnSalir.Visible = True
         
   Else
     MsgBox "No se puede Adicionar un nuevo registro, porque este ya está Aprobado!! ", vbExclamation
@@ -3855,7 +3889,7 @@ On Error GoTo UpdateErr
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -4138,160 +4172,53 @@ End Sub
 Private Sub BtnAprobar_Click()
   On Error GoTo UpdateErr
   
-  If parametro = "COMEX" Then
      sino = MsgBox("Desea APROBAR el Registro ? (Ya no podrá modificarlo)", vbYesNo + vbInformation, "Atención")
      If sino = vbYes Then
-        Select Case Glaux
-             Case "PROVI"
-                If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-                    Ado_datos.Recordset!estado_codigo_eqp = "APR"
-                    Ado_datos.Recordset!estado_codigo_tra = "REG"
-                    Ado_datos.Recordset.Update
-                
-                End If
-             Case "TRANS"
-                If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-                Else
-                Ado_datos.Recordset!estado_codigo_tra = "APR"
-                 Ado_datos.Recordset!estado_codigo_nac = "REG"
-                Ado_datos.Recordset.Update
-                End If
-             Case "ADUAN"
-                If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-                Else
-                Ado_datos.Recordset!estado_codigo_nac = "APR"
-                Ado_datos.Recordset!estado_codigo_des = "REG"
-                Ado_datos.Recordset.Update
-                End If
-             Case "DESCA"
-                If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-                Else
-                Ado_datos.Recordset!estado_codigo_des = "APR"
-                  Ado_datos.Recordset!estado_codigo = "REG"
-                Ado_datos.Recordset.Update
-                End If
-             Case "CONTR"
-                If Ado_datos.Recordset!estado_codigo <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-                Else
-                Ado_datos.Recordset!estado_codigo = "APR"
-                Ado_datos.Recordset.Update
-                End If
-             Case "CONTR"
-                If Ado_datos.Recordset!estado_codigo <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-                Else
-                Ado_datos.Recordset!estado_codigo = "APR"
-                Ado_datos.Recordset.Update
-                End If
-             
-             Case Else
-                If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-
-                End If
-        End Select
-        'Ado_detalle2.Recordset("estado_codigo") = "APR"
-        'Ado_detalle2.Recordset("usr_codigo_aprueba") = glusuario
-        'Ado_detalle2.Recordset("fecha_aprueba") = Date
-        'Ado_detalle2.Recordset("fecha_recibe_almacen") = Date
-        'Ado_detalle2.Recordset.Update
-    End If
-End If
-'  If Ado_datos.Recordset.RecordCount > 0 Then
-'   If Ado_datos.Recordset!beneficiario_codigo = "0" Or Ado_datos.Recordset!beneficiario_codigo = "" Then
-'        MsgBox "No se puede APROBAR, debe registrar al Propietario del Proyecto de Edificación: " + lbl_campo4.Caption, vbExclamation, "Validación de Registro"
-'        Exit Sub
-'   End If
-'   Set rs_aux1 = New ADODB.Recordset
-'   rs_aux1.Open "Select * from ao_solicitud_edificacion where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "'  and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
-'   If rs_aux1.RecordCount > 0 Then
-'        VAR_CONT2 = rs_aux1.RecordCount
-'   End If
-'   'If rs_datos!estado_codigo = "REG" And Ado_datos.Recordset!correl_edificacion > 0 Then
-'   If rs_datos!estado_codigo = "REG" And VAR_CONT2 > 0 Then
-'      sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
-'      If sino = vbYes Then
-'        Select Case dtc_codigo2.Text
-'            Case "1"    'SOLO COMPRAS BB y SS
-'            Case "2"    'SOLO VENTA DE BIENES
-'            Case "3"    ' COMPRA-VENTA BB Y SS - COMERCIAL
-'                Set rs_aux1 = New ADODB.Recordset
-
-
-
-'                'SQL_FOR = "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_detalle1.Recordset!edif_codigo & "'  "
-'                SQL_FOR = "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   "
-'                rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'                'If rs_aux1.RecordCount > 0 Then
-'                '    MsgBox "El código ya existe, consulte con el administrador del Sistema..."
-'                '    var_cod = 0
-'                '    Exit Sub
-'                'Else
-'                    Set rs_aux2 = New ADODB.Recordset
-'                    If rs_aux2.State = 1 Then rs_aux2.Close
-'                    'rs_aux2.Open "Select max(trafico_codigo) as Codigo from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
-'                    rs_aux2.Open "Select max(trafico_codigo) as Codigo from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' ", db, adOpenStatic
-'                    If Not rs_aux2.EOF Then
-'                        var_cod = IIf(IsNull(rs_aux2!Codigo), 1, rs_aux2!Codigo + 1)
-'                    End If
-'                    Set rs_aux2 = New ADODB.Recordset
-'                    If rs_aux2.State = 1 Then rs_aux2.Close
-'                    rs_aux2.Open "Select edif_capacidad_min_trafico as Codigo from ao_solicitud_edificacion where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
-'                    If Not rs_aux2.EOF Then
-'                        VAR_AUX = rs_aux2!Codigo
-'                    End If
-'                    rs_aux1.AddNew
-'                    'var_cod = rs_aux1.RecordCount + 1
-'                    rs_aux1!ges_gestion = Year(Date)
-'                    rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
-'                    rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-'                    rs_aux1!edif_codigo = Ado_detalle1.Recordset!edif_codigo
-'                    rs_aux1!trafico_codigo = var_cod
-'                    rs_aux1!trafico_h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
-'                    rs_aux1!estado_codigo = "REG"
-'                    rs_aux1!Fecha_Registro = Date
-'                    rs_aux1!usr_codigo = glusuario
-'                    rs_aux1.Update
-'                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  "
-'                'End If
-'                'db.Execute "Update ao_solicitud_calculo_trafico Set estado_codigo = 'APR' Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  "
-'
-'            Case "4"    'VENTA DE SERVICIOS (INST, AJUSTE, REP, EMERG, MANT)
-'            Case "5"    ' SERVICIO MODERNIZACION
-'        End Select
-'        Set rs_aux2 = New ADODB.Recordset
-'        SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & dtc_codigo9 & "'  "
-'        rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If rs_aux2.RecordCount > 0 Then
-'            rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-'            txt_campo1.Caption = rs_aux2!correl_doc
-'            rs_aux2.Update
-'        End If
-'        rs_datos!doc_numero = txt_campo1.Caption
-'        'REVISAR !!! JQA 2014_07_08
-'        'VAR_ARCH = RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(CDbl(txt_campo1.Caption)))
-'        VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(CDbl(txt_campo1.Caption)))
-'        rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
-'        rs_datos!archivo_respaldo_cargado = "N"
-        rs_datos!estado_codigo = "APR"
+        If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
+            MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+            Exit Sub
+        End If
+        rs_datos!estado_codigo_eqp = "APR"
+        'rs_datos!estado_codigo = "APR"
         rs_datos!fecha_registro = Date
         rs_datos!usr_codigo = glusuario
         rs_datos.UpdateBatch adAffectAll
         
-       
+        var_cod = Ado_datos.Recordset!compra_codigo   'Codigo Llave de la Tabla
+        VAR_COMPRA = Ado_datos.Recordset!solicitud_codigo  'Codigo Llave de la Tabla
+        VAR_UNI = Ado_datos.Recordset!unidad_codigo
+            Select Case Aux
+                Case "30"                           'Aux = "30" 'CCD
+                    'rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
+                    CodBien = "FONDO03"
+                Case "29"                           'Aux = "29" 'VIAJES
+                    'rs_datos!trans_codigo_egr = "46"
+                    VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
+                    CodBien = "FONDO02"
+                Case "28"                           'Aux = "28" 'CAJA CHICA
+                    'rs_datos!trans_codigo_egr = "45"
+                    VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
+                    CodBien = "FONDO01"
+                Case Else
+                    'rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"
+                    CodBien = "FONDO03"
+            End Select
+        
+        'graba ADJUDICA PARA PAGAR EL FONDO EN AVANCE
+        db.Execute "Insert INTO ao_compra_adjudica (ges_gestion, compra_codigo, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo,  doc_codigo,                         doc_numero, " & _
+                   " nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda,     adjudica_monto_dol,                                 fecha_inicio_contrato,                  fecha_fin_contrato,                             fecha_envio_proveedor, " & _
+                   " fecha_recibe_almacen, almacen_codigo, poa_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, observaciones,                           nro_autorizacion, codigo_control, nro_dui, " & _
+                   " tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc,       credito_fiscal_13,                                  adjudica_monto_bs_87,                                   adjudica_monto_dol_87,                                  tipo_compra, tipo_cambio,           Literal, literal_neto, factura, " & _
+                   " doc_codigo_alm, doc_numero_alm, estado_almacen, estado_codigo, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, nit_empresa, nit_beneficiario, trans_codigo, trans_codigo_fac, beneficiario_codigo_resp )  " & _
+        " VALUES ('" & glGestion & "', " & var_cod & ",  '" & VAR_UNI & "', " & VAR_COMPRA & ", '" & Ado_datos.Recordset!compra_fecha & "', '" & Date & "', 'FIN',      'FIN-03',           'FIN-03-02', 'ADM', '" & Ado_datos.Recordset!doc_codigo & "', " & Ado_datos.Recordset!doc_numero & ", " & _
+              " '0', '0', '" & Ado_datos.Recordset!compra_DESCRIPCION & "', '1', " & CDbl(Ado_datos.Recordset!compra_monto_bs) & ", 'BOB', " & CDbl(Ado_datos.Recordset!compra_monto_DOL) & ", '" & Ado_datos.Recordset!compra_fecha & "', '" & Ado_datos.Recordset!compra_fecha & "', '" & Ado_datos.Recordset!compra_fecha & "', " & _
+              " '" & Date & "',             '15',           '4.2.3',    'ENERO',        '0',                    'MES',              '1',            '1',            '" & Ado_datos.Recordset!compra_DESCRIPCION & "', '0',          '0',            '0', " & _
+              " '0',                    '0',            '0', " & Ado_datos.Recordset!compra_monto_bs & ", '0', '0', " & Round(Ado_datos.Recordset!compra_monto_bs * 0.13, 2) & ", " & Round(Ado_datos.Recordset!compra_monto_bs * 0.87, 2) & ", " & Round(Ado_datos.Recordset!compra_monto_DOL * 0.87, 2) & ", '1', " & GlTipoCambioOficial & ", 'Bolivianos', 'Bolivianos', 'NO', " & _
+              " '0', '0', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & glusuario & "', '" & Date & "', '0', '0', '" & Ado_datos.Recordset!trans_codigo_EGR & "', '38', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' ) "
+
+     End If
 
 '      End If
 '   Else
@@ -5155,22 +5082,22 @@ Private Sub BtnGrabar_Click()
         'PARAMETROS POR TIPO DE TRAMITE
         Select Case Aux
             Case "30"                           'Aux = "30" 'CCD
-                rs_datos!trans_codigo_egr = "47"
+                rs_datos!trans_codigo_EGR = "47"
                 VAR_TIPO = "CGOCTA"
                 VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
                 CodBien = "FONDO03"
             Case "29"                           'Aux = "29" 'VIAJES
-                rs_datos!trans_codigo_egr = "46"
+                rs_datos!trans_codigo_EGR = "46"
                 VAR_TIPO = "FVIAJE"
                 VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
                 CodBien = "FONDO02"
             Case "28"                           'Aux = "28" 'CAJA CHICA
-                rs_datos!trans_codigo_egr = "45"
+                rs_datos!trans_codigo_EGR = "45"
                 VAR_TIPO = "CCHICA"
                 VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
                 CodBien = "FONDO01"
             Case Else
-                rs_datos!trans_codigo_egr = "47"
+                rs_datos!trans_codigo_EGR = "47"
                 VAR_TIPO = "CGOCTA"
                 VAR_DOCF = "R-160"
                 CodBien = "FONDO03"
@@ -5181,7 +5108,7 @@ Private Sub BtnGrabar_Click()
         rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 Then
             rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-            Txt_campo1.Caption = rs_aux2!correl_doc
+            txt_campo1.Caption = rs_aux2!correl_doc
             VAR_CODF = rs_aux2!correl_doc
             rs_aux2.Update
         End If
@@ -5215,19 +5142,19 @@ Private Sub BtnGrabar_Click()
         If CodBien = "" Then
             Select Case Aux
                 Case "30"                           'Aux = "30" 'CCD
-                    rs_datos!trans_codigo_egr = "47"
+                    rs_datos!trans_codigo_EGR = "47"
                     VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
                     CodBien = "FONDO03"
                 Case "29"                           'Aux = "29" 'VIAJES
-                    rs_datos!trans_codigo_egr = "46"
+                    rs_datos!trans_codigo_EGR = "46"
                     VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
                     CodBien = "FONDO02"
                 Case "28"                           'Aux = "28" 'CAJA CHICA
-                    rs_datos!trans_codigo_egr = "45"
+                    rs_datos!trans_codigo_EGR = "45"
                     VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
                     CodBien = "FONDO01"
                 Case Else
-                    rs_datos!trans_codigo_egr = "47"
+                    rs_datos!trans_codigo_EGR = "47"
                     VAR_DOCF = "R-160"
                     CodBien = "FONDO03"
             End Select
@@ -5263,7 +5190,7 @@ Private Sub BtnGrabar_Click()
      rs_datos!nro_nota_remision = "0"
      rs_datos!compra_cantidad_total = "1"
      rs_datos!compra_monto_bs = IIf(lbl_total_bs.Text = "", 0, CDbl(lbl_total_bs.Text))
-     rs_datos!compra_monto_dol = IIf(lbl_total_dol.Text = "", 0, CDbl(lbl_total_dol.Text))
+     rs_datos!compra_monto_DOL = Round(IIf(lbl_total_dol.Text = "", 0, CDbl(lbl_total_dol.Text)), 2)
      rs_datos!tipo_moneda = "BOB"
      rs_datos!codigo_empresa = dtc_codigo10.Text
 
@@ -5302,14 +5229,14 @@ Private Sub BtnGrabar_Click()
      rs_datos.Update    'Batch 'adAffectAll
      'db.CommitTrans
      var_cod = rs_datos!compra_codigo   'Codigo Llave de la Tabla
-     ' GRABA DETALLE
-     If Ado_detalle1.Recordset.RecordCount = 0 Then
-        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo, subgrupo_codigo, " & _
-             " par_codigo, tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
-             " VALUES ('" & glGestion & "', " & var_cod & ", '" & CodBien & "', '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
-             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
-     Else
-     End If
+'     ' GRABA DETALLE
+'     If Ado_detalle1.Recordset.RecordCount = 0 Then
+'        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo, subgrupo_codigo, " & _
+'             " par_codigo, tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
+'             " VALUES ('" & glGestion & "', " & var_cod & ", '" & CodBien & "', '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
+'             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
+'     Else
+'     End If
      If OptFilGral1.Value = True Then
         Call OptFilGral1_Click        'Pendientes
      Else
@@ -5524,7 +5451,7 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -5683,7 +5610,7 @@ sw_nuevo = "MOD"
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
             fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_gral.Txt_estado.Caption = "REG"
@@ -5833,7 +5760,7 @@ Private Sub BtnModificar_Click()
         fraOpciones.Visible = False
         FraGrabarCancelar.Visible = True
         dg_datos.Enabled = False
-        'dtc_desc3.Locked = True
+        dtc_desc3.Locked = True
         FraDet2.Visible = False
         FraDet1.Visible = False
         dtc_codigo1.Text = Ado_datos.Recordset!unidad_codigo
@@ -6246,7 +6173,8 @@ End Sub
 
 Private Sub dtc_desc11_LostFocus()
 If VAR_SW = "ADD" Then
-    Txt_descripcion.Text = lbl_titulo + " - Para: " + dtc_desc3.Text
+    'Txt_descripcion.Text = lbl_titulo + " - Para: " + dtc_desc3.Text
+    Txt_descripcion.Text = "DESEMBOLSO DE " + dtc_desc3.Text + ", PARA: " + dtc_desc_ben.Text
 Else
     If Txt_descripcion.Text = "" Then
     
@@ -6255,8 +6183,9 @@ Else
     'Else
     '    Txt_descripcion.Text = lbl_titulo + " - Edificio: " + dtc_desc3.Text
     'End If
-        Txt_descripcion.Text = lbl_titulo + " - Para: " + dtc_desc3.Text
-        Call pnivel1(dtc_codigo1.BoundText)
+     Txt_descripcion.Text = "DESEMBOLSO DE " + dtc_desc3.Text + ", PARA: " + dtc_desc_ben.Text
+        'Txt_descripcion.Text = lbl_titulo + " - Para: " + dtc_desc3.Text
+'        Call pnivel1(dtc_codigo1.BoundText)
     'dtc_desc10.Enabled = True
     End If
 End If
