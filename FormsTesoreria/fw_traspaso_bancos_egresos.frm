@@ -245,7 +245,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   119144449
+         Format          =   120127489
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -259,7 +259,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119144449
+         Format          =   120127489
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1311,7 +1311,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119144449
+         Format          =   120127489
          CurrentDate     =   44856
          MaxDate         =   55153
          MinDate         =   2
