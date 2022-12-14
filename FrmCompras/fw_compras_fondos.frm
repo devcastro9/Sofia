@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_fondos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -42,7 +42,7 @@ Begin VB.Form fw_compras_fondos
       Height          =   5280
       Left            =   4440
       TabIndex        =   13
-      Top             =   5160
+      Top             =   3240
       Visible         =   0   'False
       Width           =   10335
       Begin VB.TextBox lbl_total_dol 
@@ -279,12 +279,12 @@ Begin VB.Form fw_compras_fondos
          _ExtentY        =   529
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   118620161
+         Format          =   131989505
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
          Bindings        =   "fw_compras_fondos.frx":24CF
-         DataField       =   "poa_codigo"
+         DataField       =   "codigo_empresa"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   4680
@@ -297,8 +297,8 @@ Begin VB.Form fw_compras_fondos
          Locked          =   -1  'True
          Style           =   2
          BackColor       =   16777215
-         ListField       =   "poa_descripcion"
-         BoundColumn     =   "poa_codigo"
+         ListField       =   "denominacion_empresa"
+         BoundColumn     =   "codigo_empresa"
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc4 
@@ -465,7 +465,7 @@ Begin VB.Form fw_compras_fondos
       End
       Begin MSDataListLib.DataCombo dtc_codigo10 
          Bindings        =   "fw_compras_fondos.frx":25B1
-         DataField       =   "poa_codigo"
+         DataField       =   "codigo_empresa"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   9000
@@ -481,8 +481,8 @@ Begin VB.Form fw_compras_fondos
          Style           =   2
          BackColor       =   12632256
          ForeColor       =   0
-         ListField       =   "poa_codigo"
-         BoundColumn     =   "poa_codigo"
+         ListField       =   "codigo_empresa"
+         BoundColumn     =   "codigo_empresa"
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc11 
@@ -2479,10 +2479,10 @@ Begin VB.Form fw_compras_fondos
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   21360
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   12915
-      Width           =   21360
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3721,40 +3721,6 @@ Private Sub BtnAddDetalle1_Click()
 On Error GoTo UpdateErr
 
  If Ado_datos.Recordset.RecordCount > 0 Then
- 
-    Select Case Glaux
-        Case "PROVI"
-             If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-        Case "TRANS"
-             If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-        Case "ADUAN"
-             If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-        Case "DESCA"
-             If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-        Case "CONTR"
-             If Ado_datos.Recordset!estado_codigo <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-        Case Else
-             If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-    End Select
-    
     If Ado_detalle2.Recordset.RecordCount > 0 Then
        If Ado_detalle2.Recordset!estado_codigo = "APR" Then
           sino = MsgBox("No Se Puede Agregar Más Items Por Que La Factura Ya Fué Aprobada (APR)", vbCritical, "SOFIA")
@@ -3772,44 +3738,9 @@ On Error GoTo UpdateErr
         FraDet2.Enabled = False
         FrmABMDet2.Visible = False
         FraDet1.Enabled = False
-        'Fra_datos.Enabled = False
-'        BtnSalir.Visible = False
-       ' Call ABRIR_TABLA_DET
-    '    Select Case Glaux
-    '        Case "PROVI"    'PROVISION DE EQUIPOS
-    '            'NO HAY
-    '        Case "TRANS"    'TRANSPORTE
-    '            Ado_detalle2.Recordset.AddNew
-    '            frm_solicitud_bienes2.txt_codigo.Caption = Me.txt_codigo.Caption
-    '            frm_solicitud_bienes2.Txt_campo1.Caption = Me.dtc_codigo1.Text
-    '            frm_solicitud_bienes2.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    '            frm_solicitud_bienes2.lbl_edif.Caption = dtc_codigo3.Text
-    '            frm_solicitud_bienes2.lbl_det.Caption = Glaux
-    '            frm_solicitud_bienes2.Txt_estado.Caption = "REG"
-    '            frm_solicitud_bienes2.Show vbModal
-    '        Case "ADUAN"    'DESADUANIZACION
-    '            Ado_detalle2.Recordset.AddNew
-    '            frm_solicitud_bienes2.txt_codigo.Caption = Me.txt_codigo.Caption
-    '            frm_solicitud_bienes2.Txt_campo1.Caption = Me.dtc_codigo1.Text
-    '            frm_solicitud_bienes2.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    '            frm_solicitud_bienes2.lbl_edif.Caption = dtc_codigo3.Text
-    '            frm_solicitud_bienes2.lbl_det.Caption = Glaux
-    '            frm_solicitud_bienes2.Txt_estado.Caption = "REG"
-    '            frm_solicitud_bienes2.Show vbModal
-    '        Case "DESCA"    'DESCARGUIO Y OTROS
-    '            Ado_detalle2.Recordset.AddNew
-    '            frm_solicitud_bienes2.txt_codigo.Caption = Me.txt_codigo.Caption
-    '            frm_solicitud_bienes2.Txt_campo1.Caption = Me.dtc_codigo1.Text
-    '            frm_solicitud_bienes2.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    '            frm_solicitud_bienes2.lbl_edif.Caption = dtc_codigo3.Text
-    '            frm_solicitud_bienes2.lbl_det.Caption = Glaux
-    '            frm_solicitud_bienes2.Txt_estado.Caption = "REG"
-    '            frm_solicitud_bienes2.Show vbModal
-    '    End Select
-            
             'Ado_detalle1.Recordset.AddNew
             frm_solicitud_bienes_gral.txt_codigo.Caption = Me.txt_codigo.Caption
-            frm_solicitud_bienes_gral.txt_campo1.Caption = Me.dtc_codigo1.Text
+            frm_solicitud_bienes_gral.Txt_campo1.Caption = Me.dtc_codigo1.Text
             frm_solicitud_bienes_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             frm_solicitud_bienes_gral.lbl_edif.Caption = Label1.Caption
             frm_solicitud_bienes_gral.lbl_det.Caption = Glaux
@@ -3924,7 +3855,7 @@ On Error GoTo UpdateErr
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_gral.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -5227,18 +5158,22 @@ Private Sub BtnGrabar_Click()
                 rs_datos!trans_codigo_egr = "47"
                 VAR_TIPO = "CGOCTA"
                 VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
+                CodBien = "FONDO03"
             Case "29"                           'Aux = "29" 'VIAJES
                 rs_datos!trans_codigo_egr = "46"
                 VAR_TIPO = "FVIAJE"
                 VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
+                CodBien = "FONDO02"
             Case "28"                           'Aux = "28" 'CAJA CHICA
                 rs_datos!trans_codigo_egr = "45"
                 VAR_TIPO = "CCHICA"
                 VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
+                CodBien = "FONDO01"
             Case Else
                 rs_datos!trans_codigo_egr = "47"
                 VAR_TIPO = "CGOCTA"
                 VAR_DOCF = "R-160"
+                CodBien = "FONDO03"
         End Select
         'CORRELATIVO DEL TIPO DE TRAMITE
         Set rs_aux2 = New ADODB.Recordset
@@ -5246,7 +5181,7 @@ Private Sub BtnGrabar_Click()
         rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 Then
             rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-            txt_campo1.Caption = rs_aux2!correl_doc
+            Txt_campo1.Caption = rs_aux2!correl_doc
             VAR_CODF = rs_aux2!correl_doc
             rs_aux2.Update
         End If
@@ -5277,6 +5212,26 @@ Private Sub BtnGrabar_Click()
         sino = Ado_datos.Recordset!compra_codigo
         var_cod = rs_datos!compra_codigo   'Codigo Llave de la Tabla
         VAR_COMPRA = rs_datos!solicitud_codigo  'Codigo Llave de la Tabla
+        If CodBien = "" Then
+            Select Case Aux
+                Case "30"                           'Aux = "30" 'CCD
+                    rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
+                    CodBien = "FONDO03"
+                Case "29"                           'Aux = "29" 'VIAJES
+                    rs_datos!trans_codigo_egr = "46"
+                    VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
+                    CodBien = "FONDO02"
+                Case "28"                           'Aux = "28" 'CAJA CHICA
+                    rs_datos!trans_codigo_egr = "45"
+                    VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
+                    CodBien = "FONDO01"
+                Case Else
+                    rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"
+                    CodBien = "FONDO03"
+            End Select
+        End If
      End If
      rs_datos!compra_fecha = DTPfecha1.Value
      rs_datos!ges_gestion = Year(DTPfecha1.Value)
@@ -5344,11 +5299,17 @@ Private Sub BtnGrabar_Click()
      rs_datos!estado_codigo = "REG"
      rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
      'Ado_datos.Recordset.Update
-
-       
      rs_datos.Update    'Batch 'adAffectAll
      'db.CommitTrans
      var_cod = rs_datos!compra_codigo   'Codigo Llave de la Tabla
+     ' GRABA DETALLE
+     If Ado_detalle1.Recordset.RecordCount = 0 Then
+        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo, subgrupo_codigo, " & _
+             " par_codigo, tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
+             " VALUES ('" & glGestion & "', " & var_cod & ", '" & CodBien & "', '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
+             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
+     Else
+     End If
      If OptFilGral1.Value = True Then
         Call OptFilGral1_Click        'Pendientes
      Else
@@ -5461,58 +5422,24 @@ End Sub
 Private Sub BtnModDetalle1_Click()
 'On Error GoTo UpdateErr
  
-     If Ado_datos.Recordset.RecordCount > 0 Then
-            
-      Select Case Glaux
-             Case "PROVI"
-             If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-             End If
-             Case "TRANS"
-             If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-             End If
-             Case "ADUAN"
-             If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-             End If
-             Case "DESCA"
-             If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-             End If
-             Case "CONTR"
-             If Ado_datos.Recordset!estado_codigo <> "REG" Then
-                MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                Exit Sub
-             End If
-             
-             Case Else
+    If Ado_datos.Recordset.RecordCount > 0 Then
              If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
                 MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
                 Exit Sub
              End If
-    End Select
-            
-            
     If Ado_detalle1.Recordset.RecordCount > 0 Then
-    
       If rs_datos.RecordCount > 0 And Ado_detalle1.Recordset!estado_codigo = "REG" Then
-      
-      If Ado_detalle2.Recordset.RecordCount > 0 Then
-        Set rs_aux8 = New ADODB.Recordset
-           If rs_aux8.State = 1 Then rs_aux8.Close
-           'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
-           rs_aux8.Open "select * from ao_compra_adjudica_bienes where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " AND adjudica_codigo = " & Ado_detalle2.Recordset!adjudica_codigo & " AND bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-           'rs_det1A.Sort = "compra_codigo_det"
-        If rs_aux8.RecordCount > 0 Then
-            sino = MsgBox("este bien ya esta con un proveedor, para modificar quite el bien del proveedor ", vbInformation, "AVISO")
-            Exit Sub
+        If Ado_detalle2.Recordset.RecordCount > 0 Then
+            Set rs_aux8 = New ADODB.Recordset
+               If rs_aux8.State = 1 Then rs_aux8.Close
+               'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+               rs_aux8.Open "select * from ao_compra_adjudica_bienes where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " AND adjudica_codigo = " & Ado_detalle2.Recordset!adjudica_codigo & " AND bien_codigo = '" & Ado_detalle1.Recordset!bien_codigo & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+               'rs_det1A.Sort = "compra_codigo_det"
+            If rs_aux8.RecordCount > 0 Then
+                sino = MsgBox("este bien ya esta con un proveedor, para modificar quite el bien del proveedor ", vbInformation, "AVISO")
+                Exit Sub
+            End If
         End If
-      End If
       
       
         marca1 = Ado_detalle1.Recordset.Bookmark
@@ -5597,7 +5524,7 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -5605,15 +5532,15 @@ Private Sub BtnModDetalle1_Click()
                 frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.Txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo18.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_codigo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo14.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 
                 'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-                frm_solicitud_bienes_gral.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-                frm_solicitud_bienes_gral.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
                 frm_solicitud_bienes_gral.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
                 
                 frm_solicitud_bienes_gral.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -5756,7 +5683,7 @@ sw_nuevo = "MOD"
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
             fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_gral.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_gral.Txt_estado.Caption = "REG"

@@ -1682,50 +1682,6 @@ Private Sub BtnGrabar_Click()
 ''        db.Execute "insert into ao_compra_detalle (ges_gestion, cobranza_detalle, cobranza_codigo, beneficiario_codigo_resp,    cobranza_bs,       cobranza_dol,           cobranza_fecha,             cobranza_observaciones,             cta_codigo,             cmpbte_deposito,            doc_numero,              trans_codigo,              literal,    estado_codigo, estado_codigo_bco, usr_codigo,           fecha_registro,                     tipo_moneda, usr_codigo_mod, usr_codigo_apr, cobranza_tdc) " & _
 '                " VALUES ('" & Ado_datos01.Recordset!ges_gestion & "', " & correldet & ", " & NRO_COBR & ", '" & DataCombo1.Text & "', " & COBR_BS & ", " & VAR_DOL2 & ", '" & CDate(DTPicker1.Value) & "', '" & txt_observaciones.Text & "', '" & dtc_cta2.Text & "', '" & Txt_deposito.Text & "', " & Txt_docnro.Text & ", '" & DataCombo9.Text & "', '" & var_literal & "', 'REG',      'REG', '" & glusuario & "', '" & Format(Date, "dd/mm/yyyy") & "', '" & cmd_moneda.Text & "', '" & glusuario & "', '" & glusuario & "', " & TxtTDC.Text & " )"
 '
-'        fw_solicitud_compras.Ado_detalle2.Recordset("ges_gestion").Value = txt_gestion.Caption
-'        fw_solicitud_compras.Ado_detalle2.Recordset("unidad_codigo").Value = fw_solicitud_compras.VAR_UNI
-'        fw_solicitud_compras.Ado_detalle2.Recordset("solicitud_codigo").Value = txt_codigo.Caption
-'        fw_solicitud_compras.Ado_detalle2.Recordset("estado_codigo").Value = "REG"
-'        fw_solicitud_compras.Ado_detalle2.Recordset("venta_o_compra").Value = "C" 'C = PAGOS PERIODICOS ó CREDITO y E = EFECTIVO (Al Contado)
-''        fw_solicitud_compras.Ado_detalle2.Recordset("archivo_foto_cargado").Value = "N"
-''        fw_solicitud_compras.Ado_detalle2.Recordset("archivo_plano_cargado").Value = "N"
-'
-'        fw_solicitud_compras.Ado_detalle2.Recordset("bien_codigo").Value = IIf(dtc_codigo1.Text = "", "NA1", dtc_codigo1.Text)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("marca_codigo").Value = IIf(Txt_campo8.Text = "", "S/M", Txt_campo8.Text)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("modelo_codigo").Value = IIf(Txt_campo9.Text = "", "S/M", Txt_campo9.Text)
-'
-'        fw_solicitud_compras.Ado_detalle2.Recordset!compra_concepto = dtc_desc1.Text            'Txt_campo4.Text
-'        fw_solicitud_compras.Ado_detalle2.Recordset("grupo_codigo").Value = IIf(dtc_aux1.Text = "", "90000", dtc_aux1.Text)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("subgrupo_codigo").Value = IIf(dtc_aux2.Text = "", "99900", dtc_aux2.Text)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("par_codigo").Value = IIf(dtc_aux3.Text = "", "99990", dtc_aux3.Text)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("bien_precio_compra").Value = IIf(Txt_campo10 = "", 0, Txt_campo10)
-'        'fw_solicitud_compras.Ado_detalle2.Recordset("unimed_codigo").Value = IIf(dtc_codigo2 = "", "MES", dtc_codigo2)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("bien_cantidad").Value = IIf(Txt_campo16 = "", 1, Txt_campo16)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("bien_total_compra").Value = IIf(Txt_campo11 = "", 0, Txt_campo11)
-'        fw_solicitud_compras.Ado_detalle2.Recordset("bien_cantidad_por_empaque").Value = IIf(Txt_campo19 = "", 2, Txt_campo19)
-'        'fw_solicitud_compras.Ado_detalle3.Recordset("bien_total_compra").Value = 0    '
-'
-'        Select Case VAR_UNI
-'           Case "DNMAN"
-'               fw_solicitud_compras.Ado_detalle2.Recordset("fosa_dimension_frente").Value = "10"
-'           Case "DNREP"
-'               fw_solicitud_compras.Ado_detalle2.Recordset("fosa_dimension_frente").Value = "7"
-'           Case "DNINS"
-'               fw_solicitud_compras.Ado_detalle2.Recordset("fosa_dimension_frente").Value = "4"
-'           Case "DNAJS"
-'               fw_solicitud_compras.Ado_detalle2.Recordset("fosa_dimension_frente").Value = "5"
-'           Case "DNMOD"
-'               fw_solicitud_compras.Ado_detalle2.Recordset("fosa_dimension_frente").Value = "9"
-'           Case Else
-'           fw_solicitud_compras.Ado_detalle2.Recordset("fosa_dimension_fondo").Value = 0  'Txt_campo15.Text
-'
-'        End Select
-'            'aw_p_ao_solicitud.Ado_detalle1.Recordset("archivo_foto").Value = Trim(dtc_codigo1.Text) + "-A.JPG"
-'        'aw_p_ao_solicitud.Ado_detalle1.Recordset("archivo_plano").Value = Trim(dtc_codigo1.Text) + "-B.JPG"
-'        fw_solicitud_compras.Ado_detalle2.Recordset("fecha_registro").Value = Date
-'        'aw_p_ao_solicitud.Ado_detalle1.Recordset("hora_registro").Value = Date
-'        fw_solicitud_compras.Ado_detalle2.Recordset("usr_codigo").Value = glusuario
-'        fw_solicitud_compras.Ado_detalle2.Recordset.UpdateBatch adAffectAll
     End If
     If swnuevo = 2 Then
      
