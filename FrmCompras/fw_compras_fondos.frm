@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_fondos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -278,7 +278,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentY        =   529
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   131989505
+         Format          =   130875393
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2479,10 +2479,10 @@ Begin VB.Form fw_compras_fondos
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   21360
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   12915
+      Width           =   21360
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3832,46 +3832,10 @@ On Error GoTo UpdateErr
   VAR_SW = "NEW"
   'sw_nuevo = "NEW"
  If Ado_datos.Recordset.RecordCount > 0 Then
-'    Select Case Glaux
-'        Case "UALMI"
-'            If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado o Anulado (ANL)!! ", vbExclamation
-'             Exit Sub
-'            End If
-'        Case "TRANS"
-'            If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
-'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-'             Exit Sub
-'            End If
-'        Case "ADUAN"
-'            If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-'             Exit Sub
-'            End If
-'        Case "DESCA"
-'            If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-'             Exit Sub
-'            End If
-'        Case "CONTR"
-'            If Ado_datos.Recordset!estado_codigo <> "REG" Then
-'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-'             Exit Sub
-'            End If
-'        Case Else
-'            If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-'             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-'             Exit Sub
-'            End If
-'    End Select
-''  If rs_datos!estado_codigo = "REG" Then 'ESTADO
-'    If parametro = "COMEX" Then
-'    Else
-'    If Ado_datos.Recordset!estado_codigo_eqp = "APR" Then
-'        MsgBox "No se puede Adicionar un nuevo registro, porque este ya está Aprobado!! ", vbExclamation
-'        Exit Sub
-'    End If
-'    End If
+    If Ado_datos.Recordset!estado_codigo = "APR" Then       'estado_codigo_eqp
+        MsgBox "No se puede Adicionar un nuevo registro, porque este ya está Aprobado!! ", vbExclamation
+        Exit Sub
+    End If
     If Ado_detalle1.Recordset.RecordCount = 0 Then
         MsgBox "No puede Registrar la Factura, debe registrar previamente el DETALLE DE BIENES, Vuelva a Intentar !! ", vbExclamation
         Exit Sub
@@ -3888,40 +3852,40 @@ On Error GoTo UpdateErr
 '    rs_aux4.Open "select max(adjudica_codigo) as correla from ao_compra_adjudica where compra_codigo = " & Ado_datos.Recordset!compra_codigo & "", db, adOpenKeyset, adLockOptimistic
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
-        fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
-        fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
-        fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
+        fw_adjudica_fondos.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
+        fw_adjudica_fondos.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_fondos.Txt_descripcion.Caption = Me.dtc_desc1.Text
+        fw_adjudica_fondos.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
-'                    fw_adjudica_gral.lbl_adjudica.Caption = rs_aux4!correla + 1
+'                    fw_adjudica_fondos.lbl_adjudica.Caption = rs_aux4!correla + 1
 '                Else
-'                    fw_adjudica_gral.lbl_adjudica.Caption = "1"
+'                    fw_adjudica_fondos.lbl_adjudica.Caption = "1"
 '                End If
-        fw_adjudica_gral.txtSW.Text = "C"
-        fw_adjudica_gral.txt_total_dol = VAR_FOBSEG
-        fw_adjudica_gral.txt_total_bs = VAR_FOBSEG2
-        fw_adjudica_gral.txt_pais.Text = VAR_PAIS
-        fw_adjudica_gral.txtEstado.Text = "REG"
-        fw_adjudica_gral.txtfecha_compra.Value = Date
-        fw_adjudica_gral.txt_total_bs = "0"
-        fw_adjudica_gral.cmd_unimed2 = "MES"
-        fw_adjudica_gral.txt_tipo_cambio = GlTipoCambioOficial
-        fw_adjudica_gral.opt_bs.Value = True
-        fw_adjudica_gral.cmb_mes_ini.Text = UCase(MonthName(Month(Date)))
-'            fw_adjudica_gral.txtFecha.Visible = False
-'            fw_adjudica_gral.txtFecha2.Visible = False
-'            fw_adjudica_gral.txtFecha3.Visible = False
-'            fw_adjudica_gral.txt_nro_dui.Enabled = False
-'            fw_adjudica_gral.lblbien(2).Visible = False
-'            fw_adjudica_gral.lblbien(3).Visible = False
-'            fw_adjudica_gral.lblbien(4).Visible = False
-        fw_adjudica_gral.txt_total_bs = SUMbs
-        fw_adjudica_gral.txt_total_dol = SUMdol
+        fw_adjudica_fondos.txtSW.Text = "C"
+        fw_adjudica_fondos.txt_total_dol = VAR_FOBSEG
+        fw_adjudica_fondos.txt_total_bs = VAR_FOBSEG2
+        fw_adjudica_fondos.txt_pais.Text = VAR_PAIS
+        fw_adjudica_fondos.txtEstado.Text = "REG"
+        fw_adjudica_fondos.txtfecha_compra.Value = Date
+        fw_adjudica_fondos.txt_total_bs = "0"
+        fw_adjudica_fondos.cmd_unimed2 = "MES"
+        fw_adjudica_fondos.txt_tipo_cambio = GlTipoCambioOficial
+        fw_adjudica_fondos.opt_bs.Value = True
+        fw_adjudica_fondos.cmb_mes_ini.Text = UCase(MonthName(Month(Date)))
+'            fw_adjudica_fondos.txtFecha.Visible = False
+'            fw_adjudica_fondos.txtFecha2.Visible = False
+'            fw_adjudica_fondos.txtFecha3.Visible = False
+'            fw_adjudica_fondos.txt_nro_dui.Enabled = False
+'            fw_adjudica_fondos.lblbien(2).Visible = False
+'            fw_adjudica_fondos.lblbien(3).Visible = False
+'            fw_adjudica_fondos.lblbien(4).Visible = False
+        fw_adjudica_fondos.txt_total_bs = SUMbs
+        fw_adjudica_fondos.txt_total_dol = SUMdol
         'Set rs_aux8 = New Recordset
 '       If rs_aux8.State = 1 Then rs_aux8.Close
 '       rs_aux8.Open "select sum(bien_total_adjudica_bs) as total from ao_compra_adjudica_bienes where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " AND adjudica_codigo = " & Ado_detalle2.Recordset!adjudica_codigo & "", db, adOpenKeyset, adLockOptimistic
-'       fw_adjudica_gral.txt_total_bs = rs_aux8!total
-        fw_adjudica_gral.Show vbModal
+'       fw_adjudica_fondos.txt_total_bs = rs_aux8!total
+        fw_adjudica_fondos.Show vbModal
             
 '    '        Case "V"    'FACTURACION LOCAL - COMEX
 '    '    End Select
@@ -5459,15 +5423,15 @@ Private Sub BtnModDetalle1_Click()
                 frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.Txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo18.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_codigo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo14.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 
                 'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-                frm_solicitud_bienes_gral.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-                frm_solicitud_bienes_gral.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
                 frm_solicitud_bienes_gral.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
                 
                 frm_solicitud_bienes_gral.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -5609,82 +5573,82 @@ sw_nuevo = "MOD"
         '    fecha_recibe_almacen, almacen_codigo, poa_codigo, estado_codigo,
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
-            fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
-            fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
-            fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
-            'fw_adjudica_gral.Txt_estado.Caption = "REG"
+            fw_adjudica_fondos.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
+            fw_adjudica_fondos.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_fondos.Txt_descripcion.Caption = Me.dtc_desc1.Text
+            fw_adjudica_fondos.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
+            'fw_adjudica_fondos.Txt_estado.Caption = "REG"
             
-            fw_adjudica_gral.lbl_adjudica.Caption = Me.Ado_detalle2.Recordset("adjudica_codigo")
-            fw_adjudica_gral.dtc_codigo5.Text = Me.Ado_detalle2.Recordset("beneficiario_codigo")
-            fw_adjudica_gral.dtc_desc5.BoundText = fw_adjudica_gral.dtc_codigo5.BoundText
-            fw_adjudica_gral.dtc_aux4.BoundText = fw_adjudica_gral.dtc_codigo5.BoundText
-            fw_adjudica_gral.dtc_aux5.BoundText = fw_adjudica_gral.dtc_codigo5.BoundText
+            fw_adjudica_fondos.lbl_adjudica.Caption = Me.Ado_detalle2.Recordset("adjudica_codigo")
+            fw_adjudica_fondos.dtc_codigo5.Text = Me.Ado_detalle2.Recordset("beneficiario_codigo")
+            fw_adjudica_fondos.dtc_desc5.BoundText = fw_adjudica_fondos.dtc_codigo5.BoundText
+            fw_adjudica_fondos.dtc_aux4.BoundText = fw_adjudica_fondos.dtc_codigo5.BoundText
+            fw_adjudica_fondos.dtc_aux5.BoundText = fw_adjudica_fondos.dtc_codigo5.BoundText
 
-            fw_adjudica_gral.txt_Nota.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("nro_nota_remision")), "", Me.Ado_detalle2.Recordset("nro_nota_remision"))
-            fw_adjudica_gral.txt_total_bs.Text = Format(IIf(IsNull(Me.Ado_detalle2.Recordset("adjudica_monto_bs")), 0, Me.Ado_detalle2.Recordset("adjudica_monto_bs")), "###,###,##0.00")
-            fw_adjudica_gral.txt_total_dol.Text = Format(IIf(IsNull(Me.Ado_detalle2.Recordset!adjudica_monto_dol), 0, Me.Ado_detalle2.Recordset!adjudica_monto_dol), "###,###,##0.00")
-            fw_adjudica_gral.txtFecha.Value = IIf(IsNull(Me.Ado_detalle2.Recordset("fecha_inicio_contrato")), Date, Me.Ado_detalle2.Recordset("fecha_inicio_contrato"))
-            fw_adjudica_gral.txtFecha2.Value = IIf(IsNull(Me.Ado_detalle2.Recordset("fecha_fin_contrato")), Date, Me.Ado_detalle2.Recordset("fecha_fin_contrato"))
-            fw_adjudica_gral.txtFecha3.Value = IIf(IsNull(Me.Ado_detalle2.Recordset("fecha_envio_proveedor")), Date, Me.Ado_detalle2.Recordset("fecha_envio_proveedor"))
+            fw_adjudica_fondos.txt_Nota.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("nro_nota_remision")), "", Me.Ado_detalle2.Recordset("nro_nota_remision"))
+            fw_adjudica_fondos.txt_total_bs.Text = Format(IIf(IsNull(Me.Ado_detalle2.Recordset("adjudica_monto_bs")), 0, Me.Ado_detalle2.Recordset("adjudica_monto_bs")), "###,###,##0.00")
+            fw_adjudica_fondos.txt_total_dol.Text = Format(IIf(IsNull(Me.Ado_detalle2.Recordset!adjudica_monto_dol), 0, Me.Ado_detalle2.Recordset!adjudica_monto_dol), "###,###,##0.00")
+            fw_adjudica_fondos.txtFecha.Value = IIf(IsNull(Me.Ado_detalle2.Recordset("fecha_inicio_contrato")), Date, Me.Ado_detalle2.Recordset("fecha_inicio_contrato"))
+            fw_adjudica_fondos.txtFecha2.Value = IIf(IsNull(Me.Ado_detalle2.Recordset("fecha_fin_contrato")), Date, Me.Ado_detalle2.Recordset("fecha_fin_contrato"))
+            fw_adjudica_fondos.txtFecha3.Value = IIf(IsNull(Me.Ado_detalle2.Recordset("fecha_envio_proveedor")), Date, Me.Ado_detalle2.Recordset("fecha_envio_proveedor"))
             
-            fw_adjudica_gral.cmb_mes_ini = IIf(IsNull(Me.Ado_detalle2.Recordset!mes_inicio_crono), UCase(MonthName(Month(Date))), Me.Ado_detalle2.Recordset!mes_inicio_crono)
-            fw_adjudica_gral.txtCantCuota.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!cantidad_cuotas_pag), "1", Me.Ado_detalle2.Recordset!cantidad_cuotas_pag)
-            fw_adjudica_gral.cmd_unimed2 = IIf(IsNull(Me.Ado_detalle2.Recordset!unimed_codigo_pag), "MES", Me.Ado_detalle2.Recordset!unimed_codigo_pag)
+            fw_adjudica_fondos.cmb_mes_ini = IIf(IsNull(Me.Ado_detalle2.Recordset!mes_inicio_crono), UCase(MonthName(Month(Date))), Me.Ado_detalle2.Recordset!mes_inicio_crono)
+            fw_adjudica_fondos.txtCantCuota.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!cantidad_cuotas_pag), "1", Me.Ado_detalle2.Recordset!cantidad_cuotas_pag)
+            fw_adjudica_fondos.cmd_unimed2 = IIf(IsNull(Me.Ado_detalle2.Recordset!unimed_codigo_pag), "MES", Me.Ado_detalle2.Recordset!unimed_codigo_pag)
             
-            fw_adjudica_gral.txtSW.Text = Me.Ado_datos.Recordset!venta_tipo
+            fw_adjudica_fondos.txtSW.Text = Me.Ado_datos.Recordset!venta_tipo
             If Me.Ado_detalle2.Recordset("almacen_codigo") <> "NULL" Then
-            fw_adjudica_gral.dtc_desc_alm.BoundText = Me.Ado_detalle2.Recordset("almacen_codigo")
+            fw_adjudica_fondos.dtc_desc_alm.BoundText = Me.Ado_detalle2.Recordset("almacen_codigo")
             End If
-            fw_adjudica_gral.txt_pais.Text = VAR_PAIS
-            fw_adjudica_gral.txtfecha_compra.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_compra), Date, Me.Ado_detalle2.Recordset!fecha_compra)
-            fw_adjudica_gral.txt_autorizacion.Text = IIf(IsNull(Ado_detalle2.Recordset("nro_autorizacion")), "", Ado_detalle2.Recordset("nro_autorizacion"))
-            fw_adjudica_gral.txt_cod_control.Text = IIf(IsNull(Ado_detalle2.Recordset("codigo_control")), "", Ado_detalle2.Recordset("codigo_control"))
+            fw_adjudica_fondos.txt_pais.Text = VAR_PAIS
+            fw_adjudica_fondos.txtfecha_compra.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_compra), Date, Me.Ado_detalle2.Recordset!fecha_compra)
+            fw_adjudica_fondos.txt_autorizacion.Text = IIf(IsNull(Ado_detalle2.Recordset("nro_autorizacion")), "", Ado_detalle2.Recordset("nro_autorizacion"))
+            fw_adjudica_fondos.txt_cod_control.Text = IIf(IsNull(Ado_detalle2.Recordset("codigo_control")), "", Ado_detalle2.Recordset("codigo_control"))
             
-            fw_adjudica_gral.txt_nro_dui.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("nro_dui")), 0, Me.Ado_detalle2.Recordset("nro_dui"))
-             fw_adjudica_gral.txt_importe_no_fiscal.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("importe_no_credito_fisc")), 0, Me.Ado_detalle2.Recordset("importe_no_credito_fisc"))
-            fw_adjudica_gral.txt_descuentos.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("descuento")), 0, Me.Ado_detalle2.Recordset("descuento"))
-            If fw_adjudica_gral.txt_tipo_cambio = "0" Or fw_adjudica_gral.txt_tipo_cambio = "" Then
-            fw_adjudica_gral.txt_tipo_cambio = GlTipoCambioOficial
+            fw_adjudica_fondos.txt_nro_dui.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("nro_dui")), 0, Me.Ado_detalle2.Recordset("nro_dui"))
+             fw_adjudica_fondos.txt_importe_no_fiscal.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("importe_no_credito_fisc")), 0, Me.Ado_detalle2.Recordset("importe_no_credito_fisc"))
+            fw_adjudica_fondos.txt_descuentos.Text = IIf(IsNull(Me.Ado_detalle2.Recordset("descuento")), 0, Me.Ado_detalle2.Recordset("descuento"))
+            If fw_adjudica_fondos.txt_tipo_cambio = "0" Or fw_adjudica_fondos.txt_tipo_cambio = "" Then
+            fw_adjudica_fondos.txt_tipo_cambio = GlTipoCambioOficial
             Else
-            fw_adjudica_gral.txt_tipo_cambio = Ado_detalle2.Recordset("tipo_cambio")
+            fw_adjudica_fondos.txt_tipo_cambio = Ado_detalle2.Recordset("tipo_cambio")
             End If
             If Ado_detalle2.Recordset("tipo_moneda") = "USD" Then
-            fw_adjudica_gral.opt_usd.Value = True
+            fw_adjudica_fondos.opt_usd.Value = True
             End If
              If Ado_detalle2.Recordset("tipo_moneda") = "BOB" Then
-            fw_adjudica_gral.opt_bs.Value = True
+            fw_adjudica_fondos.opt_bs.Value = True
             End If
             If fw_compras_gral.Ado_detalle2.Recordset("factura") = "NO" Then
-            fw_adjudica_gral.opt_no.Value = True
+            fw_adjudica_fondos.opt_no.Value = True
             Else
-            fw_adjudica_gral.opt_si.Value = True
+            fw_adjudica_fondos.opt_si.Value = True
             End If
-            fw_adjudica_gral.txtFecha.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_inicio_contrato), Me.Ado_detalle2.Recordset!fecha_compra, Me.Ado_detalle2.Recordset!fecha_inicio_contrato)
-             fw_adjudica_gral.txtFecha2.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_fin_contrato), Me.Ado_detalle2.Recordset!fecha_compra, Me.Ado_detalle2.Recordset!fecha_fin_contrato)
-             fw_adjudica_gral.txtFecha3.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_envio_proveedor), Me.Ado_detalle2.Recordset!fecha_compra, Me.Ado_detalle2.Recordset!fecha_envio_proveedor)
+            fw_adjudica_fondos.txtFecha.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_inicio_contrato), Me.Ado_detalle2.Recordset!fecha_compra, Me.Ado_detalle2.Recordset!fecha_inicio_contrato)
+             fw_adjudica_fondos.txtFecha2.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_fin_contrato), Me.Ado_detalle2.Recordset!fecha_compra, Me.Ado_detalle2.Recordset!fecha_fin_contrato)
+             fw_adjudica_fondos.txtFecha3.Value = IIf(IsNull(Me.Ado_detalle2.Recordset!fecha_envio_proveedor), Me.Ado_detalle2.Recordset!fecha_compra, Me.Ado_detalle2.Recordset!fecha_envio_proveedor)
              
 '          If parametro = "COMEX" Then
-'            fw_adjudica_gral.txtFecha.Visible = True
-'            fw_adjudica_gral.txtFecha2.Visible = True
-'            fw_adjudica_gral.txtFecha3.Visible = True
-'            fw_adjudica_gral.txtFecha.Value = Date
-'            fw_adjudica_gral.txtFecha2.Value = Date
-'            fw_adjudica_gral.txtFecha3.Value = Date
-'            fw_adjudica_gral.txt_nro_dui.Enabled = True
-'            fw_adjudica_gral.lblbien(2).Visible = True
-'            fw_adjudica_gral.lblbien(3).Visible = True
-'            fw_adjudica_gral.lblbien(4).Visible = True
+'            fw_adjudica_fondos.txtFecha.Visible = True
+'            fw_adjudica_fondos.txtFecha2.Visible = True
+'            fw_adjudica_fondos.txtFecha3.Visible = True
+'            fw_adjudica_fondos.txtFecha.Value = Date
+'            fw_adjudica_fondos.txtFecha2.Value = Date
+'            fw_adjudica_fondos.txtFecha3.Value = Date
+'            fw_adjudica_fondos.txt_nro_dui.Enabled = True
+'            fw_adjudica_fondos.lblbien(2).Visible = True
+'            fw_adjudica_fondos.lblbien(3).Visible = True
+'            fw_adjudica_fondos.lblbien(4).Visible = True
 '            Else
-'            fw_adjudica_gral.txtFecha.Visible = False
-'            fw_adjudica_gral.txtFecha2.Visible = False
-'            fw_adjudica_gral.txtFecha3.Visible = False
-'            fw_adjudica_gral.txt_nro_dui.Enabled = False
-'            fw_adjudica_gral.lblbien(2).Visible = False
-'            fw_adjudica_gral.lblbien(3).Visible = False
-'            fw_adjudica_gral.lblbien(4).Visible = False
+'            fw_adjudica_fondos.txtFecha.Visible = False
+'            fw_adjudica_fondos.txtFecha2.Visible = False
+'            fw_adjudica_fondos.txtFecha3.Visible = False
+'            fw_adjudica_fondos.txt_nro_dui.Enabled = False
+'            fw_adjudica_fondos.lblbien(2).Visible = False
+'            fw_adjudica_fondos.lblbien(3).Visible = False
+'            fw_adjudica_fondos.lblbien(4).Visible = False
 '            End If
-            fw_adjudica_gral.Show vbModal
+            fw_adjudica_fondos.Show vbModal
 '        swnuevo = 0
         fraOpciones.Visible = True
         fraOpcionesDet.Visible = True

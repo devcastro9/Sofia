@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   163708929
+         Format          =   228851713
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -1371,27 +1371,21 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   1335,118
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
-               ColumnWidth     =   3899,906
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
-               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
-               ColumnWidth     =   915,024
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   915,024
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   585,071
             EndProperty
             BeginProperty Column08 
                Locked          =   -1  'True
@@ -1402,15 +1396,12 @@ Begin VB.Form fw_compras_comex
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   1470,047
             EndProperty
             BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1665,071
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   1964,976
             EndProperty
          EndProperty
       End
@@ -1618,22 +1609,17 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   1379,906
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
-               ColumnWidth     =   4649,953
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
-               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
@@ -1642,19 +1628,16 @@ Begin VB.Form fw_compras_comex
             BeginProperty Column08 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   945,071
             EndProperty
             BeginProperty Column09 
                Locked          =   -1  'True
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1170,142
             EndProperty
          EndProperty
       End
@@ -2055,47 +2038,36 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   3374,929
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
-               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   645,165
             EndProperty
             BeginProperty Column07 
                Alignment       =   1
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column08 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column10 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1425,26
             EndProperty
             BeginProperty Column11 
                Object.Visible         =   0   'False
-               ColumnWidth     =   1665,071
             EndProperty
          EndProperty
       End
@@ -2627,57 +2599,44 @@ Begin VB.Form fw_compras_comex
          BeginProperty Split0 
             BeginProperty Column00 
                Object.Visible         =   0   'False
-               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   750,047
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   1214,929
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
                ColumnWidth     =   1440
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   3809,764
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   705,26
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   750,047
             EndProperty
             BeginProperty Column11 
-               ColumnWidth     =   780,095
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   810,142
             EndProperty
             BeginProperty Column13 
                Alignment       =   2
-               ColumnWidth     =   975,118
             EndProperty
          EndProperty
       End
@@ -4150,7 +4109,7 @@ On Error GoTo UpdateErr
             'Ado_detalle1.Recordset.AddNew
             GlCotiza = 2
             fw_solicitud_bienes_comex.txt_codigo.Caption = Me.txt_codigo.Caption
-            fw_solicitud_bienes_comex.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            fw_solicitud_bienes_comex.txt_campo1.Caption = Me.dtc_codigo1.Text
             fw_solicitud_bienes_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_solicitud_bienes_comex.lbl_edif.Caption = Label1.Caption
             fw_solicitud_bienes_comex.lbl_det.Caption = Glaux
@@ -4300,7 +4259,7 @@ On Error GoTo UpdateErr
 '        rs_aux4.Open "select max(adjudica_codigo) as correla from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_comex.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA           ' Me.Ado_datos.Recordset!compra_codigo
 '        If rs_aux4!correla > 0 Then
@@ -6083,7 +6042,7 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     fw_solicitud_bienes_comex.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                fw_solicitud_bienes_comex.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                fw_solicitud_bienes_comex.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
@@ -6247,7 +6206,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
         fw_adjudica_comex.txt_codigo.Caption = VAR_SOL2                 'Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA               'Me.Ado_detalle2.Recordset("compra_codigo")
         'fw_adjudica_comex.Txt_estado.Caption = "REG"

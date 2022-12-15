@@ -2,10 +2,10 @@ VERSION 5.00
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
-Begin VB.Form fw_adjudica_gral 
+Begin VB.Form fw_adjudica_fondos 
    BackColor       =   &H00C0C0C0&
    BorderStyle     =   1  'Fixed Single
-   Caption         =   " Adjudicación de Bienes y Servicios"
+   Caption         =   "Registro de Descargos"
    ClientHeight    =   8040
    ClientLeft      =   45
    ClientTop       =   360
@@ -34,7 +34,7 @@ Begin VB.Form fw_adjudica_gral
       Height          =   3735
       Left            =   240
       TabIndex        =   90
-      Top             =   1800
+      Top             =   1560
       Visible         =   0   'False
       Width           =   14055
       Begin VB.TextBox TxtTexto 
@@ -94,7 +94,7 @@ Begin VB.Form fw_adjudica_gral
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5400
-            Picture         =   "fw_adjudica_gral.frx":0000
+            Picture         =   "fw_adjudica_fondos.frx":0000
             ScaleHeight     =   615
             ScaleWidth      =   1335
             TabIndex        =   93
@@ -108,7 +108,7 @@ Begin VB.Form fw_adjudica_gral
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   6960
-            Picture         =   "fw_adjudica_gral.frx":07EE
+            Picture         =   "fw_adjudica_fondos.frx":07EE
             ScaleHeight     =   615
             ScaleWidth      =   1455
             TabIndex        =   92
@@ -154,7 +154,7 @@ Begin VB.Form fw_adjudica_gral
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5640
-         Picture         =   "fw_adjudica_gral.frx":10DA
+         Picture         =   "fw_adjudica_fondos.frx":10DA
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   32
@@ -168,7 +168,7 @@ Begin VB.Form fw_adjudica_gral
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7320
-         Picture         =   "fw_adjudica_gral.frx":18B0
+         Picture         =   "fw_adjudica_fondos.frx":18B0
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   33
@@ -181,7 +181,7 @@ Begin VB.Form fw_adjudica_gral
       Height          =   3975
       Left            =   240
       TabIndex        =   67
-      Top             =   3000
+      Top             =   2880
       Visible         =   0   'False
       Width           =   14055
       Begin VB.PictureBox Picture4 
@@ -201,7 +201,7 @@ Begin VB.Form fw_adjudica_gral
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   6840
-            Picture         =   "fw_adjudica_gral.frx":219C
+            Picture         =   "fw_adjudica_fondos.frx":219C
             ScaleHeight     =   615
             ScaleWidth      =   1455
             TabIndex        =   88
@@ -215,7 +215,7 @@ Begin VB.Form fw_adjudica_gral
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5280
-            Picture         =   "fw_adjudica_gral.frx":2A88
+            Picture         =   "fw_adjudica_fondos.frx":2A88
             ScaleHeight     =   615
             ScaleWidth      =   1335
             TabIndex        =   87
@@ -750,7 +750,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_87 
          DataField       =   "adjudica_monto_bs_87"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Enabled         =   0   'False
          Height          =   285
          Left            =   12480
@@ -812,7 +812,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txtSubTotal 
          DataField       =   "sub_total"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -834,7 +834,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox Txt_tasa0 
          DataField       =   "grabado_tasa_cero"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   7600
          MaxLength       =   15
@@ -845,7 +845,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox Txt_Tasas 
          DataField       =   "tasas_ice_iehd"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   7600
          MaxLength       =   15
@@ -856,7 +856,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_importe_no_fiscal 
          DataField       =   "importe_no_credito_fisc"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   7600
          MaxLength       =   15
@@ -870,7 +870,7 @@ Begin VB.Form fw_adjudica_gral
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0C0&
          DataField       =   "nit_empresa"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   12000
          Locked          =   -1  'True
@@ -881,7 +881,7 @@ Begin VB.Form fw_adjudica_gral
          Width           =   2055
       End
       Begin VB.CommandButton BtnQR 
-         BackColor       =   &H00C0FFFF&
+         BackColor       =   &H80000018&
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -893,7 +893,7 @@ Begin VB.Form fw_adjudica_gral
          EndProperty
          Height          =   855
          Left            =   5040
-         Picture         =   "fw_adjudica_gral.frx":325E
+         Picture         =   "fw_adjudica_fondos.frx":325E
          Style           =   1  'Graphical
          TabIndex        =   3
          ToolTipText     =   "Nuevo Registro"
@@ -928,7 +928,7 @@ Begin VB.Form fw_adjudica_gral
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
          BorderStyle     =   0  'None
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   6720
          MaxLength       =   50
@@ -1024,7 +1024,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_13 
          DataField       =   "credito_fiscal_13"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Enabled         =   0   'False
          Height          =   285
          Left            =   12480
@@ -1037,7 +1037,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_tipo_cambio 
          DataField       =   "tipo_cambio"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   7600
          MaxLength       =   50
@@ -1064,9 +1064,9 @@ Begin VB.Form fw_adjudica_gral
          Top             =   6120
          Width           =   13965
          Begin MSDataListLib.DataCombo dtc_desc_alm 
-            Bindings        =   "fw_adjudica_gral.frx":446F
+            Bindings        =   "fw_adjudica_fondos.frx":446F
             DataField       =   "almacen_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   6000
             TabIndex        =   34
@@ -1082,9 +1082,9 @@ Begin VB.Form fw_adjudica_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_cod_alm 
-            Bindings        =   "fw_adjudica_gral.frx":4489
+            Bindings        =   "fw_adjudica_fondos.frx":4489
             DataField       =   "almacen_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   7440
             TabIndex        =   74
@@ -1101,7 +1101,7 @@ Begin VB.Form fw_adjudica_gral
          End
          Begin MSComCtl2.DTPicker txtFecha 
             DataField       =   "fecha_inicio_contrato"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   4275
             TabIndex        =   109
@@ -1112,13 +1112,13 @@ Begin VB.Form fw_adjudica_gral
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   228851713
+            Format          =   130875393
             CurrentDate     =   44470
             MinDate         =   2
          End
          Begin MSComCtl2.DTPicker txtFecha2 
             DataField       =   "fecha_fin_contrato"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   10725
             TabIndex        =   110
@@ -1129,13 +1129,13 @@ Begin VB.Form fw_adjudica_gral
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   228851713
+            Format          =   130875393
             CurrentDate     =   44470
             MinDate         =   2
          End
          Begin MSComCtl2.DTPicker txtFecha3 
             DataField       =   "fecha_envio_proveedor"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   12075
             TabIndex        =   111
@@ -1146,7 +1146,7 @@ Begin VB.Form fw_adjudica_gral
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   228851713
+            Format          =   130875393
             CurrentDate     =   44470
             MinDate         =   32874
          End
@@ -1221,7 +1221,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_CreditoFiscal 
          DataField       =   "importe_cred_fisc"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -1243,7 +1243,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_descuentos 
          DataField       =   "descuento"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   12480
          MaxLength       =   15
@@ -1254,7 +1254,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_nro_dui 
          DataField       =   "nro_dui"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Enabled         =   0   'False
          Height          =   285
          Left            =   2720
@@ -1266,7 +1266,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_cod_control 
          DataField       =   "codigo_control"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   2720
          MaxLength       =   50
@@ -1277,7 +1277,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_autorizacion 
          DataField       =   "nro_autorizacion"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   525
          Left            =   195
          MaxLength       =   80
@@ -1312,7 +1312,7 @@ Begin VB.Form fw_adjudica_gral
             LCID            =   3082
             SubFormatType   =   0
          EndProperty
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -1335,9 +1335,9 @@ Begin VB.Form fw_adjudica_gral
          DataField       =   "unimed_codigo_pag"
          DataSource      =   "fw_compras_comex.ado_detalle2"
          Height          =   315
-         ItemData        =   "fw_adjudica_gral.frx":44A3
+         ItemData        =   "fw_adjudica_fondos.frx":44A3
          Left            =   12120
-         List            =   "fw_adjudica_gral.frx":44B6
+         List            =   "fw_adjudica_fondos.frx":44B6
          TabIndex        =   31
          Top             =   6600
          Width           =   1875
@@ -1369,9 +1369,9 @@ Begin VB.Form fw_adjudica_gral
          DataField       =   "mes_inicio_crono"
          DataSource      =   "fw_compras_comex.ado_detalle2"
          Height          =   315
-         ItemData        =   "fw_adjudica_gral.frx":44D8
+         ItemData        =   "fw_adjudica_fondos.frx":44D8
          Left            =   2720
-         List            =   "fw_adjudica_gral.frx":4500
+         List            =   "fw_adjudica_fondos.frx":4500
          TabIndex        =   29
          Top             =   6600
          Width           =   1980
@@ -1390,7 +1390,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.TextBox txt_Nota 
          DataField       =   "nro_nota_remision"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   285
          Left            =   2720
          MaxLength       =   50
@@ -1410,7 +1410,7 @@ Begin VB.Form fw_adjudica_gral
             LCID            =   3082
             SubFormatType   =   0
          EndProperty
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Enabled         =   0   'False
          Height          =   285
          Left            =   7600
@@ -1453,9 +1453,9 @@ Begin VB.Form fw_adjudica_gral
             Width           =   260
          End
          Begin MSDataListLib.DataCombo dtc_desc5 
-            Bindings        =   "fw_adjudica_gral.frx":4569
+            Bindings        =   "fw_adjudica_fondos.frx":4569
             DataField       =   "beneficiario_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   5160
             TabIndex        =   9
@@ -1483,7 +1483,7 @@ Begin VB.Form fw_adjudica_gral
             EndProperty
             Height          =   645
             Left            =   11880
-            Picture         =   "fw_adjudica_gral.frx":4583
+            Picture         =   "fw_adjudica_fondos.frx":4583
             Style           =   1  'Graphical
             TabIndex        =   24
             ToolTipText     =   "Nuevo Proveedor"
@@ -1501,9 +1501,9 @@ Begin VB.Form fw_adjudica_gral
             Width           =   260
          End
          Begin MSDataListLib.DataCombo dtc_aux4 
-            Bindings        =   "fw_adjudica_gral.frx":4F85
+            Bindings        =   "fw_adjudica_fondos.frx":4F85
             DataField       =   "beneficiario_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   1200
             TabIndex        =   47
@@ -1540,9 +1540,9 @@ Begin VB.Form fw_adjudica_gral
             Width           =   260
          End
          Begin MSDataListLib.DataCombo dtc_codigo5 
-            Bindings        =   "fw_adjudica_gral.frx":4F9F
+            Bindings        =   "fw_adjudica_fondos.frx":4F9F
             DataField       =   "beneficiario_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   1200
             TabIndex        =   23
@@ -1568,9 +1568,9 @@ Begin VB.Form fw_adjudica_gral
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_aux5 
-            Bindings        =   "fw_adjudica_gral.frx":4FB9
+            Bindings        =   "fw_adjudica_fondos.frx":4FB9
             DataField       =   "beneficiario_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   5520
             TabIndex        =   48
@@ -1597,9 +1597,9 @@ Begin VB.Form fw_adjudica_gral
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_auto5 
-            Bindings        =   "fw_adjudica_gral.frx":4FD3
+            Bindings        =   "fw_adjudica_fondos.frx":4FD3
             DataField       =   "beneficiario_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   5640
             TabIndex        =   83
@@ -1627,9 +1627,9 @@ Begin VB.Form fw_adjudica_gral
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_Nit5 
-            Bindings        =   "fw_adjudica_gral.frx":4FED
+            Bindings        =   "fw_adjudica_fondos.frx":4FED
             DataField       =   "beneficiario_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle2"
+            DataSource      =   "fw_compras_fondos.ado_detalle2"
             Height          =   315
             Left            =   1200
             TabIndex        =   8
@@ -1739,7 +1739,7 @@ Begin VB.Form fw_adjudica_gral
          Appearance      =   0  'Flat
          BackColor       =   &H80000013&
          DataField       =   "unidad_codigo"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   3240
@@ -1763,7 +1763,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin MSComCtl2.DTPicker txtfecha_compra 
          DataField       =   "adjudica_fecha"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          Height          =   315
          Left            =   2720
          TabIndex        =   10
@@ -1773,7 +1773,7 @@ Begin VB.Form fw_adjudica_gral
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   228851713
+         Format          =   130875393
          CurrentDate     =   44466
          MinDate         =   2
       End
@@ -2103,7 +2103,7 @@ Begin VB.Form fw_adjudica_gral
          BorderStyle     =   1  'Fixed Single
          Caption         =   "0"
          DataField       =   "adjudica_codigo"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -2212,7 +2212,7 @@ Begin VB.Form fw_adjudica_gral
          BorderStyle     =   1  'Fixed Single
          Caption         =   "0"
          DataField       =   "compra_codigo"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -2279,7 +2279,7 @@ Begin VB.Form fw_adjudica_gral
          BorderStyle     =   1  'Fixed Single
          Caption         =   "0"
          DataField       =   "solicitud_codigo"
-         DataSource      =   "fw_compras_gral.ado_detalle2"
+         DataSource      =   "fw_compras_fondos.ado_detalle2"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -2320,7 +2320,7 @@ Begin VB.Form fw_adjudica_gral
       End
    End
 End
-Attribute VB_Name = "fw_adjudica_gral"
+Attribute VB_Name = "fw_adjudica_fondos"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -2364,7 +2364,7 @@ Dim FControl, FInicio, FCompra As Date
 Private Sub BtnCancelar_Click()
 'cancela la edicion de datos
     Para_Aceptado = "N"
-    fw_compras_gral.Ado_detalle2.Recordset.CancelBatch
+    fw_compras_fondos.Ado_detalle2.Recordset.CancelBatch
 '    txtSW = "0"
     Unload Me
 End Sub
@@ -2407,7 +2407,7 @@ If Valida Then
         VAR_CLASIF = "ADM"
         VAR_POA = "0"            '   "4.2.3"
         
-        'fw_compras_gral.Ado_detalle2.Recordset!solicitud_observaciones = dtc_desc2.Text + " - " + dtc_desc4.Text       ' txt_obs.Text
+        'fw_compras_fondos.Ado_detalle2.Recordset!solicitud_observaciones = dtc_desc2.Text + " - " + dtc_desc4.Text       ' txt_obs.Text
     Case "DVTA", "DCOMS", "DCOMB", "DCOMC"    ' COMPRA-VENTA BB Y SS - COMERCIAL
         VAR_PROC = "CMX"
         Select Case Glaux
@@ -2513,15 +2513,15 @@ If Valida Then
         VAR_MONEDA = "BOB"
    End If
 
-   VAR_COMPRA = fw_compras_gral.Ado_datos.Recordset!compra_codigo
-   FCompra = fw_compras_gral.Ado_datos.Recordset!compra_fecha
-   VAR_BENEF = dtc_codigo5.Text       'fw_compras_gral.Ado_detalle2.Recordset!beneficiario_codigo
+   VAR_COMPRA = fw_compras_fondos.Ado_datos.Recordset!compra_codigo
+   FCompra = fw_compras_fondos.Ado_datos.Recordset!compra_fecha
+   VAR_BENEF = dtc_codigo5.Text       'fw_compras_fondos.Ado_detalle2.Recordset!beneficiario_codigo
    VAR_GLOSA = TxtMenu.Text + " - Proveedor: " + RTrim(dtc_desc5.Text)
-   VAR_CANT = IIf(IsNull(fw_compras_gral.Ado_datos.Recordset!compra_cantidad_total), 1, fw_compras_gral.Ado_datos.Recordset!compra_cantidad_total)
-   VAR_DET = fw_compras_gral.Ado_detalle1.Recordset!compra_codigo_det
+   VAR_CANT = IIf(IsNull(fw_compras_fondos.Ado_datos.Recordset!compra_cantidad_total), 1, fw_compras_fondos.Ado_datos.Recordset!compra_cantidad_total)
+   VAR_DET = fw_compras_fondos.Ado_detalle1.Recordset!compra_codigo_det
    
    var_literal = Literal(CDbl(txt_total_bs))
-   'If fw_compras_gral.Ado_detalle1.Recordset("bien_codigo") = "479" Or fw_compras_gral.Ado_detalle1.Recordset("bien_codigo") = "3410007" Then
+   'If fw_compras_fondos.Ado_detalle1.Recordset("bien_codigo") = "479" Or fw_compras_fondos.Ado_detalle1.Recordset("bien_codigo") = "3410007" Then
    If opt_gas.Value = True Then
         VAR_LITERALN = Literal(Round(CDbl(txt_CreditoFiscal.Text), 2))
    Else
@@ -2629,7 +2629,7 @@ Private Sub CRONO_PAGO()
     mes_grupo = txt_mes.Text
     gestion = Year(txtfecha_compra.Value)
     CUOTA = 0
-    'fw_compras_gral.Ado_detalle2.Recordset("adjudica_monto_bs").Value
+    'fw_compras_fondos.Ado_detalle2.Recordset("adjudica_monto_bs").Value
     monto_cuota = CDbl(txt_total_bs.Text) / Val(txtCantCuota.Text)
     'gestion = Month(txtfecha_compra)
     If mes_grupo < Val(Month(txtfecha_compra)) Then
@@ -2658,7 +2658,7 @@ Private Sub CRONO_PAGO()
         CUOTA = CUOTA + 1
         rs_aux2!ges_gestion = gestion
         rs_aux2!pago_codigo = CUOTA
-        'rs_aux2!compra_codigo = fw_compras_gral.Ado_datos.Recordset!compra_codigo
+        'rs_aux2!compra_codigo = fw_compras_fondos.Ado_datos.Recordset!compra_codigo
         rs_aux2!compra_codigo = VAR_COMPRA
         rs_aux2!adjudica_codigo = lbl_adjudica.Caption
         rs_aux2!beneficiario_codigo = dtc_codigo5.Text
@@ -2668,8 +2668,8 @@ Private Sub CRONO_PAGO()
         rs_aux2!pago_monto_bs = monto_cuota
         rs_aux2!pago_monto_dol = monto_cuota / GlTipoCambioOficial
         rs_aux2!pago_descuento_bs = "0"
-        rs_aux2!pago_total_bs = monto_cuota                         'fw_compras_gral.Ado_detalle2.Recordset("adjudica_monto_bs").Value
-        rs_aux2!pago_total_dol = monto_cuota / GlTipoCambioOficial      'fw_compras_gral.Ado_detalle2.Recordset("adjudica_monto_bs").Value / GlTipoCambioOficial
+        rs_aux2!pago_total_bs = monto_cuota                         'fw_compras_fondos.Ado_detalle2.Recordset("adjudica_monto_bs").Value
+        rs_aux2!pago_total_dol = monto_cuota / GlTipoCambioOficial      'fw_compras_fondos.Ado_detalle2.Recordset("adjudica_monto_bs").Value / GlTipoCambioOficial
     'rs_aux2!pago_nro_cmpbte_factura = txt_Nota.Text
     'rs_aux2!pago_nro_autorizacion = monto_cuota        '
     'rs_aux2!pago_respaldos = monto_cuota / GlTipoCambioOficial
@@ -2679,12 +2679,12 @@ Private Sub CRONO_PAGO()
         rs_aux2!usr_codigo = glusuario
         rs_aux2!fecha_registro = Date
         rs_aux2!hora_registro = Format(Time, "hh:mm:ss")
-        If fw_compras_gral.Ado_detalle2.Recordset!factura = "SI" Then
+        If fw_compras_fondos.Ado_detalle2.Recordset!factura = "SI" Then
             rs_aux2!pago_emite_factura = "S"
         Else
             rs_aux2!pago_emite_factura = "N"
         End If
-        If fw_compras_gral.Ado_detalle1.Recordset!grupo_codigo = "20000" Then
+        If fw_compras_fondos.Ado_detalle1.Recordset!grupo_codigo = "20000" Then
             rs_aux2!bien_o_servicio = "S"
         Else
             rs_aux2!bien_o_servicio = "B"
@@ -3331,12 +3331,12 @@ Private Sub Form_Load()
     rs_clasif5.Open "SELECT * FROM gc_beneficiario WHERE estado_codigo = 'APR' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_clasif5.Recordset = rs_clasif5
 
-    fw_adjudica_gral.Caption = "Adjudicación - " + fw_compras_gral.lbl_titulo
+    fw_adjudica_gral.Caption = "Adjudicación - " + fw_compras_fondos.lbl_titulo
     If parametro <> "COMEX" Then
       Set rs_clasif6 = New ADODB.Recordset
         If rs_clasif6.State = 1 Then rs_clasif6.Close
         'Select Case Glaux
-        rs_clasif6.Open "SELECT * FROM ac_almacenes where beneficiario_codigo = '" & IIf(fw_compras_gral.dtc_codigo11.Text = "", "0", fw_compras_gral.dtc_codigo11.Text) & "' ORDER BY almacen_descripcion ", db, adOpenStatic
+        rs_clasif6.Open "SELECT * FROM ac_almacenes where beneficiario_codigo = '" & IIf(fw_compras_fondos.dtc_codigo11.Text = "", "0", fw_compras_fondos.dtc_codigo11.Text) & "' ORDER BY almacen_descripcion ", db, adOpenStatic
          Set Ado_clasif6.Recordset = rs_clasif6
          'dtc_desc_alm.Enabled = True
          Text2.Visible = False
