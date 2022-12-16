@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_fondos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -32,10 +32,6 @@ Begin VB.Form fw_compras_fondos
       ToolTipText     =   "Cierra la Ventana Activa"
       Top             =   360
       Width           =   1245
-   End
-   Begin VB.Timer Timer1 
-      Left            =   15840
-      Top             =   9960
    End
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
@@ -278,7 +274,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentY        =   529
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   130875393
+         Format          =   96665601
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -319,7 +315,7 @@ Begin VB.Form fw_compras_fondos
       End
       Begin MSDataListLib.DataCombo dtc_codigo4 
          Bindings        =   "fw_compras_fondos.frx":2502
-         DataField       =   "beneficiario_codigo_alm"
+         DataField       =   "beneficiario_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   9000
@@ -375,7 +371,7 @@ Begin VB.Form fw_compras_fondos
       End
       Begin MSDataListLib.DataCombo dtc_desc_ben 
          Bindings        =   "fw_compras_fondos.frx":254D
-         DataField       =   "beneficiario_codigo_alm"
+         DataField       =   "beneficiario_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5280
@@ -1771,8 +1767,8 @@ Begin VB.Form fw_compras_fondos
          EndProperty
          ColumnCount     =   10
          BeginProperty Column00 
-            DataField       =   "doc_numero_alm"
-            Caption         =   "Doc.Alm"
+            DataField       =   "doc_numero"
+            Caption         =   "Nro.Doc."
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2479,10 +2475,10 @@ Begin VB.Form fw_compras_fondos
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   21360
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   12915
-      Width           =   21360
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3580,7 +3576,7 @@ Private Sub BIENES()
 ''     rs_compra_det.AddNew
 ''     rs_compra_det!compra_codigo_det = ao_compra_adjudica_bienes.Ado_detalle1.Recordset.RecordCount + 1
 ''     Else
-''      rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & fw_compras_gral.Ado_datos.Recordset!compra_codigo & " AND compra_codigo_det = " & fw_compras_gral.Ado_detalle1.Recordset!compra_codigo_det & "", db, adOpenKeyset, adLockOptimistic
+''      rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & fw_compras_fondos.Ado_datos.Recordset!compra_codigo & " AND compra_codigo_det = " & fw_compras_fondos.Ado_detalle1.Recordset!compra_codigo_det & "", db, adOpenKeyset, adLockOptimistic
 ''
 ''     End If
     DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
@@ -3660,7 +3656,6 @@ Private Sub BIENES()
 End Sub
 
 Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
-    Timer1.Enabled = False
     If parametro <> "COMEX" Then
         BtnAprobar1.Visible = True
         BtnAprobar3.Visible = True
@@ -3687,7 +3682,6 @@ Private Sub Ado_detalle1A_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
-    Timer1.Enabled = False
     If parametro <> "COMEX" Then
         BtnAprobar1.Visible = True
         BtnAprobar3.Visible = True
@@ -3824,7 +3818,6 @@ End Sub
 
 Private Sub BtnAddDetalle2_Click()
 On Error GoTo UpdateErr
- Timer1.Enabled = False
   If parametro <> "COMEX" Then
     BtnAprobar1.Visible = True
     BtnAprobar3.Visible = True
@@ -3851,6 +3844,8 @@ On Error GoTo UpdateErr
 '    If rs_aux4.State = 1 Then rs_aux4.Close
 '    rs_aux4.Open "select max(adjudica_codigo) as correla from ao_compra_adjudica where compra_codigo = " & Ado_datos.Recordset!compra_codigo & "", db, adOpenKeyset, adLockOptimistic
 '                'Call ABRIR_TABLA_DET
+        VAR_PAIS = Ado_datos.Recordset!beneficiario_codigo_resp
+        
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_fondos.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
         fw_adjudica_fondos.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
@@ -3861,7 +3856,7 @@ On Error GoTo UpdateErr
 '                Else
 '                    fw_adjudica_fondos.lbl_adjudica.Caption = "1"
 '                End If
-        fw_adjudica_fondos.txtSW.Text = "C"
+        fw_adjudica_fondos.txtSW.Text = swnuevo             '"C"
         fw_adjudica_fondos.txt_total_dol = VAR_FOBSEG
         fw_adjudica_fondos.txt_total_bs = VAR_FOBSEG2
         fw_adjudica_fondos.txt_pais.Text = VAR_PAIS
@@ -3960,8 +3955,6 @@ End Sub
 
 Private Sub BtnAddDetalle3_Click()
 On Error GoTo UpdateErr
-
-'Timer1.Enabled = False
 If parametro <> "COMEX" Then
     BtnAprobar1.Visible = True
     BtnAprobar3.Visible = True
@@ -3995,7 +3988,7 @@ If Ado_detalle2.Recordset.RecordCount > 0 Then
 '     rs_compra_det.AddNew
 '     rs_compra_det!compra_codigo_det = ao_compra_adjudica_bienes.Ado_detalle1.Recordset.RecordCount + 1
 '     Else
-'      rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & fw_compras_gral.Ado_datos.Recordset!compra_codigo & " AND compra_codigo_det = " & fw_compras_gral.Ado_detalle1.Recordset!compra_codigo_det & "", db, adOpenKeyset, adLockOptimistic
+'      rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & fw_compras_fondos.Ado_datos.Recordset!compra_codigo & " AND compra_codigo_det = " & fw_compras_fondos.Ado_detalle1.Recordset!compra_codigo_det & "", db, adOpenKeyset, adLockOptimistic
 '
 '     End If
         rs_compra_det.AddNew
@@ -4175,12 +4168,12 @@ Private Sub BtnAprobar_Click()
                    " nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda,     adjudica_monto_dol,                                 fecha_inicio_contrato,                  fecha_fin_contrato,                             fecha_envio_proveedor, " & _
                    " fecha_recibe_almacen, almacen_codigo, poa_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, observaciones,                           nro_autorizacion, codigo_control, nro_dui, " & _
                    " tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc,       credito_fiscal_13,                                  adjudica_monto_bs_87,                                   adjudica_monto_dol_87,                                  tipo_compra, tipo_cambio,           Literal, literal_neto, factura, " & _
-                   " doc_codigo_alm, doc_numero_alm, estado_almacen, estado_codigo, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, nit_empresa, nit_beneficiario, trans_codigo, trans_codigo_fac, beneficiario_codigo_resp )  " & _
+                   " doc_codigo_alm, doc_numero_alm, estado_almacen, estado_codigo, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, nit_empresa, nit_beneficiario, trans_codigo, trans_codigo_fac, beneficiario_codigo_resp, solicitud_tipo )  " & _
         " VALUES ('" & glGestion & "', " & var_cod & ",  '" & VAR_UNI & "', " & VAR_COMPRA & ", '" & Ado_datos.Recordset!compra_fecha & "', '" & Date & "', 'FIN',      'FIN-03',           'FIN-03-02', 'ADM', '" & Ado_datos.Recordset!doc_codigo & "', " & Ado_datos.Recordset!doc_numero & ", " & _
               " '0', '0', '" & Ado_datos.Recordset!compra_DESCRIPCION & "', '1', " & CDbl(Ado_datos.Recordset!compra_monto_bs) & ", 'BOB', " & CDbl(Ado_datos.Recordset!compra_monto_DOL) & ", '" & Ado_datos.Recordset!compra_fecha & "', '" & Ado_datos.Recordset!compra_fecha & "', '" & Ado_datos.Recordset!compra_fecha & "', " & _
               " '" & Date & "',             '15',           '4.2.3',    'ENERO',        '0',                    'MES',              '1',            '1',            '" & Ado_datos.Recordset!compra_DESCRIPCION & "', '0',          '0',            '0', " & _
               " '0',                    '0',            '0', " & Ado_datos.Recordset!compra_monto_bs & ", '0', '0', " & Round(Ado_datos.Recordset!compra_monto_bs * 0.13, 2) & ", " & Round(Ado_datos.Recordset!compra_monto_bs * 0.87, 2) & ", " & Round(Ado_datos.Recordset!compra_monto_DOL * 0.87, 2) & ", '1', " & GlTipoCambioOficial & ", 'Bolivianos', 'Bolivianos', 'NO', " & _
-              " '0', '0', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & glusuario & "', '" & Date & "', '0', '0', '" & Ado_datos.Recordset!trans_codigo_EGR & "', '38', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' ) "
+              " '0', '0', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & glusuario & "', '" & Date & "', '0', '0', '" & Ado_datos.Recordset!trans_codigo_EGR & "', '38', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "', '1' ) "
 
      End If
 
@@ -4295,7 +4288,6 @@ End If
 '        Exit Sub
 '    End If
 '
-'    Timer1.Enabled = False
 '    If parametro <> "COMEX" Then
 '        BtnAprobar1.Visible = True
 '    End If
@@ -4545,7 +4537,6 @@ If parametro <> "COMEX" Then
         Exit Sub
     End If
      
-    Timer1.Enabled = False
     If parametro <> "COMEX" Then
         BtnAprobar1.Visible = True
     End If
@@ -5066,17 +5057,24 @@ Private Sub BtnGrabar_Click()
                 VAR_DOCF = "R-160"
                 CodBien = "FONDO03"
         End Select
+        rs_datos!codigo_empresa = dtc_codigo10.Text
         'CORRELATIVO DEL TIPO DE TRAMITE
         Set rs_aux2 = New ADODB.Recordset
         SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & VAR_DOCF & "'  "
         rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 Then
-            rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-            txt_campo1.Caption = rs_aux2!correl_doc
-            VAR_CODF = rs_aux2!correl_doc
+            If dtc_codigo10.Text = "2" Then
+                rs_aux2!doc_nro_copias = rs_aux2!doc_nro_copias + 1
+                txt_campo1.Caption = rs_aux2!doc_nro_copias
+                VAR_CODF = rs_aux2!doc_nro_copias
+            Else
+                rs_aux2!correl_doc = rs_aux2!correl_doc + 1
+                txt_campo1.Caption = rs_aux2!correl_doc
+                VAR_CODF = rs_aux2!correl_doc
+            End If
             rs_aux2.Update
         End If
-        'db.Execute "UPDATE ao_compra_cabecera SET doc_numero = " & rs_aux7!correl_ing + 1 & " WHERE compra_codigo = " & fw_compras_gral.Ado_detalle2.Recordset!compra_codigo & ""
+        'db.Execute "UPDATE ao_compra_cabecera SET doc_numero = " & rs_aux7!correl_ing + 1 & " WHERE compra_codigo = " & fw_compras_fondos.Ado_detalle2.Recordset!compra_codigo & ""
         rs_datos!doc_codigo = VAR_DOCF
         rs_datos!doc_numero = VAR_CODF
         'rs_datos!venta_tipo = VAR_TIPO_ALM
@@ -5156,7 +5154,6 @@ Private Sub BtnGrabar_Click()
      rs_datos!compra_monto_bs = IIf(lbl_total_bs.Text = "", 0, CDbl(lbl_total_bs.Text))
      rs_datos!compra_monto_DOL = Round(IIf(lbl_total_dol.Text = "", 0, CDbl(lbl_total_dol.Text)), 2)
      rs_datos!tipo_moneda = "BOB"
-     rs_datos!codigo_empresa = dtc_codigo10.Text
 
      rs_datos!usr_codigo_aprueba = ""
      rs_datos!fecha_registro_aprueba = Date
@@ -5423,15 +5420,15 @@ Private Sub BtnModDetalle1_Click()
                 frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.Txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo18.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_codigo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo14.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 
                 'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-                frm_solicitud_bienes_gral.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-                frm_solicitud_bienes_gral.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+                frm_solicitud_bienes_gral.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
                 frm_solicitud_bienes_gral.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
                 
                 frm_solicitud_bienes_gral.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -5511,45 +5508,15 @@ End Sub
 Private Sub BtnModDetalle2_Click()
 On Error GoTo UpdateErr
  If Ado_datos.Recordset.RecordCount > 0 Then
-  Select Case Glaux
-             Case "PROVI"
-             If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-             Case "TRANS"
-             If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-             Case "ADUAN"
-             If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-             Case "DESCA"
-             If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-             Case "CONTR"
-             If Ado_datos.Recordset!estado_codigo <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-             
-             Case Else
-              If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-             MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-             Exit Sub
-             End If
-    End Select
-Timer1.Enabled = False
-BtnAprobar1.Visible = True
-BtnAprobar3.Visible = True
-VAR_SW = "MOD"
-sw_nuevo = "MOD"
-  marca1 = Ado_datos.Recordset.Bookmark
+    If Ado_datos.Recordset!estado_codigo <> "REG" Then          'estado_codigo_eqp
+        MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
+        Exit Sub
+    End If
+    BtnAprobar1.Visible = True
+    BtnAprobar3.Visible = True
+    VAR_SW = "MOD"
+    sw_nuevo = "MOD"
+    marca1 = Ado_datos.Recordset.Bookmark
 '   If rs_det2.RecordCount > 0 Then
 '   Exit Sub
 '   End If
@@ -5572,7 +5539,7 @@ sw_nuevo = "MOD"
         'clasif_codigo, doc_codigo, doc_numero,  adjudica_descripcion, adjudica_cantidad_total,  tipo_moneda,
         '    fecha_recibe_almacen, almacen_codigo, poa_codigo, estado_codigo,
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
-
+            fw_adjudica_fondos.txtSW.Text = swnuevo                 'Me.Ado_datos.Recordset!venta_tipo
             fw_adjudica_fondos.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
             fw_adjudica_fondos.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_fondos.Txt_descripcion.Caption = Me.dtc_desc1.Text
@@ -5596,7 +5563,7 @@ sw_nuevo = "MOD"
             fw_adjudica_fondos.txtCantCuota.Text = IIf(IsNull(Me.Ado_detalle2.Recordset!cantidad_cuotas_pag), "1", Me.Ado_detalle2.Recordset!cantidad_cuotas_pag)
             fw_adjudica_fondos.cmd_unimed2 = IIf(IsNull(Me.Ado_detalle2.Recordset!unimed_codigo_pag), "MES", Me.Ado_detalle2.Recordset!unimed_codigo_pag)
             
-            fw_adjudica_fondos.txtSW.Text = Me.Ado_datos.Recordset!venta_tipo
+            fw_adjudica_fondos.txtSW.Text = swnuevo                 'Me.Ado_datos.Recordset!venta_tipo
             If Me.Ado_detalle2.Recordset("almacen_codigo") <> "NULL" Then
             fw_adjudica_fondos.dtc_desc_alm.BoundText = Me.Ado_detalle2.Recordset("almacen_codigo")
             End If
@@ -5619,7 +5586,7 @@ sw_nuevo = "MOD"
              If Ado_detalle2.Recordset("tipo_moneda") = "BOB" Then
             fw_adjudica_fondos.opt_bs.Value = True
             End If
-            If fw_compras_gral.Ado_detalle2.Recordset("factura") = "NO" Then
+            If fw_compras_fondos.Ado_detalle2.Recordset("factura") = "NO" Then
             fw_adjudica_fondos.opt_no.Value = True
             Else
             fw_adjudica_fondos.opt_si.Value = True
@@ -5710,6 +5677,7 @@ End If
 Exit Sub
 UpdateErr:
   MsgBox Err.Description
+
 End Sub
 
 Private Sub BtnModificar_Click()
@@ -5924,8 +5892,7 @@ Private Sub BtnImprimir3_Click()
         Exit Sub
     End If
     If Ado_detalle2.Recordset!estado_codigo = "ANL" Then       '<>
-       Timer1.Interval = 1000
-       Timer1.Enabled = True
+       
        COUNTER = 0
        sino = MsgBox("El registro NO debe estar ANULADO(ANL) Para Poder Imprimir", vbInformation, "SOFIA")
        Exit Sub
@@ -6667,19 +6634,17 @@ Private Sub Form_Unload(Cancel As Integer)
 End Sub
 
 Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
-Timer1.Enabled = False
 'If parametro <> "COMEX" Then
     BtnAprobar1.Visible = True
     BtnAprobar3.Visible = True
 'End If
   'Esto mostrará la posición de registro actual para este Recordset
   If Ado_datos.Recordset.BOF = False Then
-  If Ado_datos.Recordset.RecordCount > 0 Then
-  
-  If IsNull(DTPfecha1.Value) = True Then
-    DTPfecha1.Value = Ado_datos.Recordset!compra_fecha
-  End If
-  End If
+    If Ado_datos.Recordset.RecordCount > 0 Then
+      If IsNull(DTPfecha1.Value) = True Then
+        DTPfecha1.Value = Ado_datos.Recordset!compra_fecha
+      End If
+    End If
     
   'dtc_codigo11.Text = rs_datos!beneficiario_codigo_resp
     'Ado_datos.Caption = Ado_datos.Recordset.AbsolutePosition & " / " & Ado_datos.Recordset.RecordCount
@@ -6882,21 +6847,6 @@ Private Sub OptFilGral2_Click()
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
 End Sub
-
-'Private Sub Timer1_Timer()
-' If parametro = "COMEX" Then
-'    BtnAprobar1.Visible = IIf(BtnAprobar1.Visible = True, False, True)
-'    BtnAprobar1.Visible = True
-' End If
-' COUNTER = COUNTER + 1
-'If COUNTER = 4 Then
-' If parametro <> "COMEX" Then
-'    BtnAprobar1.Visible = True
-'    BtnAprobar3.Visible = True
-' End If
-' Timer1.Enabled = False
-'End If
-'End Sub
 
 Private Sub Txt_descripcion_KeyPress(KeyAscii As Integer)
     KeyAscii = Asc(UCase(Chr(KeyAscii)))

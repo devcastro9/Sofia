@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   121962497
+         Format          =   114622465
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   121962497
+         Format          =   114622465
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   121962497
+         Format          =   114622465
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   121962497
+         Format          =   114622465
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -2702,6 +2702,12 @@ Private Sub BtnAddDetalle3_Click()
     If IsNull(Ado_detalle1.Recordset!fecha_ini_max) Then
         MsgBox "No se puede Generar el Cronograma, debe Verificar los datos del Contrato y/o consulte con el Administrador del Sistema ...", vbExclamation, "Validación de Registro"
         Exit Sub
+    Else
+        'If Ado_detalle1.Recordset!fecha_ini_max < Format(VAR_FECHAINI, "dd/mm/yyyy") Then
+        If Year(Ado_detalle1.Recordset!fecha_ini_max) < "2022" Then
+            MsgBox "No se puede Generar el Cronograma con Fecha menor a la gestión 2022 y/o consulte con el Administrador del Sistema ...", vbExclamation, "Validación de Registro"
+            Exit Sub
+        End If
     End If
     GlEdificio = Ado_detalle1.Recordset!EDIF_CODIGO
     VAR_FECHAINI = Ado_detalle1.Recordset!fecha_ini_max
@@ -4028,7 +4034,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     'MsgBox rs.RecordCount
 '    Select Case Me.Ado_datos.Recordset!unidad_codigo_tec
 '          Case "DNINS"
-              var_titulo = "Módulo Instalaciones"
+              var_titulo = "CRONOGRAMA DE INSTALACIONES"
 '          Case "DNAJS"
 '              var_titulo = "Módulo Ajustes"
 '          Case "DNMAN", "DMANS", "DMANB", "DMANC"

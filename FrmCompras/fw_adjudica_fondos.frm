@@ -1112,7 +1112,7 @@ Begin VB.Form fw_adjudica_fondos
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   130875393
+            Format          =   115671041
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1129,7 +1129,7 @@ Begin VB.Form fw_adjudica_fondos
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   130875393
+            Format          =   115671041
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1146,7 +1146,7 @@ Begin VB.Form fw_adjudica_fondos
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   130875393
+            Format          =   115671041
             CurrentDate     =   44470
             MinDate         =   32874
          End
@@ -1773,7 +1773,7 @@ Begin VB.Form fw_adjudica_fondos
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   130875393
+         Format          =   115671041
          CurrentDate     =   44466
          MinDate         =   2
       End
@@ -2405,7 +2405,7 @@ If Valida Then
         VAR_SUB = "FIN-03"
         VAR_TAREA = "FIN-03-02"
         VAR_CLASIF = "ADM"
-        VAR_POA = "0"            '   "4.2.3"
+        VAR_POA = "4.2.3"
         
         'fw_compras_fondos.Ado_detalle2.Recordset!solicitud_observaciones = dtc_desc2.Text + " - " + dtc_desc4.Text       ' txt_obs.Text
     Case "DVTA", "DCOMS", "DCOMB", "DCOMC"    ' COMPRA-VENTA BB Y SS - COMERCIAL
@@ -2516,7 +2516,8 @@ If Valida Then
    VAR_COMPRA = fw_compras_fondos.Ado_datos.Recordset!compra_codigo
    FCompra = fw_compras_fondos.Ado_datos.Recordset!compra_fecha
    VAR_BENEF = dtc_codigo5.Text       'fw_compras_fondos.Ado_detalle2.Recordset!beneficiario_codigo
-   VAR_GLOSA = TxtMenu.Text + " - Proveedor: " + RTrim(dtc_desc5.Text)
+   'VAR_GLOSA = TxtMenu.Text + " - Proveedor: " + RTrim(dtc_desc5.Text)
+   VAR_GLOSA = "DESCARGO - Proveedor: " + RTrim(dtc_desc5.Text)
    VAR_CANT = IIf(IsNull(fw_compras_fondos.Ado_datos.Recordset!compra_cantidad_total), 1, fw_compras_fondos.Ado_datos.Recordset!compra_cantidad_total)
    VAR_DET = fw_compras_fondos.Ado_detalle1.Recordset!compra_codigo_det
    
@@ -2542,6 +2543,7 @@ If Valida Then
         Bs87 = Round(CDbl(VAR_CREDFIS) - CDbl(Bs13), 2)
         Dol87 = Round(Bs87 / GlTipoCambioOficial, 2)
    End If
+   
     'VAR_ESFAC = "35"
     '33  COMPRA CON FACTURA
     '34  COMPRA GLOSSING UP (SIN FACTURA)
@@ -2552,18 +2554,37 @@ If Valida Then
     '23  COMPRA COMBUSTIBLE
     '24  COMPRA DUI
 
+    Select Case Aux
+        Case "30"                           'Aux = "30" 'CCD
+            VAR_ESGAS = "47"
+            'VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
+            'CodBien = "FONDO03"
+        Case "29"                           'Aux = "29" 'VIAJES
+            VAR_ESGAS = "46"
+            'VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
+            'CodBien = "FONDO02"
+        Case "28"                           'Aux = "28" 'CAJA CHICA
+            VAR_ESGAS = "45"
+            'VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
+            'CodBien = "FONDO01"
+        Case Else
+            VAR_ESGAS = "47"
+            'VAR_DOCF = "R-160"
+            'CodBien = "FONDO03"
+    End Select
+        
    'If VAR_SW = "NEW" Then
    If swnuevo = 1 Then
         db.Execute "Insert INTO ao_compra_adjudica (ges_gestion, compra_codigo, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, " & _
                    " nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda, adjudica_monto_dol, fecha_inicio_contrato, fecha_fin_contrato, fecha_envio_proveedor, " & _
                    " fecha_recibe_almacen, almacen_codigo, poa_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, observaciones, nro_autorizacion, codigo_control, nro_dui, " & _
                    " tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc, credito_fiscal_13, adjudica_monto_bs_87, adjudica_monto_dol_87, tipo_compra, tipo_cambio, Literal, literal_neto, factura, " & _
-                   " doc_codigo_alm, doc_numero_alm, estado_almacen, estado_codigo, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, nit_empresa, nit_beneficiario, trans_codigo, trans_codigo_fac )  " & _
+                   " doc_codigo_alm, doc_numero_alm, estado_almacen, estado_codigo, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, nit_empresa, nit_beneficiario, trans_codigo, trans_codigo_fac, beneficiario_codigo_resp )  " & _
         " VALUES ('" & glGestion & "', " & VAR_COMPRA & ",  '" & txt_campo1.Text & "', " & Val(txt_codigo.Caption) & ", '" & FCompra & "', '" & txtfecha_compra.Value & "', '" & VAR_PROC & "', '" & VAR_SUB & "', '" & VAR_TAREA & "', '" & VAR_CLASIF & "', '" & VAR_DOC & "', '0', " & _
               " '" & txt_Nota & "', '" & dtc_codigo5.Text & "', '" & VAR_GLOSA & "', " & VAR_CANT & ", " & CDbl(txt_total_bs.Text) & ", '" & VAR_MONEDA & "', " & CDbl(txt_total_dol.Text) & ", '" & txtFecha.Value & "', '" & txtFecha2.Value & "', '" & txtFecha3.Value & "', " & _
               " '" & Date & "', '1', '" & VAR_POA & "', '" & cmb_mes_ini & "', " & txtCantCuota & ", '" & cmd_unimed2 & "', '1', " & Val(VAR_DET) & ", '" & RTrim(dtc_desc5.Text) & "', '" & txt_autorizacion.Text & "', '" & txt_cod_control.Text & "', '" & txt_nro_dui.Text & "', " & _
               " '0', '0', " & CDbl(txt_importe_no_fiscal.Text) & ", " & VAR_SUBTOT & ", " & CDbl(txt_descuentos.Text) & ", " & VAR_CREDFIS & ", " & Bs13 & ", " & Bs87 & ", " & Dol87 & ", '1', " & GlTipoCambioOficial & ", '" & var_literal & "', '" & VAR_LITERALN & "', '" & FAC & "', " & _
-              " '0', '0', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & glusuario & "', '" & Date & "', '" & TxtNIT_CGI.Text & "', '" & dtc_Nit5.Text & "', '" & VAR_ESGAS & "', '" & VAR_ESFAC & "' ) "
+              " '0', '0', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & glusuario & "', '" & Date & "', '" & TxtNIT_CGI.Text & "', '" & dtc_Nit5.Text & "', '" & VAR_ESGAS & "', '" & VAR_ESFAC & "', '" & txt_pais.Text & "' ) "
    Else
         db.Execute "update ao_compra_adjudica set tipo_cambio = " & CDbl(txt_tipo_cambio.Text) & ", nit_empresa='" & TxtNIT_CGI.Text & "', beneficiario_codigo='" & dtc_codigo5.Text & "', adjudica_fecha='" & txtfecha_compra.Value & "', nro_nota_remision='" & txt_Nota.Text & "', nro_autorizacion='" & txt_autorizacion.Text & "', codigo_control='" & IIf(txt_cod_control.Text = "", "0", txt_cod_control.Text) & "', adjudica_monto_bs= " & CDbl(txt_total_bs.Text) & " , " & _
          " adjudica_monto_dol = " & CDbl(txt_total_dol.Text) & ", sub_total = " & CDbl(txtSubTotal.Text) & ", descuento = " & CDbl(txt_descuentos.Text) & ", importe_cred_fisc = " & CDbl(txt_CreditoFiscal.Text) & ", credito_fiscal_13 = " & CDbl(txt_13.Text) & ", adjudica_monto_bs_87=" & CDbl(txt_87.Text) & ", estado_codigo='" & IIf(txtEstado.Text = "", "REG", txtEstado.Text) & "', nit_beneficiario = '" & dtc_Nit5.Text & "', factura = '" & FAC & "', trans_codigo='" & VAR_ESGAS & "',  trans_codigo_fac='" & VAR_ESFAC & "'   " & _
@@ -2578,7 +2599,9 @@ If Valida Then
     Else
         lbl_adjudica.Caption = 1
     End If
-   
+   'doc_numero
+   db.Execute "update ao_compra_adjudica set ao_compra_adjudica.doc_numero = ao_compra_cabecera.doc_numero FROM ao_compra_adjudica INNER JOIN ao_compra_cabecera on ao_compra_adjudica.compra_codigo = ao_compra_cabecera.compra_codigo WHERE ao_compra_adjudica.compra_codigo = " & VAR_COMPRA & " AND ao_compra_adjudica.doc_numero = '0'  "
+         
    Para_Aceptado = "S"
 '   If Val(txt_total_bs.Text) > 0 Then
 '        Call CRONO_PAGO
@@ -3155,7 +3178,17 @@ Private Sub CmdCalcula_Click()
         Bs87 = Round(CDbl(VAR_CREDFIS) - CDbl(Bs13), 2)
         Dol87 = Round(Bs87 / GlTipoCambioOficial, 2)
    Else
-        VAR_ESGAS = "22"
+        'VAR_ESGAS = "22"
+        Select Case Aux
+            Case "30"                           'Aux = "30" 'CCD
+                VAR_ESGAS = "47"
+            Case "29"                           'Aux = "29" 'VIAJES
+                VAR_ESGAS = "46"
+            Case "28"                           'Aux = "28" 'CAJA CHICA
+                VAR_ESGAS = "45"
+            Case Else
+                VAR_ESGAS = "47"
+        End Select
         '22      COMPRA REGULAR
         Select Case VAR_ESFAC
             Case "33"
@@ -3282,7 +3315,7 @@ Private Sub Form_Activate()
     'BS = txt_total_bs.Text
     'VAR_ESFAC = "35"
     'VAR_ESGAS = "22"
-
+    swnuevo = txtSW.Text
     ES_QR = "NO"
     If parametro = "COMEX" Then
         opt_usd.Value = True
@@ -3290,6 +3323,7 @@ Private Sub Form_Activate()
 End Sub
 
 Private Sub Form_Load()
+    '
     If GlSW = "NEW" Then
         VAR_ESFAC = "35"
         '33  COMPRA CON FACTURA
