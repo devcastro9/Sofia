@@ -15,8 +15,8 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10935
+   ScaleWidth      =   13950
    WindowState     =   2  'Maximized
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
@@ -416,7 +416,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   118882307
+         Format          =   109838339
          CurrentDate     =   44914
          MaxDate         =   55153
          MinDate         =   32874
@@ -5705,10 +5705,6 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
    End If
 End Sub
 
-Private Sub BtnAñadir_Click()
-
-End Sub
-
 Private Sub BtnAprobar_Click()
 '   On Error GoTo UpdateErr
 '   If rs_datos!estado_codigo_verif = "APR" And Val(Ado_datos.Recordset!trafico_num_paradas) > 0 Then
@@ -7699,90 +7695,94 @@ Private Sub BtnSalir_Click()
 End Sub
 
 Private Sub BtnVer_Click()
-  If dtc_aux41.Text <> "" Then
-    'ARREGLO 1
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc11 = dtc_aux41.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc21 = dtc_aux51.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc31 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida), 0, Ado_datos.Recordset!c_time_entrada_salida)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod11 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables), 0, Ado_datos.Recordset!d_num_paradas_probables)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe11 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido), 0, Ado_datos.Recordset!e_tiempo_recorrido)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe21 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe31 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe41 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida), 0, Ado_datos.Recordset!e_tiempo_entrada_salida)
+    GlUnidad = Ado_datos.Recordset!unidad_codigo
+    GlSolicitud = Ado_datos.Recordset!solicitud_codigo
+    mw_solicitud_calculo_trafico_mod_DET.Show
     
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof11 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido), 0, Ado_datos.Recordset!f_tiempo_recorrido)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof21 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion), 0, Ado_datos.Recordset!f_time_asc_desaceleracion)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof31 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre), 0, Ado_datos.Recordset!f_time_apertura_cierre)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof41 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida), 0, Ado_datos.Recordset!f_time_entrada_salida)
-    
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog11 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog21 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo), 0, Ado_datos.Recordset!g_capacidad_total_arreglo)
-    
-    'ARREGLO 2
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc12 = dtc_aux42.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc22 = dtc_aux52.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc32 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida2), 0, Ado_datos.Recordset!c_time_entrada_salida2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod12 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables2), 0, Ado_datos.Recordset!d_num_paradas_probables2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe12 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido2), 0, Ado_datos.Recordset!e_tiempo_recorrido2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe22 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion2), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe32 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre2), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe42 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida2), 0, Ado_datos.Recordset!e_tiempo_entrada_salida2)
-            
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof12 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido2), 0, Ado_datos.Recordset!f_tiempo_recorrido2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof22 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion2), 0, Ado_datos.Recordset!f_time_asc_desaceleracion2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof32 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre2), 0, Ado_datos.Recordset!f_time_apertura_cierre2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof42 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida2), 0, Ado_datos.Recordset!f_time_entrada_salida2)
-    
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog12 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti2), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti2)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog22 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo2), 0, Ado_datos.Recordset!g_capacidad_total_arreglo2)
-    
-    'ARREGLO 3
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc13 = dtc_aux43.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc23 = dtc_aux53.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc33 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida3), 0, Ado_datos.Recordset!c_time_entrada_salida3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod13 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables3), 0, Ado_datos.Recordset!d_num_paradas_probables3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe13 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido3), 0, Ado_datos.Recordset!e_tiempo_recorrido3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe23 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion3), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe33 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre3), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe43 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida3), 0, Ado_datos.Recordset!e_tiempo_entrada_salida3)
-        
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof13 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido3), 0, Ado_datos.Recordset!f_tiempo_recorrido3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof23 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion3), 0, Ado_datos.Recordset!f_time_asc_desaceleracion3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof33 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre3), 0, Ado_datos.Recordset!f_time_apertura_cierre3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof43 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida3), 0, Ado_datos.Recordset!f_time_entrada_salida3)
-    
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog13 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti3), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti3)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog23 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo3), 0, Ado_datos.Recordset!g_capacidad_total_arreglo3)
-    
-    'ARREGLO 4
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc14 = dtc_aux44.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc24 = dtc_aux54.Text
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc34 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida4), 0, Ado_datos.Recordset!c_time_entrada_salida4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod14 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables4), 0, Ado_datos.Recordset!d_num_paradas_probables4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe14 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido4), 0, Ado_datos.Recordset!e_tiempo_recorrido4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe24 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion4), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe34 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre4), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe44 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida4), 0, Ado_datos.Recordset!e_tiempo_entrada_salida4)
-    
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof14 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido4), 0, Ado_datos.Recordset!f_tiempo_recorrido4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof24 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion4), 0, Ado_datos.Recordset!f_time_asc_desaceleracion4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof34 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre4), 0, Ado_datos.Recordset!f_time_apertura_cierre4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof44 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida4), 0, Ado_datos.Recordset!f_time_entrada_salida4)
-
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog14 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti4), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti4)
-    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog24 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo4), 0, Ado_datos.Recordset!g_capacidad_total_arreglo4)
-    
-    aw_p_ao_solicitud_calculo_trafico_det.Show vbModal
-    'parametro = txt_campo1.Text
-  Else
-    MsgBox "No existen dados calculados, verifique el registro de ... " + Label19.Caption
-  End If
-  Call ABRIR_TABLAS_AUX
-'    If Ado_datos.Recordset!estado_codigo = "REG" Then
-'        Call OptFilGral1_Click
-'    Else
-'        Call OptFilGral2_Click
-'    End If
+'  If dtc_aux41.Text <> "" Then
+'    'ARREGLO 1
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc11 = dtc_aux41.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc21 = dtc_aux51.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc31 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida), 0, Ado_datos.Recordset!c_time_entrada_salida)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod11 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables), 0, Ado_datos.Recordset!d_num_paradas_probables)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe11 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido), 0, Ado_datos.Recordset!e_tiempo_recorrido)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe21 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe31 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe41 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida), 0, Ado_datos.Recordset!e_tiempo_entrada_salida)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof11 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido), 0, Ado_datos.Recordset!f_tiempo_recorrido)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof21 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion), 0, Ado_datos.Recordset!f_time_asc_desaceleracion)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof31 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre), 0, Ado_datos.Recordset!f_time_apertura_cierre)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof41 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida), 0, Ado_datos.Recordset!f_time_entrada_salida)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog11 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog21 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo), 0, Ado_datos.Recordset!g_capacidad_total_arreglo)
+'
+'    'ARREGLO 2
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc12 = dtc_aux42.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc22 = dtc_aux52.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc32 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida2), 0, Ado_datos.Recordset!c_time_entrada_salida2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod12 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables2), 0, Ado_datos.Recordset!d_num_paradas_probables2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe12 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido2), 0, Ado_datos.Recordset!e_tiempo_recorrido2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe22 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion2), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe32 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre2), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe42 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida2), 0, Ado_datos.Recordset!e_tiempo_entrada_salida2)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof12 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido2), 0, Ado_datos.Recordset!f_tiempo_recorrido2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof22 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion2), 0, Ado_datos.Recordset!f_time_asc_desaceleracion2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof32 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre2), 0, Ado_datos.Recordset!f_time_apertura_cierre2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof42 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida2), 0, Ado_datos.Recordset!f_time_entrada_salida2)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog12 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti2), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti2)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog22 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo2), 0, Ado_datos.Recordset!g_capacidad_total_arreglo2)
+'
+'    'ARREGLO 3
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc13 = dtc_aux43.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc23 = dtc_aux53.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc33 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida3), 0, Ado_datos.Recordset!c_time_entrada_salida3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod13 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables3), 0, Ado_datos.Recordset!d_num_paradas_probables3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe13 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido3), 0, Ado_datos.Recordset!e_tiempo_recorrido3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe23 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion3), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe33 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre3), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe43 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida3), 0, Ado_datos.Recordset!e_tiempo_entrada_salida3)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof13 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido3), 0, Ado_datos.Recordset!f_tiempo_recorrido3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof23 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion3), 0, Ado_datos.Recordset!f_time_asc_desaceleracion3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof33 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre3), 0, Ado_datos.Recordset!f_time_apertura_cierre3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof43 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida3), 0, Ado_datos.Recordset!f_time_entrada_salida3)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog13 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti3), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti3)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog23 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo3), 0, Ado_datos.Recordset!g_capacidad_total_arreglo3)
+'
+'    'ARREGLO 4
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc14 = dtc_aux44.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc24 = dtc_aux54.Text
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc34 = IIf(IsNull(Ado_datos.Recordset!c_time_entrada_salida4), 0, Ado_datos.Recordset!c_time_entrada_salida4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod14 = IIf(IsNull(Ado_datos.Recordset!d_num_paradas_probables4), 0, Ado_datos.Recordset!d_num_paradas_probables4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe14 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_recorrido4), 0, Ado_datos.Recordset!e_tiempo_recorrido4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe24 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_asc_desaceleracion4), 0, Ado_datos.Recordset!e_tiempo_asc_desaceleracion4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe34 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_apertura_cierre4), 0, Ado_datos.Recordset!e_tiempo_apertura_cierre4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe44 = IIf(IsNull(Ado_datos.Recordset!e_tiempo_entrada_salida4), 0, Ado_datos.Recordset!e_tiempo_entrada_salida4)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof14 = IIf(IsNull(Ado_datos.Recordset!f_tiempo_recorrido4), 0, Ado_datos.Recordset!f_tiempo_recorrido4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof24 = IIf(IsNull(Ado_datos.Recordset!f_time_asc_desaceleracion4), 0, Ado_datos.Recordset!f_time_asc_desaceleracion4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof34 = IIf(IsNull(Ado_datos.Recordset!f_time_apertura_cierre4), 0, Ado_datos.Recordset!f_time_apertura_cierre4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof44 = IIf(IsNull(Ado_datos.Recordset!f_time_entrada_salida4), 0, Ado_datos.Recordset!f_time_entrada_salida4)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog14 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_tiempo_cti4), 0, Ado_datos.Recordset!g_capacidad_tiempo_cti4)
+'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog24 = IIf(IsNull(Ado_datos.Recordset!g_capacidad_total_arreglo4), 0, Ado_datos.Recordset!g_capacidad_total_arreglo4)
+'
+'    aw_p_ao_solicitud_calculo_trafico_det.Show vbModal
+'    'parametro = txt_campo1.Text
+'  Else
+'    MsgBox "No existen dados calculados, verifique el registro de ... " + Label19.Caption
+'  End If
+'  Call ABRIR_TABLAS_AUX
+''    If Ado_datos.Recordset!estado_codigo = "REG" Then
+''        Call OptFilGral1_Click
+''    Else
+''        Call OptFilGral2_Click
+''    End If
 End Sub
 
 Private Sub dtc_aux31_Click(Area As Integer)
