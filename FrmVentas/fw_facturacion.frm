@@ -1458,16 +1458,16 @@ Begin VB.Form fw_facturacion
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   975.118
+               ColumnWidth     =   975,118
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
@@ -1481,17 +1481,17 @@ Begin VB.Form fw_facturacion
             BeginProperty Column06 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   854.929
+               ColumnWidth     =   854,929
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   3750.236
+               ColumnWidth     =   3750,236
             EndProperty
             BeginProperty Column08 
-               ColumnWidth     =   6570.142
+               ColumnWidth     =   6570,142
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   705.26
+               ColumnWidth     =   705,26
             EndProperty
             BeginProperty Column10 
                Alignment       =   2
@@ -1768,7 +1768,7 @@ Begin VB.Form fw_facturacion
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   794.835
+               ColumnWidth     =   794,835
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
@@ -1776,12 +1776,12 @@ Begin VB.Form fw_facturacion
                Object.Visible         =   -1  'True
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   794.835
+               ColumnWidth     =   794,835
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
@@ -1795,7 +1795,7 @@ Begin VB.Form fw_facturacion
             BeginProperty Column06 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
@@ -1803,12 +1803,12 @@ Begin VB.Form fw_facturacion
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   659.906
+               ColumnWidth     =   659,906
             EndProperty
             BeginProperty Column09 
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   3764.977
+               ColumnWidth     =   3764,977
             EndProperty
             BeginProperty Column11 
                Alignment       =   1
@@ -1823,7 +1823,7 @@ Begin VB.Form fw_facturacion
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column14 
-               ColumnWidth     =   1980.284
+               ColumnWidth     =   1980,284
             EndProperty
             BeginProperty Column15 
             EndProperty
@@ -2688,32 +2688,32 @@ Begin VB.Form fw_facturacion
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   975.118
+               ColumnWidth     =   975,118
             EndProperty
             BeginProperty Column01 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   734.74
+               ColumnWidth     =   734,74
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   3284.788
+               ColumnWidth     =   3284,788
             EndProperty
             BeginProperty Column03 
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1005.165
+               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   2234.835
+               ColumnWidth     =   2234,835
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   780.095
+               ColumnWidth     =   780,095
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   1035.213
+               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column08 
-               ColumnWidth     =   2129.953
+               ColumnWidth     =   2129,953
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   -1  'True
@@ -2932,24 +2932,24 @@ Begin VB.Form fw_facturacion
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1409.953
+               ColumnWidth     =   1409,953
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
                ColumnWidth     =   5400
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   780.095
+               ColumnWidth     =   780,095
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1110,047
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1035.213
+               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
@@ -2959,7 +2959,7 @@ Begin VB.Form fw_facturacion
                Locked          =   -1  'True
             EndProperty
             BeginProperty Column08 
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column09 
                ColumnWidth     =   720
@@ -4626,7 +4626,7 @@ Private Sub BtnEliminar_Click()
                 " VALUES ('" & VAR_IDFAC & "',  'N',            'REG',   '" & glusuario & "', '" & CDate(Date) & "' ) "
         Else
             db.Execute "update ao_ventas_cobranza set estado_codigo_fac = 'ANL', estado_codigo = 'ANL', estado_codigo_bco1 = 'ANL', estado_codigo_bco = 'ANL', estado_codigo_anl = 'APR'  Where venta_codigo = " & NumComp & "  and venta_codigo_new = " & VAR_ID & "  "
-            db.Execute "UPDATE ao_ventas_cobranza_fac SET estado_codigo_fac = 'ANL', estado_codigo = 'ANL', estado_fac = 'ANL'  WHERE IdFactura = " & VAR_ID & "  "
+            db.Execute "UPDATE ao_ventas_cobranza_fac SET fecha_anula = GETDATE(), estado_codigo_fac = 'ANL', estado_codigo = 'ANL', estado_fac = 'ANL', usr_codigo_anl = '" & glusuario & "'  WHERE IdFactura = " & VAR_ID & "  "
         End If
 '          db.Execute "update ao_ventas_cobranza set cobranza_nro_factura_anl = '" & Ado_datos.Recordset!cobranza_nro_factura & "' Where venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  and cobranza_codigo = " & Ado_datos.Recordset!cobranza_codigo & "  "
 '          db.Execute "update ao_ventas_cobranza set cobranza_fecha_anl = '" & Format(Date, "dd/mm/yyyy") & "' Where venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  and cobranza_codigo = " & Ado_datos.Recordset!cobranza_codigo & "  "
