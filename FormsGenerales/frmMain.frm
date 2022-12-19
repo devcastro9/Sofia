@@ -729,18 +729,15 @@ Begin VB.MDIForm frmMain
       Caption         =   "COMERCIAL"
       Begin VB.Menu MnuClasificadoresAdministrativos 
          Caption         =   "CLASIFICADORES ADMINISTRATIVOS"
+         Begin VB.Menu Mnu_EdificiosInstalacion 
+            Caption         =   "ORGANIZACION EDIFICIOS EN INSTALACION"
+         End
          Begin VB.Menu Mnu_ModalidadesContratacion 
             Caption         =   "MODALIDADES DE CONTRATACION"
             Visible         =   0   'False
          End
-         Begin VB.Menu Mnu_EdificiosInstalacion 
-            Caption         =   "ORGANIZACION EDIFICIOS EN INSTALACION"
-         End
-         Begin VB.Menu DivA01 
-            Caption         =   "-"
-         End
-         Begin VB.Menu MnuUnidadesMedida 
-            Caption         =   "UNIDADES DE MEDIDA"
+         Begin VB.Menu Mnu_TareasCronoInstalacion 
+            Caption         =   "TAREAS CRONOGRAMA INSTALACION"
          End
          Begin VB.Menu DivA02 
             Caption         =   "-"
@@ -759,6 +756,9 @@ Begin VB.MDIForm frmMain
          End
          Begin VB.Menu MnuBienesServicios 
             Caption         =   "BIENES Y SERVICIOS"
+         End
+         Begin VB.Menu MnuUnidadesMedida 
+            Caption         =   "UNIDADES DE MEDIDA"
          End
          Begin VB.Menu DivA04 
             Caption         =   "-"
@@ -2588,19 +2588,12 @@ Private Sub Mnu_solicitudRepuestos_Click()
     frm_ao_requerimiento_compra.Show
 End Sub
 
-'Private Sub Mnu_TipoEquipos_Click()
-'    aw_p_ac_bienes_equipo_tipos.lbl_titulo = Mnu_TipoEquipos.Caption
-'    aw_p_ac_bienes_equipo_tipos.FraNavega = Mnu_TipoEquipos.Caption
-'    aw_p_ac_bienes_equipo_tipos.lbl_titulo2 = Mnu_TipoEquipos.Caption
-'    aw_p_ac_bienes_equipo_tipos.Show
-'End Sub
-
-'Private Sub Mnu_TipoPuertaPiso_Click()
-'    aw_p_ac_bienes_equipo_tipo_puerta_piso.lbl_titulo = Mnu_TipoPuertaPiso.Caption
-'    aw_p_ac_bienes_equipo_tipo_puerta_piso.FraNavega = Mnu_TipoPuertaPiso.Caption
-'    aw_p_ac_bienes_equipo_tipo_puerta_piso.lbl_titulo2 = Mnu_TipoPuertaPiso.Caption
-'    aw_p_ac_bienes_equipo_tipo_puerta_piso.Show
-'End Sub
+Private Sub Mnu_TareasCronoInstalacion_Click()
+    tw_tareas_crono_instalacion.lbl_titulo = Mnu_TareasCronoInstalacion.Caption
+    tw_tareas_crono_instalacion.FraNavega = Mnu_TareasCronoInstalacion.Caption
+    tw_tareas_crono_instalacion.lbl_titulo2 = Mnu_TareasCronoInstalacion.Caption
+    tw_tareas_crono_instalacion.Show
+End Sub
 
 Private Sub Mnu_TiposImpuestos_Click()
     frm_gc_impuestos.lbl_titulo = Mnu_TiposImpuestos.Caption
@@ -2962,19 +2955,18 @@ Private Sub MDIForm_Load()
    Me.Top = GetSetting(App.Title, "Settings", "MainTop", 1000)
    Me.Width = GetSetting(App.Title, "Settings", "MainWidth", 6500)
    Me.Height = GetSetting(App.Title, "Settings", "MainHeight", 6500)
-   
+
    With sbStatusBar
 '    'Agregamos el Panel1 y mostramos la hora con sbrTime (propiedad style)
 '    .Panels.Add , "Hora", , sbrTime
     ''Agregamos el Panel2 y mostramos la Fecha con sbrdate (propiedad style)
     '.Panels.Add , "Fecha", , sbrDate
-    '
 '    'Agregamos el Panel3 y mostramos un texto cualquiera con una imagen
 '    .Panels.Add , "Impresion", "Imprimiendo trabajo.....", sbrText, LoadPicture(App.Path & "\imagen1.ico")
-    
 '    .Panels.Add , "BD", GlBaseDatos     '"ADMIN_EMPRESA"
 '    .Panels.Add , "Usuario", glusuario
    End With
+
    txtUsuarioGl.Caption = glusuario
    txtBDGl.Caption = GlBaseDatos
    txtFechaGl.Caption = Format(Date, "dd/mm/yyyy")

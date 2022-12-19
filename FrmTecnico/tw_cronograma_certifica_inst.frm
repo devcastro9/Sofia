@@ -15,8 +15,8 @@ Begin VB.Form tw_cronograma_certifica_inst
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   115802115
+         Format          =   110624771
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -227,7 +227,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   115802115
+         Format          =   110624771
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -1128,12 +1128,12 @@ Begin VB.Form tw_cronograma_certifica_inst
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   2760
+         Left            =   2640
          Picture         =   "tw_cronograma_certifica_inst.frx":270E
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   90
-         Top             =   0
+         Top             =   20
          Width           =   1430
       End
       Begin VB.PictureBox BtnImprimir2 
@@ -1143,7 +1143,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   9360
-         Picture         =   "tw_cronograma_certifica_inst.frx":3023
+         Picture         =   "tw_cronograma_certifica_inst.frx":3403
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   80
@@ -1158,7 +1158,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   10680
-         Picture         =   "tw_cronograma_certifica_inst.frx":38F0
+         Picture         =   "tw_cronograma_certifica_inst.frx":3CD0
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   79
@@ -1174,7 +1174,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6720
-         Picture         =   "tw_cronograma_certifica_inst.frx":41BD
+         Picture         =   "tw_cronograma_certifica_inst.frx":459D
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   78
@@ -1190,7 +1190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8040
-         Picture         =   "tw_cronograma_certifica_inst.frx":4A8A
+         Picture         =   "tw_cronograma_certifica_inst.frx":4E6A
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   77
@@ -1205,7 +1205,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17760
-         Picture         =   "tw_cronograma_certifica_inst.frx":5357
+         Picture         =   "tw_cronograma_certifica_inst.frx":5737
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   76
@@ -1220,7 +1220,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "tw_cronograma_certifica_inst.frx":5B19
+         Picture         =   "tw_cronograma_certifica_inst.frx":5EF9
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   75
@@ -1234,7 +1234,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5400
-         Picture         =   "tw_cronograma_certifica_inst.frx":642E
+         Picture         =   "tw_cronograma_certifica_inst.frx":680E
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   43
@@ -1249,7 +1249,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   4080
-         Picture         =   "tw_cronograma_certifica_inst.frx":6CFB
+         Picture         =   "tw_cronograma_certifica_inst.frx":70DB
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   42
@@ -1263,7 +1263,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7320
-         Picture         =   "tw_cronograma_certifica_inst.frx":74B0
+         Picture         =   "tw_cronograma_certifica_inst.frx":7890
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   41
@@ -1276,7 +1276,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          Caption         =   "Digitaliza"
          Height          =   600
          Left            =   10440
-         Picture         =   "tw_cronograma_certifica_inst.frx":7CE3
+         Picture         =   "tw_cronograma_certifica_inst.frx":80C3
          Style           =   1  'Graphical
          TabIndex        =   37
          ToolTipText     =   "Guarda en Archivo Digital"
@@ -1288,7 +1288,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          BackColor       =   &H00808080&
          Height          =   600
          Left            =   9000
-         Picture         =   "tw_cronograma_certifica_inst.frx":8125
+         Picture         =   "tw_cronograma_certifica_inst.frx":8505
          Style           =   1  'Graphical
          TabIndex        =   36
          Top             =   0
@@ -1339,7 +1339,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "tw_cronograma_certifica_inst.frx":832F
+         Picture         =   "tw_cronograma_certifica_inst.frx":870F
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   40
@@ -1353,7 +1353,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "tw_cronograma_certifica_inst.frx":8B05
+         Picture         =   "tw_cronograma_certifica_inst.frx":8EE5
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   39
@@ -1411,7 +1411,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          Visible         =   0   'False
          Width           =   19140
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "tw_cronograma_certifica_inst.frx":93F1
+            Bindings        =   "tw_cronograma_certifica_inst.frx":97D1
             Height          =   315
             Left            =   3480
             TabIndex        =   70
@@ -1426,7 +1426,7 @@ Begin VB.Form tw_cronograma_certifica_inst
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "tw_cronograma_certifica_inst.frx":940C
+            Bindings        =   "tw_cronograma_certifica_inst.frx":97EC
             Height          =   315
             Left            =   8520
             TabIndex        =   71
@@ -1468,7 +1468,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          End
       End
       Begin MSDataGridLib.DataGrid dg_det2 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":9427
+         Bindings        =   "tw_cronograma_certifica_inst.frx":9807
          Height          =   7815
          Left            =   75
          TabIndex        =   32
@@ -2361,7 +2361,7 @@ Begin VB.Form tw_cronograma_certifica_inst
       WindowLeft      =   10
       WindowTop       =   10
       WindowWidth     =   600
-      WindowHeight    =   900
+      WindowHeight    =   850
       WindowControlBox=   -1  'True
       WindowMaxButton =   -1  'True
       WindowMinButton =   -1  'True
@@ -2380,7 +2380,7 @@ Begin VB.Form tw_cronograma_certifica_inst
       WindowLeft      =   600
       WindowTop       =   10
       WindowWidth     =   600
-      WindowHeight    =   900
+      WindowHeight    =   850
       WindowControlBox=   -1  'True
       WindowMaxButton =   -1  'True
       WindowMinButton =   -1  'True
@@ -2429,7 +2429,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          Width           =   255
       End
       Begin MSDataListLib.DataCombo dtc_codigo4 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":9442
+         Bindings        =   "tw_cronograma_certifica_inst.frx":9822
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2491,7 +2491,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   26
-         Text            =   "tw_cronograma_certifica_inst.frx":945B
+         Text            =   "tw_cronograma_certifica_inst.frx":983B
          Top             =   4080
          Visible         =   0   'False
          Width           =   1200
@@ -2579,7 +2579,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          Width           =   855
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":945D
+         Bindings        =   "tw_cronograma_certifica_inst.frx":983D
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2598,7 +2598,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":9476
+         Bindings        =   "tw_cronograma_certifica_inst.frx":9856
          DataField       =   "unidad_codigo_tec"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2618,7 +2618,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":948F
+         Bindings        =   "tw_cronograma_certifica_inst.frx":986F
          DataField       =   "unidad_codigo_tec"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2677,13 +2677,13 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   115802115
+         Format          =   110624771
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":94A8
+         Bindings        =   "tw_cronograma_certifica_inst.frx":9888
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2712,7 +2712,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc4 
-         Bindings        =   "tw_cronograma_certifica_inst.frx":94C1
+         Bindings        =   "tw_cronograma_certifica_inst.frx":98A1
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -3174,6 +3174,7 @@ Dim var_cod, VAR_GES As String
 Dim VAR_VAL, VAR_ARCH, VAR_ARCH2 As String
 Dim VAR_SW, VAR_TIT, VAR_ANL As String
 Dim VAR_DA, VAR_UORIGEN, VAR_DPTOC As String
+Dim VAR_EQP As String
 
 Dim VAR_AUX, VAR_CONT2 As Double
 
@@ -3291,7 +3292,7 @@ Private Sub BtnCancelarDet_Click()
 End Sub
 
 Private Sub BtnGraba3_Click()
-    db.Execute "update to_cronograma_diario_final_INST set fecha_equipo_hdm = '" & DTPEjecucionIni.Value & "' where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and IdTareaInst = " & Ado_detalle2.Recordset!IdTareaInst & "  "
+    db.Execute "update to_cronograma_diario_final_INST set fecha_equipo_hdm = '" & DTPEjecucionIni.Value & "', fecha_carta = '" & DTPEjecucion.Value & "' where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and IdTareaInst = " & Ado_detalle2.Recordset!IdTareaInst & "  "
     db.Execute "update to_cronograma_diario_final_INST set fecha_conformidad = '" & DTPEjecucion.Value & "', doc_numero = " & txt_cm.Text & ", observaciones = '" & txt_obs.Text & "', carta = '" & Cmb_carta.Text & "', doc_numero_carta = '" & txt_correl_carta.Text & "'  where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and IdTareaInst = " & Ado_detalle2.Recordset!IdTareaInst & "  "
     db.Execute "update to_cronograma_diario_final_INST set estado_activo = 'APR'  where fmes_plan = " & Ado_detalle2.Recordset!fmes_plan & " and bien_codigo = '" & Ado_detalle2.Recordset!bien_codigo & "' and IdTareaInst = " & Ado_detalle2.Recordset!IdTareaInst & "  "
     db.Execute "update tc_zona_piloto_edif_inst set estado_activo = 'APR'  where correlativo = " & Ado_detalle2.Recordset!fmes_plan & " "
@@ -3514,27 +3515,36 @@ End Sub
 
 Private Sub BtnImprimir2_Click()
     If Ado_detalle2.Recordset.RecordCount > 0 Then
+        db.Execute " UPDATE to_cronograma_diario_final_INST SET to_cronograma_diario_final_INST.edif_descripcion = gc_edificaciones.edif_descripcion FROM to_cronograma_diario_final_INST INNER JOIN gc_edificaciones ON to_cronograma_diario_final_INST.edif_codigo = gc_edificaciones.edif_codigo where to_cronograma_diario_final_INST.edif_descripcion Is Null "
+        db.Execute " UPDATE to_cronograma_diario_final_INST SET fecha_carta = fecha_conformidad where fecha_carta Is Null "
+        VAR_EQP = Ado_detalle2.Recordset!bien_codigo
         Dim iResult As Integer
         'Dim co As New ADODB.Command
         'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA.rpt"
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos.rpt"
+        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos.rpt"
+        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_NEW.rpt"
         CR02.WindowShowPrintSetupBtn = True
         CR02.WindowShowRefreshBtn = True
         CR02.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR02.StoredProcParam(1) = Ado_detalle2.Recordset!IdTareaInst
-        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
+        CR02.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
+        CR02.StoredProcParam(3) = VAR_EQP
+        'CR02.Formulas(0) = "equipo = '" & VAR_EQP & "' "
         iResult = CR02.PrintReport
         If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
         CR02.WindowState = crptMaximized
         
         
-        'CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA2.rpt"
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos2.rpt"
+        'CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos_PRUEBA2.rpt"       '
+        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos2.rpt"
+        CR03.ReportFileName = App.Path & "\Reportes\tecnico\tr_acta_entrega_equipos2_NEW.rpt"
         CR03.WindowShowPrintSetupBtn = True
         CR03.WindowShowRefreshBtn = True
         CR03.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
         CR03.StoredProcParam(1) = Ado_detalle2.Recordset!IdTareaInst
-        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!EDIF_CODIGO
+        CR03.StoredProcParam(2) = Ado_detalle2.Recordset!edif_codigo
+        CR03.StoredProcParam(3) = VAR_EQP
+        'CR02.Formulas(0) = "equipo = '" & VAR_EQP & "' "
         iResult = CR03.PrintReport
         If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
         CR03.WindowState = crptMaximized

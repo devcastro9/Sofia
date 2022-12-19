@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   118423553
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   118423553
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   118423553
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   118423553
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -2709,7 +2709,7 @@ Private Sub BtnAddDetalle3_Click()
             Exit Sub
         End If
     End If
-    GlEdificio = Ado_detalle1.Recordset!EDIF_CODIGO
+    GlEdificio = Ado_detalle1.Recordset!edif_codigo
     VAR_FECHAINI = Ado_detalle1.Recordset!fecha_ini_max
     VAR_PLANID = Ado_detalle1.Recordset!fmes_plan                 'Ado_detalle1.Recordset!correlativo
     VAR_BENINST = Ado_detalle1.Recordset!beneficiario_codigo        'RESPONSABLE INSTALACION

@@ -187,7 +187,7 @@ Begin VB.Form fw_facturacion
       Height          =   5700
       Left            =   2640
       TabIndex        =   13
-      Top             =   480
+      Top             =   3720
       Width           =   12015
       Begin VB.TextBox TxtAutorizacion 
          Alignment       =   2  'Center
@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   274595841
+         Format          =   118358017
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -4249,7 +4249,7 @@ Private Sub Ado_datos1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -4609,7 +4609,7 @@ Private Sub BtnEliminar_Click()
                 " VALUES ('" & glGestion & "',  " & NumComp & ", '" & Ado_datos1.Recordset!doc_codigo_fac & "', '" & Ado_datos1.Recordset!beneficiario_codigo_fac & "', '" & Ado_datos1.Recordset!beneficiario_nit & "', '" & Ado_datos1.Recordset!glosa_Descripcion & "', '" & Ado_datos1.Recordset!beneficiario_RazonSocial & "',  '0', " & Ado_datos1.Recordset!total_bs & ",  " & Ado_datos1.Recordset!total_dol & ",  " & Ado_datos1.Recordset!cambio_oficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos1.Recordset!Importe_Base_Debito_Fiscal & ", " & Ado_datos1.Recordset!factura_87_bs & ", " & Ado_datos1.Recordset!factura_87_dol & ", " & Ado_datos1.Recordset!debito_fiscal_13_bs & ", " & Ado_datos1.Recordset!debito_fiscal_13_dol & ", '" & Ado_datos1.Recordset!Literal & "',  " & _
                         " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos1.Recordset!edif_codigo_corto & ", '" & Ado_datos1.Recordset!EDIF_CODIGO & "', " & Ado_datos1.Recordset!codigo_empresa & "  ) "
+                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos1.Recordset!edif_codigo_corto & ", '" & Ado_datos1.Recordset!edif_codigo & "', " & Ado_datos1.Recordset!codigo_empresa & "  ) "
 
           ' Actualiza IDFACTURA al DETALLE
           Set rs_aux10 = New ADODB.Recordset
@@ -5073,7 +5073,7 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
             'Fecha = Val(Format((Date), "YYYYMMDD"))
             'Monto = Redondeo((VAR_BS2), 0)
             'CodigoContro = CodigoControl(Autorizacion, NroFactura, NitCi, Fecha, Monto, Llave)
-            VAR_PROY2 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY2 = Ado_datos16.Recordset!edif_codigo
             VAR_COD4 = Ado_datos16.Recordset!unidad_codigo
             VAR_TIPOV = Ado_datos16.Recordset!venta_tipo
             VAR_SOL = Ado_datos16.Recordset!solicitud_codigo
@@ -5161,8 +5161,9 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 db.Execute "update ao_ventas_cobranza set archivo_foto = 'R101-' + '" & Str(VAR_COD1) & "' + '.JPG' WHERE venta_codigo = " & nroventa & " AND trans_codigo = 'X' AND estado_codigo1 = 'APR' "
                 db.Execute "update ao_ventas_cobranza set archivo_foto_cargado = 'N' WHERE venta_codigo = " & nroventa & " AND venta_codigo_new = " & Ado_datos1.Recordset!IdFactura & " "         '
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET edif_codigo = '" & VAR_PROY2 & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
-                db.Execute "UPDATE ao_ventas_cobranza_fac SET estado_codigo_fac = 'APR', usr_codigo_apr = '" & glusuario & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
+                db.Execute "UPDATE ao_ventas_cobranza_fac SET fecha_aprueba = GETDATE(), estado_codigo_fac = 'APR', usr_codigo_apr = '" & glusuario & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET factura_impresa = 'S' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
+                
 '                db.Execute "update ao_ventas_cobranza set correl_contab = " & VAR_CONTAB & " Where ao_ventas_cobranza.venta_codigo = " & Ado_datos1.Recordset!venta_codigo & "  And ao_ventas_cobranza.cobranza_codigo = " & Ado_datos1.Recordset!cobranza_codigo & " "
 '
 '                'Ado_datos.Recordset!correl_contab = VAR_CONTAB

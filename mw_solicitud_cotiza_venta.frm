@@ -16,8 +16,8 @@ Begin VB.Form mw_solicitud_cotiza_venta
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   11280
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_datos2 
@@ -197,7 +197,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
          CalendarBackColor=   12632256
          CalendarTitleBackColor=   -2147483638
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   119865347
+         Format          =   51511299
          CurrentDate     =   44235
          MaxDate         =   55153
          MinDate         =   32874
@@ -3993,11 +3993,11 @@ Private Sub BtnAddDetalle_Click()
     FrmABMDet.Enabled = False
   If VARCTRL = 1 Then
     aw_p_ao_solicitud_cotiza_detalle.txt_codigo.Caption = Me.txt_codigo.Caption     ' Nro. Negociacion (Cod.solicitud)
-    aw_p_ao_solicitud_cotiza_detalle.txt_campo1.Caption = txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
-    aw_p_ao_solicitud_cotiza_detalle.Txt_descripcion.Caption = Me.txt_campo12    ' Descripcion Unidad
+    aw_p_ao_solicitud_cotiza_detalle.Txt_campo1.Caption = Txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
+    aw_p_ao_solicitud_cotiza_detalle.Txt_descripcion.Caption = Me.Txt_campo12    ' Descripcion Unidad
     aw_p_ao_solicitud_cotiza_detalle.Txt_Correl.Caption = Me.txt_codigo1.Caption        ' Nro. Cotización
     aw_p_ao_solicitud_cotiza_detalle.Txt_campo2.Caption = GlEdificio    'Me.dtc_codigo3.Text       ' Codigo Edificio
-    aw_p_ao_solicitud_cotiza_detalle.txt_campo5.Caption = VAR_CONTI     'Continente
+    aw_p_ao_solicitud_cotiza_detalle.Txt_campo5.Caption = VAR_CONTI     'Continente
     If Ado_datos.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datos.Recordset!cotiza_precio_fob_dol) Then
     'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
         aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
@@ -4048,11 +4048,11 @@ Private Sub BtnAddDetalle_Click()
 'wwwwwwwwwwwwwwwwwwwwwwww EUROPA
   If VARCTRL = 2 Then
     aw_p_ao_solicitud_cotiza_det_eur.txt_codigo.Caption = Me.txt_codigo.Caption     ' Nro. Negociacion (Cod.solicitud)
-    aw_p_ao_solicitud_cotiza_det_eur.txt_campo1.Caption = txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
-    aw_p_ao_solicitud_cotiza_det_eur.Txt_descripcion.Caption = Me.txt_campo12    ' Descripcion Unidad
+    aw_p_ao_solicitud_cotiza_det_eur.Txt_campo1.Caption = Txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
+    aw_p_ao_solicitud_cotiza_det_eur.Txt_descripcion.Caption = Me.Txt_campo12    ' Descripcion Unidad
     aw_p_ao_solicitud_cotiza_det_eur.Txt_Correl.Caption = Me.txt_codigo1.Caption        ' Nro. Cotización
     aw_p_ao_solicitud_cotiza_det_eur.Txt_campo2.Caption = GlEdificio    'Me.dtc_codigo3.Text       ' Codigo Edificio
-    aw_p_ao_solicitud_cotiza_det_eur.txt_campo5.Caption = VAR_CONTI     'Continente
+    aw_p_ao_solicitud_cotiza_det_eur.Txt_campo5.Caption = VAR_CONTI     'Continente
     If Ado_datosE.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datosE.Recordset!cotiza_precio_fob_dol) Then
     'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
         aw_p_ao_solicitud_cotiza_det_eur.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
@@ -4104,11 +4104,11 @@ Private Sub BtnAddDetalle_Click()
   'wwwwwwwwwwwwwwwwwwwwww ASIA
   If VARCTRL = 3 Then
     aw_p_ao_solicitud_cotiza_det_asia.txt_codigo.Caption = Me.txt_codigo.Caption     ' Nro. Negociacion (Cod.solicitud)
-    aw_p_ao_solicitud_cotiza_det_asia.txt_campo1.Caption = txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
-    aw_p_ao_solicitud_cotiza_det_asia.Txt_descripcion.Caption = Me.txt_campo12    ' Descripcion Unidad
+    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo1.Caption = Txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
+    aw_p_ao_solicitud_cotiza_det_asia.Txt_descripcion.Caption = Me.Txt_campo12    ' Descripcion Unidad
     aw_p_ao_solicitud_cotiza_det_asia.Txt_Correl.Caption = Me.txt_codigo1.Caption        ' Nro. Cotización
     aw_p_ao_solicitud_cotiza_det_asia.Txt_campo2.Caption = GlEdificio    'Me.dtc_codigo3.Text       ' Codigo Edificio
-    aw_p_ao_solicitud_cotiza_det_asia.txt_campo5.Caption = VAR_CONTI     'Continente
+    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo5.Caption = VAR_CONTI     'Continente
     aw_p_ao_solicitud_cotiza_det_asia.lbl_decA.Caption = Ado_datos.Recordset!cotiza_dec       'cmd_decA.Text      ' # Decimales
     If Ado_datos.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datos.Recordset!cotiza_precio_fob_dol) Then
     'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
@@ -4280,7 +4280,7 @@ Private Sub BtnAprobar_Click()
                 rs_aux1!ges_gestion = Year(Date)
                 rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
                 rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-                rs_aux1!EDIF_CODIGO = Ado_datos.Recordset!EDIF_CODIGO
+                rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
                 rs_aux1!venta_codigo = var_cod
                 rs_aux1!beneficiario_codigo = VAR_AUX
                 If Ado_datos.Recordset!cotiza_cantidad = 0 Then
@@ -4571,7 +4571,7 @@ Private Sub BtnAprobarA_Click()
                     rs_aux1!ges_gestion = Year(Date)
                     rs_aux1!unidad_codigo = Ado_datosA.Recordset!unidad_codigo
                     rs_aux1!solicitud_codigo = Ado_datosA.Recordset!solicitud_codigo
-                    rs_aux1!EDIF_CODIGO = Ado_datosA.Recordset!EDIF_CODIGO
+                    rs_aux1!edif_codigo = Ado_datosA.Recordset!edif_codigo
                     rs_aux1!venta_codigo = var_cod
                     rs_aux1!beneficiario_codigo = VAR_AUX
                     If Ado_datosA.Recordset!cotiza_cantidad = 0 Then
@@ -4898,7 +4898,7 @@ Private Sub BtnAprobarE_Click()
                     rs_aux1!ges_gestion = Year(Date)
                     rs_aux1!unidad_codigo = Ado_datosE.Recordset!unidad_codigo
                     rs_aux1!solicitud_codigo = Ado_datosE.Recordset!solicitud_codigo
-                    rs_aux1!EDIF_CODIGO = Ado_datosE.Recordset!EDIF_CODIGO
+                    rs_aux1!edif_codigo = Ado_datosE.Recordset!edif_codigo
                     rs_aux1!venta_codigo = var_cod
                     rs_aux1!beneficiario_codigo = VAR_AUX
                     If Ado_datosE.Recordset!cotiza_cantidad = 0 Then
@@ -5165,8 +5165,8 @@ Private Sub BtnGrabar_Click()
                 VARCTRL = 2
                 VAR_CONTI = "EUROPA"
                 '
-                db.Execute "update ao_solicitud_costos set costo_monto = costo_monto2 * " & GlTipoCambioEuro & " where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto2 > 0  "
-                db.Execute "update ao_solicitud_costos set costo_monto_usd= costo_monto / " & GlTipoCambioOficial & " where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto > 0  "
+                db.Execute "update ao_solicitud_costos set costo_monto = costo_monto2 * " & GlTipoCambioEuro & " where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto2 > 0  "
+                db.Execute "update ao_solicitud_costos set costo_monto_usd= costo_monto / " & GlTipoCambioOficial & " where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto > 0  "
             End If
     End Select
     'VAR_CONTI = Ado_datos.Recordset!pais_continente
@@ -5206,7 +5206,7 @@ If Ado_datosE.Recordset.RecordCount > 0 Then
     CR01.StoredProcParam(0) = Me.Ado_datosE.Recordset!ges_gestion
     CR01.StoredProcParam(1) = Me.Ado_datosE.Recordset!unidad_codigo
     CR01.StoredProcParam(2) = Me.Ado_datosE.Recordset!solicitud_codigo
-    CR01.StoredProcParam(3) = Me.Ado_datosE.Recordset!EDIF_CODIGO
+    CR01.StoredProcParam(3) = Me.Ado_datosE.Recordset!edif_codigo
     CR01.StoredProcParam(4) = Me.Ado_datosE.Recordset!cotiza_codigo
     iResult = CR01.PrintReport
     If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
@@ -6549,7 +6549,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     CR01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
     CR01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
     CR01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!EDIF_CODIGO
+    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!edif_codigo
     CR01.StoredProcParam(4) = Me.Ado_datos.Recordset!cotiza_codigo
     iResult = CR01.PrintReport
     If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
@@ -6573,7 +6573,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     CR01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
     CR01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
     CR01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!EDIF_CODIGO
+    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!edif_codigo
     CR01.StoredProcParam(4) = Me.Ado_datos.Recordset!cotiza_codigo
     iResult = CR01.PrintReport
     If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
@@ -6598,7 +6598,7 @@ If Ado_datosA.Recordset.RecordCount > 0 Then
     CR01.StoredProcParam(0) = Me.Ado_datosA.Recordset!ges_gestion
     CR01.StoredProcParam(1) = Me.Ado_datosA.Recordset!unidad_codigo
     CR01.StoredProcParam(2) = Me.Ado_datosA.Recordset!solicitud_codigo
-    CR01.StoredProcParam(3) = Me.Ado_datosA.Recordset!EDIF_CODIGO
+    CR01.StoredProcParam(3) = Me.Ado_datosA.Recordset!edif_codigo
     CR01.StoredProcParam(4) = Me.Ado_datosA.Recordset!cotiza_codigo
     iResult = CR01.PrintReport
     If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
@@ -6830,9 +6830,9 @@ Private Sub BtnModificar_Click()
             GlConti = VAR_CONTI
             GlSolicitud = Me.Ado_datos0.Recordset!solicitud_codigo           ' Nro. Negociacion (Cod.solicitud)
             GlUnidad = Me.Ado_datos0.Recordset!unidad_codigo                 ' Codigo Unidad
-            GlNombFor = Me.txt_campo12                                          ' Descripcion Unidad
+            GlNombFor = Me.Txt_campo12                                          ' Descripcion Unidad
             GlCotiza = Me.Ado_datos0.Recordset!cotiza_codigo                ' Nro. Cotización
-            GlEdificio = Me.Ado_datos0.Recordset!EDIF_CODIGO                ' Codigo Edificio
+            GlEdificio = Me.Ado_datos0.Recordset!edif_codigo                ' Codigo Edificio
             aw_solicitud_cotiza_datos.Show vbModal
             
             VAR_CONTI = "AMERICA"
@@ -6991,12 +6991,12 @@ Private Sub BtnModificar1_Click()
         aw_p_ao_solicitud_cotiza_costos.txt_conti = VAR_CONTI
         aw_p_ao_solicitud_cotiza_costos.txt_codigo.Caption = Me.Ado_datos.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
         GlSolicitud = Me.Ado_datos.Recordset("solicitud_codigo") ' Nro. Tramite (Cod.solicitud)
-        aw_p_ao_solicitud_cotiza_costos.txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
-        aw_p_ao_solicitud_cotiza_costos.Txt_descripcion.Caption = Me.txt_campo12.Text                         ' Descripcion Unidad
+        aw_p_ao_solicitud_cotiza_costos.Txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
+        aw_p_ao_solicitud_cotiza_costos.Txt_descripcion.Caption = Me.Txt_campo12.Text                         ' Descripcion Unidad
         aw_p_ao_solicitud_cotiza_costos.Txt_Correl.Caption = Me.Ado_datos.Recordset("cotiza_codigo")    ' Nro. Cotización
         aw_p_ao_solicitud_cotiza_costos.Txt_campo2.Caption = Me.Ado_datos.Recordset("edif_codigo")      ' Codigo Edificio
         aw_p_ao_solicitud_cotiza_costos.txt_pais.Caption = Me.Ado_datos.Recordset("pais_codigo")      ' Pais
-        aw_p_ao_solicitud_cotiza_costos.txt_campo5.Text = Me.Ado_datos.Recordset!cotiza_nro_montador     ' #Montadores
+        aw_p_ao_solicitud_cotiza_costos.Txt_campo5.Text = Me.Ado_datos.Recordset!cotiza_nro_montador     ' #Montadores
         aw_p_ao_solicitud_cotiza_costos.txt_paradas = dtc_desc10    'paradas
         aw_p_ao_solicitud_cotiza_costos.cmd_dec.Text = IIf(IsNull(Me.Ado_datos.Recordset!cotiza_dec), "2", Me.Ado_datos.Recordset!cotiza_dec)               ' NRO.Decimales
         aw_p_ao_solicitud_cotiza_costos.cmd_moneda.Text = IIf(IsNull(Me.Ado_datos.Recordset!tipo_moneda), "BRL", Me.Ado_datos.Recordset!tipo_moneda)        ' Tipo de Moneda
@@ -7170,12 +7170,12 @@ If rs_datosA.RecordCount > 0 Then
         VAR_CONTI = "ASIA"
         aw_p_ao_solicitud_cotiza_costosA.txt_conti.Caption = VAR_CONTI
         aw_p_ao_solicitud_cotiza_costosA.txt_codigo.Caption = Me.Ado_datosA.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-        aw_p_ao_solicitud_cotiza_costosA.txt_campo1.Caption = parametro 'Me.Ado_datosA.Recordset("unidad_codigo")    ' Codigo Unidad
-        aw_p_ao_solicitud_cotiza_costosA.Txt_descripcion.Caption = Me.txt_campo12                        ' Descripcion Unidad
+        aw_p_ao_solicitud_cotiza_costosA.Txt_campo1.Caption = parametro 'Me.Ado_datosA.Recordset("unidad_codigo")    ' Codigo Unidad
+        aw_p_ao_solicitud_cotiza_costosA.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
         aw_p_ao_solicitud_cotiza_costosA.Txt_Correl.Caption = Me.Ado_datosA.Recordset("cotiza_codigo")    ' Nro. Cotización
         aw_p_ao_solicitud_cotiza_costosA.Txt_campo2.Caption = Me.Ado_datosA.Recordset("edif_codigo")      ' Codigo Edificio
         aw_p_ao_solicitud_cotiza_costosA.txt_pais.Caption = Me.Ado_datosA.Recordset("pais_codigo")      ' Pais
-        aw_p_ao_solicitud_cotiza_costosA.txt_campo5.Text = Me.Ado_datosA.Recordset!cotiza_nro_montador     ' #Montadores
+        aw_p_ao_solicitud_cotiza_costosA.Txt_campo5.Text = Me.Ado_datosA.Recordset!cotiza_nro_montador     ' #Montadores
         aw_p_ao_solicitud_cotiza_costosA.txt_paradas = dtc_desc10.Caption    'paradas
 
         aw_p_ao_solicitud_cotiza_costosA.cmd_dec.Text = IIf(IsNull(Me.Ado_datosA.Recordset!cotiza_dec), "2", Me.Ado_datosA.Recordset!cotiza_dec) ' NRO.Decimales
@@ -7312,12 +7312,12 @@ Private Sub BtnModificar1E_Click()
         VAR_CONTI = "EUROPA"
         aw_p_ao_solicitud_cotiza_costosE.txt_conti.Caption = VAR_CONTI
         aw_p_ao_solicitud_cotiza_costosE.txt_codigo.Caption = Me.Ado_datosE.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-        aw_p_ao_solicitud_cotiza_costosE.txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
-        aw_p_ao_solicitud_cotiza_costosE.Txt_descripcion.Caption = Me.txt_campo12                        ' Descripcion Unidad
+        aw_p_ao_solicitud_cotiza_costosE.Txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
+        aw_p_ao_solicitud_cotiza_costosE.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
         aw_p_ao_solicitud_cotiza_costosE.Txt_Correl.Caption = Me.Ado_datosE.Recordset("cotiza_codigo")    ' Nro. Cotización
         aw_p_ao_solicitud_cotiza_costosE.Txt_campo2.Caption = Me.Ado_datosE.Recordset("edif_codigo")      ' Codigo Edificio
         aw_p_ao_solicitud_cotiza_costosE.txt_pais.Caption = Me.Ado_datosE.Recordset("pais_codigo")      ' Pais
-        aw_p_ao_solicitud_cotiza_costosE.txt_campo5.Text = Me.Ado_datosE.Recordset!cotiza_nro_montador     ' #Montadores
+        aw_p_ao_solicitud_cotiza_costosE.Txt_campo5.Text = Me.Ado_datosE.Recordset!cotiza_nro_montador     ' #Montadores
         aw_p_ao_solicitud_cotiza_costosE.txt_paradas = dtc_desc10.Caption    'paradas
         aw_p_ao_solicitud_cotiza_costosE.txt_tdc_me.Text = IIf(IsNull(GlTipoCambioEuro) Or GlTipoCambioEuro = 0, "10", GlTipoCambioEuro)  'Euro
         aw_p_ao_solicitud_cotiza_costosE.cmd_dec.Text = IIf(IsNull(Me.Ado_datosE.Recordset!cotiza_dec), "2", Me.Ado_datosE.Recordset!cotiza_dec) ' NRO.Decimales
@@ -7444,9 +7444,9 @@ Private Sub BtnModificarA_Click()
             GlConti = VAR_CONTI
             GlSolicitud = Me.Ado_datos0.Recordset!solicitud_codigo           ' Nro. Negociacion (Cod.solicitud)
             GlUnidad = Me.Ado_datos0.Recordset!unidad_codigo                 ' Codigo Unidad
-            GlNombFor = Me.txt_campo12                                          ' Descripcion Unidad
+            GlNombFor = Me.Txt_campo12                                          ' Descripcion Unidad
             GlCotiza = Me.Ado_datos0.Recordset!cotiza_codigo                ' Nro. Cotización
-            GlEdificio = Me.Ado_datos0.Recordset!EDIF_CODIGO                ' Codigo Edificio
+            GlEdificio = Me.Ado_datos0.Recordset!edif_codigo                ' Codigo Edificio
             aw_solicitud_cotiza_datos.Show vbModal
             
             VAR_CONTI = "ASIA"
@@ -7540,9 +7540,9 @@ Private Sub BtnModificarE_Click()
             GlConti = VAR_CONTI
             GlSolicitud = Me.Ado_datos0.Recordset!solicitud_codigo           ' Nro. Negociacion (Cod.solicitud)
             GlUnidad = Me.Ado_datos0.Recordset!unidad_codigo                 ' Codigo Unidad
-            GlNombFor = Me.txt_campo12                                          ' Descripcion Unidad
+            GlNombFor = Me.Txt_campo12                                          ' Descripcion Unidad
             GlCotiza = Me.Ado_datos0.Recordset!cotiza_codigo                ' Nro. Cotización
-            GlEdificio = Me.Ado_datos0.Recordset!EDIF_CODIGO                ' Codigo Edificio
+            GlEdificio = Me.Ado_datos0.Recordset!edif_codigo                ' Codigo Edificio
             aw_solicitud_cotiza_datos.Show vbModal
             
         VAR_CONTI = "EUROPA"
@@ -7893,7 +7893,7 @@ Private Sub Ado_datos0_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
         GlSolicitud = Ado_datos0.Recordset!solicitud_codigo
         GlUnidad = Ado_datos0.Recordset!unidad_codigo
         VAR_PAISC = IIf(IsNull(Ado_datos0.Recordset!pais_continente_cot), "", Ado_datos0.Recordset!pais_continente_cot)
-        GlEdificio = Ado_datos0.Recordset!EDIF_CODIGO      ' Codigo Edificio
+        GlEdificio = Ado_datos0.Recordset!edif_codigo      ' Codigo Edificio
         GlCotiza = Ado_datos0.Recordset!cotiza_codigo       'txt_codigo1.Caption
         VAR_AME = 0
         VAR_ASI = 0
@@ -8039,7 +8039,7 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos01.State = 1 Then rs_datos01.Close
     rs_datos01.Open "Select * from gc_unidad_ejecutora order by unidad_descripcion", db, adOpenStatic
     Set Ado_datos01.Recordset = rs_datos01
-    txt_campo12.BoundText = txt_campo1.BoundText
+    Txt_campo12.BoundText = Txt_campo1.BoundText
     
     'gc_edificaciones
     Set rs_datos3 = New ADODB.Recordset
@@ -8636,7 +8636,7 @@ Private Sub ABRIR_TABLA_DET()
     End If
     If VAR_PAISC = "EUROPA" Then
         'rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Ado_datosE.Recordset!cotiza_codigo & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(GlCotiza) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText           'txt_codigo1.Caption
+        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(GlCotiza) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText           'txt_codigo1.Caption
         Set Ado_detalle1.Recordset = rs_det1
         If Ado_detalle1.Recordset.RecordCount > 0 Then
             Set dg_det1E.DataSource = Ado_detalle1.Recordset
@@ -8705,11 +8705,11 @@ Private Sub sstab1_Click(PreviousTab As Integer)
 End Sub
 
 Private Sub Txt_campo1_Click(Area As Integer)
-    txt_campo12.BoundText = txt_campo1.BoundText
+    Txt_campo12.BoundText = Txt_campo1.BoundText
 End Sub
 
 Private Sub Txt_campo12_Click(Area As Integer)
-    txt_campo1.BoundText = txt_campo12.BoundText
+    Txt_campo1.BoundText = Txt_campo12.BoundText
 End Sub
 
 Private Sub txt_codigo3_Click(Area As Integer)

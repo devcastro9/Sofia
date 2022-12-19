@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
@@ -165,7 +165,7 @@ Begin VB.Form fw_compras_comex
       Height          =   5280
       Left            =   4560
       TabIndex        =   13
-      Top             =   4200
+      Top             =   2880
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   228851713
+         Format          =   110624769
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -1371,21 +1371,27 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
+               ColumnWidth     =   1365.165
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
+               ColumnWidth     =   3614.74
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
+               ColumnWidth     =   1019.906
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
+               ColumnWidth     =   989.858
             EndProperty
             BeginProperty Column07 
+               ColumnWidth     =   629.858
             EndProperty
             BeginProperty Column08 
                Locked          =   -1  'True
@@ -1396,12 +1402,14 @@ Begin VB.Form fw_compras_comex
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column10 
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
             EndProperty
             BeginProperty Column12 
+               ColumnWidth     =   14.74
             EndProperty
          EndProperty
       End
@@ -1507,19 +1515,6 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "estado_codigo"
-            Caption         =   "Estado"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
             DataField       =   "bien_precio_adjudica_bs"
             Caption         =   "Precio.BOB"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1532,7 +1527,7 @@ Begin VB.Form fw_compras_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
+         BeginProperty Column06 
             DataField       =   "bien_total_adjudica_bs"
             Caption         =   "Precio.Total"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1545,7 +1540,7 @@ Begin VB.Form fw_compras_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column07 
             DataField       =   "compra_precio_unitario_dol"
             Caption         =   "Precio.USD"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1558,7 +1553,7 @@ Begin VB.Form fw_compras_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column09 
+         BeginProperty Column08 
             DataField       =   "compra_precio_total_dol"
             Caption         =   "Total USD"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1568,6 +1563,19 @@ Begin VB.Form fw_compras_comex
                FirstDayOfWeek  =   0
                FirstWeekOfYear =   0
                LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "estado_codigo"
+            Caption         =   "Estado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
                SubFormatType   =   0
             EndProperty
          EndProperty
@@ -1609,31 +1617,38 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
+               ColumnWidth     =   1349.858
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
+               ColumnWidth     =   3585.26
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column05 
+               Locked          =   -1  'True
+               ColumnWidth     =   1124.787
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
-               Object.Visible         =   0   'False
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1049.953
             EndProperty
             BeginProperty Column08 
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
-            EndProperty
-            BeginProperty Column09 
-               Locked          =   -1  'True
                Object.Visible         =   0   'False
             EndProperty
+            BeginProperty Column09 
+               ColumnWidth     =   645.165
+            EndProperty
             BeginProperty Column10 
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column11 
                Locked          =   -1  'True
@@ -2038,27 +2053,35 @@ Begin VB.Form fw_compras_comex
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
+               ColumnWidth     =   2459.906
             EndProperty
             BeginProperty Column03 
+               ColumnWidth     =   1065.26
             EndProperty
             BeginProperty Column04 
+               ColumnWidth     =   1005.165
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
+               ColumnWidth     =   1170.142
             EndProperty
             BeginProperty Column06 
+               ColumnWidth     =   585.071
             EndProperty
             BeginProperty Column07 
                Alignment       =   1
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
+               ColumnWidth     =   1019.906
             EndProperty
             BeginProperty Column08 
                Alignment       =   1
                Locked          =   -1  'True
+               ColumnWidth     =   1154.835
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   0   'False
@@ -2603,29 +2626,36 @@ Begin VB.Form fw_compras_comex
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column02 
+               ColumnWidth     =   1244.976
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1440
+               ColumnWidth     =   1244.976
             EndProperty
             BeginProperty Column04 
+               ColumnWidth     =   2564.788
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
+               ColumnWidth     =   720
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   675.213
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column09 
             EndProperty
@@ -2734,10 +2764,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   21360
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   12915
+      Width           =   21360
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -5042,7 +5072,7 @@ End If
 '          End If
         ' envia BIENES A LA FACTURA
          Call BIENES
-        If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
+        If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
            CORRELARIVO1 = "0"  'CORRELATIVO PARA SALDOS INICIALES
            Set rs_det1A = New ADODB.Recordset
            If rs_det1A.State = 1 Then rs_det1A.Close
@@ -5151,7 +5181,7 @@ Private Sub BtnAprobar4_Click()
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
- If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!EDIF_CODIGO <> "20101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "70101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "30101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "10101-3") Then
+ If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!edif_codigo <> "20101-3") And (Ado_datos.Recordset!edif_codigo <> "70101-3") And (Ado_datos.Recordset!edif_codigo <> "30101-3") And (Ado_datos.Recordset!edif_codigo <> "10101-3") Then
     If (Ado_detalle2.Recordset.RecordCount > 0) And (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
         VAR_COMPRA = Ado_datos.Recordset!compra_codigo
         'INI correlativo ALMACEN
@@ -5514,7 +5544,7 @@ Private Sub BtnGrabar_Click()
      
      
      rs_datos!compra_fecha = DTPfecha1.Value
-     rs_datos!EDIF_CODIGO = dtc_codigo3.Text
+     rs_datos!edif_codigo = dtc_codigo3.Text
      rs_datos!depto_codigo = Left(Trim(dtc_codigo3.Text), 1)
 '     If dtc_codigo3.Text = "20101-5" Then
 '        'rs_datos!beneficiario_codigo = dtc_aux3.Text
@@ -6541,7 +6571,7 @@ On Error GoTo UpdateErr
                 sino = MsgBox("No Se Puede Quitar Este ITEM, Ya Esta APROBADO(APR) como Ingreso a Almacén...", vbCritical, "ERROR")
                 Exit Sub
             End If
-            If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
+            If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
                 db.Execute "update ao_almacen_TOTALES SET stock_ingreso = stock_ingreso - " & Ado_detalle1A.Recordset!adjudica_cantidad & " WHERE WHERE almacen_codigo = " & Ado_detalle1A.Recordset!almacen & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "'  "
                 db.Execute "DELETE ao_almacen_ingresos WHERE compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
                 db.Execute "update ao_compra_detalle set estado_codigo = 'REG' WHERE compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
