@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   109772801
+         Format          =   109969409
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -1841,6 +1841,7 @@ Begin VB.Form fw_facturacion
                ColumnWidth     =   1934.929
             EndProperty
             BeginProperty Column16 
+               ColumnWidth     =   5985.071
             EndProperty
          EndProperty
       End
@@ -5007,8 +5008,10 @@ Private Sub BtnImprimir3_Click()
 If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
   If (Ado_datos1.Recordset!factura_impresa = "N") Then
     'If Ado_datos2.Recordset!cobranza_total_bs >= 3000 And dtc_aux5.Text = "0" Then
-    If TxtMonto.Text >= 1000 And dtc_aux5.Text = "0" Then
-        MsgBox "No se puede Imprimir una Factura >= Bs.1000, sin NIT, debe registrar el NIT del Beneficiario... ", , "Atención"
+    'If TxtMonto.Text >= 1000 And dtc_aux5.Text = "0" Then
+    If dtc_aux5.Text = "0" Then
+       'MsgBox "No se puede Imprimir una Factura >= Bs.1000, sin NIT, debe registrar el NIT del Beneficiario... ", , "Atención"
+       MsgBox "No se puede Imprimir una Factura con NIT=0, debe registrar el NIT del Beneficiario... ", , "Atención"
     Else
       If Ado_datos1.Recordset!doc_codigo_fac = "R-101" Then
         '===== ini GENERA EL CODIGO DE FACTURA ====             ONLINE ---- NOOO  --- ELEGIR NUMERO AUTORIZACION
@@ -5018,22 +5021,22 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
         rs_aux1.Open "select * from fc_dosificacion_docs where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' ", db, adOpenDynamic, adLockOptimistic
         'rs_aux1.Open "select * from fc_dosificacion_docs  where doc_codigo = 'R-101'  ", db, adOpenDynamic, adLockOptimistic
         If rs_aux1.RecordCount > 0 Then
-            If Date > rs_aux1!dosifica_fecha_limite Then
-                MsgBox "No se puede EMITIR mas Facturas, la fecha límite de emisión EXPIRÓ, debe realizar una nueva Dosificación ... ", , "Atención"
-                Exit Sub
-            End If
+'            If Date > rs_aux1!dosifica_fecha_limite Then
+'                MsgBox "No se puede EMITIR mas Facturas, la fecha límite de emisión EXPIRÓ, debe realizar una nueva Dosificación ... ", , "Atención"
+'                Exit Sub
+'            End If
             ' GENERA NUMERO DE FACTURA
             VAR_COD1 = CDbl(rs_aux1!CORREL) + 1
             'VALIDA SI EXISTE
-            Set rs_aux12 = New ADODB.Recordset
-            If rs_aux12.State = 1 Then rs_aux12.Close
-            rs_aux12.Open "select * from ao_ventas_cobranza_fac where dosifica_autorizacion = '" & rs_aux1!dosifica_autorizacion & "' AND estado_codigo <> 'ERR' AND nro_factura = " & VAR_COD1 & " ", db, adOpenDynamic, adLockOptimistic
-            If rs_aux12.RecordCount > 0 Then
-                MsgBox "No se puede EMITIR, la Facturas YA Existe, Consulte con el Administrador del Sistema ... ", , "Atención"
-                Exit Sub
-            End If
+'            Set rs_aux12 = New ADODB.Recordset
+'            If rs_aux12.State = 1 Then rs_aux12.Close
+'            rs_aux12.Open "select * from ao_ventas_cobranza_fac where dosifica_autorizacion = '" & rs_aux1!dosifica_autorizacion & "' AND estado_codigo <> 'ERR' AND nro_factura = " & VAR_COD1 & " ", db, adOpenDynamic, adLockOptimistic
+'            If rs_aux12.RecordCount > 0 Then
+'                MsgBox "No se puede EMITIR, la Facturas YA Existe, Consulte con el Administrador del Sistema ... ", , "Atención"
+'                Exit Sub
+'            End If
             ' EMITE NRO. DE FACTURA
-            db.Execute "UPDATE fc_dosificacion_docs SET CORREL = '" & Trim(Str(VAR_COD1)) & "' where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' "
+'            db.Execute "UPDATE fc_dosificacion_docs SET CORREL = '" & Trim(Str(VAR_COD1)) & "' where doc_codigo = 'R-101' AND estado_codigo = 'APR' AND dgral_codigo= '" & VAR_DGRAL & "' "
             gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
             correlv = Ado_datos1.Recordset("venta_codigo")
             nroventa = Ado_datos1.Recordset("venta_codigo")
@@ -5112,21 +5115,24 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                     VAR_CONTAB = 1
                 End If
                 db.Execute "update fc_correl set numero_correlativo = " & VAR_CONTAB & " Where tipo_tramite = 'NDEBITO' "
-                'VAR_CONTAB = "17094"
-                VAR_COD2 = rs_aux1!dosifica_autorizacion
-                NroFactura = Trim(Str(VAR_COD1))
+                ''VAR_CONTAB = "17094"
+                'VAR_COD2 = rs_aux1!dosifica_autorizacion
+                VAR_COD2 = "0"
+                'NroFactura = Trim(Str(VAR_COD1))
+                NroFactura = "0"                    'Trim(Str(VAR_COD1))
                 VARFactura2 = NroFactura
                 Fecha = Val(Format((Date), "YYYYMMDD"))
                 Monto = Redondeo((VAR_BS2), 0)
-                'CodigoContro = CodigoControl(Autorizacion, NroFactura, NitCi, Fecha, Monto, Llave)
-                CodigoContro = CodigoControl(Autorizacion, NroFactura, VAR_NIT, Fecha, Monto, Llave)
-                If CodigoContro = "" Or CodigoContro = "0" Then
-                    VAR_SW = 0
-                    MsgBox "Error en Codigo de Control, Contactese con el Administrador o vuelva a intentar ...", , "Atención"
-                    Exit Sub
-                Else
-                    VAR_SW = 1
-                End If
+'                'CodigoContro = CodigoControl(Autorizacion, NroFactura, NitCi, Fecha, Monto, Llave)
+'                CodigoContro = CodigoControl(Autorizacion, NroFactura, VAR_NIT, Fecha, Monto, Llave)
+'                If CodigoContro = "" Or CodigoContro = "0" Then
+'                    VAR_SW = 0
+'                    MsgBox "Error en Codigo de Control, Contactese con el Administrador o vuelva a intentar ...", , "Atención"
+'                    Exit Sub
+'                Else
+'                    VAR_SW = 1
+'                End If
+                CodigoContro = "SFE"
                 ' GLOSA CONTABILIDAD CORRELATIVO SIC
                 VAR_GLOSA = TxtObs.Text
                 'VAR_ARCH = RTrim(RTrim(Ado_datos02.Recordset!doc_codigo) + "-") + LTrim(Str(Ado_datos02.Recordset!doc_numero))
@@ -5265,8 +5271,8 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 FastQRCode CadenaQ, sFile
                 Set Picture1.Picture = LoadPicture(sFile)
                 'FIN QR
-                'Call IMPRIME_FACTURA
-                Call IMPRIME_QR
+'                'Call IMPRIME_FACTURA
+'                Call IMPRIME_QR
                 'MsgBox CadenaQ
 '                'If VAR_TIPOV = "C" Then
 '                    Call Contabiliza_venta
@@ -5447,7 +5453,7 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
 '        End If
 '      'WWWWWWWWWWWWWWWWWWWWWWWWW
 '      End If
-
+        MsgBox "La Factura ya fue enviada al SIN para su procesamiento, verifique en unos minutos el resultado de la operación ... ", , "Atención"
     End If
   Else
         MsgBox "La Factura Nro. " + Ado_datos.Recordset!cobranza_nro_factura + " ya fue Impresa", , "Atención"
