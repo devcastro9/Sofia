@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   111280129
+         Format          =   61210625
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -5342,7 +5342,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
 '                Ado_detalle2.Recordset.Update
 '          End If
          Call BIENES
-        If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
+        If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
            CORRELARIVO1 = "0"  'CORRELATIVO PARA SALDOS INICIALES
            Set rs_det1A = New ADODB.Recordset
            If rs_det1A.State = 1 Then rs_det1A.Close
@@ -5357,7 +5357,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
                 rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='" & Ado_datos.Recordset!doc_codigo_alm & "' AND doc_numero=" & CORRELARIVO1 & " AND bien_codigo='" & rs_det1A!bien_codigo & "' ", db, adOpenStatic
                 If rs_aux12.RecordCount > 0 Then
                 Else
-                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!EDIF_CODIGO & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
                 End If
     
                 Set rs_aux6 = New ADODB.Recordset
@@ -5452,7 +5452,7 @@ Private Sub BtnAprobar4_Click()
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
- If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!EDIF_CODIGO <> "20101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "70101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "30101-3") And (Ado_datos.Recordset!EDIF_CODIGO <> "10101-3") Then
+ If (Ado_datos.Recordset.RecordCount > 0) And (Ado_datos.Recordset!edif_codigo <> "20101-3") And (Ado_datos.Recordset!edif_codigo <> "70101-3") And (Ado_datos.Recordset!edif_codigo <> "30101-3") And (Ado_datos.Recordset!edif_codigo <> "10101-3") Then
     'If (Ado_detalle2.Recordset.RecordCount > 0) And (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
     If (Ado_detalle2.Recordset.RecordCount > 0) Or (Ado_detalle2.Recordset!estado_codigo = "REG") Then
         VAR_COD2 = Ado_datos.Recordset!compra_codigo
@@ -5514,7 +5514,7 @@ Private Sub BtnAprobar4_Click()
             rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='" & Ado_datos.Recordset!doc_codigo_alm & "' AND doc_numero=" & CORRELARTIVO1 & " AND bien_codigo='" & rs_det1A!bien_codigo & "' ", db, adOpenStatic     '
             If rs_aux12.RecordCount > 0 Then
             Else
-                db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!EDIF_CODIGO & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
             End If
 
             Set rs_aux6 = New ADODB.Recordset
@@ -5883,7 +5883,7 @@ Private Sub BtnGrabar_Click()
      
      
      rs_datos!compra_fecha = DTPfecha1.Value
-     rs_datos!EDIF_CODIGO = dtc_codigo3.Text
+     rs_datos!edif_codigo = dtc_codigo3.Text
      rs_datos!depto_codigo = Left(Trim(dtc_codigo3.Text), 1)
 '     If dtc_codigo3.Text = "20101-5" Then
 '        'rs_datos!beneficiario_codigo = dtc_aux3.Text
@@ -6435,18 +6435,18 @@ Private Sub BtnModDetalle1_Click()
           
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_aux1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-           frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+           frm_solicitud_bienes_gral.dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-           frm_solicitud_bienes_gral.txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-           frm_solicitud_bienes_gral.txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+           frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+           frm_solicitud_bienes_gral.Txt_campo4.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.Txt_campo18.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_codigo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.Txt_campo14.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
           
            'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-           frm_solicitud_bienes_gral.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-           frm_solicitud_bienes_gral.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+           frm_solicitud_bienes_gral.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+           frm_solicitud_bienes_gral.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
            frm_solicitud_bienes_gral.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
           
            frm_solicitud_bienes_gral.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -6939,7 +6939,7 @@ On Error GoTo UpdateErr
                 sino = MsgBox("No Se Puede Quitar Este ITEM, Ya Esta APROBADO(APR) como Ingreso a Almacén...", vbCritical, "ERROR")
                 Exit Sub
             End If
-            If (Ado_datos.Recordset!EDIF_CODIGO = "20101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "30101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "70101-3") Or (Ado_datos.Recordset!EDIF_CODIGO = "10101-3") Then
+            If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
                 db.Execute "update ao_almacen_TOTALES SET stock_ingreso = stock_ingreso - " & Ado_detalle1A.Recordset!adjudica_cantidad & " WHERE WHERE almacen_codigo = " & Ado_detalle1A.Recordset!almacen & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "'  "
                 db.Execute "DELETE ao_almacen_ingresos WHERE compra_codigo = " & Ado_detalle1A.Recordset!compra_codigo & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "
                 db.Execute "update ao_compra_detalle set estado_codigo = 'REG' WHERE compra_codigo = " & Ado_detalle1A.Recordset!compra_codigo & " AND bien_codigo = '" & Ado_detalle1A.Recordset!bien_codigo & "' "

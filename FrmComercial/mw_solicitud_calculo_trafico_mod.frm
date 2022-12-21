@@ -18,6 +18,415 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
    ScaleHeight     =   10935
    ScaleWidth      =   13950
    WindowState     =   2  'Maximized
+   Begin VB.Frame FrmDetalle 
+      BackColor       =   &H00E0E0E0&
+      Caption         =   "ELEGIR EL EQUIPO (DEL EDIFICIO) A SER MODERNIZADO"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   2745
+      Left            =   120
+      TabIndex        =   183
+      Top             =   3840
+      Visible         =   0   'False
+      Width           =   19095
+      Begin VB.PictureBox Picture1 
+         BackColor       =   &H80000015&
+         BorderStyle     =   0  'None
+         Height          =   660
+         Left            =   120
+         ScaleHeight     =   660
+         ScaleWidth      =   18825
+         TabIndex        =   184
+         Top             =   240
+         Width           =   18825
+         Begin VB.PictureBox Picture2 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   7320
+            Picture         =   "mw_solicitud_calculo_trafico_mod.frx":0A02
+            ScaleHeight     =   615
+            ScaleWidth      =   1425
+            TabIndex        =   185
+            ToolTipText     =   "Modifica datos del Grupo elegido"
+            Top             =   0
+            Width           =   1430
+         End
+         Begin VB.Label Label13 
+            Alignment       =   2  'Center
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "Edificio:"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FFFFC0&
+            Height          =   285
+            Left            =   225
+            TabIndex        =   187
+            Top             =   120
+            Width           =   975
+         End
+         Begin VB.Label lbl_texto2 
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0C0C0&
+            BackStyle       =   0  'Transparent
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "0"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   12
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FFFFC0&
+            Height          =   300
+            Left            =   1320
+            TabIndex        =   186
+            Top             =   120
+            Width           =   615
+         End
+      End
+      Begin MSDataGridLib.DataGrid DtGLista 
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":1317
+         Height          =   1740
+         Left            =   120
+         TabIndex        =   188
+         Top             =   960
+         Width           =   18855
+         _ExtentX        =   33258
+         _ExtentY        =   3069
+         _Version        =   393216
+         AllowUpdate     =   0   'False
+         BackColor       =   16777152
+         Enabled         =   -1  'True
+         HeadLines       =   1
+         RowHeight       =   13
+         FormatLocked    =   -1  'True
+         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ColumnCount     =   17
+         BeginProperty Column00 
+            DataField       =   "edif_codigo"
+            Caption         =   "Edificio"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column01 
+            DataField       =   "bien_codigo"
+            Caption         =   "Codigo.Equipo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column02 
+            DataField       =   "tipo_eqp_descripcion"
+            Caption         =   "Tipo.Equipo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
+            DataField       =   "marca_descripcion"
+            Caption         =   "Marca.de.Equipo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column04 
+            DataField       =   "modelo_codigo"
+            Caption         =   "Modelo.de.Equipo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column05 
+            DataField       =   "trafico_num_paradas"
+            Caption         =   "#Paradas"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
+            DataField       =   "recorrido_codigo"
+            Caption         =   "Recorrido"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   4105
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "pasajeros_numero"
+            Caption         =   "#Pasajeros"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "pasajeros_capacidad_km_d"
+            Caption         =   "Capacidad.Kg"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "vel_equipo_m_s"
+            Caption         =   "Velocidad.m/s"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   1
+               Format          =   "###,###,##0.00"
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "tipo_puerta_descripcion"
+            Caption         =   "Tipo.Puerta"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "trafico_ancho_puerta"
+            Caption         =   "Ancho.Puerta"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column12 
+            DataField       =   "cabina_descripcion"
+            Caption         =   "Cabina"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column13 
+            DataField       =   "tecnologia_descripcion"
+            Caption         =   "Tecnología"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column14 
+            DataField       =   "sist_puerta_descripcion"
+            Caption         =   "Sistema.Puertas"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column15 
+            DataField       =   "condicion_ventas_descripcion"
+            Caption         =   "Condicion.Venta"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column16 
+            DataField       =   "condicion_cabina_descripcion"
+            Caption         =   "Cabina"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         SplitCount      =   1
+         BeginProperty Split0 
+            BeginProperty Column00 
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column01 
+               Locked          =   -1  'True
+               ColumnWidth     =   1319.811
+            EndProperty
+            BeginProperty Column02 
+            EndProperty
+            BeginProperty Column03 
+            EndProperty
+            BeginProperty Column04 
+            EndProperty
+            BeginProperty Column05 
+               Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   840.189
+            EndProperty
+            BeginProperty Column06 
+               Alignment       =   2
+               ColumnWidth     =   810.142
+            EndProperty
+            BeginProperty Column07 
+               Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   915.024
+            EndProperty
+            BeginProperty Column08 
+               Alignment       =   2
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1140.095
+            EndProperty
+            BeginProperty Column09 
+               Alignment       =   2
+               ColumnWidth     =   1140.095
+            EndProperty
+            BeginProperty Column10 
+               Locked          =   -1  'True
+               ColumnWidth     =   1200.189
+            EndProperty
+            BeginProperty Column11 
+               Alignment       =   2
+               ColumnWidth     =   1124.787
+            EndProperty
+            BeginProperty Column12 
+               ColumnWidth     =   1080
+            EndProperty
+            BeginProperty Column13 
+               ColumnWidth     =   1080
+            EndProperty
+            BeginProperty Column14 
+               ColumnWidth     =   1319.811
+            EndProperty
+            BeginProperty Column15 
+               ColumnWidth     =   1319.811
+            EndProperty
+            BeginProperty Column16 
+            EndProperty
+         EndProperty
+      End
+   End
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
       BorderStyle     =   0  'None
@@ -35,7 +444,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7200
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":0A02
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":1332
          ScaleHeight     =   615
          ScaleWidth      =   1440
          TabIndex        =   182
@@ -50,7 +459,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17880
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":150E
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":1E3E
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   176
@@ -62,7 +471,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          BackColor       =   &H00808080&
          Height          =   600
          Left            =   9960
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":1CD0
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":2600
          Style           =   1  'Graphical
          TabIndex        =   175
          Top             =   0
@@ -76,7 +485,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8760
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":1EDA
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":280A
          ScaleHeight     =   615
          ScaleWidth      =   1200
          TabIndex        =   174
@@ -91,7 +500,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   105
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":2699
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":2FC9
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   173
@@ -106,7 +515,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1440
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":2FAE
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":38DE
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   172
@@ -122,7 +531,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   2760
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":36FA
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":402A
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   171
@@ -137,7 +546,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   4200
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":3F2D
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":485D
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   170
@@ -152,7 +561,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5640
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":46E2
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":5012
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   169
@@ -330,7 +739,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Width           =   260
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":4FAF
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":58DF
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -348,7 +757,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":4FC8
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":58F8
          DataField       =   "unidad_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -366,7 +775,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":4FE2
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5912
          DataField       =   "unidad_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -416,13 +825,13 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   109838339
+         Format          =   112656387
          CurrentDate     =   44914
          MaxDate         =   55153
          MinDate         =   32874
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":4FFB
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":592B
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -451,7 +860,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_aux3 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5014
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5944
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -583,9 +992,9 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          DataField       =   "pais_continente4"
          DataSource      =   "Ado_datos"
          Height          =   315
-         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":502D
+         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":595D
          Left            =   9600
-         List            =   "mw_solicitud_calculo_trafico_mod.frx":503D
+         List            =   "mw_solicitud_calculo_trafico_mod.frx":596D
          TabIndex        =   49
          Top             =   4440
          Width           =   2685
@@ -594,9 +1003,9 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          DataField       =   "pais_continente3"
          DataSource      =   "Ado_datos"
          Height          =   315
-         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":505E
+         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":598E
          Left            =   6840
-         List            =   "mw_solicitud_calculo_trafico_mod.frx":506E
+         List            =   "mw_solicitud_calculo_trafico_mod.frx":599E
          TabIndex        =   35
          Top             =   4440
          Width           =   2685
@@ -605,9 +1014,9 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          DataField       =   "pais_continente2"
          DataSource      =   "Ado_datos"
          Height          =   315
-         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":508F
+         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":59BF
          Left            =   4080
-         List            =   "mw_solicitud_calculo_trafico_mod.frx":509F
+         List            =   "mw_solicitud_calculo_trafico_mod.frx":59CF
          TabIndex        =   21
          Top             =   4440
          Width           =   2685
@@ -616,9 +1025,9 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          DataField       =   "pais_continente"
          DataSource      =   "Ado_datos"
          Height          =   315
-         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":50C0
+         ItemData        =   "mw_solicitud_calculo_trafico_mod.frx":59F0
          Left            =   1320
-         List            =   "mw_solicitud_calculo_trafico_mod.frx":50D0
+         List            =   "mw_solicitud_calculo_trafico_mod.frx":5A00
          TabIndex        =   7
          Top             =   4440
          Width           =   2685
@@ -664,7 +1073,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Width           =   2145
       End
       Begin MSDataListLib.DataCombo dtc_campo54 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":50F1
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5A21
          DataField       =   "tipo_puerta4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -683,7 +1092,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_campo53 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":510B
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5A3B
          DataField       =   "tipo_puerta3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -702,7 +1111,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_campo52 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5125
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5A55
          DataField       =   "tipo_puerta2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -721,7 +1130,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_campo51 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":513F
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5A6F
          DataField       =   "tipo_puerta"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -740,7 +1149,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux34 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5159
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5A89
          DataField       =   "pasajeros_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -759,7 +1168,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux33 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5174
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5AA4
          DataField       =   "pasajeros_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -778,7 +1187,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux32 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":518F
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5ABF
          DataField       =   "pasajeros_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -798,7 +1207,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux31 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":51AA
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5ADA
          DataField       =   "pasajeros_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -937,7 +1346,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Width           =   2145
       End
       Begin MSDataListLib.DataCombo dtc_aux51 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":51C4
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5AF4
          DataField       =   "tipo_puerta"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -956,7 +1365,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux52 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":51DE
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5B0E
          DataField       =   "tipo_puerta2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -975,7 +1384,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux53 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":51F8
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5B28
          DataField       =   "tipo_puerta3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -994,7 +1403,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux54 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5212
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5B42
          DataField       =   "tipo_puerta4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1013,7 +1422,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux41 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":522C
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5B5C
          DataField       =   "vel_equipo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1033,7 +1442,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux42 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5246
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5B76
          DataField       =   "vel_equipo_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1052,7 +1461,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux43 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5260
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5B90
          DataField       =   "vel_equipo_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1071,7 +1480,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux44 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":527A
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5BAA
          DataField       =   "vel_equipo_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1090,7 +1499,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo04 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5294
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5BC4
          DataField       =   "condicion_cabina4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1108,7 +1517,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo94 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":52AF
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5BDF
          DataField       =   "condicion_ventas4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1126,7 +1535,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo84 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":52CA
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5BFA
          DataField       =   "sist_puerta4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1144,7 +1553,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo74 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":52E5
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5C15
          DataField       =   "tecnologia_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1162,7 +1571,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo54 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5300
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5C30
          DataField       =   "tipo_puerta4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1180,7 +1589,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo64 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":531B
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5C4B
          DataField       =   "cabina_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1198,7 +1607,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo44 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5336
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5C66
          DataField       =   "vel_equipo_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1216,7 +1625,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo34 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5351
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5C81
          DataField       =   "pasajeros_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1234,7 +1643,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo63 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":536C
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5C9C
          DataField       =   "cabina_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1252,7 +1661,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo73 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5387
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5CB7
          DataField       =   "tecnologia_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1270,7 +1679,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo83 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":53A2
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5CD2
          DataField       =   "sist_puerta3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1288,7 +1697,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo93 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":53BD
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5CED
          DataField       =   "condicion_ventas3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1306,7 +1715,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo03 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":53D8
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5D08
          DataField       =   "condicion_cabina3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1324,7 +1733,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo62 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":53F3
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5D23
          DataField       =   "cabina_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1342,7 +1751,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo72 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":540E
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5D3E
          DataField       =   "tecnologia_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1360,7 +1769,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo82 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5429
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5D59
          DataField       =   "sist_puerta2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1378,7 +1787,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo92 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5444
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5D74
          DataField       =   "condicion_ventas2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1396,7 +1805,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo02 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":545F
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5D8F
          DataField       =   "condicion_cabina2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1414,7 +1823,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo33 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":547A
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5DAA
          DataField       =   "pasajeros_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1432,7 +1841,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo43 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5495
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5DC5
          DataField       =   "vel_equipo_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1450,7 +1859,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo53 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":54B0
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5DE0
          DataField       =   "tipo_puerta3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1468,7 +1877,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo32 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":54CB
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5DFB
          DataField       =   "pasajeros_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1486,7 +1895,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo42 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":54E6
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5E16
          DataField       =   "vel_equipo_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1504,7 +1913,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo52 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5501
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5E31
          DataField       =   "tipo_puerta2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1522,7 +1931,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc31 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":551C
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5E4C
          DataField       =   "pasajeros_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1539,7 +1948,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc32 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5536
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5E66
          DataField       =   "pasajeros_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1556,7 +1965,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc33 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5550
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5E80
          DataField       =   "pasajeros_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1573,7 +1982,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc34 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":556A
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5E9A
          DataField       =   "pasajeros_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1590,7 +1999,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_desc41 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5584
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5EB4
          DataField       =   "vel_equipo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1607,7 +2016,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc42 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":559E
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5ECE
          DataField       =   "vel_equipo_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1624,7 +2033,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc43 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":55B8
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5EE8
          DataField       =   "vel_equipo_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1641,7 +2050,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc44 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":55D2
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F02
          DataField       =   "vel_equipo_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1658,7 +2067,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_desc51 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":55EC
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F1C
          DataField       =   "tipo_puerta"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1684,7 +2093,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc52 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5606
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F36
          DataField       =   "tipo_puerta2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1710,7 +2119,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc53 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5620
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F50
          DataField       =   "tipo_puerta3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1736,7 +2145,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc54 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":563A
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F6A
          DataField       =   "tipo_puerta4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1762,7 +2171,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc61 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5654
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F84
          DataField       =   "cabina_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1779,7 +2188,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc62 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":566E
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5F9E
          DataField       =   "cabina_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1796,7 +2205,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc63 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5688
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5FB8
          DataField       =   "cabina_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1813,7 +2222,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc64 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":56A2
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5FD2
          DataField       =   "cabina_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1830,7 +2239,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_desc71 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":56BC
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5FEC
          DataField       =   "tecnologia_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1847,7 +2256,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc72 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":56D6
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6006
          DataField       =   "tecnologia_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1864,7 +2273,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc73 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":56F0
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6020
          DataField       =   "tecnologia_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1881,7 +2290,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc74 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":570A
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":603A
          DataField       =   "tecnologia_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1898,7 +2307,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_desc81 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5724
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6054
          DataField       =   "sist_puerta"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1915,7 +2324,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc82 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":573E
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":606E
          DataField       =   "sist_puerta2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1932,7 +2341,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc83 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5758
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6088
          DataField       =   "sist_puerta3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1949,7 +2358,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc84 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5772
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":60A2
          DataField       =   "sist_puerta4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1966,7 +2375,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_desc91 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":578C
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":60BC
          DataField       =   "condicion_ventas"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1983,7 +2392,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc92 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":57A6
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":60D6
          DataField       =   "condicion_ventas2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2000,7 +2409,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc93 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":57C0
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":60F0
          DataField       =   "condicion_ventas3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2017,7 +2426,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc94 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":57DA
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":610A
          DataField       =   "condicion_ventas4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2034,7 +2443,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_desc01 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":57F4
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6124
          DataField       =   "condicion_cabina"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2051,7 +2460,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc02 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":580E
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":613E
          DataField       =   "condicion_cabina2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2068,7 +2477,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc03 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5828
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6158
          DataField       =   "condicion_cabina3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2085,7 +2494,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc04 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5842
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6172
          DataField       =   "condicion_cabina4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2102,7 +2511,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_codigo31 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":585C
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":618C
          DataField       =   "pasajeros_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2120,7 +2529,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo41 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5877
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":61A7
          DataField       =   "vel_equipo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2138,7 +2547,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo51 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5892
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":61C2
          DataField       =   "tipo_puerta"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2156,7 +2565,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo61 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":58AD
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":61DD
          DataField       =   "cabina_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2174,7 +2583,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo71 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":58C8
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":61F8
          DataField       =   "tecnologia_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2192,7 +2601,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo81 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":58E3
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6213
          DataField       =   "sist_puerta"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2210,7 +2619,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo91 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":58FE
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":622E
          DataField       =   "condicion_ventas"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2228,7 +2637,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo01 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5919
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6249
          DataField       =   "condicion_cabina"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2246,7 +2655,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo11 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5934
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6264
          DataField       =   "ctrlmaq_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2264,7 +2673,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo12 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":594F
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":627F
          DataField       =   "ctrlmaq_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2282,7 +2691,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo13 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":596A
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":629A
          DataField       =   "ctrlmaq_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2300,7 +2709,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo14 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5985
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":62B5
          DataField       =   "ctrlmaq_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2318,7 +2727,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc11 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":59A0
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":62D0
          DataField       =   "ctrlmaq_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2335,7 +2744,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc12 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":59BA
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":62EA
          DataField       =   "ctrlmaq_codigo2"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2352,7 +2761,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc13 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":59D4
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6304
          DataField       =   "ctrlmaq_codigo3"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2369,7 +2778,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc14 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":59EE
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":631E
          DataField       =   "ctrlmaq_codigo4"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2386,7 +2795,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_valor41 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5A08
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":6338
          DataField       =   "vel_equipo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2501,7 +2910,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          AutoSize        =   -1  'True
          BackColor       =   &H00C0C0C0&
          BorderStyle     =   1  'Fixed Single
-         Caption         =   $"mw_solicitud_calculo_trafico_mod.frx":5A22
+         Caption         =   $"mw_solicitud_calculo_trafico_mod.frx":6352
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -2840,7 +3249,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Width           =   1455
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":5AB6
+         Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":63E6
          Height          =   2250
          Left            =   120
          TabIndex        =   54
@@ -5548,7 +5957,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1560
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":5ACE
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":63FE
          ScaleHeight     =   615
          ScaleWidth      =   1305
          TabIndex        =   180
@@ -5562,7 +5971,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   2955
-         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":62A4
+         Picture         =   "mw_solicitud_calculo_trafico_mod.frx":6BD4
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   179
@@ -5590,6 +5999,53 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          Top             =   195
          Width           =   1035
       End
+   End
+   Begin MSAdodcLib.Adodc Ado_detalle2 
+      Height          =   330
+      Left            =   2160
+      Top             =   10560
+      Visible         =   0   'False
+      Width           =   2280
+      _ExtentX        =   4022
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   3
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Ado_detalle2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
    End
 End
 Attribute VB_Name = "mw_solicitud_calculo_trafico_mod"
@@ -5641,6 +6097,7 @@ Dim rs_datos11 As New ADODB.Recordset
 Dim rs_datos12 As New ADODB.Recordset
 Dim rs_datos13 As New ADODB.Recordset
 Dim rs_datos14 As New ADODB.Recordset
+Dim rs_datos10 As New ADODB.Recordset
 
 Dim rstbeneficiario As New ADODB.Recordset
 Dim rst_ben, rsNada As New ADODB.Recordset
@@ -5703,6 +6160,12 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         BtnAprobar.Visible = False
      End If
    End If
+End Sub
+
+Private Sub BtnAñadir_Click()
+    GlUnidad = Ado_datos.Recordset!unidad_codigo
+    GlSolicitud = Ado_datos.Recordset!solicitud_codigo
+    mw_solicitud_calculo_trafico_mod_DET.Show
 End Sub
 
 Private Sub BtnAprobar_Click()
@@ -7697,7 +8160,16 @@ End Sub
 Private Sub BtnVer_Click()
     GlUnidad = Ado_datos.Recordset!unidad_codigo
     GlSolicitud = Ado_datos.Recordset!solicitud_codigo
-    mw_solicitud_calculo_trafico_mod_DET.Show
+    GlEdificio = Ado_datos.Recordset!edif_codigo
+    'AV_EDIF_VS_BIENES_VENTANUEVA       '
+    Set rs_datos10 = New ADODB.Recordset
+    If rs_datos10.State = 1 Then rs_datos10.Close
+    'rs_datos10.Open "Select * from AV_EDIF_VS_BIENES_VENTANUEVA where edif_codigo = '" & GlEdificio & "' ", db, adOpenStatic
+    rs_datos10.Open "Select * from av_bienes_eqp_caracteristicas_y_venta where edif_codigo = '" & GlEdificio & "' ", db, adOpenStatic
+    Set Ado_detalle2.Recordset = rs_datos10
+    Set DtGLista.DataSource = Ado_detalle2.Recordset
+        
+    FrmDetalle.Visible = True
     
 '  If dtc_aux41.Text <> "" Then
 '    'ARREGLO 1

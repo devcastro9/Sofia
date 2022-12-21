@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
-Begin VB.Form frm_solicitud_bienes_gral 
+Begin VB.Form fw_solicitud_bienes_fondos 
    BackColor       =   &H00C0C0C0&
    BorderStyle     =   1  'Fixed Single
    ClientHeight    =   7290
@@ -36,7 +36,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5355
-         Picture         =   "frm_solicitud_bienes_gral.frx":0000
+         Picture         =   "fw_solicitud_bienes_fondos.frx":0000
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   62
@@ -50,7 +50,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   4080
-         Picture         =   "frm_solicitud_bienes_gral.frx":08EC
+         Picture         =   "fw_solicitud_bienes_fondos.frx":08EC
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   61
@@ -162,7 +162,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Top             =   4080
          Width           =   10485
          Begin MSDataListLib.DataCombo dtc_desc_alm 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":10C2
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":10C2
             DataField       =   "almacen_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -179,7 +179,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_cod_alm 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":10DC
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":10DC
             DataField       =   "almacen_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -225,7 +225,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Width           =   350
          End
          Begin MSDataListLib.DataCombo Txt_campo14 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":10F6
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":10F6
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -263,9 +263,9 @@ Begin VB.Form frm_solicitud_bienes_gral
             DataField       =   "tipo_moneda"
             DataSource      =   "Ado_datos02"
             Height          =   315
-            ItemData        =   "frm_solicitud_bienes_gral.frx":110F
+            ItemData        =   "fw_solicitud_bienes_fondos.frx":110F
             Left            =   3720
-            List            =   "frm_solicitud_bienes_gral.frx":111C
+            List            =   "fw_solicitud_bienes_fondos.frx":111C
             TabIndex        =   74
             Text            =   "BOB"
             Top             =   800
@@ -370,7 +370,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Width           =   975
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":112F
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":112F
             DataField       =   "unimed_codigo"
             Height          =   315
             Left            =   1560
@@ -391,7 +391,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":1148
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":1148
             DataField       =   "unimed_codigo"
             Height          =   315
             Left            =   240
@@ -601,7 +601,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          End
       End
       Begin VB.OptionButton Option1 
-         BackColor       =   &H000040C0&
+         BackColor       =   &H0000C000&
          Caption         =   "Equipo NUEVO"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
@@ -621,7 +621,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Width           =   4935
       End
       Begin VB.OptionButton Option2 
-         BackColor       =   &H000040C0&
+         BackColor       =   &H0000C000&
          Caption         =   "Equipo existente en la Base de Datos"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
@@ -725,7 +725,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Width           =   360
          End
          Begin MSDataListLib.DataCombo dtc_codigo1 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":1161
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":1161
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -746,7 +746,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc1 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":117A
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":117A
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -765,7 +765,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo Txt_campo4 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":1193
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":1193
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -786,7 +786,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Txt_campo2 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":11AC
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":11AC
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -807,7 +807,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Txt_campo3 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":11C5
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":11C5
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -828,7 +828,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Txt_campo18 
-            Bindings        =   "frm_solicitud_bienes_gral.frx":11DE
+            Bindings        =   "fw_solicitud_bienes_fondos.frx":11DE
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
@@ -972,7 +972,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          End
       End
       Begin MSDataListLib.DataCombo dtc_aux3 
-         Bindings        =   "frm_solicitud_bienes_gral.frx":11F7
+         Bindings        =   "fw_solicitud_bienes_fondos.frx":11F7
          DataField       =   "bien_codigo"
          DataSource      =   "fw_compras_gral.ado_detalle1"
          Height          =   315
@@ -992,7 +992,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux2 
-         Bindings        =   "frm_solicitud_bienes_gral.frx":1210
+         Bindings        =   "fw_solicitud_bienes_fondos.frx":1210
          DataField       =   "bien_codigo"
          DataSource      =   "fw_compras_gral.ado_detalle1"
          Height          =   315
@@ -1012,7 +1012,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux1 
-         Bindings        =   "frm_solicitud_bienes_gral.frx":1229
+         Bindings        =   "fw_solicitud_bienes_fondos.frx":1229
          DataField       =   "bien_codigo"
          DataSource      =   "fw_compras_gral.ado_detalle1"
          Height          =   315
@@ -1613,7 +1613,7 @@ Begin VB.Form frm_solicitud_bienes_gral
       _Version        =   393216
    End
 End
-Attribute VB_Name = "frm_solicitud_bienes_gral"
+Attribute VB_Name = "fw_solicitud_bienes_fondos"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -1672,7 +1672,7 @@ Private Sub BtnGrabar_Click()
         End If
         db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo,            compra_cantidad,            compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo,           subgrupo_codigo, " & _
                    " par_codigo,            tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo,   estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
-                   " VALUES ('" & txt_gestion.Caption & "', " & Val(lbl_edif.Caption) & ", '" & dtc_codigo1.Text & "', " & Val(Txt_campo16.Text) & ", " & CDbl(Txt_campo10.Text) & ",      '0',            " & CDbl(Txt_campo11.Text) & ", " & CDbl(Text2.Text) & ",           '0',              " & CDbl(Text2.Text) & ",       '" & dtc_desc1.Text & "', '" & dtc_aux1.Text & "', '" & dtc_aux2.Text & "',  " & _
+                   " VALUES ('" & txt_gestion.Caption & "', " & Val(lbl_edif.Caption) & ", '" & dtc_codigo1.Text & "', " & Val(Txt_campo16.Text) & ", " & CDbl(txt_campo10.Text) & ",      '0',            " & CDbl(txt_campo11.Text) & ", " & CDbl(Text2.Text) & ",           '0',              " & CDbl(Text2.Text) & ",       '" & dtc_desc1.Text & "', '" & dtc_aux1.Text & "', '" & Dtc_aux2.Text & "',  " & _
                    " '" & dtc_aux3.Text & "', '0',      " & Val(dtc_cod_alm.Text) & ",        '" & glusuario & "', '" & Date & "', '0',       '" & Txt_campo14 & "', 'REG', '0', '6.96', 'BOB'  )"
                    
 ''        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, compra_codigo_det, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto, grupo_codigo, subgrupo_codigo, " & _
@@ -1751,11 +1751,11 @@ Private Sub BtnGrabar_Click()
         
         rs_compra_det!bien_codigo = dtc_codigo1.Text
         rs_compra_det!compra_cantidad = Txt_campo16.Text
-        rs_compra_det!compra_precio_unitario_bs = Txt_campo10.Text
-        rs_compra_det!compra_precio_unitario_dol = CDbl(Txt_campo10.Text) / GlTipoCambioOficial
-        rs_compra_det!compra_descuento_bs = CDbl(Txt_campo10.Text) * 0.87                       ' 87% para Ingreso de Almacenes Bs
+        rs_compra_det!compra_precio_unitario_bs = txt_campo10.Text
+        rs_compra_det!compra_precio_unitario_dol = CDbl(txt_campo10.Text) / GlTipoCambioOficial
+        rs_compra_det!compra_descuento_bs = CDbl(txt_campo10.Text) * 0.87                       ' 87% para Ingreso de Almacenes Bs
         rs_compra_det!compra_descuento_dol = rs_compra_det!compra_precio_unitario_dol * 0.87    ' 87% para Ingreso de Almacenes Dol
-        rs_compra_det!compra_precio_total_bs = Txt_campo11.Text
+        rs_compra_det!compra_precio_total_bs = txt_campo11.Text
         rs_compra_det!compra_precio_total_dol = Text2.Text
         rs_compra_det!compra_concepto = dtc_desc1.Text            'Txt_campo4.Text
         rs_compra_det!grupo_codigo = dtc_aux1.Text
@@ -1770,7 +1770,7 @@ Private Sub BtnGrabar_Click()
 
         rs_compra_det!usr_usuario = glusuario
         rs_compra_det!fecha_registro = Date
-        rs_compra_det!adjudica_monto_bs_87 = CDbl(Txt_campo11.Text) * 0.87
+        rs_compra_det!adjudica_monto_bs_87 = CDbl(txt_campo11.Text) * 0.87
         rs_compra_det.Update
 '        rs_aux2.MoveNext
         '
@@ -1883,7 +1883,7 @@ Private Sub valida_campos()
     Exit Sub
   End If
   
-  If Txt_campo11.Text = "0" Then
+  If txt_campo11.Text = "0" Then
     MsgBox "Debe registrar el " + lbl_campo11.Caption, vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -1895,7 +1895,7 @@ Private Sub valida_campos()
     Exit Sub
   End If
   
-  If Txt_campo5.Text = "" Then
+  If txt_campo5.Text = "" Then
     MsgBox "Debe registrar el " + lbl_codigo2.Caption, vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -2039,15 +2039,15 @@ End Sub
 
 Private Sub cmd_moneda_LostFocus()
     Text2.Visible = True
-    Txt_campo11.Visible = True
+    txt_campo11.Visible = True
     If cmd_moneda.Text = "BOB" Then
-        Txt_campo11.Enabled = True
-        Txt_campo11.Visible = True
+        txt_campo11.Enabled = True
+        txt_campo11.Visible = True
         Text2.Enabled = False
         'lbl_moneda.Caption = "Bolivianos"
     Else
-        Txt_campo11.Enabled = False
-        Txt_campo11.Visible = False
+        txt_campo11.Enabled = False
+        txt_campo11.Visible = False
         Text2.Enabled = True
         'lbl_moneda.Caption = "Dolares"
     End If
@@ -2056,35 +2056,35 @@ End Sub
 Private Sub dtc_aux1_Click(Area As Integer)
     dtc_codigo1.BoundText = dtc_aux1.BoundText
     dtc_desc1.BoundText = dtc_aux1.BoundText
-    dtc_aux2.BoundText = dtc_aux1.BoundText
+    Dtc_aux2.BoundText = dtc_aux1.BoundText
     dtc_aux3.BoundText = dtc_aux1.BoundText
     Txt_campo2.BoundText = dtc_aux1.BoundText
-    Txt_campo3.BoundText = dtc_aux1.BoundText
-    Txt_campo4.BoundText = dtc_aux1.BoundText
+    txt_campo3.BoundText = dtc_aux1.BoundText
+    txt_campo4.BoundText = dtc_aux1.BoundText
     Txt_campo18.BoundText = dtc_aux1.BoundText
     Txt_campo14.BoundText = dtc_aux1.BoundText
 End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
-    dtc_codigo1.BoundText = dtc_aux2.BoundText
-    dtc_desc1.BoundText = dtc_aux2.BoundText
-    dtc_aux1.BoundText = dtc_aux2.BoundText
-    dtc_aux3.BoundText = dtc_aux2.BoundText
-    Txt_campo2.BoundText = dtc_aux2.BoundText
-    Txt_campo3.BoundText = dtc_aux2.BoundText
-    Txt_campo4.BoundText = dtc_aux2.BoundText
-    Txt_campo18.BoundText = dtc_aux2.BoundText
-    Txt_campo14.BoundText = dtc_aux2.BoundText
+    dtc_codigo1.BoundText = Dtc_aux2.BoundText
+    dtc_desc1.BoundText = Dtc_aux2.BoundText
+    dtc_aux1.BoundText = Dtc_aux2.BoundText
+    dtc_aux3.BoundText = Dtc_aux2.BoundText
+    Txt_campo2.BoundText = Dtc_aux2.BoundText
+    txt_campo3.BoundText = Dtc_aux2.BoundText
+    txt_campo4.BoundText = Dtc_aux2.BoundText
+    Txt_campo18.BoundText = Dtc_aux2.BoundText
+    Txt_campo14.BoundText = Dtc_aux2.BoundText
 End Sub
 
 Private Sub dtc_aux3_Click(Area As Integer)
     dtc_codigo1.BoundText = dtc_aux3.BoundText
     dtc_desc1.BoundText = dtc_aux3.BoundText
-    dtc_aux2.BoundText = dtc_aux3.BoundText
+    Dtc_aux2.BoundText = dtc_aux3.BoundText
     dtc_aux1.BoundText = dtc_aux3.BoundText
     Txt_campo2.BoundText = dtc_aux3.BoundText
-    Txt_campo3.BoundText = dtc_aux3.BoundText
-    Txt_campo4.BoundText = dtc_aux3.BoundText
+    txt_campo3.BoundText = dtc_aux3.BoundText
+    txt_campo4.BoundText = dtc_aux3.BoundText
     Txt_campo18.BoundText = dtc_aux3.BoundText
     Txt_campo14.BoundText = dtc_aux3.BoundText
 End Sub
@@ -2096,11 +2096,11 @@ End Sub
 Private Sub dtc_codigo1_Click(Area As Integer)
     dtc_desc1.BoundText = dtc_codigo1.BoundText
     dtc_aux1.BoundText = dtc_codigo1.BoundText
-    dtc_aux2.BoundText = dtc_codigo1.BoundText
+    Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
     Txt_campo2.BoundText = dtc_codigo1.BoundText
-    Txt_campo3.BoundText = dtc_codigo1.BoundText
-    Txt_campo4.BoundText = dtc_codigo1.BoundText
+    txt_campo3.BoundText = dtc_codigo1.BoundText
+    txt_campo4.BoundText = dtc_codigo1.BoundText
     Txt_campo18.BoundText = dtc_codigo1.BoundText
     dtc_codigo2.BoundText = dtc_codigo1.BoundText
     Txt_campo14.BoundText = dtc_codigo1.BoundText
@@ -2111,7 +2111,7 @@ Private Sub dtc_codigo1_LostFocus()
     'FALTA ESCALERAS Y MINICARGAS !!
     Set rs_aux6 = New ADODB.Recordset
     If rs_aux6.State = 1 Then rs_aux6.Close
-    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
+    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
     If rs_aux6.RecordCount > 0 Then
         If rs_aux6!trafico_num_paradas < 9 Then
             Txt_campo19.Text = "2"
@@ -2134,11 +2134,11 @@ End Sub
 Private Sub dtc_desc1_Change()
     dtc_codigo1.BoundText = dtc_desc1.BoundText
     dtc_aux1.BoundText = dtc_desc1.BoundText
-    dtc_aux2.BoundText = dtc_desc1.BoundText
+    Dtc_aux2.BoundText = dtc_desc1.BoundText
     dtc_aux3.BoundText = dtc_desc1.BoundText
     Txt_campo2.BoundText = dtc_desc1.BoundText
-    Txt_campo3.BoundText = dtc_desc1.BoundText
-    Txt_campo4.BoundText = dtc_desc1.BoundText
+    txt_campo3.BoundText = dtc_desc1.BoundText
+    txt_campo4.BoundText = dtc_desc1.BoundText
     Txt_campo18.BoundText = dtc_desc1.BoundText
     Txt_campo14.BoundText = dtc_desc1.BoundText
     
@@ -2165,7 +2165,7 @@ Private Sub dtc_desc1_LostFocus()
         dtc_desc_alm.BoundText = dtc_cod_alm.BoundText
         Txt_campo18.Visible = False
         Txt_campo2.Visible = False
-        Txt_campo3.Visible = False
+        txt_campo3.Visible = False
         Label11.Visible = False
         lbl_campo2.Visible = False
         lbl_campo5.Visible = False
@@ -2173,7 +2173,7 @@ Private Sub dtc_desc1_LostFocus()
         fra_almacen.Visible = True
         Txt_campo18.Visible = True
         Txt_campo2.Visible = True
-        Txt_campo3.Visible = True
+        txt_campo3.Visible = True
         Label11.Visible = True
         lbl_campo2.Visible = True
         lbl_campo5.Visible = True
@@ -2223,7 +2223,7 @@ Private Sub dtc_desc2_LostFocus()
            Txt_campo16.Text = "1"
     End Select
     Txt_campo19.Text = "2"
-    Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
+    txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
 End Sub
 
 Private Sub Form_Activate()
@@ -2243,7 +2243,7 @@ Private Sub Form_Activate()
     End If
         Txt_tdc.Text = "6.96"
     Text2.Visible = False
-    Txt_campo11.Visible = False
+    txt_campo11.Visible = False
 '    Set rs_unidad = New ADODB.Recordset
 '    If rs_unidad.State = 1 Then rs_unidad.Close
 '    rs_unidad.Open "Select * from gc_unidad_ejecutora = '" & fw_solicitud_compras.VAR_UNI & "' order by unidad_descripcion", db, adOpenStatic
@@ -2291,7 +2291,7 @@ Private Sub Form_Load()
     var_val2 = "2"
     
 If parametro <> "COMEX" Then
-    Txt_campo10.Visible = True
+    txt_campo10.Visible = True
     lbl_campo10.Visible = True
     Set rs_clasif6 = New ADODB.Recordset
     If rs_clasif6.State = 1 Then rs_clasif6.Close
@@ -2306,7 +2306,7 @@ If parametro <> "COMEX" Then
      Text1(5).Visible = False
      fra_almacen.Visible = True
 Else
-     Txt_campo10.Visible = False
+     txt_campo10.Visible = False
      lbl_campo10.Visible = False
      Set rs_clasif6 = New ADODB.Recordset
      If rs_clasif6.State = 1 Then rs_clasif6.Close
@@ -2380,20 +2380,20 @@ Private Sub ABRIR_TABLA()
             VAR_DET = " where almacen_tipo = 'A' "
     End Select
     '" & VAR_DET & "
-    'rs_datos1.Open "select * from ac_bienes where almacen_tipo <> 'Q' AND  estado_codigo = 'APR' AND observaciones = 'FONDO01' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly    'order by descripcion
-    rs_datos1.Open "select * from ac_bienes " + VAR_DET + " AND estado_codigo = 'APR' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly    'order by descripcion
+    rs_datos1.Open "select * from ac_bienes where almacen_tipo <> 'Q' AND  estado_codigo = 'APR' AND observaciones = 'FONDO01' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly    'order by descripcion
+    
     Set Ado_datos1.Recordset = rs_datos1
     sino = rs_datos1.RecordCount
     If swnuevo = 2 Then
-        dtc_codigo1.Text = Txt_campo5.Text
+        dtc_codigo1.Text = txt_campo5.Text
     End If
     dtc_desc1.BoundText = dtc_codigo1.BoundText
     dtc_aux1.BoundText = dtc_codigo1.BoundText
-    dtc_aux2.BoundText = dtc_codigo1.BoundText
+    Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
     Txt_campo2.BoundText = dtc_codigo1.BoundText
-    Txt_campo3.BoundText = dtc_codigo1.BoundText
-    Txt_campo4.BoundText = dtc_codigo1.BoundText
+    txt_campo3.BoundText = dtc_codigo1.BoundText
+    txt_campo4.BoundText = dtc_codigo1.BoundText
     Txt_campo18.BoundText = dtc_codigo1.BoundText
     Txt_campo14.BoundText = dtc_codigo1.BoundText
     'ac_bienes_unidad_medida
@@ -2482,10 +2482,10 @@ If cmd_moneda = "USD" Then
     '
     If Text2.Text <> "" And Text2.Text <> "," Then
         'Txt_campo11.Text = Format(Round(CDbl(Text2.Text) * GlTipoCambioOficial, 2), "###,###,##0.00")
-        Txt_campo11.Text = Format(Round(CDbl(Text2.Text) * IIf(Txt_tdc.Text = "0", GlTipoCambioOficial, CDbl(Txt_tdc.Text)), 2), "###,###,##0.00")
-        Txt_campo10.Text = Format(Round(CDbl(Txt_campo11) / CDbl(Txt_campo16), 2), "###,###,##0.00")
+        txt_campo11.Text = Format(Round(CDbl(Text2.Text) * IIf(Txt_tdc.Text = "0", GlTipoCambioOficial, CDbl(Txt_tdc.Text)), 2), "###,###,##0.00")
+        txt_campo10.Text = Format(Round(CDbl(txt_campo11) / CDbl(Txt_campo16), 2), "###,###,##0.00")
     Else
-        Txt_campo11.Text = "0"
+        txt_campo11.Text = "0"
     End If
 End If
 CAL_DOL = "NO"
@@ -2533,8 +2533,8 @@ Private Sub Txt_campo10_LostFocus()
            Txt_campo16.Text = "1"
     End Select
     Txt_campo19.Text = "2"
-     If Txt_campo10.Text <> "" And Txt_campo10.Text <> "." Then
-    Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
+     If txt_campo10.Text <> "" And txt_campo10.Text <> "." Then
+    txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
     End If
 End Sub
 
@@ -2579,9 +2579,9 @@ If cmd_moneda = "BOB" Then
         Txt_campo16.Text = "1"
     End If
     
-    If Txt_campo11.Text <> "" And Txt_campo11.Text <> "," Then
-        Txt_campo10.Text = Format(Round(CDbl(Txt_campo11) / CDbl(Txt_campo16), 2), "###,###,##0.00")
-        Text2.Text = Format(Round(CDbl(Txt_campo11.Text) / IIf(Txt_tdc.Text = "0", GlTipoCambioOficial, CDbl(Txt_tdc.Text)), 2), "###,###,##0.00")
+    If txt_campo11.Text <> "" And txt_campo11.Text <> "," Then
+        txt_campo10.Text = Format(Round(CDbl(txt_campo11) / CDbl(Txt_campo16), 2), "###,###,##0.00")
+        Text2.Text = Format(Round(CDbl(txt_campo11.Text) / IIf(Txt_tdc.Text = "0", GlTipoCambioOficial, CDbl(Txt_tdc.Text)), 2), "###,###,##0.00")
     Else
         Text2.Text = "0"
     End If
@@ -2597,12 +2597,12 @@ End Sub
 Private Sub Txt_campo14_Click(Area As Integer)
     dtc_codigo1.BoundText = Txt_campo14.BoundText
     dtc_desc1.BoundText = Txt_campo14.BoundText
-    dtc_aux2.BoundText = Txt_campo14.BoundText
+    Dtc_aux2.BoundText = Txt_campo14.BoundText
     dtc_aux3.BoundText = Txt_campo14.BoundText
     Txt_campo2.BoundText = Txt_campo14.BoundText
     dtc_aux1.BoundText = Txt_campo14.BoundText
-    Txt_campo4.BoundText = Txt_campo14.BoundText
-    Txt_campo3.BoundText = Txt_campo14.BoundText
+    txt_campo4.BoundText = Txt_campo14.BoundText
+    txt_campo3.BoundText = Txt_campo14.BoundText
     Txt_campo18.BoundText = Txt_campo14.BoundText
 End Sub
 
@@ -2641,11 +2641,11 @@ Private Sub Txt_campo16_Change()
 '    End If
 '    End If
 
-If Txt_campo11.Text = "" Then
-Txt_campo11.Text = "0"
+If txt_campo11.Text = "" Then
+txt_campo11.Text = "0"
 End If
 If Txt_campo16.Text <> "" And Txt_campo16.Text <> "." Then
-Txt_campo10.Text = Round(CDbl(Txt_campo11) / CDbl(Txt_campo16), 2)
+txt_campo10.Text = Round(CDbl(txt_campo11) / CDbl(Txt_campo16), 2)
 End If
 Exit Sub
 UpdateErr:
@@ -2655,12 +2655,12 @@ End Sub
 Private Sub Txt_campo18_Click(Area As Integer)
     dtc_codigo1.BoundText = Txt_campo18.BoundText
     dtc_desc1.BoundText = Txt_campo18.BoundText
-    dtc_aux2.BoundText = Txt_campo18.BoundText
+    Dtc_aux2.BoundText = Txt_campo18.BoundText
     dtc_aux3.BoundText = Txt_campo18.BoundText
     Txt_campo2.BoundText = Txt_campo18.BoundText
     dtc_aux1.BoundText = Txt_campo18.BoundText
-    Txt_campo4.BoundText = Txt_campo18.BoundText
-    Txt_campo3.BoundText = Txt_campo18.BoundText
+    txt_campo4.BoundText = Txt_campo18.BoundText
+    txt_campo3.BoundText = Txt_campo18.BoundText
     Txt_campo14.BoundText = Txt_campo18.BoundText
 End Sub
 
@@ -2681,36 +2681,36 @@ End Sub
 Private Sub Txt_campo2_Click(Area As Integer)
     dtc_codigo1.BoundText = Txt_campo2.BoundText
     dtc_desc1.BoundText = Txt_campo2.BoundText
-    dtc_aux2.BoundText = Txt_campo2.BoundText
+    Dtc_aux2.BoundText = Txt_campo2.BoundText
     dtc_aux3.BoundText = Txt_campo2.BoundText
     dtc_aux1.BoundText = Txt_campo2.BoundText
-    Txt_campo3.BoundText = Txt_campo2.BoundText
-    Txt_campo4.BoundText = Txt_campo2.BoundText
+    txt_campo3.BoundText = Txt_campo2.BoundText
+    txt_campo4.BoundText = Txt_campo2.BoundText
     Txt_campo18.BoundText = Txt_campo2.BoundText
     Txt_campo14.BoundText = Txt_campo2.BoundText
 End Sub
 
 Private Sub Txt_campo3_Click(Area As Integer)
-    dtc_codigo1.BoundText = Txt_campo3.BoundText
-    dtc_desc1.BoundText = Txt_campo3.BoundText
-    dtc_aux2.BoundText = Txt_campo3.BoundText
-    dtc_aux3.BoundText = Txt_campo3.BoundText
-    Txt_campo2.BoundText = Txt_campo3.BoundText
-    dtc_aux1.BoundText = Txt_campo3.BoundText
-    Txt_campo4.BoundText = Txt_campo3.BoundText
-    Txt_campo18.BoundText = Txt_campo3.BoundText
-    Txt_campo14.BoundText = Txt_campo3.BoundText
+    dtc_codigo1.BoundText = txt_campo3.BoundText
+    dtc_desc1.BoundText = txt_campo3.BoundText
+    Dtc_aux2.BoundText = txt_campo3.BoundText
+    dtc_aux3.BoundText = txt_campo3.BoundText
+    Txt_campo2.BoundText = txt_campo3.BoundText
+    dtc_aux1.BoundText = txt_campo3.BoundText
+    txt_campo4.BoundText = txt_campo3.BoundText
+    Txt_campo18.BoundText = txt_campo3.BoundText
+    Txt_campo14.BoundText = txt_campo3.BoundText
 End Sub
 
 Private Sub Txt_campo4_Click(Area As Integer)
-    dtc_codigo1.BoundText = Txt_campo4.BoundText
-    dtc_desc1.BoundText = Txt_campo4.BoundText
-    dtc_aux2.BoundText = Txt_campo4.BoundText
-    dtc_aux3.BoundText = Txt_campo4.BoundText
-    Txt_campo2.BoundText = Txt_campo4.BoundText
-    dtc_aux1.BoundText = Txt_campo4.BoundText
-    Txt_campo3.BoundText = Txt_campo4.BoundText
-    Txt_campo18.BoundText = Txt_campo4.BoundText
-    Txt_campo14.BoundText = Txt_campo4.BoundText
+    dtc_codigo1.BoundText = txt_campo4.BoundText
+    dtc_desc1.BoundText = txt_campo4.BoundText
+    Dtc_aux2.BoundText = txt_campo4.BoundText
+    dtc_aux3.BoundText = txt_campo4.BoundText
+    Txt_campo2.BoundText = txt_campo4.BoundText
+    dtc_aux1.BoundText = txt_campo4.BoundText
+    txt_campo3.BoundText = txt_campo4.BoundText
+    Txt_campo18.BoundText = txt_campo4.BoundText
+    Txt_campo14.BoundText = txt_campo4.BoundText
 End Sub
 

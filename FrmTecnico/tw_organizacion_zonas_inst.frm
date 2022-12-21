@@ -151,7 +151,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110690305
+         Format          =   112656385
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -165,7 +165,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110690305
+         Format          =   112656385
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -179,7 +179,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110690305
+         Format          =   112656385
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -193,7 +193,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110690305
+         Format          =   112656385
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -2848,23 +2848,23 @@ Private Sub BtnGrabarDet_Click()
         SQL_FOR = "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' "
         rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux1.RecordCount > 0 Then
-            txt_campo1.Text = IIf(IsNull(rs_aux1!Orden), 1, rs_aux1!Orden + 1)
+            Txt_campo1.Text = IIf(IsNull(rs_aux1!Orden), 1, rs_aux1!Orden + 1)
         Else
-            txt_campo1.Text = 1
+            Txt_campo1.Text = 1
         End If
         'update gc_edificaciones set tomadoInst = 'S' where edif_codigo = @edif_codigo
         'db.Execute "SELECT Txt_campo1.Text  = ISNULL(MAX(zona_edif_orden),0)+1 FROM tc_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' "
         db.Execute "insert into  tc_zona_piloto_edif_inst(zpiloto_codigo, edif_codigo, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, observaciones, estado_codigo, fecha_registro, usr_codigo) " & _
-        "values (" & Ado_datos.Recordset!zpiloto_codigo & ", '" & dtc_codigo5.Text & "', '" & txt_campo1.Text & "', '0', '" & dtc_codigo6.Text & "', '" & dtc_codigo7.Text & "', '" & dtc_codigo8.Text & "', 0, '" & txt_obs.Text & "', 'REG', GETDATE(), 'ADMIN')"
+        "values (" & Ado_datos.Recordset!zpiloto_codigo & ", '" & dtc_codigo5.Text & "', '" & Txt_campo1.Text & "', '0', '" & dtc_codigo6.Text & "', '" & dtc_codigo7.Text & "', '" & dtc_codigo8.Text & "', 0, '" & txt_obs.Text & "', 'REG', GETDATE(), 'ADMIN')"
         
         db.Execute "update gc_edificaciones set tomadoInst= 'S' where edif_codigo = '" & dtc_codigo5.Text & "' "
     End If
     If swnuevo = 2 Then
-        db.Execute "update tc_zona_piloto_edif_inst set edif_codigo= '" & dtc_codigo5.Text & "', zona_edif_orden='" & txt_campo1.Text & "', beneficiario_codigo= '" & dtc_codigo6.Text & "', beneficiario_codigo_rep= '" & dtc_codigo7.Text & "', beneficiario_codigo_sup= '" & dtc_codigo8.Text & "', beneficiario_codigo_cobr= '" & dtc_codigo8.Text & "', zorden_cambio= " & cmd_campo2.Text & ", observaciones = '" & txt_obs.Text & "', fecha_registro='" & Date & "', fecha_ini_max='" & DTPicker1.Value & "', fecha_fin_max='" & DTPicker2.Value & "'   where correlativo=" & Text1.Text & " "
+        db.Execute "update tc_zona_piloto_edif_inst set edif_codigo= '" & dtc_codigo5.Text & "', zona_edif_orden='" & Txt_campo1.Text & "', beneficiario_codigo= '" & dtc_codigo6.Text & "', beneficiario_codigo_rep= '" & dtc_codigo7.Text & "', beneficiario_codigo_sup= '" & dtc_codigo8.Text & "', beneficiario_codigo_cobr= '" & dtc_codigo8.Text & "', zorden_cambio= " & cmd_campo2.Text & ", observaciones = '" & txt_obs.Text & "', fecha_registro='" & Date & "', fecha_ini_max='" & DTPicker1.Value & "', fecha_fin_max='" & DTPicker2.Value & "'   where correlativo=" & Text1.Text & " "
         db.Execute "update tc_zona_piloto_edif_inst set fecha_ini_ajuste= '" & DTPicker3.Value & "', fecha_fin_ajuste ='" & DTPicker4.Value & "'   where correlativo=" & Text1.Text & " "
         If cmd_campo2.Text <> "0" Then
-            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = zona_edif_orden + 1 where zona_edif_orden >= " & cmd_campo2.Text & " and zona_edif_orden < " & txt_campo1.Text & " and " & txt_campo1.Text & " > " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
-            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden <= " & cmd_campo2.Text & " and zona_edif_orden > " & txt_campo1.Text & " and " & txt_campo1.Text & " < " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
+            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = zona_edif_orden + 1 where zona_edif_orden >= " & cmd_campo2.Text & " and zona_edif_orden < " & Txt_campo1.Text & " and " & Txt_campo1.Text & " > " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
+            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden <= " & cmd_campo2.Text & " and zona_edif_orden > " & Txt_campo1.Text & " and " & Txt_campo1.Text & " < " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
             db.Execute "update tc_zona_piloto_edif_inst set zona_edif_orden = zorden_cambio  where zorden_cambio > '0'  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
             db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = '0'  where zorden_cambio > '0'"
         End If

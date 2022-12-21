@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110624769
+         Format          =   61931521
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -4139,7 +4139,7 @@ On Error GoTo UpdateErr
             'Ado_detalle1.Recordset.AddNew
             GlCotiza = 2
             fw_solicitud_bienes_comex.txt_codigo.Caption = Me.txt_codigo.Caption
-            fw_solicitud_bienes_comex.txt_campo1.Caption = Me.dtc_codigo1.Text
+            fw_solicitud_bienes_comex.Txt_campo1.Caption = Me.dtc_codigo1.Text
             fw_solicitud_bienes_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_solicitud_bienes_comex.lbl_edif.Caption = Label1.Caption
             fw_solicitud_bienes_comex.lbl_det.Caption = Glaux
@@ -4289,7 +4289,7 @@ On Error GoTo UpdateErr
 '        rs_aux4.Open "select max(adjudica_codigo) as correla from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_comex.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_comex.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA           ' Me.Ado_datos.Recordset!compra_codigo
 '        If rs_aux4!correla > 0 Then
@@ -6072,23 +6072,23 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     fw_solicitud_bienes_comex.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                fw_solicitud_bienes_comex.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                fw_solicitud_bienes_comex.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.dtc_aux1.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
-                fw_solicitud_bienes_comex.Dtc_aux2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
+                fw_solicitud_bienes_comex.dtc_aux2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.dtc_aux3.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.Txt_campo2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
-                fw_solicitud_bienes_comex.txt_campo3.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
-                fw_solicitud_bienes_comex.txt_campo4.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
+                fw_solicitud_bienes_comex.Txt_campo3.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
+                fw_solicitud_bienes_comex.Txt_campo4.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.Txt_campo18.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.dtc_codigo2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.Txt_campo14.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 
                 'frm_solicitud_bienes_gral.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("bien_codigo")
-                fw_solicitud_bienes_comex.txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
-                fw_solicitud_bienes_comex.txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
+                fw_solicitud_bienes_comex.Txt_campo10.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_unitario_bs"), "###,###,##0.00")
+                fw_solicitud_bienes_comex.Txt_campo11.Text = Format(Me.Ado_detalle1.Recordset("compra_precio_total_bs"), "###,###,##0.00")
                 fw_solicitud_bienes_comex.Text2.Text = Format(IIf(IsNull(Me.Ado_detalle1.Recordset("compra_precio_total_dol")), 0, Me.Ado_detalle1.Recordset("compra_precio_total_dol")), "###,###,##0.00")
                 
                 fw_solicitud_bienes_comex.Txt_campo16.Text = Me.Ado_detalle1.Recordset("compra_cantidad") 'dtc_codigo2
@@ -6236,7 +6236,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
         fw_adjudica_comex.txt_codigo.Caption = VAR_SOL2                 'Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-        fw_adjudica_comex.txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA               'Me.Ado_detalle2.Recordset("compra_codigo")
         'fw_adjudica_comex.Txt_estado.Caption = "REG"

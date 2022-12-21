@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   1.15922e10
+   ScaleHeight     =   13065
    ScaleMode       =   0  'User
-   ScaleWidth      =   2.86679e5
+   ScaleWidth      =   3.98351e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -38,7 +38,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   2880
+      Top             =   4440
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -122,7 +122,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   3480
+      Top             =   4440
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -382,7 +382,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   12480
+         Left            =   12240
          Picture         =   "tw_tecnico_venta.frx":36BC
          ScaleHeight     =   615
          ScaleWidth      =   1440
@@ -397,7 +397,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   11040
+         Left            =   10800
          Picture         =   "tw_tecnico_venta.frx":416A
          ScaleHeight     =   615
          ScaleWidth      =   1455
@@ -413,7 +413,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   8040
+         Left            =   7800
          Picture         =   "tw_tecnico_venta.frx":4F4B
          ScaleHeight     =   615
          ScaleWidth      =   1395
@@ -429,7 +429,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   6615
+         Left            =   6375
          Picture         =   "tw_tecnico_venta.frx":5A95
          ScaleHeight     =   615
          ScaleWidth      =   1395
@@ -444,7 +444,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   9555
+         Left            =   9315
          Picture         =   "tw_tecnico_venta.frx":654F
          ScaleHeight     =   615
          ScaleWidth      =   1455
@@ -460,7 +460,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   5280
+         Left            =   5040
          Picture         =   "tw_tecnico_venta.frx":6E06
          ScaleHeight     =   615
          ScaleWidth      =   1395
@@ -490,7 +490,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   3960
+         Left            =   3840
          Picture         =   "tw_tecnico_venta.frx":7E95
          ScaleHeight     =   615
          ScaleWidth      =   1215
@@ -505,7 +505,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   2640
+         Left            =   2520
          Picture         =   "tw_tecnico_venta.frx":864A
          ScaleHeight     =   615
          ScaleWidth      =   1320
@@ -520,7 +520,7 @@ Begin VB.Form tw_tecnico_venta
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   1440
+         Left            =   1320
          Picture         =   "tw_tecnico_venta.frx":8E80
          ScaleHeight     =   615
          ScaleWidth      =   1215
@@ -545,7 +545,6 @@ Begin VB.Form tw_tecnico_venta
          Width           =   1430
       End
       Begin VB.Label lbl_titulo 
-         Alignment       =   2  'Center
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
          Caption         =   "CRONOGRAMA"
@@ -560,7 +559,7 @@ Begin VB.Form tw_tecnico_venta
          EndProperty
          ForeColor       =   &H00FFFF80&
          Height          =   285
-         Left            =   15135
+         Left            =   13695
          TabIndex        =   108
          Top             =   180
          Width           =   1815
@@ -745,7 +744,6 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(1)   =   "tw_tecnico_venta.frx":CDF3
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
@@ -757,11 +755,8 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
       Tab(3).Control(0)=   "FrmAlcance"
-      Tab(3).Control(0).Enabled=   0   'False
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(1).Enabled=   0   'False
       Tab(3).Control(2)=   "FrmABMDet1"
-      Tab(3).Control(2).Enabled=   0   'False
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1320,7 +1315,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110952449
+            Format          =   112656385
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1582,7 +1577,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   110952449
+            Format          =   112656385
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1610,7 +1605,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110952449
+            Format          =   112656385
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2108,7 +2103,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   110952449
+               Format          =   112656385
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2133,7 +2128,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110952449
+               Format          =   112656385
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2577,7 +2572,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110952449
+               Format          =   112656385
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2660,7 +2655,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110952449
+               Format          =   112656385
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3386,7 +3381,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110952449
+            Format          =   112656385
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -7604,7 +7599,7 @@ Private Sub BtnAprobar3_Click()
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
-    If Ado_datos.Recordset.RecordCount > 0 Then
+    If Ado_datos.Recordset.RecordCount > 0 And (glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS") Then
         If CDate(Format(DTPfechasol.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechasol.Value = "" Then
             MsgBox "Debe registrar la Fecha de Venta !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
             VAR_VAL = "ERR"
@@ -7794,7 +7789,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechaFin.Value = "" Then
+  If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPFechaFin.Value = "" Then
       MsgBox "Debe registrar la Fecha de Inicio !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7805,13 +7800,13 @@ Private Sub valida_campos()
     Exit Sub
   End If
   If parametro = "DNMAN" Then
-    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
     End If
   Else
-    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR o IGUAL a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7850,7 +7845,7 @@ Private Sub valida_campos()
 '        Exit Sub
 '    End If
 '  End If
-  If Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
+  If Month(CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
     'If Val(VAR_MES2) < Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) Then
         MsgBox "El 'MES Inicio del Plan de Cuotas' NO puede ser DIFERENTE al MES de la Fecha de Inicio del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
         VAR_VAL = "ERR"
@@ -7861,7 +7856,7 @@ Private Sub valida_campos()
     'DTPFechaFin
     'meses = DateDiff("m", Text1.Text, Text2.Text)
     'txtCantCobr
-    CONT4 = DateDiff("m", DTPfechaIni.Value, DTPfechaFin.Value)
+    CONT4 = DateDiff("m", DTPFechaIni.Value, DTPFechaFin.Value)
   If (txtCantCobr.Text <> CONT4 + 1) And (cmd_unimed2.Text = "MES") Then
      sino = MsgBox("El 'Número de Cuotas' es DIFERENTE al número de meses de la Fecha de INICIO y FIN, aún así desea continuar ??...", vbYesNo + vbQuestion, "Atención ...")
      If sino = vbYes Then
@@ -7926,8 +7921,8 @@ Private Sub BtnGrabar_Click()
   Call valida_campos2
   If VAR_VAL = "OK" And VAR_VALD = "OK" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    FInicio = IIf(DTPfechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
-    FFin = IIf(DTPfechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaFin.Value)
+    FInicio = IIf(DTPFechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
+    FFin = IIf(DTPFechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaFin.Value)
     CANTOT = Ado_datos.Recordset!venta_cantidad_total
     gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
     VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
@@ -11684,8 +11679,8 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
                 cmd_unimed_tec.Text = cmd_unimed2.Text
             End If
-            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
-            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
+            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPFechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
+            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPFechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
             
             If cmb_mes_ini_tec.Text = "" Or cmb_mes_ini_tec.Text = "0" Then                                   'Mes de Inicio Crono.
                 cmb_mes_ini_tec.Text = cmb_mes_ini.Text

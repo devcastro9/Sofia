@@ -12,8 +12,8 @@ Begin VB.Form Fw_ReportesCobranzas
    ClientWidth     =   16680
    Icon            =   "Fw_ReportesCobranzas.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   8445
+   ScaleWidth      =   16680
    StartUpPosition =   1  'CenterOwner
    Begin VB.Frame Frame2 
       BackColor       =   &H00C0C0C0&
@@ -363,7 +363,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   3720
-         TabIndex        =   118
+         TabIndex        =   117
          Top             =   6120
          Width           =   5115
       End
@@ -373,7 +373,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   9600
-         TabIndex        =   117
+         TabIndex        =   116
          Top             =   6120
          Width           =   6285
       End
@@ -383,7 +383,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   116
+         TabIndex        =   115
          Top             =   3240
          Width           =   3645
       End
@@ -393,7 +393,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   115
+         TabIndex        =   114
          Top             =   3600
          Width           =   3645
       End
@@ -403,7 +403,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   114
+         TabIndex        =   113
          Top             =   2160
          Visible         =   0   'False
          Width           =   3285
@@ -414,7 +414,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   113
+         TabIndex        =   112
          Top             =   1800
          Visible         =   0   'False
          Width           =   3285
@@ -425,7 +425,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   112
+         TabIndex        =   111
          Top             =   2520
          Visible         =   0   'False
          Width           =   3285
@@ -436,7 +436,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   111
+         TabIndex        =   110
          Top             =   1080
          Width           =   3165
       End
@@ -446,7 +446,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   110
+         TabIndex        =   109
          Top             =   360
          Width           =   3165
       End
@@ -456,7 +456,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   12480
-         TabIndex        =   109
+         TabIndex        =   108
          Top             =   720
          Visible         =   0   'False
          Width           =   2325
@@ -496,7 +496,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   9600
-         TabIndex        =   103
+         TabIndex        =   102
          Top             =   5040
          Width           =   4485
       End
@@ -556,7 +556,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   240
-         TabIndex        =   108
+         TabIndex        =   107
          Top             =   3840
          Visible         =   0   'False
          Width           =   3050
@@ -576,7 +576,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   8520
-         TabIndex        =   107
+         TabIndex        =   106
          Top             =   2085
          Value           =   -1  'True
          Visible         =   0   'False
@@ -588,7 +588,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   8520
-         TabIndex        =   106
+         TabIndex        =   105
          Top             =   1785
          Visible         =   0   'False
          Width           =   3300
@@ -599,7 +599,7 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   8520
-         TabIndex        =   105
+         TabIndex        =   104
          Top             =   1425
          Width           =   3540
       End
@@ -609,21 +609,10 @@ Begin VB.Form Fw_ReportesCobranzas
          ForeColor       =   &H00000000&
          Height          =   325
          Left            =   8520
-         TabIndex        =   104
+         TabIndex        =   103
          Top             =   1080
          Visible         =   0   'False
          Width           =   3525
-      End
-      Begin VB.OptionButton optRep020 
-         BackColor       =   &H00C0C0C0&
-         Caption         =   "por: CTA.BANCARIA (Conciliación)"
-         ForeColor       =   &H00000000&
-         Height          =   325
-         Left            =   8520
-         TabIndex        =   102
-         Top             =   2400
-         Visible         =   0   'False
-         Width           =   3555
       End
       Begin VB.OptionButton optRep026 
          BackColor       =   &H00C0C0C0&
@@ -702,6 +691,17 @@ Begin VB.Form Fw_ReportesCobranzas
          TabIndex        =   97
          Top             =   4320
          Width           =   12735
+         Begin VB.OptionButton optRep020 
+            BackColor       =   &H00C0C0C0&
+            Caption         =   "por: CTA.BANCARIA (Conciliación)"
+            ForeColor       =   &H00000000&
+            Height          =   325
+            Left            =   240
+            TabIndex        =   118
+            Top             =   720
+            Visible         =   0   'False
+            Width           =   3555
+         End
          Begin VB.Line Line3 
             BorderColor     =   &H00FF0000&
             X1              =   5880
@@ -2102,7 +2102,7 @@ Begin VB.Form Fw_ReportesCobranzas
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109772801
+         Format          =   112656385
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -2114,7 +2114,7 @@ Begin VB.Form Fw_ReportesCobranzas
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109772801
+         Format          =   112656385
          CurrentDate     =   42735
       End
       Begin VB.Label Label2 
@@ -2264,8 +2264,8 @@ Dim titulo2, subtitulo2 As String
 Public Sub inicio(Usuario, Proceso As String)
   glRepPresup = Proceso
   Call llena_datos
-  DTPfecha1.Value = Format("01/01/2022", "dd/mm/yyyy")
-  DTPfecha2.Value = Format(Date, "dd/mm/yyyy")
+  dtpFecha1.Value = Format("01/01/2022", "dd/mm/yyyy")
+  dtpFecha2.Value = Format(Date, "dd/mm/yyyy")
   'dtpFecha2.Value = Date
 '  frmRepPresupuesto.Show
 End Sub
@@ -3095,8 +3095,8 @@ End Sub
 Private Sub RepUnidad(tipoRep As String, ArchRep As String, titulo1 As String)
   CryUnidad.ReportFileName = App.Path & ArchRep
   If optRep008.Value <> True Then
-    CryUnidad.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
-    CryUnidad.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
+    CryUnidad.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
+    CryUnidad.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
     CryUnidad.StoredProcParam(0) = tipoRep
   End If
 'ini reporte
@@ -3135,8 +3135,8 @@ Private Sub RepUnidad(tipoRep As String, ArchRep As String, titulo1 As String)
   End If
 'fin reporte
 '  Call setParametros(CryUnidad)
-  CryUnidad.Formulas(0) = "FFInicio ='" & DTPfecha1.Value & "'"
-  CryUnidad.Formulas(1) = "FFFinal ='" & DTPfecha2.Value & "'"
+  CryUnidad.Formulas(0) = "FFInicio ='" & dtpFecha1.Value & "'"
+  CryUnidad.Formulas(1) = "FFFinal ='" & dtpFecha2.Value & "'"
   If optRep008.Value = True Then
     subtitulo2 = "VENTAS VS COBRADORES"
     CryUnidad.Formulas(2) = "Titulo = '" & titulo1 & "'"
@@ -3178,12 +3178,12 @@ Private Sub Rep001(tipoRep As String, ArchRep As String, titulo1 As String)
 End Sub
 Private Sub RepVsLey(tipoRep As String, ArchRep As String, titulo1 As String)
   CryVsLey.ReportFileName = App.Path & ArchRep
-  CryVsLey.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
-  CryVsLey.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
+  CryVsLey.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
+  CryVsLey.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
   CryVsLey.StoredProcParam(2) = tipoRep
   Call setParametros(CryVsLey)
-  CryVsLey.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
-  CryVsLey.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
+  CryVsLey.Formulas(0) = "fFecha1 ='" & dtpFecha1.Value & "'"
+  CryVsLey.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
   If titulo1 <> "" Then
     CryVsLey.Formulas(2) = "Titulo1 = '" & titulo1 & "'"
   End If
@@ -3198,12 +3198,12 @@ End Sub
 
 Private Sub RepDetalle(tipoRep As String, ArchRep As String, titulo1 As String)
   CryDetalle.ReportFileName = App.Path & ArchRep
-  CryDetalle.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
-  CryDetalle.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
+  CryDetalle.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
+  CryDetalle.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
   CryDetalle.StoredProcParam(2) = tipoRep
   Call setParametros(CryDetalle)
-  CryDetalle.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
-  CryDetalle.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
+  CryDetalle.Formulas(0) = "fFecha1 ='" & dtpFecha1.Value & "'"
+  CryDetalle.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
   If titulo1 <> "" Then
     CryDetalle.Formulas(2) = "Titulo1 = '" & titulo1 & "'"
   End If
@@ -3460,7 +3460,7 @@ End Sub
 Private Sub Form_Load()
     BtnImprimir2.Visible = False
     Call llena_datos
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
     Unload Me
@@ -3667,12 +3667,12 @@ End Sub
 
 Private Sub RepVsLeyFinanciador(tipoRep As String, ArchRep As String, titulo1 As String)
   CryRep002_financiador.ReportFileName = App.Path & ArchRep
-  CryRep002_financiador.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
-  CryRep002_financiador.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
+  CryRep002_financiador.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
+  CryRep002_financiador.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
   CryRep002_financiador.StoredProcParam(2) = tipoRep
   Call setParametros(CryRep002_financiador)
-  CryRep002_financiador.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
-  CryRep002_financiador.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
+  CryRep002_financiador.Formulas(0) = "fFecha1 ='" & dtpFecha1.Value & "'"
+  CryRep002_financiador.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
   CryRep002_financiador.Formulas(2) = "conDetalle = " & IIf(optSi.Value = True, "true", "false")
   iResult = CryRep002_financiador.PrintReport
   If iResult <> 0 Then

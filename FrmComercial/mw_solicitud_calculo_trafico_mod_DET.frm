@@ -1897,7 +1897,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod_DET
             AutoSize        =   -1  'True
             BackColor       =   &H80000012&
             BackStyle       =   0  'Transparent
-            Caption         =   "Pisom Principal"
+            Caption         =   "Piso Principal"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   9.75
@@ -1912,7 +1912,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod_DET
             Left            =   240
             TabIndex        =   11
             Top             =   2880
-            Width           =   1395
+            Width           =   1230
          End
          Begin VB.Label Label4 
             AutoSize        =   -1  'True

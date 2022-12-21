@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   109969409
+         Format          =   61931521
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -4557,7 +4557,9 @@ Private Sub BtnCancelar_Click()
 
   SSTab1.Tab = 0
   SSTab1.TabEnabled(0) = True
-  SSTab1.TabEnabled(1) = True
+  SSTab1.TabEnabled(1) = False
+  SSTab1.TabEnabled(2) = False
+  
   'Ado_datos.Recordset.Move marca1 - 1
 '  BtnImprimir2.Visible = True
 '  BtnImprimir3.Visible = True
@@ -5332,7 +5334,8 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
 
           SSTab1.Tab = 0
           SSTab1.TabEnabled(0) = True
-          SSTab1.TabEnabled(1) = True
+          SSTab1.TabEnabled(1) = False
+          SSTab1.TabEnabled(2) = False
           'Ado_datos.Recordset.Move marca1 - 1
           swnuevo = 0
 
@@ -5845,24 +5848,24 @@ Private Sub BtnImprimir4_Click()
               MsgBox "No se puede IMPRIMIR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
             End If
         Case 1
-            If Ado_datos16.Recordset.RecordCount > 0 Then
-              'CryV01.ReportFileName = App.Path & "\reportes\ventas\ar_R105_kardex.rpt"
-              CryV01.ReportFileName = App.Path & "\reportes\ventas\ar_cronograma_para_cobranza.rpt"
-              CryV01.WindowShowRefreshBtn = True
-              CryV01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion            'glGestion
-              CryV01.StoredProcParam(1) = Me.Ado_datos.Recordset!venta_codigo           'nroventa        '
-              CryV01.StoredProcParam(2) = Me.Ado_datos.Recordset!cobranza_prog_codigo   'NRO_COBR        '
-              'Literal por el Total de la Compra
-              var_literal = Literal(CStr(Ado_datos16.Recordset!venta_monto_total_bs)) + " BOLIVIANOS"
-              CryV01.Formulas(1) = "literalcobro = '" & var_literal & "' "
-              'CryV01.Formulas(1) = "literalcobro = '" & Ado_datos16.Recordset!Literal & "' "
-              CryV01.Formulas(2) = "correlcobro = '" & Ado_datos.Recordset!cobranza_prog_codigo & "' "
-              '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
-              iResult = CryV01.PrintReport
-              If iResult <> 0 Then MsgBox CryV01.LastErrorNumber & " : " & CryV01.LastErrorString, vbCritical, "Error de impresión"
-            Else
-              MsgBox "No se puede IMPRIMIR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
-            End If
+'            If Ado_datos16.Recordset.RecordCount > 0 Then
+'              'CryV01.ReportFileName = App.Path & "\reportes\ventas\ar_R105_kardex.rpt"
+'              CryV01.ReportFileName = App.Path & "\reportes\ventas\ar_cronograma_para_cobranza.rpt"
+'              CryV01.WindowShowRefreshBtn = True
+'              CryV01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion            'glGestion
+'              CryV01.StoredProcParam(1) = Me.Ado_datos.Recordset!venta_codigo           'nroventa        '
+'              CryV01.StoredProcParam(2) = Me.Ado_datos.Recordset!cobranza_prog_codigo   'NRO_COBR        '
+'              'Literal por el Total de la Compra
+'              var_literal = Literal(CStr(Ado_datos16.Recordset!venta_monto_total_bs)) + " BOLIVIANOS"
+'              CryV01.Formulas(1) = "literalcobro = '" & var_literal & "' "
+'              'CryV01.Formulas(1) = "literalcobro = '" & Ado_datos16.Recordset!Literal & "' "
+'              CryV01.Formulas(2) = "correlcobro = '" & Ado_datos.Recordset!cobranza_prog_codigo & "' "
+'              '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
+'              iResult = CryV01.PrintReport
+'              If iResult <> 0 Then MsgBox CryV01.LastErrorNumber & " : " & CryV01.LastErrorString, vbCritical, "Error de impresión"
+'            Else
+'              MsgBox "No se puede IMPRIMIR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
+'            End If
         Case 2  'Ado_datos02
 '            If Ado_datos16.Recordset.RecordCount > 0 Then
 '              'CryV01.ReportFileName = App.Path & "\reportes\ventas\ar_R105_kardex.rpt"
@@ -8280,11 +8283,13 @@ Private Sub Form_Load()
     If glusuario = "RVALDIVIEZO" Or glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "FACTURACION" Or glusuario = "HMARIN" Then
         SSTab1.Tab = 0
         SSTab1.TabEnabled(0) = True
-        SSTab1.TabEnabled(1) = True
+        SSTab1.TabEnabled(1) = False
+        SSTab1.TabEnabled(2) = False
     Else
         SSTab1.Tab = 0
         SSTab1.TabEnabled(0) = True
         SSTab1.TabEnabled(1) = False
+        SSTab1.TabEnabled(2) = False
     End If
 '    FrmEdita.Enabled = False
 '    Cmd_Cliente.Visible = False
