@@ -3,6 +3,7 @@ Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form mw_solicitud_calculo_trafico_mod 
    BackColor       =   &H00C0C0C0&
@@ -15,8 +16,8 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   13950
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmDetalle 
       BackColor       =   &H00E0E0E0&
@@ -825,7 +826,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   112656387
+         Format          =   115146755
          CurrentDate     =   44914
          MaxDate         =   55153
          MinDate         =   32874
@@ -6047,6 +6048,228 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
       EndProperty
       _Version        =   393216
    End
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   7455
+      Left            =   0
+      TabIndex        =   189
+      Top             =   0
+      Width           =   11175
+      _ExtentX        =   19711
+      _ExtentY        =   13150
+      _Version        =   393216
+      Tabs            =   7
+      Tab             =   6
+      TabsPerRow      =   4
+      TabHeight       =   520
+      TabCaption(0)   =   "DATOS GENERALES"
+      TabPicture(0)   =   "mw_solicitud_calculo_trafico_mod.frx":74C0
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlCount=   0
+      TabCaption(1)   =   "MAQUINA DE TRACCION"
+      TabPicture(1)   =   "mw_solicitud_calculo_trafico_mod.frx":74DC
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).ControlCount=   0
+      TabCaption(2)   =   "CABINA"
+      TabPicture(2)   =   "mw_solicitud_calculo_trafico_mod.frx":74F8
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlCount=   0
+      TabCaption(3)   =   "PUERTAS"
+      TabPicture(3)   =   "mw_solicitud_calculo_trafico_mod.frx":7514
+      Tab(3).ControlEnabled=   0   'False
+      Tab(3).ControlCount=   0
+      TabCaption(4)   =   "CONTROL"
+      TabPicture(4)   =   "mw_solicitud_calculo_trafico_mod.frx":7530
+      Tab(4).ControlEnabled=   0   'False
+      Tab(4).ControlCount=   0
+      TabCaption(5)   =   "C.O.P."
+      TabPicture(5)   =   "mw_solicitud_calculo_trafico_mod.frx":754C
+      Tab(5).ControlEnabled=   0   'False
+      Tab(5).ControlCount=   0
+      TabCaption(6)   =   "SEÑALIZACION DE PISO"
+      TabPicture(6)   =   "mw_solicitud_calculo_trafico_mod.frx":7568
+      Tab(6).ControlEnabled=   -1  'True
+      Tab(6).Control(0)=   "Frame7"
+      Tab(6).Control(0).Enabled=   0   'False
+      Tab(6).ControlCount=   1
+      Begin VB.Frame Frame7 
+         Height          =   6495
+         Left            =   240
+         TabIndex        =   190
+         Top             =   720
+         Width           =   10575
+         Begin VB.TextBox Text24 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   198
+            Text            =   "0"
+            Top             =   1080
+            Width           =   2145
+         End
+         Begin VB.TextBox Text25 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   197
+            Text            =   "NO"
+            Top             =   1680
+            Width           =   705
+         End
+         Begin VB.TextBox Text26 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   196
+            Text            =   "NO"
+            Top             =   5880
+            Width           =   705
+         End
+         Begin VB.TextBox Text27 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   195
+            Text            =   "0"
+            Top             =   2880
+            Width           =   2145
+         End
+         Begin VB.TextBox Text28 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   194
+            Text            =   "0"
+            Top             =   3480
+            Width           =   2145
+         End
+         Begin VB.TextBox Text29 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   193
+            Text            =   "0"
+            Top             =   4080
+            Width           =   2145
+         End
+         Begin VB.TextBox Text30 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   192
+            Text            =   "0"
+            Top             =   4680
+            Width           =   2145
+         End
+         Begin VB.TextBox Text31 
+            DataField       =   "trafico_num_paradas"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   191
+            Text            =   "0"
+            Top             =   5280
+            Width           =   2145
+         End
+         Begin MSDataListLib.DataCombo DataCombo19 
+            Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":7584
+            DataField       =   "ctrlmaq_codigo"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   5640
+            TabIndex        =   199
+            Top             =   480
+            Visible         =   0   'False
+            Width           =   735
+            _ExtentX        =   1296
+            _ExtentY        =   556
+            _Version        =   393216
+            Style           =   2
+            ListField       =   "ctrlmaq_codigo"
+            BoundColumn     =   "ctrlmaq_codigo"
+            Text            =   ""
+         End
+         Begin MSDataListLib.DataCombo DataCombo20 
+            Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":759F
+            DataField       =   "ctrlmaq_codigo"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   200
+            Top             =   480
+            Width           =   2685
+            _ExtentX        =   4736
+            _ExtentY        =   556
+            _Version        =   393216
+            Style           =   2
+            ListField       =   "ctrlmaq_descripcion"
+            BoundColumn     =   "ctrlmaq_codigo"
+            Text            =   "Todos"
+         End
+         Begin MSDataListLib.DataCombo DataCombo21 
+            Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":75B9
+            DataField       =   "ctrlmaq_codigo"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   6000
+            TabIndex        =   201
+            Top             =   2280
+            Visible         =   0   'False
+            Width           =   735
+            _ExtentX        =   1296
+            _ExtentY        =   556
+            _Version        =   393216
+            Style           =   2
+            ListField       =   "ctrlmaq_codigo"
+            BoundColumn     =   "ctrlmaq_codigo"
+            Text            =   ""
+         End
+         Begin MSDataListLib.DataCombo DataCombo22 
+            Bindings        =   "mw_solicitud_calculo_trafico_mod.frx":75D4
+            DataField       =   "ctrlmaq_codigo"
+            DataSource      =   "Ado_datos"
+            Height          =   315
+            Left            =   3360
+            TabIndex        =   202
+            Top             =   2280
+            Width           =   2685
+            _ExtentX        =   4736
+            _ExtentY        =   556
+            _Version        =   393216
+            Style           =   2
+            ListField       =   "ctrlmaq_descripcion"
+            BoundColumn     =   "ctrlmaq_codigo"
+            Text            =   "Todos"
+         End
+         Begin VB.Label Label44 
+            AutoSize        =   -1  'True
+            BackColor       =   &H80000012&
+            BackStyle       =   0  'Transparent
+            Caption         =   "Localizacion Señalizaciòn de Piso"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   240
+            Left            =   240
+            TabIndex        =   203
+            Top             =   5280
+            Width           =   3060
+         End
+      End
+   End
 End
 Attribute VB_Name = "mw_solicitud_calculo_trafico_mod"
 Attribute VB_GlobalNameSpace = False
@@ -8168,7 +8391,7 @@ Private Sub BtnVer_Click()
     rs_datos10.Open "Select * from av_bienes_eqp_caracteristicas_y_venta where edif_codigo = '" & GlEdificio & "' ", db, adOpenStatic
     Set Ado_detalle2.Recordset = rs_datos10
     Set DtGLista.DataSource = Ado_detalle2.Recordset
-        
+
     FrmDetalle.Visible = True
     
 '  If dtc_aux41.Text <> "" Then

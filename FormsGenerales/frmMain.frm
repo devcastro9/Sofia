@@ -1484,10 +1484,16 @@ End Sub
 
 Private Sub Mnu_AsignacionTareasD_Click()
     Aux = "DNMOD"
-    aw_p_ao_solicitud_calculo_trafico.lbl_titulo = Mnu_ParametrosCalculo.Caption
-    aw_p_ao_solicitud_calculo_trafico.FraNavega = Mnu_ParametrosCalculo.Caption
-    aw_p_ao_solicitud_calculo_trafico.lbl_titulo2 = Mnu_ParametrosCalculo.Caption
-    aw_p_ao_solicitud_calculo_trafico.Show
+    'mw_solicitud_calculo_trafico_mod
+    mw_solicitud_calculo_trafico_mod.lbl_titulo = Mnu_ParametrosCalculo.Caption
+    mw_solicitud_calculo_trafico_mod.FraNavega = Mnu_ParametrosCalculo.Caption
+    mw_solicitud_calculo_trafico_mod.lbl_titulo2 = Mnu_ParametrosCalculo.Caption
+    mw_solicitud_calculo_trafico_mod.Show
+    
+'    aw_p_ao_solicitud_calculo_trafico.lbl_titulo = Mnu_ParametrosCalculo.Caption
+'    aw_p_ao_solicitud_calculo_trafico.FraNavega = Mnu_ParametrosCalculo.Caption
+'    aw_p_ao_solicitud_calculo_trafico.lbl_titulo2 = Mnu_ParametrosCalculo.Caption
+'    aw_p_ao_solicitud_calculo_trafico.Show
 End Sub
 
 Private Sub Mnu_AsignacionTareasM_Click()
