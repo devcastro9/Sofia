@@ -1684,10 +1684,9 @@ Private Sub BtnGrabar_Click()
         db.Execute "insert into ao_compra_adjudica_bienes (ges_gestion, compra_codigo, adjudica_codigo, bien_codigo, compra_codigo_det, adjudica_old, grupo_codigo, subgrupo_codigo, par_codigo, adjudica_cantidad, bien_cantidad_adjudica, bien_precio_adjudica_bs, bien_total_adjudica_bs, tipo_moneda, unimed_codigo, " & _
              " unimed_codigo_empaque , bien_cantidad_por_empaque, marca_codigo, modelo_codigo, bien_nro_lote, bien_fecha_vencimiento, compra_concepto, almacen_codigo, adjudica_monto_bs_87, solicitud_tipo, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
              " VALUES ('" & glGestion & "', " & VAR_COMPRA & ", " & var_cod & ", '" & dtc_codigo1.Text & "', " & NRO_REG & ", '0', '" & dtc_aux1.Text & "', '" & dtc_aux2.Text & "', '" & dtc_aux3.Text & "', " & Txt_campo16.Text & ", " & CDbl(Txt_campo10.Text) & ", " & CDbl(Txt_campo11.Text) & ", '" & cmd_moneda.Text & "', '" & Txt_campo14 & "',  " & _
-    " '" & Txt_campo14 & "', '" & Txt_descripcion.Text & "', '20000', '26000',  "
+    " '" & Txt_campo14.Text & "', " & Txt_campo16.Text & ", '" & Txt_campo2.Text & "', '" & Txt_campo3.Text & "', '0', cdate(date), '" & dtc_desc1.Text & "', '1', " & Round(CDbl(Txt_campo11.Text) * 0.87, 2) & ", '1', 'REG', '" & glusuario & "', '" & CDate(Date) & "'  "
     
-    '         " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
-    
+        
     End If
     If swnuevo = 2 Then
      
