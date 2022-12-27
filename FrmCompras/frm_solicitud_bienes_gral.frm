@@ -35,7 +35,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   5355
+         Left            =   5475
          Picture         =   "frm_solicitud_bienes_gral.frx":0000
          ScaleHeight     =   615
          ScaleWidth      =   1455
@@ -49,7 +49,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   4080
+         Left            =   3960
          Picture         =   "frm_solicitud_bienes_gral.frx":08EC
          ScaleHeight     =   615
          ScaleWidth      =   1335

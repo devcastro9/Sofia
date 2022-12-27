@@ -271,7 +271,7 @@ Begin VB.Form fw_adjudica_comex
       Height          =   3735
       Left            =   240
       TabIndex        =   89
-      Top             =   1680
+      Top             =   1560
       Visible         =   0   'False
       Width           =   14055
       Begin VB.TextBox TxtTexto 
@@ -1401,7 +1401,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119734273
+            Format          =   118685697
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1417,7 +1417,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119734273
+            Format          =   118685697
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1434,7 +1434,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119734273
+            Format          =   118685697
             CurrentDate     =   44470
             MinDate         =   32874
          End
@@ -2038,7 +2038,7 @@ Begin VB.Form fw_adjudica_comex
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   119734273
+         Format          =   118685697
          CurrentDate     =   44466
          MinDate         =   2
       End
@@ -2852,14 +2852,6 @@ If Valida Then
         VAR_POA = "0"            '   "3.2.9"
    End Select
    
-   If opt_si.Value = True Then
-        FAC = "SI"
-        VAR_DOC = "R-101"    'FACTURA
-   Else
-        FAC = "NO"
-        VAR_DOC = "RE-402"    'Factura Comercial, Proforma, Purchase Order (Orden de Compra)  ' RECIBO
-   End If
-   
    If opt_usd.Value = True Then
         VAR_MONEDA = "USD"
    Else
@@ -2872,6 +2864,19 @@ If Valida Then
    VAR_GLOSA = "SERVICIO DE " + TxtMenu.Text + " - Proveedor: " + RTrim(dtc_desc5.Text)
    VAR_CANT = fw_compras_comex.Ado_datos.Recordset!compra_cantidad_total
    VAR_DET = fw_compras_comex.Ado_detalle1.Recordset!compra_codigo_det
+   
+   If opt_gas.Value = True Then
+        VAR_LITERALN = Literal(Round(CDbl(txt_CreditoFiscal.Text), 2))
+        VAR_TRANS = "23"
+   End If
+   If opt_normal.Value = True Then
+        VAR_LITERALN = Literal(Round(CDbl(txt_87.Text), 2))
+        VAR_TRANS = "22"
+   End If
+   If Opt_DUI.Value = True Then
+        VAR_LITERALN = Literal(Round(CDbl(txt_CreditoFiscal.Text), 2))
+        VAR_TRANS = "24"
+   End If
    
    If ES_QR = "SI" Then
         VAR_SUBTOT = Round(CDbl(txt_total_bs.Text), 2)
@@ -2890,6 +2895,9 @@ If Valida Then
             Dol87 = Round(Bs87 / GlTipoCambioOficial, 2)
             VAR_PLANILLA = Bs13
             VAR_PLANILLA_DOL = Round(Bs13 / GlTipoCambioOficial, 2)
+            VAR_TRANS = "24"
+            VAR_TIPOSOL = "1"
+            VAR_TRANSF = "33"
         Else
             VAR_SUBTOT = Round(CDbl(txt_total_bs.Text) - CDbl(Txt_Tasas.Text) - CDbl(Txt_tasa0.Text) - CDbl(txt_importe_no_fiscal.Text), 2)
             VAR_CREDFIS = Round(VAR_SUBTOT - CDbl(txt_descuentos), 2)
@@ -2901,21 +2909,18 @@ If Valida Then
         End If
    End If
 
+   If opt_si.Value = True Then
+        FAC = "SI"
+        VAR_DOC = "R-101"    'FACTURA
+        VAR_TRANSF = "33"
+   Else
+        FAC = "NO"
+        VAR_DOC = "RE-402"    'Factura Comercial, Proforma, Purchase Order (Orden de Compra)  ' RECIBO
+        VAR_TRANSF = "36"
+   End If
    'If fw_compras_comex.Ado_detalle1.Recordset("bien_codigo") = "479" Or fw_compras_comex.Ado_detalle1.Recordset("bien_codigo") = "3410007" Then
    'LITERAL
    var_literal = Literal(CDbl(txt_total_bs))
-   If opt_gas.Value = True Then
-        VAR_LITERALN = Literal(Round(CDbl(txt_CreditoFiscal.Text), 2))
-        VAR_TRANS = "23"
-   End If
-   If opt_normal.Value = True Then
-        VAR_LITERALN = Literal(Round(CDbl(txt_87.Text), 2))
-        VAR_TRANS = "22"
-   End If
-   If Opt_DUI.Value = True Then
-        VAR_LITERALN = Literal(Round(CDbl(txt_CreditoFiscal.Text), 2))
-        VAR_TRANS = "24"
-   End If
    
    If swnuevo = 1 Then
 

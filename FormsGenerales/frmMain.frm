@@ -1468,6 +1468,8 @@ Private Sub LblAlertaContratos_Click()
 '    Timer1.Enabled = False
 End Sub
 
+
+
 Private Sub mnu_AdministracionUsuarios_Click()
 '    FrmCambiarClave.lbl_titulo = mnu_AdministracionUsuarios.Caption
 '    FrmCambiarClave.FraNavega = mnu_AdministracionUsuarios.Caption
@@ -1621,7 +1623,17 @@ Private Sub Mnu_CostosComercializacion_Click()
 End Sub
 
 Private Sub Mnu_CronogramaInstalaciones_Click()
-    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "NPAREDES" Then
+
+    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "CPAREDES" Or glusuario = "ACLAROS" Or glusuario = "AACOSTA" Or glusuario = "CURDININEA" Or glusuario = "FCABRERA" Or glusuario = "BRAMOS" Or glusuario = "JMAMANI" Or glusuario = "EVILLALOBOS" Or glusuario = "RMORA" Or glusuario = "BINFANTE" Or glusuario = "MRODRIGUEZ" Or glusuario = "AFLORES" Or glusuario = "RBUSTILLOS" Then
+    '    Santa Cruz:
+    'Cesar Paredes, Ariel Claros , Angel Acosta, Carlos Urdininea.
+    '    'Cochabamba:
+    'Franco Cabrera, Basilio Ramos, Juan carlos Mamani.
+    '    'Sucre -Tarija:
+    'Esteban Villalobos, Rolando Mora
+    '    'La Paz-El Alto-Oruro:
+    'Alvaro Urbina, Boris Infante, Mauricio Rodriguez, Alvaro Flores, Rodrigo Bustillos, Wilfredo Plata, Dulfredo Terceros.
+
         Aux = "DNINS"
         'tw_cronograma_mensual_inst
         tw_cronograma_mensual_inst.lbl_titulo = Mnu_CronogramaInstalaciones.Caption
@@ -1733,7 +1745,7 @@ Private Sub mnu_dosificacion_facturas_Click()
 End Sub
 
 Private Sub Mnu_EdificiosInstalacion_Click()
-    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Then
+    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "CPAREDES" Or glusuario = "ACLAROS" Or glusuario = "AACOSTA" Or glusuario = "CURDININEA" Or glusuario = "FCABRERA" Or glusuario = "BRAMOS" Or glusuario = "JMAMANI" Or glusuario = "EVILLALOBOS" Or glusuario = "RMORA" Or glusuario = "BINFANTE" Or glusuario = "MRODRIGUEZ" Or glusuario = "AFLORES" Or glusuario = "RBUSTILLOS" Then
         Aux = "DNINS"
         tw_organizacion_zonas_inst.lbl_titulo = Mnu_EdificiosInstalacion.Caption
         tw_organizacion_zonas_inst.FraNavega = Mnu_EdificiosInstalacion.Caption
@@ -1761,7 +1773,7 @@ Private Sub Mnu_Ejecucion_Servicio_M_Click()
 End Sub
 
 Private Sub Mnu_EjecucionInstalaciones_Click()
-    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "NPAREDES" Then
+    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "CPAREDES" Or glusuario = "ACLAROS" Or glusuario = "AACOSTA" Or glusuario = "CURDININEA" Or glusuario = "FCABRERA" Or glusuario = "BRAMOS" Or glusuario = "JMAMANI" Or glusuario = "EVILLALOBOS" Or glusuario = "RMORA" Or glusuario = "BINFANTE" Or glusuario = "MRODRIGUEZ" Or glusuario = "AFLORES" Or glusuario = "RBUSTILLOS" Then
         Aux = "DNINS"
         tw_cronograma_certifica_inst.lbl_titulo = Mnu_EjecucionInstalaciones.Caption
         tw_cronograma_certifica_inst.FraNavega = Mnu_EjecucionInstalaciones.Caption
@@ -2595,10 +2607,14 @@ Private Sub Mnu_solicitudRepuestos_Click()
 End Sub
 
 Private Sub Mnu_TareasCronoInstalacion_Click()
-    tw_tareas_crono_instalacion.lbl_titulo = Mnu_TareasCronoInstalacion.Caption
-    tw_tareas_crono_instalacion.FraNavega = Mnu_TareasCronoInstalacion.Caption
-    tw_tareas_crono_instalacion.lbl_titulo2 = Mnu_TareasCronoInstalacion.Caption
-    tw_tareas_crono_instalacion.Show
+    If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "CPAREDES" Or glusuario = "ACLAROS" Or glusuario = "AACOSTA" Or glusuario = "CURDININEA" Or glusuario = "FCABRERA" Or glusuario = "BRAMOS" Or glusuario = "JMAMANI" Or glusuario = "EVILLALOBOS" Or glusuario = "RMORA" Or glusuario = "BINFANTE" Or glusuario = "MRODRIGUEZ" Or glusuario = "AFLORES" Or glusuario = "RBUSTILLOS" Then
+        tw_tareas_crono_instalacion.lbl_titulo = Mnu_TareasCronoInstalacion.Caption
+        tw_tareas_crono_instalacion.FraNavega = Mnu_TareasCronoInstalacion.Caption
+        tw_tareas_crono_instalacion.lbl_titulo2 = Mnu_TareasCronoInstalacion.Caption
+        tw_tareas_crono_instalacion.Show
+    Else
+        MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
+    End If
 End Sub
 
 Private Sub Mnu_TiposImpuestos_Click()

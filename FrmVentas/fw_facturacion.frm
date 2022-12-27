@@ -187,7 +187,7 @@ Begin VB.Form fw_facturacion
       Height          =   5700
       Left            =   2640
       TabIndex        =   13
-      Top             =   3600
+      Top             =   4800
       Width           =   12015
       Begin VB.TextBox TxtAutorizacion 
          Alignment       =   2  'Center
@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   61931521
+         Format          =   119013377
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -1781,10 +1781,9 @@ Begin VB.Form fw_facturacion
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   975.118
+               ColumnWidth     =   840.189
             EndProperty
             BeginProperty Column01 
-               Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
             EndProperty
@@ -1792,9 +1791,8 @@ Begin VB.Form fw_facturacion
                ColumnWidth     =   794.835
             EndProperty
             BeginProperty Column03 
-               Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1154.835
+               ColumnWidth     =   1425.26
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
@@ -1813,6 +1811,7 @@ Begin VB.Form fw_facturacion
             BeginProperty Column07 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
+               ColumnWidth     =   840.189
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
@@ -2704,46 +2703,64 @@ Begin VB.Form fw_facturacion
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
+               ColumnWidth     =   1289.764
             EndProperty
             BeginProperty Column01 
                Object.Visible         =   -1  'True
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   -1  'True
+               ColumnWidth     =   2310.236
             EndProperty
             BeginProperty Column03 
+               ColumnWidth     =   1814.74
             EndProperty
             BeginProperty Column04 
+               ColumnWidth     =   975.118
             EndProperty
             BeginProperty Column05 
+               ColumnWidth     =   1769.953
             EndProperty
             BeginProperty Column06 
+               ColumnWidth     =   705.26
             EndProperty
             BeginProperty Column07 
+               ColumnWidth     =   915.024
             EndProperty
             BeginProperty Column08 
+               ColumnWidth     =   1980.284
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   -1  'True
+               ColumnWidth     =   1319.811
             EndProperty
             BeginProperty Column10 
+               ColumnWidth     =   1214.929
             EndProperty
             BeginProperty Column11 
                ColumnWidth     =   720
             EndProperty
             BeginProperty Column12 
+               ColumnWidth     =   1170.142
             EndProperty
             BeginProperty Column13 
+               ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column14 
+               ColumnWidth     =   1289.764
             EndProperty
             BeginProperty Column15 
+               ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column16 
+               ColumnWidth     =   929.764
             EndProperty
             BeginProperty Column17 
+               ColumnWidth     =   900.284
             EndProperty
             BeginProperty Column18 
+               ColumnWidth     =   645.165
             EndProperty
          EndProperty
       End
@@ -2940,20 +2957,24 @@ Begin VB.Form fw_facturacion
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
+               ColumnWidth     =   1349.858
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   5400
+               ColumnWidth     =   5595.024
             EndProperty
             BeginProperty Column03 
+               ColumnWidth     =   824.882
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
+               ColumnWidth     =   1289.764
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
                Locked          =   -1  'True
+               ColumnWidth     =   1035.213
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
@@ -2961,11 +2982,13 @@ Begin VB.Form fw_facturacion
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
+               ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column08 
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   720
+               ColumnWidth     =   675.213
             EndProperty
          EndProperty
       End
@@ -4067,7 +4090,7 @@ Dim VAR_NOMD, VAR_NOMH As String
 Dim VAR_DCORR, VAR_HCORR As String
 Dim VAR_DGRAL, VAR_ARCH, VAR_DEPTO As String
 
-Dim VARFECHA As Date
+Dim VARFECHA, VARFECHAFAC, VARFECHAFAC2 As Date
 
 'Dim Exel As New Excel.Application
 Dim fs As FileSystemObject      'Variable de tipo file System Object
@@ -4238,9 +4261,9 @@ Private Sub Ado_datos1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos1.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and correl_venta = " & Ado_datos.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
         Else
             deta2 = 0
@@ -4295,27 +4318,27 @@ Private Sub BntImprimir2_Click()
 End Sub
 
 Private Sub BtnAñadir_Click()
- If glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "FACTURACION" Or glusuario = "HMARIN" Then
-    If Ado_datos.Recordset.RecordCount > 0 Then
-       Set rs_datos2 = New Recordset
-       If rs_datos2.State = 1 Then rs_datos2.Close
-       rs_datos2.Open "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG' AND estado_codigo1 = 'APR' and doc_codigo_fac = 'R-101' AND trans_codigo = 'X' ) ", db, adOpenKeyset, adLockOptimistic
-       Set Ado_datos2.Recordset = rs_datos2.DataSource
-       Set dg_datos2.DataSource = Ado_datos2.Recordset
-       If Ado_datos2.Recordset.RecordCount > 0 Then
-            If Ado_datos2.Recordset!venta_codigo = Ado_datos.Recordset!venta_codigo Then
-                 db.Execute "UPDATE ao_ventas_cobranza SET estado_codigo1 = 'APR', trans_codigo = 'X'  WHERE cobranza_codigo = " & Ado_datos.Recordset!cobranza_codigo & " "
-            Else
-                 MsgBox "Error, debe Elegir un registro del mismo Edificio, para FACTURAR en bloque, verifique los datos y vuelva a intentar ...", , "Atención"
-                 Exit Sub
-            End If
-        Else
-            db.Execute "UPDATE ao_ventas_cobranza SET estado_codigo1 = 'APR', trans_codigo = 'X'  WHERE cobranza_codigo = " & Ado_datos.Recordset!cobranza_codigo & " "
-            Ado_datos2.Recordset.Requery
-        End If
-    End If
- End If
-        'select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG' AND estado_codigo1 = 'APR' and doc_codigo_fac = 'R-101' AND trans_codigo = 'X' )
+' If glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "FACTURACION" Or glusuario = "HMARIN" Then
+'    If Ado_datos.Recordset.RecordCount > 0 Then
+'       Set rs_datos2 = New Recordset
+'       If rs_datos2.State = 1 Then rs_datos2.Close
+'       rs_datos2.Open "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG' AND estado_codigo1 = 'APR' and doc_codigo_fac = 'R-101' AND trans_codigo = 'X' ) ", db, adOpenKeyset, adLockOptimistic
+'       Set Ado_datos2.Recordset = rs_datos2.DataSource
+'       Set dg_datos2.DataSource = Ado_datos2.Recordset
+'       If Ado_datos2.Recordset.RecordCount > 0 Then
+'            If Ado_datos2.Recordset!venta_codigo = Ado_datos.Recordset!venta_codigo Then
+'                 db.Execute "UPDATE ao_ventas_cobranza SET estado_codigo1 = 'APR', trans_codigo = 'X'  WHERE cobranza_codigo = " & Ado_datos.Recordset!cobranza_codigo & " "
+'            Else
+'                 MsgBox "Error, debe Elegir un registro del mismo Edificio, para FACTURAR en bloque, verifique los datos y vuelva a intentar ...", , "Atención"
+'                 Exit Sub
+'            End If
+'        Else
+'            db.Execute "UPDATE ao_ventas_cobranza SET estado_codigo1 = 'APR', trans_codigo = 'X'  WHERE cobranza_codigo = " & Ado_datos.Recordset!cobranza_codigo & " "
+'            Ado_datos2.Recordset.Requery
+'        End If
+'    End If
+' End If
+'        'select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG' AND estado_codigo1 = 'APR' and doc_codigo_fac = 'R-101' AND trans_codigo = 'X' )
 End Sub
 
 Private Sub BtnAprobar_Click()
@@ -4779,7 +4802,7 @@ Private Sub BtnGrabar_Click()
             VARFACIMPR = "S"
             VARFECHA = Format(DTPFechaCobro.Value, "dd/mm/yyyy")        '"08/04/2021"
     End Select
-    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & Txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
+    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo2 = '" & TIPOPROC & "', trans_codigo = '" & TIPOTRAM & "', proceso_codigo='" & VARPROC & "', subproceso_codigo = '" & VARSUB & "', etapa_codigo = '" & VARETAPA & "', Literal = '" & var_literal & "', cobranza_nro_factura = '" & VARFactura & "', cobranza_fecha_fac = '" & VARFECHA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo = 'NN', cobranza_deuda_bs = '0', cobranza_deuda_dol = '0', cobranza_descuento_bs = " & VAR_13 & ", cobranza_descuento_dol = " & VAR_87 & ", cmpbte_deposito = '0', factura_impresa = '" & VARFACIMPR & "', poa_codigo = '3.1.2', estado_codigo_fac = '" & VARESTADO & "', cobranza_fecha_fac2 ='', usr_codigo = '" & glusuario & "', Fecha_Registro = '" & Format(Date, "dd/mm/yyyy") & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
 
@@ -5168,12 +5191,24 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 db.Execute "update ao_ventas_cobranza set cobranza_codigo_control = '" & CodigoContro & "' WHERE venta_codigo = " & nroventa & " AND venta_codigo_new = " & Ado_datos1.Recordset!IdFactura & " "         '
                 db.Execute "update ao_ventas_cobranza set cobranza_deuda_bs = '0', cobranza_deuda_dol = '0', cobranza_deuda_bs2 = '0', cobranza_deuda_dol2 = '0' WHERE venta_codigo = " & nroventa & " AND venta_codigo_new = " & Ado_datos1.Recordset!IdFactura & " "         '
                 db.Execute "update ao_ventas_cobranza set cobranza_fecha_fac2 = '" & Fecha & "' WHERE venta_codigo = " & nroventa & " AND venta_codigo_new = " & Ado_datos1.Recordset!IdFactura & " "         '
+                'CAMBIAR DE TABLA WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
                 db.Execute "update ao_ventas_cobranza set archivo_foto = 'R101-' + '" & Str(VAR_COD1) & "' + '.JPG' WHERE venta_codigo = " & nroventa & " AND trans_codigo = 'X' AND estado_codigo1 = 'APR' "
                 db.Execute "update ao_ventas_cobranza set archivo_foto_cargado = 'N' WHERE venta_codigo = " & nroventa & " AND venta_codigo_new = " & Ado_datos1.Recordset!IdFactura & " "         '
+                '
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET edif_codigo = '" & VAR_PROY2 & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET fecha_aprueba = GETDATE(), estado_codigo_fac = 'APR', usr_codigo_apr = '" & glusuario & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET factura_impresa = 'S' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 
+                'GENERA QR Y GRABA EN ao_ventas_cobranza
+                Set rs_aux5 = New ADODB.Recordset
+                If rs_aux5.State = 1 Then rs_aux5.Close
+                'rs_aux5.Open "Select correl_contab as Codigo from gc_departamento where depto_codigo = '" & Left(VAR_PROY3, 1) & "'    ", db, adOpenStatic
+                rs_aux5.Open "Select * from fc_correl where tipo_tramite  = 'NDEBITO '    ", db, adOpenStatic
+                If Not rs_aux5.EOF Then
+                    VAR_CONTAB = IIf(IsNull(rs_aux5!numero_correlativo), 1, CDbl(rs_aux5!numero_correlativo) + 1)
+                Else
+                    VAR_CONTAB = 1
+                End If
 '                db.Execute "update ao_ventas_cobranza set correl_contab = " & VAR_CONTAB & " Where ao_ventas_cobranza.venta_codigo = " & Ado_datos1.Recordset!venta_codigo & "  And ao_ventas_cobranza.cobranza_codigo = " & Ado_datos1.Recordset!cobranza_codigo & " "
 '
 '                'Ado_datos.Recordset!correl_contab = VAR_CONTAB
@@ -5828,6 +5863,7 @@ Private Sub IMPRIME_RECIBO()
         If iResult <> 0 Then MsgBox CryF01.LastErrorNumber & " : " & CryF01.LastErrorString, vbCritical, "Error de impresión"
 
 End Sub
+
 Private Sub BtnImprimir4_Click()
     Select Case SSTab1.Tab
         Case 0
@@ -5891,7 +5927,14 @@ End Sub
 
 Private Sub BtnImprimir5_Click()
   'RE-IMPRIME FACTURA
-  'If Ado_datos.Recordset.RecordCount > 0 And (Ado_datos.Recordset!cobranza_nro_factura > 0) Then         'And (dtc_aux5.Text <> "")
+  VARFECHAFAC = CDate(Format("01/09/2022", "dd/mm/yyyy"))
+  VARFECHAFAC2 = CDate(Format("19/12/2022", "dd/mm/yyyy"))
+  If (Ado_datos1.Recordset!fecha_fac >= VARFECHAFAC And Ado_datos1.Recordset!fecha_fac < VARFECHAFAC2) Then
+    
+  Else
+    MsgBox "Sólo se pueden RE-IMPRIMIR Facturas con Fechas entre el 01-SEP-2022 y 19-DIC-2022, verifique los datos y vuelva a intentar ...", , "Atención"
+    Exit Sub
+  End If
   If Ado_datos1.Recordset.RecordCount > 0 And (Ado_datos1.Recordset!nro_factura > 0) Then         '
         gestion0 = Ado_datos1.Recordset!ges_gestion
         nroventa = Ado_datos.Recordset!venta_codigo
@@ -5955,9 +5998,15 @@ Private Sub BtnImprimir5_Click()
 End Sub
 
 Private Sub BtnImprimir6_Click()
-
 'RE-IMPRIME FACTURA
-'If Not Ado_datos.Recordset.BOF And Not Ado_datos.Recordset.EOF Then
+  VARFECHAFAC = CDate(Format("01/09/2022", "dd/mm/yyyy"))
+  VARFECHAFAC2 = CDate(Format("19/12/2022", "dd/mm/yyyy"))
+  If (Ado_datos1.Recordset!fecha_fac >= VARFECHAFAC And Ado_datos1.Recordset!fecha_fac < VARFECHAFAC2) Then
+    
+  Else
+    MsgBox "Sólo se pueden RE-IMPRIMIR Facturas con Fechas entre el 01-SEP-2022 y 19-DIC-2022, verifique los datos y vuelva a intentar ...", , "Atención"
+    Exit Sub
+  End If
   If Ado_datos.Recordset.RecordCount > 0 And (Ado_datos.Recordset!cobranza_nro_factura > 0) Then         'And (dtc_aux5.Text <> "")
         gestion0 = Ado_datos.Recordset!ges_gestion
         nroventa = Ado_datos.Recordset!venta_codigo
@@ -6069,7 +6118,7 @@ Private Sub BtnModificar_Click()
 '            TxtObs.Text = Ado_datos2.Recordset!cobranza_observaciones
 '        End If
         TxtObs.Text = Ado_datos1.Recordset!glosa_Descripcion
-        Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+        txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
 '      SSTab1.Tab = 0
 '      SSTab1.TabEnabled(0) = False
 '      SSTab1.TabEnabled(1) = True
@@ -6169,35 +6218,35 @@ Private Sub BtnModDetalle2_Click()
 End Sub
 
 Private Sub BtnDesAprobar_Click()
-'  sino = MsgBox("Esta seguro de Desaprobar el registro?", vbYesNo, "Confirmando")
-'  If sino = vbYes Then
-'    Dim rstdestino As New ADODB.Recordset
-'    Set rstdestino = New ADODB.Recordset
-'    If rstdestino.State = 1 Then rstdestino.Close
-'    rstdestino.Open "select * from ao_ventas_cabecera where ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' and correl_venta = " & Ado_datos.Recordset("correl_venta") & " and venta_codigo = " & Ado_datos.Recordset("venta_codigo") & " ", db, adOpenDynamic, adLockOptimistic
-'    If Not rstdestino.BOF Then rstdestino.MoveFirst
-'    If Not rstdestino.BOF And Not rstdestino.EOF Then
-'      rstdestino("estado_codigo") = "REG"
-'      rstdestino.Update
+''  sino = MsgBox("Esta seguro de Desaprobar el registro?", vbYesNo, "Confirmando")
+''  If sino = vbYes Then
+''    Dim rstdestino As New ADODB.Recordset
+''    Set rstdestino = New ADODB.Recordset
+''    If rstdestino.State = 1 Then rstdestino.Close
+''    rstdestino.Open "select * from ao_ventas_cabecera where ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' and correl_venta = " & Ado_datos.Recordset("correl_venta") & " and venta_codigo = " & Ado_datos.Recordset("venta_codigo") & " ", db, adOpenDynamic, adLockOptimistic
+''    If Not rstdestino.BOF Then rstdestino.MoveFirst
+''    If Not rstdestino.BOF And Not rstdestino.EOF Then
+''      rstdestino("estado_codigo") = "REG"
+''      rstdestino.Update
+''    End If
+''    If rstdestino.State = 1 Then rstdestino.Close
+''    marca1 = Ado_datos.Recordset.Bookmark
+''    Call OptFilGral1_Click
+''    Ado_datos.Recordset.Move marca1 - 1
+''  End If
+' If Ado_datos.Recordset.RecordCount > 0 Then
+'    If Ado_datos.Recordset!estado_codigo_fac = "REG" And Ado_datos.Recordset!factura_impresa = "N" Then
+'        Ado_datos.Recordset!estado_codigo_sol = "REG"
+'        Ado_datos.Recordset!estado_codigo_fac = "REG"
+'        Ado_datos.Recordset.Update
+'          'db.Execute "update ao_ventas_cobranza set estado_codigo_sol = 'APR' Where cobranza_codigo = " & Ado_datos01.Recordset("cobranza_codigo") & " "
+'    Else
+'        MsgBox "No se puede DEVOLVER, el registro ya fue FACTURADO, verifique los datos y vuelva a intentar ...", , "Atención"
+'        Exit Sub
 '    End If
-'    If rstdestino.State = 1 Then rstdestino.Close
-'    marca1 = Ado_datos.Recordset.Bookmark
-'    Call OptFilGral1_Click
-'    Ado_datos.Recordset.Move marca1 - 1
-'  End If
- If Ado_datos.Recordset.RecordCount > 0 Then
-    If Ado_datos.Recordset!estado_codigo_fac = "REG" And Ado_datos.Recordset!factura_impresa = "N" Then
-        Ado_datos.Recordset!estado_codigo_sol = "REG"
-        Ado_datos.Recordset!estado_codigo_fac = "REG"
-        Ado_datos.Recordset.Update
-          'db.Execute "update ao_ventas_cobranza set estado_codigo_sol = 'APR' Where cobranza_codigo = " & Ado_datos01.Recordset("cobranza_codigo") & " "
-    Else
-        MsgBox "No se puede DEVOLVER, el registro ya fue FACTURADO, verifique los datos y vuelva a intentar ...", , "Atención"
-        Exit Sub
-    End If
- Else
-    MsgBox "NO existen registros para procesar !! ", vbExclamation, "Atención!"
- End If
+' Else
+'    MsgBox "NO existen registros para procesar !! ", vbExclamation, "Atención!"
+' End If
 End Sub
 
 'Private Sub CmdDetallePoa_Click()
@@ -8596,7 +8645,8 @@ Private Sub OptFilGral2_Click()
     Set rs_datos0 = New Recordset
     If rs_datos0.State = 1 Then rs_datos0.Close
     If glusuario = "FACTURACION" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "ADMIN" Then
-        queryinicial = "select * From ao_ventas_cobranza_fac WHERE ((estado_codigo_fac = 'APR' or estado_codigo_fac = 'ANL')  and doc_codigo_fac = 'R-101' AND estado_cobrado = 'REG') "     'ORDER BY cobranza_fecha_prog     '<>
+        queryinicial = "select * From ao_ventas_cobranza_fac WHERE ((estado_codigo_fac = 'APR' or estado_codigo_fac = 'ANL')  and doc_codigo_fac = 'R-101' AND estado_cobrado = 'REG') "
+        'ORDER BY cobranza_fecha_prog     '<>
     Else
         queryinicial = "select * From ao_ventas_cobranza_fac WHERE (estado_codigo_fac = 'A') "      'ORDER BY cobranza_fecha_prog
     End If
@@ -8861,10 +8911,13 @@ Private Sub Option1_Click()
 '    If rs_datos9.State = 1 Then rs_datos9.Close
 '    rs_datos9.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
 
+    db.Execute " UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.estado_cobrado = 'APR' FROM ao_ventas_cobranza_fac INNER JOIN AV_VENTAS_COBRANZA_DET_FAC ON ao_ventas_cobranza_fac.venta_codigo = AV_VENTAS_COBRANZA_DET_FAC.venta_codigo AND ao_ventas_cobranza_fac.IdFactura = AV_VENTAS_COBRANZA_DET_FAC.venta_codigo_new WHERE ao_ventas_cobranza_fac.total_bs = AV_VENTAS_COBRANZA_DET_FAC.cobranzaBs AND ao_ventas_cobranza_fac.estado_cobrado = 'APR' "
+    
     Set rs_datos0 = New Recordset
     If rs_datos0.State = 1 Then rs_datos0.Close
     If glusuario = "FACTURACION" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "ADMIN" Then
-        queryinicial = "select * From ao_ventas_cobranza_fac WHERE estado_codigo_fac = 'APR'  and doc_codigo_fac = 'R-101' AND estado_cobrado = 'APR' "     'ORDER BY cobranza_fecha_prog     '<> 'R-103'    'estado_codigo_sol = 'APR' AND AND estado_codigo_bco = 'REG'
+        queryinicial = "select * From ao_ventas_cobranza_fac WHERE estado_codigo_fac = 'APR'  and doc_codigo_fac = 'R-101' AND estado_cobrado = 'APR' "
+        'ORDER BY cobranza_fecha_prog     '<> 'R-103'    'estado_codigo_sol = 'APR' AND AND estado_codigo_bco = 'REG'
     Else
         queryinicial = "select * From ao_ventas_cobranza_fac WHERE (estado_codigo_fac = 'A') "      'ORDER BY cobranza_fecha_prog
     End If
@@ -8975,7 +9028,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
     End If
 End Sub
 
@@ -9142,7 +9195,7 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
 End Sub
 
 

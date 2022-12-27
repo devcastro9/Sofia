@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_fondos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -38,7 +38,7 @@ Begin VB.Form fw_compras_fondos
       Height          =   5280
       Left            =   4440
       TabIndex        =   13
-      Top             =   240
+      Top             =   6360
       Visible         =   0   'False
       Width           =   10335
       Begin VB.TextBox lbl_total_dol 
@@ -274,7 +274,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentY        =   529
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   120913921
+         Format          =   110362625
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -1058,7 +1058,7 @@ Begin VB.Form fw_compras_fondos
          TabIndex        =   51
          Top             =   240
          Width           =   8895
-         Begin VB.PictureBox Picture1 
+         Begin VB.PictureBox BtnAddDetalle4 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
             BorderStyle     =   0  'None
@@ -2489,10 +2489,10 @@ Begin VB.Form fw_compras_fondos
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   21360
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   12915
+      Width           =   21360
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3076,7 +3076,7 @@ Begin VB.Form fw_compras_fondos
    Begin MSAdodcLib.Adodc Ado_detalle2 
       Height          =   330
       Left            =   2400
-      Top             =   10680
+      Top             =   9600
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -4061,6 +4061,112 @@ End If
 UpdateErr:
   MsgBox Err.Description
 
+
+End Sub
+
+Private Sub BtnAddDetalle4_Click()
+ If Ado_datos.Recordset.RecordCount > 0 Then
+    If Ado_detalle2.Recordset.RecordCount > 0 Then
+       If Ado_detalle2.Recordset!estado_codigo = "APR" Then
+          sino = MsgBox("No se puede Agregar más Items porque la(s) Factura(s) ya fueron Aprobada(s) (APR)", vbCritical, "SOFIA")
+          Exit Sub
+       End If
+    End If
+ 
+'    marca1 = Ado_datos.Recordset.Bookmark
+    If Ado_detalle2.Recordset!estado_codigo = "REG" Then
+      'If Ado_detalle1.Recordset.RecordCount = 0 Then
+        var_cod = Ado_detalle2.Recordset!compra_codigo          'Codigo Llave de la Tabla
+        VAR_COMPRA = Ado_detalle2.Recordset!adjudica_codigo     'Codigo Llave de la Tabla
+            Select Case Aux
+                Case "30"                           'Aux = "30" 'CCD
+                    'rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"              'R-160   Formulario Cargo de Cuenta
+                    CodBien = "FONDO03"
+                Case "29"                           'Aux = "29" 'VIAJES
+                    'rs_datos!trans_codigo_egr = "46"
+                    VAR_DOCF = "R-162"              'R-162   Formularios para Viajes
+                    CodBien = "FONDO02"
+                Case "28"                           'Aux = "28" 'CAJA CHICA
+                    'rs_datos!trans_codigo_egr = "45"
+                    VAR_DOCF = "R-161"              'R-161   Formulario Caja Chica
+                    CodBien = "FONDO01"
+                Case Else
+                    'rs_datos!trans_codigo_egr = "47"
+                    VAR_DOCF = "R-160"
+                    CodBien = "FONDO03"
+            End Select
+
+
+'ges_gestion, compra_codigo, adjudica_codigo, bien_codigo, compra_codigo_det, adjudica_old, grupo_codigo, subgrupo_codigo, par_codigo, adjudica_cantidad, bien_cantidad_adjudica, bien_precio_adjudica_bs, bien_total_adjudica_bs, tipo_moneda, unimed_codigo,
+'                  unimed_codigo_empaque , bien_cantidad_por_empaque, marca_codigo, modelo_codigo, bien_nro_lote, bien_fecha_vencimiento, compra_concepto, almacen_codigo, adjudica_monto_bs_87, solicitud_tipo, estado_codigo, usr_codigo, fecha_registro, hora_registro
+
+
+        db.Execute "insert into ao_compra_adjudica_bienes (ges_gestion, compra_codigo, adjudica_codigo, bien_codigo, compra_codigo_det, adjudica_old, grupo_codigo, subgrupo_codigo, par_codigo, adjudica_cantidad, bien_cantidad_adjudica, bien_precio_adjudica_bs, bien_total_adjudica_bs, tipo_moneda, unimed_codigo, " & _
+             " unimed_codigo_empaque , bien_cantidad_por_empaque, marca_codigo, modelo_codigo, bien_nro_lote, bien_fecha_vencimiento, compra_concepto, almacen_codigo, adjudica_monto_bs_87, solicitud_tipo, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
+             " VALUES ('" & glGestion & "', " & var_cod & ", " & VAR_COMPRA & ", '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
+             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
+             
+'        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo, subgrupo_codigo, " & _
+'             " par_codigo, tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
+'             " VALUES ('" & glGestion & "', " & var_cod & ", '" & CodBien & "', '1', " & CDbl(lbl_total_bs.Text) & ",      '0',            " & CDbl(lbl_total_bs.Text) & ", " & CDbl(lbl_total_dol.Text) & ",           '0',   " & CDbl(lbl_total_dol.Text) & ", '" & Txt_descripcion.Text & "', '20000', '26000',  " & _
+'             " '26990',    '0',            '15',        '" & glusuario & "', '" & Date & "', '0',       'UNI',            'REG', " & CDbl(lbl_total_bs.Text) * 0.87 & ", '6.96', 'BOB'  )"
+     'Else
+     'End If
+
+'        swnuevo = 1
+'        VAR_SW = "NEW"
+'        fraOpciones.Visible = False
+'        fraOpcionesDet.Visible = False
+'        FraNavega.Enabled = False
+'        FraDet2.Enabled = False
+'        FrmABMDet2.Visible = False
+'        FraDet1.Enabled = False
+'            'Ado_detalle1.Recordset.AddNew
+'            frm_solicitud_bienes_gral.txt_codigo.Caption = Me.txt_codigo.Caption
+'            frm_solicitud_bienes_gral.Txt_campo1.Caption = Me.dtc_codigo1.Text
+'            frm_solicitud_bienes_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
+'            frm_solicitud_bienes_gral.lbl_edif.Caption = Label1.Caption
+'            frm_solicitud_bienes_gral.lbl_det.Caption = Glaux
+'            frm_solicitud_bienes_gral.Txt_estado.Caption = "REG"
+'            frm_solicitud_bienes_gral.MOD_NEW.Caption = "NEW"
+'            frm_solicitud_bienes_gral.dtc_desc1.Text = ""
+'            frm_solicitud_bienes_gral.txt_gestion.Caption = Year(DTPfecha1.Value)
+'            frm_solicitud_bienes_gral.Show vbModal
+''
+''    swnuevo = 0
+'    fraOpciones.Visible = True
+'    fraOpcionesDet.Visible = True
+'    FraNavega.Enabled = True
+'    FraDet2.Enabled = True
+'    FrmABMDet2.Visible = True
+'    FraDet1.Enabled = True
+'    BtnSalir.Visible = True
+        
+  Else
+    MsgBox "No se puede Adicionar un nuevo registro, porque este ya está Aprobado!! ", vbExclamation
+  End If
+
+    VAR_COD2 = Ado_datos.Recordset!solicitud_codigo
+'     If OptFilGral1.Value = True Then
+'        Call OptFilGral1_Click        'Pendientes
+'     Else
+'        Call OptFilGral2_Click        'TODOS
+'     End If
+     If (dg_datos.SelBookmarks.Count <> 0) Then
+        dg_datos.SelBookmarks.Remove 0
+     End If
+     If Ado_datos.Recordset.RecordCount > 0 Then
+        rs_datos.Find "solicitud_codigo = " & VAR_COD2 & "   ", , , 1
+        dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
+         If rs_det1.RecordCount > 0 Then
+         rs_det1.MoveLast
+        End If
+     Else
+        rs_datos.MoveLast
+     End If
+
+End If
 
 End Sub
 

@@ -35,7 +35,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   1680
       Left            =   6840
       TabIndex        =   59
-      Top             =   4440
+      Top             =   5040
       Visible         =   0   'False
       Width           =   4860
       Begin VB.CommandButton BtnCancelar2 
@@ -591,7 +591,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2400
       Left            =   5880
       TabIndex        =   123
-      Top             =   3600
+      Top             =   1200
       Visible         =   0   'False
       Width           =   6900
       Begin VB.PictureBox Picture1 
@@ -935,7 +935,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2760
       Left            =   6240
       TabIndex        =   116
-      Top             =   2400
+      Top             =   6720
       Visible         =   0   'False
       Width           =   6300
       Begin VB.PictureBox Picture5 
@@ -1822,9 +1822,9 @@ Begin VB.Form frm_to_cronograma_mensual
       BackColor       =   &H00C0C0C0&
       ForeColor       =   &H00000040&
       Height          =   3375
-      Left            =   -4800
+      Left            =   -4680
       TabIndex        =   4
-      Top             =   5640
+      Top             =   5520
       Visible         =   0   'False
       Width           =   13260
       Begin VB.PictureBox FraGrabarCancelar 
@@ -2200,7 +2200,7 @@ Begin VB.Form frm_to_cronograma_mensual
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110297089
+         Format          =   109903873
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -2610,14 +2610,14 @@ Begin VB.Form frm_to_cronograma_mensual
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00800000&
-      Height          =   3120
+      Height          =   3140
       Left            =   0
       TabIndex        =   0
       Top             =   720
       Width           =   8535
       Begin VB.OptionButton Option25 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "TODOS"
+         Caption         =   "FINALIZADOS (Gestiones Anteriores)"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2629,10 +2629,10 @@ Begin VB.Form frm_to_cronograma_mensual
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   6720
+         Left            =   4080
          TabIndex        =   199
          Top             =   2835
-         Width           =   915
+         Width           =   3435
       End
       Begin VB.OptionButton OptFilGral3 
          BackColor       =   &H00C0C0C0&
@@ -2651,6 +2651,7 @@ Begin VB.Form frm_to_cronograma_mensual
          Left            =   4080
          TabIndex        =   158
          Top             =   2835
+         Visible         =   0   'False
          Width           =   915
       End
       Begin VB.OptionButton OptFilGral0 
@@ -2667,14 +2668,15 @@ Begin VB.Form frm_to_cronograma_mensual
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   1320
+         Left            =   4080
          TabIndex        =   157
          Top             =   2835
+         Visible         =   0   'False
          Width           =   915
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "2022"
+         Caption         =   "VIGENTES (En proceso)"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2686,11 +2688,11 @@ Begin VB.Form frm_to_cronograma_mensual
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   5400
+         Left            =   1080
          TabIndex        =   3
          Top             =   2835
          Value           =   -1  'True
-         Width           =   915
+         Width           =   2355
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00C0C0C0&
@@ -2706,18 +2708,19 @@ Begin VB.Form frm_to_cronograma_mensual
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   2640
+         Left            =   4080
          TabIndex        =   2
          Top             =   2835
+         Visible         =   0   'False
          Width           =   1095
       End
       Begin MSAdodcLib.Adodc Ado_datos 
-         Height          =   330
+         Height          =   350
          Left            =   120
          Top             =   2760
          Width           =   8385
          _ExtentX        =   14790
-         _ExtentY        =   582
+         _ExtentY        =   609
          ConnectMode     =   0
          CursorLocation  =   3
          IsolationLevel  =   -1
@@ -4765,7 +4768,7 @@ Dim VAR_SW, VAR_ZONA, VAR_UNITEC As String
 Dim VAR_EDIF, VAR_EQP As String
 Dim VAR_OBS, VAR_EQP2 As String
 Dim VAR_ANL, VAR_SW2, VAR_MSG As String
-Dim VAR_DA, VAR_UORIGEN, VAR_DPTOC As String
+Dim VAR_DA, VAR_UORIGEN, VAR_DPTOC, VAR_DPTO As String
 Dim VAR_PARIMPAR, VAR_UNIMED As String
 
 Dim VAR_AUX, VAR_CONT2 As Double
@@ -6693,10 +6696,12 @@ Private Sub Form_Load()
         usuario2 = rs_aux8!beneficiario_codigo
         VAR_DA = rs_aux8!da_codigo
         VAR_DPTOC = rs_aux8!depto_codigo
+        VAR_DPTO = rs_aux8!depto_codigo
     Else
         usuario2 = "3361040"
         VAR_DA = "1.3"
         VAR_DPTOC = "2"
+        VAR_DPTO = "2"
     End If
     If Aux = "DNMAN" Then
         Select Case VAR_DPTOC
@@ -6778,7 +6783,7 @@ Private Sub Form_Load()
             ''SSTab1.TabEnabled(1) = False
             'SSTab1.TabVisible(1) = False
    'End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -6926,29 +6931,32 @@ Private Sub OptFilGral2_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DPTOC
         Case "1"    ' Chuquisaca
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            'queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND (ges_gestion = '2022' or ges_gestion = '2023')  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '5' OR depto_codigo = '6') AND estado_codigo = 'REG' ) "
         Case "2"    'La Paz - Tecnico
-            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Then
-                queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2022' AND estado_codigo = 'REG' ) "
+            '(ges_gestion = '2022' or ges_gestion = '2023') AND
+            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "ADMIN" Then
+                queryinicial = "select * From to_cronograma_mensual WHERE ( estado_codigo = 'REG' ) "
             Else
-                queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+                'queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND (ges_gestion = '2022' or ges_gestion = '2023')    AND estado_codigo = 'REG' ) "
+                queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "')  AND estado_codigo = 'REG' ) "
             End If
         Case "3"    'Cochabamba
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '4') AND estado_codigo = 'REG' ) "
         Case "7"    'Santa Cruz
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '8' OR depto_codigo = '9' OR zpiloto_codigo='34') AND estado_codigo = 'REG' ) "
         Case "4"    'Oruro - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'REG' ) "
         Case "5"    ' Potosi
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'REG' ) "
         Case "6"    ' Tarija
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'REG' ) "
         Case "8"    ' Beni
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'REG' ) "
         Case "9"    ' Pando
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'REG' ) "
         Case Else    ' TODO
-            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2022'  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual where ( estado_codigo = 'ANL' ) "
      End Select
     'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
     rs_datos.Sort = "ges_gestion, fmes_correl, zpiloto_codigo"
@@ -7303,30 +7311,33 @@ Private Sub Option25_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DPTOC
         Case "1"    ' Chuquisaca
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2022' ) "
+            'queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND (ges_gestion = '2022' or ges_gestion = '2023')  AND estado_codigo = 'REG' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '5' OR depto_codigo = '6') AND estado_codigo = 'APR' ) "
         Case "2"    'La Paz - Tecnico
-            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Then
-                queryinicial = "select * From to_cronograma_mensual WHERE (ges_gestion = '2022' ) "
+            '(ges_gestion = '2022' or ges_gestion = '2023') AND
+            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "ADMIN" Then
+                queryinicial = "select * From to_cronograma_mensual WHERE ( estado_codigo = 'APR' ) "
             Else
-                queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND ges_gestion = '2022' ) "
+                'queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND (ges_gestion = '2022' or ges_gestion = '2023')    AND estado_codigo = 'REG' ) "
+                queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "')  AND estado_codigo = 'APR' ) "
             End If
         Case "3"    'Cochabamba
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='17' or zpiloto_codigo='18' or zpiloto_codigo='19' or zpiloto_codigo='20') AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '4') AND estado_codigo = 'APR' ) "
         Case "7"    'Santa Cruz
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='21' or zpiloto_codigo='22' or zpiloto_codigo='23' or zpiloto_codigo='24' or zpiloto_codigo='25' or zpiloto_codigo='26' or zpiloto_codigo='27' or zpiloto_codigo='31' or zpiloto_codigo='32' or zpiloto_codigo='33' or zpiloto_codigo = '34') AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '8' OR depto_codigo = '9' OR zpiloto_codigo='34') AND estado_codigo = 'APR' ) "
         Case "4"    'Oruro - Tecnico
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='16' ) AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'APR' ) "
         Case "5"    ' Potosi
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='35' ) AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'APR' ) "
         Case "6"    ' Tarija
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='36' ) AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'APR' ) "
         Case "8"    ' Beni
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='32' ) AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'APR' ) "
         Case "9"    ' Pando
-            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='33' ) AND ges_gestion = '2022' ) "
+            queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' ) AND estado_codigo = 'APR' ) "
         Case Else    ' TODO
-            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2022' ) "
-     End Select
+            queryinicial = "select * From to_cronograma_mensual where ( estado_codigo = 'ANL' ) "
+        End Select
     'queryinicial = "Select * from to_cronograma_mensual "          'where  unidad_codigo_tec = '" & parametro & "' AND ges_gestion = '" & glGestion & "' "
     rs_datos.Sort = "ges_gestion, fmes_correl, zpiloto_codigo"
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic

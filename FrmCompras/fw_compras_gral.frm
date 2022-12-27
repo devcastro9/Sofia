@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_gral
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   61210625
+         Format          =   110362625
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2799,10 +2799,10 @@ Begin VB.Form fw_compras_gral
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   21360
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   12915
+      Width           =   21360
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545

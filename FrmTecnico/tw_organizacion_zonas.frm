@@ -1772,7 +1772,7 @@ Begin VB.Form tw_organizacion_zonas
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "2022"
+         Caption         =   "VIGENTES"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -1788,7 +1788,7 @@ Begin VB.Form tw_organizacion_zonas
          TabIndex        =   25
          Top             =   2955
          Visible         =   0   'False
-         Width           =   975
+         Width           =   1215
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
@@ -2664,7 +2664,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                         'rs_aux6.Open "Select * from ao_ventas_cabecera where venta_fecha_fin = '" & rs_aux5!venta_fecha_fin & "' and edif_codigo = '" & rs_aux5!EDIF_CODIGO & "' and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND estado_codigo = 'APR' ", db, adOpenStatic
                         rs_aux6.Open "Select * from aV_ventas_alcance where venta_codigo = " & rs_aux5!venta_codigo & " and (unidad_codigo='DVTA' OR unidad_codigo LIKE '%COM%' )  ", db, adOpenStatic
                         If rs_aux6.RecordCount > 0 Then
-                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = 'MES', solicitud_tipo = '6', fecha_fin_max = '" & rs_aux6!fecha_fin_real & "', Gratuito = 'SI', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!EDIF_CODIGO & "'  "
+                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = 'MES', solicitud_tipo = '6', fecha_fin_max = '" & rs_aux6!fecha_fin_real & "', Gratuito = 'SI', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
                         End If
                         rs_aux5.MoveNext
                     Wend
@@ -2686,7 +2686,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                         rs_aux6.Open "Select * from av_ventas_cabecera_mant where venta_codigo = " & rs_aux5!venta_codigo & " ", db, adOpenStatic
                         If rs_aux6.RecordCount > 0 Then
 
-                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!EDIF_CODIGO & "'  "
+                            db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
                         End If
                         rs_aux5.MoveNext
                     Wend
@@ -3029,22 +3029,22 @@ Private Sub BtnGrabarDet_Click()
         SQL_FOR = "Select ISNULL(max(zona_edif_orden),0) as Orden from tc_zona_piloto_edif where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' "
         rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux1.RecordCount > 0 Then
-            txt_campo1.Text = IIf(IsNull(rs_aux1!Orden), 1, rs_aux1!Orden + 1)
+            Txt_campo1.Text = IIf(IsNull(rs_aux1!Orden), 1, rs_aux1!Orden + 1)
         Else
-            txt_campo1.Text = 1
+            Txt_campo1.Text = 1
         End If
         'db.Execute "SELECT Txt_campo1.Text  = ISNULL(MAX(zona_edif_orden),0)+1 FROM tc_zona_piloto_edif where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' "
         db.Execute "insert into  tc_zona_piloto_edif(zpiloto_codigo, edif_codigo, zona_edif_orden, zona_codigo, beneficiario_codigo, beneficiario_codigo_rep, beneficiario_codigo_cobr, zorden_cambio, observaciones, estado_codigo, fecha_registro, usr_codigo, mes_par_impar) " & _
-        "values (" & Ado_datos.Recordset!zpiloto_codigo & ", '" & dtc_codigo5.Text & "', '" & txt_campo1.Text & "', '0', '" & dtc_codigo6.Text & "', '" & dtc_codigo7.Text & "', '" & dtc_codigo8.Text & "', 0, '" & txt_obs.Text & "', 'REG', GETDATE(), 'ADMIN', '" & VAR_IMPAR & "')"
+        "values (" & Ado_datos.Recordset!zpiloto_codigo & ", '" & dtc_codigo5.Text & "', '" & Txt_campo1.Text & "', '0', '" & dtc_codigo6.Text & "', '" & dtc_codigo7.Text & "', '" & dtc_codigo8.Text & "', 0, '" & txt_obs.Text & "', 'REG', GETDATE(), 'ADMIN', '" & VAR_IMPAR & "')"
         
         db.Execute "update gc_edificaciones set tomado= 'S' where edif_codigo = '" & dtc_codigo5.Text & "' "
     End If
     If swnuevo = 2 Then
-        db.Execute "update tc_zona_piloto_edif set edif_codigo= '" & dtc_codigo5.Text & "', zona_edif_orden='" & txt_campo1.Text & "', beneficiario_codigo= '" & dtc_codigo6.Text & "', beneficiario_codigo_rep= '" & dtc_codigo7.Text & "',beneficiario_codigo_cobr= '" & dtc_codigo8.Text & "', zorden_cambio= " & cmd_campo2.Text & ", observaciones = '" & txt_obs.Text & "', fecha_registro='" & Date & "' where correlativo=" & Text1.Text & " "
+        db.Execute "update tc_zona_piloto_edif set edif_codigo= '" & dtc_codigo5.Text & "', zona_edif_orden='" & Txt_campo1.Text & "', beneficiario_codigo= '" & dtc_codigo6.Text & "', beneficiario_codigo_rep= '" & dtc_codigo7.Text & "',beneficiario_codigo_cobr= '" & dtc_codigo8.Text & "', zorden_cambio= " & cmd_campo2.Text & ", observaciones = '" & txt_obs.Text & "', fecha_registro='" & Date & "' where correlativo=" & Text1.Text & " "
         db.Execute "update tc_zona_piloto_edif set mes_par_impar = '" & VAR_IMPAR & "'  where zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " and edif_codigo = '" & dtc_codigo5.Text & "' "
         If cmd_campo2.Text <> "0" Then
-            db.Execute "update tc_zona_piloto_edif set zorden_cambio = zona_edif_orden + 1 where zona_edif_orden >= " & cmd_campo2.Text & " and zona_edif_orden < " & txt_campo1.Text & " and " & txt_campo1.Text & " > " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
-            db.Execute "update tc_zona_piloto_edif set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden <= " & cmd_campo2.Text & " and zona_edif_orden > " & txt_campo1.Text & " and " & txt_campo1.Text & " < " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
+            db.Execute "update tc_zona_piloto_edif set zorden_cambio = zona_edif_orden + 1 where zona_edif_orden >= " & cmd_campo2.Text & " and zona_edif_orden < " & Txt_campo1.Text & " and " & Txt_campo1.Text & " > " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
+            db.Execute "update tc_zona_piloto_edif set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden <= " & cmd_campo2.Text & " and zona_edif_orden > " & Txt_campo1.Text & " and " & Txt_campo1.Text & " < " & cmd_campo2.Text & " and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
             db.Execute "update tc_zona_piloto_edif set zona_edif_orden = zorden_cambio  where zorden_cambio > '0'  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
             db.Execute "update tc_zona_piloto_edif set zorden_cambio = '0'  where zorden_cambio > '0'"
         End If
@@ -3142,7 +3142,7 @@ Private Sub BtnModDetalle_Click()
         Option10.Value = True
     End If
     'Call ABRIR_DET
-    VAR_EDIF = Ado_detalle1.Recordset!EDIF_CODIGO
+    VAR_EDIF = Ado_detalle1.Recordset!edif_codigo
     dtc_desc5.BoundText = dtc_codigo5.BoundText
     lbl_orden_camb.Visible = True
     cmd_campo2.Visible = True
