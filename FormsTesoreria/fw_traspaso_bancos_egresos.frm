@@ -16,9 +16,9 @@ Begin VB.Form fw_traspaso_bancos_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   4.33764e5
+   ScaleHeight     =   5.44393e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   2.19418e7
+   ScaleWidth      =   4.36401e7
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_reporte 
       BackColor       =   &H00E0E0E0&
@@ -245,7 +245,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   120127489
+         Format          =   60030977
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -259,7 +259,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120127489
+         Format          =   60030977
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -545,7 +545,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       Height          =   2535
       Left            =   4560
       TabIndex        =   34
-      Top             =   720
+      Top             =   960
       Visible         =   0   'False
       Width           =   12015
       Begin VB.TextBox dtc_nom8 
@@ -844,7 +844,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
       Height          =   4830
       Left            =   4680
       TabIndex        =   48
-      Top             =   720
+      Top             =   840
       Visible         =   0   'False
       Width           =   11895
       Begin VB.PictureBox FraGrabarCancelar 
@@ -1311,7 +1311,7 @@ Begin VB.Form fw_traspaso_bancos_egresos
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   120127489
+         Format          =   60030977
          CurrentDate     =   44856
          MaxDate         =   55153
          MinDate         =   2
@@ -4971,7 +4971,7 @@ End Sub
 
 Private Sub BtnAprobar_Click()
  On Error GoTo UpdateErr
-  If (Ado_datos.Recordset!estado_codigo = "REG") And (Ado_datos.Recordset!estado_verificado = "APR") And (glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS") Then
+  If (Ado_datos.Recordset!estado_codigo = "REG") And (Ado_datos.Recordset!estado_verificado = "APR") And (glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "DBRAÑEZ") Then
     VAR_RECIBO = Ado_datos.Recordset!IdTraspasoBancos
     'Actualiza Totales
     db.Execute "UPDATE fo_traspaso_bancos_Egresos set fo_traspaso_bancos_Egresos.total_bs  = fv_tes_recibos_detalle_sum_egreso.adjudica_bs, fo_traspaso_bancos_Egresos.total_dol   = fv_tes_recibos_detalle_sum_egreso.adjudica_dol from fo_traspaso_bancos_Egresos inner join fv_tes_recibos_detalle_sum_egreso " & _
@@ -5546,7 +5546,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If

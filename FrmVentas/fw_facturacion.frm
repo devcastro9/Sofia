@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   119013377
+         Format          =   112328705
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -4647,7 +4647,7 @@ Private Sub BtnEliminar_Click()
                 VAR_IDFAC = rs_aux10!maxId
                 db.Execute "update ao_ventas_cobranza set estado_codigo_fac = 'REG' Where venta_codigo = " & NumComp & "  and venta_codigo_new = " & VAR_ID & "  "
                 db.Execute "update ao_ventas_cobranza set venta_codigo_new = " & rs_aux10!maxId & " Where venta_codigo = " & NumComp & "  and venta_codigo_new = " & VAR_ID & "  "
-                db.Execute "UPDATE ao_ventas_cobranza_fac SET estado_codigo_fac = 'ANL', estado_codigo = 'ANL', estado_fac = 'ANL'  WHERE IdFactura = " & VAR_ID & "  "
+                db.Execute "UPDATE ao_ventas_cobranza_fac SET fecha_anula = GETDATE(), estado_codigo_fac = 'ANL', estado_codigo = 'ANL', estado_fac = 'ANL', usr_codigo_anl = '" & glusuario & "'  WHERE IdFactura = " & VAR_ID & "  "
           End If
           'GRABA CABECERA DE LA FACTURA (QR)
             db.Execute "INSERT INTO ao_ventas_cobranza_fac_QR (IdFactura, archivo_foto_cargado, estado_codigo, usr_codigo, fecha_registro ) " & _

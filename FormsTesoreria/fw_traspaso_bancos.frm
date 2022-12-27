@@ -17,9 +17,9 @@ Begin VB.Form fw_traspaso_bancos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   6.32360e5
+   ScaleHeight     =   7.93639e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   9.88309e8
+   ScaleWidth      =   1.96565e9
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet3 
       BackColor       =   &H00E0E0E0&
@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   120717313
+         Format          =   60293121
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120717313
+         Format          =   60293121
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   120717313
+            Format          =   60293121
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -4215,7 +4215,7 @@ Private Sub AbreOrigen()
 '        Case Else
 '            rs_datos6.Open "select * from fv_recibos_pendientes_agrupados WHERE (IdTraspasoBancos is NULL or IdTraspasoBancos ='0')  ", db, adOpenKeyset, adLockOptimistic
 '    End Select
-    Set Ado_datos6.Recordset = rs_datos6
+    Set ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 
 End Sub
@@ -4286,7 +4286,7 @@ End Sub
 
 Private Sub BtnAprobar_Click()
  On Error GoTo UpdateErr
-  If (Ado_datos.Recordset!estado_codigo = "REG") And (Ado_datos.Recordset!estado_verificado = "APR") And (glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS") Then
+  If (Ado_datos.Recordset!estado_codigo = "REG") And (Ado_datos.Recordset!estado_verificado = "APR") And (glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "DBRAÑEZ") Then
     VAR_RECIBO = Ado_datos.Recordset!IdTraspasoBancos
     'Actualiza Totales
     db.Execute "UPDATE fo_traspaso_bancos set fo_traspaso_bancos.total_bs  = fv_recibos_detalle_sum.cobranza_bs, fo_traspaso_bancos.total_dol   = fv_recibos_detalle_sum.cobranza_dol from fo_traspaso_bancos inner join fv_recibos_detalle_sum " & _
@@ -4893,7 +4893,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -7638,7 +7638,7 @@ Private Sub OptFilGral1_Click()
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case glusuario
-        Case "ADMIN", "NPAREDES", "RCUELA", "CSALINAS"
+        Case "ADMIN", "NPAREDES", "RCUELA", "CSALINAS", "DBRAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG')  "
         Case "VPAREDES", "MWILDE", "MVALDIVIA"
             'queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG' AND (beneficiario_codigo_resp ='" & VAR_BENI & "' OR beneficiario_codigo_resp ='6962804')) "
@@ -7672,7 +7672,7 @@ Private Sub OptFilGral2_Click()
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case glusuario
-        Case "ADMIN", "NPAREDES", "RCUELA", "CSALINAS"
+        Case "ADMIN", "NPAREDES", "RCUELA", "CSALINAS", "DBRAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos   "
         Case "VPAREDES", "MWILDE", "MVALDIVIA"
             queryinicial = "select * From fo_traspaso_bancos   "

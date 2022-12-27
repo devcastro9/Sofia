@@ -161,7 +161,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   120651777
+            Format          =   59899905
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -1975,7 +1975,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   120651779
+         Format          =   59899907
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
@@ -2619,10 +2619,10 @@ Private Sub BtnAnlDetalle_Click()
             db.Execute " UPDATE ao_almacen_totales SET total_venta_bs = av_almacen_salidas_alm.importe_venta_bs FROM ao_almacen_totales INNER JOIN av_almacen_salidas_alm ON ao_almacen_totales.almacen_codigo = av_almacen_salidas_alm.almacen_codigo  AND ao_almacen_totales.bien_codigo = av_almacen_salidas_alm.bien_codigo"
             db.Execute " update ao_almacen_totales set utilidad_Bs = total_compra_bs - ISNULL(total_venta_bs,0)"
             
-           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0'  Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'False' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'REG' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET correl_prog = '0' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!EDIF_CODIGO & "' "
+           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0'  Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'False' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'REG' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET correl_prog = '0' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!edif_codigo & "' "
            
            Call ABRIR_TABLA_DET(1)
            
@@ -2830,7 +2830,7 @@ Private Sub BtnAprobarDet_Click()
         MsgBox "Los registros YA fueron aprobados y enviados a Almacenes... ", vbExclamation, "Atención!"
         Exit Sub
       Else
-        VAR_ED = Ado_detalle3.Recordset!EDIF_CODIGO
+        VAR_ED = Ado_detalle3.Recordset!edif_codigo
         Set rs_aux10 = New ADODB.Recordset
         If rs_aux10.State = 1 Then rs_aux10.Close
         Select Case Left(VAR_ED, 1)
@@ -3506,18 +3506,18 @@ Private Sub SalidaAlmacen()
     VAR_DOC = "R-115"
     VAR_DC = IIf(IsNull(Ado_detalle2.Recordset!doc_numero_m), 0, Ado_detalle2.Recordset!doc_numero_m)
     VAR_B = Ado_detalle2.Recordset!bien_codigo
-    VAR_ED = Ado_detalle2.Recordset!EDIF_CODIGO
+    VAR_ED = Ado_detalle2.Recordset!edif_codigo
     VAR_VT = Ado_detalle2.Recordset!venta_codigo
     VAR_BC = Ado_detalle2.Recordset!beneficiario_codigo
     If VAR_CRTL = 1 Then
         VAR_FSAL = IIf(IsNull(DTPEjecucion.Value), Date, DTPEjecucion.Value)
         'db.Execute "Update to_cronograma_mensual SET beneficiario_codigo_resp = '" & dtc_codigo4A & "' Where fmes_plan= " & Ado_detalle2.Recordset!fmes_plan & " "                     'edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "'
-        db.Execute "Update to_cronograma_diario_final SET beneficiario_codigo_resp = '" & dtc_codigo4A & "' Where fmes_plan= " & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' "
+        db.Execute "Update to_cronograma_diario_final SET beneficiario_codigo_resp = '" & dtc_codigo4A & "' Where fmes_plan= " & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "' "
     Else
         VAR_FSAL = Date
     End If
     '
-    db.Execute "Update to_cronograma_diario_final SET doc_codigo = '" & VAR_DOC & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' "
+    db.Execute "Update to_cronograma_diario_final SET doc_codigo = '" & VAR_DOC & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "' "
     'ACTUALIZA CORRELATIVO DE DOC. RESPALDO
     'If Ado_detalle2.Recordset!doc_numero_m = 0 Or IsNull(Ado_detalle2.Recordset!doc_numero_m) Then
     If VAR_DC = 0 Then
@@ -3600,15 +3600,15 @@ Private Sub SalidaAlmacen()
 '    End If
     'edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "'         'ANTES, SE CAMBIO POR EDIF_CODIGO
     If (Ado_detalle2.Recordset!doc_numero_m = 0 Or IsNull(Ado_detalle2.Recordset!doc_numero_m)) Or (glusuario = "ADMIN" Or glusuario = "LVASQUEZ" Or glusuario = "RCUELA") Then
-           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = " & VAR_NUM & "  Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET fecha_almi = '" & VAR_FSAL & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = " & VAR_NUM & "  Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET fecha_almi = '" & VAR_FSAL & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
            'db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'True' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET observaciones2 = '" & txt_obs.Text & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'APR' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
-           db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' and unidad_codigo_tec like '%MAN%' "
+           db.Execute "Update to_cronograma_diario_final SET observaciones2 = '" & txt_obs.Text & "' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'APR' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
+           db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "' and unidad_codigo_tec like '%MAN%' "
            'db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_descripcion='" & Ado_detalle2.Recordset!edif_descripcion & "' and unidad_codigo_tec = 'DNMAN' "
            
-           db.Execute "Update to_cronograma_diario_final SET fecha_almacen = '" & Date & "', correl_prog = " & Ado_datos.Recordset!fmes_plan & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!EDIF_CODIGO & "'"
+           db.Execute "Update to_cronograma_diario_final SET fecha_almacen = '" & Date & "', correl_prog = " & Ado_datos.Recordset!fmes_plan & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle2.Recordset!edif_codigo & "'"
            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 '            'SQL_FOR = "select * from ac_almacenes where almacen_codigo = '2'"        ''" & VAR_DOC & "' "
 '            Set rs_aux2 = New ADODB.Recordset
@@ -3723,7 +3723,7 @@ Private Sub SalidaAlmacen()
              
              VAR_ALMH = VAR_ALMI     '"2"
              'ACTUALIZA TODAS LAS SALIDAS WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-             db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!EDIF_CODIGO & "' and unidad_codigo_tec like '%MAN%' "
+             db.Execute "Update to_cronograma_diario_final SET almacen_codigo = " & VAR_ALMI & " Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle2.Recordset!edif_codigo & "' and unidad_codigo_tec like '%MAN%' "
              'ACTUALIZA ao_almacen_totales   'Actualiza en el Almacen Especificado
 
              db.Execute "update ao_almacen_totales set stock_salida  = tatales_almacenes_js.cantidad_salida FROM tatales_almacenes_js WHERE tatales_almacenes_js.bien_codigo = ao_almacen_totales.bien_codigo and tatales_almacenes_js.almacen_codigo = ao_almacen_totales.almacen_codigo"

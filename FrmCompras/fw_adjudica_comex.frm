@@ -1401,7 +1401,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118685697
+            Format          =   111673345
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1417,7 +1417,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118685697
+            Format          =   111673345
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1434,7 +1434,7 @@ Begin VB.Form fw_adjudica_comex
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118685697
+            Format          =   111673345
             CurrentDate     =   44470
             MinDate         =   32874
          End
@@ -2038,7 +2038,7 @@ Begin VB.Form fw_adjudica_comex
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   118685697
+         Format          =   111673345
          CurrentDate     =   44466
          MinDate         =   2
       End
@@ -2741,6 +2741,7 @@ If Valida Then
    VAR_TRANS = "22"
    VAR_TIPOSOL = "1"
    VAR_TRANSF = "36"
+   'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW JCQA2022
    Select Case txt_campo1.Text
     Case "COMEX"
         VAR_PROC = "CMX"
@@ -2921,7 +2922,7 @@ If Valida Then
    'If fw_compras_comex.Ado_detalle1.Recordset("bien_codigo") = "479" Or fw_compras_comex.Ado_detalle1.Recordset("bien_codigo") = "3410007" Then
    'LITERAL
    var_literal = Literal(CDbl(txt_total_bs))
-   
+   VAR_BENEF2 = IIf(fw_compras_comex.Ado_datos.Recordset!beneficiario_codigo_resp = "0", "4828818", fw_compras_comex.Ado_datos.Recordset!beneficiario_codigo_resp)
    If swnuevo = 1 Then
 
         db.Execute "Insert INTO ao_compra_adjudica (ges_gestion, compra_codigo, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, " & _
