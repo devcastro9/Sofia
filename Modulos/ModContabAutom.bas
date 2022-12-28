@@ -185,7 +185,7 @@ End Sub
 Public Sub Contabiliza_Cobranzas(ByVal IdTraspasoBancos As Long)
     On Error GoTo Handler
     Dim sql_exec As String
-    sql_exec = "EXECUTE [dbo].[conta_sub_cobranzas] " & Id & ", ''"
+    sql_exec = "EXECUTE [dbo].[conta_sub_cobranzas] " & IdTraspasoBancos & ", ''"
     Call ExecProcedure(sql_exec)
 Handler:
     If Err.Number > 0 Then
