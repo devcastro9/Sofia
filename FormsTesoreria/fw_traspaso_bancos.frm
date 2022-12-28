@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   60293121
+         Format          =   130613249
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   60293121
+         Format          =   130613249
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   60293121
+            Format          =   130613249
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -4132,12 +4132,12 @@ Private Sub AbrirDetalle()
     rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
     rs_datos14.Sort = "doc_numero"
     'HASTA AQUI
-    Set ado_datos14.Recordset = rs_datos14.DataSource
-    ado_datos14.Recordset.Requery
-    If ado_datos14.Recordset.RecordCount > 0 Then
+    Set Ado_datos14.Recordset = rs_datos14.DataSource
+    Ado_datos14.Recordset.Requery
+    If Ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
         DtGLista.Visible = True
-        Set DtGLista.DataSource = ado_datos14.Recordset
+        Set DtGLista.DataSource = Ado_datos14.Recordset
         Call AbreOrigen
     Else
         deta2 = 0
@@ -4215,7 +4215,7 @@ Private Sub AbreOrigen()
 '        Case Else
 '            rs_datos6.Open "select * from fv_recibos_pendientes_agrupados WHERE (IdTraspasoBancos is NULL or IdTraspasoBancos ='0')  ", db, adOpenKeyset, adLockOptimistic
 '    End Select
-    Set ado_datos6.Recordset = rs_datos6
+    Set Ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 
 End Sub
@@ -4306,7 +4306,7 @@ Private Sub BtnAprobar_Click()
     db.Execute "update fo_traspaso_bancos set estado_codigo = 'APR', usr_codigo_aprueba = '" & glusuario & "', fecha_registro_aprueba = '" & Date & "'  where IdTraspasoBancos = " & VAR_RECIBO & " "
     
     'CONTABILIZA COBRANZAS -----------------------------------------------
-    'Call Contabiliza_Cobranzas
+    Call Contabiliza_Cobranzas(VAR_RECIBO)
     
     OptFilGral2_Click
     
@@ -4335,153 +4335,6 @@ End Sub
 'APRUEBA fo_traspaso_bancos
 'db.Execute "update fo_traspaso_bancos set estado_verificado = 'APR', usr_codigo_verificado = '" & glusuario & "', fecha_verificado = '" & Date & "'  where IdTraspasoBancos = " & VAR_RECIBO & " "
 'Call Contabiliza_Cobranzas
-
-Private Sub Contabiliza_Cobranzas()
-    ' Contabilizacion al momento de aprobacion
-    'Base de datos
-    Dim db2 As New ADODB.Connection
-    ' Recordset
-    Dim rs_aux99 As New ADODB.Recordset  ' Data
-    Dim rs_aux100 As New ADODB.Recordset ' Transaccion
-    Dim rs_aux101 As New ADODB.Recordset ' Beneficiarios
-    Dim rs_aux102 As New ADODB.Recordset ' Edificios
-    Dim rs_aux103 As New ADODB.Recordset ' Moneda de cuenta corriente
-    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-    Dim VAR_EMPRESA As Integer
-    Dim VAR_PARTIDA As String
-    Dim VAR_TIPOCOMPID As Integer
-    Dim VAR_FECHA As Date
-    Dim VAR_MONEDAID As Integer
-    Dim VAR_TIPOCAMBIO As Double
-    Dim EntregadoA As String
-    Dim VAR_CONCEPTO As String
-    Dim VAR_GLOSA As String
-    Dim VAR_DEBEORG As Double
-    Dim VAR_HABERORG As Double
-    'Impuestos
-    Dim VAR_PorIVA As Double
-    Dim VAR_PorIT As Double
-    Dim VAR_PorITF As Double
-    'Otros valores
-    Dim VAR_ConFac As Integer
-    Dim VAR_SinFac As Integer
-    Dim VAR_Automatico As Integer
-    Dim VAR_TipoNotaId As Integer
-    Dim VAR_NotaNro As String
-    Dim VAR_EstadoId As Integer
-    Dim VAR_iConcurrency_id As Integer
-    Dim VAR_TipoAsientoId As Integer
-    Dim VAR_CentroCostoId As Integer
-    Dim VAR_TipoRetencionId As Integer
-    Dim VAR_TipoId As Integer
-    Dim VAR_CompDetIdOrg As Integer
-    Dim VAR_PROY2 As String
-    ' Data (AdoDb - fuente de datos)
-    Set rs_aux99 = New ADODB.Recordset
-    If rs_aux99.State = 1 Then rs_aux99.Close
-    rs_aux99.Open "SELECT trans, tipoV, depto, fecha, bs2, dol2, beneficiario, edifCodCorto, edifCodigo, cuentaDestino, glosa, solicitudTipo, notaNro, codBancarizacion FROM av_contabiliza_cobranzas WHERE fecha IS NOT NULL AND IdTraspasoBancos = '" & Ado_datos.Recordset!IdTraspasoBancos & "' ORDER BY fecha ", db, adOpenKeyset, adLockOptimistic
-    'Codigo tipo = "REC"
-    VAR_CODTIPO = "REC"
-    ' ==================
-    ' Ciclo Inicio
-    ' ==================
-    If rs_aux99.RecordCount > 0 Then
-        rs_aux99.MoveFirst
-    End If
-    Do While rs_aux99.EOF = False
-        ' Rubro Codigo/Centro de costo
-        Set rs_aux100 = New ADODB.Recordset
-        If rs_aux100.State = 1 Then rs_aux100.Close
-        rs_aux100.Open "SELECT trans_descripcion, rubro_codigo, CentroCostoId FROM gc_tipo_transaccion WHERE trans_codigo = '" & rs_aux99!trans & "'  ", db, adOpenKeyset, adLockOptimistic
-        If rs_aux100.RecordCount > 0 Then
-            VAR_PARTIDA = rs_aux100!rubro_codigo
-            VAR_CentroCostoId = rs_aux100!CentroCostoId
-        End If
-        ' Empresa
-        ' Solo si es: Ventas CGE => venta_tipo = 'G'
-        If rs_aux99!tipoV = "G" Then
-            VAR_EMPRESA = 2
-        Else
-            VAR_EMPRESA = 1
-        End If
-        'Departamento/Sucursal/Region
-        VAR_DPTO = rs_aux99!Depto
-        ' Fecha de venta
-        VAR_FECHA = CDate(rs_aux99!Fecha)
-        ' Tipo moneda/Debe/Haber (Adicionar)
-        'VAR_MONEDAID = 1
-        'VAR_DEBEORG = rs_aux99!bs2 'Boliviano
-        'VAR_HABERORG = rs_aux99!bs2 'Boliviano
-        Set rs_aux103 = New ADODB.Recordset
-        If rs_aux103.State = 1 Then rs_aux103.Close
-        rs_aux103.Open "SELECT MonedaId FROM tblCuentaCorriente WHERE TipoIE = 1 AND Cuenta = '" & rs_aux99!cuentaDestino & "' ", db, adOpenKeyset, adLockOptimistic
-        If rs_aux103.RecordCount > 0 Then
-            VAR_MONEDAID = rs_aux103!MonedaId
-        End If
-        If VAR_MONEDAID = 2 Then
-            VAR_DEBEORG = rs_aux99!dol2 'Dolar
-            VAR_HABERORG = rs_aux99!dol2 'Dolar
-        Else
-            VAR_DEBEORG = rs_aux99!bs2 'Boliviano
-            VAR_HABERORG = rs_aux99!bs2 'Boliviano
-        End If
-        ' Tipo de cambio -> BOB - USD
-        VAR_TIPOCAMBIO = Round(rs_aux99!bs2 / rs_aux99!dol2, 2)
-        'MMMMMMMMMMMMMMMMMMMMMMMMMMod
-        ' Entregado A:
-        'Set rs_aux101 = New ADODB.Recordset
-        'If rs_aux101.State = 1 Then rs_aux101.Close
-        'rs_aux101.Open "SELECT beneficiario_nit, beneficiario_denominacion FROM gc_beneficiario WHERE beneficiario_codigo = '" & rs_aux99!beneficiario & "'  ", db, adOpenKeyset, adLockOptimistic
-        'EntregadoA = rs_aux99!beneficiario
-        'If rs_aux101.RecordCount > 0 Then
-        '    EntregadoA = EntregadoA & " - " & rs_aux101!beneficiario_denominacion
-        'End If
-        ' Entregado A:
-        EntregadoA = "Edificio " & rs_aux99!edifCodCorto
-        If rs_aux102.State = 1 Then rs_aux102.Close
-        rs_aux102.Open "select edif_descripcion from gc_edificaciones where edif_codigo = '" & rs_aux99!edifCodigo & "'  ", db, adOpenKeyset, adLockOptimistic
-        If rs_aux102.RecordCount > 0 Then
-            EntregadoA = rs_aux102!edif_descripcion & " - " & EntregadoA
-        End If
-        'Por concepto
-        VAR_CONCEPTO = "Contabilizacion cobranza: " & rs_aux99!notaNro & " - Codigo de Bancarizacion: " & rs_aux99!codBancarizacion & " - " & rs_aux99!glosa
-        'VAR_CONCEPTO = rs_aux99!glosa
-        ' Glosa
-        'VAR_GLOSA = "Codigo de Bancarizacion: " & rs_aux99!codBancarizacion
-        VAR_GLOSA = rs_aux99!glosa
-        'MMMMMMMMMMMMMMMMMMMMMMMMMMod
-        VAR_PROY2 = rs_aux99!edifCodigo
-        ' TipoCompId (Tipo comprobante id) Ingreso
-        VAR_TIPOCOMPID = 1
-        ' Impuestos
-        VAR_PorIVA = 0.13
-        VAR_PorIT = 0.03
-        VAR_PorITF = 0.0015
-        ' Otros valores
-        VAR_ConFac = 0 'Con factura
-        VAR_SinFac = 1 'Sin factura
-        VAR_Automatico = 1 '0 Permite edicion, 1 no permite editar
-        VAR_TipoNotaId = rs_aux99!solicitudTipo
-        VAR_NotaNro = rs_aux99!notaNro
-        VAR_EstadoId = 11 'Libro Mayor requiere que sean de EstadoId = 10 Cerrado OR EstadoId = 11 Abierto
-        VAR_TipoAsientoId = 0 ' Operativo
-        VAR_TipoRetencionId = 0
-        VAR_TipoId = 0
-        VAR_CompDetIdOrg = 0
-        'Procedimiento almacenado
-        ' Creamos conexion unica para CONDOBO
-        db2.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CONDOBO;Data Source=SSOFIA"
-        db2.Execute ("EXEC fp_contabiliza_ingresos '" & VAR_CODTIPO & "', '" & VAR_PARTIDA & "', " & VAR_EMPRESA & ", " & VAR_DPTO & ", " & VAR_TIPOCOMPID & ", '" & VAR_FECHA & "', " & VAR_MONEDAID & ", '" & VAR_TIPOCAMBIO & "', '" & VAR_DEBEORG & "', '" & VAR_HABERORG & "', '" & EntregadoA & "', '" & VAR_CONCEPTO & "', '" & VAR_PorIVA & "', '" & VAR_PorIT & "', '" & VAR_PorITF & "', " & VAR_ConFac & ", " & VAR_SinFac & ", " & VAR_Automatico & ", '" & VAR_GLOSA & "', " & VAR_TipoNotaId & ", " & VAR_NotaNro & ", " & VAR_EstadoId & ", '" & glusuario & "', " & VAR_TipoAsientoId & ", " & VAR_CentroCostoId & ", " & VAR_TipoRetencionId & ", " & VAR_TipoId & ", " & VAR_CompDetIdOrg & ", '" & VAR_PROY2 & "'")
-        db2.Close
-        ' Siguiente
-        rs_aux99.MoveNext
-    Loop
-    If rs_aux99.State = 1 Then rs_aux99.Close
-    If rs_aux100.State = 1 Then rs_aux100.Close
-    If rs_aux101.State = 1 Then rs_aux101.Close
-    If rs_aux102.State = 1 Then rs_aux102.Close
-    If rs_aux103.State = 1 Then rs_aux103.Close
-End Sub
 
 Private Sub GENERA_COMPRA()
 '    If rs_datos!estado_cotiza = "REG" Then
@@ -4700,7 +4553,7 @@ Private Sub BtnBuscar_Click()
 End Sub
 
 Private Sub BtnBuscar1_Click()
-  If ado_datos14.Recordset.RecordCount > 0 Then
+  If Ado_datos14.Recordset.RecordCount > 0 Then
     'JQA
       buscados = 1
       PosibleApliqueFiltro = False
@@ -4711,7 +4564,7 @@ Private Sub BtnBuscar1_Click()
       ClBuscaGrid.EsTdbGrid = False
       Set ClBuscaGrid.GridTrabajo = DtGLista
       ClBuscaGrid.QueryUtilizado = queryinicial2
-      Set ClBuscaGrid.RecordsetTrabajo = ado_datos14.Recordset
+      Set ClBuscaGrid.RecordsetTrabajo = Ado_datos14.Recordset
       ClBuscaGrid.CamposVisibles = "110"
       ClBuscaGrid.Ejecutar
       PosibleApliqueFiltro = True
@@ -4788,7 +4641,7 @@ On Error GoTo UpdateErr
 If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+        If Ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
             Set rs_datos7 = New ADODB.Recordset
             If rs_datos7.State = 1 Then rs_datos7.Close
             rs_datos7.Open "select * from fv_ventas_cobranza_det_traspasos WHERE (IdRecibo = " & dtc_codigo6.Text & ")  ", db, adOpenKeyset, adLockOptimistic
@@ -4893,7 +4746,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & Ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & Ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(Ado_datos14.Recordset!venta_precio_total_dol), 0, Ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -5041,15 +4894,15 @@ End Sub
 
 Private Sub BtnGrabar2_Click()
 On Error GoTo UpdateErr
- If CDate(ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(ado_datos14.Recordset!cobranza_fecha) <= CDate("30/06/2022") Then
+ If CDate(Ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(Ado_datos14.Recordset!cobranza_fecha) <= CDate("30/06/2022") Then
     MsgBox "No se puede Procesar una Fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
     Exit Sub
  End If
 If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
-            If (ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(ado_datos14.Recordset!cmpbte_fecha) Or (ado_datos14.Recordset!cmpbte_fecha = "01/01/1900")) Then
+        If Ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+            If (Ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(Ado_datos14.Recordset!cmpbte_fecha) Or (Ado_datos14.Recordset!cmpbte_fecha = "01/01/1900")) Then
                 MsgBox "No se puede ACEPTAR, verifique la fecha de Cheque, Transferencia o Comprobante y vuelva a intentar ...", , "Atención"
                 FraNavega.Enabled = True
                 FraNavega.Enabled = True
@@ -5061,13 +4914,13 @@ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES
                 Exit Sub
             End If
             'GRABA RECIBO DETALLE
-            If ado_datos14.Recordset!trans_codigo = "T" Or ado_datos14.Recordset!trans_codigo = "O" Then
-                db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & ado_datos14.Recordset!cmpbte_deposito & "', fecha_registro_bco= '" & ado_datos14.Recordset!cmpbte_fecha & "', trans_codigo= '" & ado_datos14.Recordset!trans_codigo & "'  where correl_cobro = " & ado_datos14.Recordset!correl_cobro & " "
+            If Ado_datos14.Recordset!trans_codigo = "T" Or Ado_datos14.Recordset!trans_codigo = "O" Then
+                db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & Ado_datos14.Recordset!cmpbte_deposito & "', fecha_registro_bco= '" & Ado_datos14.Recordset!cmpbte_fecha & "', trans_codigo= '" & Ado_datos14.Recordset!trans_codigo & "'  where correl_cobro = " & Ado_datos14.Recordset!correl_cobro & " "
             End If
-            db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & ado_datos14.Recordset!correl_cobro & " "
+            db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & Ado_datos14.Recordset!correl_cobro & " "
             
             'ACTUALIZA APRUEBA ao_ventas_cobranza_det
-            db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & ado_datos14.Recordset!correl_cobro & " "
+            db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & Ado_datos14.Recordset!correl_cobro & " "
             'cobranza_codigo = " & ado_datos14.Recordset!cobranza_codigo & " and cobranza_detalle = " & ado_datos14.Recordset!cobranza_detalle & " "
             
             ' ACTUALIZA TOTALES fo_traspaso_bancos
@@ -6866,7 +6719,7 @@ Private Sub CmdOKunidad_Click()
 End Sub
 
 Private Sub BtnImprimir2_Click()
-    If ado_datos14.Recordset.RecordCount > 0 Then
+    If Ado_datos14.Recordset.RecordCount > 0 Then
          Dim iResult As Integer
         'Dim co As New ADODB.Command
         'CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_almacen_kardex.rpt"
@@ -6874,8 +6727,8 @@ Private Sub BtnImprimir2_Click()
         CryR01.WindowShowPrintSetupBtn = True
         CryR01.WindowShowRefreshBtn = True
         'CryR01.StoredProcParam(0) = Ado_datos.Recordset!bien_codigo
-        CryR01.StoredProcParam(0) = ado_datos14.Recordset!bien_codigo
-        CryR01.StoredProcParam(1) = Trim(Str(ado_datos14.Recordset!almacen_codigo))            'dtc_codigo1.Text
+        CryR01.StoredProcParam(0) = Ado_datos14.Recordset!bien_codigo
+        CryR01.StoredProcParam(1) = Trim(Str(Ado_datos14.Recordset!almacen_codigo))            'dtc_codigo1.Text
         CryR01.StoredProcParam(2) = Format(DTP_Finicio.Value, "dd/mm/yyyy")
         CryR01.StoredProcParam(3) = Format(DTP_Ffin.Value, "dd/mm/yyyy")
         CryR01.Formulas(0) = "almace = '" & dtc_desc1.Text & "' "
@@ -6952,8 +6805,8 @@ Private Sub Extracto()
     Set rs_datos18 = New ADODB.Recordset
     If rs_datos18.State = 1 Then rs_datos18.Close
     rs_datos18.Open "Select * from fv_extracto_ingresos_NO_conciliados order by cod_bancarizacion", db, adOpenStatic        'fecha_transaccion, hora_transaccion
-    Set ado_datos18.Recordset = rs_datos18
-    If ado_datos18.Recordset.RecordCount > 0 Then
+    Set Ado_datos18.Recordset = rs_datos18
+    If Ado_datos18.Recordset.RecordCount > 0 Then
         DctFecha18.BoundText = DctCod18.BoundText
         DctMonto18.BoundText = DctCod18.BoundText
         DctCliente18.BoundText = DctCod18.BoundText
