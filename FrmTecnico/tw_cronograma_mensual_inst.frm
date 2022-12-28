@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   131072001
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   131072001
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   131072001
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   131072001
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -2514,6 +2514,7 @@ Dim rs_aux11 As New ADODB.Recordset
 Dim rs_aux12 As New ADODB.Recordset     'OK
 Dim rs_aux13 As New ADODB.Recordset     'OK
 Dim rs_aux14 As New ADODB.Recordset     'OK
+Dim rs_aux15 As New ADODB.Recordset     'OK
 
 'Dim CAMPOS As ADODB.Field
 'BUSCADOR
@@ -2916,8 +2917,13 @@ Private Sub BtnAddDetalle3_Click()
 '                        db.Execute "update to_cronograma_mensual_inst set bien_orden = " & VAR_IDTAREA & ", venta_codigo = " & NumComp & " WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "   "
 '                        db.Execute "update to_cronograma_mensual_inst set estado_activo = 'REG' WHERE fmes_plan = " & VAR_PLANID & " AND dia_correl = " & rs_aux4!dia_correl & " AND horario_codigo = " & VAR_IDTAREA & "  "
                     Else
-                        MsgBox "No se puede generar el Cronograma, No existe el Calendario para este contrato, consulte con Administrador del Sistema...", vbInformation, "INFORMACIÓN"
-                        Exit Sub
+                        Set rs_aux15 = New ADODB.Recordset
+                        If rs_aux15.State = 1 Then rs_aux15.Close
+                        rs_aux15.Open "Select * from to_cronograma_mensual_inst WHERE fmes_plan = " & VAR_PLANID & " AND estado_activo <> 'ANL' AND bien_codigo <> '0' ORDER BY dia_fecha, horario_codigo ", db, adOpenStatic
+                        If rs_aux15.RecordCount <= 0 Then
+                            MsgBox "No se puede generar el Cronograma, No existe el Calendario para este contrato, consulte con Administrador del Sistema...", vbInformation, "INFORMACIÓN"
+                            Exit Sub
+                        End If
                         '
 '                        db.Execute "INSERT INTO to_cronograma_mensual_inst (fmes_plan, dia_correl, horario_codigo, bien_orden,     bien_codigo,        unidad_codigo_tec, tec_plan_codigo,     beneficiario_codigo_resp, beneficiario_codigo_resp2, dia_fecha,             dia_nombre,         hora_ingreso,           hora_salida,            nro_total_horas,      observaciones,      edif_descripcion, bien_codigo1, " & _
 '                        " bien_codigo2, bien_codigo3, bien_codigo4, bien_codigo5, cantidad1, cantidad2, cantidad3, cantidad4, cantidad5, carta, doc_numero_carta, nro_fojas, doc_numero, estado_activo, estado_codigo, usr_codigo,      fecha_registro, " & _
