@@ -16,9 +16,9 @@ Begin VB.Form fw_recibos_oficiales_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   2.90048e5
+   ScaleHeight     =   3.64023e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   21510
+   ScaleWidth      =   42781.33
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCabecera 
       BackColor       =   &H00E0E0E0&
@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   112328705
+         Format          =   120127489
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -3210,6 +3210,7 @@ Dim PosibleApliqueFiltro As Boolean
 Dim msgSalir, accion As String
 Dim queryinicial0 As String
 Dim queryinicial2 As String
+Dim QueryAux As String
 
 'Almacenes
 Dim descri_bien As String
@@ -3395,13 +3396,13 @@ Private Sub AbrirDetalle()
         End Select
         rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
         rs_datos14.Sort = "adjudica_fecha desc"
-        Set ado_datos14.Recordset = rs_datos14.DataSource
-        ado_datos14.Recordset.Requery
-        If ado_datos14.Recordset.RecordCount > 0 Then
+        Set Ado_datos14.Recordset = rs_datos14.DataSource
+        Ado_datos14.Recordset.Requery
+        If Ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             DtGLista.Visible = True
 '            FraBuscaDet.Visible = True
-            Set DtGLista.DataSource = ado_datos14.Recordset
+            Set DtGLista.DataSource = Ado_datos14.Recordset
 '            If VAR_OPCION = 0 Then
 '                Call AbreOrigen
 '            End If
@@ -3470,8 +3471,8 @@ Private Sub Ado_datos11_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
 End Sub
 
 Private Sub Ado_datos14_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
- If (Not ado_datos14.Recordset.BOF) And (Not ado_datos14.Recordset.EOF) Then
-    If ado_datos14.Recordset.RecordCount > 0 Then
+ If (Not Ado_datos14.Recordset.BOF) And (Not Ado_datos14.Recordset.EOF) Then
+    If Ado_datos14.Recordset.RecordCount > 0 Then
         'BtnModDetalle2.Visible = False
     Else
     
@@ -3486,32 +3487,47 @@ On Error GoTo UpdateErr
 If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+        If Ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
             VAR_BUSCA = 1
-            If (ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(ado_datos14.Recordset!adjudica_fecha) Or (ado_datos14.Recordset!adjudica_fecha = "01/01/1900")) Then
+            If (Ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(Ado_datos14.Recordset!adjudica_fecha) Or (Ado_datos14.Recordset!adjudica_fecha = "01/01/1900")) Then
                 MsgBox "No se puede ACEPTAR, verifique la fecha de Factura, Recibo o Comprobante y vuelva a intentar ...", , "Atención"
                 Exit Sub
             End If
-            If (ado_datos14.Recordset!estado_codigo_tes = "REG") Or (IsNull(ado_datos14.Recordset!estado_codigo_tes)) Then
+            If (Ado_datos14.Recordset!estado_codigo_tes = "REG") Or (IsNull(Ado_datos14.Recordset!estado_codigo_tes)) Then
                 'GRABA RECIBO DETALLE EGRESO
                 '----------------------------------------------------- ENVIA A TESORERIA
                 ' IdRecibo, adjudica_codigo, IdTraspasoBancos, compra_codigo, cta_codigo, cmpbte_deposito, doc_numero, cmpbte_deposito_bco, fecha_registro_bco, adjudica_bs, adjudica_dol, trans_codigo, cta_codigo_origen,
                 ' cta_codigo_destino, observaciones, edif_codigo_corto, nivel_conciliado, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, fecha_destino, fecha_aprueba, hora_registro,
                 ' fecha_concilia , usr_concilia
+                              
+                sino = MsgBox("Elija una de las dos opciones, para ENVIAR A DESTINO: " & vbCrLf & _
+                vbTab & " SI. Para enviar TODOS los registros Seleccionados en la grilla ..." & vbCrLf & _
+                vbTab & " NO. Para enviar SOLO el registro en el que se encuentra el cursor ...", vbYesNo, "Confirmando")
+                If sino = vbYes Then
+                    'QueryAux = queryinicial2       'JCQA_2022_12_29
+                    'QueryAux = queryinicial99
+                    QueryAux = GlSqlAux
+                    'fo_recibos_detalle_egresos_aux
+                    ' carga a la tabla: fo_recibos_detalle_egresos
+                    db.Execute "INSERT INTO fo_recibos_detalle_egresos_aux (trans_descripcion, edif_descripcion, ges_gestion, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda, adjudica_monto_dol, fecha_inicio_contrato, fecha_fin_contrato, fecha_envio_proveedor, fecha_recibe_almacen, almacen_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, nro_autorizacion, codigo_control, nro_dui, nit_empresa, tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc, credito_fiscal_13, adjudica_monto_bs_87, adjudica_monto_dol_87, tipo_compra, tipo_cambio, " & _
+                    " importe_planilla_bs, importe_planilla_dol, literal, literal_neto, factura, doc_codigo_alm, doc_numero_alm, estado_almacen, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, estado_codigo_tes, estado_pagado, beneficiario_codigo_cab, solicitud_tipo, trans_codigo_fac, estado_codigo, beneficiario_codigo_resp , beneficiario_codigo_resp_compra, nit_beneficiario, trans_descripcion_fac, adjudica_monto_eur, unidad_codigo_adm ) " & _
+                    " (QueryAux)"
 
-                db.Execute "INSERT INTO fo_recibos_detalle_egresos (IdRecibo, adjudica_codigo, doc_numero, adjudica_bs, adjudica_dol, trans_codigo, observaciones, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, hora_registro, edif_codigo_corto, compra_codigo, unidad_codigo_ant) " & _
-                " values (" & Ado_datos.Recordset!IdRecibo & ", " & ado_datos14.Recordset!adjudica_codigo & ", " & IIf(IsNull(ado_datos14.Recordset!doc_numero), 0, ado_datos14.Recordset!doc_numero) & ", " & ado_datos14.Recordset!adjudica_monto_bs & ", " & ado_datos14.Recordset!adjudica_monto_dol & ", '" & ado_datos14.Recordset!trans_codigo & "',  " & _
-                " '" & ado_datos14.Recordset!adjudica_descripcion & "', 'REG', 'REG', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & ado_datos14.Recordset!edif_codigo_corto & "', " & ado_datos14.Recordset!compra_codigo & ", '" & ado_datos14.Recordset!unidad_codigo_ant & "'  ) "
+                Else
+                    db.Execute "INSERT INTO fo_recibos_detalle_egresos (IdRecibo, adjudica_codigo, doc_numero, adjudica_bs, adjudica_dol, trans_codigo, observaciones, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, hora_registro, edif_codigo_corto, compra_codigo, unidad_codigo_ant) " & _
+                    " values (" & Ado_datos.Recordset!IdRecibo & ", " & Ado_datos14.Recordset!adjudica_codigo & ", " & IIf(IsNull(Ado_datos14.Recordset!doc_numero), 0, Ado_datos14.Recordset!doc_numero) & ", " & Ado_datos14.Recordset!adjudica_monto_bs & ", " & Ado_datos14.Recordset!adjudica_monto_dol & ", '" & Ado_datos14.Recordset!trans_codigo & "',  " & _
+                    " '" & Ado_datos14.Recordset!adjudica_descripcion & "', 'REG', 'REG', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & Ado_datos14.Recordset!edif_codigo_corto & "', " & Ado_datos14.Recordset!compra_codigo & ", '" & Ado_datos14.Recordset!unidad_codigo_ant & "'  ) "
+    
+                    'ACTUALIZA APRUEBA ao_compra_adjudica
+                    db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'APR'  WHERE adjudica_codigo = " & Ado_datos14.Recordset!adjudica_codigo & " and compra_codigo = " & Ado_datos14.Recordset!compra_codigo & " "
+                    
+                    ' ACTUALIZA TOTALES fo_recibos_oficiales_egresos
+                    db.Execute "update fo_recibos_oficiales_egresos set total_bs = (select sum(fo_recibos_detalle_egresos.adjudica_bs) from fo_recibos_detalle_egresos where fo_recibos_detalle_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & ")   " & _
+                    " from fo_recibos_oficiales_egresos inner join fo_recibos_detalle_egresos on  fo_recibos_oficiales_egresos.IdRecibo = fo_recibos_detalle_egresos.IdRecibo where fo_recibos_oficiales_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
+                
+                    db.Execute "update fo_recibos_oficiales_egresos set total_dol = total_bs / 6.96 where IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
+                End If
 
-                'ACTUALIZA APRUEBA ao_compra_adjudica
-                db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'APR'  WHERE adjudica_codigo = " & ado_datos14.Recordset!adjudica_codigo & " and compra_codigo = " & ado_datos14.Recordset!compra_codigo & " "
-                
-                ' ACTUALIZA TOTALES fo_recibos_oficiales_egresos
-               db.Execute "update fo_recibos_oficiales_egresos set total_bs = (select sum(fo_recibos_detalle_egresos.adjudica_bs) from fo_recibos_detalle_egresos where fo_recibos_detalle_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & ")   " & _
-                " from fo_recibos_oficiales_egresos inner join fo_recibos_detalle_egresos on  fo_recibos_oficiales_egresos.IdRecibo = fo_recibos_detalle_egresos.IdRecibo where fo_recibos_oficiales_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
-            
-                db.Execute "update fo_recibos_oficiales_egresos set total_dol = total_bs / 6.96 where IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
-                
                 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
                 'FALTA PASAR DE COMPRA_DETALLE A ADJUDICA_BIENES
                 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -3754,7 +3770,7 @@ Private Sub BtnBuscar_Click()
 End Sub
 
 Private Sub BtnBuscar2_Click()
- If ado_datos14.Recordset.RecordCount > 0 Then
+ If Ado_datos14.Recordset.RecordCount > 0 Then
     'JQA
     '  Dim ClVBusca As  ClBuscaEnGridPropio 'Componente de busquedas
     '  Dim ClBuscaSec As ClBuscaSecuencialEnRS
@@ -3771,7 +3787,7 @@ Private Sub BtnBuscar2_Click()
       ClBuscaGrid.EsTdbGrid = False
       Set ClBuscaGrid.GridTrabajo = DtGLista
       ClBuscaGrid.QueryUtilizado = queryinicial2
-      Set ClBuscaGrid.RecordsetTrabajo = ado_datos14.Recordset
+      Set ClBuscaGrid.RecordsetTrabajo = Ado_datos14.Recordset
       ClBuscaGrid.CamposVisibles = "110"
       ClBuscaGrid.Ejecutar
       PosibleApliqueFiltro = True
@@ -3868,7 +3884,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & Ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & Ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(Ado_datos14.Recordset!venta_precio_total_dol), 0, Ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -4083,7 +4099,7 @@ UpdateErr:
 End Sub
 
 Private Sub BtnSalir_Click()
-    sino = MsgBox("Esta Seguro deSalir?", vbQuestion + vbYesNo, "Confirmando...")
+    sino = MsgBox("Esta Seguro de Salir?", vbQuestion + vbYesNo, "Confirmando...")
     If sino = vbYes Then
 '        Ado_datos.Recordset.Close
 '        If rstdetsalalm.State = 1 Then rstdetsalalm.Close
@@ -5231,13 +5247,13 @@ Private Sub Option1_Click()
         rs_datos14.Open "select * from fv_ventas_cobranza_det_recibos where  idRecibo = " & Ado_datos.Recordset!IdRecibo & " order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic   ' beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND
     End If
     rs_datos14.Sort = "cobranza_fecha desc"
-    Set ado_datos14.Recordset = rs_datos14.DataSource
-    ado_datos14.Recordset.Requery
-    If ado_datos14.Recordset.RecordCount > 0 Then
+    Set Ado_datos14.Recordset = rs_datos14.DataSource
+    Ado_datos14.Recordset.Requery
+    If Ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
         DtGLista.Visible = True
         FraBuscaDet.Visible = True
-        Set DtGLista.DataSource = ado_datos14.Recordset
+        Set DtGLista.DataSource = Ado_datos14.Recordset
         'Call AbreAlmacen
     Else
         deta2 = 0
