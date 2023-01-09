@@ -3,6 +3,7 @@
 *.rar
 *.xls
 *.xlsx
+*.ldb
 
 # Ignorar log (generados por el IDE Vb6)
 *.log
