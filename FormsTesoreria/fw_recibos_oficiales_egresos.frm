@@ -16,9 +16,9 @@ Begin VB.Form fw_recibos_oficiales_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   3.64023e5
+   ScaleHeight     =   4.56865e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   42781.33
+   ScaleWidth      =   85087.97
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCabecera 
       BackColor       =   &H00E0E0E0&
@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   120127489
+         Format          =   118226945
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -3191,6 +3191,8 @@ Dim rs_aux6 As New ADODB.Recordset
 Dim rs_aux7 As New ADODB.Recordset
 Dim rs_aux8 As New ADODB.Recordset
 Dim rs_aux9 As New ADODB.Recordset
+Dim rs_aux10 As New ADODB.Recordset
+
 Dim rstdestino As New ADODB.Recordset
 Dim rstcorrel_ing As New ADODB.Recordset
 Dim rs_precio As New ADODB.Recordset
@@ -3500,19 +3502,53 @@ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA
                 ' cta_codigo_destino, observaciones, edif_codigo_corto, nivel_conciliado, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, fecha_destino, fecha_aprueba, hora_registro,
                 ' fecha_concilia , usr_concilia
                               
-                sino = MsgBox("Elija una de las dos opciones, para ENVIAR A DESTINO: " & vbCrLf & _
+                sino = MsgBox("Elija una de las dos opciones, para ENVIAR A DESTINO: " & vbCrLf & vbCrLf & _
                 vbTab & " SI. Para enviar TODOS los registros Seleccionados en la grilla ..." & vbCrLf & _
-                vbTab & " NO. Para enviar SOLO el registro en el que se encuentra el cursor ...", vbYesNo, "Confirmando")
+                vbTab & " NO. Para enviar SOLO el registro Apuntado por el Cursor ...", vbYesNo, "Confirmando")
                 If sino = vbYes Then
                     'QueryAux = queryinicial2       'JCQA_2022_12_29
                     'QueryAux = queryinicial99
                     QueryAux = GlSqlAux
+                    Set rs_aux10 = New ADODB.Recordset
+                    If rs_aux10.State = 1 Then rs_aux10.Close
+                    rs_aux10.Open QueryAux, db, adOpenKeyset, adLockBatchOptimistic
+                    If rs_aux10.RecordCount > 0 Then
+                       ' VAR_REG = 1
+                       rs_aux10.MoveFirst
+                       While Not rs_aux10.EOF
+'                            db.Execute "INSERT INTO fo_recibos_detalle_egresos_aux (trans_descripcion, edif_descripcion, ges_gestion, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda, adjudica_monto_dol, fecha_inicio_contrato, fecha_fin_contrato, fecha_envio_proveedor, fecha_recibe_almacen, almacen_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, nro_autorizacion, codigo_control, nro_dui, nit_empresa, tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc, credito_fiscal_13, adjudica_monto_bs_87, adjudica_monto_dol_87, tipo_compra, tipo_cambio, " & _
+'                            " importe_planilla_bs, importe_planilla_dol, literal, literal_neto, factura, doc_codigo_alm, doc_numero_alm, estado_almacen, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, estado_codigo_tes, estado_pagado, beneficiario_codigo_cab, solicitud_tipo, trans_codigo_fac, estado_codigo, beneficiario_codigo_resp , beneficiario_codigo_resp_compra, nit_beneficiario, trans_descripcion_fac, adjudica_monto_eur, unidad_codigo_adm ) VALUES " & _
+'                            " ('" & rs_aux10!trans_descripcion & "', '" & rs_aux10!edif_descripcion & "', '" & rs_aux10!ges_gestion & "', '" & rs_aux10!unidad_codigo & "', " & rs_aux10!solicitud_codigo & ", '" & rs_aux10!fecha_compra & "', '" & rs_aux10!adjudica_fecha & "', '" & rs_aux10!etapa_codigo & "', '" & rs_aux10!clasif_codigo & "', '" & rs_aux10!doc_codigo & "', " & rs_aux10!doc_numero & ", '" & rs_aux10!nro_nota_remision & "', '" & rs_aux10!beneficiario_codigo & "', '" & rs_aux10!adjudica_descripcion & "', '" & rs_aux10!adjudica_cantidad_total & "', " & _
+'                            " " & rs_aux10!adjudica_monto_bs & ", '" & rs_aux10!tipo_moneda & "', " & rs_aux10!adjudica_monto_dol & ", '" & rs_aux10!fecha_inicio_contrato & "', '" & rs_aux10!fecha_fin_contrato & "', '" & rs_aux10!fecha_envio_proveedor & "', '" & rs_aux10!fecha_recibe_almacen & "', " & rs_aux10!almacen_codigo & ", '" & rs_aux10!mes_inicio_crono & "', '" & rs_aux10!cantidad_cuotas_pag & "', '" & rs_aux10!unimed_codigo_pag & "', " & rs_aux10!correl_pagos_prog & ", " & rs_aux10!compra_codigo_det & ", '" & rs_aux10!nro_autorizacion & "', " & _
+'                            " '" & rs_aux10!codigo_control & "', '" & rs_aux10!nro_dui & "', '" & rs_aux10!nit_empresa & "', " & rs_aux10!tasas_ice_iehd & ", " & rs_aux10!grabado_tasa_cero & ", " & rs_aux10!importe_no_credito_fisc & ", " & rs_aux10!sub_total & ", " & rs_aux10!descuento & ", " & rs_aux10!importe_cred_fisc & ", " & rs_aux10!credito_fiscal_13 & ", " & rs_aux10!adjudica_monto_bs_87 & ", " & rs_aux10!adjudica_monto_dol_87 & ", '" & rs_aux10!tipo_compra & "', " & rs_aux10!tipo_cambio & ", " & _
+'                            " " & rs_aux10!importe_planilla_bs & ", " & rs_aux10!importe_planilla_dol & ", '" & rs_aux10!Literal & "', '" & rs_aux10!literal_neto & "', '" & rs_aux10!factura & "', '" & rs_aux10!doc_codigo_alm & "', " & rs_aux10!doc_numero_alm & ", '" & rs_aux10!estado_almacen & "', '" & rs_aux10!usr_codigo & "', '" & rs_aux10!fecha_registro & "', '" & rs_aux10!hora_registro & "', '" & rs_aux10!usr_codigo_aprueba & "', '" & rs_aux10!fecha_aprueba & "', '" & rs_aux10!estado_codigo_tes & "', '" & rs_aux10!estado_pagado & "', " & _
+'                            " '" & rs_aux10!beneficiario_codigo_cab & "', " & rs_aux10!solicitud_tipo & ", '" & rs_aux10!trans_codigo_fac & "', '" & rs_aux10!estado_codigo & "', '" & rs_aux10!beneficiario_codigo_resp & "' , '" & rs_aux10!beneficiario_codigo_resp_compra & "', '" & rs_aux10!nit_beneficiario & "', '" & rs_aux10!trans_descripcion_fac & "', " & rs_aux10!adjudica_monto_eur & ", '" & rs_aux10!unidad_codigo_adm & "' ) "
+                    
+                            db.Execute "INSERT INTO fo_recibos_detalle_egresos (IdRecibo, adjudica_codigo, doc_numero, adjudica_bs, adjudica_dol, trans_codigo, observaciones, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, hora_registro, edif_codigo_corto, compra_codigo, unidad_codigo_ant) " & _
+                            " values (" & Ado_datos.Recordset!IdRecibo & ", " & rs_aux10!adjudica_codigo & ", " & IIf(IsNull(rs_aux10!doc_numero), 0, rs_aux10!doc_numero) & ", " & rs_aux10!adjudica_monto_bs & ", " & rs_aux10!adjudica_monto_dol & ", '" & rs_aux10!trans_codigo & "',  " & _
+                            " '" & rs_aux10!adjudica_descripcion & "', 'REG', 'REG', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & rs_aux10!edif_codigo_corto & "', " & rs_aux10!compra_codigo & ", '" & rs_aux10!unidad_codigo_ant & "'  ) "
+                    
+                            'ACTUALIZA APRUEBA ao_compra_adjudica
+                            db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'APR'  WHERE adjudica_codigo = " & rs_aux10!adjudica_codigo & " and compra_codigo = " & rs_aux10!compra_codigo & " "
+                            
+                            ' ACTUALIZA TOTALES fo_recibos_oficiales_egresos
+                            db.Execute "update fo_recibos_oficiales_egresos set total_bs = (select sum(fo_recibos_detalle_egresos.adjudica_bs) from fo_recibos_detalle_egresos where fo_recibos_detalle_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & ")   " & _
+                            " from fo_recibos_oficiales_egresos inner join fo_recibos_detalle_egresos on  fo_recibos_oficiales_egresos.IdRecibo = fo_recibos_detalle_egresos.IdRecibo where fo_recibos_oficiales_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
+                
+                            db.Execute "update fo_recibos_oficiales_egresos set total_dol = total_bs / 6.96 where IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
+
+                            'VAR_REG = VAR_REG + 1
+                           rs_aux10.MoveNext
+                       Wend
+                    End If
+
                     'fo_recibos_detalle_egresos_aux
                     ' carga a la tabla: fo_recibos_detalle_egresos
-                    db.Execute "INSERT INTO fo_recibos_detalle_egresos_aux (trans_descripcion, edif_descripcion, ges_gestion, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda, adjudica_monto_dol, fecha_inicio_contrato, fecha_fin_contrato, fecha_envio_proveedor, fecha_recibe_almacen, almacen_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, nro_autorizacion, codigo_control, nro_dui, nit_empresa, tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc, credito_fiscal_13, adjudica_monto_bs_87, adjudica_monto_dol_87, tipo_compra, tipo_cambio, " & _
-                    " importe_planilla_bs, importe_planilla_dol, literal, literal_neto, factura, doc_codigo_alm, doc_numero_alm, estado_almacen, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, estado_codigo_tes, estado_pagado, beneficiario_codigo_cab, solicitud_tipo, trans_codigo_fac, estado_codigo, beneficiario_codigo_resp , beneficiario_codigo_resp_compra, nit_beneficiario, trans_descripcion_fac, adjudica_monto_eur, unidad_codigo_adm ) " & _
-                    " (QueryAux)"
+'                    db.Execute "INSERT INTO fo_recibos_detalle_egresos_aux (trans_descripcion, edif_descripcion, ges_gestion, unidad_codigo, solicitud_codigo, fecha_compra, adjudica_fecha, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, nro_nota_remision, beneficiario_codigo, adjudica_descripcion, adjudica_cantidad_total, adjudica_monto_bs, tipo_moneda, adjudica_monto_dol, fecha_inicio_contrato, fecha_fin_contrato, fecha_envio_proveedor, fecha_recibe_almacen, almacen_codigo, mes_inicio_crono, cantidad_cuotas_pag, unimed_codigo_pag, correl_pagos_prog, compra_codigo_det, nro_autorizacion, codigo_control, nro_dui, nit_empresa, tasas_ice_iehd, grabado_tasa_cero, importe_no_credito_fisc, sub_total, descuento, importe_cred_fisc, credito_fiscal_13, adjudica_monto_bs_87, adjudica_monto_dol_87, tipo_compra, tipo_cambio, " & _
+'                    " importe_planilla_bs, importe_planilla_dol, literal, literal_neto, factura, doc_codigo_alm, doc_numero_alm, estado_almacen, usr_codigo, fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba, estado_codigo_tes, estado_pagado, beneficiario_codigo_cab, solicitud_tipo, trans_codigo_fac, estado_codigo, beneficiario_codigo_resp , beneficiario_codigo_resp_compra, nit_beneficiario, trans_descripcion_fac, adjudica_monto_eur, unidad_codigo_adm ) " & _
+'                    " '" & QueryAux & "'"
 
+                    'db.Execute "UPDATE fo_recibos_detalle_egresos_aux SET "
                 Else
                     db.Execute "INSERT INTO fo_recibos_detalle_egresos (IdRecibo, adjudica_codigo, doc_numero, adjudica_bs, adjudica_dol, trans_codigo, observaciones, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, hora_registro, edif_codigo_corto, compra_codigo, unidad_codigo_ant) " & _
                     " values (" & Ado_datos.Recordset!IdRecibo & ", " & Ado_datos14.Recordset!adjudica_codigo & ", " & IIf(IsNull(Ado_datos14.Recordset!doc_numero), 0, Ado_datos14.Recordset!doc_numero) & ", " & Ado_datos14.Recordset!adjudica_monto_bs & ", " & Ado_datos14.Recordset!adjudica_monto_dol & ", '" & Ado_datos14.Recordset!trans_codigo & "',  " & _
@@ -3606,6 +3642,10 @@ Private Sub BtnAprobar_Click()
       db.Execute "update ao_compra_adjudica set ao_compra_adjudica.estado_codigo = 'APR', ao_compra_adjudica.estado_codigo_tes = 'APR', ao_compra_adjudica.estado_pagado = 'REG' from ao_compra_adjudica inner join fo_recibos_detalle_egresos on ao_compra_adjudica.adjudica_codigo = fo_recibos_detalle_egresos.adjudica_codigo and ao_compra_adjudica.compra_codigo = fo_recibos_detalle_egresos.compra_codigo WHERE fo_recibos_detalle_egresos.IdRecibo =  " & VAR_RECIBO & "  "
       'APRUEBA fo_recibos_oficiales
       db.Execute "update fo_recibos_oficiales_egresos set correl_doc = IdRecibo, estado_codigo = 'APR' where IdRecibo = " & VAR_RECIBO & " "
+      
+      db.Execute "update fo_recibos_detalle_egresos SET doc_numero = IdRecibo WHERE doc_numero ='0'"
+
+      db.Execute "UPDATE ao_compra_adjudica SET ao_compra_adjudica.doc_numero = fo_recibos_detalle_egresos.doc_numero FROM ao_compra_adjudica INNER JOIN fo_recibos_detalle_egresos ON ao_compra_adjudica.compra_codigo =fo_recibos_detalle_egresos.compra_codigo AND ao_compra_adjudica.adjudica_codigo  =fo_recibos_detalle_egresos.adjudica_codigo WHERE ao_compra_adjudica.doc_numero ='0' "
       
       OptFilGral2_Click
       

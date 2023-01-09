@@ -5,7 +5,7 @@ Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form rw_ficha_rrhh 
    BackColor       =   &H00E0E0E0&
    Caption         =   "RRHH - Procesos - Ficha Personal"
@@ -17,8 +17,8 @@ Begin VB.Form rw_ficha_rrhh
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    WindowState     =   2  'Maximized
    Begin TabDlg.SSTab SSTab1 
       Height          =   9480
@@ -55,39 +55,38 @@ Begin VB.Form rw_ficha_rrhh
       TabCaption(1)   =   "CONTROL ASISTENCIA"
       TabPicture(1)   =   "rw_ficha_rrhh.frx":0A1E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Frame18"
-      Tab(1).Control(1)=   "Label44"
+      Tab(1).Control(0)=   "Label44"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "Frame18"
+      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).ControlCount=   2
       TabCaption(2)   =   "PERMISOS-VACACIONES"
       TabPicture(2)   =   "rw_ficha_rrhh.frx":0A3A
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "Frame14"
+      Tab(2).Control(0)=   "Label45"
       Tab(2).Control(1)=   "Frame9"
-      Tab(2).Control(2)=   "Label45"
+      Tab(2).Control(2)=   "Frame14"
       Tab(2).ControlCount=   3
       TabCaption(3)   =   "MOVILIDAD PERSONAL"
       TabPicture(3)   =   "rw_ficha_rrhh.frx":0A56
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "Label46"
-      Tab(3).Control(0).Enabled=   0   'False
+      Tab(3).Control(0)=   "Frame16"
       Tab(3).Control(1)=   "Frame17"
-      Tab(3).Control(1).Enabled=   0   'False
-      Tab(3).Control(2)=   "Frame16"
-      Tab(3).Control(2).Enabled=   0   'False
+      Tab(3).Control(2)=   "Label46"
       Tab(3).ControlCount=   3
       TabCaption(4)   =   "CURRICULARES"
       TabPicture(4)   =   "rw_ficha_rrhh.frx":0A72
       Tab(4).ControlEnabled=   0   'False
-      Tab(4).Control(0)=   "Frame15"
+      Tab(4).Control(0)=   "Label5"
       Tab(4).Control(1)=   "Frame5"
-      Tab(4).Control(2)=   "Label5"
+      Tab(4).Control(2)=   "Frame15"
       Tab(4).ControlCount=   3
       TabCaption(5)   =   "CONTRATOS Y LIQUIDACIONES"
       TabPicture(5)   =   "rw_ficha_rrhh.frx":0A8E
       Tab(5).ControlEnabled=   0   'False
-      Tab(5).Control(0)=   "Frame10"
+      Tab(5).Control(0)=   "Label16"
       Tab(5).Control(1)=   "Frame20"
-      Tab(5).Control(2)=   "Label16"
+      Tab(5).Control(2)=   "Frame10"
       Tab(5).ControlCount=   3
       Begin VB.Frame Frame14 
          BackColor       =   &H00E0E0E0&
@@ -3026,7 +3025,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   115736577
+               Format          =   120061953
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3127,7 +3126,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   115736577
+               Format          =   120061953
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3389,7 +3388,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   115736577
+            Format          =   120061953
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3406,7 +3405,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   115736577
+            Format          =   120061953
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3570,7 +3569,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   115736577
+            Format          =   120061953
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3973,7 +3972,7 @@ Begin VB.Form rw_ficha_rrhh
             Picture         =   "rw_ficha_rrhh.frx":ED09
             Style           =   1  'Graphical
             TabIndex        =   45
-            ToolTipText     =   "Carga Foto de la Persona"
+            ToolTipText     =   "Datos Complementarios y Cambio de CI"
             Top             =   30
             Width           =   1215
          End
@@ -5909,7 +5908,7 @@ Begin VB.Form rw_ficha_rrhh
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   187
-         ToolTipText     =   "Busca Registros "
+         ToolTipText     =   "Ver Cumpleañeros"
          Top             =   480
          Width           =   1400
       End
@@ -5924,7 +5923,7 @@ Begin VB.Form rw_ficha_rrhh
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   191
-         ToolTipText     =   "Busca Registros "
+         ToolTipText     =   "Registra un Nuevo Contrato"
          Top             =   480
          Width           =   1400
       End
@@ -7951,7 +7950,7 @@ Dim rstafp As New ADODB.Recordset
 'BUSQUEDA
 Dim ClBuscaGrid As ClBuscaEnGridExterno
 Dim PosibleApliqueFiltro As Boolean
-Dim queryinicial As String
+'Dim queryinicial As String
 'OTROS
 Dim SW As Boolean
 
@@ -11407,7 +11406,7 @@ Exit Sub
 
 EditErr:
   MsgBox Err.Description
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub Carga_Beneficiario(posicion As Integer)
@@ -11479,12 +11478,13 @@ UpdateErr:
   MsgBox Err.Description
 
 End Sub
+
 Private Sub Carga_afp()
    Set rstafp = New ADODB.Recordset
    If rstafp.State = 1 Then rstafp.Close
-   queryinicial = "select * from gc_beneficiario WHERE hora_registro = 'AFP' "
-   'where usr_usuario= '" & GlUsuario & "' or usr_usuario= 'ADMIN'
-   rstafp.Open queryinicial, db, adOpenKeyset, adLockOptimistic, adCmdText
+'   queryinicial = "select * from gc_beneficiario WHERE hora_registro = 'AFP' "
+'   rstafp.Open queryinicial, db, adOpenKeyset, adLockOptimistic, adCmdText
+   rstafp.Open "select * from gc_beneficiario WHERE codigo_corto = 'AFP' ", db, adOpenKeyset, adLockOptimistic
    rstafp.Sort = "beneficiario_denominacion"
    Set adoafp.Recordset = rstafp
 End Sub

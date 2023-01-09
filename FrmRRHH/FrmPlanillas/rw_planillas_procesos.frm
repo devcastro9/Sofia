@@ -4,7 +4,7 @@ Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form rw_planillas_procesos 
    BackColor       =   &H00C0C0C0&
    Caption         =   "RRHH - Proceso de Planillas"
@@ -16,8 +16,8 @@ Begin VB.Form rw_planillas_procesos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   11280
+   ScaleHeight     =   12915
+   ScaleWidth      =   21360
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame fra_generar 
@@ -26,7 +26,7 @@ Begin VB.Form rw_planillas_procesos
       Height          =   2415
       Left            =   7320
       TabIndex        =   38
-      Top             =   1680
+      Top             =   2040
       Visible         =   0   'False
       Width           =   6135
       Begin VB.ComboBox cmb_nro_planillas 
@@ -154,7 +154,7 @@ Begin VB.Form rw_planillas_procesos
       Height          =   2535
       Left            =   120
       TabIndex        =   54
-      Top             =   840
+      Top             =   1560
       Visible         =   0   'False
       Width           =   6375
       Begin MSComCtl2.DTPicker dtp_liq 
@@ -170,7 +170,7 @@ Begin VB.Form rw_planillas_procesos
          _Version        =   393216
          CalendarTitleBackColor=   0
          CalendarTitleForeColor=   16776960
-         Format          =   110100481
+         Format          =   110690305
          CurrentDate     =   42570
       End
       Begin VB.TextBox txt_antecedente 
@@ -304,9 +304,30 @@ Begin VB.Form rw_planillas_procesos
       Height          =   4935
       Left            =   2520
       TabIndex        =   109
-      Top             =   5160
+      Top             =   3600
       Visible         =   0   'False
       Width           =   12015
+      Begin VB.TextBox txt_afp3 
+         BackColor       =   &H00FFFFFF&
+         DataField       =   "afp3"
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "###,###,##0.00"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   3082
+            SubFormatType   =   0
+         EndProperty
+         DataSource      =   "Ado_datos2"
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   3600
+         TabIndex        =   211
+         Text            =   "0"
+         Top             =   3600
+         Width           =   1470
+      End
       Begin VB.TextBox txt_impuesto_a_pagar 
          BackColor       =   &H00FFFFFF&
          DataField       =   "impuesto_a_pagar"
@@ -1158,6 +1179,17 @@ Begin VB.Form rw_planillas_procesos
             Strikethrough   =   0   'False
          EndProperty
       End
+      Begin VB.Label Label44 
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "AFP 3"
+         ForeColor       =   &H00000000&
+         Height          =   255
+         Left            =   3600
+         TabIndex        =   212
+         Top             =   3360
+         Width           =   1455
+      End
       Begin VB.Label Label53 
          BackColor       =   &H00000000&
          BackStyle       =   0  'Transparent
@@ -1874,7 +1906,7 @@ Begin VB.Form rw_planillas_procesos
       Height          =   3015
       Left            =   7680
       TabIndex        =   194
-      Top             =   1800
+      Top             =   2040
       Visible         =   0   'False
       Width           =   5535
       Begin VB.CommandButton Command4 
@@ -1981,7 +2013,7 @@ Begin VB.Form rw_planillas_procesos
          _Version        =   393216
          CalendarTitleBackColor=   -2147483635
          CheckBox        =   -1  'True
-         Format          =   110100481
+         Format          =   110690305
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -1996,7 +2028,7 @@ Begin VB.Form rw_planillas_procesos
          _Version        =   393216
          CalendarTitleBackColor=   -2147483635
          CheckBox        =   -1  'True
-         Format          =   110100481
+         Format          =   110690305
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -2722,7 +2754,7 @@ Begin VB.Form rw_planillas_procesos
             Name            =   "MS Sans Serif"
             Size            =   8.25
             Charset         =   0
-            Weight          =   700
+            Weight          =   400
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -3123,7 +3155,7 @@ Begin VB.Form rw_planillas_procesos
             Name            =   "MS Sans Serif"
             Size            =   8.25
             Charset         =   0
-            Weight          =   700
+            Weight          =   400
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -3950,7 +3982,7 @@ Begin VB.Form rw_planillas_procesos
             Name            =   "MS Sans Serif"
             Size            =   8.25
             Charset         =   0
-            Weight          =   700
+            Weight          =   400
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -4109,7 +4141,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos1 
       Height          =   330
       Left            =   0
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2160
       _ExtentX        =   3810
@@ -4156,7 +4188,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos2 
       Height          =   330
       Left            =   2160
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4203,7 +4235,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos4 
       Height          =   330
       Left            =   4320
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2055
       _ExtentX        =   3625
@@ -4250,7 +4282,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos5 
       Height          =   330
       Left            =   12960
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4297,7 +4329,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos61 
       Height          =   330
       Left            =   10800
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4344,7 +4376,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos31 
       Height          =   330
       Left            =   8640
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4389,8 +4421,8 @@ Begin VB.Form rw_planillas_procesos
       _Version        =   393216
    End
    Begin Crystal.CrystalReport CR01 
-      Left            =   0
-      Top             =   9240
+      Left            =   600
+      Top             =   8760
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   348160
@@ -4455,7 +4487,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_detalle1 
       Height          =   330
       Left            =   0
-      Top             =   10200
+      Top             =   9600
       Visible         =   0   'False
       Width           =   2160
       _ExtentX        =   3810
@@ -4502,7 +4534,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos21 
       Height          =   330
       Left            =   6480
-      Top             =   9840
+      Top             =   9240
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4549,7 +4581,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos_rep 
       Height          =   330
       Left            =   2160
-      Top             =   10200
+      Top             =   9600
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4613,7 +4645,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos6 
       Height          =   330
       Left            =   12960
-      Top             =   10200
+      Top             =   9600
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4707,7 +4739,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos11 
       Height          =   330
       Left            =   10800
-      Top             =   10200
+      Top             =   9600
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4754,7 +4786,7 @@ Begin VB.Form rw_planillas_procesos
    Begin MSAdodcLib.Adodc Ado_datos_busq 
       Height          =   330
       Left            =   8760
-      Top             =   10200
+      Top             =   9600
       Visible         =   0   'False
       Width           =   2040
       _ExtentX        =   3598
@@ -4924,6 +4956,7 @@ Dim fecha_aux, fecha_aux2  As Date
 
 Dim VAR_DOL2, VAR_BS2 As Double
 Dim VAR_AFP1_BS, VAR_AFP2_BS, VAR_AFP1_BS2, VAR_AFP2_BS2 As Double
+Dim VAR_AFP3_BS, VAR_AFP3_BS2 As Double
 Dim VAR_DSCTO_BS, VAR_SS_BS, VAR_FV_BS As Double
 Dim VAR_INDE_BS, VAR_AGUI_BS As Double
 Dim VAR_AFPJ As Double
@@ -4985,6 +5018,7 @@ Private Sub generar_aguinaldo()
 'VARIABLE PARA SACAR PROMEDIO DESDE EL MES 9
 num_promedio = 9
 NUM_PERS = 0
+sino = ""
 Dim rs_aux16 As New ADODB.Recordset
 'ABRE LAS SUB PLANILLAS
 If rs_aux16.State = 1 Then rs_aux16.Close
@@ -5012,10 +5046,9 @@ While Not rs_aux16.EOF
             DIA_FN = Day(rs_aux6!fecha_expiracion) 'FECHA FIN
             MES_FN = Month(rs_aux6!fecha_expiracion)
             ANO_FN = Year(rs_aux6!fecha_expiracion)
-            If rs_aux6!beneficiario_codigo = "6753027" Then
-            sino = ""
-            End If
-            
+            'If rs_aux6!beneficiario_codigo = "6753027" Then
+            '    sino = ""
+            'End If
 '         If rs_aux6!beneficiario_codigo = "159256" Then
 '          MsgBox ""
 '         End If
@@ -5176,14 +5209,22 @@ While Not rs_aux16.EOF
             Case "1006803"      'AFP1 FUTURO
                 rs_datos2!afp1 = rs_datos2!total_ganado * VAR_AFPJ
                 rs_datos2!afp2 = "0"       'falta 987654
+                rs_datos2!afp3 = "0"
                 VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp1
             Case "987654"       'AFP2 PREVISION
                 rs_datos2!afp1 = "0"       'falta 1006803
                 rs_datos2!afp2 = rs_datos2!total_ganado * VAR_AFPJ
+                rs_datos2!afp3 = "0"
                 VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp2
+            Case "310630029"      'AFP3 GESTORA
+                rs_datos2!afp1 = "0"
+                rs_datos2!afp2 = "0"       'falta 987654
+                rs_datos2!afp3 = rs_datos2!total_ganado * VAR_AFPJ
+                VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp3
             Case Else
                 rs_datos2!afp1 = "0"
                 rs_datos2!afp2 = "0"
+                rs_datos2!afp3 = "0"
                 VAR_NETO = rs_datos2!total_ganado
         End Select
         
@@ -5286,7 +5327,7 @@ meses = meses + 1
 Set retroactivos = New Recordset
 If retroactivos.State = 1 Then retroactivos.Close
       
-      retroactivos.Open "select * from ro_pagos_cronograma_detalle where ges_gestion = '" & "2018" & "' AND mes_grupo = " & meses & " AND unidad_codigo <> 'P010' AND unidad_codigo <> 'P020' AND unidad_codigo <> 'P030' AND unidad_codigo <> 'P040' AND unidad_codigo <> 'P050' AND unidad_codigo <> 'P060' AND unidad_codigo <> 'P070' AND unidad_codigo <> 'P080' AND unidad_codigo <> 'P090' ORDER BY planilla_codigo, unidad_codigo, total_ganado DESC, beneficiario_codigo", db, ADODB.CursorTypeEnum.adOpenStatic, ADODB.LockTypeEnum.adLockOptimistic, ADODB.CommandTypeEnum.adCmdText 'adOpenKeyset ', adLockReadOnly   ', adOpenKeyset, adOpenStatic, adCmdText" 'adOpenKeyset, adLockReadOnly   ', adOpenKeyset, adOpenStatic, adCmdText
+      retroactivos.Open "select * from ro_pagos_cronograma_detalle where ges_gestion = '" & "2022" & "' AND mes_grupo = " & meses & " AND unidad_codigo <> 'P010' AND unidad_codigo <> 'P020' AND unidad_codigo <> 'P030' AND unidad_codigo <> 'P040' AND unidad_codigo <> 'P050' AND unidad_codigo <> 'P060' AND unidad_codigo <> 'P070' AND unidad_codigo <> 'P080' AND unidad_codigo <> 'P090' ORDER BY planilla_codigo, unidad_codigo, total_ganado DESC, beneficiario_codigo", db, ADODB.CursorTypeEnum.adOpenStatic, ADODB.LockTypeEnum.adLockOptimistic, ADODB.CommandTypeEnum.adCmdText 'adOpenKeyset ', adLockReadOnly   ', adOpenKeyset, adOpenStatic, adCmdText" 'adOpenKeyset, adLockReadOnly   ', adOpenKeyset, adOpenStatic, adCmdText
       If retroactivos.RecordCount > 0 Then
       retroactivos.MoveFirst
       
@@ -5343,16 +5384,12 @@ If retroactivos.State = 1 Then retroactivos.Close
             rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant
             rs_aux_retro!haber_basico_incre_enero = rs_aux_retro!haber_basico_ant
       End If
-        
-     
-      
        
        Set rs_aux6 = New Recordset
        If rs_aux6.State = 1 Then rs_aux6.Close
         'ABRE LAS PERSONAL CONTRATADAS VIGENTES
        rs_aux6.Open "SELECT * FROM ro_personal_contratado WHERE beneficiario_codigo ='" & retroactivos!beneficiario_codigo & "'", db, adOpenKeyset, adLockOptimistic
-
-
+            
             fecha_pla = DateSerial(rs_datos!ges_gestion, meses + 1, 1 - 1)
             
              'ABRE TABLA DONDE ESTAN LOS PARAMETROS DE ANTIGUEDAD
@@ -5372,49 +5409,56 @@ If retroactivos.State = 1 Then retroactivos.Close
              rs_aux8.MoveNext
              Wend
       
-        rs_aux_retro!total_ganado = IIf(IsNull(rs_aux_retro!ENERO), 0, rs_aux_retro!ENERO) + IIf(IsNull(rs_aux_retro!bono_antiguedad), 0, rs_aux_retro!bono_antiguedad)
-        rs_aux_retro!total_ganado_enero = IIf(IsNull(rs_aux_retro!ENERO), 0, rs_aux_retro!ENERO) + IIf(IsNull(rs_aux_retro!bono_antiguedad), 0, rs_aux_retro!bono_antiguedad)
+            rs_aux_retro!total_ganado = IIf(IsNull(rs_aux_retro!ENERO), 0, rs_aux_retro!ENERO) + IIf(IsNull(rs_aux_retro!bono_antiguedad), 0, rs_aux_retro!bono_antiguedad)
+            rs_aux_retro!total_ganado_enero = IIf(IsNull(rs_aux_retro!ENERO), 0, rs_aux_retro!ENERO) + IIf(IsNull(rs_aux_retro!bono_antiguedad), 0, rs_aux_retro!bono_antiguedad)
             If rs_aux6!estado_jubilado = "APR" Then
                 VAR_AFPJ = 0.0271
             Else
                 VAR_AFPJ = 0.1271
             End If
-        Select Case rs_aux6!beneficiario_codigo_afp
-                Case "1006803"      'AFP1
+            Select Case rs_aux6!beneficiario_codigo_afp
+                Case "1006803"      'AFP1 FUTURO
                     rs_aux_retro!afp1 = rs_aux_retro!total_ganado * VAR_AFPJ
                     rs_aux_retro!afp2 = "0"       'falta 987654
-                    
-                     rs_aux_retro!afp1_enero = rs_aux_retro!total_ganado_enero * VAR_AFPJ
-                     rs_aux_retro!afp2_enero = "0"
-                    
+                    rs_aux_retro!afp3 = "0"
+                    rs_aux_retro!afp1_enero = rs_aux_retro!total_ganado_enero * VAR_AFPJ
+                    rs_aux_retro!afp2_enero = "0"
+                    rs_aux_retro!afp3_enero = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_datos2!afp1
                      'rs_aux_retro!total_dsctos = rs_aux_retro!afp1
-                Case "987654"       'AFP2
+                Case "987654"       'AFP2 PREVISION
                     rs_aux_retro!afp1 = "0"       'falta 1006803
                     rs_aux_retro!afp2 = rs_aux_retro!total_ganado * VAR_AFPJ
+                    rs_aux_retro!afp3 = "0"
                     'rs_aux_retro!total_dsctos = rs_aux_retro!afp2
-                     
                     rs_aux_retro!afp1_enero = "0"       'falta 1006803
                     rs_aux_retro!afp2_enero = rs_aux_retro!total_ganado_enero * VAR_AFPJ
-                     
+                    rs_aux_retro!afp3_enero = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_aux_retro!afp2
+                Case "310630029"       'AFP3 GESTORA
+                    rs_aux_retro!afp1 = "0"       'falta 1006803
+                    rs_aux_retro!afp2 = "0"
+                    rs_aux_retro!afp3 = rs_aux_retro!total_ganado * VAR_AFPJ
+                    'rs_aux_retro!total_dsctos = rs_aux_retro!afp2
+                    rs_aux_retro!afp1_enero = "0"       'falta 1006803
+                    rs_aux_retro!afp2_enero = "0"
+                    rs_aux_retro!afp3_enero = rs_aux_retro!total_ganado_enero * VAR_AFPJ
                 Case Else
                     rs_aux_retro!afp1 = "0"
                     rs_aux_retro!afp2 = "0"
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_enero = "0"
                     rs_aux_retro!afp2_enero = "0"
+                    rs_aux_retro!afp3_enero = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado
-      End Select
+            End Select
         
-        rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(rs_aux_retro!afp2_enero), 0, rs_aux_retro!afp2_enero)
-        
-        
-      rs_aux_retro!liquido_pagable_bs = rs_aux_retro!total_ganado - rs_aux_retro!total_dsctos
-      'rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant + (rs_aux_retro!haber_basico_ant * 0.7)
-      
+            rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(rs_aux_retro!afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(rs_aux_retro!afp3_enero), 0, rs_aux_retro!afp3_enero)
+            rs_aux_retro!liquido_pagable_bs = rs_aux_retro!total_ganado - rs_aux_retro!total_dsctos
+            'rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant + (rs_aux_retro!haber_basico_ant * 0.7)
       
       Case "2"
-    If rs_aux_retro!incremento <> "NO" Then
+        If rs_aux_retro!incremento <> "NO" Then
 
         If retroactivos!beneficiario_haber_mensual <= 2000 Then
         
@@ -5484,43 +5528,52 @@ If retroactivos.State = 1 Then retroactivos.Close
                 VAR_AFPJ = 0.1271
             End If
             Select Case rs_aux6!beneficiario_codigo_afp
-                Case "1006803"      'AFP1
+                Case "1006803"      'AFP1 FUTURO
                     rs_aux_retro!afp1 = rs_aux_retro!total_ganado * VAR_AFPJ
                     rs_aux_retro!afp2 = "0"       'falta 987654
-                    
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_febrero = rs_aux_retro!total_ganado_febrero * VAR_AFPJ
-                    
+                    rs_aux_retro!afp2_febrero = "0"
+                    rs_aux_retro!afp3_febrero = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_datos2!afp1
                      'rs_aux_retro!total_dsctos = rs_aux_retro!afp1
-                Case "987654"       'AFP2
+                Case "987654"       'AFP2 PREVISION
                     rs_aux_retro!afp1 = "0"       'falta 1006803
                     rs_aux_retro!afp2 = rs_aux_retro!total_ganado * VAR_AFPJ
-                    
+                    rs_aux_retro!afp3 = "0"
                    ' rs_aux_retro!total_dsctos = rs_aux_retro!afp2
-                     
                     rs_aux_retro!afp1_febrero = "0"       'falta 1006803
                     rs_aux_retro!afp2_febrero = rs_aux_retro!total_ganado_febrero * VAR_AFPJ
+                    rs_aux_retro!afp3_febrero = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_aux_retro!afp2
+                Case "310630029"       'AFP3 GESTORA
+                    rs_aux_retro!afp1 = "0"       'falta 1006803
+                    rs_aux_retro!afp2 = "0"
+                    rs_aux_retro!afp3 = rs_aux_retro!total_ganado * VAR_AFPJ
+                   ' rs_aux_retro!total_dsctos = rs_aux_retro!afp2
+                    rs_aux_retro!afp1_febrero = "0"       'falta 1006803
+                    rs_aux_retro!afp2_febrero = "0"
+                    rs_aux_retro!afp3_febrero = rs_aux_retro!total_ganado_febrero * VAR_AFPJ
                 Case Else
                     rs_aux_retro!afp1 = "0"
                     rs_aux_retro!afp2 = "0"
-                    
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_febrero = "0"
                     rs_aux_retro!afp2_febrero = "0"
+                    rs_aux_retro!afp3_febrero = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado
-      End Select
-      rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(rs_aux_retro!afp1_febrero), 0, rs_aux_retro!afp1_febrero) + IIf(IsNull(rs_aux_retro!afp2_febrero), 0, rs_aux_retro!afp2_febrero)
+            End Select
+      rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(afp3_enero), 0, rs_aux_retro!afp3_enero) + IIf(IsNull(rs_aux_retro!afp1_febrero), 0, rs_aux_retro!afp1_febrero) + IIf(IsNull(rs_aux_retro!afp2_febrero), 0, rs_aux_retro!afp2_febrero) + IIf(IsNull(rs_aux_retro!afp3_febrero), 0, rs_aux_retro!afp3_febrero)
       rs_aux_retro!liquido_pagable_bs = rs_aux_retro!total_ganado - rs_aux_retro!total_dsctos
       'rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant + (rs_aux_retro!haber_basico_ant * 0.7)
       
       Case "3"
       
-If rs_aux_retro!incremento <> "NO" Then
+        If rs_aux_retro!incremento <> "NO" Then
      
- If retroactivos!beneficiario_codigo = "8706813" Then
- retroactivos!beneficiario_codigo = "8706813"
- 
- End If
+' If retroactivos!beneficiario_codigo = "8706813" Then
+'    retroactivos!beneficiario_codigo = "8706813"
+' End If
       If retroactivos!beneficiario_haber_mensual <= 2000 Then
       
           If retroactivos!dias_trabajados < 30 Then
@@ -5589,46 +5642,49 @@ End If
             Else
                 VAR_AFPJ = 0.1271
             End If
-        Select Case rs_aux6!beneficiario_codigo_afp
+            Select Case rs_aux6!beneficiario_codigo_afp
                 Case "1006803"      'AFP1
                     rs_aux_retro!afp1 = rs_aux_retro!total_ganado * VAR_AFPJ
                     rs_aux_retro!afp2 = "0"       'falta 987654
-                    
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_marzo = rs_aux_retro!total_ganado_marzo * VAR_AFPJ
-                    
+                    rs_aux_retro!afp2_marzo = "0"
+                    rs_aux_retro!afp3_marzo = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_datos2!afp1
                      'rs_aux_retro!total_dsctos = rs_aux_retro!afp1
                 Case "987654"       'AFP2
                     rs_aux_retro!afp1 = "0"       'falta 1006803
                     rs_aux_retro!afp2 = rs_aux_retro!total_ganado * VAR_AFPJ
+                    rs_aux_retro!afp3 = "0"
                     'rs_aux_retro!total_dsctos = rs_aux_retro!afp2
-                     
                     rs_aux_retro!afp1_marzo = "0"
                     rs_aux_retro!afp2_marzo = rs_aux_retro!total_ganado_marzo * VAR_AFPJ
-                     
+                    rs_aux_retro!afp3_marzo = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_aux_retro!afp2
+                Case "987654"       'AFP2
+                    rs_aux_retro!afp1 = "0"       'falta 1006803
+                    rs_aux_retro!afp2 = "0"
+                    rs_aux_retro!afp3 = rs_aux_retro!total_ganado * VAR_AFPJ
+                    rs_aux_retro!afp1_marzo = "0"
+                    rs_aux_retro!afp2_marzo = "0"
+                    rs_aux_retro!afp3_marzo = rs_aux_retro!total_ganado_marzo * VAR_AFPJ
                 Case Else
                     rs_aux_retro!afp1 = "0"
                     rs_aux_retro!afp2 = "0"
-                    
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_marzo = "0"
                     rs_aux_retro!afp2_marzo = "0"
-                    
+                    rs_aux_retro!afp3_marzo = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado
-      End Select
-      rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(rs_aux_retro!afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(rs_aux_retro!afp1_febrero), 0, rs_aux_retro!afp1_febrero) + IIf(IsNull(rs_aux_retro!afp2_febrero), 0, rs_aux_retro!afp2_febrero) + IIf(IsNull(rs_aux_retro!afp1_marzo), 0, rs_aux_retro!afp1_marzo) + IIf(IsNull(rs_aux_retro!afp2_marzo), 0, rs_aux_retro!afp2_marzo)
+            End Select
+      rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(rs_aux_retro!afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(rs_aux_retro!afp3_enero), 0, rs_aux_retro!afp3_enero) + IIf(IsNull(rs_aux_retro!afp1_febrero), 0, rs_aux_retro!afp1_febrero) + IIf(IsNull(rs_aux_retro!afp2_febrero), 0, rs_aux_retro!afp2_febrero) + IIf(IsNull(rs_aux_retro!afp3_febrero), 0, rs_aux_retro!afp3_febrero) + IIf(IsNull(rs_aux_retro!afp1_marzo), 0, rs_aux_retro!afp1_marzo) + IIf(IsNull(rs_aux_retro!afp2_marzo), 0, rs_aux_retro!afp2_marzo) + IIf(IsNull(rs_aux_retro!afp3_marzo), 0, rs_aux_retro!afp3_marzo)
       rs_aux_retro!liquido_pagable_bs = rs_aux_retro!total_ganado - rs_aux_retro!total_dsctos
-      
-      
      ' rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant + (rs_aux_retro!haber_basico_ant * 0.7)
       
       Case "4"
-      
+        If rs_aux_retro!incremento <> "NO" Then
 
-
-If rs_aux_retro!incremento <> "NO" Then
-
-      If retroactivos!beneficiario_haber_mensual <= 2060 Then
+            If retroactivos!beneficiario_haber_mensual <= 2060 Then
       
           If retroactivos!dias_trabajados < 30 Then
             rs_aux_retro!abril = ((2060 - retroactivos!beneficiario_haber_mensual) / 30) * retroactivos!dias_trabajados
@@ -5691,37 +5747,45 @@ End If
       
       rs_aux_retro!total_ganado = IIf(IsNull(rs_aux_retro!ENERO), 0, rs_aux_retro!ENERO) + IIf(IsNull(rs_aux_retro!febrero), 0, rs_aux_retro!febrero) + IIf(IsNull(rs_aux_retro!marzo), 0, rs_aux_retro!marzo) + IIf(IsNull(rs_aux_retro!abril), 0, rs_aux_retro!abril) + IIf(IsNull(rs_aux_retro!bono_antiguedad), 0, rs_aux_retro!bono_antiguedad) + IIf(IsNull(rs_aux_retro!bono_antiguedad2), 0, rs_aux_retro!bono_antiguedad2) + IIf(IsNull(rs_aux_retro!bono_antiguedad3), 0, rs_aux_retro!bono_antiguedad3) + IIf(IsNull(rs_aux_retro!bono_antiguedad4), 0, rs_aux_retro!bono_antiguedad4)
       rs_aux_retro!total_ganado_abril = IIf(IsNull(rs_aux_retro!abril), 0, rs_aux_retro!abril) + IIf(IsNull(rs_aux_retro!bono_antiguedad4), 0, rs_aux_retro!bono_antiguedad4)
-          Select Case rs_aux6!beneficiario_codigo_afp
-                Case "1006803"      'AFP1
+            Select Case rs_aux6!beneficiario_codigo_afp
+                Case "1006803"      'AFP1 FUTURO
                     rs_aux_retro!afp1 = rs_aux_retro!total_ganado * 0.1271
                     rs_aux_retro!afp2 = "0"       'falta 987654
-                    
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_abril = rs_aux_retro!total_ganado_abril * 0.1271
                     rs_aux_retro!afp2_abril = "0"
-                    
+                    rs_aux_retro!afp3_abril = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_datos2!afp1
                      'rs_aux_retro!total_dsctos = rs_aux_retro!afp1
-                Case "987654"       'AFP2
+                Case "987654"       'AFP2 PREVISION
                     rs_aux_retro!afp1 = "0"       'falta 1006803
                     rs_aux_retro!afp2 = rs_aux_retro!total_ganado * 0.1271
                   '  rs_aux_retro!total_dsctos = rs_aux_retro!afp2
-                     
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_abril = "0"
                     rs_aux_retro!afp2_abril = rs_aux_retro!total_ganado_abril * 0.1271
-                     
+                    rs_aux_retro!afp3_abril = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado - rs_aux_retro!afp2
+                Case "310630029"       'AFP3 GESTORA
+                    rs_aux_retro!afp1 = "0"       'falta 1006803
+                    rs_aux_retro!afp2 = "0"
+                  '  rs_aux_retro!total_dsctos = rs_aux_retro!afp2
+                    rs_aux_retro!afp3 = rs_aux_retro!total_ganado * 0.1271
+                    rs_aux_retro!afp1_abril = "0"
+                    rs_aux_retro!afp2_abril = "0"
+                    rs_aux_retro!afp3_abril = rs_aux_retro!total_ganado_abril * 0.1271
                 Case Else
                     rs_aux_retro!afp1 = "0"
                     rs_aux_retro!afp2 = "0"
-                    
+                    rs_aux_retro!afp3 = "0"
                     rs_aux_retro!afp1_abril = "0"
                     rs_aux_retro!afp2_abril = "0"
-                    
+                    rs_aux_retro!afp3_abril = "0"
                     'VAR_NETO = rs_aux_retro!total_ganado
-      End Select
-      rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(rs_aux_retro!afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(rs_aux_retro!afp1_febrero), 0, rs_aux_retro!afp1_febrero) + IIf(IsNull(rs_aux_retro!afp2_febrero), 0, rs_aux_retro!afp2_febrero) + IIf(IsNull(rs_aux_retro!afp1_marzo), 0, rs_aux_retro!afp1_marzo) + IIf(IsNull(rs_aux_retro!afp2_marzo), 0, rs_aux_retro!afp2_marzo) + IIf(IsNull(rs_aux_retro!afp1_abril), 0, rs_aux_retro!afp1_abril) + IIf(IsNull(rs_aux_retro!afp2_abril), 0, rs_aux_retro!afp2_abril)
-      rs_aux_retro!liquido_pagable_bs = rs_aux_retro!total_ganado - rs_aux_retro!total_dsctos
-      'rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant + (rs_aux_retro!haber_basico_ant * 0.7)
+            End Select
+            rs_aux_retro!total_dsctos = IIf(IsNull(rs_aux_retro!afp1_enero), 0, rs_aux_retro!afp1_enero) + IIf(IsNull(rs_aux_retro!afp2_enero), 0, rs_aux_retro!afp2_enero) + IIf(IsNull(rs_aux_retro!afp3_enero), 0, rs_aux_retro!afp3_enero) + IIf(IsNull(rs_aux_retro!afp1_febrero), 0, rs_aux_retro!afp1_febrero) + IIf(IsNull(rs_aux_retro!afp2_febrero), 0, rs_aux_retro!afp2_febrero) + IIf(IsNull(rs_aux_retro!afp3_febrero), 0, rs_aux_retro!afp3_febrero) + IIf(IsNull(rs_aux_retro!afp1_marzo), 0, rs_aux_retro!afp1_marzo) + IIf(IsNull(rs_aux_retro!afp2_marzo), 0, rs_aux_retro!afp2_marzo) + IIf(IsNull(rs_aux_retro!afp3_marzo), 0, rs_aux_retro!afp3_marzo) + IIf(IsNull(rs_aux_retro!afp1_abril), 0, rs_aux_retro!afp1_abril) + IIf(IsNull(rs_aux_retro!afp2_abril), 0, rs_aux_retro!afp2_abril) + IIf(IsNull(rs_aux_retro!afp3_abril), 0, rs_aux_retro!afp3_abril)
+            rs_aux_retro!liquido_pagable_bs = rs_aux_retro!total_ganado - rs_aux_retro!total_dsctos
+            'rs_aux_retro!haber_basico_incre = rs_aux_retro!haber_basico_ant + (rs_aux_retro!haber_basico_ant * 0.7)
       End Select
       
       
@@ -5759,7 +5823,7 @@ While Not rs_aux18.EOF
 'End If
 
 ProgressBar1.Value = ProgressBar1.Value + 1
-rs_aux18!sueldo_neto = Round((rs_aux18!total_ganado - rs_aux18!afp1 - rs_aux18!afp2), 2)
+rs_aux18!sueldo_neto = Round((rs_aux18!total_ganado - rs_aux18!afp1 - rs_aux18!afp2 - rs_aux18!afp3), 2)
 '------------------------------------------------------------------------->  esto solo es para preuebas
 'If rs_aux18!beneficiario_codigo = "3361040" Then
 'rs_aux18!sueldo_neto = "1805" ' esto solo es para preuebas
@@ -5849,7 +5913,7 @@ End If
 'If rs_aux18!beneficiario_codigo = "159256" Then
 'sino = ""
 'End If
- rs_aux18!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!otros_dsctos + rs_aux18!impuesto_a_pagar
+ rs_aux18!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!afp3 + rs_datos2!otros_dsctos + rs_aux18!impuesto_a_pagar
                         
  rs_aux18!liquido_pagable_bs = rs_datos2!total_ganado - rs_aux18!total_dsctos
  rs_aux18!liquido_pagable_us = rs_datos2!liquido_pagable_bs / GlTipoCambioOficial
@@ -5877,409 +5941,372 @@ ProgressBar1.Visible = False
 End Sub
 
 Private Sub generar_personas()
-NUM_PERS = 0
-nuevos = ""
-expirados = ""
+    NUM_PERS = 0
+    nuevos = ""
+    expirados = ""
+    Dim rs_aux16 As New ADODB.Recordset
 
-Dim rs_aux16 As New ADODB.Recordset
-
- If rs_aux16.State = 1 Then rs_aux16.Close
+    If rs_aux16.State = 1 Then rs_aux16.Close
       'SE ABRE LAS SUB PLANILLAS
-      rs_aux16.Open "select * from ro_pagos_cronograma where ges_gestion = '" & rs_datos!ges_gestion & "' AND planilla_codigo = '" & rs_datos!planilla_codigo & "' AND mes_grupo = " & rs_datos!mes_grupo & " AND numero_pago = 1 ", db, adOpenKeyset, adLockReadOnly  ', adOpenKeyset, adOpenStatic, adCmdText
-      rs_aux16.MoveFirst
-While Not rs_aux16.EOF
-ProgressBar1.Visible = True
-
-If rs_aux6.State = 1 Then rs_aux6.Close
+    rs_aux16.Open "select * from ro_pagos_cronograma where ges_gestion = '" & rs_datos!ges_gestion & "' AND planilla_codigo = '" & rs_datos!planilla_codigo & "' AND mes_grupo = " & rs_datos!mes_grupo & " AND numero_pago = 1 ", db, adOpenKeyset, adLockReadOnly  ', adOpenKeyset, adOpenStatic, adCmdText
+    rs_aux16.MoveFirst
+    While Not rs_aux16.EOF                      'WHILE-005
+        ProgressBar1.Visible = True
+        If rs_aux6.State = 1 Then rs_aux6.Close
         'ABRE LAS PERSONAL CONTRATADAS VIGENTES
-       rs_aux6.Open "SELECT * FROM ro_personal_contratado WHERE unidad_codigo_pla = '" & rs_aux16!unidad_codigo_pla & "' and estado_codigo <> 'ANL' AND estado_jubilado = 'REG'", db, adOpenKeyset, adLockOptimistic 'adOpenStatic 'order by beneficiario_denominacion
-      'rs_aux6.Open "SELECT * FROM av_ro_peronal_vs_gc_beneficiario  WHERE unidad_codigo = '" & rs_datos1!unidad_codigo_pla & "' AND estado_codigo = 'APR' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic
-   If rs_aux6.RecordCount > 0 Then 'verifica si existe personal en esa sub_planilla
-       rs_aux6.MoveFirst
-       
-       
-       
-       With ProgressBar1
-        .Max = rs_aux6.RecordCount
-        .Min = 0
-        .Value = 0
-       End With
-      'ProgressBar1.Max =
-   
-       While Not rs_aux6.EOF
-       
-        ProgressBar1.Value = ProgressBar1.Value + 1
-            
-            'VARIABLES PARA CALCULAR SUELDO SI SU CONTRATO TERMINA EN ESTE MES
-            DIA_FN = Day(rs_aux6!fecha_expiracion) 'FECHA FIN
-            MES_FN = Month(rs_aux6!fecha_expiracion)
-            ANO_FN = Year(rs_aux6!fecha_expiracion)
-'            If rs_aux6!beneficiario_codigo = "4773922" Then
-'            sino = ""
-'            End If
-'
-           
-     expira = Day(DateSerial(rs_datos!ges_gestion, rs_datos!mes_grupo + 1, 0))
-     'SE CONMPONE LA FECHA PARA COMPARAR CON EL FIN DEL CONTRATO
-     FIN = "1" & "/" & rs_datos!mes_grupo & "/" & rs_datos!ges_gestion
-     inicio = DateSerial(Year(FIN), Month(FIN) + 1, 0)
-    'COMPARACION DE FECHA DE FIN DE CONTRATO
-    If rs_aux6!fecha_expiracion >= FIN Then 'PARA LAS BAJAS
-      If rs_aux6!fecha_ingreso <= inicio Then 'INICIO CONTRATO
-        If rs_aux5.State = 1 Then rs_aux5.Close
-'        rs_aux5.Open "select * from ro_pagos_cronograma_detalle where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND planilla_codigo = '" & Ado_datos1.Recordset!planilla_codigo & "' AND mes_grupo = " & Ado_datos1.Recordset!mes_grupo & " AND numero_pago = " & Ado_datos1.Recordset!NUMERO_PAGO & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' AND unidad_codigo = '" & Ado_datos1.Recordset!unidad_codigo_pla & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-        'VERIFICA SI YA EXISTE EN LA PLANILLA LA PERSONA
-        rs_aux5.Open "select * from ro_pagos_cronograma_detalle where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND unidad_codigo = '" & rs_aux16!unidad_codigo_pla & "' AND planilla_codigo = '" & Ado_datos1.Recordset!planilla_codigo & "' AND mes_grupo = " & Ado_datos1.Recordset!mes_grupo & " AND numero_pago = " & Ado_datos1.Recordset!NUMERO_PAGO & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-        If rs_aux5.RecordCount = 0 Then 'LA PERSONA NO ESTA GENERADA
-            
-            'GUARDADO DE DATOS
-        NUM_PERS = NUM_PERS + 1
-            
-'        If rs_aux6!beneficiario_codigo = "4889246" Then 'para pruebas
-'        sino = ""
-'        End If
-        
-        Dim persona As New ADODB.Recordset
-        If persona.State = 1 Then persona.Close
-        persona.Open "select * from gc_beneficiario where beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-            
-            
-           
-            
-            rs_datos2.AddNew
-            
-            
-            rs_datos2!fecha_ingreso = rs_aux6!fecha_ingreso
-            rs_datos2!fecha_expiracion = rs_aux6!fecha_expiracion
-            rs_datos2!cargo_codigo = rs_aux6!cargo_codigo
-            rs_datos2!puesto_codigo = rs_aux6!puesto_codigo
-            rs_datos2!beneficiario_haber_mensual = rs_aux6!beneficiario_haber_mensual
-            rs_datos2!Unidad = rs_aux6!unidad_codigo
-            
-            rs_datos2!ges_gestion = rs_datos!ges_gestion
-            rs_datos2!planilla_codigo = rs_datos!planilla_codigo
-            rs_datos2!mes_grupo = rs_datos1!mes_grupo
-            rs_datos2!NUMERO_PAGO = rs_datos1!NUMERO_PAGO
-            
-            rs_datos2!beneficiario_codigo = rs_aux6!beneficiario_codigo
-            VAR_BENEF = LTrim(RTrim(rs_aux6!beneficiario_codigo))
-            rs_datos2!unidad_codigo = rs_aux16!unidad_codigo_pla
-            rs_datos2!tipo_moneda = "BOB"
-            rs_datos2!tipo_cambio = GlTipoCambioOficial
-            'Adicionar  beneficiario_haber_mensual_ant WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-'
-            DIA_IN = Day(rs_aux6!fecha_ingreso)
-            MES_IN = Month(rs_aux6!fecha_ingreso)
-            ANO_IN = Year(rs_aux6!fecha_ingreso)
-            
-            DIA_HOY = Day(Now)
-              
-            DIA_FN = Day(rs_aux6!fecha_expiracion) 'FECHA FIN
-            MES_FN = Month(rs_aux6!fecha_expiracion)
-            ANO_FN = Year(rs_aux6!fecha_expiracion)
-             If DIA_FN > 30 Then
-             DIA_FN = 30
-             End If
-          If rs_aux6!beneficiario_codigo = "2689587" Then
-            sino = ""
-            End If
-          
-            'VERIFICA SI ENTRO EN EL MES Y EL AÑO AL QUE CORRESPONDE LA PLANILLA
-            If MES_IN = rs_datos2!mes_grupo And ANO_IN = rs_datos2!ges_gestion Then
-             'CALCULO PARA PAGAR DE DIAS TRABAJADOS EN EL MES EN CASO DE QUE NO ENTRO EN EL DIA 1 DEL MES
-             rs_datos2!sueldo_basico = (rs_aux6!beneficiario_haber_mensual / 30) * (30 - (DIA_IN - 1))
-             rs_datos2!dias_trabajados = (30 - (DIA_IN - 1))
-             nuevos = nuevos & "    " & persona!beneficiario_codigo & " " & persona!beneficiario_denominacion & vbCrLf & "    Fecha Ingreso: " & rs_aux6!fecha_ingreso & vbCrLf & "    Haber Basico: " & rs_datos2!beneficiario_haber_mensual & vbCrLf & "    Dias Trabajados: " & rs_datos2!dias_trabajados & vbCrLf & "    Haber Basico del Mes: " & rs_datos2!sueldo_basico & vbCrLf & vbCrLf
-             
-            Else
-              'SI ESTRO EN ANTES DE EL MES DE LA PLANILLA
-              rs_datos2!sueldo_basico = rs_aux6!beneficiario_haber_mensual
-              rs_datos2!dias_trabajados = "30"
-            End If
-             'VERIFICA SI SU CONTRATO EXPIRA EN EL MES DE LA PLANILLA
-              If MES_FN = rs_datos2!mes_grupo And ANO_FN = rs_datos2!ges_gestion Then 'FECHA FIN
-              
-             'CALCULO DE PAGO POR DIAS TRABAJADOS
-              rs_datos2!sueldo_basico = (rs_aux6!beneficiario_haber_mensual / 30) * (DIA_FN)
-              rs_datos2!dias_trabajados = DIA_FN
-              expirados = expirados & "    " & persona!beneficiario_codigo & " " & persona!beneficiario_denominacion & vbCrLf & "    Fecha Fin: " & rs_aux6!fecha_expiracion & vbCrLf & "    Haber Basico: " & rs_datos2!beneficiario_haber_mensual & vbCrLf & "    Dias Trabajados: " & rs_datos2!dias_trabajados & vbCrLf & "    Haber Basico del Mes: " & rs_datos2!sueldo_basico & vbCrLf & vbCrLf
-           
-             End If
-            
-           sino = persona.RecordCount
-            
-            
-            
-            rs_datos2!monto_refrigerio = IIf(IsNull(rs_aux6!beneficiario_otro_mensual), "0", rs_aux6!beneficiario_otro_mensual)
-
-             'PONE EN ULTIMO DIA DEL MES PARA COMPARAR ANTIGUEDAD
-             fecha_pla = DateSerial(rs_datos!ges_gestion, rs_datos!mes_grupo + 1, 1 - 1)
-             'fecha_pla = "29/02/2016" SOLO PARA PRUEBAS
-             'ABRE TABLA DONDE ESTAN LOS PARAMETROS DE ANTIGUEDAD
-             If rs_aux8.State = 1 Then rs_aux8.Close
-             rs_aux8.Open "select * from rc_antiguedad", db, adOpenKeyset, adLockOptimistic, adCmdText
-             rs_aux8.MoveFirst
-             While Not rs_aux8.EOF
-             'GUARDA LAS FECHA MINIMA Y LA MAXIMA EN LA QUE DEBERIA ENTRAR LA PERSONA PARA RECIBIR EL BONO ANTIGUEDAD
-             f1 = DateAdd("yyyy", -rs_aux8!parametro_inicial, CDate(fecha_pla))
-             f2 = DateAdd("yyyy", -rs_aux8!parametro_final, CDate(fecha_pla))
-             'COMPARA LA FECHA INGRESO CON EL PARAMETRO
-             If rs_aux6!fecha_ingreso <= CDate(f1) And rs_aux6!fecha_ingreso > CDate(f2) Then
-             'GUARDA EL MONTO QUE CORRESPONDE
-             rs_datos2!bono_antiguedad = rs_aux8!antig_valor
-             rs_aux8.MoveLast
-             End If
-             rs_aux8.MoveNext
-             Wend
-             
- rs_datos2!bono_transporte = 0
-    
-   ' End If
-            'rs_datos2!horas_extras = dtc_refrigerio.Text
-            'rs_datos2!bono_transporte = dtc_refrigerio.Text
-             'rs_datos2!total_ganado = rs_datos2!sueldo_basico + rs_datos2!monto_refrigerio + rs_datos2!bono_antiguedad
-             
-            rs_datos2!total_ganado = rs_datos2!sueldo_basico + rs_datos2!bono_antiguedad + rs_datos2!bono_transporte
-            rs_datos2!provision_aguinaldo = rs_datos2!total_ganado * 0.0833
-            rs_datos2!prevision_indemnizacion = rs_datos2!total_ganado * 0.0833
-            rs_datos2!anticipo_sueldo = "0"
-            rs_datos2!anticipo_refrigerio = "0"
-            
-            If VAR_BENEF = "3395947" Then 'SOLO PARA PRUEBAS
-            sino = ""
-            End If
-            
-            'VARIABLE PARA SUMA DE PAGOS DE PRESTAMO
-            PRESTAMO_TOTAL = 0
-            Set rs_aux24 = New Recordset
-            If rs_aux24.State = 1 Then rs_aux24.Close
-            'VERIFICA SI TIENE ALGUN PRESTAMO LA PERSONA
-            rs_aux24.Open "select * from ro_prestamos where beneficiario_codigo = '" & VAR_BENEF & "'  and estado_codigo = 'APR' AND codigo_empresa = " & rs_aux6!codigo_empresa & " ", db, adOpenKeyset, adLockOptimistic, adCmdText
-            If rs_aux24.RecordCount > 0 Then
-            rs_aux24.MoveFirst
-            While Not rs_aux24.EOF
-                If rs_aux24!estado_codigo = "APR" Then
-                    Set rs_aux25 = New Recordset
-                    If rs_aux25.State = 1 Then rs_aux25.Close
-                    'VERIFICA SI EXISTE PAGO PARA ESTE MES SEGUN EL CRONOGRANA GENERADO
-                    rs_aux25.Open "select * from ro_prestamo_prog where beneficiario_codigo = '" & VAR_BENEF & "' and prestamo_codigo = " & rs_aux24!prestamo_codigo & " AND mes_planilla = " & rs_datos!mes_grupo & " and year(cobranza_fecha_prog) = '" & rs_datos!ges_gestion & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-                    If rs_aux25.RecordCount > 0 Then
-                    'SUMA LOS PAGOS
-                    PRESTAMO_TOTAL = PRESTAMO_TOTAL + rs_aux25!cobranza_programada_bs
-                    'APRUEBA EL PAGO
-                    rs_aux25!estado_codigo = "APR"
-                    rs_aux25!cobranza_fecha_cobro = Date
-                    rs_aux25.Update
-                    
-                    rs_aux24!correl_prog = rs_aux25!prestamo_prog_codigo
-                    Set rs_aux26 = New Recordset
-                    If rs_aux26.State = 1 Then rs_aux26.Close
-                    'SUMA TODOS LOS PAGOS REALIZADOS PARA GUARDAR EN LA CABECERA
-                    rs_aux26.Open "select SUM(cobranza_programada_bs)AS TOTAL_COB from ro_prestamo_prog where beneficiario_codigo = '" & VAR_BENEF & "' and estado_codigo = 'APR' AND prestamo_codigo = " & rs_aux24!prestamo_codigo, db, adOpenKeyset, adLockOptimistic, adCmdText
-                    rs_aux24!total_cobrado = rs_aux26!TOTAL_COB
-                     
-                    End If
-               End If
-                rs_aux24.MoveNext
-            Wend
-            End If
-            rs_datos2!prestamo = PRESTAMO_TOTAL
-            'CALCULO DE AFP
-            Select Case rs_aux6!beneficiario_codigo_afp
-                Case "1006803"      'AFP1
-                    rs_datos2!afp1 = rs_datos2!total_ganado * 0.1271
-                    rs_datos2!afp2 = "0"       'falta 987654
-                    VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp1
-                Case "987654"       'AFP2
-                    rs_datos2!afp1 = "0"       'falta 1006803
-                    rs_datos2!afp2 = rs_datos2!total_ganado * 0.1271
-                    VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp2
-                Case Else
-                    rs_datos2!afp1 = "0"
-                    rs_datos2!afp2 = "0"
-                    VAR_NETO = rs_datos2!total_ganado
-            End Select
-             '
-'            VAR_IVA = 1805 * 4
-'            If VAR_NETO > VAR_IVA Then
-'                rs_datos2!rciva = rs_datos2!total_ganado * 0.13
-'            Else
-'                rs_datos2!rciva = "0"        'mayor a 4 SUELDOS BASICOA
-'            End If
-            '
-            db.Execute "UPDATE ro_controlasistencia SET ges_gestion = year(Fecha_control), Mes_control = month(Fecha_control), Dia_control= day(Fecha_control)"
-            'sqlAux = "SELECT '     TOTAL MINUTOS DE RETRASO: ' + CONVERT(VARCHAR, ISNULL(SUM(DATEDIFF(MINUTE, '0:00:00', Tardanza)),0)) AS totHrs FROM ro_controlasistencia WHERE beneficiario_codigo = '" & Ado_datos.Recordset!beneficiario_codigo & "' "
-            'rs_AsisTT.Open sqlAux, db, adOpenKeyset, adLockOptimistic, adCmdText
-            'rs_AsisTT.MoveFirst
-            'AdoAsistencia.Caption = CStr(rs_AsisTT!totHrs)
-            '
-
-            'db.Execute "UPDATE ro_controlasistencia SET TotalMin1 = convert(int,TardanzaCadena) "
-            'rs_aux9.Open "select sum(convert(int,TardanzaCadena)) as TardanzaMes from ro_controlasistencia where beneficiario_codigo = " & VAR_BENEF & " and Mes_control = '" & Str(Ado_datos1.Recordset!mes_grupo) & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-             'Dim rs_aux9 As New ADODB.Recordset
-            If rs_aux9.State = 1 Then rs_aux9.Close
-            rs_aux9.Open "select sum(AtrasoMin1) as TardanzaMes from ro_controlasistencia where beneficiario_codigo = '" & RTrim(LTrim(VAR_BENEF)) & "' AND ges_gestion = '" & RTrim(LTrim(Ado_datos1.Recordset!ges_gestion)) & "' and Mes_control = '" & RTrim(LTrim(Str(Ado_datos1.Recordset!mes_grupo))) & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
-             'select sum(convert(int,TardanzaCadena)) as TardanzaMes from ro_controlasistencia where beneficiario_codigo = '6960987' and Mes_control = 7
-            If rs_aux14.State = 1 Then rs_aux14.Close
-            mesnom = UCase(MonthName(Ado_datos1.Recordset!mes_grupo))
-            rs_aux14.Open "select sum(total_minuto) as PermisoMes from ro_permisos where beneficiario_codigo = '" & RTrim(LTrim(VAR_BENEF)) & "' AND ges_gestion = '" & RTrim(LTrim(Ado_datos1.Recordset!ges_gestion)) & "' AND Mes_control = '" & mesnom & "' AND estado_codigo = 'APR' and dias_permiso = 0 AND codigo_empresa = " & rs_aux6!codigo_empresa, db, adOpenKeyset, adLockOptimistic, adCmdText
-            If rs_aux14!PermisoMes <> "NULL" Then
-                permisos = rs_aux14!PermisoMes
-            Else
-                permisos = "0"
-            End If
-            If rs_aux9!TardanzaMes <> "NULL" Then
-                totalminutos = rs_aux9!TardanzaMes - permisos
-                If totalminutos >= 45 And totalminutos <= 60 Then
-                    rs_datos2!otros_dsctos = ((rs_datos2!sueldo_basico / 30) / 2)
-                Else
-                    If totalminutos >= 61 And totalminutos <= 75 Then
-                        rs_datos2!otros_dsctos = (rs_datos2!sueldo_basico / 30)
-                    Else
-                        If totalminutos >= 76 And totalminutos <= 105 Then
-                            rs_datos2!otros_dsctos = ((rs_datos2!sueldo_basico / 30) * 2)
-                        Else
-                            If totalminutos >= 106 Then
-                                rs_datos2!otros_dsctos = ((rs_datos2!sueldo_basico / 30) * 3)
-                            Else
-                                rs_datos2!otros_dsctos = 0
+        rs_aux6.Open "SELECT * FROM ro_personal_contratado WHERE unidad_codigo_pla = '" & rs_aux16!unidad_codigo_pla & "' and estado_codigo <> 'ANL' AND estado_jubilado = 'REG'", db, adOpenKeyset, adLockOptimistic 'adOpenStatic 'order by beneficiario_denominacion
+        'rs_aux6.Open "SELECT * FROM av_ro_peronal_vs_gc_beneficiario  WHERE unidad_codigo = '" & rs_datos1!unidad_codigo_pla & "' AND estado_codigo = 'APR' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic
+        If rs_aux6.RecordCount > 0 Then 'verifica si existe personal en esa sub_planilla    'IF-006
+            rs_aux6.MoveFirst
+            With ProgressBar1
+                .Max = rs_aux6.RecordCount
+                .Min = 0
+                .Value = 0
+            End With
+            'ProgressBar1.Max =
+            While Not rs_aux6.EOF                               'WHILE-007
+                ProgressBar1.Value = ProgressBar1.Value + 1
+                'VARIABLES PARA CALCULAR SUELDO SI SU CONTRATO TERMINA EN ESTE MES
+                DIA_FN = Day(rs_aux6!fecha_expiracion) 'FECHA FIN
+                MES_FN = Month(rs_aux6!fecha_expiracion)
+                ANO_FN = Year(rs_aux6!fecha_expiracion)
+                '            If rs_aux6!beneficiario_codigo = "4773922" Then
+                '            sino = ""
+                '            End If
+                expira = Day(DateSerial(rs_datos!ges_gestion, rs_datos!mes_grupo + 1, 0))
+                'SE CONMPONE LA FECHA PARA COMPARAR CON EL FIN DEL CONTRATO
+                FIN = "1" & "/" & rs_datos!mes_grupo & "/" & rs_datos!ges_gestion
+                inicio = DateSerial(Year(FIN), Month(FIN) + 1, 0)
+                'COMPARACION DE FECHA DE FIN DE CONTRATO
+                If rs_aux6!fecha_expiracion >= FIN Then 'PARA LAS BAJAS             'IF-008
+                    If rs_aux6!fecha_ingreso <= inicio Then 'INICIO CONTRATO          'IF-009
+                        If rs_aux5.State = 1 Then rs_aux5.Close
+                        '        rs_aux5.Open "select * from ro_pagos_cronograma_detalle where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND planilla_codigo = '" & Ado_datos1.Recordset!planilla_codigo & "' AND mes_grupo = " & Ado_datos1.Recordset!mes_grupo & " AND numero_pago = " & Ado_datos1.Recordset!NUMERO_PAGO & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' AND unidad_codigo = '" & Ado_datos1.Recordset!unidad_codigo_pla & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+                        'VERIFICA SI YA EXISTE EN LA PLANILLA LA PERSONA
+                        rs_aux5.Open "select * from ro_pagos_cronograma_detalle where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND unidad_codigo = '" & rs_aux16!unidad_codigo_pla & "' AND planilla_codigo = '" & Ado_datos1.Recordset!planilla_codigo & "' AND mes_grupo = " & Ado_datos1.Recordset!mes_grupo & " AND numero_pago = " & Ado_datos1.Recordset!NUMERO_PAGO & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+                        If rs_aux5.RecordCount = 0 Then 'LA PERSONA NO ESTA GENERADA    'IF-010
+                            'GUARDADO DE DATOS
+                            NUM_PERS = NUM_PERS + 1
+                    '        If rs_aux6!beneficiario_codigo = "4889246" Then 'para pruebas
+                    '        sino = ""
+                    '        End If
+                            Dim persona As New ADODB.Recordset
+                            If persona.State = 1 Then persona.Close
+                            persona.Open "select * from gc_beneficiario where beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+                            rs_datos2.AddNew
+                            rs_datos2!fecha_ingreso = rs_aux6!fecha_ingreso
+                            rs_datos2!fecha_expiracion = rs_aux6!fecha_expiracion
+                            
+                            rs_datos2!cargo_codigo = rs_aux6!cargo_codigo
+                            rs_datos2!puesto_codigo = rs_aux6!puesto_codigo
+                            rs_datos2!beneficiario_haber_mensual = rs_aux6!beneficiario_haber_mensual
+                            rs_datos2!Unidad = rs_aux6!unidad_codigo
+                            rs_datos2!ges_gestion = rs_datos!ges_gestion
+                            rs_datos2!planilla_codigo = rs_datos!planilla_codigo
+                            rs_datos2!mes_grupo = rs_datos1!mes_grupo
+                            rs_datos2!NUMERO_PAGO = rs_datos1!NUMERO_PAGO
+                            rs_datos2!beneficiario_codigo = rs_aux6!beneficiario_codigo
+                            VAR_BENEF = LTrim(RTrim(rs_aux6!beneficiario_codigo))
+                            rs_datos2!unidad_codigo = rs_aux16!unidad_codigo_pla
+                            rs_datos2!tipo_moneda = "BOB"
+                            rs_datos2!tipo_cambio = GlTipoCambioOficial
+                            'Adicionar  beneficiario_haber_mensual_ant WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                '
+                            DIA_IN = Day(rs_aux6!fecha_ingreso)
+                            MES_IN = Month(rs_aux6!fecha_ingreso)
+                            ANO_IN = Year(rs_aux6!fecha_ingreso)
+                            
+                            DIA_HOY = Day(Now)
+                              
+                            DIA_FN = Day(rs_aux6!fecha_expiracion) 'FECHA FIN
+                            MES_FN = Month(rs_aux6!fecha_expiracion)
+                            ANO_FN = Year(rs_aux6!fecha_expiracion)
+                            If DIA_FN > 30 Then
+                                DIA_FN = 30
                             End If
-                        End If
-                    End If
-                End If
-            Else
-              If continuar = "SI" Then
-                sino = MsgBox("No se Cargo la asistencia del mes de " & UCase(MonthName(rs_datos1!mes_grupo)) & " de algunas personas " & vbCrLf & "¿Desea generar de todas maneras?" & vbCrLf & "NOTA: En el campo de OTROS DESCUENTOS se asignará cero (0) por defecto", vbCritical + vbYesNo, "Atención")
-                If sino = vbYes Then
-                    rs_datos2!otros_dsctos = 0
-                    continuar = "NO"
-                    Numero = Numero + 1
-                Else
-                    ProgressBar1.Visible = False
-                    Fra_personal_Ppla.Visible = False
-                    FraNavega.Enabled = True
-                    fraOpciones.Enabled = True
-                    ' FraGrabarCancelar.Visible = True
-                    dg_datos.Enabled = True
-                    dg_det1.Enabled = True
-                    fra_opciones_det_1.Enabled = True
-                    fra_opciones_det_2.Enabled = True
-        
-                    dg_det2.Enabled = True
-                    Call ABRIR_TABLA_DET(2)
-                    Exit Sub
-                End If
-              Else
-                rs_datos2!otros_dsctos = 0
-                Numero = Numero + 1
-              End If
-            End If
-            'rs_datos2!otros_dsctos = "0"   'FIN Atrasos y Faltas
-            rs_datos2!r_provision_aguinaldo = "0"
-            rs_datos2!r_prevision_indemnizacion = "0"
-            
-            If rs_aux15.State = 1 Then rs_aux15.Close
-                rs_aux15.Open "select SUM(monto) AS totalmonto, SUM(dias) AS Totaldias from ro_memorandas where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND mes_descuento = " & Ado_datos1.Recordset!mes_grupo & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' AND descuento_pla = 'SI' AND estado_codigo = 'APR' AND tipo_memo <> 'ANT' AND codigo_empresa = " & rs_aux6!codigo_empresa & "", db, adOpenKeyset, adLockOptimistic, adCmdText
-             
-         If rs_aux15.RecordCount <> 0 Then
-            If rs_aux15!totalmonto > 0 Then
-                total = rs_datos2!otros_dsctos + IIf(IsNull(rs_aux15!totalmonto), 0, rs_aux15!totalmonto)
-               rs_datos2!otros_dsctos = total
-              End If
-              
-              If rs_aux15!Totaldias > 0 Then
-                total = rs_datos2!otros_dsctos + ((rs_aux6!beneficiario_haber_mensual / 30) * rs_aux15!Totaldias)
-                'total = total + rs_datos2!otros_dsctos
-                rs_datos2!otros_dsctos = total
-            End If
-              
-         End If
-         If rs_aux30.State = 1 Then rs_aux30.Close
-              rs_aux30.Open "select SUM(monto) AS totalmonto, SUM(dias) AS Totaldias from ro_memorandas where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND mes_descuento = " & Ado_datos1.Recordset!mes_grupo & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' AND descuento_pla = 'SI' AND estado_codigo = 'APR' AND tipo_memo = 'ANT' AND codigo_empresa = " & rs_aux6!codigo_empresa & "", db, adOpenKeyset, adLockOptimistic, adCmdText
-             
-         If rs_aux30.RecordCount <> 0 Then
-         
-              
-              If rs_aux30!totalmonto > 0 Then
-                total = rs_datos2!anticipo_sueldo + IIf(IsNull(rs_aux30!totalmonto), 0, rs_aux30!totalmonto)
-               rs_datos2!anticipo_sueldo = total
-              End If
-              
-'              If rs_aux30!Totaldias > 0 Then
-'                total = rs_aux30!anticipo_sueldo + ((rs_aux6!beneficiario_haber_mensual / 30) * rs_aux30!Totaldias)
-'                'total = total + rs_datos2!otros_dsctos
-'                rs_datos2!anticipo_sueldo = total
-'              End If
-              
-          End If
-            'rs_datos2.Update
-            'rs_datos2!total_dsctos = "0"
-            rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!otros_dsctos
+                            'If rs_aux6!beneficiario_codigo = "2689587" Then
+                            '    sino = ""
+                            'End If
+                            'VERIFICA SI ENTRO EN EL MES Y EL AÑO AL QUE CORRESPONDE LA PLANILLA
+                            If MES_IN = rs_datos2!mes_grupo And ANO_IN = rs_datos2!ges_gestion Then
+                                'CALCULO PARA PAGAR DE DIAS TRABAJADOS EN EL MES EN CASO DE QUE NO ENTRO EN EL DIA 1 DEL MES
+                                rs_datos2!sueldo_basico = (rs_aux6!beneficiario_haber_mensual / 30) * (30 - (DIA_IN - 1))
+                                rs_datos2!dias_trabajados = (30 - (DIA_IN - 1))
+                                nuevos = nuevos & "    " & persona!beneficiario_codigo & " " & persona!beneficiario_denominacion & vbCrLf & "    Fecha Ingreso: " & rs_aux6!fecha_ingreso & vbCrLf & "    Haber Basico: " & rs_datos2!beneficiario_haber_mensual & vbCrLf & "    Dias Trabajados: " & rs_datos2!dias_trabajados & vbCrLf & "    Haber Basico del Mes: " & rs_datos2!sueldo_basico & vbCrLf & vbCrLf
+                            Else
+                                'SI ESTRO EN ANTES DE EL MES DE LA PLANILLA
+                                rs_datos2!sueldo_basico = rs_aux6!beneficiario_haber_mensual
+                                rs_datos2!dias_trabajados = "30"
+                            End If
+                            'VERIFICA SI SU CONTRATO EXPIRA EN EL MES DE LA PLANILLA
+                            If MES_FN = rs_datos2!mes_grupo And ANO_FN = rs_datos2!ges_gestion Then 'FECHA FIN
+                              'CALCULO DE PAGO POR DIAS TRABAJADOS
+                               rs_datos2!sueldo_basico = (rs_aux6!beneficiario_haber_mensual / 30) * (DIA_FN)
+                               rs_datos2!dias_trabajados = DIA_FN
+                               expirados = expirados & "    " & persona!beneficiario_codigo & " " & persona!beneficiario_denominacion & vbCrLf & "    Fecha Fin: " & rs_aux6!fecha_expiracion & vbCrLf & "    Haber Basico: " & rs_datos2!beneficiario_haber_mensual & vbCrLf & "    Dias Trabajados: " & rs_datos2!dias_trabajados & vbCrLf & "    Haber Basico del Mes: " & rs_datos2!sueldo_basico & vbCrLf & vbCrLf
+                            End If
+                            sino = persona.RecordCount
+                            rs_datos2!monto_refrigerio = IIf(IsNull(rs_aux6!beneficiario_otro_mensual), "0", rs_aux6!beneficiario_otro_mensual)
+                            'PONE EN ULTIMO DIA DEL MES PARA COMPARAR ANTIGUEDAD
+                            fecha_pla = DateSerial(rs_datos!ges_gestion, rs_datos!mes_grupo + 1, 1 - 1)
+                            'fecha_pla = "29/02/2016" SOLO PARA PRUEBAS
+                            'ABRE TABLA DONDE ESTAN LOS PARAMETROS DE ANTIGUEDAD
+                            If rs_aux8.State = 1 Then rs_aux8.Close
+                            rs_aux8.Open "select * from rc_antiguedad", db, adOpenKeyset, adLockOptimistic, adCmdText
+                            rs_aux8.MoveFirst
+                            While Not rs_aux8.EOF
+                                'GUARDA LAS FECHA MINIMA Y LA MAXIMA EN LA QUE DEBERIA ENTRAR LA PERSONA PARA RECIBIR EL BONO ANTIGUEDAD
+                                f1 = DateAdd("yyyy", -rs_aux8!parametro_inicial, CDate(fecha_pla))
+                                f2 = DateAdd("yyyy", -rs_aux8!parametro_final, CDate(fecha_pla))
+                                'COMPARA LA FECHA INGRESO CON EL PARAMETRO
+                                If rs_aux6!fecha_ingreso <= CDate(f1) And rs_aux6!fecha_ingreso > CDate(f2) Then
+                                    'GUARDA EL MONTO QUE CORRESPONDE
+                                    rs_datos2!bono_antiguedad = rs_aux8!antig_valor
+                                    rs_aux8.MoveLast
+                                End If
+                                rs_aux8.MoveNext
+                            Wend
+                            rs_datos2!bono_transporte = 0
+                            ' End If
+                            'rs_datos2!horas_extras = dtc_refrigerio.Text
+                            'rs_datos2!bono_transporte = dtc_refrigerio.Text
+                            'rs_datos2!total_ganado = rs_datos2!sueldo_basico + rs_datos2!monto_refrigerio + rs_datos2!bono_antiguedad
+                            rs_datos2!total_ganado = rs_datos2!sueldo_basico + rs_datos2!bono_antiguedad + rs_datos2!bono_transporte
+                            rs_datos2!provision_aguinaldo = rs_datos2!total_ganado * 0.0833
+                            rs_datos2!prevision_indemnizacion = rs_datos2!total_ganado * 0.0833
+                            rs_datos2!anticipo_sueldo = "0"
+                            rs_datos2!anticipo_refrigerio = "0"
+                            'If VAR_BENEF = "3395947" Then 'SOLO PARA PRUEBAS
+                            '    sino = ""
+                            'End If
+                            'VARIABLE PARA SUMA DE PAGOS DE PRESTAMO
+                            PRESTAMO_TOTAL = 0
+                            Set rs_aux24 = New Recordset
+                            If rs_aux24.State = 1 Then rs_aux24.Close
+                            'VERIFICA SI TIENE ALGUN PRESTAMO LA PERSONA
+                            rs_aux24.Open "select * from ro_prestamos where beneficiario_codigo = '" & VAR_BENEF & "'  and estado_codigo = 'APR' AND codigo_empresa = " & rs_aux6!codigo_empresa & " ", db, adOpenKeyset, adLockOptimistic, adCmdText
+                            If rs_aux24.RecordCount > 0 Then
+                                rs_aux24.MoveFirst
+                                While Not rs_aux24.EOF
+                                    If rs_aux24!estado_codigo = "APR" Then
+                                        Set rs_aux25 = New Recordset
+                                        If rs_aux25.State = 1 Then rs_aux25.Close
+                                        'VERIFICA SI EXISTE PAGO PARA ESTE MES SEGUN EL CRONOGRANA GENERADO
+                                        rs_aux25.Open "select * from ro_prestamo_prog where beneficiario_codigo = '" & VAR_BENEF & "' and prestamo_codigo = " & rs_aux24!prestamo_codigo & " AND mes_planilla = " & rs_datos!mes_grupo & " and year(cobranza_fecha_prog) = '" & rs_datos!ges_gestion & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+                                        If rs_aux25.RecordCount > 0 Then
+                                            'SUMA LOS PAGOS
+                                            PRESTAMO_TOTAL = PRESTAMO_TOTAL + rs_aux25!cobranza_programada_bs
+                                            'APRUEBA EL PAGO
+                                            rs_aux25!estado_codigo = "APR"
+                                            rs_aux25!cobranza_fecha_cobro = Date
+                                            rs_aux25.Update
+                                            rs_aux24!correl_prog = rs_aux25!prestamo_prog_codigo
+                                            Set rs_aux26 = New Recordset
+                                            If rs_aux26.State = 1 Then rs_aux26.Close
+                                            'SUMA TODOS LOS PAGOS REALIZADOS PARA GUARDAR EN LA CABECERA
+                                            rs_aux26.Open "select SUM(cobranza_programada_bs)AS TOTAL_COB from ro_prestamo_prog where beneficiario_codigo = '" & VAR_BENEF & "' and estado_codigo = 'APR' AND prestamo_codigo = " & rs_aux24!prestamo_codigo, db, adOpenKeyset, adLockOptimistic, adCmdText
+                                            rs_aux24!total_cobrado = rs_aux26!TOTAL_COB
+                                        End If
+                                    End If
+                                    rs_aux24.MoveNext
+                                Wend
+                            End If
+                            rs_datos2!prestamo = PRESTAMO_TOTAL
+                            'If rs_aux6!estado_jubilado = "APR" Then
+                            '    VAR_AFPJ = 0.0271
+                            'Else
+                            '    VAR_AFPJ = 0.1271
+                            'End If
+                            'CALCULO DE AFP
+                            Select Case rs_aux6!beneficiario_codigo_afp
+                                Case "1006803"      'AFP1 FUTURO
+                                    rs_datos2!afp1 = rs_datos2!total_ganado * 0.1271
+                                    rs_datos2!afp2 = "0"       'falta 987654
+                                    rs_datos2!afp3 = "0"
+                                    VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp1
+                                Case "987654"       'AFP2 PREVISION
+                                    rs_datos2!afp1 = "0"       'falta 1006803
+                                    rs_datos2!afp2 = rs_datos2!total_ganado * 0.1271
+                                    rs_datos2!afp3 = "0"
+                                    VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp2
+                                Case "310630029"      'AFP3 GESTORA
+                                    rs_datos2!afp1 = "0"
+                                    rs_datos2!afp2 = "0"       'falta 987654
+                                    rs_datos2!afp3 = rs_datos2!total_ganado * 0.1271
+                                    VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp3
+                                Case Else
+                                    rs_datos2!afp1 = "0"
+                                    rs_datos2!afp2 = "0"
+                                    rs_datos2!afp3 = "0"
+                                    VAR_NETO = rs_datos2!total_ganado
+                            End Select
+                             '
+                '            VAR_IVA = 1805 * 4
+                '            If VAR_NETO > VAR_IVA Then
+                '                rs_datos2!rciva = rs_datos2!total_ganado * 0.13
+                '            Else
+                '                rs_datos2!rciva = "0"        'mayor a 4 SUELDOS BASICOA
+                '            End If
+                            '
+                            db.Execute "UPDATE ro_controlasistencia SET ges_gestion = year(Fecha_control), Mes_control = month(Fecha_control), Dia_control= day(Fecha_control)"
+                            'sqlAux = "SELECT '     TOTAL MINUTOS DE RETRASO: ' + CONVERT(VARCHAR, ISNULL(SUM(DATEDIFF(MINUTE, '0:00:00', Tardanza)),0)) AS totHrs FROM ro_controlasistencia WHERE beneficiario_codigo = '" & Ado_datos.Recordset!beneficiario_codigo & "' "
+                            'rs_AsisTT.Open sqlAux, db, adOpenKeyset, adLockOptimistic, adCmdText
+                            'rs_AsisTT.MoveFirst
+                            'AdoAsistencia.Caption = CStr(rs_AsisTT!totHrs)
+                            '
+                            'db.Execute "UPDATE ro_controlasistencia SET TotalMin1 = convert(int,TardanzaCadena) "
+                            'rs_aux9.Open "select sum(convert(int,TardanzaCadena)) as TardanzaMes from ro_controlasistencia where beneficiario_codigo = " & VAR_BENEF & " and Mes_control = '" & Str(Ado_datos1.Recordset!mes_grupo) & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+                             'Dim rs_aux9 As New ADODB.Recordset
+                            If rs_aux9.State = 1 Then rs_aux9.Close
+                            rs_aux9.Open "select sum(AtrasoMin1) as TardanzaMes from ro_controlasistencia where beneficiario_codigo = '" & RTrim(LTrim(VAR_BENEF)) & "' AND ges_gestion = '" & RTrim(LTrim(Ado_datos1.Recordset!ges_gestion)) & "' and Mes_control = '" & RTrim(LTrim(Str(Ado_datos1.Recordset!mes_grupo))) & "'", db, adOpenKeyset, adLockOptimistic, adCmdText
+                             'select sum(convert(int,TardanzaCadena)) as TardanzaMes from ro_controlasistencia where beneficiario_codigo = '6960987' and Mes_control = 7
+                            If rs_aux14.State = 1 Then rs_aux14.Close
+                            mesnom = UCase(MonthName(Ado_datos1.Recordset!mes_grupo))
+                            rs_aux14.Open "select sum(total_minuto) as PermisoMes from ro_permisos where beneficiario_codigo = '" & RTrim(LTrim(VAR_BENEF)) & "' AND ges_gestion = '" & RTrim(LTrim(Ado_datos1.Recordset!ges_gestion)) & "' AND Mes_control = '" & mesnom & "' AND estado_codigo = 'APR' and dias_permiso = 0 AND codigo_empresa = " & rs_aux6!codigo_empresa, db, adOpenKeyset, adLockOptimistic, adCmdText
+                            If rs_aux14!PermisoMes <> "NULL" Then
+                                permisos = rs_aux14!PermisoMes
+                            Else
+                                permisos = "0"
+                            End If
+                            If rs_aux9!TardanzaMes <> "NULL" Then
+                                totalminutos = rs_aux9!TardanzaMes - permisos
+                                If totalminutos >= 45 And totalminutos <= 60 Then
+                                    rs_datos2!otros_dsctos = ((rs_datos2!sueldo_basico / 30) / 2)
+                                Else
+                                    If totalminutos >= 61 And totalminutos <= 75 Then
+                                        rs_datos2!otros_dsctos = (rs_datos2!sueldo_basico / 30)
+                                    Else
+                                        If totalminutos >= 76 And totalminutos <= 105 Then
+                                            rs_datos2!otros_dsctos = ((rs_datos2!sueldo_basico / 30) * 2)
+                                        Else
+                                            If totalminutos >= 106 Then
+                                                rs_datos2!otros_dsctos = ((rs_datos2!sueldo_basico / 30) * 3)
+                                            Else
+                                                rs_datos2!otros_dsctos = 0
+                                            End If
+                                        End If
+                                    End If
+                                End If
+                            Else
+                              If continuar = "SI" Then
+                                sino = MsgBox("No se Cargo la asistencia del mes de " & UCase(MonthName(rs_datos1!mes_grupo)) & " de algunas personas " & vbCrLf & "¿Desea generar de todas maneras?" & vbCrLf & "NOTA: En el campo de OTROS DESCUENTOS se asignará cero (0) por defecto", vbCritical + vbYesNo, "Atención")
+                                If sino = vbYes Then
+                                    rs_datos2!otros_dsctos = 0
+                                    continuar = "NO"
+                                    Numero = Numero + 1
+                                Else
+                                    ProgressBar1.Visible = False
+                                    Fra_personal_Ppla.Visible = False
+                                    FraNavega.Enabled = True
+                                    fraOpciones.Enabled = True
+                                    ' FraGrabarCancelar.Visible = True
+                                    dg_datos.Enabled = True
+                                    dg_det1.Enabled = True
+                                    fra_opciones_det_1.Enabled = True
+                                    fra_opciones_det_2.Enabled = True
                         
-            rs_datos2!liquido_pagable_bs = rs_datos2!total_ganado - rs_datos2!total_dsctos
-            rs_datos2!liquido_pagable_us = rs_datos2!liquido_pagable_bs / GlTipoCambioOficial
-             'rs_datos2!total_dsctos = "0"
-            rs_datos2!emite_factura = "N"
-             
-            rs_datos2!cite_conformidad = "-"
-            'rs_datos2!Numero_consultoriaHist = " "
-            rs_datos2!fte_financiamientoHist = "-"
-            rs_datos2!estado_devengado = "REG"
-             '70522788
-            rs_datos2!estado_codigo = "REG"
-            rs_datos2!fecha_registro = Date
-            rs_datos2!usr_codigo = glusuario
-            
-            rs_datos2!iva_110 = "0"
-            rs_datos2!fisco_a_favor = "0"
-            rs_datos2!dependiente_a_favor = "0"
-            rs_datos2!mes_anterior = "0"
-            rs_datos2!mes_anterior_mant = "0"
-            rs_datos2!saldo_util = "0"
-            rs_datos2!saldo_a_favor_depend = "0"
-            rs_datos2!rciva = "0"
-            rs_datos2!codigo_empresa = rs_aux6!codigo_empresa
-            'ABRIR_TABLA_DET (2)
-            rs_datos2!hora_registro = Format(Time, "HH:mm:ss")
-            
-            rs_datos2.Update
-            'Call OptFilGral1_Click
-            'rs_datos.MoveLast
-            mbDataChanged = False
-    '
-        End If
-       End If 'INICIO CONTRATO
-    Else 'PARA LAS BAJAS
-    rs_aux6!estado_codigo = "ANL"
-    End If 'PARA LAS BAJAS
-        rs_aux6.MoveNext
-       Wend
-  End If 'verifica si existe personal en esa sub_planilla
-       rs_aux16.MoveNext
-     Wend
-       
-       Call ABRIR_TABLA_DET(2)
-       Call ABRIR_TABLAS_AUX(5)
-       Call numeracion_planilla
-       'rs_datos2.RecordCount
-       
+                                    dg_det2.Enabled = True
+                                    Call ABRIR_TABLA_DET(2)
+                                    Exit Sub
+                                End If
+                              Else
+                                rs_datos2!otros_dsctos = 0
+                                Numero = Numero + 1
+                              End If
+                            End If
+                            'rs_datos2!otros_dsctos = "0"   'FIN Atrasos y Faltas
+                            rs_datos2!r_provision_aguinaldo = "0"
+                            rs_datos2!r_prevision_indemnizacion = "0"
+                            If rs_aux15.State = 1 Then rs_aux15.Close
+                            rs_aux15.Open "select SUM(monto) AS totalmonto, SUM(dias) AS Totaldias from ro_memorandas where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND mes_descuento = " & Ado_datos1.Recordset!mes_grupo & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' AND descuento_pla = 'SI' AND estado_codigo = 'APR' AND tipo_memo <> 'ANT' AND codigo_empresa = " & rs_aux6!codigo_empresa & "", db, adOpenKeyset, adLockOptimistic, adCmdText
+                            If rs_aux15.RecordCount <> 0 Then
+                               If rs_aux15!totalmonto > 0 Then
+                                   total = rs_datos2!otros_dsctos + IIf(IsNull(rs_aux15!totalmonto), 0, rs_aux15!totalmonto)
+                                  rs_datos2!otros_dsctos = total
+                               End If
+                                 
+                               If rs_aux15!Totaldias > 0 Then
+                                   total = rs_datos2!otros_dsctos + ((rs_aux6!beneficiario_haber_mensual / 30) * rs_aux15!Totaldias)
+                                   'total = total + rs_datos2!otros_dsctos
+                                   rs_datos2!otros_dsctos = total
+                               End If
+                            End If
+                            If rs_aux30.State = 1 Then rs_aux30.Close
+                            rs_aux30.Open "select SUM(monto) AS totalmonto, SUM(dias) AS Totaldias from ro_memorandas where ges_gestion = '" & Ado_datos1.Recordset!ges_gestion & "' AND mes_descuento = " & Ado_datos1.Recordset!mes_grupo & " AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' AND descuento_pla = 'SI' AND estado_codigo = 'APR' AND tipo_memo = 'ANT' AND codigo_empresa = " & rs_aux6!codigo_empresa & "", db, adOpenKeyset, adLockOptimistic, adCmdText
+                            If rs_aux30.RecordCount <> 0 Then
+                              If rs_aux30!totalmonto > 0 Then
+                                total = rs_datos2!anticipo_sueldo + IIf(IsNull(rs_aux30!totalmonto), 0, rs_aux30!totalmonto)
+                                rs_datos2!anticipo_sueldo = total
+                              End If
+                '              If rs_aux30!Totaldias > 0 Then
+                '                total = rs_aux30!anticipo_sueldo + ((rs_aux6!beneficiario_haber_mensual / 30) * rs_aux30!Totaldias)
+                '                'total = total + rs_datos2!otros_dsctos
+                '                rs_datos2!anticipo_sueldo = total
+                '              End If
+                            End If
+                            'rs_datos2.Update
+                            'rs_datos2!total_dsctos = "0"
+                            rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!afp3 + rs_datos2!otros_dsctos
+                                        
+                            rs_datos2!liquido_pagable_bs = rs_datos2!total_ganado - rs_datos2!total_dsctos
+                            rs_datos2!liquido_pagable_us = rs_datos2!liquido_pagable_bs / GlTipoCambioOficial
+                             'rs_datos2!total_dsctos = "0"
+                            rs_datos2!emite_factura = "N"
+                             
+                            rs_datos2!cite_conformidad = "-"
+                            'rs_datos2!Numero_consultoriaHist = " "
+                            rs_datos2!fte_financiamientoHist = "-"
+                            rs_datos2!estado_devengado = "REG"
+                             '70522788
+                            rs_datos2!estado_codigo = "REG"
+                            rs_datos2!fecha_registro = Date
+                            rs_datos2!usr_codigo = glusuario
+                            
+                            rs_datos2!iva_110 = "0"
+                            rs_datos2!fisco_a_favor = "0"
+                            rs_datos2!dependiente_a_favor = "0"
+                            rs_datos2!mes_anterior = "0"
+                            rs_datos2!mes_anterior_mant = "0"
+                            rs_datos2!saldo_util = "0"
+                            rs_datos2!saldo_a_favor_depend = "0"
+                            rs_datos2!rciva = "0"
+                            rs_datos2!codigo_empresa = rs_aux6!codigo_empresa
+                            'ABRIR_TABLA_DET (2)
+                            rs_datos2!hora_registro = Format(Time, "HH:mm:ss")
+                            
+                            rs_datos2.Update
+                            'Call OptFilGral1_Click
+                            'rs_datos.MoveLast
+                            mbDataChanged = False
+                    '
+                        End If                          'IF-0010
+                    End If 'INICIO CONTRATO           'IF-0009
+                Else 'PARA LAS BAJAS                'IF-008
+                    rs_aux6!estado_codigo = "ANL"
+                End If 'PARA LAS BAJAS              'IF-008
+                rs_aux6.MoveNext
+            Wend                                  'WHILE-007
+        End If 'verifica si existe personal en esa sub_planilla         'IF-006
+        rs_aux16.MoveNext
+    Wend                                  'WHILE-005
+    Call ABRIR_TABLA_DET(2)
+    Call ABRIR_TABLAS_AUX(5)
+    Call numeracion_planilla
+    'rs_datos2.RecordCount
     If nuevos = "" Then
-    nuevos = "    Ninguna persona tiene fecha de INICIO en este mes." & vbCrLf & vbCrLf
+        nuevos = "    Ninguna persona tiene fecha de INICIO en este mes." & vbCrLf & vbCrLf
     End If
     If expirados = "" Then
-    expirados = "    Ninguna persona tiene fecha de FIN en este mes." & vbCrLf & vbCrLf
+        expirados = "    Ninguna persona tiene fecha de FIN en este mes." & vbCrLf & vbCrLf
     End If
     If NUM_PERS > 0 Then
-    sino = MsgBox("Se agregó " & NUM_PERS & " persona(s) a " & rs_datos!descripcion_grupo & " " & rs_datos!ges_gestion & vbCrLf & vbCrLf & "• Personas que tienen fecha de INICIO en " & UCase(MonthName(rs_datos!mes_grupo)) & vbCrLf & vbCrLf & nuevos & "---------------------------------------------------------" & vbCrLf & "• Personas que tienen fecha de FIN en " & UCase(MonthName(rs_datos!mes_grupo)) & vbCrLf & vbCrLf & expirados & "---------------------------------------------------------", vbInformation, "Atención")
+        sino = MsgBox("Se agregó " & NUM_PERS & " persona(s) a " & rs_datos!descripcion_grupo & " " & rs_datos!ges_gestion & vbCrLf & vbCrLf & "• Personas que tienen fecha de INICIO en " & UCase(MonthName(rs_datos!mes_grupo)) & vbCrLf & vbCrLf & nuevos & "---------------------------------------------------------" & vbCrLf & "• Personas que tienen fecha de FIN en " & UCase(MonthName(rs_datos!mes_grupo)) & vbCrLf & vbCrLf & expirados & "---------------------------------------------------------", vbInformation, "Atención")
     End If
     continuar = "SI"
     ProgressBar1.Visible = False
     dtc_buscar_desc.Visible = True
     Label52.Visible = True
-    
 End Sub
-  
-  
   
 Public Function Dias_Del_Mes(Optional ByVal Fecha As Variant) As Integer
   
@@ -6897,7 +6924,7 @@ Private Sub Form_Load()
             ''SSTab1.TabEnabled(1) = False
             'SSTab1.TabVisible(1) = False
    'End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX(Pos As Integer)
@@ -7501,17 +7528,25 @@ Private Sub BtnNuevo14_Click()
             rs_datos2!prestamo = PRESTAMO_TOTAL
             'CALCULO DE AFP
             Select Case rs_aux6!beneficiario_codigo_afp
-                Case "1006803"      'AFP1
+                Case "1006803"      'AFP1 FUTURO
                     rs_datos2!afp1 = rs_datos2!total_ganado * 0.1271
                     rs_datos2!afp2 = "0"       'falta 987654
+                    rs_datos2!afp3 = "0"
                     VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp1
-                Case "987654"       'AFP2
+                Case "987654"       'AFP2 PREVISION
                     rs_datos2!afp1 = "0"       'falta 1006803
                     rs_datos2!afp2 = rs_datos2!total_ganado * 0.1271
+                    rs_datos2!afp3 = "0"
                     VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp2
+                Case "310630029"       'AFP3 GESTORA
+                    rs_datos2!afp1 = "0"       'falta 1006803
+                    rs_datos2!afp2 = "0"
+                    rs_datos2!afp3 = rs_datos2!total_ganado * 0.1271
+                    VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp3
                 Case Else
                     rs_datos2!afp1 = "0"
                     rs_datos2!afp2 = "0"
+                    rs_datos2!afp3 = "0"
                     VAR_NETO = rs_datos2!total_ganado
             End Select
              '
@@ -7633,7 +7668,7 @@ Private Sub BtnNuevo14_Click()
           End If
             'rs_datos2.Update
             'rs_datos2!total_dsctos = "0"
-            rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!otros_dsctos
+            rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!afp3 + rs_datos2!otros_dsctos
                         
             rs_datos2!liquido_pagable_bs = rs_datos2!total_ganado - rs_datos2!total_dsctos
             rs_datos2!liquido_pagable_us = rs_datos2!liquido_pagable_bs / GlTipoCambioOficial
@@ -7736,8 +7771,6 @@ Private Sub BtnNuevo14_Click()
     txt_saldo_util1.Text = "0"
     txt_saldo_a_favor_depend1.Text = "0"
       
-      
-      
     VAR_SW = "SI"
     Fra_personal_Ppla.Visible = True
     txt_anticipo_sb.Text = "0"
@@ -7745,6 +7778,7 @@ Private Sub BtnNuevo14_Click()
     txt_rc_iva.Text = "0"
     txt_afp1.Text = "0"
     txt_afp2.Text = "0"
+    txt_afp3.Text = "0"
     txt_prestamo.Text = "0"
     'txt_otros_descuentos.Text = "0" ' HABILITAR DESPUES
     txt_bono_ant.Text = "0"
@@ -8227,14 +8261,22 @@ On Error GoTo UpdateErr
             Case "1006803"      'AFP1 FUTURO
                 rs_datos2!afp1 = rs_datos2!total_ganado * 0.1271
                 rs_datos2!afp2 = "0"       'falta 987654
+                rs_datos2!afp3 = "0"
                 VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp1
             Case "987654"       'AFP2 PREVISION
                 rs_datos2!afp1 = "0"       'falta 1006803
                 rs_datos2!afp2 = rs_datos2!total_ganado * 0.1271
+                rs_datos2!afp3 = "0"
                 VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp2
+            Case "310630029"       'AFP3 GESTORA
+                rs_datos2!afp1 = "0"       'falta 1006803
+                rs_datos2!afp2 = "0"
+                rs_datos2!afp3 = rs_datos2!total_ganado * 0.1271
+                VAR_NETO = rs_datos2!total_ganado - rs_datos2!afp3
             Case Else
                 rs_datos2!afp1 = "0"
                 rs_datos2!afp2 = "0"
+                rs_datos2!afp3 = "0"
                 VAR_NETO = rs_datos2!total_ganado
         End Select
              '
@@ -8325,7 +8367,7 @@ On Error GoTo UpdateErr
                   rs_datos2!otros_dsctos = total
             End If
         End If
-        rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + txt_otros_descuentos.Text  'temporal
+        rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!afp3 + txt_otros_descuentos.Text  'temporal
         rs_datos2!liquido_pagable_bs = rs_datos2!total_ganado - rs_datos2!total_dsctos
         rs_datos2!liquido_pagable_us = rs_datos2!liquido_pagable_bs / GlTipoCambioOficial
         'rs_datos2!total_dsctos = "0"
@@ -8525,7 +8567,7 @@ Else                '1
               'rs_datos2!otros_dsctos = total
          End If
          rs_datos2!otros_dsctos = otros_desc
-         rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!otros_dsctos   'temporal
+         rs_datos2!total_dsctos = rs_datos2!anticipo_sueldo + rs_datos2!anticipo_refrigerio + rs_datos2!prestamo + rs_datos2!afp1 + rs_datos2!afp2 + rs_datos2!afp3 + rs_datos2!otros_dsctos    'temporal
          
          rs_datos2!liquido_pagable_bs = rs_datos2!total_ganado - rs_datos2!total_dsctos
          rs_datos2!liquido_pagable_us = rs_datos2!liquido_pagable_bs / GlTipoCambioOficial
@@ -8799,6 +8841,7 @@ On Error GoTo UpdateErr
         VAR_BS2 = Round(IIf(IsNull(Ado_datos1.Recordset!tot_liquido_pagable_bs), 0, Ado_datos1.Recordset!tot_liquido_pagable_bs), 2)
         VAR_AFP1_BS = Round(IIf(IsNull(Ado_datos1.Recordset!tot_afp1), 0, Ado_datos1.Recordset!tot_afp1), 2)
         VAR_AFP2_BS = Round(IIf(IsNull(Ado_datos1.Recordset!tot_afp2), 0, Ado_datos1.Recordset!tot_afp2), 2)
+        'VAR_AFP3_BS = Round(IIf(IsNull(Ado_datos1.Recordset!tot_afp3), 0, Ado_datos1.Recordset!tot_afp3), 2)
         VAR_DSCTO_BS = Round(IIf(IsNull(Ado_datos1.Recordset!total_dsctos), 0, (Ado_datos1.Recordset!total_dsctos - VAR_AFP1_BS - VAR_AFP2_BS)), 2)
         
         VAR_AFP1_BS2 = Round(IIf(IsNull(Ado_datos1.Recordset!tot_total_ganado), 0, Ado_datos1.Recordset!tot_total_ganado) * 0.471, 2)
@@ -8967,19 +9010,16 @@ If Ado_datos.Recordset.RecordCount > 0 Then
       sino = MsgBox("¿Quiere generar autamaticamente los datos del PERSONAL de todas Las SUB-PLANILLAS?", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
       If rs_datos!mes_grupo > 12 Then
-      Call generar_aguinaldo
+        Call generar_aguinaldo
       Else
-      Call generar_personas
+        Call generar_personas
       End If
      End If
       
-      
-      
-      
      If NUM_PERS > 0 Then
-     sino = MsgBox("Se generaron correctamente las planillas", vbInformation, "Atención")
+        sino = MsgBox("Se generaron correctamente las planillas", vbInformation, "Atención")
      Else
-     sino = MsgBox("No se agregó ninguna persona a la planilla", vbCritical, "Atención")
+        sino = MsgBox("No se agregó ninguna persona a la planilla", vbCritical, "Atención")
      End If
    Call ABRIR_TABLAS_AUX(5)
     ProgressBar2.Visible = False

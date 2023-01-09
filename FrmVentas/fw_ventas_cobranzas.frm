@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   119078913
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   119078913
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   110166017
+            Format          =   119078913
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -4530,7 +4530,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
 '            DTPFechaProg1.backColor = &H404040       '&H80000013      'Fondo Oscuro
         End If
         If (Ado_datos01.Recordset("estado_codigo") = "REG") Then          'REG
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "FCABRERA" Or glusuario = "TCASTILLO" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "CPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "KGARCIA" Or glusuario = "GMORA" Or glusuario = "CSALINAS" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "FCABRERA" Or glusuario = "TCASTILLO" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "CPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "KGARCIA" Or glusuario = "GMORA" Or glusuario = "CSALINAS" Then
                 BtnAprobar.Visible = True
             Else
                 BtnAprobar.Visible = False
@@ -4566,9 +4566,9 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos01.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos01.Recordset!venta_codigo & " and correl_venta = " & Ado_datos01.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'TxtMontoBs.Text = Ado_datos01.Recordset!monto_total_bS
             'TxtMontoUs.Text = Ado_datos01.Recordset!deuda_cobrada
@@ -4899,7 +4899,7 @@ Private Sub BtnAñadir1_Click()
         'DTPFechaCobro.Value = Date
         DTPicker1.Value = Date
         Txt_docnro.Text = "0"          'Recibo
-        txtTDC.Text = GlTipoCambioMercado
+        TxtTDC.Text = GlTipoCambioMercado
         FrmCobrosDet.Visible = False
       Else
         MsgBox "Ya se Cobró el Total de la Factura, ya NO podrá registrar la cobranza para este registro ...", , "Atención"
@@ -5758,12 +5758,12 @@ Private Sub BtnGrabar1_Click()
         If swnuevo = 1 Then
             correldet = Ado_datos02.Recordset.RecordCount
             db.Execute "insert into ao_ventas_cobranza_det (ges_gestion, cobranza_detalle, cobranza_codigo, beneficiario_codigo_resp,    cobranza_bs,       cobranza_dol,           cobranza_fecha,             cobranza_observaciones,             cta_codigo,             cmpbte_deposito,            doc_numero,              trans_codigo,              literal,    estado_codigo, estado_codigo_bco, usr_codigo,           fecha_registro,                     tipo_moneda,        usr_codigo_mod,     usr_codigo_apr,         cobranza_tdc,       cmpbte_fecha, depto_codigo, nro_autorizacion) " & _
-                " VALUES ('" & Ado_datos01.Recordset!ges_gestion & "', " & correldet & ", " & NRO_COBR & ", '" & DataCombo1.Text & "', " & COBR_BS & ", " & VAR_DOL2 & ", '" & CDate(DTPicker1.Value) & "', '" & txt_observaciones.Text & "', '" & dtc_cta2.Text & "', '" & Txt_deposito.Text & "', " & Txt_docnro.Text & ", '" & DataCombo9.Text & "', '" & var_literal & "', 'REG',      'REG', '" & glusuario & "', '" & Format(Date, "dd/mm/yyyy") & "', '" & cmd_moneda.Text & "', '" & glusuario & "', '" & glusuario & "', " & txtTDC.Text & ", '" & CDate(DTPFechaCmpbte.Value) & "', '" & VAR_DEPTO & "', " & Autorizacion & " )"
+                " VALUES ('" & Ado_datos01.Recordset!ges_gestion & "', " & correldet & ", " & NRO_COBR & ", '" & DataCombo1.Text & "', " & COBR_BS & ", " & VAR_DOL2 & ", '" & CDate(DTPicker1.Value) & "', '" & txt_observaciones.Text & "', '" & dtc_cta2.Text & "', '" & Txt_deposito.Text & "', " & Txt_docnro.Text & ", '" & DataCombo9.Text & "', '" & var_literal & "', 'REG',      'REG', '" & glusuario & "', '" & Format(Date, "dd/mm/yyyy") & "', '" & cmd_moneda.Text & "', '" & glusuario & "', '" & glusuario & "', " & TxtTDC.Text & ", '" & CDate(DTPFechaCmpbte.Value) & "', '" & VAR_DEPTO & "', " & Autorizacion & " )"
             'Ado_datos02.Recordset!estado_codigo = "REG"
         End If
         If swnuevo = 2 Then
             correldet = Ado_datos02.Recordset!cobranza_detalle
-            db.Execute "UPDATE ao_ventas_cobranza_det SET cobranza_bs = " & COBR_BS & ",  cobranza_dol = " & Round(VAR_DOL2, 2) & ",  cobranza_fecha = '" & CDate(DTPicker1.Value) & "', cobranza_observaciones = '" & txt_observaciones.Text & "', cta_codigo = '" & dtc_cta2.Text & "', doc_numero = " & Txt_docnro.Text & ", cmpbte_deposito ='" & Txt_deposito.Text & "', trans_codigo = '" & DataCombo9.Text & "', literal = '" & var_literal & "', fecha_mod = '" & Format(Date, "dd/mm/yyyy") & "', tipo_moneda = '" & cmd_moneda.Text & "', usr_codigo_mod = '" & glusuario & "', cobranza_tdc = " & txtTDC.Text & ", cmpbte_fecha = '" & CDate(DTPFechaCmpbte.Value) & "'  " & _
+            db.Execute "UPDATE ao_ventas_cobranza_det SET cobranza_bs = " & COBR_BS & ",  cobranza_dol = " & Round(VAR_DOL2, 2) & ",  cobranza_fecha = '" & CDate(DTPicker1.Value) & "', cobranza_observaciones = '" & txt_observaciones.Text & "', cta_codigo = '" & dtc_cta2.Text & "', doc_numero = " & Txt_docnro.Text & ", cmpbte_deposito ='" & Txt_deposito.Text & "', trans_codigo = '" & DataCombo9.Text & "', literal = '" & var_literal & "', fecha_mod = '" & Format(Date, "dd/mm/yyyy") & "', tipo_moneda = '" & cmd_moneda.Text & "', usr_codigo_mod = '" & glusuario & "', cobranza_tdc = " & TxtTDC.Text & ", cmpbte_fecha = '" & CDate(DTPFechaCmpbte.Value) & "'  " & _
             " where cobranza_codigo = " & NRO_COBR & " AND cobranza_detalle = " & correldet & " "
             
         End If
@@ -6926,9 +6926,9 @@ Private Sub BtnModificar1_Click()
             DTPicker1.Value = IIf(IsNull(Ado_datos02.Recordset!cobranza_fecha), "01/01/1900", Ado_datos02.Recordset!cobranza_fecha)
             Txt_docnro.Text = Ado_datos02.Recordset!doc_numero          'Recibo
             If IsNull(Ado_datos02.Recordset!cobranza_tdc) Or Ado_datos02.Recordset!cobranza_tdc < 2 Then
-                txtTDC.Text = GlTipoCambioMercado
+                TxtTDC.Text = GlTipoCambioMercado
             Else
-                txtTDC.Text = Ado_datos02.Recordset!cobranza_tdc
+                TxtTDC.Text = Ado_datos02.Recordset!cobranza_tdc
             End If
             FrmCobrosDet.Visible = True
             If glusuario = "ASANTIVAÑEZ" Then
@@ -8943,7 +8943,7 @@ Private Sub cmd_moneda1_LostFocus()
     If rs_datos20.State = 1 Then rs_datos20.Close
     rs_datos20.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda1.Text & "' ", db, adOpenStatic
     Set Ado_datos20.Recordset = rs_datos20
-    dtc_ctades.BoundText = dtc_cta.BoundText
+    dtc_ctaDes.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub cmd_moneda2_LostFocus()
@@ -9096,7 +9096,7 @@ Private Sub cmd_moneda_LostFocus()
             rs_datos7.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda.Text & "'  or bco_codigo= 'TES' ", db, adOpenStatic
     End Select
     Set Ado_datos7.Recordset = rs_datos7
-    dtc_ctades.BoundText = dtc_cta2.BoundText
+    dtc_ctaDes.BoundText = dtc_cta2.BoundText
 End Sub
 
 Private Sub CmdCancelaDet_Click()
@@ -9406,7 +9406,7 @@ End Sub
 'End Sub
 
 Private Sub dtc_cta2_LostFocus()
-    dtc_ctades.BoundText = dtc_cta2.BoundText
+    dtc_ctaDes.BoundText = dtc_cta2.BoundText
     
     If dtc_cta2.Text <> "NN" Then
         If Ado_datos02.Recordset!cobranza_bs = "0" Or IsNull(Ado_datos02.Recordset!cobranza_bs) Then
@@ -9592,7 +9592,7 @@ Private Sub DTPFechaCobro2A_LostFocus()
 End Sub
 
 Private Sub dtc_ctades_Click(Area As Integer)
-    dtc_cta2.BoundText = dtc_ctades.BoundText
+    dtc_cta2.BoundText = dtc_ctaDes.BoundText
 End Sub
 'Private Sub DTPfechasol_Change()
 '    txtGes_gestion = CStr(Year(DTPfechasol.Value))
@@ -9752,7 +9752,7 @@ Private Sub Form_Load()
             SW_MODIF = "MOD"
             OptFilGral03.Visible = True
             OptFilGral05.Visible = True
-        Case "ULEDESMA", "GMORA", "SQUISPE", "RCUELA", "GSOLIZ", "MARTEAGA", "ADMIN", "APALACIOS", "JCASTRO", "RGIL", "LMORALES", "CPAREDES", "CSALINAS", "LVEDIA"
+        Case "ULEDESMA", "GMORA", "SQUISPE", "RCUELA", "GSOLIZ", "MARTEAGA", "ADMIN", "APALACIOS", "JCASTRO", "RGIL", "LMORALES", "CPAREDES", "CSALINAS", "LVEDIA", "PMAJLUF"
             SW_MODIF = "MOD"
             OptFilGral03.Visible = True
             OptFilGral05.Visible = True
@@ -9964,7 +9964,7 @@ Private Sub OptFilGral01_Click()
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '7' or depto_codigo = '8' or depto_codigo = '9' or depto_codigo = '1') "
-        Case "EVILLALOBOS", "GMORA", "LVEDIA"
+        Case "EVILLALOBOS", "GMORA", "LVEDIA", "PMAJLUF"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '5' or depto_codigo = '6' or depto_codigo = '1') "
@@ -10014,7 +10014,7 @@ Private Sub OptFilGral02_Click()
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') AND (depto_codigo = '7' or depto_codigo = '8' or depto_codigo = '9' or depto_codigo = '1' or depto_codigo = '6') "
-        Case "EVILLALOBOS", "CESCALANTE", "GMORA", "LVEDIA"
+        Case "EVILLALOBOS", "CESCALANTE", "GMORA", "LVEDIA", "PMAJLUF"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-103' or doc_codigo_fac = 'R-393') AND (depto_codigo = '1' or depto_codigo = '5' or depto_codigo = '6') "
@@ -10042,7 +10042,7 @@ Private Sub OptFilGral04_Click()
     
     Set rs_datos02 = New Recordset
     If rs_datos02.State = 1 Then rs_datos02.Close
-    If glusuario = "RVALDIVIEZO" Or glusuario = "MVALDIVIA" Or glusuario = "NPAREDES" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "ULEDESMA" Or glusuario = "HMARIN" Or glusuario = "MARTEAGA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
+    If glusuario = "RVALDIVIEZO" Or glusuario = "MVALDIVIA" Or glusuario = "NPAREDES" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "ULEDESMA" Or glusuario = "HMARIN" Or glusuario = "MARTEAGA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "JCASTRO" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
         queryinicial2 = "select * From av_ventas_cobranza WHERE estado_codigo_fac = 'APR'  "
     Else
         If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
@@ -10074,7 +10074,7 @@ Private Sub OptFilGral03_Click()
             BtnAprobar.Visible = False
             BtnModificar.Visible = False
             queryinicial = "select DISTINCT * From av_venta_cobranza_APR  "
-        Case "RGIL", "GMORA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN", "LVEDIA", "LMORALES" ', "CURDININEA", "AACOSTA"
+        Case "RGIL", "GMORA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN", "LVEDIA", "LMORALES", "PMAJLUF"   ', "CURDININEA", "AACOSTA"
             BtnAprobar.Visible = False
             BtnModificar.Visible = False
             queryinicial = "select DISTINCT * From av_venta_cobranza_APR  "
@@ -10124,7 +10124,7 @@ Private Sub OptFilGral05_Click()
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '7'  or depto_codigo = '1' or depto_codigo = '9' or depto_codigo = '8' or depto_codigo = '6') "
-        Case "EVILLALOBOS", "GMORA", "LVEDIA"
+        Case "EVILLALOBOS", "GMORA", "LVEDIA", "PMAJLUF"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '1'  or depto_codigo = '5' or depto_codigo = '6' ) "
@@ -10330,7 +10330,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  txtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
+  TxtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
@@ -10653,7 +10653,7 @@ Private Sub TxtMonto02_LostFocus()
 '    TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / Ado_datos01.Recordset!cobranza_tdc, 2)
     '
     'TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / GlTipoCambioMercado, 2)
-    TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / CDbl(IIf(txtTDC.Text = "0", GlTipoCambioMercado, txtTDC.Text)), 2)
+    TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / CDbl(IIf(TxtTDC.Text = "0", GlTipoCambioMercado, TxtTDC.Text)), 2)
 End Sub
 
 Private Sub TxtMonto02D_KeyPress(KeyAscii As Integer)
@@ -10664,7 +10664,7 @@ Private Sub TxtMonto02D_LostFocus()
     'TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * Ado_datos01.Recordset!cobranza_tdc, 2)
     '
     'TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * GlTipoCambioMercado, 2)
-    TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * CDbl(txtTDC.Text), 2)
+    TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * CDbl(TxtTDC.Text), 2)
 End Sub
 
 Private Sub TxtMontoDol_Change()

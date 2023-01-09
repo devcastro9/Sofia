@@ -231,7 +231,7 @@ Private Sub Form_Load()
     TIPO_DE_CAMBIO
     'Seguridad
     'Call SeguridadSet(Me)
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub cmdCancel_Click()
@@ -298,6 +298,7 @@ On Error Resume Next
              MsgBox "La version " & App.Major & "." & App.Minor & "." & App.Revision & " no es admitida. Actualice el sistema.", vbInformation, "Version no admitida"
              End
          End If
+         'frmMain.Show
       ' Verificamos que exista el tipo de Cambio para la fecha de Maquina
      ' With FrmTipoCambio
         '.TcPrincipal Date, txtUserName.Text & ""
@@ -352,7 +353,7 @@ On Error Resume Next
                 frmMain.ProgressBar1.Value = frmMain.ProgressBar1.Value + 1
                 Set rs_aux13 = New ADODB.Recordset
                 If rs_aux13.State = 1 Then rs_aux13.Close
-                rs_aux13.Open "Select * from ao_ventas_cabecera WHERE ((unidad_codigo = 'DNMAN') OR (unidad_codigo = 'DMANS') OR (unidad_codigo = 'DMANB') OR (unidad_codigo = 'DMANC')) AND (estado_codigo = 'APR') AND (edif_codigo = '" & rs_aux12!EDIF_CODIGO & "') ", db, adOpenStatic
+                rs_aux13.Open "Select * from ao_ventas_cabecera WHERE ((unidad_codigo = 'DNMAN') OR (unidad_codigo = 'DMANS') OR (unidad_codigo = 'DMANB') OR (unidad_codigo = 'DMANC')) AND (estado_codigo = 'APR') AND (edif_codigo = '" & rs_aux12!edif_codigo & "') ", db, adOpenStatic
                 If rs_aux13.RecordCount > 0 Then
                     'rs_aux12!unidad_destino = rs_aux13!unidad_CODIGO
                     db.Execute "UPDATE ao_ventas_cabecera SET unidad_destino = '" & rs_aux13!unidad_codigo & "' WHERE (venta_codigo = " & rs_aux12!venta_codigo & " ) "

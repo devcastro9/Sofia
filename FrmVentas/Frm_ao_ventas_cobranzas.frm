@@ -231,10 +231,10 @@ Begin VB.Form Frm_ao_ventas_cobranzas
       TabCaption(0)   =   " FACTURACION CGE"
       TabPicture(0)   =   "Frm_ao_ventas_cobranzas.frx":315D
       Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "FraGrabarCancelar1"
-      Tab(0).Control(1)=   "fraOpciones1"
-      Tab(0).Control(2)=   "FrmCobros1"
-      Tab(0).Control(3)=   "FraNavega1"
+      Tab(0).Control(0)=   "FraNavega1"
+      Tab(0).Control(1)=   "FrmCobros1"
+      Tab(0).Control(2)=   "fraOpciones1"
+      Tab(0).Control(3)=   "FraGrabarCancelar1"
       Tab(0).ControlCount=   4
       TabCaption(1)   =   " FACTURACION SOFIA"
       TabPicture(1)   =   "Frm_ao_ventas_cobranzas.frx":36F7
@@ -976,7 +976,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110755841
+            Format          =   120127489
             CurrentDate     =   2
          End
          Begin MSDataListLib.DataCombo dtc_desc08 
@@ -2371,7 +2371,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
             CalendarBackColor=   16777215
             CalendarForeColor=   0
             CheckBox        =   -1  'True
-            Format          =   110755841
+            Format          =   120127489
             CurrentDate     =   42873
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -2395,7 +2395,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110755841
+            Format          =   120127489
             CurrentDate     =   41678
          End
          Begin VB.PictureBox Picture2 
@@ -5107,7 +5107,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -5230,7 +5230,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -5383,7 +5383,7 @@ Private Sub Ado_datos02_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -6051,7 +6051,7 @@ Private Sub BtnGrabar_Click()
         Ado_datos.Recordset!cobranza_deuda_bs = "0"                                  'Monto Cobrado Bs.
         Ado_datos.Recordset!cobranza_deuda_dol = "0"        'Monto en Dolares
       Else
-        Ado_datos.Recordset!cobranza_tdc = IIf(IsNull(Txt_tdc = ""), 6.96, CDbl(Txt_tdc.Text))                               'Monto Cobrado Bs.
+        Ado_datos.Recordset!cobranza_tdc = IIf(IsNull(txt_tdc = ""), 6.96, CDbl(txt_tdc.Text))                               'Monto Cobrado Bs.
 '        Ado_datos.Recordset!cobranza_deuda_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto en Dolares
         Ado_datos.Recordset!cobranza_total_bs = Round(CDbl(TxtMonto.Text), 2)                                 'Monto Cobrado Bs.
         Ado_datos.Recordset!cobranza_total_dol = Round(CDbl(TxtMontoDol), 2)       'CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto en Dolares
@@ -6177,15 +6177,15 @@ Private Sub BtnGrabar1_Click()
         Exit Sub
   End If
   '
-  If DTPfechasol.Value = "" Or DTPfechasol.Value = "01/01/1900" Or IsNull(DTPfechasol.Value) Then
+  If DTPFechaSol.Value = "" Or DTPFechaSol.Value = "01/01/1900" Or IsNull(DTPFechaSol.Value) Then
         MsgBox "Debe Registrar la Fecha de Facturación CGE ... !! Vuelva a Intentar ...", vbExclamation, "Atención"
         Exit Sub
   End If
     db.BeginTrans
       Ado_datos01.Recordset!cmpbte_deposito = "0"       'IIf(Txt_deposito1.Text = "", "0", Txt_deposito1.Text)
       Ado_datos01.Recordset!cta_codigo = IIf(dtc_cta.Text = "", "NN", dtc_cta.Text)
-      VAR_ANIO = Year(CDate(DTPfechasol))
-      VAR_MES = Month(CDate(DTPfechasol))
+      VAR_ANIO = Year(CDate(DTPFechaSol))
+      VAR_MES = Month(CDate(DTPFechaSol))
       Select Case VAR_MES
         Case 1
 
@@ -6216,7 +6216,7 @@ Private Sub BtnGrabar1_Click()
       Ado_datos01.Recordset!cobranza_nro_factura = TxtCmpbte1.Text
       Ado_datos01.Recordset!factura_impresa = "S"
       Ado_datos01.Recordset!cobranza_codigo_control = "4"       'PARA FACTURA MANUAL CGE
-      Ado_datos01.Recordset!cobranza_fecha_fac = DTPfechasol.Value
+      Ado_datos01.Recordset!cobranza_fecha_fac = DTPFechaSol.Value
       Ado_datos01.Recordset!proceso_codigo = "FIN"
       Ado_datos01.Recordset!trans_codigo = "2"
 
@@ -7684,7 +7684,7 @@ Private Sub BtnModificar_Click()
       FrmCobranza.Enabled = False
       'swgrabar = 0
       swnuevo = 2
-      Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+      txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
       SSTab1.Tab = 1
       SSTab1.TabEnabled(0) = False
       SSTab1.TabEnabled(1) = True
@@ -9664,7 +9664,7 @@ While Not rs_aux20.EOF
             NitCi = IIf(IsNull(rs_aux20!beneficiario_codigo_fac), "0", rs_aux20!beneficiario_codigo_fac)    'VAR_BENEF
             'Llave = Trim(rs_aux1!dosifica_llave)
             Autorizacion = rs_aux20!cobranza_nro_autorizacion
-            VAR_PROY2 = rs_aux20!EDIF_CODIGO
+            VAR_PROY2 = rs_aux20!edif_codigo
             VAR_COD4 = rs_aux20!unidad_codigo
             VAR_TIPOV = rs_aux20!venta_tipo
             VAR_SOL = rs_aux20!solicitud_codigo
@@ -9988,7 +9988,7 @@ VAR_JQ = "REC"
                VAR_DOL2 = Round(AdoAux.Recordset!cobranza_dol, 2)
                VAR_BS2 = Round(AdoAux.Recordset!cobranza_bs, 2)
                VAR_CTA = IIf(AdoAux.Recordset!cta_codigo = "", "NN", AdoAux.Recordset!cta_codigo)
-               VAR_PROY2 = rs_datos2!EDIF_CODIGO
+               VAR_PROY2 = rs_datos2!edif_codigo
                VAR_COD4 = rs_datos2!unidad_codigo
                VAR_TIPOV = ""       'rs_datos2!venta_tipo
                VAR_SOL = rs_datos2!solicitud_codigo
@@ -10067,7 +10067,7 @@ Private Sub Command2_Click()
                VAR_DOL2 = Round(AdoAux.Recordset!venta_monto_total_dol, 2)
                VAR_BS2 = Round(AdoAux.Recordset!venta_monto_total_bs, 2)
                VAR_CTA = "NN"       'IIf(AdoAux.Recordset!Cta_Codigo = "", "NN", AdoAux.Recordset!Cta_Codigo)
-               VAR_PROY2 = rs_datos1!EDIF_CODIGO
+               VAR_PROY2 = rs_datos1!edif_codigo
                VAR_COD4 = rs_datos1!unidad_codigo
                VAR_TIPOV = rs_datos1!venta_tipo
                VAR_SOL = rs_datos1!solicitud_codigo
@@ -10167,7 +10167,7 @@ VAR_JQ = "REC"
                VAR_DOL2 = Round(AdoAux.Recordset!cobranza_dol, 2)
                VAR_BS2 = Round(AdoAux.Recordset!cobranza_bs, 2)
                VAR_CTA = IIf(AdoAux.Recordset!cta_codigo = "", "NN", AdoAux.Recordset!cta_codigo)
-               VAR_PROY2 = rs_datos2!EDIF_CODIGO
+               VAR_PROY2 = rs_datos2!edif_codigo
                VAR_COD4 = rs_datos2!unidad_codigo
                VAR_TIPOV = ""       'rs_datos2!venta_tipo
                VAR_SOL = rs_datos2!solicitud_codigo
@@ -10443,7 +10443,7 @@ Private Sub Form_Load()
     FraNavega.Caption = lbl_titulo.Caption
     'lbl_titulo2.Caption = lbl_titulo.Caption
     'lbl_titulo1.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -11029,13 +11029,13 @@ Private Sub Option1_Click()
 
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    If glusuario = "RVALDIVIEZO" Or glusuario = "FACTURACION" Or glusuario = "SQUISPE" Or glusuario = "AURQUIDI" Or glusuario = "HMARIN" Then
+    If glusuario = "ADMIN" Or glusuario = "FACTURACION" Or glusuario = "SQUISPE" Or glusuario = "AURQUIDI" Or glusuario = "HMARIN" Then
         queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_fac = 'APR' AND doc_codigo_fac <> 'R-103' "     'ORDER BY cobranza_fecha_prog
     Else
         If glusuario = "MVALDIVIA" Or glusuario = "SPAREDES" Then
                 queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND doc_codigo_fac = 'R-103' "      'ORDER BY cobranza_fecha_prog
             Else
-                If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
+                If glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
                     queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR' AND estado_codigo_bco = 'REG' "      'ORDER BY cobranza_fecha_prog
                 End If
             End If
@@ -11154,7 +11154,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
     End If
 End Sub
 
@@ -11321,5 +11321,5 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
 End Sub
