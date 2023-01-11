@@ -1090,7 +1090,7 @@ Begin VB.Form rw_contratacion_personal
             Enabled         =   0   'False
             CalendarBackColor=   4210752
             CheckBox        =   -1  'True
-            Format          =   111476737
+            Format          =   110821377
             CurrentDate     =   44562
             MinDate         =   2
          End
@@ -1107,7 +1107,7 @@ Begin VB.Form rw_contratacion_personal
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   111476737
+            Format          =   110821377
             CurrentDate     =   44562
             MinDate         =   2
          End
@@ -1124,7 +1124,7 @@ Begin VB.Form rw_contratacion_personal
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   111476737
+            Format          =   110821377
             CurrentDate     =   44562
             MinDate         =   2
          End
@@ -1138,7 +1138,7 @@ Begin VB.Form rw_contratacion_personal
             _ExtentX        =   2778
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   111476737
+            Format          =   110821377
             CurrentDate     =   44562
             MinDate         =   2
          End
@@ -1151,7 +1151,7 @@ Begin VB.Form rw_contratacion_personal
             _ExtentX        =   2566
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   111476737
+            Format          =   110821377
             CurrentDate     =   44562
             MaxDate         =   55153
             MinDate         =   2
@@ -3017,7 +3017,7 @@ Private Sub nuevo_2()
     txtMat.Visible = False
     txtNom.Visible = False
     txtTelefono.Visible = False
-    txtDireccion.Visible = False
+    TxtDireccion.Visible = False
 End Sub
 
 Private Sub BtnAñadir_Click()
@@ -3033,7 +3033,7 @@ Option1.Value = True
     FraNavega.Enabled = False
     dg_datos.Enabled = False
      Frame4.Enabled = True
-    txt_tiempo.Text = "0"
+    Txt_tiempo.Text = "0"
     cmb_meses.Text = "0"
     dtc_genero.Text = ""
     txtCI.Text = ""
@@ -3041,7 +3041,7 @@ Option1.Value = True
     txtMat.Text = ""
     txtNom.Text = ""
     txtTelefono.Text = ""
-    txtDireccion.Text = ""
+    TxtDireccion.Text = ""
     dtc_depto_codigo.Text = ""
     dtc_desc2.Text = ""
     dtc_desc3.Text = ""
@@ -3052,7 +3052,7 @@ Option1.Value = True
     dtc_des_6.Text = ""
     txt_monto2.Text = "0"
     txt_monto3.Text = "0"
-    txt_monto1.Text = "0"
+    Txt_monto1.Text = "0"
     
     dtc_codigo2.Text = ""
     dtc_codigo3.Text = ""
@@ -3259,7 +3259,7 @@ If Valida Then
         RS_BENEF!beneficiario_segundo_apellido = UCase(txtMat.Text)
         RS_BENEF!beneficiario_nombres = UCase(txtNom.Text)
         RS_BENEF!beneficiario_telefono_Cel = IIf(txtTelefono.Text = "", "0", txtTelefono.Text)
-        RS_BENEF!beneficiario_domicilio_legal = txtDireccion.Text
+        RS_BENEF!beneficiario_domicilio_legal = TxtDireccion.Text
         VAR_NOMBRE = IIf(txtPat.Text = "", "", UCase(txtPat.Text) + " ") & IIf(txtMat.Text = "", "", UCase(txtMat.Text) + " ") & IIf(txtNom.Text = "", "", UCase(txtNom.Text))
         RS_BENEF!beneficiario_denominacion = VAR_NOMBRE
         RS_BENEF!beneficiario_email = IIf(TxtEmail.Text = "", "0", TxtEmail.Text)
@@ -3305,8 +3305,8 @@ If Valida Then
     
     rs_guardar!modalidad_codigo = detc_cod_3.Text
     rs_guardar!munic_codigo = dtc_codigo4
-    rs_guardar!beneficiario_monto_adjudica_bs = txt_monto1.Text
-    rs_guardar!beneficiario_monto_adjudica_dol = Val(txt_monto1.Text) / GlTipoCambioOficial
+    rs_guardar!beneficiario_monto_adjudica_bs = Txt_monto1.Text
+    rs_guardar!beneficiario_monto_adjudica_dol = Val(Txt_monto1.Text) / GlTipoCambioOficial
     
     rs_guardar!beneficiario_haber_mensual_bs = txt_monto2.Text
     rs_guardar!beneficiario_haber_mensual_dol = Val(txt_monto2.Text) / GlTipoCambioOficial
@@ -3322,9 +3322,9 @@ If Valida Then
     Else
         'DateAdd(intervalo, número, fecha)
         'Txt_tiempo.Text = DateDiff("m", CDate(DTPicker1.Value), CDate(DTPicker2.Value))
-        txt_tiempo.Text = IIf(txt_tiempo.Text = "0", Val(cmb_meses), txt_tiempo.Text)
-        rs_guardar!beneficiario_fecha_fin = DateAdd("m", Val(txt_tiempo.Text), CDate(DTPicker1.Value))
-        rs_guardar!beneficiario_tiempo_meses = Val(txt_tiempo.Text)
+        Txt_tiempo.Text = IIf(Txt_tiempo.Text = "0", Val(cmb_meses), Txt_tiempo.Text)
+        rs_guardar!beneficiario_fecha_fin = DateAdd("m", Val(Txt_tiempo.Text), CDate(DTPicker1.Value))
+        rs_guardar!beneficiario_tiempo_meses = Val(Txt_tiempo.Text)
         rs_guardar!doc_codigo = "R-179"
     End If
     rs_guardar!beneficiario_fecha_adjudica = Date
@@ -3374,7 +3374,7 @@ UpdateErr:
 End Sub
 
 Private Sub GRABA_CALIFICA()
-    db.Execute "Insert INTO ro_rrhh_apertura_sobres (ges_gestion, rrhh_codigo, beneficiario_codigo, unidad_codigo, solicitud_codigo, observaciones, puesto_codigo, ocup_codigo, nivel_educ_codigo, munic_codigo, estado_codigo, usr_codigo, fecha_registro, modalidad_codigo, cotiza_codigo) Values ('" & glGestion & "', '" & frm_ao_contratacion.Ado_datos.Recordset!rrhh_codigo & "',  '" & txtCI.Text & "', '" & txt_campo1.Text & "', '" & txt_codigo.Caption & "', '" & nomb2 & "', '" & dtc_codigo1.Text & "', " & dtc_codigo2.Text & ", " & dtc_codigo3.Text & ", '" & dtc_codigo4.Text & "', 'REG', '" & glusuario & "',  '" & Date & "', '" & frm_ao_contratacion.Ado_datos.Recordset!modalidad_codigo & "', " & Val(lbl_convoca.Caption) & ")"
+    db.Execute "Insert INTO ro_rrhh_apertura_sobres (ges_gestion, rrhh_codigo, beneficiario_codigo, unidad_codigo, solicitud_codigo, observaciones, puesto_codigo, ocup_codigo, nivel_educ_codigo, munic_codigo, estado_codigo, usr_codigo, fecha_registro, modalidad_codigo, cotiza_codigo) Values ('" & glGestion & "', '" & frm_ao_contratacion.Ado_datos.Recordset!rrhh_codigo & "',  '" & txtCI.Text & "', '" & Txt_campo1.Text & "', '" & txt_codigo.Caption & "', '" & nomb2 & "', '" & dtc_codigo1.Text & "', " & dtc_codigo2.Text & ", " & dtc_codigo3.Text & ", '" & dtc_codigo4.Text & "', 'REG', '" & glusuario & "',  '" & Date & "', '" & frm_ao_contratacion.Ado_datos.Recordset!modalidad_codigo & "', " & Val(lbl_convoca.Caption) & ")"
 End Sub
 
 Function Valida()
@@ -3496,7 +3496,7 @@ Private Sub BtnOk_Click()
     txtMat.Text = Trim(dtc_aux2.Text)
     txtNom.Text = Trim(dtc_aux3.Text)
     txtTelefono.Text = Trim(dtc_aux4.Text)
-    txtDireccion.Text = Trim(dtc_aux5.Text)
+    TxtDireccion.Text = Trim(dtc_aux5.Text)
     Frame2.Visible = False
     Frame4.Visible = True
     Frame3.Visible = False
@@ -3509,10 +3509,10 @@ End Sub
 Private Sub cmb_meses_Click()
     If cmb_meses.Text = "0" Or cmb_meses.Text = "00" Then
         'txt_tiempo.Text = "Indefinido"
-        txt_tiempo.Text = "0"
+        Txt_tiempo.Text = "0"
         LblTiempo.Caption = "INDEFINIDO"
     Else
-        txt_tiempo.Text = cmb_meses.Text
+        Txt_tiempo.Text = cmb_meses.Text
         LblTiempo.Caption = "Tiempo (Meses)"
     End If
 End Sub
@@ -3643,7 +3643,7 @@ Private Sub dtc_desc_4_LostFocus()
         LblMeses.Visible = False
         cmb_meses.Visible = False
         cmb_meses.Text = "00"
-        txt_tiempo.Text = "0"
+        Txt_tiempo.Text = "0"
     Else
         LblMeses.Visible = True
         cmb_meses.Visible = True
@@ -3765,7 +3765,7 @@ Private Sub Form_Load()
     Frame3.Visible = False
     
 
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 Private Sub ABRIR_TABLA_AUX()
 ' Set rs_datos = New ADODB.Recordset
@@ -3909,7 +3909,7 @@ Private Sub Option1_Click()
         txtNom.Text = ""
         dtc_genero.Text = ""
         txtTelefono.Text = ""
-        txtDireccion.Text = ""
+        TxtDireccion.Text = ""
     End If
     
     Base = "NO"
@@ -3940,12 +3940,12 @@ Private Sub Option3_Click()
 End Sub
 
 Private Sub txt_monto2_KeyUp(KeyCode As Integer, Shift As Integer)
-    txt_monto1.Text = Val(txt_monto2.Text) * Val(txt_tiempo.Text)
+    Txt_monto1.Text = Val(txt_monto2.Text) * Val(Txt_tiempo.Text)
 End Sub
 
 Private Sub txt_monto2_LostFocus()
-    If txt_monto2.Text <> "" And txt_tiempo.Text <> "" Then
-        txt_monto1.Text = txt_monto2.Text * txt_tiempo.Text
+    If txt_monto2.Text <> "" And Txt_tiempo.Text <> "" Then
+        Txt_monto1.Text = txt_monto2.Text * Txt_tiempo.Text
     End If
 End Sub
 

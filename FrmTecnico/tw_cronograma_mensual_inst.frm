@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   131072001
+         Format          =   119799809
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   131072001
+         Format          =   119799809
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -694,7 +694,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   131072001
+         Format          =   119799809
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +708,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   131072001
+         Format          =   119799809
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -2710,6 +2710,7 @@ Private Sub BtnAddDetalle3_Click()
             Exit Sub
         End If
     End If
+    'falta ARREGLAR CALENDARIO DIAS LABORALES Y NO LABORES
     GlEdificio = Ado_detalle1.Recordset!edif_codigo
     VAR_FECHAINI = Ado_detalle1.Recordset!fecha_ini_max
     VAR_PLANID = Ado_detalle1.Recordset!fmes_plan                 'Ado_detalle1.Recordset!correlativo
@@ -4389,7 +4390,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos6 = New ADODB.Recordset
     If rs_datos6.State = 1 Then rs_datos6.Close
     rs_datos6.Open "select distinct * from av_bienes_vs_venta_detalle where par_codigo = '33100' or par_codigo = '34110' ORDER BY bien_descripcion ", db, adOpenStatic
-    Set Ado_datos6.Recordset = rs_datos6
+    Set ado_datos6.Recordset = rs_datos6
 '    dtc_desc6.BoundText = dtc_codigo6.BoundText
 End Sub
 

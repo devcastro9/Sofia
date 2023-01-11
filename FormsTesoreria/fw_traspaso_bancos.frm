@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   130613249
+         Format          =   119799809
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   130613249
+         Format          =   119799809
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   130613249
+            Format          =   119799809
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -3948,7 +3948,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar1.Visible = False
             BtnAprobar.Visible = False
             BtnModificar.Visible = False
-            BtnDesAprobar.Visible = True
+            BtnDesAprobar.Visible = False
             BtnEliminar.Visible = False
             lbl_cerrado.Caption = "APROBADO SUPERVISOR"
             FrmABMDet.Visible = False
@@ -4132,12 +4132,12 @@ Private Sub AbrirDetalle()
     rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
     rs_datos14.Sort = "doc_numero"
     'HASTA AQUI
-    Set Ado_datos14.Recordset = rs_datos14.DataSource
-    Ado_datos14.Recordset.Requery
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+    Set ado_datos14.Recordset = rs_datos14.DataSource
+    ado_datos14.Recordset.Requery
+    If ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
         DtGLista.Visible = True
-        Set DtGLista.DataSource = Ado_datos14.Recordset
+        Set DtGLista.DataSource = ado_datos14.Recordset
         Call AbreOrigen
     Else
         deta2 = 0
@@ -4215,7 +4215,7 @@ Private Sub AbreOrigen()
 '        Case Else
 '            rs_datos6.Open "select * from fv_recibos_pendientes_agrupados WHERE (IdTraspasoBancos is NULL or IdTraspasoBancos ='0')  ", db, adOpenKeyset, adLockOptimistic
 '    End Select
-    Set Ado_datos6.Recordset = rs_datos6
+    Set ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 
 End Sub
@@ -4553,7 +4553,7 @@ Private Sub BtnBuscar_Click()
 End Sub
 
 Private Sub BtnBuscar1_Click()
-  If Ado_datos14.Recordset.RecordCount > 0 Then
+  If ado_datos14.Recordset.RecordCount > 0 Then
     'JQA
       buscados = 1
       PosibleApliqueFiltro = False
@@ -4564,7 +4564,7 @@ Private Sub BtnBuscar1_Click()
       ClBuscaGrid.EsTdbGrid = False
       Set ClBuscaGrid.GridTrabajo = DtGLista
       ClBuscaGrid.QueryUtilizado = queryinicial2
-      Set ClBuscaGrid.RecordsetTrabajo = Ado_datos14.Recordset
+      Set ClBuscaGrid.RecordsetTrabajo = ado_datos14.Recordset
       ClBuscaGrid.CamposVisibles = "110"
       ClBuscaGrid.Ejecutar
       PosibleApliqueFiltro = True
@@ -4641,7 +4641,7 @@ On Error GoTo UpdateErr
 If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        If Ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+        If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
             Set rs_datos7 = New ADODB.Recordset
             If rs_datos7.State = 1 Then rs_datos7.Close
             rs_datos7.Open "select * from fv_ventas_cobranza_det_traspasos WHERE (IdRecibo = " & dtc_codigo6.Text & ")  ", db, adOpenKeyset, adLockOptimistic
@@ -4746,7 +4746,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & Ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & Ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(Ado_datos14.Recordset!venta_precio_total_dol), 0, Ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -4894,15 +4894,15 @@ End Sub
 
 Private Sub BtnGrabar2_Click()
 On Error GoTo UpdateErr
- If CDate(Ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(Ado_datos14.Recordset!cobranza_fecha) <= CDate("30/06/2022") Then
+ If CDate(ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(ado_datos14.Recordset!cobranza_fecha) <= CDate("30/06/2022") Then
     MsgBox "No se puede Procesar una Fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
     Exit Sub
  End If
 If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "MWILDE" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        If Ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
-            If (Ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(Ado_datos14.Recordset!cmpbte_fecha) Or (Ado_datos14.Recordset!cmpbte_fecha = "01/01/1900")) Then
+        If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+            If (ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(ado_datos14.Recordset!cmpbte_fecha) Or (ado_datos14.Recordset!cmpbte_fecha = "01/01/1900")) Then
                 MsgBox "No se puede ACEPTAR, verifique la fecha de Cheque, Transferencia o Comprobante y vuelva a intentar ...", , "Atención"
                 FraNavega.Enabled = True
                 FraNavega.Enabled = True
@@ -4914,13 +4914,13 @@ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES
                 Exit Sub
             End If
             'GRABA RECIBO DETALLE
-            If Ado_datos14.Recordset!trans_codigo = "T" Or Ado_datos14.Recordset!trans_codigo = "O" Then
-                db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & Ado_datos14.Recordset!cmpbte_deposito & "', fecha_registro_bco= '" & Ado_datos14.Recordset!cmpbte_fecha & "', trans_codigo= '" & Ado_datos14.Recordset!trans_codigo & "'  where correl_cobro = " & Ado_datos14.Recordset!correl_cobro & " "
+            If ado_datos14.Recordset!trans_codigo = "T" Or ado_datos14.Recordset!trans_codigo = "O" Then
+                db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & ado_datos14.Recordset!cmpbte_deposito & "', fecha_registro_bco= '" & ado_datos14.Recordset!cmpbte_fecha & "', trans_codigo= '" & ado_datos14.Recordset!trans_codigo & "'  where correl_cobro = " & ado_datos14.Recordset!correl_cobro & " "
             End If
-            db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & Ado_datos14.Recordset!correl_cobro & " "
+            db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & ado_datos14.Recordset!correl_cobro & " "
             
             'ACTUALIZA APRUEBA ao_ventas_cobranza_det
-            db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & Ado_datos14.Recordset!correl_cobro & " "
+            db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & ado_datos14.Recordset!correl_cobro & " "
             'cobranza_codigo = " & ado_datos14.Recordset!cobranza_codigo & " and cobranza_detalle = " & ado_datos14.Recordset!cobranza_detalle & " "
             
             ' ACTUALIZA TOTALES fo_traspaso_bancos
@@ -6719,7 +6719,7 @@ Private Sub CmdOKunidad_Click()
 End Sub
 
 Private Sub BtnImprimir2_Click()
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+    If ado_datos14.Recordset.RecordCount > 0 Then
          Dim iResult As Integer
         'Dim co As New ADODB.Command
         'CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_almacen_kardex.rpt"
@@ -6727,8 +6727,8 @@ Private Sub BtnImprimir2_Click()
         CryR01.WindowShowPrintSetupBtn = True
         CryR01.WindowShowRefreshBtn = True
         'CryR01.StoredProcParam(0) = Ado_datos.Recordset!bien_codigo
-        CryR01.StoredProcParam(0) = Ado_datos14.Recordset!bien_codigo
-        CryR01.StoredProcParam(1) = Trim(Str(Ado_datos14.Recordset!almacen_codigo))            'dtc_codigo1.Text
+        CryR01.StoredProcParam(0) = ado_datos14.Recordset!bien_codigo
+        CryR01.StoredProcParam(1) = Trim(Str(ado_datos14.Recordset!almacen_codigo))            'dtc_codigo1.Text
         CryR01.StoredProcParam(2) = Format(DTP_Finicio.Value, "dd/mm/yyyy")
         CryR01.StoredProcParam(3) = Format(DTP_Ffin.Value, "dd/mm/yyyy")
         CryR01.Formulas(0) = "almace = '" & dtc_desc1.Text & "' "
@@ -6805,8 +6805,8 @@ Private Sub Extracto()
     Set rs_datos18 = New ADODB.Recordset
     If rs_datos18.State = 1 Then rs_datos18.Close
     rs_datos18.Open "Select * from fv_extracto_ingresos_NO_conciliados order by cod_bancarizacion", db, adOpenStatic        'fecha_transaccion, hora_transaccion
-    Set Ado_datos18.Recordset = rs_datos18
-    If Ado_datos18.Recordset.RecordCount > 0 Then
+    Set ado_datos18.Recordset = rs_datos18
+    If ado_datos18.Recordset.RecordCount > 0 Then
         DctFecha18.BoundText = DctCod18.BoundText
         DctMonto18.BoundText = DctCod18.BoundText
         DctCliente18.BoundText = DctCod18.BoundText

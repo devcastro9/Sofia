@@ -12,13 +12,13 @@ Begin VB.Form rw_ficha_rrhh
    ClientHeight    =   10230
    ClientLeft      =   225
    ClientTop       =   555
-   ClientWidth     =   11280
+   ClientWidth     =   15915
    Icon            =   "rw_ficha_rrhh.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10230
+   ScaleWidth      =   15915
    WindowState     =   2  'Maximized
    Begin TabDlg.SSTab SSTab1 
       Height          =   9480
@@ -56,9 +56,7 @@ Begin VB.Form rw_ficha_rrhh
       TabPicture(1)   =   "rw_ficha_rrhh.frx":0A1E
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "Label44"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Frame18"
-      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).ControlCount=   2
       TabCaption(2)   =   "PERMISOS-VACACIONES"
       TabPicture(2)   =   "rw_ficha_rrhh.frx":0A3A
@@ -3025,7 +3023,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120061953
+               Format          =   119799809
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3126,7 +3124,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   120061953
+               Format          =   119799809
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3388,7 +3386,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   120061953
+            Format          =   119799809
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3405,7 +3403,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   120061953
+            Format          =   119799809
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3569,7 +3567,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   120061953
+            Format          =   119799809
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -10063,7 +10061,7 @@ On Error GoTo EditErr
    sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
    If Ado_datos.Recordset("estado_codigo") = "REG" Then
       If sino = vbYes Then
-        If Ado_datos.Recordset("no_file") <> 1 Then
+        If Ado_datos.Recordset("beneficiario_nro_file") <> 1 Then
             Dim RUTA1, RUTA2 As String
             RUTA1 = "PERSONAL" + "\" + Trim(Ado_datos.Recordset("beneficiario_beneficiario_iniciales")) + "-" + Trim(Ado_datos.Recordset("beneficiario_codigo"))
             MsgBox RUTA1
@@ -10085,13 +10083,14 @@ On Error GoTo EditErr
 '            RUTA1 = "PERSONAL" + "\" + Trim(LblInicial)
 '            MsgBox RUTA1
 '            MkDir RUTA1
-            Ado_datos.Recordset("no_file") = 1
+            Ado_datos.Recordset("beneficiario_nro_file") = 1
         End If
-        Ado_datos.Recordset("estado_codigo") = "APR"
-        Ado_datos.Recordset("fecha_aprueba") = Date
-        Ado_datos.Recordset("usr_aprueba") = glusuario
-        Ado_datos.Recordset.Update
-        
+'        Ado_datos.Recordset("estado_codigo") = "APR"
+'        Ado_datos.Recordset("fecha_aprueba") = Date
+'        Ado_datos.Recordset("usr_aprueba") = glusuario
+'        Ado_datos.Recordset.Update
+        db.Execute "UPDATE ro_personal_contratado SET estado_codigo = 'APR', fecha_aprueba = '" & Date & "', usr_aprueba = '" & glusuario & "' WHERE beneficiario_codigo = '" & Ado_datos.Recordset!beneficiario_codigo & "'"
+        Call OptFilGral1_Click
       End If
    Else
         MsgBox "No se puede APROBAR un registro Anulado o Aprobado anteriormente ...", vbExclamation, "Validación de Registro"
@@ -10262,20 +10261,21 @@ EditErr:
 Private Sub BtnModificar_Click()
 On Error GoTo EditErr
 '  If Ado_datos.Recordset("estado_codigo") = "N" Then
+     
+     If Ado_datos.Recordset("estado_codigo") = "APR" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
+        MsgBox "El registro está APROBADO, solo se puede modificar por usuarios Autorizados ..."
+        Frame2.Enabled = False
+'        Frame1.Enabled = False
+     Else
+        MsgBox "El usuario no tiene acceso a modificar ..."
+        Exit Sub
+     End If
      swnuevo = 2
      Set rst_ben = New ADODB.Recordset
      SSTab1.Tab = 0
      SSTab1.TabEnabled(0) = True
      SSTab1.TabEnabled(1) = True
      SSTab1.TabEnabled(2) = True
-     If Ado_datos.Recordset("estado_codigo") = "APR" Then
-        MsgBox "El registro está APROBADO, solo se puede modificar por usuarios Autorizados ..."
-        Frame2.Enabled = False
-'        Frame1.Enabled = False
-     Else
-        Frame2.Enabled = True
-'        Frame1.Enabled = True
-     End If
      fraDatos.Enabled = True
      DTP_FechaNac.Enabled = True
 '     TxtRenca.SetFocus
@@ -11804,7 +11804,7 @@ Private Sub Carga_Recor()
    Set rs_datos6 = New ADODB.Recordset
    If rs_datos6.State = 1 Then rs_datos6.Close
    rs_datos6.Open "select * from rv_rc_planilla_vs_rc_sub_planilla ", db, adOpenKeyset, adLockOptimistic, adCmdText
-   Set Ado_datos6.Recordset = rs_datos6
+   Set ado_datos6.Recordset = rs_datos6
    dtc_desc2.BoundText = dtc_codigo2.BoundText
     
     'GENERO

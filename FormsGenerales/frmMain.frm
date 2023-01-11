@@ -1468,8 +1468,6 @@ Private Sub LblAlertaContratos_Click()
 '    Timer1.Enabled = False
 End Sub
 
-
-
 Private Sub mnu_AdministracionUsuarios_Click()
 '    FrmCambiarClave.lbl_titulo = mnu_AdministracionUsuarios.Caption
 '    FrmCambiarClave.FraNavega = mnu_AdministracionUsuarios.Caption
@@ -1623,7 +1621,6 @@ Private Sub Mnu_CostosComercializacion_Click()
 End Sub
 
 Private Sub Mnu_CronogramaInstalaciones_Click()
-
     If glusuario = "AURBINA" Or glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "CSALINAS" Or glusuario = "VPAREDES" Or glusuario = "CPAREDES" Or glusuario = "ACLAROS" Or glusuario = "AACOSTA" Or glusuario = "CURDININEA" Or glusuario = "FCABRERA" Or glusuario = "BRAMOS" Or glusuario = "JMAMANI" Or glusuario = "EVILLALOBOS" Or glusuario = "RMORA" Or glusuario = "BINFANTE" Or glusuario = "MRODRIGUEZ" Or glusuario = "AFLORES" Or glusuario = "RBUSTILLOS" Then
     '    Santa Cruz:
     'Cesar Paredes, Ariel Claros , Angel Acosta, Carlos Urdininea.

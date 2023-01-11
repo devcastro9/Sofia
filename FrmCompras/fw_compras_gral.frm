@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_gral
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -42,7 +42,7 @@ Begin VB.Form fw_compras_gral
       Height          =   5640
       Left            =   4440
       TabIndex        =   15
-      Top             =   3960
+      Top             =   2520
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110362625
+         Format          =   110624769
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2799,10 +2799,10 @@ Begin VB.Form fw_compras_gral
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   21360
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   12915
-      Width           =   21360
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -7026,9 +7026,9 @@ Private Sub BtnImprimir3_Click()
     CR02.Formulas(7) = "ProvDes ='" & Ado_detalle2.Recordset!observaciones & "' "
     CR02.Formulas(8) = "ProvNit ='" & Ado_detalle2.Recordset!nit_beneficiario & "' "
     CR02.Formulas(9) = "ProvFac ='" & Ado_detalle2.Recordset!nro_nota_remision & "' "
-    CR02.StoredProcParam(0) = Ado_datos.Recordset!compra_codigo
+    CR02.StoredProcParam(0) = Ado_detalle2.Recordset!compra_codigo
     CR02.StoredProcParam(1) = Ado_detalle2.Recordset!adjudica_codigo
-    CR02.StoredProcParam(2) = Ado_datos.Recordset!ges_gestion
+    CR02.StoredProcParam(2) = Ado_detalle2.Recordset!ges_gestion
 
   iResult = CR02.PrintReport
   If iResult <> 0 Then
