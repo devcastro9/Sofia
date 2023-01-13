@@ -1104,6 +1104,9 @@ Begin VB.MDIForm frmMain
          Begin VB.Menu Mnu_ProcesoPlanillas 
             Caption         =   "PROCESO DE PLANILLAS"
          End
+         Begin VB.Menu menuBoletaPagos 
+            Caption         =   "DEFINICION DE BOLETAS DE PAGO"
+         End
       End
       Begin VB.Menu Mnu_Reportes_RRHH 
          Caption         =   "REPORTES RRHH"
@@ -1466,6 +1469,10 @@ Private Sub LblAlertaContratos_Click()
         End If
     Cry.WindowState = crptMaximized
 '    Timer1.Enabled = False
+End Sub
+
+Private Sub menuBoletaPagos_Click()
+    FrmBoletaPagos.Show
 End Sub
 
 Private Sub mnu_AdministracionUsuarios_Click()

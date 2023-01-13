@@ -1314,7 +1314,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109903873
+            Format          =   109051905
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1576,7 +1576,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   109903873
+            Format          =   109051905
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1604,7 +1604,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109903873
+            Format          =   109051905
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2102,7 +2102,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   109903873
+               Format          =   109051905
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2127,7 +2127,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109903873
+               Format          =   109051905
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2571,7 +2571,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109903873
+               Format          =   109051905
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2654,7 +2654,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109903873
+               Format          =   109051905
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3380,7 +3380,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109903873
+            Format          =   109051905
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -5656,6 +5656,7 @@ Dim VAR_COBR1, VAR_COBR2, VAR_CONTR, aviso_cob As Integer
 Dim VAR_ALMACEN, VAR_SOLTIPO As Integer
 Dim VAR_IMPAR, VAR_MESINI2, VAR_ORDEN As Integer
 Dim VAR_CANTCRO, VAR_ZONA, VAR_EMPRESA As Integer
+Dim VAR_EDIFC As Integer
 
 Dim nroventa, correlv As Long
 Dim VAR_CORREL, VAR_CORRELM As Long
@@ -5917,7 +5918,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         Else
             LblEmpresa.Caption = "CGI"
         End If
-        If glusuario = "CARIZACA" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "VBELLIDO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
+        If glusuario = "CARIZACA" Or glusuario = "KBETANCOURTH" Or glusuario = "DTORRICO" Or glusuario = "VBELLIDO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
             BtnEliminar.Visible = True
         Else
             BtnEliminar.Visible = False
@@ -7514,6 +7515,9 @@ End Sub
 Private Sub BtnAprobar2_Click()
  NumComp = Ado_datos.Recordset!venta_codigo
  VAR_COBRANZA = Ado_datos16.Recordset!cobranza_prog_codigo
+ VAR_PROY2 = Ado_datos.Recordset!edif_codigo
+ VAR_EDIFC = Ado_datos.Recordset!edif_codigo_corto
+ VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
  If VAR_COBRANZA > 1 Then
     'VERIFICA SI HAY CUOTAS ANTERIORES
     Set rs_aux22 = New ADODB.Recordset
@@ -7557,7 +7561,7 @@ Private Sub BtnAprobar2_Click()
                 " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
                         " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & Ado_datos.Recordset!edif_codigo_corto & ", '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!codigo_empresa & "  ) "
+                        " '" & glusuario & "', '" & CDate(Date) & "', " & VAR_EDIFC & ", '" & VAR_PROY2 & "', " & VAR_EMPRESA & "  ) "
                         
             'Actualiza CORREO ELECTRONICO
             db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
