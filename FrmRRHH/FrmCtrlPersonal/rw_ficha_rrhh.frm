@@ -55,36 +55,36 @@ Begin VB.Form rw_ficha_rrhh
       TabCaption(1)   =   "CONTROL ASISTENCIA"
       TabPicture(1)   =   "rw_ficha_rrhh.frx":0A1E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Label44"
-      Tab(1).Control(1)=   "Frame18"
+      Tab(1).Control(0)=   "Frame18"
+      Tab(1).Control(1)=   "Label44"
       Tab(1).ControlCount=   2
       TabCaption(2)   =   "PERMISOS-VACACIONES"
       TabPicture(2)   =   "rw_ficha_rrhh.frx":0A3A
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "Label45"
+      Tab(2).Control(0)=   "Frame14"
       Tab(2).Control(1)=   "Frame9"
-      Tab(2).Control(2)=   "Frame14"
+      Tab(2).Control(2)=   "Label45"
       Tab(2).ControlCount=   3
       TabCaption(3)   =   "MOVILIDAD PERSONAL"
       TabPicture(3)   =   "rw_ficha_rrhh.frx":0A56
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "Frame16"
+      Tab(3).Control(0)=   "Label46"
       Tab(3).Control(1)=   "Frame17"
-      Tab(3).Control(2)=   "Label46"
+      Tab(3).Control(2)=   "Frame16"
       Tab(3).ControlCount=   3
       TabCaption(4)   =   "CURRICULARES"
       TabPicture(4)   =   "rw_ficha_rrhh.frx":0A72
       Tab(4).ControlEnabled=   0   'False
-      Tab(4).Control(0)=   "Label5"
+      Tab(4).Control(0)=   "Frame15"
       Tab(4).Control(1)=   "Frame5"
-      Tab(4).Control(2)=   "Frame15"
+      Tab(4).Control(2)=   "Label5"
       Tab(4).ControlCount=   3
       TabCaption(5)   =   "CONTRATOS Y LIQUIDACIONES"
       TabPicture(5)   =   "rw_ficha_rrhh.frx":0A8E
       Tab(5).ControlEnabled=   0   'False
-      Tab(5).Control(0)=   "Label16"
+      Tab(5).Control(0)=   "Frame10"
       Tab(5).Control(1)=   "Frame20"
-      Tab(5).Control(2)=   "Frame10"
+      Tab(5).Control(2)=   "Label16"
       Tab(5).ControlCount=   3
       Begin VB.Frame Frame14 
          BackColor       =   &H00E0E0E0&
@@ -3023,7 +3023,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119799809
+               Format          =   109248513
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3124,7 +3124,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119799809
+               Format          =   109248513
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3386,7 +3386,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119799809
+            Format          =   109248513
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3403,7 +3403,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119799809
+            Format          =   109248513
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3567,7 +3567,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119799809
+            Format          =   109248513
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -8197,7 +8197,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '      BtnModificar.Enabled = False
      ' BtnEliminar.Enabled = False
       'TxtTipo.Text = Empty
-      TxtCodigo = Empty
+      txtCodigo = Empty
   Else
 'lblActivo.Caption = Ado_datos.Recordset!sigla_emprea
 
@@ -8459,7 +8459,7 @@ End If
 '       DE.dbo_fc_correl_ben CORREL
        Set rstbeneaux = New ADODB.Recordset
        'SQL_FOR = "select * from rv_personal_contratado where beneficiario_codigo= '" & TxtCodigo.Text & "' OR beneficiario_codigo= '" & txtCodigo2.Text & "' "
-       SQL_FOR = "select * from Gc_beneficiario where beneficiario_codigo= '" & TxtCodigo & "'  "
+       SQL_FOR = "select * from Gc_beneficiario where beneficiario_codigo= '" & txtCodigo & "'  "
        rstbeneaux.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic        ', adCmdText
        'If rstbeneaux.RecordCount > 0 And txtCodigo.Enabled Then
        If rstbeneaux.RecordCount > 0 Then
@@ -8470,7 +8470,7 @@ End If
        End If
      End If
      If TxtTipo < "20" Then
-        If Trim(TxtCodigo) = "" Then
+        If Trim(txtCodigo) = "" Then
             MsgBox "Introduzca el No. Documento de Identidad :"
 '                TxtCodigo.SetFocus
             Exit Sub
@@ -8489,8 +8489,8 @@ End If
         ' CORREL = CORREL + 1
         db.BeginTrans
         SW = False
-        If TxtCodigo.Enabled And swnuevo = 1 Then
-            .Recordset("beneficiario_codigo") = Trim(TxtCodigo)
+        If txtCodigo.Enabled And swnuevo = 1 Then
+            .Recordset("beneficiario_codigo") = Trim(txtCodigo)
 '            If TxtTipo2.Text = "6" Then
 '                 .Recordset("NIT") = TxtCodigo.Text
 '            End If
@@ -8576,7 +8576,7 @@ End If
    FraGrabarCancelar.Visible = False
    FraNavega.Enabled = True
    fraDatos.Enabled = False
-   TxtCodigo.Enabled = True
+   txtCodigo.Enabled = True
 '   FraSS_SS.Enabled = False
 
    Call Carga_Recor
@@ -8754,7 +8754,7 @@ On Error GoTo EditErr
        frm_ao_Vacacion_Prog.txtSW = "ADD"
        frm_ao_Vacacion_Prog.txtBenef = Ado_datos.Recordset!beneficiario_codigo
        frm_ao_Vacacion_Prog.txtEstado = "REG"
-       frm_ao_Vacacion_Prog.TxtGestion.Text = Year(Date)
+       frm_ao_Vacacion_Prog.txtGestion.Text = Year(Date)
        frm_ao_Vacacion_Prog.txt_empresa.Text = Ado_datos.Recordset!codigo_empresa
 '      Ado_VacacionesProg.Recordset.AddNew
 '       frm_ao_Vacacion_Prog.lblbien(1).Visible = True
@@ -8783,7 +8783,7 @@ On Error GoTo EditErr
         frm_ao_Permisos_js.txtBenef = Ado_datos.Recordset!beneficiario_codigo
         frm_ao_Permisos_js.txtEstado = "REG"
         'AdoPermiso.Recordset.AddNew
-        frm_ao_Permisos_js.TxtGestion = Year(Date)
+        frm_ao_Permisos_js.txtGestion = Year(Date)
         frm_ao_Permisos_js.Show vbModal
         
         Call abrirtabla
@@ -9643,7 +9643,7 @@ On Error GoTo EditErr
         frm_ao_Vacacion_Prog.txtSW = "MOD"
         frm_ao_Vacacion_Prog.sel = 1
         frm_ao_Vacacion_Prog.txtBenef = Ado_datos.Recordset!beneficiario_codigo
-        frm_ao_Vacacion_Prog.TxtGestion.Text = Ado_VacacionesProg.Recordset!ges_gestion
+        frm_ao_Vacacion_Prog.txtGestion.Text = Ado_VacacionesProg.Recordset!ges_gestion
         
         frm_ao_Vacacion_Prog.Txt01.Text = Ado_VacacionesProg.Recordset!mes_control
         frm_ao_Vacacion_Prog.Txt02.Text = Ado_VacacionesProg.Recordset!dias_Programados
@@ -9697,7 +9697,7 @@ Private Sub CmdMod3_Click()
     frm_ao_Permisos_js.hr_horadesde = AdoPermiso.Recordset!horadesde
     frm_ao_Permisos_js.hr_horahasta = AdoPermiso.Recordset!HoraHasta
     frm_ao_Permisos_js.hr_horareincorporacion = AdoPermiso.Recordset!Hora_reincorporacion
-    frm_ao_Permisos_js.TxtGestion = AdoPermiso.Recordset!ges_gestion
+    frm_ao_Permisos_js.txtGestion = AdoPermiso.Recordset!ges_gestion
     frm_ao_Permisos_js.txt_nrodias = AdoPermiso.Recordset!dias_permiso
     frm_ao_Permisos_js.txt_nrohoras = AdoPermiso.Recordset!horas_permiso
     frm_ao_Permisos_js.txt_nrominutos = AdoPermiso.Recordset!minutos_permiso
@@ -9732,7 +9732,7 @@ Private Sub CmdMod4_Click()
         frm_ao_memoranda.Txt09.Text = IIf(IsNull(Ado_Memo.Recordset!observaciones), "-", Ado_Memo.Recordset!observaciones)
         frm_ao_memoranda.DTPFec_Inicio.Value = Ado_Memo.Recordset!fecha_memo
         frm_ao_memoranda.DtcFec_Fin.Value = Ado_Memo.Recordset!fecha_aprobacion
-        frm_ao_memoranda.TxtGestion.Text = Ado_Memo.Recordset!ges_gestion
+        frm_ao_memoranda.txtGestion.Text = Ado_Memo.Recordset!ges_gestion
         frm_ao_memoranda.txt08.Text = IIf(IsNull(Ado_Memo.Recordset!Monto), "0", Ado_Memo.Recordset!Monto)
         frm_ao_memoranda.txt10.Text = Ado_Memo.Recordset!minutos
         frm_ao_memoranda.TxtGestion2.Text = Ado_Memo.Recordset!gestion_descuento
@@ -9802,7 +9802,7 @@ Private Sub CmdMod5_Click()
         marca1 = Ado_datos.Recordset.Bookmark
         frm_ro_movilidad_personal.txtSW = "MOD"
         
-        frm_ro_movilidad_personal.TxtCodigo.Text = AdoMovilidad.Recordset!numero_cambio
+        frm_ro_movilidad_personal.txtCodigo.Text = AdoMovilidad.Recordset!numero_cambio
           frm_ro_movilidad_personal.TxtForm.Text = AdoMovilidad.Recordset!numero_resolucion
           frm_ro_movilidad_personal.DtcRespaldoCod.Text = AdoMovilidad.Recordset!tipo_memo
           frm_ro_movilidad_personal.DtcRespaldo.BoundText = frm_ro_movilidad_personal.DtcRespaldoCod.BoundText
@@ -9873,10 +9873,10 @@ On Error GoTo EditErr
     Set rsauxiliar = New ADODB.Recordset
     'SQL_FOR = "select * from rc_personal where ci = '" & txtCodigo.Text & "'"
     'rsauxiliar.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic        ', adCmdText
-    rsauxiliar.Open "select * from rc_personal where ci = '" & TxtCodigo & "' ", db, adOpenKeyset, adLockOptimistic
+    rsauxiliar.Open "select * from rc_personal where ci = '" & txtCodigo & "' ", db, adOpenKeyset, adLockOptimistic
     If rsauxiliar.RecordCount = 0 Then
         rsauxiliar.AddNew
-        rsauxiliar!ci = TxtCodigo
+        rsauxiliar!ci = txtCodigo
         rsauxiliar!idfuncionario = CORREL
     Else
         'MsgBox " YA EXISTE EL CODIGO ..."
@@ -9892,14 +9892,14 @@ On Error GoTo EditErr
         rsauxiliar!usr_usuario = glusuario 'frmLogin.txtUserName.Text
         rsauxiliar!fecha_registro = Date
         rsauxiliar!hora_registro = Format(Time, "HH:mm:ss")
-        rsauxiliar!departamento_nacimiento = dtc_depto.Text
+        rsauxiliar!departamento_nacimiento = Dtc_depto.Text
         rsauxiliar!Procedencia = Dtc_prov.Text
         rsauxiliar!lugar_procedencia = Dtc_munic.Text
         'rsauxiliar!codigo_cargo = "-"   'TxtCargo.Text
 '        rsauxiliar!numero_folder = Txt_mail.Text
         rsauxiliar!profesion = TxtProfesion.Text
         rsauxiliar.Update
-        MkDir TxtCodigo
+        MkDir txtCodigo
         If Guardar_Imagen(db, "Select Foto From rv_personal_contratado Where beneficiario_codigo= '" & Ado_datos.Recordset("beneficiario_codigo") & "' ", "Foto", App.Path) Then
             MsgBox "ok"
         Else
@@ -9940,10 +9940,10 @@ On Error GoTo EditErr
       SSTab1.Tab = 0
       SSTab1.TabEnabled(0) = True
       SSTab1.TabEnabled(1) = False
-      TxtCodigo.Enabled = True
+      txtCodigo.Enabled = True
       fraDatos.Enabled = True
       Frame2.Enabled = True
-      TxtCodigo = Empty
+      txtCodigo = Empty
 '      Text1.Text = Empty
 '      Text2.Text = Empty
 '      Text3.Text = Empty
@@ -10140,7 +10140,7 @@ Ado_datos.Recordset.CancelUpdate
    FraGrabarCancelar.Visible = False
    FraNavega.Enabled = True
    fraDatos.Enabled = False
-   TxtCodigo.Enabled = True
+   txtCodigo.Enabled = True
 '   FraSS_SS.Enabled = False
    CmdAdd1.Visible = False
    CmdMod1.Visible = False
@@ -10212,7 +10212,7 @@ End Sub
  
  Public Sub opciones()
  On Error GoTo EditErr
-   TxtCodigo.Enabled = True
+   txtCodigo.Enabled = True
    fraDatos.Enabled = False
    'Carga_Recor
    swnuevo = 0
@@ -10261,11 +10261,10 @@ EditErr:
 Private Sub BtnModificar_Click()
 On Error GoTo EditErr
 '  If Ado_datos.Recordset("estado_codigo") = "N" Then
-     
      If Ado_datos.Recordset("estado_codigo") = "APR" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
-        MsgBox "El registro está APROBADO, solo se puede modificar por usuarios Autorizados ..."
         Frame2.Enabled = False
-'        Frame1.Enabled = False
+     ElseIf Ado_datos.Recordset("estado_codigo") = "REG" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
+        Frame2.Enabled = False
      Else
         MsgBox "El usuario no tiene acceso a modificar ..."
         Exit Sub
@@ -10319,7 +10318,7 @@ On Error GoTo EditErr
      FraGrabarCancelar.Visible = True
      FraNavega.Enabled = False
 '     FraSS_SS.Enabled = True
-     TxtCodigo.Enabled = False
+     txtCodigo.Enabled = False
      rst_ben.Open "SELECT * FROM gc_Tipo_Beneficiario where estado_codigo ='APR' ORDER BY tipoben_descripcion ", db, adOpenStatic
      Set AdoTip_ben.Recordset = rst_ben
      
@@ -10469,9 +10468,9 @@ On Error GoTo EditErr
       If AdoLiquidacion.Recordset!estado_codigo = "REG" Then
         marca1 = Ado_datos.Recordset.Bookmark
         ro_Personal_Liquidacion.txtSW = "MOD"
-        ro_Personal_Liquidacion.TxtGestion = AdoLiquidacion.Recordset!ges_gestion
+        ro_Personal_Liquidacion.txtGestion = AdoLiquidacion.Recordset!ges_gestion
         ro_Personal_Liquidacion.TxtGestion_ini = IIf(IsNull(AdoLiquidacion.Recordset!ges_gestion_ini), Year(Date), AdoLiquidacion.Recordset!ges_gestion_ini)
-        ro_Personal_Liquidacion.TxtGestion = AdoLiquidacion.Recordset!ges_gestion
+        ro_Personal_Liquidacion.txtGestion = AdoLiquidacion.Recordset!ges_gestion
         ro_Personal_Liquidacion.txtBenef = Ado_datos.Recordset!beneficiario_codigo
         ro_Personal_Liquidacion.TxtInicial = Ado_datos.Recordset!beneficiario_iniciales
         ro_Personal_Liquidacion.TxtAprob = AdoLiquidacion.Recordset!estado_codigo
@@ -10532,7 +10531,7 @@ On Error GoTo EditErr
         marca1 = Ado_datos.Recordset.Bookmark
         'AdoLiquidacion.Recordset.AddNew
         ro_Personal_Liquidacion.txtSW = "ADD"
-        ro_Personal_Liquidacion.TxtGestion = Year(Date)
+        ro_Personal_Liquidacion.txtGestion = Year(Date)
         ro_Personal_Liquidacion.TxtGestion_ini = Year(Date) - 5
         ro_Personal_Liquidacion.txtBenef.Text = Ado_datos.Recordset!beneficiario_codigo
         ro_Personal_Liquidacion.TxtInicial = Ado_datos.Recordset!beneficiario_iniciales
@@ -10611,7 +10610,7 @@ Private Sub Command17_Click()
         frm_ro_personal_contrato.TxtForm = Ado_Contrato.Recordset!solicitud_codigo
         frm_ro_personal_contrato.TxtAprob = Ado_Contrato.Recordset!estado_contrato
         frm_ro_personal_contrato.lblARCH.Caption = Ado_Contrato.Recordset!ARCHIVO
-        frm_ro_personal_contrato.TxtCodigo.Text = Ado_Contrato.Recordset!codigo_contrato
+        frm_ro_personal_contrato.txtCodigo.Text = Ado_Contrato.Recordset!codigo_contrato
         frm_ro_personal_contrato.txtObjContrato.Text = IIf(IsNull(Ado_Contrato.Recordset!objeto_contrato), "-", Ado_Contrato.Recordset!objeto_contrato)
         frm_ro_personal_contrato.DTcFte.Text = IIf(IsNull(Ado_Contrato.Recordset!fte_codigo), "10", Ado_Contrato.Recordset!fte_codigo)
         frm_ro_personal_contrato.dtc_codigo.Text = Ado_Contrato.Recordset!unidad_codigo
@@ -10693,7 +10692,7 @@ On Error GoTo EditErr
        frm_ao_Vacacion_Prog.txtSW = "ADD"
        frm_ao_Vacacion_Prog.txtBenef = Ado_datos.Recordset!beneficiario_codigo
        frm_ao_Vacacion_Prog.txtEstado = "REG"
-       frm_ao_Vacacion_Prog.TxtGestion.Text = Year(Date)
+       frm_ao_Vacacion_Prog.txtGestion.Text = Year(Date)
 '       frm_ao_Vacacion_Prog.lblbien(1).Visible = False
 '       frm_ao_Vacacion_Prog.Txt02.Visible = False
        'Ado_VacacionesProg.Recordset.AddNew
@@ -10942,13 +10941,13 @@ Private Sub DtcEstCiv_Click(Area As Integer)
 End Sub
 
 Private Sub Dtc_depto_Click(Area As Integer)
-    Dtc_depto_cod.BoundText = dtc_depto.BoundText
+    Dtc_depto_cod.BoundText = Dtc_depto.BoundText
     Call pProvincia(Dtc_depto_cod.BoundText)
 End Sub
 
 Private Sub Dtc_depto_cod_Click(Area As Integer)
-    dtc_depto.BoundText = Dtc_depto_cod.BoundText
-    Call pProvincia(dtc_depto.BoundText)
+    Dtc_depto.BoundText = Dtc_depto_cod.BoundText
+    Call pProvincia(Dtc_depto.BoundText)
 End Sub
 
 Private Sub pProvincia(depto_codigo As String)
@@ -11689,7 +11688,7 @@ Private Sub Carga_Recor()
     Set rs_Depto = New ADODB.Recordset
     rs_Depto.Open "select * from gc_Departamento", db, adOpenKeyset, adLockOptimistic
     Set Ado_Depto.Recordset = rs_Depto
-    dtc_depto.BoundText = Dtc_depto_cod.BoundText
+    Dtc_depto.BoundText = Dtc_depto_cod.BoundText
     
     Set rs_Prov = New ADODB.Recordset
     rs_Prov.Open "select * from GC_Provincia", db, adOpenKeyset, adLockOptimistic
@@ -11804,7 +11803,7 @@ Private Sub Carga_Recor()
    Set rs_datos6 = New ADODB.Recordset
    If rs_datos6.State = 1 Then rs_datos6.Close
    rs_datos6.Open "select * from rv_rc_planilla_vs_rc_sub_planilla ", db, adOpenKeyset, adLockOptimistic, adCmdText
-   Set ado_datos6.Recordset = rs_datos6
+   Set Ado_datos6.Recordset = rs_datos6
    dtc_desc2.BoundText = dtc_codigo2.BoundText
     
     'GENERO
