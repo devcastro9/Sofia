@@ -3,39 +3,90 @@ Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
 Begin VB.Form FrmBoletaPagos 
    Caption         =   "Boletas de Pagos"
-   ClientHeight    =   8355
+   ClientHeight    =   9030
    ClientLeft      =   120
    ClientTop       =   465
    ClientWidth     =   12450
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8355
+   ScaleHeight     =   9030
    ScaleWidth      =   12450
    WindowState     =   2  'Maximized
+   Begin VB.CommandButton btnGuardar 
+      Caption         =   "GUARDAR"
+      Height          =   495
+      Left            =   9840
+      TabIndex        =   21
+      Top             =   7560
+      Width           =   975
+   End
+   Begin VB.CommandButton btnCancelar 
+      Caption         =   "CANCELAR"
+      Height          =   495
+      Left            =   11040
+      TabIndex        =   20
+      Top             =   7560
+      Width           =   975
+   End
+   Begin VB.CommandButton btnEliminar 
+      Caption         =   "ELIMINAR"
+      Height          =   495
+      Left            =   7920
+      TabIndex        =   19
+      Top             =   7560
+      Width           =   975
+   End
+   Begin VB.CommandButton btnEditar 
+      Caption         =   "EDITAR"
+      Height          =   495
+      Left            =   6720
+      TabIndex        =   18
+      Top             =   7560
+      Width           =   975
+   End
+   Begin VB.CommandButton btnNuevo 
+      Caption         =   "NUEVO"
+      Height          =   495
+      Left            =   5520
+      TabIndex        =   17
+      Top             =   7560
+      Width           =   975
+   End
+   Begin VB.ComboBox cmbMes 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   360
+      ItemData        =   "FrmBoletaPagos.frx":0000
+      Left            =   6240
+      List            =   "FrmBoletaPagos.frx":0028
+      TabIndex        =   16
+      Text            =   "ENERO"
+      Top             =   2160
+      Width           =   2415
+   End
    Begin VB.TextBox txtMensaje 
       Height          =   2535
       Left            =   5520
       MultiLine       =   -1  'True
-      TabIndex        =   16
-      Text            =   "FrmBoletaPagos.frx":0000
+      TabIndex        =   15
+      Text            =   "FrmBoletaPagos.frx":0091
       Top             =   4920
       Width           =   6495
    End
    Begin VB.TextBox txtTitulo 
       Height          =   375
       Left            =   5520
-      TabIndex        =   15
+      TabIndex        =   14
       Text            =   "TITULO DEL MENSAJE"
       Top             =   3960
       Width           =   6495
-   End
-   Begin VB.TextBox txtMes 
-      Height          =   375
-      Left            =   6360
-      TabIndex        =   13
-      Text            =   "SEPTIEMBRE"
-      Top             =   2160
-      Width           =   2175
    End
    Begin VB.TextBox txtGestion 
       Height          =   375
@@ -48,7 +99,7 @@ Begin VB.Form FrmBoletaPagos
    Begin MSAdodcLib.Adodc adoListaMensaje 
       Height          =   330
       Left            =   120
-      Top             =   7680
+      Top             =   8520
       Width           =   5055
       _ExtentX        =   8916
       _ExtentY        =   582
@@ -92,14 +143,14 @@ Begin VB.Form FrmBoletaPagos
       _Version        =   393216
    End
    Begin MSDataGridLib.DataGrid dgListaMensaje 
-      Bindings        =   "FrmBoletaPagos.frx":000B
-      Height          =   6015
+      Bindings        =   "FrmBoletaPagos.frx":009C
+      Height          =   6735
       Left            =   120
       TabIndex        =   2
       Top             =   1680
       Width           =   5055
       _ExtentX        =   8916
-      _ExtentY        =   10610
+      _ExtentY        =   11880
       _Version        =   393216
       HeadLines       =   1
       RowHeight       =   15
@@ -188,7 +239,7 @@ Begin VB.Form FrmBoletaPagos
       EndProperty
       Height          =   255
       Left            =   7680
-      TabIndex        =   14
+      TabIndex        =   13
       Top             =   2760
       Width           =   1335
    End
@@ -386,11 +437,14 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim rsListaMensaje As New ADODB.Recordset
+Dim esNuevo As Boolean
+
 
 Private Sub adoListaMensaje_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If Not rsListaMensaje.BOF And Not rsListaMensaje.EOF Then
-        lblIdMensaje.Caption = adoListaMensaje.Recordset!Id
-        txtGestion.Text = adoListaMensaje.Recordset!gestion
+        lblIdMensaje.Caption = adoListaMensaje.Recordset!id
+        TxtGestion.Text = adoListaMensaje.Recordset!gestion
+        CmbMes.Text = mesaCadena(adoListaMensaje.Recordset!mes)
         lblUsuarioMensaje.Caption = adoListaMensaje.Recordset!usrCodigo
         lblFechaRegistroMensaje = adoListaMensaje.Recordset!fechaRegistro
         txtTitulo.Text = adoListaMensaje.Recordset!Titulo
@@ -398,15 +452,80 @@ Private Sub adoListaMensaje_MoveComplete(ByVal adReason As ADODB.EventReasonEnum
     End If
 End Sub
 
+Private Sub BtnCancelar_Click()
+    Call deshabCampos
+End Sub
+
+Private Sub btnEditar_Click()
+    esNuevo = False
+    Call habCampos
+    btnGuardar.Visible = True
+    BtnCancelar.Visible = True
+End Sub
+
+Private Sub btnEliminar_Click()
+    If MsgBox("¿Esta seguro de eliminar el registro del Mensaje?", vbExclamation + vbYesNo, "ELIMINAR MENSAJE") = vbYes Then
+        db.Execute "UPDATE rcMensajeBoletaPago_JASM SET estado = 'ANL' WHERE id = '" & lblIdMensaje.Caption & "'"
+        Call leerMensajes
+    End If
+End Sub
+
+Private Sub btnGuardar_Click()
+    If esNuevo Then
+    
+    Else
+        If mesaEntero(CmbMes.Text) <> 0 Then
+            If Len(txtTitulo.Text) <= 70 Then
+                If Len(txtMensaje.Text) <= 700 Then
+                    MsgBox "Guardado correctamente", vbCritical, "GUARDADO"
+                    db.Execute "UPDATE rcMensajeBoletaPago_JASM set gestion = '" & TxtGestion.Text & "', mes = " & mesaEntero(CmbMes.Text) & ""
+                    
+                Else
+                    MsgBox "El mensaje sobrepasa los 700 caracteres", vbCritical, "ERROR EN EL MENSAJE"
+                End If
+            Else
+                MsgBox "El titulo sobrepasa los 70 caracteres", vbCritical, "ERROR EN EL TITULO"
+            End If
+        Else
+            MsgBox "El mes no corresponde a ninguno de los doce meses!!!", vbCritical, "ERROR EN EL MES"
+        End If
+    End If
+End Sub
+
+Private Sub btnNuevo_Click()
+    esNuevo = True
+End Sub
+
 Private Sub Form_Load()
     Call leerMensajes
+    Call deshabCampos
 End Sub
 
 Private Sub leerMensajes()
     Set rsListaMensaje = New ADODB.Recordset
     If rsListaMensaje.State = 1 Then rsListaMensaje.Close
-    rsListaMensaje.Open "SELECT * FROM rcMensajeBoletaPago_JASM ORDER BY gestion DESC", db, adOpenStatic
+    rsListaMensaje.Open "SELECT * FROM rcMensajeBoletaPago_JASM WHERE estado = 'APR' ORDER BY gestion DESC", db, adOpenStatic
     Set adoListaMensaje.Recordset = rsListaMensaje
+End Sub
+Private Sub deshabCampos()
+    TxtGestion.Enabled = False
+    CmbMes.Enabled = False
+    txtTitulo.Enabled = False
+    txtMensaje.Enabled = False
+    BtnCancelar.Visible = False
+    btnGuardar.Visible = False
+    btnNuevo.Visible = True
+    btnEditar.Visible = True
+    BtnEliminar.Visible = True
+End Sub
+Private Sub habCampos()
+    TxtGestion.Enabled = True
+    CmbMes.Enabled = True
+    txtTitulo.Enabled = True
+    txtMensaje.Enabled = True
+    btnNuevo.Visible = False
+    btnEditar.Visible = False
+    BtnEliminar.Visible = False
 End Sub
 Public Function mesaCadena(numMes As Integer) As String
     Select Case numMes
