@@ -250,7 +250,7 @@ Begin VB.Form tw_calendario_zonas
       ForeColor       =   -2147483630
       BackColor       =   -2147483637
       Appearance      =   1
-      StartOfWeek     =   228851714
+      StartOfWeek     =   378667010
       TitleBackColor  =   -2147483635
       TitleForeColor  =   -2147483637
       CurrentDate     =   42828
@@ -850,7 +850,7 @@ Begin VB.Form tw_calendario_zonas
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   228851715
+         Format          =   378667011
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
@@ -2578,7 +2578,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
     CR01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
     CR01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
     CR01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!EDIF_CODIGO
+    CR01.StoredProcParam(3) = Me.Ado_datos.Recordset!edif_codigo
     CR01.StoredProcParam(4) = Me.Ado_datos.Recordset!cotiza_codigo
     iResult = CR01.PrintReport
     If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"

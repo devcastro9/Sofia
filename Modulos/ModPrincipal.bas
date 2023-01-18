@@ -19,7 +19,7 @@ Public glProceso$
 
 Public GlEdificio As String         'Codigo de Edificacion
 Public GlUnidad As String           'Codigo de Unidad Ejecutora
-Public GlSolicitud As Integer        'Codigo de Solicitud
+Public GlSolicitud As Integer       'Codigo de Solicitud
 
 Public GlHora1 As String
 Public GlHora2 As String

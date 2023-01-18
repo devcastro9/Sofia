@@ -704,7 +704,7 @@ Begin VB.Form fw_adjudica_gral
          EndProperty
          ForeColor       =   &H00400040&
          Height          =   615
-         Left            =   9480
+         Left            =   9720
          TabIndex        =   106
          Top             =   840
          Width           =   1935
@@ -766,7 +766,7 @@ Begin VB.Form fw_adjudica_gral
          Caption         =   "   TIPO DE MONEDA   "
          ForeColor       =   &H00FF0000&
          Height          =   615
-         Left            =   6960
+         Left            =   7440
          TabIndex        =   102
          Top             =   840
          Width           =   1935
@@ -873,7 +873,6 @@ Begin VB.Form fw_adjudica_gral
          DataSource      =   "fw_compras_gral.ado_detalle2"
          Height          =   285
          Left            =   12000
-         Locked          =   -1  'True
          MaxLength       =   50
          TabIndex        =   25
          Text            =   "0"
@@ -892,7 +891,7 @@ Begin VB.Form fw_adjudica_gral
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   5040
+         Left            =   5880
          Picture         =   "fw_adjudica_gral.frx":325E
          Style           =   1  'Graphical
          TabIndex        =   3
@@ -940,7 +939,7 @@ Begin VB.Form fw_adjudica_gral
       End
       Begin VB.Frame fra_factura 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "    FACTURA --------------- RECIBOS"
+         Caption         =   "-------- FACTURA ---------------------------- RECIBO"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -955,7 +954,26 @@ Begin VB.Form fw_adjudica_gral
          Left            =   240
          TabIndex        =   77
          Top             =   720
-         Width           =   4215
+         Width           =   5295
+         Begin VB.OptionButton opt_CGE 
+            BackColor       =   &H00C0C0C0&
+            Caption         =   "CGE"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00400040&
+            Height          =   240
+            Left            =   1200
+            TabIndex        =   116
+            Top             =   320
+            Width           =   795
+         End
          Begin VB.OptionButton opt_otro 
             BackColor       =   &H00C0C0C0&
             Caption         =   "Grossing Up"
@@ -970,7 +988,7 @@ Begin VB.Form fw_adjudica_gral
             EndProperty
             ForeColor       =   &H00400040&
             Height          =   480
-            Left            =   1605
+            Left            =   2445
             TabIndex        =   1
             Top             =   195
             Width           =   1230
@@ -989,7 +1007,7 @@ Begin VB.Form fw_adjudica_gral
             EndProperty
             ForeColor       =   &H00400040&
             Height          =   480
-            Left            =   2880
+            Left            =   3840
             TabIndex        =   2
             Top             =   195
             Value           =   -1  'True
@@ -997,7 +1015,7 @@ Begin VB.Form fw_adjudica_gral
          End
          Begin VB.OptionButton opt_si 
             BackColor       =   &H00C0C0C0&
-            Caption         =   "CGI-CGE"
+            Caption         =   "CGI"
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9.75
@@ -1012,12 +1030,12 @@ Begin VB.Form fw_adjudica_gral
             Left            =   240
             TabIndex        =   0
             Top             =   320
-            Width           =   1155
+            Width           =   795
          End
          Begin VB.Line Line1 
             BorderColor     =   &H80000005&
-            X1              =   1500
-            X2              =   1500
+            X1              =   2220
+            X2              =   2220
             Y1              =   120
             Y2              =   720
          End
@@ -1112,7 +1130,7 @@ Begin VB.Form fw_adjudica_gral
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   112459777
+            Format          =   378667009
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1129,7 +1147,7 @@ Begin VB.Form fw_adjudica_gral
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   112459777
+            Format          =   378667009
             CurrentDate     =   44470
             MinDate         =   2
          End
@@ -1146,7 +1164,7 @@ Begin VB.Form fw_adjudica_gral
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   112459777
+            Format          =   378667009
             CurrentDate     =   44470
             MinDate         =   32874
          End
@@ -1773,7 +1791,7 @@ Begin VB.Form fw_adjudica_gral
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   112459777
+         Format          =   378667009
          CurrentDate     =   44466
          MinDate         =   2
       End
@@ -2353,7 +2371,7 @@ Dim VAR_ESFAC, VAR_ESGAS As String
 
 Dim VAR_COMPRA, CONT_MED, corrprog As Integer
 Dim VAR_MES2, CONT3, CONT4, VAR_COBR2, ctrl  As Integer
-Dim VAR_CANT, VAR_DET As Integer
+Dim VAR_CANT, VAR_DET, VAR_EMPRESA As Integer
 
 Dim monto_cuota, porcentaje_tot As Double
 Dim CUOTA, DOL, BS As Double
@@ -2370,7 +2388,7 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub BtnGrabar_Click() ''acepta las modificaciones realizadas
-    If (opt_si.Value = True) And (txt_total_bs.Text = "") Then      'And txt_total_dol.Text = ""
+    If (opt_si.Value = True Or opt_CGE.Value = True) And (txt_total_bs.Text = "") Then      'And txt_total_dol.Text = ""
         sino = MsgBox("Debe registrar el monto", vbCritical, Error)
         Exit Sub
     End If
@@ -2499,9 +2517,14 @@ If Valida Then
         TxtMenu.Text = "PROVISION DE HERRAMIENTAS"
    End Select
       
-   If opt_si.Value = True Then
+   If opt_si.Value = True Or opt_CGE.Value = True Then
         FAC = "SI"
         VAR_DOC = "R-101"    'FACTURA
+        If opt_CGE.Value = True Then
+            TxtNIT_CGI.Text = "125887020"
+        Else
+            TxtNIT_CGI.Text = "1018533029"
+        End If
    Else
         FAC = "NO"
         VAR_DOC = "RE-402"    'Factura Comercial, Proforma, Purchase Order (Orden de Compra)  ' RECIBO
@@ -2951,7 +2974,7 @@ Function Valida()
         MsgBox "Debe registrar correctamente Proveedor ... " + lblprov.Caption, vbCritical + vbExclamation, "Validación de datos"
         Valida = False
   End If
-  If opt_si.Value = True Then
+  If opt_si.Value = True Or opt_CGE.Value = True Then
     If txt_total_bs.Text = "" Or txt_total_bs.Text = "0" Then
       sino = MsgBox("Debe insertar el monto", vbCritical, Error)
       Valida = False
@@ -3051,7 +3074,7 @@ Private Sub BtnGrabar2_Click()
     VAR_NIT_CGI = Mid(TxtTexto.Text, VAR_POSICION, (VAR_BUSCA - VAR_POSICION))
     TxtNIT_CGI.Text = VAR_NIT_CGI
     
-    If (VAR_NIT_CGI <> "1018533029" And VAR_NIT_CGI <> "125887020") And opt_si.Value = True Then
+    If (VAR_NIT_CGI <> "1018533029" And VAR_NIT_CGI <> "125887020") And (opt_si.Value = True Or opt_CGE.Value = True) Then
         MsgBox "El NIT de la Empresa es incorrecto, NO se copiarán los datos de la FACTURA. Verifique y vuelva a intentar... ", vbInformation, "SOFIA"
         dtc_codigo5.Text = "0"
         txt_Nota.Text = "0"
@@ -3062,7 +3085,7 @@ Private Sub BtnGrabar2_Click()
     End If
     
     If (VAR_NIT_CGI = "1018533029" Or VAR_NIT_CGI = "125887020") And opt_otro.Value = True Then
-        MsgBox "La Factura es válida para Crédito Fiscal, por lo que debe elegir la opción: <FACTURA para ...Fac.CGI>. Verifique y vuelva a intentar... ", vbInformation, "SOFIA"
+        MsgBox "La Factura es válida para Crédito Fiscal, por lo que debe elegir la opción: <FACTURA para ...Fac.CGI/CGE>. Verifique y vuelva a intentar... ", vbInformation, "SOFIA"
         dtc_codigo5.Text = "0"
         txt_Nota.Text = "0"
         txt_autorizacion.Text = "0"
@@ -3310,7 +3333,7 @@ Private Sub Form_Load()
             '22      COMPRA REGULAR
         End If
         
-        If opt_si.Value = True Then
+        If opt_si.Value = True Or opt_CGE.Value = True Then
             VAR_ESFAC = "33"
             '33  COMPRA CON FACTURA
         End If
@@ -3527,6 +3550,59 @@ Private Sub opt_otro_Click()
     End If
 End Sub
 
+Private Sub opt_CGE_Click()
+    VAR_ESFAC = "33"
+    '33  COMPRA CON FACTURA
+    BtnQR.Visible = True
+    CmdCalcula.Visible = True
+    LblFechaFac.Visible = True
+    LblFechaFac.Caption = "Fecha Factura/DUI"
+    txtfecha_compra.Visible = True
+    LblFactura.Caption = "Nro. Factura"
+    lbl_campo2.Caption = "Total de la Factura en Bs.:"
+    sino = MsgBox("Se Limpiarán los datos de la Factura, si ya registró deberá volver a hacerlo. Desea continuar ? ...", vbYesNo + vbQuestion, "Atención")
+    If sino = vbYes Then
+        txt_Nota.Visible = True
+        txt_Nota.Text = "0"
+        Label22.Visible = True
+        txt_nro_dui.Text = "0"
+        txt_nro_dui.Visible = True
+        Label2.Visible = True
+        txt_autorizacion.Text = "0"
+        txt_autorizacion.Visible = True
+        Label3.Visible = True
+        txt_cod_control.Text = ""
+        txt_cod_control.Visible = True
+        Lbl_NitCgi.Visible = True
+        TxtNIT_CGI.Text = "125887020"
+        TxtNIT_CGI.Visible = True
+        Label15.Visible = True
+        Txt_Tasas.Text = "0"
+        Txt_Tasas.Visible = True
+        Label9.Visible = True
+        Txt_tasa0 = "0"
+        Txt_tasa0.Visible = True
+        Label5.Visible = True
+        txt_importe_no_fiscal.Text = "0"
+        txt_importe_no_fiscal.Visible = True
+        Label9.Visible = True
+        txt_descuentos.Text = "0"
+        txt_descuentos.Visible = True
+        Label20.Visible = True
+        Label20.Caption = "Importe Neto p/Credito Fiscal:"
+        txt_CreditoFiscal.Text = "0"
+        txt_CreditoFiscal.Visible = True
+        Label11.Visible = True
+        Label11.Caption = "IVA 13%:"
+        txt_13.Text = "0"
+        txt_13.Visible = True
+        Label23.Visible = True
+        Label23.Caption = "87%:"
+        txt_87.Text = "0"
+        txt_87.Visible = True
+    End If
+End Sub
+
 Private Sub opt_si_Click()
     VAR_ESFAC = "33"
     '33  COMPRA CON FACTURA
@@ -3551,7 +3627,7 @@ Private Sub opt_si_Click()
         txt_cod_control.Text = ""
         txt_cod_control.Visible = True
         Lbl_NitCgi.Visible = True
-        TxtNIT_CGI.Text = ""
+        TxtNIT_CGI.Text = "1018533029"
         TxtNIT_CGI.Visible = True
         Label15.Visible = True
         Txt_Tasas.Text = "0"

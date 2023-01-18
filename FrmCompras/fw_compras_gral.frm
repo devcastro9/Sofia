@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_gral
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   10935
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110624769
+         Format          =   378667009
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2799,10 +2799,10 @@ Begin VB.Form fw_compras_gral
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   20250
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   10935
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -5869,7 +5869,11 @@ Private Sub BtnGrabar_Click()
         rs_datos!archivo_respaldo_cargado = "N"
         rs_datos!doc_numero = "0"
         rs_datos!venta_tipo = VAR_TIPO_ALM
-        
+        If Opt_CGE.Value = True Then
+            rs_datos!codigo_empresa = 2
+        Else
+            rs_datos!codigo_empresa = 1
+        End If
         'CORRELATIVO ALMACEN
 '        Set rs_aux7 = New ADODB.Recordset
 '     If rs_aux7.State = 1 Then rs_aux7.Close
@@ -7867,7 +7871,7 @@ Set rs_datos = New Recordset
 '              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
 '        End Select
 '    Else
-        queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G' "
+        queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND codigo_empresa = '2' "
 '    End If
     
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
