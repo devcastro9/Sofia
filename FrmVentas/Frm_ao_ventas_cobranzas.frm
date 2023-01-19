@@ -976,7 +976,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   109707265
             CurrentDate     =   2
          End
          Begin MSDataListLib.DataCombo dtc_desc08 
@@ -2371,7 +2371,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
             CalendarBackColor=   16777215
             CalendarForeColor=   0
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   109707265
             CurrentDate     =   42873
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -2395,7 +2395,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   120127489
+            Format          =   109707265
             CurrentDate     =   41678
          End
          Begin VB.PictureBox Picture2 
@@ -5082,9 +5082,9 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             DTPFechaProg.backColor = &H404040       '&H80000013      'Fondo Oscuro
 '            BtnImprimir3.Visible = True
             If glusuario = "ADMIN" Then
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
             Else
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
             End If
         End If
 
@@ -5093,9 +5093,9 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and correl_venta = " & Ado_datos.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set ado_datos14.Recordset = rs_datos14
-        ado_datos14.Recordset.Requery
-        If ado_datos14.Recordset.RecordCount > 0 Then
+        Set Ado_datos14.Recordset = rs_datos14
+        Ado_datos14.Recordset.Requery
+        If Ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
         Else
             deta2 = 0
@@ -5207,9 +5207,9 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos01.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos01.Recordset!venta_codigo & " and correl_venta = " & Ado_datos01.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set ado_datos14.Recordset = rs_datos14
-        ado_datos14.Recordset.Requery
-        If ado_datos14.Recordset.RecordCount > 0 Then
+        Set Ado_datos14.Recordset = rs_datos14
+        Ado_datos14.Recordset.Requery
+        If Ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'TxtMontoBs.Text = Ado_datos01.Recordset!monto_total_bS
             'TxtMontoUs.Text = Ado_datos01.Recordset!deuda_cobrada
@@ -5360,9 +5360,9 @@ Private Sub Ado_datos02_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos02.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos02.Recordset!venta_codigo & " and correl_venta = " & Ado_datos02.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set ado_datos14.Recordset = rs_datos14
-        ado_datos14.Recordset.Requery
-        If ado_datos14.Recordset.RecordCount > 0 Then
+        Set Ado_datos14.Recordset = rs_datos14
+        Ado_datos14.Recordset.Requery
+        If Ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'TxtMontoBs.Text = Ado_datos02.Recordset!monto_total_bS
             'TxtMontoUs.Text = Ado_datos02.Recordset!deuda_cobrada
@@ -5910,7 +5910,7 @@ Private Sub BtnCancelarBen_Click()
     FraGrabarCancelar.Enabled = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   If Ado_datos.Recordset.RecordCount > 0 Then
     If (Ado_datos.Recordset!estado_codigo_fac = "APR" And Ado_datos.Recordset!estado_codigo_bco = "REG") And (glusuario = "SQUISPE" Or glusuario = "FACTURACION" Or glusuario = "ADMIN") Then
       sino = MsgBox("Esta seguro de ANULAR la facturación registrada ?", vbYesNo, "Confirmando")
@@ -6051,7 +6051,7 @@ Private Sub BtnGrabar_Click()
         Ado_datos.Recordset!cobranza_deuda_bs = "0"                                  'Monto Cobrado Bs.
         Ado_datos.Recordset!cobranza_deuda_dol = "0"        'Monto en Dolares
       Else
-        Ado_datos.Recordset!cobranza_tdc = IIf(IsNull(txt_tdc = ""), 6.96, CDbl(txt_tdc.Text))                               'Monto Cobrado Bs.
+        Ado_datos.Recordset!cobranza_tdc = IIf(IsNull(Txt_tdc = ""), 6.96, CDbl(Txt_tdc.Text))                               'Monto Cobrado Bs.
 '        Ado_datos.Recordset!cobranza_deuda_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto en Dolares
         Ado_datos.Recordset!cobranza_total_bs = Round(CDbl(TxtMonto.Text), 2)                                 'Monto Cobrado Bs.
         Ado_datos.Recordset!cobranza_total_dol = Round(CDbl(TxtMontoDol), 2)       'CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto en Dolares
@@ -6177,15 +6177,15 @@ Private Sub BtnGrabar1_Click()
         Exit Sub
   End If
   '
-  If DTPFechaSol.Value = "" Or DTPFechaSol.Value = "01/01/1900" Or IsNull(DTPFechaSol.Value) Then
+  If DTPfechasol.Value = "" Or DTPfechasol.Value = "01/01/1900" Or IsNull(DTPfechasol.Value) Then
         MsgBox "Debe Registrar la Fecha de Facturación CGE ... !! Vuelva a Intentar ...", vbExclamation, "Atención"
         Exit Sub
   End If
     db.BeginTrans
       Ado_datos01.Recordset!cmpbte_deposito = "0"       'IIf(Txt_deposito1.Text = "", "0", Txt_deposito1.Text)
       Ado_datos01.Recordset!cta_codigo = IIf(dtc_cta.Text = "", "NN", dtc_cta.Text)
-      VAR_ANIO = Year(CDate(DTPFechaSol))
-      VAR_MES = Month(CDate(DTPFechaSol))
+      VAR_ANIO = Year(CDate(DTPfechasol))
+      VAR_MES = Month(CDate(DTPfechasol))
       Select Case VAR_MES
         Case 1
 
@@ -6216,7 +6216,7 @@ Private Sub BtnGrabar1_Click()
       Ado_datos01.Recordset!cobranza_nro_factura = TxtCmpbte1.Text
       Ado_datos01.Recordset!factura_impresa = "S"
       Ado_datos01.Recordset!cobranza_codigo_control = "4"       'PARA FACTURA MANUAL CGE
-      Ado_datos01.Recordset!cobranza_fecha_fac = DTPFechaSol.Value
+      Ado_datos01.Recordset!cobranza_fecha_fac = DTPfechasol.Value
       Ado_datos01.Recordset!proceso_codigo = "FIN"
       Ado_datos01.Recordset!trans_codigo = "2"
 
@@ -7632,7 +7632,8 @@ Private Sub BtnImprimir6_Click()
                 CryQ01.ReportFileName = App.Path & "\reportes\ventas\ar_R101_factura_rep_PDF.rpt"
             End If
         Else
-            CryQ01.ReportFileName = App.Path & "\reportes\ventas\ar_R101_factura_PDF_ANTIGUO.rpt"
+            'CryQ01.ReportFileName = App.Path & "\reportes\ventas\ar_R101_factura_PDF_ANTIGUO.rpt"
+            CryQ01.ReportFileName = App.Path & "\reportes\ventas\ar_R101_factura_PDF_ANTIGUO_NEW.rpt"
         End If
         CryQ01.WindowShowRefreshBtn = True
         CryQ01.StoredProcParam(0) = gestion0       'Me.Ado_datos.Recordset!ges_gestion
@@ -7640,7 +7641,7 @@ Private Sub BtnImprimir6_Click()
         CryQ01.StoredProcParam(2) = NRO_COBR        'Me.Ado_datos.Recordset!cobranza_codigo
         var_literal = Ado_datos.Recordset!Literal
         CryQ01.Formulas(1) = "literalcobro = '" & var_literal & "' "
-        CryQ01.Formulas(2) = "correlcobro = '" & NRO_COBR & "' "
+        'CryQ01.Formulas(2) = "correlcobro = '" & NRO_COBR & "' "
         ''" & Ado_datos.Recordset!cobranza_codigo & "' "
         '.StoredProcParam(3) = Me.Ado_datos16.Recordset!Literal
         iResult = CryQ01.PrintReport
@@ -7684,7 +7685,7 @@ Private Sub BtnModificar_Click()
       FrmCobranza.Enabled = False
       'swgrabar = 0
       swnuevo = 2
-      txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+      Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
       SSTab1.Tab = 1
       SSTab1.TabEnabled(0) = False
       SSTab1.TabEnabled(1) = True
@@ -11154,7 +11155,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
     End If
 End Sub
 
@@ -11321,5 +11322,5 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
 End Sub
