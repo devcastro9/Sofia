@@ -1069,9 +1069,8 @@ Begin VB.MDIForm frmMain
       End
       Begin VB.Menu mnu_AdministracionPersonal 
          Caption         =   "PROCESOS RECURSOS HUMANOS"
-         Begin VB.Menu mnu_SolicitudContratacionPersonal 
-            Caption         =   "SOLICITUD CONTRATACION PERSONAL"
-            Visible         =   0   'False
+         Begin VB.Menu menuPostulante 
+            Caption         =   "POSTULANTES"
          End
          Begin VB.Menu mnu_ProcesoContratacion 
             Caption         =   "CONTRATACION DE PERSONAL"
@@ -1473,6 +1472,10 @@ End Sub
 
 Private Sub menuBoletaPagos_Click()
     FrmBoletaPagos.Show
+End Sub
+
+Private Sub menuPostulante_Click()
+    FrmPostulantes.Show
 End Sub
 
 Private Sub mnu_AdministracionUsuarios_Click()
@@ -2567,12 +2570,8 @@ Private Sub Mnu_SolicitudCompra_Click()
 End Sub
 
 Private Sub mnu_SolicitudContratacionPersonal_Click()
-     If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "EHALKYER" Or glusuario = "DOLMOS" Or glusuario = "DVARGAS" Or glusuario = "CSALINAS" Then
-        Aux = "DRRHH"
-        frm_ao_solicitud_rrhh.lbl_titulo = mnu_SolicitudContratacionPersonal.Caption
-        frm_ao_solicitud_rrhh.FraNavega = mnu_SolicitudContratacionPersonal.Caption
-        frm_ao_solicitud_rrhh.lbl_titulo2 = mnu_SolicitudContratacionPersonal.Caption
-        frm_ao_solicitud_rrhh.Show
+    If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "EHALKYER" Or glusuario = "DOLMOS" Or glusuario = "DVARGAS" Or glusuario = "CSALINAS" Then
+        FrmPostulantes.Show
     Else
         MsgBox "El usuario no tiene acceso !", vbInformation + vbOKOnly
     End If

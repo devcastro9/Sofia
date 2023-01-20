@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -15,8 +15,8 @@ Begin VB.Form frm_ao_solicitud_rrhh
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10950
-   ScaleWidth      =   20250
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.CommandButton BtnImprimir2 
       BackColor       =   &H00FFC0C0&
@@ -1273,7 +1273,7 @@ Begin VB.Form frm_ao_solicitud_rrhh
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   94240769
+         Format          =   109510657
          CurrentDate     =   42255
          MaxDate         =   55153
          MinDate         =   2
@@ -1674,10 +1674,10 @@ Begin VB.Form frm_ao_solicitud_rrhh
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   11280
       TabIndex        =   23
-      Top             =   10950
-      Width           =   20250
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -2472,10 +2472,10 @@ Private Sub BtnAddDetalle_Click()
     Fra_datos.Enabled = False
     'Call ABRIR_TABLA_DET
     frm_ao_solicitud_bitacora.txt_codigo.Caption = Me.txt_codigo.Caption
-    frm_ao_solicitud_bitacora.txt_campo1.Caption = Me.dtc_codigo1.Text
+    frm_ao_solicitud_bitacora.Txt_campo1.Caption = Me.dtc_codigo1.Text
     frm_ao_solicitud_bitacora.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    frm_ao_solicitud_bitacora.txt_correl.Caption = 0    'rs_datos!correl_bitacora + 1
-    frm_ao_solicitud_bitacora.dtpFecha1.Value = Date
+    frm_ao_solicitud_bitacora.Txt_Correl.Caption = 0    'rs_datos!correl_bitacora + 1
+    frm_ao_solicitud_bitacora.DTPfecha1.Value = Date
     frm_ao_solicitud_bitacora.Txt_estado.Caption = "REG"
     frm_ao_solicitud_bitacora.lbl_bitacora.Caption = Me.FraDet1.Caption
     Ado_detalle1.Recordset.AddNew
@@ -2534,9 +2534,9 @@ Private Sub BtnAddDetalle2_Click()
             Ado_detalle2.Recordset.AddNew
             frm_ao_solicitud_persona.txtFecha = Date
             frm_ao_solicitud_persona.txt_codigo.Caption = Me.txt_codigo.Caption
-            frm_ao_solicitud_persona.txt_campo1.Text = Me.dtc_codigo1.Text
+            frm_ao_solicitud_persona.Txt_campo1.Text = Me.dtc_codigo1.Text
             frm_ao_solicitud_persona.Txt_descripcion.Caption = Me.dtc_desc1.Text
-            frm_ao_solicitud_persona.txtFecha.Value = dtpFecha1.Value
+            frm_ao_solicitud_persona.txtFecha.Value = DTPfecha1.Value
             frm_ao_solicitud_persona.txtEstado.Text = "REG"
             frm_ao_solicitud_persona.Show vbModal
 '    End Select
@@ -2679,13 +2679,13 @@ Private Sub BtnAprobar_Click()
         rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 Then
             rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-            txt_campo1.Caption = rs_aux2!correl_doc
+            Txt_campo1.Caption = rs_aux2!correl_doc
             rs_aux2.Update
         End If
-        Ado_datos.Recordset!doc_numero = txt_campo1.Caption
+        Ado_datos.Recordset!doc_numero = Txt_campo1.Caption
         'REVISAR !!! JQA 2014_07_08
         'VAR_ARCH = RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
-        VAR_ARCH = "ADM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
+        VAR_ARCH = "ADM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(Txt_campo1.Caption)))
         Ado_datos.Recordset!archivo_respaldo = VAR_ARCH + ".PDF"
         Ado_datos.Recordset!archivo_respaldo_cargado = "N"
         Ado_datos.Recordset!estado_codigo = "APR"
@@ -2753,7 +2753,7 @@ Private Sub BtnCancelar_Click()
 '    lbl_aux1.Visible = False
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
   If Ado_datos.Recordset.RecordCount > 0 Then
     If ExisteReg(parametro, Ado_datos.Recordset!solicitud_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ...", vbInformation + vbOKOnly, "Atención": Exit Sub
@@ -2833,7 +2833,7 @@ Private Sub BtnGrabar_Click()
      End If
      rs_datos!beneficiario_codigo_resp2 = "0"       'dtc_aux4.Text
      rs_datos!unidad_codigo_sol = dtc_codigo3.Text      'UNIDAD SOLICITANTE
-     rs_datos!solicitud_fecha_solicitud = dtpFecha1.Value
+     rs_datos!solicitud_fecha_solicitud = DTPfecha1.Value
      rs_datos!solicitud_tipo = dtc_codigo2.Text
      rs_datos!edif_codigo = "20101-0"       'IIf(dtc_codigo3.Text = "", "10101-0", dtc_codigo3.Text)
      'If dtc_codigo4.Text = "" Or dtc_codigo4.Text = "0" Then
@@ -2871,7 +2871,7 @@ Private Sub BtnGrabar_Click()
      End Select
      rs_datos!poa_codigo = IIf(dtc_codigo10.Text = "", "7.1.1", dtc_codigo10.Text)
      rs_datos!solicitud_observaciones = txt_obs.Text
-     rs_datos!solicitud_fecha_recepción = dtpFecha1.Value
+     rs_datos!solicitud_fecha_recepción = DTPfecha1.Value
      rs_datos!beneficiario_codigo_resp = dtc_codigo11.Text
 
      rs_datos!ges_gestion_ant = glGestion       'Year(Date)
@@ -2974,12 +2974,12 @@ Private Sub BtnImprimir_Click()
     If Ado_detalle2.Recordset.RecordCount > 0 Then
         Dim iResult As Integer
         'Dim co As New ADODB.Command
-        cr01.ReportFileName = App.Path & "\Reportes\RRHH\rr_lista_solicitud_rrhh.rpt"
+        CR01.ReportFileName = App.Path & "\Reportes\RRHH\rr_lista_solicitud_rrhh.rpt"
         
-        cr01.WindowShowPrintSetupBtn = True
-        cr01.WindowShowRefreshBtn = True
+        CR01.WindowShowPrintSetupBtn = True
+        CR01.WindowShowRefreshBtn = True
         'MsgBox rs.RecordCount
-        cr01.StoredProcParam(0) = Me.Ado_datos.Recordset!unidad_codigo
+        CR01.StoredProcParam(0) = Me.Ado_datos.Recordset!unidad_codigo
         Select Case Me.Ado_datos.Recordset!unidad_codigo
           Case "DNINS"
               var_titulo = "Módulo Instalaciones"
@@ -2994,12 +2994,12 @@ Private Sub BtnImprimir_Click()
           Case "DRRHH"
               var_titulo = "Módulo Recursos Humanos"
       End Select
-      cr01.Formulas(3) = "titulo = '" & var_titulo & "' "
-      cr01.Formulas(4) = "subtitulo = '" & lbl_titulo.Caption & "' "
+      CR01.Formulas(3) = "titulo = '" & var_titulo & "' "
+      CR01.Formulas(4) = "subtitulo = '" & lbl_titulo.Caption & "' "
 
-        iResult = cr01.PrintReport
-        If iResult <> 0 Then MsgBox cr01.LastErrorNumber & " : " & cr01.LastErrorString, vbCritical, "Error de impresión"
-        cr01.WindowState = crptMaximized
+        iResult = CR01.PrintReport
+        If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
+        CR01.WindowState = crptMaximized
     Else
         MsgBox "No se puede Imprimir. Debe registrar datos del Detalle ...", , "Atención"
     End If
@@ -3023,7 +3023,7 @@ Private Sub BtnImprimir1_Click()
         CR03.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
         CR03.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
         CR03.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = cr01.PrintReport
+        iResult = CR01.PrintReport
         If iResult <> 0 Then MsgBox CR03.LastErrorNumber & " : " & CR03.LastErrorString, vbCritical, "Error de impresión"
         CR03.WindowState = crptMaximized
     Else
@@ -3072,16 +3072,16 @@ Private Sub BtnModDetalle_Click()
     Fra_datos.Enabled = False
         
     frm_ao_solicitud_bitacora.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo")  'cod_cabecera
-    frm_ao_solicitud_bitacora.txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")  'Unidad
+    frm_ao_solicitud_bitacora.Txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")  'Unidad
     frm_ao_solicitud_bitacora.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    frm_ao_solicitud_bitacora.txt_correl.Caption = Me.Ado_detalle1.Recordset("bitacora_codigo")
+    frm_ao_solicitud_bitacora.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("bitacora_codigo")
     'frm_ao_solicitud_bitacora.Txt_estado.Caption = "REG"
     'Ado_detalle1.Recordset.AddNew
      
     frm_ao_solicitud_bitacora.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("negocia_forma")
-    frm_ao_solicitud_bitacora.dtpFecha1.Value = Me.Ado_detalle1.Recordset("negocia_fecha_real")
+    frm_ao_solicitud_bitacora.DTPfecha1.Value = Me.Ado_detalle1.Recordset("negocia_fecha_real")
     frm_ao_solicitud_bitacora.Txt_campo2.Value = Me.Ado_detalle1.Recordset("negocia_hora_real")
-    frm_ao_solicitud_bitacora.txt_monto1.Text = Me.Ado_detalle1.Recordset("negocia_gasto_estimado")
+    frm_ao_solicitud_bitacora.Txt_monto1.Text = Me.Ado_detalle1.Recordset("negocia_gasto_estimado")
     frm_ao_solicitud_bitacora.dtc_codigo2.Text = Me.Ado_detalle1.Recordset("beneficiario_codigo")
     frm_ao_solicitud_bitacora.dtc_codigo3.Text = Me.Ado_detalle1.Recordset("beneficiario_codigo_resp")
     frm_ao_solicitud_bitacora.Txt_campo3.Text = Me.Ado_detalle1.Recordset("negocia_tarea_realizada")
@@ -3136,7 +3136,7 @@ Private Sub BtnModDetalle2_Click()
         Case "11"    ' CONTRATACION DE PERSONAL
             Call ABRIR_TABLA_DET
             frm_ao_solicitud_persona.txt_codigo.Caption = Ado_detalle2.Recordset("solicitud_codigo")
-            frm_ao_solicitud_persona.txt_campo1.Text = Ado_detalle2.Recordset("unidad_codigo")
+            frm_ao_solicitud_persona.Txt_campo1.Text = Ado_detalle2.Recordset("unidad_codigo")
             frm_ao_solicitud_persona.Txt_descripcion.Caption = Me.dtc_desc1.Text
             frm_ao_solicitud_persona.txtBenef = Ado_detalle2.Recordset("benef_id")
             frm_ao_solicitud_persona.txtEstado.Text = "REG"
@@ -3146,7 +3146,7 @@ Private Sub BtnModDetalle2_Click()
             frm_ao_solicitud_persona.txtPat.Text = Ado_detalle2.Recordset("benef_primer_apellido")
             frm_ao_solicitud_persona.txtMat.Text = Ado_detalle2.Recordset("benef_segundo_apellido")
             frm_ao_solicitud_persona.txtNom.Text = Ado_detalle2.Recordset("benef_nombres")
-            frm_ao_solicitud_persona.txtDireccion.Text = Ado_detalle2.Recordset("benef_direccion_domicilio")
+            frm_ao_solicitud_persona.TxtDireccion.Text = Ado_detalle2.Recordset("benef_direccion_domicilio")
             frm_ao_solicitud_persona.txtTelefono.Text = Ado_detalle2.Recordset("benef_telefonos_ref")
             frm_ao_solicitud_persona.txtCI.Text = Ado_detalle2.Recordset("benef_codigo")
             frm_ao_solicitud_persona.dtc_codigo1.Text = Ado_detalle2.Recordset("puesto_codigo")
@@ -3196,7 +3196,7 @@ Private Sub BtnModificar_Click()
         VAR_UNI = parametro
         dtc_desc1.Enabled = False
         dtc_codigo1.BoundText = dtc_desc1.BoundText
-        dtpFecha1.Value = Ado_datos.Recordset!solicitud_fecha_solicitud
+        DTPfecha1.Value = Ado_datos.Recordset!solicitud_fecha_solicitud
 '        dtc_aux1.BoundText = dtc_desc1.BoundText
         Call pnivel1(dtc_codigo1.BoundText)
         dtc_desc10.Enabled = True
@@ -3542,7 +3542,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
     FraNavega.Caption = lbl_titulo.Caption
     lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -3711,7 +3711,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 Call ABRIR_TABLA_DET
             Case "11"    ' RRHH
                 Call ABRIR_TABLA_DET
-                dtpFecha1.Value = Ado_datos.Recordset!solicitud_fecha_solicitud
+                DTPfecha1.Value = Ado_datos.Recordset!solicitud_fecha_solicitud
                 dtc_codigo4.Text = Ado_datos.Recordset!beneficiario_codigo_resp2
         End Select
 '        Call ABRIR_TABLA_AUX2
@@ -3756,7 +3756,7 @@ End Sub
 Private Sub BtnAñadir_Click()
   On Error GoTo AddErr
     VAR_SW = "ADD"
-    dtpFecha1.Value = Date
+    DTPfecha1.Value = Date
     'lblStatus.Caption = "Agregar registro"
     Fra_datos.Enabled = True
     fraOpciones.Visible = False
@@ -3800,7 +3800,7 @@ Private Sub BtnAñadir_Click()
         Case Else
             dtc_codigo2.Text = 5
     End Select
-    dtpFecha1.Value = Date
+    DTPfecha1.Value = Date
     dtc_desc2.BoundText = dtc_codigo2.BoundText
 '    dtc_codigo5.Text = "COM"
 '    dtc_desc5.BoundText = dtc_codigo5.BoundText

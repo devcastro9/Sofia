@@ -276,6 +276,7 @@ Form=FrmComercial\mw_solicitud_calculo_trafico_mod_DET.frm
 Form=FrmCompras\fw_solicitud_bienes_fondos.frm
 Form=FrmCompras\frm_solicitud_bienes_gral.frm
 Form=FrmRRHH\FrmBoletaPagos.frm
+Form=FrmRRHH\FrmPostulantes.frm
 IconForm="frmLogin"
 Startup="Sub Main"
 HelpFile=""
