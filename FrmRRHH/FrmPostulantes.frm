@@ -1005,23 +1005,29 @@ Private Sub adoListaPostuantes_MoveComplete(ByVal adReason As ADODB.EventReasonE
 End Sub
 
 Private Sub btnImprimirCV_Click()
+    db.Execute "UPDATE rrhh.Beneficiario SET Denominacion = PrimerApellido + ' ' + SegundoApellido + ' ' + Nombres"
+
     Dim result As Integer
+    '------------------SEGUNDO REPORTE--------------
+    crCurriculum.Reset
+    crCurriculum.WindowState = crptMaximized
+    crCurriculum.WindowShowSearchBtn = True
+    crCurriculum.WindowShowRefreshBtn = True
+    crCurriculum.WindowShowPrintSetupBtn = True
+    crCurriculum.ReportFileName = App.Path & "\Reportes\RRHH\rrPostulanteExperiencia.rpt"
+    crCurriculum.StoredProcParam(0) = adoListaPostuantes.Recordset!idBeneficiario
+    result = crCurriculum.PrintReport
+    If result <> 0 Then
+        MsgBox crCurriculum.LastErrorNumber & " : " & crCurriculum.LastErrorString, vbCritical + vbOKOnly, "Error..."
+    End If
+    '------------------PRIMER REPORTE--------------
     crCurriculum.Reset
     crCurriculum.WindowState = crptMaximized
     crCurriculum.WindowShowSearchBtn = True
     crCurriculum.WindowShowRefreshBtn = True
     crCurriculum.WindowShowPrintSetupBtn = True
     crCurriculum.ReportFileName = App.Path & "\Reportes\RRHH\rrPostulanteCurriculum.rpt"
-    
-    'crCurriculum.Formulas(5) = "Titulo = 'NOTA DE INGRESO ALMACEN' "
-    'CR02.Formulas(6) = "Subtitulo = '" & VAR_UNIDAD & "' "
-    'CR02.Formulas(7) = "ProvDes ='" & Ado_detalle2.Recordset!observaciones & "' "
-    'CR02.Formulas(8) = "ProvNit ='" & Ado_detalle2.Recordset!nit_beneficiario & "' "
-    'CR02.Formulas(9) = "ProvFac ='" & Ado_detalle2.Recordset!nro_nota_remision & "' "
     crCurriculum.StoredProcParam(0) = adoListaPostuantes.Recordset!idBeneficiario
-    'CR02.StoredProcParam(1) = Ado_detalle2.Recordset!adjudica_codigo
-    'CR02.StoredProcParam(2) = Ado_detalle2.Recordset!ges_gestion
-
     result = crCurriculum.PrintReport
     If result <> 0 Then
         MsgBox crCurriculum.LastErrorNumber & " : " & crCurriculum.LastErrorString, vbCritical + vbOKOnly, "Error..."
