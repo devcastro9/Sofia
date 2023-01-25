@@ -151,7 +151,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   112656385
+         Format          =   109117441
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -165,7 +165,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   112656385
+         Format          =   109117441
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -179,7 +179,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   112656385
+         Format          =   109117441
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -193,7 +193,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   112656385
+         Format          =   109117441
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -2721,7 +2721,7 @@ Private Sub BtnCancelarDet_Click()
     dtc_desc5.Visible = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!zpiloto_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
    If rs_datos!estado_codigo = "APR" Then
