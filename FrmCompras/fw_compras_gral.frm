@@ -16,7 +16,7 @@ Begin VB.Form fw_compras_gral
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   378667009
+         Format          =   109641729
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2393,7 +2393,7 @@ Begin VB.Form fw_compras_gral
       End
       Begin VB.OptionButton Opt_CGE 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "CGE"
+         Caption         =   "Pendientes.CGE"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2403,16 +2403,16 @@ Begin VB.Form fw_compras_gral
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00FF0000&
          Height          =   210
-         Left            =   2520
+         Left            =   4800
          TabIndex        =   70
          Top             =   3945
-         Width           =   675
+         Width           =   1755
       End
       Begin VB.OptionButton opt_directa 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Cochabamba"
+         Caption         =   "."
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2424,14 +2424,15 @@ Begin VB.Form fw_compras_gral
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   5400
+         Left            =   6360
          TabIndex        =   68
          Top             =   3945
-         Width           =   1515
+         Visible         =   0   'False
+         Width           =   315
       End
       Begin VB.OptionButton opt_local 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Santa Cruz"
+         Caption         =   "Todos.CGE"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2441,9 +2442,9 @@ Begin VB.Form fw_compras_gral
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00FF0000&
          Height          =   210
-         Left            =   3720
+         Left            =   6960
          TabIndex        =   67
          Top             =   3945
          Width           =   1395
@@ -2707,7 +2708,7 @@ Begin VB.Form fw_compras_gral
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Pendientes"
+         Caption         =   "Pendientes.CGI"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2723,11 +2724,11 @@ Begin VB.Form fw_compras_gral
          TabIndex        =   10
          Top             =   3945
          Value           =   -1  'True
-         Width           =   1335
+         Width           =   1695
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Todos"
+         Caption         =   "Todos.CGI"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2739,10 +2740,10 @@ Begin VB.Form fw_compras_gral
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   7320
+         Left            =   2880
          TabIndex        =   11
          Top             =   3960
-         Width           =   915
+         Width           =   1515
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
@@ -2799,10 +2800,10 @@ Begin VB.Form fw_compras_gral
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   20160
       TabIndex        =   0
       Top             =   10935
-      Width           =   20250
+      Width           =   20160
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4284,43 +4285,11 @@ On Error GoTo UpdateErr
         'Fra_datos.Enabled = False
 '        BtnSalir.Visible = False
        ' Call ABRIR_TABLA_DET
-    '    Select Case Glaux
-    '        Case "PROVI"    'PROVISION DE EQUIPOS
-    '            'NO HAY
-    '        Case "TRANS"    'TRANSPORTE
-    '            Ado_detalle2.Recordset.AddNew
-    '            frm_solicitud_bienes2.txt_codigo.Caption = Me.txt_codigo.Caption
-    '            frm_solicitud_bienes2.Txt_campo1.Caption = Me.dtc_codigo1.Text
-    '            frm_solicitud_bienes2.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    '            frm_solicitud_bienes2.lbl_edif.Caption = dtc_codigo3.Text
-    '            frm_solicitud_bienes2.lbl_det.Caption = Glaux
-    '            frm_solicitud_bienes2.Txt_estado.Caption = "REG"
-    '            frm_solicitud_bienes2.Show vbModal
-    '        Case "ADUAN"    'DESADUANIZACION
-    '            Ado_detalle2.Recordset.AddNew
-    '            frm_solicitud_bienes2.txt_codigo.Caption = Me.txt_codigo.Caption
-    '            frm_solicitud_bienes2.Txt_campo1.Caption = Me.dtc_codigo1.Text
-    '            frm_solicitud_bienes2.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    '            frm_solicitud_bienes2.lbl_edif.Caption = dtc_codigo3.Text
-    '            frm_solicitud_bienes2.lbl_det.Caption = Glaux
-    '            frm_solicitud_bienes2.Txt_estado.Caption = "REG"
-    '            frm_solicitud_bienes2.Show vbModal
-    '        Case "DESCA"    'DESCARGUIO Y OTROS
-    '            Ado_detalle2.Recordset.AddNew
-    '            frm_solicitud_bienes2.txt_codigo.Caption = Me.txt_codigo.Caption
-    '            frm_solicitud_bienes2.Txt_campo1.Caption = Me.dtc_codigo1.Text
-    '            frm_solicitud_bienes2.Txt_descripcion.Caption = Me.dtc_desc1.Text
-    '            frm_solicitud_bienes2.lbl_edif.Caption = dtc_codigo3.Text
-    '            frm_solicitud_bienes2.lbl_det.Caption = Glaux
-    '            frm_solicitud_bienes2.Txt_estado.Caption = "REG"
-    '            frm_solicitud_bienes2.Show vbModal
-    '    End Select
-            
             'Ado_detalle1.Recordset.AddNew
             GlCotiza = 1
             frm_solicitud_bienes_gral.dtc_desc1.Locked = False
             frm_solicitud_bienes_gral.txt_codigo.Caption = Me.txt_codigo.Caption
-            frm_solicitud_bienes_gral.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            frm_solicitud_bienes_gral.txt_campo1.Caption = Me.dtc_codigo1.Text
             frm_solicitud_bienes_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             frm_solicitud_bienes_gral.lbl_edif.Caption = Label1.Caption
             frm_solicitud_bienes_gral.lbl_det.Caption = Glaux
@@ -4422,7 +4391,7 @@ On Error GoTo UpdateErr
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -5477,8 +5446,12 @@ Private Sub BtnAprobar4_Click()
            If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
               'INI correlativo ALMACEN
               Set rs_aux7 = New ADODB.Recordset
-              If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM
-              rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+              If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
+              If Ado_detalle2.Recordset!codigo_empresa = 2 Then
+                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+              Else
+                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+              End If
               If rs_aux7.RecordCount > 0 Then
                  CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
               Else
@@ -5679,7 +5652,7 @@ Private Sub BtnCancelar_Click()
 '    lbl_aux1.Visible = False
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
     If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
@@ -6434,7 +6407,7 @@ Private Sub BtnModDetalle1_Click()
            If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
            End If
-           frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+           frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
           
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -6585,7 +6558,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
             fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_gral.Txt_estado.Caption = "REG"
@@ -7020,10 +6993,18 @@ Private Sub BtnImprimir3_Click()
     CR02.WindowShowSearchBtn = True
     CR02.WindowShowRefreshBtn = True
     CR02.WindowShowPrintSetupBtn = True
-    If Ado_detalle1.Recordset.RecordCount > 15 Then
-       CR02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_ingreso_almacenes_pag1.rpt"
+    If Ado_datos.Recordset!codigo_empresa = 2 Then
+        If Ado_detalle1.Recordset.RecordCount > 15 Then
+           CR02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_ingreso_almacenes_CGE_pag1.rpt"
+        Else
+           CR02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_ingreso_almacenes_CGE.rpt"
+        End If
     Else
-       CR02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_ingreso_almacenes.rpt"
+        If Ado_detalle1.Recordset.RecordCount > 15 Then
+           CR02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_ingreso_almacenes_pag1.rpt"
+        Else
+           CR02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_ingreso_almacenes.rpt"
+        End If
     End If
     CR02.Formulas(5) = "Titulo = 'NOTA DE INGRESO ALMACEN' "
     CR02.Formulas(6) = "Subtitulo = '" & VAR_UNIDAD & "' "
@@ -7426,7 +7407,7 @@ On Error GoTo UpdateErr
         BtnAprobar1.Visible = True
         BtnAprobar3.Visible = True
         opt_local.Visible = False
-        opt_directa.Visible = False
+'        opt_directa.Visible = False
         BtnAnlDetalle1.Visible = True
         DTPfecha1.Enabled = True
         BtnAddDetalle1.Visible = True
@@ -7580,12 +7561,12 @@ Private Sub ABRIR_TABLA_DET()
                     dg_det1.AllowUpdate = True
                     BtnAprobar5.Visible = True
                     opt_local.Visible = True
-                    opt_directa.Visible = True
+'                    opt_directa.Visible = True
                 Else
                     dg_det1.AllowUpdate = False
                     BtnAprobar5.Visible = False
                     opt_local.Visible = False
-                    opt_directa.Visible = False
+'                    opt_directa.Visible = False
                 End If
                 'Set rs_aux11 = rs_det1
             Else
@@ -7852,7 +7833,7 @@ Private Function ExisteReg(Unidad As String) As Boolean
 '    ExisteReg = rs!Cuantos > 0
 End Function
 
-Private Sub Opt_CGE_Click()
+Private Sub opt_CGE_Click()
 Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
 '    If parametro = "COMEX" Then
@@ -7871,7 +7852,7 @@ Set rs_datos = New Recordset
 '              queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND venta_tipo = 'G'"
 '        End Select
 '    Else
-        queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' AND codigo_empresa = '2' "
+        queryinicial = "Select * from ao_compra_cabecera where (unidad_codigo_adm = '" & parametro & "' AND estado_codigo = 'REG'  AND codigo_empresa = '2' ) "
 '    End If
     
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
@@ -7923,9 +7904,11 @@ Private Sub opt_local_Click()
 '    End Select
     
     If glusuario = "LVASQUEZ" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "RCUELA" Then
-        queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = '" & VAR_SOL_TIPO & "' AND (depto_codigo = '7' OR depto_codigo = '8' OR depto_codigo = '9'))  "
+        'queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = '" & VAR_SOL_TIPO & "' AND (depto_codigo = '7' OR depto_codigo = '8' OR depto_codigo = '9'))  "
+        queryinicial = "Select * from ao_compra_cabecera where (unidad_codigo_adm = '" & parametro & "'  AND codigo_empresa = '2' ) "
     Else
-        queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = " & VAR_SOL_TIPO & " AND unidad_codigo_adm = '" & parametro & "'  AND (depto_codigo = '7' OR depto_codigo = '8' OR depto_codigo = '9'))  "
+        'queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = " & VAR_SOL_TIPO & " AND unidad_codigo_adm = '" & parametro & "'  AND (depto_codigo = '7' OR depto_codigo = '8' OR depto_codigo = '9'))  "
+        queryinicial = "Select * from ao_compra_cabecera where (unidad_codigo_adm = '" & parametro & "' AND  codigo_empresa = '2' ) "
     End If
     
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
@@ -7956,9 +7939,9 @@ Private Sub OptFilGral1_Click()
 '
 '    Else
         If glusuario = "LVASQUEZ" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "RCUELA" Then         ' Or glusuario = "CARIZACA"
-            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_eqp = 'REG' AND estado_codigo = 'REG' AND solicitud_tipo = '" & VAR_SOL_TIPO & "' ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_eqp = 'REG' AND estado_codigo = 'REG' AND solicitud_tipo = '" & VAR_SOL_TIPO & "' AND codigo_empresa <> '2' ) "
         Else
-            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_eqp = 'REG' AND solicitud_tipo = " & VAR_SOL_TIPO & " AND unidad_codigo_adm = '" & parametro & "' ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo_eqp = 'REG' AND solicitud_tipo = " & VAR_SOL_TIPO & " AND unidad_codigo_adm = '" & parametro & "'  AND codigo_empresa <> '2' ) "
         End If
         
 '    End If
@@ -7995,9 +7978,9 @@ Private Sub OptFilGral2_Click()
 '    queryinicial = "Select * from ao_compra_cabecera where unidad_codigo_adm = '" & parametro & "' "
 '    End If
         If glusuario = "LVASQUEZ" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "RCUELA" Then      '  Or glusuario = "CARIZACA"
-            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = " & VAR_SOL_TIPO & ")  "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = " & VAR_SOL_TIPO & "  AND codigo_empresa <> '2' )  "
         Else
-            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = " & VAR_SOL_TIPO & " AND unidad_codigo_adm = '" & parametro & "' ) "
+            queryinicial = "Select * from ao_compra_cabecera where (estado_codigo <> 'ANL' AND solicitud_tipo = " & VAR_SOL_TIPO & " AND unidad_codigo_adm = '" & parametro & "'  AND codigo_empresa <> '2' ) "
         End If
 
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic

@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   108462081
+         Format          =   253427713
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   108462081
+         Format          =   253427713
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   108462081
+            Format          =   253427713
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4387,7 +4387,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = True
             BtnDesAprobar.Visible = False
             BtnModificar.Visible = True
-            btnEliminar.Visible = True
+            BtnEliminar.Visible = True
             lbl_cerrado.Caption = ""
             FrmABMDet.Visible = True
             BtnModificar2.Visible = True
@@ -4395,7 +4395,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = False
             BtnDesAprobar.Visible = True
             BtnModificar.Visible = False
-            btnEliminar.Visible = False
+            BtnEliminar.Visible = False
             FrmABMDet.Visible = False
             BtnModificar2.Visible = False
         End If
@@ -4438,7 +4438,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
            OptFilGral2.Visible = False
         End If
  End If
- btnEliminar.Visible = True
+ BtnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()
@@ -4655,7 +4655,7 @@ On Error GoTo UpdateErr
     End If
     dtc_desc3.backColor = &H80000005
     dtc_desc3.ForeColor = &H80000008
-    Txt_campo1.Caption = "0"
+    txt_campo1.Caption = "0"
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False

@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117964801
+         Format          =   109641729
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117964801
+         Format          =   109641729
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -250,14 +250,29 @@ Begin VB.Form tw_cronograma_mensual_inst
          TabIndex        =   19
          Top             =   240
          Width           =   10455
+         Begin VB.PictureBox BtnBuscar 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   1680
+            Picture         =   "tw_cronograma_mensual_inst.frx":1AC4
+            ScaleHeight     =   615
+            ScaleWidth      =   1215
+            TabIndex        =   88
+            Top             =   0
+            Visible         =   0   'False
+            Width           =   1215
+         End
          Begin VB.PictureBox BtnModificar 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   3480
-            Picture         =   "tw_cronograma_mensual_inst.frx":1AC4
+            Left            =   4680
+            Picture         =   "tw_cronograma_mensual_inst.frx":2279
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   70
@@ -272,8 +287,8 @@ Begin VB.Form tw_cronograma_mensual_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   1800
-            Picture         =   "tw_cronograma_mensual_inst.frx":23D9
+            Left            =   3000
+            Picture         =   "tw_cronograma_mensual_inst.frx":2B8E
             ScaleHeight     =   615
             ScaleWidth      =   1575
             TabIndex        =   44
@@ -288,8 +303,8 @@ Begin VB.Form tw_cronograma_mensual_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   5040
-            Picture         =   "tw_cronograma_mensual_inst.frx":33C2
+            Left            =   6240
+            Picture         =   "tw_cronograma_mensual_inst.frx":3B77
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   21
@@ -304,8 +319,8 @@ Begin VB.Form tw_cronograma_mensual_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   6480
-            Picture         =   "tw_cronograma_mensual_inst.frx":3B0E
+            Left            =   7680
+            Picture         =   "tw_cronograma_mensual_inst.frx":42C3
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   20
@@ -359,10 +374,10 @@ Begin VB.Form tw_cronograma_mensual_inst
          End
       End
       Begin TrueOleDBGrid60.TDBGrid dg_det1 
-         Bindings        =   "tw_cronograma_mensual_inst.frx":43DB
+         Bindings        =   "tw_cronograma_mensual_inst.frx":4B90
          Height          =   3855
          Left            =   120
-         OleObjectBlob   =   "tw_cronograma_mensual_inst.frx":43F6
+         OleObjectBlob   =   "tw_cronograma_mensual_inst.frx":4BAB
          TabIndex        =   81
          Top             =   960
          Width           =   10455
@@ -442,7 +457,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4320
-            Picture         =   "tw_cronograma_mensual_inst.frx":10E02
+            Picture         =   "tw_cronograma_mensual_inst.frx":115B7
             ScaleHeight     =   615
             ScaleWidth      =   1335
             TabIndex        =   67
@@ -456,7 +471,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1920
-            Picture         =   "tw_cronograma_mensual_inst.frx":116EE
+            Picture         =   "tw_cronograma_mensual_inst.frx":11EA3
             ScaleHeight     =   615
             ScaleWidth      =   1275
             TabIndex        =   66
@@ -501,7 +516,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1920
-            Picture         =   "tw_cronograma_mensual_inst.frx":11EDC
+            Picture         =   "tw_cronograma_mensual_inst.frx":12691
             ScaleHeight     =   615
             ScaleWidth      =   1275
             TabIndex        =   62
@@ -515,7 +530,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3360
-            Picture         =   "tw_cronograma_mensual_inst.frx":126CA
+            Picture         =   "tw_cronograma_mensual_inst.frx":12E7F
             ScaleHeight     =   615
             ScaleWidth      =   1335
             TabIndex        =   55
@@ -617,7 +632,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1560
-            Picture         =   "tw_cronograma_mensual_inst.frx":12FB6
+            Picture         =   "tw_cronograma_mensual_inst.frx":1376B
             ScaleHeight     =   615
             ScaleWidth      =   1275
             TabIndex        =   61
@@ -631,7 +646,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3000
-            Picture         =   "tw_cronograma_mensual_inst.frx":137A4
+            Picture         =   "tw_cronograma_mensual_inst.frx":13F59
             ScaleHeight     =   615
             ScaleWidth      =   1335
             TabIndex        =   57
@@ -640,7 +655,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          End
       End
       Begin MSDataListLib.DataCombo dtc_desc9 
-         Bindings        =   "tw_cronograma_mensual_inst.frx":14090
+         Bindings        =   "tw_cronograma_mensual_inst.frx":14845
          Height          =   315
          Left            =   240
          TabIndex        =   34
@@ -654,7 +669,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo DTPfecha2 
-         Bindings        =   "tw_cronograma_mensual_inst.frx":140A9
+         Bindings        =   "tw_cronograma_mensual_inst.frx":1485E
          Height          =   315
          Left            =   840
          TabIndex        =   35
@@ -669,7 +684,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo DTPfecha3 
-         Bindings        =   "tw_cronograma_mensual_inst.frx":140C3
+         Bindings        =   "tw_cronograma_mensual_inst.frx":14878
          Height          =   315
          Left            =   3720
          TabIndex        =   39
@@ -694,7 +709,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117964801
+         Format          =   109641729
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -708,7 +723,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117964801
+         Format          =   109641729
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 
@@ -799,7 +814,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Caption         =   "Cancelar"
          Height          =   615
          Left            =   2760
-         Picture         =   "tw_cronograma_mensual_inst.frx":140DD
+         Picture         =   "tw_cronograma_mensual_inst.frx":14892
          Style           =   1  'Graphical
          TabIndex        =   18
          ToolTipText     =   "Cancela sin Guardar"
@@ -811,7 +826,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Caption         =   "Aceptar"
          Height          =   615
          Left            =   960
-         Picture         =   "tw_cronograma_mensual_inst.frx":142E7
+         Picture         =   "tw_cronograma_mensual_inst.frx":14A9C
          Style           =   1  'Graphical
          TabIndex        =   17
          ToolTipText     =   "Grabar los Datos"
@@ -835,7 +850,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          Locked          =   -1  'True
          MultiLine       =   -1  'True
          TabIndex        =   14
-         Text            =   "tw_cronograma_mensual_inst.frx":144F1
+         Text            =   "tw_cronograma_mensual_inst.frx":14CA6
          Top             =   360
          Width           =   645
       End
@@ -843,9 +858,9 @@ Begin VB.Form tw_cronograma_mensual_inst
          BackColor       =   &H00FFFFFF&
          ForeColor       =   &H00000000&
          Height          =   315
-         ItemData        =   "tw_cronograma_mensual_inst.frx":144F3
+         ItemData        =   "tw_cronograma_mensual_inst.frx":14CA8
          Left            =   3960
-         List            =   "tw_cronograma_mensual_inst.frx":14503
+         List            =   "tw_cronograma_mensual_inst.frx":14CB8
          TabIndex        =   13
          Text            =   "0"
          Top             =   360
@@ -930,11 +945,11 @@ Begin VB.Form tw_cronograma_mensual_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   6960
-            Picture         =   "tw_cronograma_mensual_inst.frx":14513
+            Left            =   6840
+            Picture         =   "tw_cronograma_mensual_inst.frx":14CC8
             ScaleHeight     =   615
             ScaleWidth      =   1245
-            TabIndex        =   83
+            TabIndex        =   89
             ToolTipText     =   "Cierra la Ventana Activa"
             Top             =   0
             Width           =   1245
@@ -946,10 +961,10 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5160
-            Picture         =   "tw_cronograma_mensual_inst.frx":14CD5
+            Picture         =   "tw_cronograma_mensual_inst.frx":1548A
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   87
+            TabIndex        =   85
             Top             =   0
             Visible         =   0   'False
             Width           =   1200
@@ -961,10 +976,10 @@ Begin VB.Form tw_cronograma_mensual_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   6360
-            Picture         =   "tw_cronograma_mensual_inst.frx":15494
+            Picture         =   "tw_cronograma_mensual_inst.frx":15C49
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   86
+            TabIndex        =   84
             ToolTipText     =   "Anular Cronograma"
             Top             =   0
             Visible         =   0   'False
@@ -976,32 +991,17 @@ Begin VB.Form tw_cronograma_mensual_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   1200
-            Picture         =   "tw_cronograma_mensual_inst.frx":15BE0
+            Left            =   720
+            Picture         =   "tw_cronograma_mensual_inst.frx":16395
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   85
+            TabIndex        =   83
             ToolTipText     =   "Aprueba Cronograma"
             Top             =   0
             Visible         =   0   'False
             Width           =   1320
          End
-         Begin VB.PictureBox BtnBuscar 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   0
-            Picture         =   "tw_cronograma_mensual_inst.frx":16413
-            ScaleHeight     =   615
-            ScaleWidth      =   1215
-            TabIndex        =   84
-            Top             =   0
-            Width           =   1215
-         End
          Begin VB.Label lbl_titulo 
-            Alignment       =   2  'Center
             AutoSize        =   -1  'True
             BackStyle       =   0  'Transparent
             Caption         =   "CRONOGRAMA"
@@ -1016,10 +1016,10 @@ Begin VB.Form tw_cronograma_mensual_inst
             EndProperty
             ForeColor       =   &H00FFFFC0&
             Height          =   285
-            Left            =   3375
-            TabIndex        =   88
+            Left            =   255
+            TabIndex        =   86
             Top             =   195
-            Width           =   1815
+            Width           =   2535
          End
       End
       Begin VB.OptionButton OptFilGral3 
@@ -1468,7 +1468,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             Picture         =   "tw_cronograma_mensual_inst.frx":17CEC
             ScaleHeight     =   615
             ScaleWidth      =   1335
-            TabIndex        =   89
+            TabIndex        =   87
             Top             =   20
             Width           =   1335
          End
@@ -2519,7 +2519,10 @@ Dim rs_aux15 As New ADODB.Recordset     'OK
 'Dim CAMPOS As ADODB.Field
 'BUSCADOR
 Dim ClBuscaGrid As ClBuscaEnGridExterno
-'Dim queryinicial As String
+Dim PosibleApliqueFiltro As Boolean
+Dim queryinicial0 As String
+Dim queryinicial2 As String
+Dim QueryAux As String
 
 'OTROS
 'Dim swnuevo As String
@@ -2563,6 +2566,7 @@ Dim VAR_SW0, VAR_PLANID, VAR_SOL As Integer
 Dim VAR_DIA, VAR_NRODIAS, VAR_IDTAREA, VAR_PERIODOS As Integer
 Dim VAR_PASAJEROS, VAR_PARADAS As Integer
 Dim VAR_HORARIO As Integer
+Dim VAR_BUSCA As Integer
 
 Dim VAR_FECH1, VAR_FECH2 As Date
 Dim VAR_FECHAINI, VAR_FECHACTRL, VAR_FCTRLINI, VAR_FCTRLFIN As Date
@@ -2583,11 +2587,13 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '
 '        End Select
         If Ado_datos.Recordset.RecordCount > 0 Then
+            VAR_BUSCA = 1
             'VAR_FMES = Ado_datos.Recordset!fmes_plan
             lbl_texto0 = Ado_datos.Recordset!zpiloto_codigo
             buscados = buscados + 1
             If busca3 = 1 Then
                 If buscados = 1 Then
+                    'VAR_BUSCA = 0
                     Call Option3_Click
                     'Call ABRIR_TABLA_DET
                     'If lbl_texto1.Caption <> "" And lbl_texto1.Caption <> "0" Then
@@ -2598,23 +2604,27 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                     buscados = buscados + 1
                 End If
             Else
-                'Call ABRIR_TABLA_DET
-                Call Option3_Click
-                'If lbl_texto1.Caption <> "" And lbl_texto1.Caption <> "0" Then
-'                    lbl_texto2.Caption = UCase(MonthName(Ado_datos.Recordset!fmes_correl))
-                '    lbl_texto3.Caption = UCase(MonthName(Val(lbl_texto1.Caption)))
-                'End If
-                buscados = buscados + 1
+                'VAR_BUSCA = 0
+                If queryinicial0 = "" Then
+                Else
+                    VAR_BUSCA = 0
+                    Call Option3_Click
+                    'If lbl_texto1.Caption <> "" And lbl_texto1.Caption <> "0" Then
+    '                    lbl_texto2.Caption = UCase(MonthName(Ado_datos.Recordset!fmes_correl))
+                    '    lbl_texto3.Caption = UCase(MonthName(Val(lbl_texto1.Caption)))
+                    'End If
+                    buscados = buscados + 1
+                End If
             End If
-        Else
             
+        Else
             'Set dg_det1.DataSource = rsNada
             Set dg_det1.DataSource = rsNada
             Set dg_det2.DataSource = rsNada
         End If
         If glusuario = "MLLOSA" Then
             BtnModificar.Visible = False
-            btnEliminar.Visible = False
+            BtnEliminar.Visible = False
             BtnAprobar.Visible = False
             BtnAnlDetalle4.Visible = False
             BtnModDetalle.Visible = False
@@ -3472,30 +3482,51 @@ UpdateErr:
 End Sub
 
 Private Sub BtnBuscar_Click()
-    
-    If Ado_datos.Recordset.RecordCount > 0 Then
-        buscados = 0
-        busca3 = 1
-'        OptFilGral1.Visible = True
-'        OptFilGral2.Visible = True
-''        If Ado_datos.Recordset!estado_codigo = "REG" Then
-''            Call OptFilGral1_Click
-''        Else
-''            Call OptFilGral2_Click
-''        End If
-        Set ClBuscaGrid = New ClBuscaEnGridExterno
-        Set ClBuscaGrid.Conexión = db
-        ClBuscaGrid.EsTdbGrid = False
-        Set ClBuscaGrid.GridTrabajo = dg_datos
-        ClBuscaGrid.QueryUtilizado = queryinicial
-        Set ClBuscaGrid.RecordsetTrabajo = rs_datos
-        'ClBuscaGrid.CamposVisibles = "11010011"
-        ClBuscaGrid.Ejecutar
-    Else
-      MsgBox "NO se puede Procesar !!. Verifique si existen registros. ", vbExclamation, "Atención!"
-      'OptFilGral1.Visible = True
-      'OptFilGral2.Visible = True
-    End If
+'    If Ado_detalle1.Recordset.RecordCount > 0 Then
+'        buscados = 0
+'        busca3 = 1
+''        OptFilGral1.Visible = True
+''        OptFilGral2.Visible = True
+'''        If Ado_datos.Recordset!estado_codigo = "REG" Then
+'''            Call OptFilGral1_Click
+'''        Else
+'''            Call OptFilGral2_Click
+'''        End If
+'        Set ClBuscaGrid = New ClBuscaEnGridExterno
+'        Set ClBuscaGrid.Conexión = db
+'        ClBuscaGrid.EsTdbGrid = False
+'        Set ClBuscaGrid.GridTrabajo = dg_det1           'dg_datos
+'        ClBuscaGrid.QueryUtilizado = queryinicial
+'        Set ClBuscaGrid.RecordsetTrabajo = rs_det1      'rs_datos
+'        'ClBuscaGrid.CamposVisibles = "11010011"
+'        ClBuscaGrid.Ejecutar
+'    Else
+'      MsgBox "NO se puede Procesar !!. Verifique si existen registros. ", vbExclamation, "Atención!"
+'      'OptFilGral1.Visible = True
+'      'OptFilGral2.Visible = True
+'    End If
+
+ If Ado_detalle1.Recordset.RecordCount > 0 Then
+      VAR_BUSCA = 0
+      queryinicial2 = queryinicial0
+        
+      buscados = 1
+      PosibleApliqueFiltro = False
+      
+      Dim GrSqlAux As String
+      Set ClBuscaGrid = New ClBuscaEnGridExterno
+      Set ClBuscaGrid.Conexión = db
+      ClBuscaGrid.EsTdbGrid = False
+      Set ClBuscaGrid.GridTrabajo = dg_det1
+      ClBuscaGrid.QueryUtilizado = queryinicial2
+      Set ClBuscaGrid.RecordsetTrabajo = Ado_detalle1.Recordset
+      ClBuscaGrid.CamposVisibles = "110"
+      ClBuscaGrid.Ejecutar
+      PosibleApliqueFiltro = True
+  Else
+    MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
+  End If
+
 
 End Sub
 
@@ -4319,7 +4350,7 @@ Private Sub Form_Load()
     busca3 = 0
     VAR_SW0 = 0
     cmd_campo2.Text = "2"
-    'Fra_Gestion.Visible = True
+    VAR_BUSCA = 0
     VAR_GES = Year(Date)        'Cmb_gestion.Text
     
     Set rs_aux8 = New ADODB.Recordset
@@ -4345,7 +4376,11 @@ Private Sub Form_Load()
     
     Call ABRIR_TABLAS_AUX
     Call OptFilGral2_Click
-    
+    If Ado_datos.Recordset.RecordCount = 0 Then
+        queryinicial0 = "select * from tv_zona_piloto_edif_inst where (estado_codigo = 'REG' )  "
+    Else
+        queryinicial0 = "select * from tv_zona_piloto_edif_inst where (zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " and estado_codigo = 'REG' )  "
+    End If
 '    Fra_datos.Enabled = False
     dg_datos.Enabled = True
     Option1.Value = True
@@ -4400,8 +4435,6 @@ Private Sub OptFilGral2_Click()
     '===== Proceso para filtrado general de datos (todos los registros 2021)
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    queryinicial = "select * From tc_zonas_piloto_inst  "      'WHERE (ges_gestion = '2022' )
-    'queryinicial = "select * From to_cronograma_mensual_inst  "      'WHERE (ges_gestion = '2022' )
 '    Select Case VAR_DPTOC
 '        Case "1"    ' Chuquisaca
 '            queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo='34' or zpiloto_codigo='35' or zpiloto_codigo='36' or zpiloto_codigo='38') AND ges_gestion = '2022' ) "
@@ -4429,8 +4462,10 @@ Private Sub OptFilGral2_Click()
 '            queryinicial = "select * From to_cronograma_mensual where ( ges_gestion = '2022' ) "
 '     End Select
 
-    rs_datos.Sort = "zpiloto_codigo"           'ges_gestion, fmes_correl,
-    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+    'queryinicial = "select * From tc_zonas_piloto_inst  "
+    'rs_datos.Sort = "zpiloto_codigo"           'ges_gestion, fmes_correl,
+    'rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+    rs_datos.Open "select * From tc_zonas_piloto_inst ORDER BY zpiloto_codigo ", db, adOpenKeyset, adLockOptimistic
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
 End Sub
@@ -4703,9 +4738,17 @@ End Sub
 
 Private Sub Option3_Click()
     'Call ABRIR_TABLA_DET
+    'queryinicial2
     Set rs_det1 = New ADODB.Recordset
     If rs_det1.State = 1 Then rs_det1.Close
-    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' and estado_codigo = 'REG' order by fecha_ini_max ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    If VAR_BUSCA = 0 Then
+        queryinicial2 = "select * from tv_zona_piloto_edif_inst where (zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " and estado_codigo = 'REG' ) "
+    Else
+        queryinicial2 = queryinicial0
+    End If
+    'rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' and estado_codigo = 'REG' order by fecha_ini_max ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    rs_det1.Sort = "fecha_ini_max"
+    rs_det1.Open queryinicial2, db, adOpenKeyset, adLockOptimistic, adCmdText
     Set Ado_detalle1.Recordset = rs_det1
     Set dg_det1.DataSource = Ado_detalle1.Recordset
     If Ado_detalle1.Recordset.RecordCount > 0 Then

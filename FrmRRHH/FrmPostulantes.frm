@@ -374,13 +374,10 @@ Begin VB.Form FrmPostulantes
             BeginProperty Column02 
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   1305,071
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1005,165
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   1005,165
             EndProperty
          EndProperty
       End
@@ -943,18 +940,14 @@ Begin VB.Form FrmPostulantes
       SplitCount      =   1
       BeginProperty Split0 
          BeginProperty Column00 
-            ColumnWidth     =   1065,26
          EndProperty
          BeginProperty Column01 
-            ColumnWidth     =   1035,213
          EndProperty
          BeginProperty Column02 
          EndProperty
          BeginProperty Column03 
-            ColumnWidth     =   1590,236
          EndProperty
          BeginProperty Column04 
-            ColumnWidth     =   959,811
          EndProperty
       EndProperty
    End

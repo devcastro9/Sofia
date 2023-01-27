@@ -2111,7 +2111,7 @@ Private Sub dtc_codigo1_LostFocus()
     'FALTA ESCALERAS Y MINICARGAS !!
     Set rs_aux6 = New ADODB.Recordset
     If rs_aux6.State = 1 Then rs_aux6.Close
-    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
+    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
     If rs_aux6.RecordCount > 0 Then
         If rs_aux6!trafico_num_paradas < 9 Then
             Txt_campo19.Text = "2"
@@ -2244,18 +2244,12 @@ Private Sub Form_Activate()
         Txt_tdc.Text = "6.96"
     Text2.Visible = False
     Txt_campo11.Visible = False
-'    Set rs_unidad = New ADODB.Recordset
-'    If rs_unidad.State = 1 Then rs_unidad.Close
-'    rs_unidad.Open "Select * from gc_unidad_ejecutora = '" & fw_solicitud_compras.VAR_UNI & "' order by unidad_descripcion", db, adOpenStatic
-'    'rs_datos1.Open "gp_listar_apr_gc_unidad_ejecutora", db, adOpenStatic
-'    Set Ado_datos1.Recordset = rs_unidad
-'    Txt_descripcion.Caption = rs_unidad!unidad_descripcion
 End Sub
 
 Private Sub Form_Load()
     CAL_DOL = "NO"
     CAL_BS = "NO"
-
+    VAR_DET = ""
     'VAR_UNI = parametro
     If GlCotiza = 1 Then
         txt_codigo.Caption = fw_compras_gral.txt_codigo.Caption
@@ -2296,7 +2290,8 @@ If parametro <> "COMEX" Then
     Set rs_clasif6 = New ADODB.Recordset
     If rs_clasif6.State = 1 Then rs_clasif6.Close
     'Select Case Glaux
-    rs_clasif6.Open "SELECT * FROM ac_almacenes  ORDER BY almacen_descripcion ", db, adOpenStatic       'where beneficiario_codigo = '" & VAR_BENEF & "'
+    'VAR_DET = " WHERE almacen_tipo = 'I' "
+    rs_clasif6.Open "SELECT * FROM ac_almacenes  " + VAR_DET + "  ORDER BY almacen_descripcion ", db, adOpenStatic       'where beneficiario_codigo = '" & VAR_BENEF & "'
      Set Ado_clasif6.Recordset = rs_clasif6
      If rs_clasif6.RecordCount = 0 Then
      End If
@@ -2311,7 +2306,7 @@ Else
      Set rs_clasif6 = New ADODB.Recordset
      If rs_clasif6.State = 1 Then rs_clasif6.Close
     'Select Case Glaux
-     rs_clasif6.Open "SELECT * FROM ac_almacenes where almacen_codigo = 1", db, adOpenStatic
+     rs_clasif6.Open "SELECT * FROM ac_almacenes where almacen_codigo = 1 ", db, adOpenStatic
      Set Ado_clasif6.Recordset = rs_clasif6
      dtc_desc_alm.Enabled = False
      dtc_desc_alm.BoundText = rs_clasif6!almacen_codigo
@@ -2360,22 +2355,22 @@ Private Sub ABRIR_TABLA()
             VAR_DET = " where almacen_tipo = 'A' OR almacen_tipo = 'S' "
         Case "COMEX"    'ALMACEN GENERAL
             VAR_DET = " where almacen_tipo = 'Q' "
-            Select Case Glaux
-'             Case "PROVI"
-'             VAR_DET = VAR_DET & " AND bien_codigo_anterior = "
-                Case "TRANS"
-                      VAR_DET = " where almacen_tipo = 'S' "
-                      VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'TRANS'"
-                Case "ADUAN"
-                      VAR_DET = " where almacen_tipo = 'S' "
-                      VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'ADUAN'"
-                Case "DESCA"
-                     VAR_DET = " where almacen_tipo = 'S' "
-                     VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'DESCA'"
-                Case "CONTR"
-                     VAR_DET = " where almacen_tipo = 'S' "
-                     VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'CONTR'"
-            End Select
+'            Select Case Glaux
+''             Case "PROVI"
+''             VAR_DET = VAR_DET & " AND bien_codigo_anterior = "
+'                Case "TRANS"
+'                      VAR_DET = " where almacen_tipo = 'S' "
+'                      VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'TRANS'"
+'                Case "ADUAN"
+'                      VAR_DET = " where almacen_tipo = 'S' "
+'                      VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'ADUAN'"
+'                Case "DESCA"
+'                     VAR_DET = " where almacen_tipo = 'S' "
+'                     VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'DESCA'"
+'                Case "CONTR"
+'                     VAR_DET = " where almacen_tipo = 'S' "
+'                     VAR_DET = VAR_DET & " AND bien_codigo_anterior = 'CONTR'"
+'            End Select
         Case Else
             VAR_DET = " where almacen_tipo = 'A' "
     End Select

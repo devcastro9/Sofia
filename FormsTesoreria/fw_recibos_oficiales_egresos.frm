@@ -16,9 +16,9 @@ Begin VB.Form fw_recibos_oficiales_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   4.56865e5
+   ScaleHeight     =   4.86489e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   85087.97
+   ScaleWidth      =   1.59791e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCabecera 
       BackColor       =   &H00E0E0E0&
@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118226945
+         Format          =   117506049
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -3885,7 +3885,7 @@ UpdateErr:
 End Sub
 
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 '  If Ado_datos.Recordset.RecordCount > 0 Then
 '    If Ado_datos.Recordset("estado_almacen") = "REG" Then
 '      sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
