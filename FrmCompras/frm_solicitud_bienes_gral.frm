@@ -4,7 +4,7 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Begin VB.Form frm_solicitud_bienes_gral 
    BackColor       =   &H00C0C0C0&
    BorderStyle     =   1  'Fixed Single
-   ClientHeight    =   7290
+   ClientHeight    =   7275
    ClientLeft      =   1065
    ClientTop       =   -30
    ClientWidth     =   10965
@@ -12,7 +12,7 @@ Begin VB.Form frm_solicitud_bienes_gral
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   7290
+   ScaleHeight     =   7275
    ScaleWidth      =   10965
    StartUpPosition =   2  'CenterScreen
    Begin VB.PictureBox FraGrabarCancelar 
@@ -26,7 +26,7 @@ Begin VB.Form frm_solicitud_bienes_gral
       Left            =   135
       ScaleHeight     =   675
       ScaleWidth      =   10680
-      TabIndex        =   60
+      TabIndex        =   59
       Top             =   6495
       Width           =   10680
       Begin VB.PictureBox BtnCancelar 
@@ -39,7 +39,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Picture         =   "frm_solicitud_bienes_gral.frx":0000
          ScaleHeight     =   615
          ScaleWidth      =   1455
-         TabIndex        =   62
+         TabIndex        =   61
          Top             =   0
          Width           =   1455
       End
@@ -53,7 +53,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Picture         =   "frm_solicitud_bienes_gral.frx":08EC
          ScaleHeight     =   615
          ScaleWidth      =   1335
-         TabIndex        =   61
+         TabIndex        =   60
          Top             =   0
          Width           =   1335
       End
@@ -74,7 +74,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFFC0&
          Height          =   285
          Left            =   13215
-         TabIndex        =   63
+         TabIndex        =   62
          Top             =   195
          Width           =   1005
       End
@@ -97,7 +97,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          Left            =   120
          ScaleHeight     =   435
          ScaleWidth      =   10440
-         TabIndex        =   80
+         TabIndex        =   79
          Top             =   200
          Width           =   10440
          Begin VB.Label Label8 
@@ -117,7 +117,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00FFFF80&
             Height          =   360
             Left            =   2640
-            TabIndex        =   82
+            TabIndex        =   81
             Top             =   0
             Width           =   5325
          End
@@ -138,7 +138,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   13215
-            TabIndex        =   81
+            TabIndex        =   80
             Top             =   195
             Width           =   1005
          End
@@ -158,7 +158,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FF0000&
          Height          =   750
          Left            =   120
-         TabIndex        =   67
+         TabIndex        =   66
          Top             =   4080
          Width           =   10485
          Begin MSDataListLib.DataCombo dtc_desc_alm 
@@ -167,7 +167,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
             Left            =   600
-            TabIndex        =   68
+            TabIndex        =   67
             Top             =   300
             Width           =   6615
             _ExtentX        =   11668
@@ -184,7 +184,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
             Left            =   120
-            TabIndex        =   69
+            TabIndex        =   68
             Top             =   300
             Width           =   855
             _ExtentX        =   1508
@@ -194,6 +194,50 @@ Begin VB.Form frm_solicitud_bienes_gral
             ListField       =   "almacen_codigo"
             BoundColumn     =   "almacen_codigo"
             Text            =   ""
+         End
+         Begin VB.Label TxtEmpresa 
+            Alignment       =   2  'Center
+            BackColor       =   &H00404040&
+            Caption         =   "REG"
+            DataSource      =   "fw_compras_gral.ado_detalle1"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FFFF80&
+            Height          =   300
+            Left            =   9120
+            TabIndex        =   83
+            Top             =   300
+            Width           =   1095
+         End
+         Begin VB.Label Txt_estado 
+            Alignment       =   2  'Center
+            BackColor       =   &H00404040&
+            Caption         =   "REG"
+            DataField       =   "estado_codigo"
+            DataSource      =   "fw_compras_gral.ado_detalle1"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FFFF80&
+            Height          =   300
+            Left            =   9120
+            TabIndex        =   82
+            Top             =   120
+            Visible         =   0   'False
+            Width           =   1095
          End
       End
       Begin VB.Frame Frame3 
@@ -220,7 +264,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Height          =   285
             Index           =   4
             Left            =   3120
-            TabIndex        =   79
+            TabIndex        =   78
             Top             =   810
             Width           =   350
          End
@@ -229,11 +273,11 @@ Begin VB.Form frm_solicitud_bienes_gral
             DataField       =   "bien_codigo"
             DataSource      =   "fw_compras_gral.ado_detalle1"
             Height          =   315
-            Left            =   2360
-            TabIndex        =   78
-            Top             =   800
-            Width           =   1130
-            _ExtentX        =   2011
+            Left            =   2355
+            TabIndex        =   77
+            Top             =   795
+            Width           =   1125
+            _ExtentX        =   1984
             _ExtentY        =   556
             _Version        =   393216
             Locked          =   -1  'True
@@ -254,7 +298,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00000000&
             Height          =   285
             Left            =   4800
-            TabIndex        =   75
+            TabIndex        =   74
             Text            =   "6.96"
             Top             =   800
             Width           =   855
@@ -266,7 +310,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ItemData        =   "frm_solicitud_bienes_gral.frx":110F
             Left            =   3720
             List            =   "frm_solicitud_bienes_gral.frx":111C
-            TabIndex        =   74
+            TabIndex        =   73
             Text            =   "BOB"
             Top             =   800
             Width           =   855
@@ -289,7 +333,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00000000&
             Height          =   285
             Left            =   7080
-            TabIndex        =   72
+            TabIndex        =   71
             Text            =   "1"
             Top             =   800
             Width           =   1455
@@ -312,7 +356,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00000000&
             Height          =   285
             Left            =   8760
-            TabIndex        =   70
+            TabIndex        =   69
             Text            =   "1"
             Top             =   795
             Width           =   1455
@@ -326,7 +370,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00FFFFFF&
             Height          =   285
             Left            =   7080
-            TabIndex        =   48
+            TabIndex        =   47
             Text            =   "1"
             Top             =   2040
             Visible         =   0   'False
@@ -374,7 +418,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             DataField       =   "unimed_codigo"
             Height          =   315
             Left            =   1560
-            TabIndex        =   45
+            TabIndex        =   44
             Top             =   1155
             Visible         =   0   'False
             Width           =   2415
@@ -395,7 +439,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             DataField       =   "unimed_codigo"
             Height          =   315
             Left            =   240
-            TabIndex        =   46
+            TabIndex        =   45
             Top             =   1080
             Visible         =   0   'False
             Width           =   975
@@ -426,7 +470,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Height          =   240
             Index           =   0
             Left            =   4800
-            TabIndex        =   76
+            TabIndex        =   75
             Top             =   480
             Width           =   855
          End
@@ -446,32 +490,9 @@ Begin VB.Form frm_solicitud_bienes_gral
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   7080
-            TabIndex        =   73
+            TabIndex        =   72
             Top             =   480
             Width           =   1455
-         End
-         Begin VB.Label Txt_estado 
-            Alignment       =   2  'Center
-            BackColor       =   &H00404040&
-            Caption         =   "REG"
-            DataField       =   "estado_codigo"
-            DataSource      =   "fw_compras_gral.ado_detalle1"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00FFFF80&
-            Height          =   300
-            Left            =   9120
-            TabIndex        =   44
-            Top             =   240
-            Visible         =   0   'False
-            Width           =   1095
          End
          Begin VB.Label Txt_campo11A 
             Alignment       =   2  'Center
@@ -665,7 +686,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Height          =   285
             Index           =   5
             Left            =   7440
-            TabIndex        =   71
+            TabIndex        =   70
             Top             =   540
             Visible         =   0   'False
             Width           =   360
@@ -677,7 +698,7 @@ Begin VB.Form frm_solicitud_bienes_gral
             Height          =   285
             Index           =   3
             Left            =   9600
-            TabIndex        =   64
+            TabIndex        =   63
             Top             =   540
             Width           =   360
          End
@@ -1048,7 +1069,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          EndProperty
          Height          =   300
          Left            =   120
-         TabIndex        =   77
+         TabIndex        =   76
          Top             =   240
          Visible         =   0   'False
          Width           =   1215
@@ -1068,7 +1089,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          EndProperty
          Height          =   300
          Left            =   2400
-         TabIndex        =   66
+         TabIndex        =   65
          Top             =   240
          Visible         =   0   'False
          Width           =   1215
@@ -1089,7 +1110,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFF80&
          Height          =   300
          Left            =   1080
-         TabIndex        =   65
+         TabIndex        =   64
          Top             =   240
          Visible         =   0   'False
          Width           =   1335
@@ -1111,7 +1132,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          EndProperty
          Height          =   300
          Left            =   8400
-         TabIndex        =   47
+         TabIndex        =   46
          Top             =   240
          Visible         =   0   'False
          Width           =   975
@@ -1256,7 +1277,7 @@ Begin VB.Form frm_solicitud_bienes_gral
       ScaleHeight     =   0
       ScaleWidth      =   10965
       TabIndex        =   4
-      Top             =   7290
+      Top             =   7275
       Width           =   10965
       Begin VB.CommandButton cmdLast 
          Height          =   300
@@ -1412,7 +1433,7 @@ Begin VB.Form frm_solicitud_bienes_gral
       ForeColor       =   &H00FFFFC0&
       Height          =   2775
       Left            =   360
-      TabIndex        =   49
+      TabIndex        =   48
       Top             =   3600
       Visible         =   0   'False
       Width           =   10455
@@ -1421,7 +1442,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          DataSource      =   "frm_to_identificacion_cliente.ado_detalle2"
          Height          =   285
          Left            =   240
-         TabIndex        =   54
+         TabIndex        =   53
          Text            =   "0"
          Top             =   645
          Width           =   2415
@@ -1431,7 +1452,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          DataSource      =   "frm_to_identificacion_cliente.ado_detalle2"
          Height          =   285
          Left            =   2880
-         TabIndex        =   53
+         TabIndex        =   52
          Text            =   "0"
          Top             =   640
          Width           =   7335
@@ -1439,7 +1460,7 @@ Begin VB.Form frm_solicitud_bienes_gral
       Begin VB.TextBox Txt_campo7 
          Height          =   285
          Left            =   240
-         TabIndex        =   52
+         TabIndex        =   51
          Text            =   "0"
          Top             =   1440
          Width           =   9975
@@ -1449,7 +1470,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          DataSource      =   "frm_to_identificacion_cliente.ado_detalle2"
          Height          =   285
          Left            =   240
-         TabIndex        =   51
+         TabIndex        =   50
          Text            =   "0"
          Top             =   525
          Width           =   3855
@@ -1459,7 +1480,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          DataSource      =   "frm_to_identificacion_cliente.ado_detalle2"
          Height          =   285
          Left            =   6360
-         TabIndex        =   50
+         TabIndex        =   49
          Text            =   "0"
          Top             =   2160
          Width           =   3855
@@ -1480,7 +1501,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   240
-         TabIndex        =   59
+         TabIndex        =   58
          Top             =   1875
          Width           =   570
       End
@@ -1500,7 +1521,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   6360
-         TabIndex        =   58
+         TabIndex        =   57
          Top             =   1875
          Width           =   690
       End
@@ -1520,7 +1541,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   240
-         TabIndex        =   57
+         TabIndex        =   56
          Top             =   1140
          Width           =   3210
       End
@@ -1540,7 +1561,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFFC0&
          Height          =   240
          Left            =   2880
-         TabIndex        =   56
+         TabIndex        =   55
          Top             =   360
          Width           =   1080
       End
@@ -1560,7 +1581,7 @@ Begin VB.Form frm_solicitud_bienes_gral
          ForeColor       =   &H00FFFFC0&
          Height          =   240
          Left            =   240
-         TabIndex        =   55
+         TabIndex        =   54
          Top             =   375
          Width           =   660
       End
@@ -1672,15 +1693,14 @@ Private Sub BtnGrabar_Click()
         End If
         db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo,            compra_cantidad,            compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,             grupo_codigo,           subgrupo_codigo, " & _
                    " par_codigo,            tipo_descuento, almacen_codigo, usr_usuario,    fecha_registro, hora_registro, unimed_codigo,   estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
-                   " VALUES ('" & txt_gestion.Caption & "', " & Val(lbl_edif.Caption) & ", '" & dtc_codigo1.Text & "', " & Val(Txt_campo16.Text) & ", " & CDbl(Txt_campo10.Text) & ",      '0',            " & CDbl(Txt_campo11.Text) & ", " & CDbl(Text2.Text) & ",           '0',              " & CDbl(Text2.Text) & ",       '" & dtc_desc1.Text & "', '" & dtc_aux1.Text & "', '" & dtc_aux2.Text & "',  " & _
+                   " VALUES ('" & gestion & "', " & Cod_Comp & ", '" & dtc_codigo1.Text & "', " & Val(Txt_campo16.Text) & ", " & CDbl(Txt_campo10.Text) & ",      '0',            " & CDbl(Txt_campo11.Text) & ", " & CDbl(Text2.Text) & ",           '0',              " & CDbl(Text2.Text) & ",       '" & dtc_desc1.Text & "', '" & dtc_aux1.Text & "', '" & dtc_aux2.Text & "',  " & _
                    " '" & dtc_aux3.Text & "', '0',      " & Val(dtc_cod_alm.Text) & ",        '" & glusuario & "', '" & Date & "', '0',       '" & Txt_campo14 & "', 'REG', '0', '6.96', 'BOB'  )"
                    
-''        db.Execute "insert into ao_compra_detalle (ges_gestion, compra_codigo, compra_codigo_det, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto, grupo_codigo, subgrupo_codigo, " & _
-''                   " par_codigo, tipo_descuento, almacen_codigo, usr_usuario, fecha_registro, hora_registro, unimed_codigo, estado_codigo, adjudica_monto_bs_87, compra_tdc, tipo_moneda) " & _
-''                   " VALUES ('" & txt_gestion.Caption & "', " & lbl_edif.Caption & ", " & NRO_REG & ", '" & dtc_codigo1.Text & "', " & Txt_campo16.Text & ", " & Txt_campo10.Text & " )"
-''
-''        db.Execute "insert into ao_compra_detalle (ges_gestion, cobranza_detalle, cobranza_codigo, beneficiario_codigo_resp,    cobranza_bs,       cobranza_dol,           cobranza_fecha,             cobranza_observaciones,             cta_codigo,             cmpbte_deposito,            doc_numero,              trans_codigo,              literal,    estado_codigo, estado_codigo_bco, usr_codigo,           fecha_registro,                     tipo_moneda, usr_codigo_mod, usr_codigo_apr, cobranza_tdc) " & _
-'                " VALUES ('" & Ado_datos01.Recordset!ges_gestion & "', " & correldet & ", " & NRO_COBR & ", '" & DataCombo1.Text & "', " & COBR_BS & ", " & VAR_DOL2 & ", '" & CDate(DTPicker1.Value) & "', '" & txt_observaciones.Text & "', '" & dtc_cta2.Text & "', '" & Txt_deposito.Text & "', " & Txt_docnro.Text & ", '" & DataCombo9.Text & "', '" & var_literal & "', 'REG',      'REG', '" & glusuario & "', '" & Format(Date, "dd/mm/yyyy") & "', '" & cmd_moneda.Text & "', '" & glusuario & "', '" & glusuario & "', " & TxtTDC.Text & " )"
+'           GlSolicitud = Me.txt_codigo.Caption   'solicitud_codigo
+'            GlUnidad = Me.dtc_codigo1.Text     'unidad_codigo
+'            GlEdificio = dtc_codigo3.Text         'Codigo de Edificacion
+'            Cod_Comp = Ado_datos.Recordset!compra_codigo
+'            gestion = Year(DTPfecha1.Value)
 '
     End If
     If swnuevo = 2 Then
@@ -1778,88 +1798,9 @@ Private Sub BtnGrabar_Click()
         'fw_solicitud_compras.Ado_detalle2.Update
    End If
 
-        'aw_p_ao_solicitud.Ado_detalle1.Recordset("archivo_foto").Value = Trim(dtc_codigo1.Text) + "-A.JPG"
-        'aw_p_ao_solicitud.Ado_detalle1.Recordset("archivo_plano").Value = Trim(dtc_codigo1.Text) + "-B.JPG"
-'        fw_solicitud_compras.Ado_detalle2.Recordset("fecha_registro").Value = Date
-'        'aw_p_ao_solicitud.Ado_detalle1.Recordset("hora_registro").Value = Date
-'        fw_solicitud_compras.Ado_detalle2.Recordset("usr_codigo").Value = glusuario
-'        fw_solicitud_compras.Ado_detalle2.Recordset.UpdateBatch adAffectAll
-     
-'     Set rs_aux1 = New ADODB.Recordset
-'     SQL_FOR = "select * from ao_solicitud_edificacion where unidad_codigo = '" & aw_p_ao_solicitud.Ado_datos.Recordset("unidad_codigo") & "' and solicitud_codigo = " & aw_p_ao_solicitud.Ado_datos.Recordset("solicitud_codigo") & " and edif_codigo = '" & dtc_codigo1.Text & "'  "
-'     rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'     If rs_aux1.RecordCount > 0 Then
-'        MsgBox "El código ya existe, consulte con el administrador del Sistema..."
-'        var_cod = 0
-'        Exit Sub
-'     Else
-'        aw_p_ao_solicitud.Ado_detalle1.Recordset("edif_codigo").Value = dtc_codigo1.Text
-'     End If
-     
-     
-'     var_cod = aw_p_ao_solicitud.Ado_detalle1.Recordset.RecordCount
-'     db.Execute "Update ao_solicitud Set correl_edificacion = " & var_cod & " Where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  "
-'    If lbl_det = "43340" Then
-'     'Graba en Cotiza    1
-'        Set rs_aux4 = New ADODB.Recordset
-'        If rs_aux4.State = 1 Then rs_aux4.Close
-'        SQL_FOR = "select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & " AND bien_codigo = '" & dtc_codigo1.Text & "'    "
-'        rs_aux4.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If swnuevo = 1 Then
-'            'Call cotiza_codigo
-'            Set rs_aux5 = New ADODB.Recordset
-'            If rs_aux5.State = 1 Then rs_aux5.Close
-'            rs_aux5.Open "Select max(cotiza_codigo) as Codigo from ao_solicitud_cotiza_venta where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "    ", db, adOpenStatic
-'            If Not rs_aux5.EOF Then
-'                 var_cod5 = IIf(IsNull(rs_aux5!Codigo), 1, rs_aux5!Codigo + 1)
-'            End If
-'            rs_aux4.AddNew
-'            rs_aux4!ges_gestion = Year(Date)
-'            rs_aux4!unidad_codigo = Txt_campo1.Caption
-'            rs_aux4!solicitud_codigo = txt_codigo.Caption
-'            rs_aux4!edif_codigo = frm_to_identificacion_cliente.dtc_codigo3.Text
-'            rs_aux4!trafico_codigo = "0"  'Ado_datos.Recordset!trafico_codigo
-'            rs_aux4!cotiza_codigo = var_cod5
-'            rs_aux4!pais_continente = "NN"
-'            'Call correl_bien
-'            rs_aux4!bien_codigo = IIf(dtc_codigo1.Text = "", Txt_campo5.Text, dtc_codigo1.Text) '"MAN-002"       'CODIGO Servicio de Mantenimeitno
-'            rs_aux4!proceso_codigo = "TEC"
-'            rs_aux4!subproceso_codigo = "TEC-02"
-'            rs_aux4!etapa_codigo = "TEC-02-01"
-'            rs_aux4!poa_codigo = "3.2.3"
-'            rs_aux4!clasif_codigo = "TEC"
-'            rs_aux4!doc_codigo = "R-362"        'OJO - CAMBIAR R-xxx   OJO 28-DIC-2014
-'            rs_aux4!doc_numero = "0"
-'            rs_aux4!estado_codigo = "APR"
-'
-'            rs_aux4!modelo_codigo = Txt_campo3.Text     'Ado_datos.Recordset!modelo_codigo
-'            rs_aux4!modelo_codigo_h = "0"        'Ado_datos.Recordset!modelo_codigo_h1
-'            rs_aux4!modelo_codigo_x = "0"       'Ado_datos.Recordset!modelo_codigo_x1
-'            rs_aux4!cotiza_fecha = Date
-'            rs_aux4!cotiza_cantidad = IIf(Txt_campo16 = "", 1, Txt_campo16)
-'            rs_aux4!cotiza_tdc_bol = GlTipoCambioOficial
-'            rs_aux4!cotiza_precio_fob_bs = IIf(Txt_campo10 = "", 0, Txt_campo10)
-'            rs_aux4!cotiza_precio_fob_dol = CDbl(Txt_campo10) * GlTipoCambioOficial
-'            rs_aux4!cotiza_precio_total_bs = IIf(Txt_campo11 = "", 0, Txt_campo11)
-'            rs_aux4!cotiza_precio_total_dol = CDbl(Txt_campo11) * GlTipoCambioOficial
-'            rs_aux4!costo_monto = IIf(Txt_campo11 = "", 0, Txt_campo11)
-'            rs_aux4!fecha_registro = Date
-'            rs_aux4!usr_codigo = glusuario
-'            rs_aux4.Update
-'        Else
-'            db.Execute "Update ao_solicitud_cotiza_venta Set cotiza_cantidad = " & CDbl(Txt_campo16) & ", cotiza_precio_fob_bs = " & CDbl(Txt_campo10.Text) & ", cotiza_precio_total_bs = " & CDbl(Txt_campo11.Caption) & ", costo_monto = " & CDbl(Txt_campo11.Caption) & " Where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & " and bien_codigo = '" & dtc_codigo1.Text & "'    "
-'        End If
-'
-'        If swnuevo = 1 Then
-'            db.Execute "Update ao_solicitud Set correl_cotiza = " & var_cod5 & " Where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "    "
-'        End If
-'    End If
-'     Frame1.Visible = False
-'     Frame2.Visible = False
-
      Unload Me
 
-'     Call ABRIR_TABLA
+'     Call fw_compras_gral.OptFilGral1
 '     rs_datos.MoveLast
 '     mbDataChanged = False
 '
@@ -2111,7 +2052,7 @@ Private Sub dtc_codigo1_LostFocus()
     'FALTA ESCALERAS Y MINICARGAS !!
     Set rs_aux6 = New ADODB.Recordset
     If rs_aux6.State = 1 Then rs_aux6.Close
-    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
+    rs_aux6.Open "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Txt_campo1.Caption & "' and solicitud_codigo = " & txt_codigo.Caption & "  ", db, adOpenStatic      'order by descripcion
     If rs_aux6.RecordCount > 0 Then
         If rs_aux6!trafico_num_paradas < 9 Then
             Txt_campo19.Text = "2"
@@ -2258,8 +2199,8 @@ Private Sub Form_Load()
     End If
     Set rs_UNIDAD = New ADODB.Recordset
     If rs_UNIDAD.State = 1 Then rs_UNIDAD.Close
-    rs_UNIDAD.Open "Select * from gc_unidad_ejecutora where unidad_codigo = '" & parametro & "' order by unidad_descripcion", db, adOpenStatic
-    'rs_datos1.Open "gp_listar_apr_gc_unidad_ejecutora", db, adOpenStatic
+    rs_UNIDAD.Open "Select * from gc_unidad_ejecutora where unidad_codigo = '" & GlUnidad & "' order by unidad_descripcion", db, adOpenStatic
+    'rs_UNIDAD.Open "Select * from gc_unidad_ejecutora where unidad_codigo = '" & parametro & "' order by unidad_descripcion", db, adOpenStatic
     'Set Ado_datos1.Recordset = rs_UNIDAD
     If rs_UNIDAD.RecordCount > 0 Then
         Txt_descripcion.Caption = rs_UNIDAD!unidad_descripcion
@@ -2274,7 +2215,6 @@ Private Sub Form_Load()
             VAR_BENEF = "0"
             'VAR_DPTO = "2"
         End If
-
     End If
     
     Call ABRIR_TABLA
@@ -2284,13 +2224,21 @@ Private Sub Form_Load()
 '    Frame2.Visible = False
     var_val2 = "2"
     
-If parametro <> "COMEX" Then
+If GlUnidad <> "COMEX" Then
+'If parametro <> "COMEX" Then
     Txt_campo10.Visible = True
     lbl_campo10.Visible = True
     Set rs_clasif6 = New ADODB.Recordset
     If rs_clasif6.State = 1 Then rs_clasif6.Close
     'Select Case Glaux
-    'VAR_DET = " WHERE almacen_tipo = 'I' "
+    
+    'If TxtEmpresa.Caption = "CGE" Then
+    If GlEmpresa = 2 Then
+        VAR_DET = VAR_DET + " AND codigo_empresa = '2' "
+    Else
+        VAR_DET = VAR_DET + " AND codigo_empresa = '1' "
+    End If
+            
     rs_clasif6.Open "SELECT * FROM ac_almacenes  " + VAR_DET + "  ORDER BY almacen_descripcion ", db, adOpenStatic       'where beneficiario_codigo = '" & VAR_BENEF & "'
      Set Ado_clasif6.Recordset = rs_clasif6
      If rs_clasif6.RecordCount = 0 Then

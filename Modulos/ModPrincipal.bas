@@ -1,5 +1,7 @@
 Attribute VB_Name = "ModPrincipal"
 'Ini. Variables Globales de Control de Accesos
+Public GlEmpresa As Integer
+
 Public GlElegido As String
 Public GlMaquina As String          'Nombre del equipo con el que se trabaja
 Public GlTipoAcceso As String

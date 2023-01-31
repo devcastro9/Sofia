@@ -17,9 +17,9 @@ Begin VB.Form aw_almacen_salida_rep
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   73290.33
+   ScaleHeight     =   83102.98
    ScaleMode       =   0  'User
-   ScaleWidth      =   4.87135e5
+   ScaleWidth      =   1.71797e6
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -421,7 +421,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   253427713
+         Format          =   109445121
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -434,7 +434,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   253427713
+         Format          =   109445121
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2189,7 +2189,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   253427713
+            Format          =   109445121
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -2549,7 +2549,7 @@ Begin VB.Form aw_almacen_salida_rep
       Width           =   6465
       Begin VB.OptionButton Option1 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Traspasos"
+         Caption         =   "TRP.CGI"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2561,14 +2561,14 @@ Begin VB.Form aw_almacen_salida_rep
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   3360
+         Left            =   2160
          TabIndex        =   126
          Top             =   4360
-         Width           =   1275
+         Width           =   1035
       End
       Begin VB.OptionButton Option2 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Salidas"
+         Caption         =   "Salidas.CGI"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2580,14 +2580,15 @@ Begin VB.Form aw_almacen_salida_rep
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   4800
+         Left            =   840
          TabIndex        =   125
          Top             =   4360
-         Width           =   915
+         Value           =   -1  'True
+         Width           =   1275
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Todos"
+         Caption         =   "Salidas.CGE"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2597,16 +2598,16 @@ Begin VB.Form aw_almacen_salida_rep
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00FF0000&
          Height          =   210
-         Left            =   2280
+         Left            =   3360
          TabIndex        =   47
          Top             =   4360
-         Width           =   915
+         Width           =   1275
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Instalaciones"
+         Caption         =   "TRP.CGE"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2616,13 +2617,12 @@ Begin VB.Form aw_almacen_salida_rep
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00FF0000&
          Height          =   210
-         Left            =   720
+         Left            =   4680
          TabIndex        =   46
-         Top             =   4360
-         Value           =   -1  'True
-         Width           =   1455
+         Top             =   4365
+         Width           =   975
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Bindings        =   "aw_almacen_salida_rep.frx":C297
@@ -4387,7 +4387,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = True
             BtnDesAprobar.Visible = False
             BtnModificar.Visible = True
-            BtnEliminar.Visible = True
+            btnEliminar.Visible = True
             lbl_cerrado.Caption = ""
             FrmABMDet.Visible = True
             BtnModificar2.Visible = True
@@ -4395,7 +4395,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = False
             BtnDesAprobar.Visible = True
             BtnModificar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             FrmABMDet.Visible = False
             BtnModificar2.Visible = False
         End If
@@ -4438,7 +4438,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
            OptFilGral2.Visible = False
         End If
  End If
- BtnEliminar.Visible = True
+ btnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()
@@ -4655,7 +4655,7 @@ On Error GoTo UpdateErr
     End If
     dtc_desc3.backColor = &H80000005
     dtc_desc3.ForeColor = &H80000008
-    txt_campo1.Caption = "0"
+    Txt_campo1.Caption = "0"
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False
@@ -5207,10 +5207,13 @@ On Error GoTo UpdateErr
 '    Fra_Total.Visible = True
     FrmABMDet.Visible = True
     'Refrescar Grid
-    If OptFilGral1.Value = True Then
-        Call OptFilGral1_Click        'Pendientes
+    'If OptFilGral1.Value = True Then
+    If OptFilGral2.Value = True Or OptFilGral1.Value = True Then
+        'Call OptFilGral1_Click        'Pendientes
+        Call OptFilGral2_Click        'CGE
      Else
-        Call OptFilGral2_Click        'TODOS
+        'Call OptFilGral2_Click        'TODOS
+        Call OptFilGral1_Click        'CGI
      End If
      If (dg_datos.SelBookmarks.Count <> 0) Then
         dg_datos.SelBookmarks.Remove 0
@@ -8852,7 +8855,14 @@ Private Sub grabar()
 '                  Case Else
 '                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-115R2' AND cta_codigo1 = '2' ", db, adOpenDynamic, adLockOptimistic
 '                End Select
-                rs_aux7.Open "select * from fc_Correl  where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
+'                rs_aux7.Open "select * from fc_Correl  where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
+                If OptFilGral2.Value = True Then
+                    rs_aux7.Open "select * from fc_correl_2 where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
+                    GlEmpresa = 2
+                Else
+                    rs_aux7.Open "select * from fc_Correl where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
+                    GlEmpresa = 1
+                End If
                 If rs_aux7.RecordCount > 0 Then
                   VAR_NUM = CDbl(rs_aux7!numero_correlativo) + 1
                   rs_aux7!numero_correlativo = Trim(Str(VAR_NUM))
@@ -8872,15 +8882,45 @@ Private Sub grabar()
                 'Select Case parametro
                 Select Case VAR_ORIGEN
                   Case "UALMI"          ', "ALMIB", "ALMIS", "ALMIC"
-                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119i'", db, adOpenDynamic, adLockOptimistic
+                      If OptFilGral1.Value = True Then
+                        rs_aux7.Open "select * from fc_correl_2 where tipo_tramite = 'R-119i'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 2
+                      Else
+                        rs_aux7.Open "select * from fc_Correl where tipo_tramite = 'R-119i'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 1
+                      End If
                   Case "UALMR"          ', "ALMRB", "ALMRS", "ALMRC"
-                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119R'", db, adOpenDynamic, adLockOptimistic
+                      If OptFilGral1.Value = True Then
+                        rs_aux7.Open "select * from fc_correl_2  where tipo_tramite = 'R-119R'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 2
+                      Else
+                        rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119R'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 1
+                      End If
                   Case "UALMH"          ', "ALMHB", "ALMHS", "ALMHC"
-                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119H'", db, adOpenDynamic, adLockOptimistic
+                      If OptFilGral1.Value = True Then
+                        rs_aux7.Open "select * from fc_correl_2  where tipo_tramite = 'R-119H'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 2
+                      Else
+                        rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119H'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 1
+                      End If
                   Case "GADM"
-                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119A'", db, adOpenDynamic, adLockOptimistic
+                      If OptFilGral1.Value = True Then
+                        rs_aux7.Open "select * from fc_correl_2  where tipo_tramite = 'R-119A'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 2
+                      Else
+                        rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119A'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 1
+                      End If
                   Case Else
-                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119R'", db, adOpenDynamic, adLockOptimistic
+                      If OptFilGral1.Value = True Then
+                        rs_aux7.Open "select * from fc_correl_2  where tipo_tramite = 'R-119R'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 2
+                      Else
+                        rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-119R'", db, adOpenDynamic, adLockOptimistic
+                        GlEmpresa = 1
+                      End If
                 End Select
                 If rs_aux7.RecordCount > 0 Then
                   VAR_NUM = CDbl(rs_aux7!numero_correlativo) + 1
@@ -9056,12 +9096,12 @@ Private Sub grabar()
                    " beneficiario_codigo_almR, beneficiario_codigo_almH, beneficiario_codigo_tec, beneficiario_codigo_tecR, beneficiario_codigo_tecH, venta_descripcion, venta_cantidad_total, venta_monto_total_bs, venta_monto_total_dol, venta_tipo_cambio, venta_monto_cobrado_bs, venta_monto_cobrado_dol, " & _
                    " venta_saldo_p_cobrar_bs, venta_saldo_p_cobrar_dol, venta_plazo_dias_calendario, venta_fecha_inicio, venta_fecha_fin, unimed_codigo, venta_cantidad_cobr, unimed_codigo_cobr, mes_inicio_crono, tipoben_codigo, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, poa_codigo, " & _
                    " doc_codigo_alm, doc_numero_alm, poa_codigo_alm, almacen_codigo, almacen_codigo_d, depto_codigo_d,          doc_codigo_almR, doc_numero_almR, almacen_codigoR, almacen_codigo_dR, depto_codigo_dR, doc_codigo_almH, doc_numero_almH, almacen_codigoH,  depto_codigo_dH, archivo_respaldo, " & _
-                   " archivo_respaldo_cargado, correl_detalle, correl_cobro_prog, estado_cancelado, estado_alcance, estado_codigo, estado_almacen, usr_codigo, fecha_registro, estado_codigo_verif, usr_codigo_verif, fecha_verif, literal_a, nro_eqp, tipo_moneda, almacen_tipo, almacen_tipoD ) " & _
+                   " archivo_respaldo_cargado, correl_detalle, correl_cobro_prog, estado_cancelado, estado_alcance, estado_codigo, estado_almacen, usr_codigo, fecha_registro, estado_codigo_verif, usr_codigo_verif, fecha_verif, literal_a, nro_eqp, tipo_moneda, almacen_tipo, almacen_tipoD, codigo_empresa ) " & _
             " values ('" & glGestion & "', " & var_cod5 & ",  '" & VAR_DPTO & "', '" & parametro & "', " & var_cod & ", '" & dtc_codigo3.Text & "', '" & dtc_codigo2.Text & "', '" & VAR_CITE & "', '0', '" & FVenta & "', 'A', '" & VAR_BENA & "', '" & dtc_codigo4.Text & "', '0', '" & VAR_BENI & "', " & _
             " '" & VAR_BENR & "', '" & VAR_BENH & "', '" & VAR_BENDI & "', '" & VAR_BENDR & "', '" & VAR_BENDH & "', '" & TxtConcepto.Text & "', '0', '0', '0', " & GlTipoCambioOficial & ", '0', '0', " & _
             " '0',                              '0',                    '0',                        '" & FVenta & "', '" & FVenta & "', 'MES',          '1',            'MES',                  'ENERO',            '1',        '" & VAR_N1 & "', '" & VAR_N2 & "', '" & VAR_N3 & "', 'ADM', '" & VAR_R & "', '0', '" & VAR_POA & "', " & _
             " '" & VAR_DOCI & "', " & VAR_NUMI & ", '" & VAR_POA & "', " & VAR_ALMI & ", " & VAR_ALMDI & ", '" & VAR_DPTOD & "', '" & VAR_DOCR & "', " & VAR_NUMR & ", " & VAR_ALMR & ", " & VAR_ALMDR & ", '" & VAR_DPTOD & "', '" & VAR_DOCH & "', " & VAR_NUMH & ", '" & VAR_ALMH & "', '" & VAR_DPTOD & "', '" & VAR_CITE & "', " & _
-            " 'N',                              '0',            '1',                'N',            'N',            'APR',          'REG', '" & glusuario & "', '" & Date & "', 'REG',  '" & glusuario & "', '" & Date & "', '', '0', 'BOB', '" & VAR_ALMT & "', '" & VAR_ALMT & "' ) "
+            " 'N',                              '0',            '1',                'N',            'N',            'APR',          'REG', '" & glusuario & "', '" & Date & "', 'REG',  '" & glusuario & "', '" & Date & "', '', '0', 'BOB', '" & VAR_ALMT & "', '" & VAR_ALMT & "', " & GlEmpresa & " ) "
             
             '   '" & Time & "'
               
@@ -9269,7 +9309,7 @@ Private Sub grabar()
          'hora_registro
          'rs_aux1!beneficiario_codigo = txt_ci
          rs_aux1!fecha_registro = Date     'no cambia
-       
+         rs_aux1!codigo_empresa = GlEmpresa
          rs_aux1!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
          rs_aux1.Update    'Batch 'adAffectAll
         'db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "' WHERE venta_codigo = " & var_cod5 & " "
@@ -9308,32 +9348,32 @@ Private Sub OptFilGral1_Click()
 
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    'VAR_DPTO
-'    'IF depto_codigo = '" & VAR_DPTO & "' THEN
-'    'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND estado_almacen = 'REG' AND LEFT(doc_codigo_alm,5) = '" & Left(VAR_R, 5) & "' "
-    Select Case VAR_ORIGEN
-        Case "UALMR"
-            If glusuario = "CARIZACA" Or glusuario = "ADMIN" Then
-                'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "' )))"
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL'  AND estado_almacen <>'ERR' AND (almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo = 'DNINS') )"
-            Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
-            End If
-        Case "UALMI"
-            If glusuario = "AFLORES" Or glusuario = "ADMIN" Then
-                'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR unidad_codigo = '" & parametro & "'))"
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL'  AND estado_almacen <>'ERR' AND (almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo = 'DNINS'  ) )"
-            Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
-            End If
-        Case Else
-            If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND almacen_tipo = '" & VAR_ALMT & "' )"
-            Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
-            End If
-    End Select
-    
+'    'VAR_DPTO
+''    'IF depto_codigo = '" & VAR_DPTO & "' THEN
+''    'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND estado_almacen = 'REG' AND LEFT(doc_codigo_alm,5) = '" & Left(VAR_R, 5) & "' "
+'    Select Case VAR_ORIGEN
+'        Case "UALMR"
+'            If glusuario = "CARIZACA" Or glusuario = "ADMIN" Then
+'                'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "' )))"
+'                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL'  AND estado_almacen <>'ERR' AND (almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo = 'DNINS') )"
+'            Else
+'                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+'            End If
+'        Case "UALMI"
+'            If glusuario = "AFLORES" Or glusuario = "ADMIN" Then
+'                'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR unidad_codigo = '" & parametro & "'))"
+'                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL'  AND estado_almacen <>'ERR' AND (almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo = 'DNINS'  ) )"
+'            Else
+'                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+'            End If
+'        Case Else
+'            If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
+'                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND almacen_tipo = '" & VAR_ALMT & "' )"
+'            Else
+'                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+'            End If
+'    End Select
+    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%' AND codigo_empresa = 2 ) "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = " almacen_codigoR, doc_numero_alm"
     'rs_datos.Sort = "doc_codigo_almR,"
@@ -9373,25 +9413,25 @@ Private Sub OptFilGral2_Click()
         Case "UALMR", "ALMRS", "ALMRB", "ALMRC"
             Select Case glusuario
                 Case "CARIZACA"
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case "RRONDAL"
                     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo = '1'  ) OR (unidad_codigo = '" & parametro & "' )))) "
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case Else
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End Select
         Case "UALMI", "ALMIS", "ALMIB", "ALMIC"
             If glusuario = "AFLORES" Then
                 'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "')))) "
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
             Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End If
         Case Else
             If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
             Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End If
     End Select
 '    'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND (almacen_tipo = '" & VAR_ALMT & "' OR unidad_codigo = '" & parametro & "') AND depto_codigo = '" & VAR_DPTO & "'  "
@@ -9720,11 +9760,11 @@ Private Sub Option1_Click()
     If rs_datos3.State = 1 Then rs_datos3.Close
     Select Case glusuario
         Case "CARIZACA"
-            rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo <> '3' AND depto_codigo <> '7' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
+            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo <> '3' AND depto_codigo <> '7' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN'))) order by edif_descripcion", db, adOpenStatic
         Case "RRONDAL"
-            rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '4' AND depto_codigo <> '5' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
+            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '4' AND depto_codigo <> '5' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) ) order by edif_descripcion", db, adOpenStatic
         Case Else
-            rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo= '" & VAR_DPTO & "' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
+            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo= '" & VAR_DPTO & "' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) ) order by edif_descripcion", db, adOpenStatic
     End Select
     Set Ado_datos3.Recordset = rs_datos3
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -9733,7 +9773,7 @@ Private Sub Option1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND (almacen_tipo = '" & VAR_ALMT & "' OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%'  AND depto_codigo = '" & VAR_DPTO & "'"
     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND LEFT(doc_codigo_almH,5) = '" & Left(VAR_R, 5) & "' "
-    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%'"
+    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%' AND codigo_empresa = 1 ) "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = "doc_codigo_alm, doc_numero_alm"
     'rs_datos.Sort = "unidad_codigo, SOLICITUD_codigo"
@@ -9756,27 +9796,52 @@ Private Sub Option2_Click()
 
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    Select Case parametro
-        Case "UALMR"
-            'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_almR = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6') OR unidad_codigo = '" & parametro & "') ) "
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6')) OR unidad_codigo = '" & parametro & "') ) "
-        Case "ALMRS", "ALMIS"
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='8' OR depto_codigo='9' ) OR unidad_codigo = '" & parametro & "') )) "
-        Case "ALMRB", "ALMIB"
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' ) OR unidad_codigo = '" & parametro & "') )) "
-        Case "ALMRC", "ALMIC"
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' ) OR unidad_codigo = '" & parametro & "') ) "
-        Case "UALMI"
-            'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_almR = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6') OR unidad_codigo = '" & parametro & "') ) "
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6')) OR unidad_codigo = '" & parametro & "') ) "
-        Case "ALMIS"
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' )) OR unidad_codigo = '" & parametro & "') ) "
-        Case "ALMIB"
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='4' )) OR unidad_codigo = '" & parametro & "') ) "
-        Case "ALMIC"
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='5' OR depto_codigo='6'  )) OR unidad_codigo = '" & parametro & "') ) "
+'    Select Case parametro
+'        Case "UALMR"
+'            'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_almR = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6') OR unidad_codigo = '" & parametro & "') ) "
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6')) OR unidad_codigo = '" & parametro & "') ) "
+'        Case "ALMRS", "ALMIS"
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='8' OR depto_codigo='9' ) OR unidad_codigo = '" & parametro & "') )) "
+'        Case "ALMRB", "ALMIB"
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' ) OR unidad_codigo = '" & parametro & "') )) "
+'        Case "ALMRC", "ALMIC"
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' ) OR unidad_codigo = '" & parametro & "') ) "
+'        Case "UALMI"
+'            'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_almR = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6') OR unidad_codigo = '" & parametro & "') ) "
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6')) OR unidad_codigo = '" & parametro & "') ) "
+'        Case "ALMIS"
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' )) OR unidad_codigo = '" & parametro & "') ) "
+'        Case "ALMIB"
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='4' )) OR unidad_codigo = '" & parametro & "') ) "
+'        Case "ALMIC"
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='5' OR depto_codigo='6'  )) OR unidad_codigo = '" & parametro & "') ) "
+'        Case Else
+'            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND codigo_empresa = '1' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6')) OR unidad_codigo = '" & parametro & "') ) "
+'    End Select
+    Select Case VAR_ORIGEN
+        Case "UALMR", "ALMRS", "ALMRB", "ALMRC"
+            Select Case glusuario
+                Case "CARIZACA"
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                Case "RRONDAL"
+                    'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo = '1'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                Case Else
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+            End Select
+        Case "UALMI", "ALMIS", "ALMIB", "ALMIC"
+            If glusuario = "AFLORES" Then
+                'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "')))) "
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+            Else
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+            End If
         Case Else
-            queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_alm = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND (depto_codigo = '" & VAR_DPTO & "' OR depto_codigo='1' OR depto_codigo='4' OR depto_codigo='5' OR depto_codigo='6')) OR unidad_codigo = '" & parametro & "') ) "
+            If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
+            Else
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+            End If
     End Select
     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_almR = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and  (NOT (edif_descripcion LIKE 'TRASPASO%'))) "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic

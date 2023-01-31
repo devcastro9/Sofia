@@ -187,7 +187,7 @@ Begin VB.Form fw_facturacion
       Height          =   5700
       Left            =   2640
       TabIndex        =   13
-      Top             =   3840
+      Top             =   3720
       Width           =   12015
       Begin VB.TextBox TxtAutorizacion 
          Alignment       =   2  'Center
@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   119144449
+         Format          =   110231553
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -4596,7 +4596,7 @@ Private Sub BtnCancelarBen_Click()
     FraGrabarCancelar.Enabled = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
     NumComp = Ado_datos1.Recordset!venta_codigo
     VAR_ID = Ado_datos1.Recordset!IdFactura
   If Ado_datos1.Recordset.RecordCount > 0 Then
@@ -5118,6 +5118,11 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 MsgBox "Error en Autorizacion, NIT o Llave, Contactese con el Administrador y vuelva a intentar ...", , "Atención"
                 Exit Sub
             End If
+            If Ado_datos1.Recordset!doc_codigo_fac = "R-101" Then
+                TIPOTRANS = "1"
+            Else
+                TIPOTRANS = "0"
+            End If
 '            'VAR_COD1 = CDbl(rs_aux1!CORREL) + 1         ' NRO. DE FACTURA
 '            sino = MsgBox("Esta seguro(a) de EMITIR e IMPRIMIR la Factura Nro. " + Str(CDbl(rs_aux1!CORREL) + 1) + " ?", vbYesNo, "Confirmando")
 '            'sino = MsgBox("Esta seguro(a) de EMITIR e IMPRIMIR la Factura ?", vbYesNo, "Confirmando")
@@ -5172,6 +5177,8 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
 '                         estado_codigo_fac , estado_codigo, usr_codigo, fecha_registro, hora_registro, usr_codigo_apr, fecha_aprueba, usr_codigo_anl, fecha_anula
 
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET dosifica_autorizacion = '" & VAR_COD2 & "', nro_factura = " & CDbl(VARFactura2) & ", fecha_fac = '" & VAR_FFAC & "', glosa_Descripcion =  '" & Left(VAR_GLOSA, 249) & "', codigo_control = '" & CodigoContro & "', literal = '" & var_literal & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
+                'TIPOTRANS
+                db.Execute "UPDATE ao_ventas_cobranza_fac SET trans_codigo = " & TIPOTRANS & " WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
 
 '                db.Execute "INSERT INTO ao_ventas_cobranza_fac (ges_gestion, dosifica_autorizacion, nro_factura, doc_codigo_fac, fecha_fac, venta_codigo, beneficiario_codigo_fac, beneficiario_nit, glosa_Descripcion, beneficiario_RazonSocial, nro_dui, total_bs, total_dol, cambio_oficial, " & _
 '                        " Importe_ICE, Exportaciones_Exentas, Ventas_tasa_0, Subtotal_ICE, Descuentos_Bonos, Importe_Base_Debito_Fiscal, factura_87_bs, factura_87_dol, debito_fiscal_13_bs, debito_fiscal_13_dol, codigo_control, literal, " & _
@@ -5198,7 +5205,8 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET edif_codigo = '" & VAR_PROY2 & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET fecha_aprueba = GETDATE(), estado_codigo_fac = 'APR', usr_codigo_apr = '" & glusuario & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET factura_impresa = 'S' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
-                
+                'TIPOTRANS
+                db.Execute "UPDATE ao_ventas_cobranza SET trans_codigo = " & TIPOTRANS & " WHERE venta_codigo = " & nroventa & " AND venta_codigo_new = " & Ado_datos1.Recordset!IdFactura & " "
                 'GENERA QR Y GRABA EN ao_ventas_cobranza
                 Set rs_aux5 = New ADODB.Recordset
                 If rs_aux5.State = 1 Then rs_aux5.Close

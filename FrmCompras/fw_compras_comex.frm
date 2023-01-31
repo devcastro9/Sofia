@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
@@ -165,7 +165,7 @@ Begin VB.Form fw_compras_comex
       Height          =   5280
       Left            =   4560
       TabIndex        =   13
-      Top             =   6240
+      Top             =   2880
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -379,7 +379,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   111869953
+         Format          =   118620161
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2804,10 +2804,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   20160
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   10935
+      Width           =   20160
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4802,7 +4802,7 @@ Private Sub BtnAprobar1_Click()
         Set rs_datos4A = New ADODB.Recordset
         If rs_datos4A.State = 1 Then rs_datos4A.Close
         rs_datos4A.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
-        Set Ado_datos4A.Recordset = rs_datos4A
+        Set ado_datos4A.Recordset = rs_datos4A
         dtc_desc4A.BoundText = dtc_codigo4A.BoundText
         Fra_aux1.Visible = True
         'Contabilizacion
@@ -5408,7 +5408,7 @@ Private Sub BtnCancelar_Click()
 '    lbl_aux1.Visible = False
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
     If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
@@ -7893,7 +7893,7 @@ Private Function ExisteReg(Unidad As String) As Boolean
 '    ExisteReg = rs!Cuantos > 0
 End Function
 
-Private Sub Opt_CGE_Click()
+Private Sub opt_CGE_Click()
 '    Set rs_datos = New Recordset
 '    If rs_datos.State = 1 Then rs_datos.Close
 '    If parametro = "COMEX" Then

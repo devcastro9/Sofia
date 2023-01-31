@@ -879,7 +879,7 @@ Begin VB.Form tw_organizacion_zonas
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   20
+         ColumnCount     =   21
          BeginProperty Column00 
             DataField       =   "zona_edif_orden"
             Caption         =   "Orden"
@@ -1025,7 +1025,7 @@ Begin VB.Form tw_organizacion_zonas
          EndProperty
          BeginProperty Column11 
             DataField       =   "estado_activo"
-            Caption         =   "Estado"
+            Caption         =   "Estado.H"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1037,6 +1037,19 @@ Begin VB.Form tw_organizacion_zonas
             EndProperty
          EndProperty
          BeginProperty Column12 
+            DataField       =   "estado_codigo"
+            Caption         =   "Estado.A"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column13 
             DataField       =   "observaciones"
             Caption         =   "Observaciones"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1049,7 +1062,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column13 
+         BeginProperty Column14 
             DataField       =   "zona_denominacion"
             Caption         =   "Zona.Geografica"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1062,7 +1075,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column14 
+         BeginProperty Column15 
             DataField       =   "calle_tipo"
             Caption         =   "Via"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1075,7 +1088,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column15 
+         BeginProperty Column16 
             DataField       =   "calle_denominacion"
             Caption         =   "Nombre.Calle, Av, Plaza...."
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1088,7 +1101,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column16 
+         BeginProperty Column17 
             DataField       =   "solicitud_tipo"
             Caption         =   "Tipo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1101,7 +1114,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column17 
+         BeginProperty Column18 
             DataField       =   "beneficiario_tecnico1"
             Caption         =   "Tec.Mantenimiento"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1114,7 +1127,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column18 
+         BeginProperty Column19 
             DataField       =   "beneficiario_tecnico2"
             Caption         =   "Tec.Emergencias"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1127,7 +1140,7 @@ Begin VB.Form tw_organizacion_zonas
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column19 
+         BeginProperty Column20 
             DataField       =   "beneficiario_cobrador"
             Caption         =   "Cobrador"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1192,35 +1205,38 @@ Begin VB.Form tw_organizacion_zonas
             EndProperty
             BeginProperty Column11 
                Alignment       =   2
-               ColumnWidth     =   615.118
+               ColumnWidth     =   720
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   2310.236
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column13 
-               ColumnWidth     =   2190.047
+               ColumnWidth     =   2310.236
             EndProperty
             BeginProperty Column14 
+               ColumnWidth     =   2190.047
+            EndProperty
+            BeginProperty Column15 
                Alignment       =   2
                ColumnWidth     =   615.118
             EndProperty
-            BeginProperty Column15 
+            BeginProperty Column16 
                ColumnWidth     =   2489.953
             EndProperty
-            BeginProperty Column16 
+            BeginProperty Column17 
                Alignment       =   2
                ColumnWidth     =   689.953
             EndProperty
-            BeginProperty Column17 
+            BeginProperty Column18 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
                ColumnWidth     =   1470.047
             EndProperty
-            BeginProperty Column18 
+            BeginProperty Column19 
                Locked          =   -1  'True
                ColumnWidth     =   1335.118
             EndProperty
-            BeginProperty Column19 
+            BeginProperty Column20 
                ColumnWidth     =   1319.811
             EndProperty
          EndProperty
@@ -2786,10 +2802,12 @@ Private Sub BtnAnlDetalle_Click()
         
         db.Execute "update gc_edificaciones set tomado= 'N' where edif_codigo = '" & dtc_codigo5.Text & "' "
         'If cmd_campo2.Text <> "0" Then
-            db.Execute "update tc_zona_piloto_edif set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden >= " & cmd_campo2.Text & "  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
-            db.Execute "update tc_zona_piloto_edif set zona_edif_orden = zorden_cambio  where zorden_cambio > '0'  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " "
-            db.Execute "delete tc_zona_piloto_edif where correlativo = " & Text1.Text & " "
-            db.Execute "update tc_zona_piloto_edif set zorden_cambio = '0'  where zorden_cambio > '0'"
+        db.Execute "DELETE tc_zona_piloto_edif WHERE zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND edif_codigo = '" & dtc_codigo5.Text & "' "
+'            db.Execute "update tc_zona_piloto_edif set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden >= " & cmd_campo2.Text & "  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
+'            db.Execute "update tc_zona_piloto_edif set zona_edif_orden = zorden_cambio  where zorden_cambio > '0'  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " "
+'            db.Execute "delete tc_zona_piloto_edif where correlativo = " & Text1.Text & " "
+'            db.Execute "update tc_zona_piloto_edif set zorden_cambio = '0'  where zorden_cambio > '0'"
+'            db.Execute "update tc_zona_piloto_edif set estado_activo = 'ANL'"
         'End If
         Call ABRIR_TABLA_DET
       End If
@@ -2895,7 +2913,7 @@ Private Sub BtnCancelarDet_Click()
     dtc_desc5.Visible = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!zpiloto_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
    If rs_datos!estado_codigo = "APR" Then
@@ -3389,6 +3407,11 @@ Private Sub Form_Load()
     'Fra_Gestion.Visible = True
 '    VAR_GES = Cmb_gestion.Text
     parametro = Aux
+    'ACTUALIZA ESTADO DE USO DE EDIFICIOS EN UNA ZONA PILOTO
+    db.Execute "update tc_zona_piloto_edif SET estado_activo = 'REG', estado_codigo = 'REG' "
+    db.Execute "update tc_zona_piloto_edif SET estado_activo = 'APR' FROM tc_zona_piloto_edif INNER JOIN tv_crono_diario_agrupado_por_edificio ON tc_zona_piloto_edif.edif_codigo = tv_crono_diario_agrupado_por_edificio.edif_codigo "
+    db.Execute "update tc_zona_piloto_edif SET estado_codigo = 'APR' FROM tc_zona_piloto_edif INNER JOIN tv_crono_FINAL_agrupado_por_edificio ON tc_zona_piloto_edif.edif_codigo = tv_crono_FINAL_agrupado_por_edificio.edif_codigo "
+
     'Actualiza Edificios Tomados en Organizacion de Zonas
     db.Execute "update gc_edificaciones set tomado = 'N' "
     db.Execute "update gc_edificaciones set gc_edificaciones.tomado= 'S' from gc_edificaciones inner join tc_zona_piloto_edif on gc_edificaciones.edif_codigo = tc_zona_piloto_edif.edif_codigo "

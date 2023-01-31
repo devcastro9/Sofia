@@ -281,6 +281,7 @@ Begin VB.Form mw_ventas_cabecera
          TabIndex        =   221
          ToolTipText     =   "Aprueba el Contrato Elegido (ya NO podrá ser modificado)"
          Top             =   20
+         Visible         =   0   'False
          Width           =   1440
       End
       Begin VB.PictureBox BtnVer 
@@ -637,9 +638,9 @@ Begin VB.Form mw_ventas_cabecera
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":C5F9
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1069,7 +1070,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109641729
+            Format          =   119799809
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1377,7 +1378,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   109641731
+            Format          =   119799811
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3077,7 +3078,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109641729
+               Format          =   119799809
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6179,12 +6180,12 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         If (Ado_datos.Recordset!estado_codigo = "REG") Then
             If glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPAREDES" Or glusuario = "KGARCIA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
                 BtnAprobar.Visible = True   'APROBAR Tramite
-                BtnEliminar.Visible = True  'ANULAR Tramite
+                btnEliminar.Visible = True  'ANULAR Tramite
                 BtnAñadir.Visible = True    'CERRAR Tramite
                 BtnVer.Visible = False
             Else
                 BtnAprobar.Visible = False   'APROBAR Tramite
-                BtnEliminar.Visible = False  'ANULAR Tramite
+                btnEliminar.Visible = False  'ANULAR Tramite
                 BtnAñadir.Visible = False    'CERRAR Tramite
                 BtnVer.Visible = True
             End If

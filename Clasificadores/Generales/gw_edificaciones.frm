@@ -2416,7 +2416,7 @@ Private Sub BtnCancelar_Click()
     End If
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!Codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado en otro proceso ...", vbInformation + vbOKOnly, "Atención": Exit Sub
    If rs_datos!estado_codigo = "APR" Then
@@ -2469,7 +2469,7 @@ Private Sub BtnGrabar_Click()
             Exit Sub
         End If
         txt_codigo.Caption = var_cod
-        rs_datos!EDIF_CODIGO = var_cod
+        rs_datos!edif_codigo = var_cod
         rs_datos!edif_codigo_corto = LTrim(Str(Val(dtc_aux2) + 1))
         rs_datos!estado_codigo = "REG"
         rs_datos!ARCHIVO_Foto = txt_codigo.Caption + ".JPG"
@@ -2480,11 +2480,11 @@ Private Sub BtnGrabar_Click()
         db.Execute "Update gc_departamento Set correl_edif = CAST('" & dtc_aux2.Text & "' AS INT) + 1 Where depto_codigo= '" & Left(var_cod, 1) & "' "
      End If
      If VAR_SW = "MOD" Then
-        var_cod = rs_datos!EDIF_CODIGO
+        var_cod = rs_datos!edif_codigo
      End If
      rs_datos!edif_descripcion = RTrim(Txt_descripcion.Text)
      rs_datos!campo1 = txt_campo1
-     rs_datos!campo2 = RTrim(txt_campo2)
+     rs_datos!campo2 = RTrim(Txt_campo2)
      
      rs_datos!codigo1 = dtc_codigo1.Text
      rs_datos!munic_codigo = IIf(dtc_codigo2.Text = "", "NN", dtc_codigo2.Text)
@@ -2496,9 +2496,9 @@ Private Sub BtnGrabar_Click()
      rs_datos!contacto1 = IIf(dtc_codigo10.Text = "", "0", dtc_codigo10.Text)
      rs_datos!contacto2 = IIf(dtc_codigo12.Text = "", "0", dtc_codigo12.Text)
      
-     rs_datos!campo3 = IIf(txt_campo3.Text = "", "0", txt_campo3.Text)
-     rs_datos!campo4 = IIf(txt_campo4.Text = "", "0", txt_campo4.Text)
-     rs_datos!campo5 = IIf(txt_campo5.Text = "", "0", txt_campo5.Text)
+     rs_datos!campo3 = IIf(Txt_campo3.Text = "", "0", Txt_campo3.Text)
+     rs_datos!campo4 = IIf(Txt_campo4.Text = "", "0", Txt_campo4.Text)
+     rs_datos!campo5 = IIf(Txt_campo5.Text = "", "0", Txt_campo5.Text)
      rs_datos!campo6 = "0"
      rs_datos!campo7 = "0"
      
@@ -2659,7 +2659,7 @@ Private Sub BtnModificar_Click()
         MsgBox "No tiene permisos para realizar esta operación, contáctese con el Administrador del Sistema...", vbExclamation, "Información"
   End Select
   
-  If ((Ado_datos.Recordset!estado_codigo <> "ANL") And (VAR_SW = "MOD") And (Left(Ado_datos.Recordset!EDIF_CODIGO, 1) = VAR_EDIF)) Or (glusuario = "ADMIN") Then
+  If ((Ado_datos.Recordset!estado_codigo <> "ANL") And (VAR_SW = "MOD") And (Left(Ado_datos.Recordset!edif_codigo, 1) = VAR_EDIF)) Or (glusuario = "ADMIN") Then
         Fra_ABM.Enabled = True
         fraOpciones.Visible = False
         FraGrabarCancelar.Visible = True
@@ -2784,7 +2784,7 @@ Private Sub BtnVer_Click()
             'ARCH_FOTO = App.Path + "\BIENES\EDIFICIOS\" + Trim(Ado_datos.Recordset!codigo1) + "\" + Trim(Ado_datos.Recordset!edif_codigo) + ".JPG"
     '    End If
         'ARCH_FOTO = App.Path + "\" + "PERSONAL" + "\" + Ado_datos.Recordset!codigo_beneficiario + "\" + Ado_datos.Recordset("codigo_beneficiario") + "-FOTO.JPG"
-        CodBien = Ado_datos.Recordset!EDIF_CODIGO
+        CodBien = Ado_datos.Recordset!edif_codigo
         If Guardar_Imagen(db, "Select Foto From gc_edificaciones Where edif_codigo= '" & CodBien & "' ", "Foto", ARCH_FOTO) Then
             MsgBox "Se cargo la Imagen Correctamente !!"
         Else
@@ -3079,7 +3079,7 @@ Private Sub Form_Load()
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
     Fra_aux1.Visible = False
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()
@@ -3134,7 +3134,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos12 = New ADODB.Recordset
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "Select * from gc_beneficiario where (tipoben_codigo < 20 and tipoben_codigo <> 1) order by beneficiario_denominacion", db, adOpenStatic
-    Set Ado_Datos12.Recordset = rs_datos12
+    Set Ado_datos12.Recordset = rs_datos12
     dtc_desc12.BoundText = dtc_codigo12.BoundText
     
     'gc_pais
