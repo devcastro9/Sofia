@@ -638,9 +638,9 @@ Begin VB.Form mw_ventas_cabecera
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":C5F9
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1070,7 +1070,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119799809
+            Format          =   118882305
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1378,7 +1378,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   119799811
+            Format          =   118882307
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3078,7 +3078,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119799809
+               Format          =   118882305
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -6180,12 +6180,12 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         If (Ado_datos.Recordset!estado_codigo = "REG") Then
             If glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPAREDES" Or glusuario = "KGARCIA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
                 BtnAprobar.Visible = True   'APROBAR Tramite
-                btnEliminar.Visible = True  'ANULAR Tramite
+                BtnEliminar.Visible = True  'ANULAR Tramite
                 BtnAñadir.Visible = True    'CERRAR Tramite
                 BtnVer.Visible = False
             Else
                 BtnAprobar.Visible = False   'APROBAR Tramite
-                btnEliminar.Visible = False  'ANULAR Tramite
+                BtnEliminar.Visible = False  'ANULAR Tramite
                 BtnAñadir.Visible = False    'CERRAR Tramite
                 BtnVer.Visible = True
             End If
@@ -6870,6 +6870,7 @@ Private Sub BtnAprobar_Click()
 '               Ado_datos.Recordset!usr_codigo_aprueba = glusuario
                Ado_datos.Recordset.Update
            db.Execute "update ao_ventas_cabecera set estado_codigo = 'APR', usr_codigo_aprueba = '" & glusuario & "' Where venta_codigo = " & correlv & " "
+           db.Execute "update ao_ventas_cabecera set fecha_aprueba = '" & Date & "' Where venta_codigo = " & correlv & " "
            ''Actualiza Cite Trñamite (unidad_codigo_ant)
            db.Execute "update ao_solicitud set ao_solicitud.unidad_codigo_ant = ao_ventas_cabecera.unidad_codigo_ant from ao_solicitud inner join ao_ventas_cabecera on ao_solicitud.unidad_codigo =ao_ventas_cabecera.unidad_codigo and ao_solicitud.solicitud_codigo = ao_ventas_cabecera.solicitud_codigo where ao_ventas_cabecera.venta_codigo = " & correlv & " "
            db.Execute "update ao_solicitud_calculo_trafico set ao_solicitud_calculo_trafico.unidad_codigo_ant = ao_ventas_cabecera.unidad_codigo_ant from ao_solicitud_calculo_trafico inner join ao_ventas_cabecera on ao_solicitud_calculo_trafico.unidad_codigo =ao_ventas_cabecera.unidad_codigo and ao_solicitud_calculo_trafico.solicitud_codigo = ao_ventas_cabecera.solicitud_codigo where ao_ventas_cabecera.venta_codigo = " & correlv & " "

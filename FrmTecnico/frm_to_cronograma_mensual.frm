@@ -935,7 +935,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2760
       Left            =   6240
       TabIndex        =   116
-      Top             =   6720
+      Top             =   4320
       Visible         =   0   'False
       Width           =   6300
       Begin VB.PictureBox Picture5 
@@ -1101,7 +1101,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2160
       Left            =   5760
       TabIndex        =   54
-      Top             =   7080
+      Top             =   5520
       Visible         =   0   'False
       Width           =   7140
       Begin VB.PictureBox Picture11 
@@ -2200,7 +2200,7 @@ Begin VB.Form frm_to_cronograma_mensual
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109903873
+         Format          =   110231553
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -4861,7 +4861,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         End If
         If glusuario = "VPAREDES" Or glusuario = "NPAREDES" Then
             BtnModificar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             BtnAprobar.Visible = False
             BtnAnlDetalle4.Visible = False
             BtnModDetalle.Visible = False

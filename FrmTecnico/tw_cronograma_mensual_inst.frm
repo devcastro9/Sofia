@@ -61,7 +61,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109969409
+         Format          =   109903873
          CurrentDate     =   44890
       End
       Begin VB.PictureBox Picture3 
@@ -113,7 +113,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109969409
+         Format          =   109903873
          CurrentDate     =   45291
       End
       Begin VB.Label Label12 
@@ -277,6 +277,7 @@ Begin VB.Form tw_cronograma_mensual_inst
             ScaleWidth      =   1215
             TabIndex        =   88
             Top             =   0
+            Visible         =   0   'False
             Width           =   1215
          End
          Begin VB.PictureBox BtnModificar 
@@ -723,7 +724,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109969409
+         Format          =   109903873
          CurrentDate     =   44890
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -737,7 +738,7 @@ Begin VB.Form tw_cronograma_mensual_inst
          _ExtentX        =   2566
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109969409
+         Format          =   109903873
          CurrentDate     =   45291
       End
       Begin VB.Label Label9 

@@ -745,6 +745,7 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(1)   =   "tw_tecnico_venta.frx":CDF3
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
@@ -754,9 +755,9 @@ Begin VB.Form tw_tecnico_venta
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1315,7 +1316,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109969409
+            Format          =   110297089
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1577,7 +1578,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   109969409
+            Format          =   110297089
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1605,7 +1606,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109969409
+            Format          =   110297089
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2103,7 +2104,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   109969409
+               Format          =   110297089
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2128,7 +2129,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109969409
+               Format          =   110297089
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2572,7 +2573,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109969409
+               Format          =   110297089
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2655,7 +2656,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109969409
+               Format          =   110297089
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3381,7 +3382,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109969409
+            Format          =   110297089
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -7096,8 +7097,9 @@ Private Sub BtnAprobar_Click()
                             Call CRONO_MTTO
                         End If
                  End If                 ' FIN ALCANCE
-                db.Execute "UPDATE dbo.ao_ventas_cabecera SET usr_codigo_aprueba = '" & glusuario & "' WHERE venta_codigo = " & NumComp & " "
+                db.Execute "UPDATE ao_ventas_cabecera SET usr_codigo_aprueba = '" & glusuario & "' WHERE venta_codigo = " & NumComp & " "
                db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.estado_codigo = 'APR' Where ao_ventas_cabecera.venta_codigo = " & NumComp & " "
+               db.Execute "UPDATE ao_ventas_cabecera SET fecha_aprueba = '" & Date & "' WHERE venta_codigo = " & NumComp & " "
                MsgBox "La Venta fue Enviada y Aprobada Exitosamente... ", vbInformation, "Información!"
                'FIN GENERA INFORMACION COMEX, INSTALACION, AJUSTE Y/O MANTENIMIENTO
                Call OptFilGral1_Click
@@ -11754,18 +11756,20 @@ Private Sub sstab1_Click(PreviousTab As Integer)
                     Option10.Value = False
                     LblParImpar = "NO ASIGNADO"
             End Select
-            If txt_cant.Text = "" Or txt_cant.Text = "0" Then       'Nro.de Preriodos
+            'If txt_cant.Text = "" Or txt_cant.Text = "0" Then       'Nro.de Preriodos
                 txt_cant.Text = txtCantCobr.Text
-            End If
-            If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
+            'End If
+            'If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
                 cmd_unimed_tec.Text = cmd_unimed2.Text
-            End If
-            lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
-            lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
+            'End If
+            lbl_fecha_ini.Value = IIf(IsNull(DTPfechaIni.Value), Date, DTPfechaIni.Value)       'Fecha Inicio Crono.)
+            lbl_fecha_fin.Value = IIf(IsNull(DTPfechaFin.Value), Date, DTPfechaFin.Value)       'Fecha Fin Crono.)
+            'lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
+            'lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
             
-            If cmb_mes_ini_tec.Text = "" Or cmb_mes_ini_tec.Text = "0" Then                                   'Mes de Inicio Crono.
+            'If cmb_mes_ini_tec.Text = "" Or cmb_mes_ini_tec.Text = "0" Then                                   'Mes de Inicio Crono.
                 cmb_mes_ini_tec.Text = cmb_mes_ini.Text
-            End If
+            'End If
             'tc_zona_piloto_edif
             If IsNull(Ado_datos.Recordset!zpiloto_codigo) Or Ado_datos.Recordset!zpiloto_codigo = "0" Then
                 Set rs_datos10 = New ADODB.Recordset

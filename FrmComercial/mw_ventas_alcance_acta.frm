@@ -17,9 +17,9 @@ Begin VB.Form mw_ventas_alcance_acta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   5.84195e6
+   ScaleHeight     =   6.02961e6
    ScaleMode       =   0  'User
-   ScaleWidth      =   5.83892e8
+   ScaleWidth      =   7.03998e8
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCobranza 
       BackColor       =   &H00C0C0C0&
@@ -731,7 +731,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   119865345
+               Format          =   109772801
                CurrentDate     =   44334
             End
             Begin MSComCtl2.DTPicker DTPfechasol 
@@ -745,7 +745,7 @@ Begin VB.Form mw_ventas_alcance_acta
                _ExtentX        =   2990
                _ExtentY        =   503
                _Version        =   393216
-               Format          =   119865345
+               Format          =   109772801
                CurrentDate     =   44334
             End
             Begin VB.TextBox Txt_Campo1 
@@ -3481,7 +3481,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             End If
             
         End If
-        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        GlEdificio = Ado_datos.Recordset!edif_codigo
         Call ABRIR_TABLA_DET
 '        FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
@@ -3510,12 +3510,12 @@ Private Sub ABRIR_TABLA_DET()
     rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & nroventa & "'  ", db, adOpenKeyset, adLockOptimistic
     'rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & correlv & "'  ", db, adOpenKeyset, adLockOptimistic
     'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-    Set ado_datos14.Recordset = rs_datos14
-    Set DtGLista.DataSource = ado_datos14.Recordset
+    Set Ado_datos14.Recordset = rs_datos14
+    Set DtGLista.DataSource = Ado_datos14.Recordset
     'ado_datos14.Recordset.Requery
-    If ado_datos14.Recordset.RecordCount > 0 Then
+    If Ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
-        ado_datos14.Recordset.Requery
+        Ado_datos14.Recordset.Requery
         'TxtMontoBs.Text = Ado_datos.Recordset!monto_total_bS
         'TxtMontoUs.Text = Ado_datos.Recordset!deuda_cobrada
         'Text2.Text = Ado_datos.Recordset!saldo_p_cobrar
@@ -3699,7 +3699,7 @@ Private Sub BtnAprobar_Click()
         db.Execute "UPDATE ao_ventas_cabecera SET zpiloto_codigo ='48' WHERE (zpiloto_codigo IS NULL) AND (venta_tipo <> 'A') AND (unidad_codigo = 'DVTA' OR unidad_codigo LIKE '%COM%') AND (depto_codigo = '8') "
         
         NumComp = Ado_datos.Recordset!venta_codigo
-        GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+        GlEdificio = Ado_datos.Recordset!edif_codigo
         VAR_EDIF = Ado_datos.Recordset!edif_descripcion
         VAR_COD4 = Ado_datos.Recordset!unidad_codigo
         VAR_SOL = Ado_datos.Recordset!solicitud_codigo
@@ -3800,7 +3800,7 @@ Private Sub BtnCancelar_Click()
   'Ado_datos.Recordset.Move marca1 - 1
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 '  If Ado_datos.Recordset.RecordCount > 0 Then
 '    If Ado_datos.Recordset("estado_codigo") = "REG" Then
 '      sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
@@ -4078,7 +4078,7 @@ Private Sub BtnVer2_Click()
     'If Ado_datos.Recordset!estado_codigo = "REG" Then
   If Ado_datos.Recordset!estado_acta = "REG" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    GlEdificio = Ado_datos.Recordset!EDIF_CODIGO
+    GlEdificio = Ado_datos.Recordset!edif_codigo
     VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
     VAR_TIPO = 6
     VAR_FECHAMAX = Ado_datos.Recordset!fecha_fin_real
@@ -4488,9 +4488,9 @@ Private Sub CRONO_MTTO()
 End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
-    dtc_codigo2.BoundText = Dtc_aux2.BoundText
-    dtc_desc2.BoundText = Dtc_aux2.BoundText
-    Dtc_deudor2.BoundText = Dtc_aux2.BoundText
+    dtc_codigo2.BoundText = dtc_aux2.BoundText
+    dtc_desc2.BoundText = dtc_aux2.BoundText
+    Dtc_deudor2.BoundText = dtc_aux2.BoundText
 End Sub
 
 Private Sub dtc_aux3_Click(Area As Integer)
@@ -4509,7 +4509,7 @@ End Sub
 
 Private Sub dtc_codigo2_Click(Area As Integer)
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    Dtc_aux2.BoundText = dtc_codigo2.BoundText
+    dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 End Sub
 
@@ -4529,7 +4529,7 @@ End Sub
 
 Private Sub dtc_desc2_Click(Area As Integer)
     dtc_codigo2.BoundText = dtc_desc2.BoundText
-    Dtc_aux2.BoundText = dtc_desc2.BoundText
+    dtc_aux2.BoundText = dtc_desc2.BoundText
     Dtc_deudor2.BoundText = dtc_desc2.BoundText
 End Sub
 
@@ -4545,7 +4545,7 @@ End Sub
 
 Private Sub Dtc_deudor2_Click(Area As Integer)
     dtc_codigo2.BoundText = Dtc_deudor2.BoundText
-    Dtc_aux2.BoundText = Dtc_deudor2.BoundText
+    dtc_aux2.BoundText = Dtc_deudor2.BoundText
     dtc_desc2.BoundText = Dtc_deudor2.BoundText
 End Sub
 
@@ -4969,7 +4969,7 @@ Private Sub grabar()
     If Ado_datos.Recordset.RecordCount > 0 Then
         NumComp = Ado_datos.Recordset!venta_codigo
        marca1 = Ado_datos.Recordset.Bookmark
-       db.Execute "Update ao_ventas_alcance set fecha_inicio_real = '" & DTPfechasol.Value & "', fecha_fin_real = '" & DTPfechaFin.Value & "', doc_codigo='R-321', correl_doc=" & Val(txt_campo1.Text) & "  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
+       db.Execute "Update ao_ventas_alcance set fecha_inicio_real = '" & DTPfechasol.Value & "', fecha_fin_real = '" & DTPfechaFin.Value & "', doc_codigo='R-321', correl_doc=" & Val(Txt_campo1.Text) & "  WHERE venta_codigo = " & NumComp & " AND solicitud_tipo = '6' "
 '       If Ado_datos.Recordset("venta_tipo") = "E" Then
 '           db.Execute "INSERT INTO ao_ventas_cobranza_inst (venta_codigo, ges_gestion, beneficiario_codigo, beneficiario_codigo_resp, cobranza_deuda_bs, cobranza_deuda_dol, cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs, cobranza_total_dol, cobranza_fecha_prog, cobranza_fecha_cobro, cobranza_observaciones, literal, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, factura_impresa, poa_codigo, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
 '           "VALUES ('" & Ado_datos.Recordset!venta_codigo & "', '" & Ado_datos.Recordset!ges_gestion & "', '" & Ado_datos.Recordset!beneficiario_codigo & "', '" & Ado_datos.Recordset!beneficiario_codigo_resp & "', " & Ado_datos.Recordset!venta_monto_total_bs & ", '" & Ado_datos.Recordset!venta_monto_total_dol & "', '0', '0', " & Ado_datos.Recordset!venta_monto_total_bs & ", " & Ado_datos.Recordset!venta_monto_total_dol & ", '" & Date & "', '" & Date & "', 'CANCELADO', 'CERO', 'COM', 'COM-02', 'COM-02-02', 'ADM', 'R-103', '0', 'R-101', '0', '0', 'N', '3.1.2', 'REG', '" & glusuario & "', '" & Date & "', '09:00')"
@@ -5025,7 +5025,7 @@ Private Sub OpMod1_Click()
     Txt_modelo.Text = Txt_modelo1.Text
     Set rs_datos18 = New ADODB.Recordset
     If rs_datos18.State = 1 Then rs_datos18.Close
-    rs_datos18.Open "select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " and cotiza_codigo = " & ado_datos14.Recordset!cotiza_codigo & " ", db, adOpenKeyset, adLockReadOnly
+    rs_datos18.Open "select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & " and cotiza_codigo = " & Ado_datos14.Recordset!cotiza_codigo & " ", db, adOpenKeyset, adLockReadOnly
     If rs_datos18.RecordCount > 0 Then
         TxtDescuento.Text = "0"
         TxtPrecioU.Text = IIf(IsNull(rs_datos18!cotiza_precio_fob_dol), 0, rs_datos18!cotiza_precio_fob_dol)

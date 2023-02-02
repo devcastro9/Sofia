@@ -17,9 +17,9 @@ Begin VB.Form fw_traspaso_bancos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.93639e5
+   ScaleHeight     =   8.451e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.96565e9
+   ScaleWidth      =   3.69139e9
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet3 
       BackColor       =   &H00E0E0E0&
@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   378667009
+         Format          =   109576193
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   378667009
+         Format          =   109576193
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   378667009
+            Format          =   109576193
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -3939,7 +3939,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = False
             BtnModificar.Visible = False
             BtnDesAprobar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             lbl_cerrado.Caption = "CONCILIADO CONTABILIDAD"
             FrmABMDet.Visible = False
             FrmDetalle.Visible = False
@@ -3949,7 +3949,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = False
             BtnModificar.Visible = False
             BtnDesAprobar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             lbl_cerrado.Caption = "APROBADO SUPERVISOR"
             FrmABMDet.Visible = False
             FrmDetalle.Visible = False
@@ -3959,7 +3959,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             BtnDesAprobar.Visible = True
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             lbl_cerrado.Caption = "VERIFICADO TESORERIA"
             FrmABMDet.Visible = False
             FrmDetalle.Visible = False
@@ -3969,7 +3969,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             BtnAprobar.Visible = False
             BtnModificar.Visible = True
             BtnDesAprobar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             lbl_cerrado.Caption = ""
             FrmABMDet.Visible = True
             FrmDetalle.Visible = True
@@ -4707,7 +4707,7 @@ Private Sub BtnCancelar3_Click()
     FraNavega.Enabled = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 '  If Ado_datos.Recordset.RecordCount > 0 Then
 '    If Ado_datos.Recordset("estado_almacen") = "REG" Then
 '      sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
