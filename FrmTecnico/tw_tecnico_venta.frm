@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   13065
+   ScaleHeight     =   15377.86
    ScaleMode       =   0  'User
-   ScaleWidth      =   3.98351e5
+   ScaleWidth      =   6.15282e5
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -722,6 +722,7 @@ Begin VB.Form tw_tecnico_venta
       _ExtentY        =   8837
       _Version        =   393216
       Tabs            =   4
+      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -737,20 +738,19 @@ Begin VB.Form tw_tecnico_venta
       EndProperty
       TabCaption(0)   =   "Registro DATOS CONTRATO"
       TabPicture(0)   =   "tw_tecnico_venta.frx":CDD7
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Registro DATOS CRONO.MTTO."
       TabPicture(1)   =   "tw_tecnico_venta.frx":CDF3
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Registro DE CUOTAS (Cobranza)"
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "FrmCobros"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
@@ -1050,7 +1050,7 @@ Begin VB.Form tw_tecnico_venta
                EndProperty
                BeginProperty Column01 
                   Locked          =   -1  'True
-                  ColumnWidth     =   615.118
+                  ColumnWidth     =   615,118
                EndProperty
                BeginProperty Column02 
                   Locked          =   -1  'True
@@ -1059,27 +1059,27 @@ Begin VB.Form tw_tecnico_venta
                BeginProperty Column03 
                   Alignment       =   2
                   Locked          =   -1  'True
-                  ColumnWidth     =   1365.165
+                  ColumnWidth     =   1365,165
                EndProperty
                BeginProperty Column04 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1124.787
+                  ColumnWidth     =   1124,787
                EndProperty
                BeginProperty Column05 
                   Alignment       =   2
                   DividerStyle    =   1
-                  ColumnWidth     =   1170.142
+                  ColumnWidth     =   1170,142
                EndProperty
                BeginProperty Column06 
                   Alignment       =   2
                   Locked          =   -1  'True
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1184.882
+                  ColumnWidth     =   1184,882
                EndProperty
                BeginProperty Column07 
                   Alignment       =   2
-                  ColumnWidth     =   645.165
+                  ColumnWidth     =   645,165
                EndProperty
             EndProperty
          End
@@ -1097,7 +1097,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   -75000
+         Left            =   0
          TabIndex        =   27
          Top             =   380
          Width           =   11895
@@ -1185,6 +1185,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentX        =   5318
             _ExtentY        =   556
             _Version        =   393216
+            Locked          =   -1  'True
             Appearance      =   0
             BackColor       =   14737632
             ForeColor       =   0
@@ -1316,7 +1317,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110297089
+            Format          =   109576193
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1406,9 +1407,11 @@ Begin VB.Form tw_tecnico_venta
             Appearance      =   0  'Flat
             BackColor       =   &H00E0E0E0&
             BorderStyle     =   0  'None
+            Enabled         =   0   'False
             ForeColor       =   &H00FFFFFF&
             Height          =   285
             Left            =   9000
+            Locked          =   -1  'True
             TabIndex        =   39
             Top             =   1920
             Width           =   255
@@ -1578,7 +1581,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   110297089
+            Format          =   109576193
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1606,7 +1609,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110297089
+            Format          =   109576193
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2104,7 +2107,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   110297089
+               Format          =   109576193
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2129,7 +2132,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110297089
+               Format          =   109576193
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2334,7 +2337,7 @@ Begin VB.Form tw_tecnico_venta
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4590
-         Left            =   60
+         Left            =   -74940
          TabIndex        =   14
          Top             =   380
          Width           =   11895
@@ -2573,7 +2576,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110297089
+               Format          =   109576193
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2656,7 +2659,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110297089
+               Format          =   109576193
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3382,7 +3385,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110297089
+            Format          =   109576193
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -3874,25 +3877,25 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   824.882
+               ColumnWidth     =   824,882
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   629.858
+               ColumnWidth     =   629,858
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   945.071
+               ColumnWidth     =   945,071
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1124.787
+               ColumnWidth     =   1124,787
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   615.118
+               ColumnWidth     =   615,118
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   2459.906
+               ColumnWidth     =   2459,906
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
@@ -3901,7 +3904,7 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   929.764
+               ColumnWidth     =   929,764
             EndProperty
          EndProperty
       End
@@ -4156,11 +4159,11 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1289.764
+               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4380.095
+               ColumnWidth     =   4380,095
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
@@ -4169,7 +4172,7 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1230.236
+               ColumnWidth     =   1230,236
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
@@ -4178,7 +4181,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   1140,095
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
@@ -4186,14 +4189,14 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   764.787
+               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   629.858
+               ColumnWidth     =   629,858
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   4140.284
+               ColumnWidth     =   4140,284
             EndProperty
          EndProperty
       End
@@ -4425,16 +4428,16 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   810.142
+               ColumnWidth     =   810,142
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               ColumnWidth     =   1305.071
+               ColumnWidth     =   1305,071
             EndProperty
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1665.071
+               ColumnWidth     =   1665,071
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
@@ -4443,24 +4446,24 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column04 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1214.929
+               ColumnWidth     =   1214,929
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   6284.977
+               ColumnWidth     =   6284,977
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   645.165
+               ColumnWidth     =   645,165
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   0   'False
@@ -4474,7 +4477,7 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   1184.882
+               ColumnWidth     =   1184,882
             EndProperty
          EndProperty
       End
@@ -9253,6 +9256,15 @@ Private Sub CmdEmail_Click()
 End Sub
 
 Private Sub CmdGrabaCobro_Click()
+    Dim nitespacio, nitPunto As Integer
+    nitespacio = InStr(1, dtc_codigo2A.Text, " ", 1)
+    nitPunto = InStr(1, dtc_codigo2A.Text, ".", 1)
+    'FILTER ADD BY JASM
+    If (nitespacio > 0) Or (dtc_codigo2A.Text = "0") Or (nitPunto > 0) Or (Len(dtc_codigo2A.Text) < 5) Then
+        MsgBox "El NIT del cliente a Facturar NO debe ser CERO ni tener caracteres especiales(espacios, puntos, etc) y debe tener CINCO o mas digitos", vbCritical, "Atención"
+        Exit Sub
+    End If
+    
   NumComp = Ado_datos.Recordset!venta_codigo
   VAR_COBRANZA = Ado_datos16.Recordset!cobranza_prog_codigo
     If TxtMonto.Text >= 1000 And dtc_codigo2A.Text = "0" Then
