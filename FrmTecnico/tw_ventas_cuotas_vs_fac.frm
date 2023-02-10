@@ -1591,7 +1591,7 @@ Private Sub BtnAprobar_Click()
             " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos2.Recordset!doc_codigo_fac & "', '" & VAR_BENEF & "', '" & VAR_NIT & "', '" & Left(VAR_GLOSA, 245) & "', '" & VAR_RAZON & "',  '0', " & VAR_TOTBS & ",  " & VAR_TOTDOL & ",  " & GlTipoCambioOficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & VAR_TOTBS & ", " & Round(VAR_TOTBS * 0.87, 2) & ", " & Round(VAR_TOTDOL * 0.87, 2) & ", " & Round(VAR_TOTBS * 0.13, 2) & ", " & Round(VAR_TOTDOL * 0.13, 2) & ", '" & var_literal & "',  " & _
                         " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & rs_aux3!edif_codigo_corto & ", '" & rs_aux3!EDIF_CODIGO & "', " & rs_aux3!codigo_empresa & "  ) "
+                        " '" & glusuario & "', '" & CDate(Date) & "', " & rs_aux3!edif_codigo_corto & ", '" & rs_aux3!edif_codigo & "', " & rs_aux3!codigo_empresa & "  ) "
 
             'Actualiza CORREO ELECTRONICO
             db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
@@ -1619,8 +1619,8 @@ Private Sub BtnAprobar_Click()
      Unload Me
 End Sub
 
-Private Sub BtnEliminar_Click()
-    If glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "HMARIN" Or glusuario = "CSALINAS" Or glusuario = "GPALLY" Then
+Private Sub btnEliminar_Click()
+    If glusuario = "ADMIN" Or glusuario = "FDELGADILLO" Or glusuario = "SQUISPE" Or glusuario = "HMARIN" Or glusuario = "CSALINAS" Or glusuario = "GPALLY" Or glusuario = "CESPINOZA" Then
        If Ado_datos.Recordset.RecordCount > 0 Then
           db.Execute "UPDATE ao_ventas_cobranza_prog SET es_grupo_fac = 'NO' WHERE correl_prog = " & Ado_datos2.Recordset!correl_prog & " "
           Call OptFilGral1_Click

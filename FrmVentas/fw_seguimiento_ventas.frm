@@ -3395,7 +3395,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -3508,7 +3508,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         Set Ado_datos16.Recordset = rs_datos16
         Ado_datos16.Recordset.Requery
         If Ado_datos16.Recordset.RecordCount > 0 Then
-            VAR_PROY3 = Ado_datos16.Recordset!EDIF_CODIGO
+            VAR_PROY3 = Ado_datos16.Recordset!edif_codigo
             FrmCobranza.Visible = True
             'BtnImprimir2.Visible = True
             'BtnImprimir3.Visible = True
@@ -3827,7 +3827,7 @@ End Sub
 '
 'End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 '  If Ado_datos.Recordset.RecordCount > 0 Then
 '    If Ado_datos.Recordset!estado_codigo_fac = "APR" And Ado_datos.Recordset!estado_codigo_bco = "REG" Then      'Ado_datos.Recordset("estado_codigo_anl") = "REG"
 '      sino = MsgBox("Esta seguro de ANULAR la facturación registrada ?", vbYesNo, "Confirmando")
@@ -4661,11 +4661,11 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryF01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente.rpt"
             CryF01.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryF01.StoredProcParam(0) = "%"
             Else
                 'CryF01.StoredProcParam(0) = cmb_codigoedificio.Text ' para REPORTE POR OPCIONES (PENDIENTE)
-                CryF01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryF01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             End If
             iResult = CryF01.PrintReport
             If iResult <> 0 Then MsgBox CryF01.LastErrorNumber & " : " & CryF01.LastErrorString, vbCritical, "Error de impresión"
@@ -4680,7 +4680,7 @@ Private Sub btnPrintOption_Click()
                 CryR01.StoredProcParam(0) = "%"
                 CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
             Else
-                CryR01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryR01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
                 CryR01.StoredProcParam(1) = CStr(Ado_datos16.Recordset!venta_codigo)
             End If
             iResult = CryR01.PrintReport
@@ -4692,7 +4692,7 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryF02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_servicio.rpt"
             CryF02.WindowShowRefreshBtn = True
-            CryF02.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+            CryF02.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             CryF02.StoredProcParam(1) = Ado_datos16.Recordset!subproceso_codigo
             iResult = CryF02.PrintReport
             If iResult <> 0 Then MsgBox CryF02.LastErrorNumber & " : " & CryF02.LastErrorString, vbCritical, "Error de impresión"
@@ -4703,10 +4703,10 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes.rpt"
             CryQ01.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryQ01.StoredProcParam(0) = "%"
             Else
-                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             End If
             iResult = CryQ01.PrintReport
             If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
@@ -4719,7 +4719,7 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryQ02.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cobrador_tes.rpt"
             CryQ02.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryQ02.StoredProcParam(0) = "%"
             Else
                 CryQ02.StoredProcParam(0) = Ado_datos16.Recordset!beneficiario_codigo_cobr
@@ -4733,10 +4733,10 @@ Private Sub btnPrintOption_Click()
         If Ado_datos16.Recordset.RecordCount > 0 Then
             CryQ01.ReportFileName = App.Path & "\reportes\ventas\fr_contrato_kardex_cliente_tes_dol.rpt"
             CryQ01.WindowShowRefreshBtn = True
-            If Ado_datos16.Recordset!EDIF_CODIGO = "" Then
+            If Ado_datos16.Recordset!edif_codigo = "" Then
                 CryQ01.StoredProcParam(0) = "%"
             Else
-                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!EDIF_CODIGO
+                CryQ01.StoredProcParam(0) = Ado_datos16.Recordset!edif_codigo
             End If
             iResult = CryQ01.PrintReport
             If iResult <> 0 Then MsgBox CryQ01.LastErrorNumber & " : " & CryQ01.LastErrorString, vbCritical, "Error de impresión"
@@ -6851,7 +6851,7 @@ Private Sub cmd_moneda1_LostFocus()
     If rs_datos20.State = 1 Then rs_datos20.Close
     rs_datos20.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda1.Text & "' ", db, adOpenStatic
     Set Ado_datos20.Recordset = rs_datos20
-    dtc_ctades.BoundText = dtc_cta.BoundText
+    dtc_ctaDes.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub cmd_moneda2_LostFocus()
@@ -7038,11 +7038,11 @@ Private Sub dtc_codigo8_Click(Area As Integer)
 End Sub
 
 Private Sub dtc_cta_Click(Area As Integer)
-    dtc_ctades.BoundText = dtc_cta.BoundText
+    dtc_ctaDes.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub dtc_ctades_Click(Area As Integer)
-    dtc_cta.BoundText = dtc_ctades.BoundText
+    dtc_cta.BoundText = dtc_ctaDes.BoundText
 End Sub
 
 Private Sub dtc_desc4A1_Click(Area As Integer)
@@ -7226,7 +7226,7 @@ Private Sub Form_Load()
     marca1 = 1
     deta2 = 0
     'db.Execute "fp_saldos"
-    If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "MWILDE" Or glusuario = "VBELLIDO" Then
+    If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "PLOPEZ" Or glusuario = "VBELLIDO" Then
         OptFilGral00.Visible = True
         'SSTab1.Tab = 0
         'SSTab1.TabEnabled(0) = True
@@ -7643,7 +7643,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  txtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
+  TxtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0

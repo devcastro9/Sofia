@@ -4,6 +4,7 @@ Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form aw_almacen_salida_rep 
    BackColor       =   &H00C0C0C0&
@@ -17,9 +18,9 @@ Begin VB.Form aw_almacen_salida_rep
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   83102.98
+   ScaleHeight     =   1.13773e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.71797e6
+   ScaleWidth      =   4.01267e7
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -31,7 +32,7 @@ Begin VB.Form aw_almacen_salida_rep
       Picture         =   "aw_almacen_salida_rep.frx":0A02
       ScaleHeight     =   615
       ScaleWidth      =   1575
-      TabIndex        =   151
+      TabIndex        =   149
       ToolTipText     =   "Imprime Orden de Servicio"
       Top             =   52
       Width           =   1575
@@ -42,7 +43,7 @@ Begin VB.Form aw_almacen_salida_rep
       ForeColor       =   &H00C00000&
       Height          =   1623
       Left            =   1920
-      TabIndex        =   148
+      TabIndex        =   146
       Top             =   7080
       Width           =   16695
       Begin VB.PictureBox BtnModificar2 
@@ -55,7 +56,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":1506
          ScaleHeight     =   1335
          ScaleWidth      =   1140
-         TabIndex        =   149
+         TabIndex        =   147
          ToolTipText     =   "Retorna Bien a los No Entregados"
          Top             =   240
          Width           =   1140
@@ -64,7 +65,7 @@ Begin VB.Form aw_almacen_salida_rep
          Bindings        =   "aw_almacen_salida_rep.frx":2399
          Height          =   1340
          Left            =   120
-         TabIndex        =   150
+         TabIndex        =   148
          Top             =   240
          Width           =   15375
          _ExtentX        =   27120
@@ -332,7 +333,7 @@ Begin VB.Form aw_almacen_salida_rep
       Picture         =   "aw_almacen_salida_rep.frx":23B3
       ScaleHeight     =   570
       ScaleWidth      =   1395
-      TabIndex        =   146
+      TabIndex        =   144
       ToolTipText     =   "Comprobante de Salida de Almacen"
       Top             =   7320
       Width           =   1400
@@ -341,11 +342,11 @@ Begin VB.Form aw_almacen_salida_rep
       BackColor       =   &H00C0C0C0&
       ForeColor       =   &H00FFFF00&
       Height          =   2055
-      Left            =   240
-      TabIndex        =   116
-      Top             =   2280
+      Left            =   360
+      TabIndex        =   114
+      Top             =   2400
       Visible         =   0   'False
-      Width           =   6135
+      Width           =   6015
       Begin VB.PictureBox Picture1 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -356,21 +357,21 @@ Begin VB.Form aw_almacen_salida_rep
          Height          =   675
          Left            =   120
          ScaleHeight     =   675
-         ScaleWidth      =   5880
-         TabIndex        =   117
+         ScaleWidth      =   5760
+         TabIndex        =   115
          Top             =   240
-         Width           =   5880
+         Width           =   5760
          Begin VB.PictureBox BtnImprimir2 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   1560
+            Left            =   1320
             Picture         =   "aw_almacen_salida_rep.frx":2C80
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   119
+            TabIndex        =   117
             ToolTipText     =   "Imprimir el Listado de los Registros"
             Top             =   0
             Width           =   1455
@@ -381,11 +382,11 @@ Begin VB.Form aw_almacen_salida_rep
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   3360
+            Left            =   3120
             Picture         =   "aw_almacen_salida_rep.frx":354D
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   118
+            TabIndex        =   116
             Top             =   0
             Width           =   1400
          End
@@ -406,7 +407,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   14175
-            TabIndex        =   120
+            TabIndex        =   118
             Top             =   195
             Width           =   1005
          End
@@ -415,26 +416,26 @@ Begin VB.Form aw_almacen_salida_rep
          DataField       =   "Fecha_Alerta"
          Height          =   315
          Left            =   960
-         TabIndex        =   121
+         TabIndex        =   119
          Top             =   1560
          Width           =   1485
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109445121
+         Format          =   109510657
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
          DataField       =   "Fecha_Alerta"
          Height          =   315
-         Left            =   3600
-         TabIndex        =   122
+         Left            =   3480
+         TabIndex        =   120
          Top             =   1560
          Width           =   1485
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109445121
+         Format          =   109510657
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -446,8 +447,8 @@ Begin VB.Form aw_almacen_salida_rep
          Caption         =   "FECHA DE FIN"
          ForeColor       =   &H00000000&
          Height          =   240
-         Left            =   3600
-         TabIndex        =   124
+         Left            =   3480
+         TabIndex        =   122
          Top             =   1200
          Width           =   1485
       End
@@ -460,7 +461,7 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   840
-         TabIndex        =   123
+         TabIndex        =   121
          Top             =   1200
          Width           =   1620
       End
@@ -474,7 +475,7 @@ Begin VB.Form aw_almacen_salida_rep
       ScaleHeight     =   12.688
       ScaleMode       =   4  'Character
       ScaleWidth      =   13.625
-      TabIndex        =   82
+      TabIndex        =   80
       Top             =   5565
       Visible         =   0   'False
       Width           =   1695
@@ -488,7 +489,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":3E39
          ScaleHeight     =   570
          ScaleWidth      =   1215
-         TabIndex        =   141
+         TabIndex        =   139
          ToolTipText     =   "Anula Item elegido"
          Top             =   1200
          Width           =   1215
@@ -503,7 +504,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":4585
          ScaleHeight     =   570
          ScaleWidth      =   1425
-         TabIndex        =   140
+         TabIndex        =   138
          ToolTipText     =   "Modifica Item Elegido"
          Top             =   600
          Width           =   1430
@@ -518,7 +519,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":4E9A
          ScaleHeight     =   570
          ScaleWidth      =   1200
-         TabIndex        =   139
+         TabIndex        =   137
          ToolTipText     =   "Adiciona Nuevo Item"
          Top             =   0
          Width           =   1200
@@ -531,7 +532,7 @@ Begin VB.Form aw_almacen_salida_rep
       Left            =   0
       ScaleHeight     =   660
       ScaleWidth      =   20280
-      TabIndex        =   73
+      TabIndex        =   72
       Top             =   0
       Width           =   20280
       Begin VB.PictureBox BtnAprobar 
@@ -544,7 +545,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":5659
          ScaleHeight     =   585
          ScaleWidth      =   1320
-         TabIndex        =   77
+         TabIndex        =   76
          ToolTipText     =   "Aprueba Comprobante de Salida de Almacen"
          Top             =   0
          Width           =   1320
@@ -559,7 +560,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":5E8C
          ScaleHeight     =   585
          ScaleWidth      =   1320
-         TabIndex        =   147
+         TabIndex        =   145
          ToolTipText     =   "Anula sólo Salida de Almacen, para Modificarlo"
          Top             =   0
          Width           =   1320
@@ -574,7 +575,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":6883
          ScaleHeight     =   585
          ScaleWidth      =   1395
-         TabIndex        =   75
+         TabIndex        =   74
          ToolTipText     =   "Comprobante de Salida de Almacenes"
          Top             =   0
          Width           =   1400
@@ -589,7 +590,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":7150
          ScaleHeight     =   585
          ScaleWidth      =   1215
-         TabIndex        =   76
+         TabIndex        =   75
          ToolTipText     =   "Busca Registros "
          Top             =   0
          Width           =   1215
@@ -604,7 +605,7 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":7905
          ScaleHeight     =   585
          ScaleWidth      =   1215
-         TabIndex        =   78
+         TabIndex        =   77
          ToolTipText     =   "Anula Tramite Definitivamente"
          Top             =   0
          Width           =   1215
@@ -619,24 +620,10 @@ Begin VB.Form aw_almacen_salida_rep
          Picture         =   "aw_almacen_salida_rep.frx":8051
          ScaleHeight     =   585
          ScaleWidth      =   1200
-         TabIndex        =   83
+         TabIndex        =   81
          ToolTipText     =   "Adiciona Nuevo Trámite"
          Top             =   0
          Width           =   1200
-      End
-      Begin VB.CommandButton BtnVer 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000015&
-         Caption         =   "Digitaliza"
-         Height          =   710
-         Left            =   9840
-         Picture         =   "aw_almacen_salida_rep.frx":8810
-         Style           =   1  'Graphical
-         TabIndex        =   80
-         ToolTipText     =   "Guarda en Archivo Digital"
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   1125
       End
       Begin VB.PictureBox BtnModificar 
          Appearance      =   0  'Flat
@@ -645,10 +632,10 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H80000008&
          Height          =   590
          Left            =   1185
-         Picture         =   "aw_almacen_salida_rep.frx":8C52
+         Picture         =   "aw_almacen_salida_rep.frx":8810
          ScaleHeight     =   585
          ScaleWidth      =   1425
-         TabIndex        =   79
+         TabIndex        =   78
          ToolTipText     =   "Modifica datos del Trámite elegido"
          Top             =   0
          Width           =   1430
@@ -660,10 +647,10 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17280
-         Picture         =   "aw_almacen_salida_rep.frx":9567
+         Picture         =   "aw_almacen_salida_rep.frx":9125
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   74
+         TabIndex        =   73
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
@@ -685,7 +672,7 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   13305
-         TabIndex        =   81
+         TabIndex        =   79
          Top             =   195
          Width           =   885
       End
@@ -701,7 +688,7 @@ Begin VB.Form aw_almacen_salida_rep
       Left            =   0
       ScaleHeight     =   675
       ScaleWidth      =   20280
-      TabIndex        =   69
+      TabIndex        =   68
       Top             =   0
       Visible         =   0   'False
       Width           =   20280
@@ -712,10 +699,10 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "aw_almacen_salida_rep.frx":9D29
+         Picture         =   "aw_almacen_salida_rep.frx":98E7
          ScaleHeight     =   615
          ScaleWidth      =   1275
-         TabIndex        =   71
+         TabIndex        =   70
          Top             =   0
          Width           =   1280
       End
@@ -726,10 +713,10 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "aw_almacen_salida_rep.frx":A4FF
+         Picture         =   "aw_almacen_salida_rep.frx":A0BD
          ScaleHeight     =   615
          ScaleWidth      =   1455
-         TabIndex        =   70
+         TabIndex        =   69
          Top             =   0
          Width           =   1455
       End
@@ -750,7 +737,7 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   13155
-         TabIndex        =   72
+         TabIndex        =   71
          Top             =   180
          Width           =   885
       End
@@ -779,13 +766,13 @@ Begin VB.Form aw_almacen_salida_rep
          Strikethrough   =   0   'False
       EndProperty
       TabCaption(0)   =   "SOLICITUDES A ALMACEN"
-      TabPicture(0)   =   "aw_almacen_salida_rep.frx":ADEB
+      TabPicture(0)   =   "aw_almacen_salida_rep.frx":A9A9
       Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Insumos)"
-      TabPicture(1)   =   "aw_almacen_salida_rep.frx":AE07
+      TabPicture(1)   =   "aw_almacen_salida_rep.frx":A9C5
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
       Tab(1).ControlCount=   1
@@ -809,12 +796,12 @@ Begin VB.Form aw_almacen_salida_rep
          Top             =   360
          Width           =   11860
          Begin MSDataListLib.DataCombo dtc_desc6 
-            Bindings        =   "aw_almacen_salida_rep.frx":AE23
+            Bindings        =   "aw_almacen_salida_rep.frx":A9E1
             DataField       =   "modelo_elegido_x"
             DataSource      =   "ado_datos18"
             Height          =   315
             Left            =   6600
-            TabIndex        =   136
+            TabIndex        =   134
             Top             =   1680
             Width           =   4770
             _ExtentX        =   8414
@@ -831,7 +818,7 @@ Begin VB.Form aw_almacen_salida_rep
             BorderStyle     =   0  'None
             Height          =   280
             Left            =   6570
-            TabIndex        =   130
+            TabIndex        =   128
             Top             =   2430
             Width           =   375
          End
@@ -841,7 +828,7 @@ Begin VB.Form aw_almacen_salida_rep
             BorderStyle     =   0  'None
             Height          =   280
             Left            =   11100
-            TabIndex        =   87
+            TabIndex        =   85
             Top             =   1095
             Visible         =   0   'False
             Width           =   255
@@ -852,7 +839,7 @@ Begin VB.Form aw_almacen_salida_rep
             BorderStyle     =   0  'None
             Height          =   280
             Left            =   7980
-            TabIndex        =   86
+            TabIndex        =   84
             Top             =   1095
             Visible         =   0   'False
             Width           =   255
@@ -864,7 +851,7 @@ Begin VB.Form aw_almacen_salida_rep
             Height          =   280
             Left            =   5160
             Locked          =   -1  'True
-            TabIndex        =   85
+            TabIndex        =   83
             Top             =   1095
             Visible         =   0   'False
             Width           =   255
@@ -876,7 +863,7 @@ Begin VB.Form aw_almacen_salida_rep
             Left            =   0
             ScaleHeight     =   840
             ScaleWidth      =   11880
-            TabIndex        =   60
+            TabIndex        =   59
             Top             =   0
             Width           =   11940
             Begin VB.PictureBox CmdCancelaDet 
@@ -886,10 +873,10 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H80000008&
                Height          =   580
                Left            =   6240
-               Picture         =   "aw_almacen_salida_rep.frx":AE3C
+               Picture         =   "aw_almacen_salida_rep.frx":A9FA
                ScaleHeight     =   585
                ScaleWidth      =   1455
-               TabIndex        =   143
+               TabIndex        =   141
                Top             =   120
                Width           =   1455
             End
@@ -900,10 +887,10 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H80000008&
                Height          =   590
                Left            =   4440
-               Picture         =   "aw_almacen_salida_rep.frx":B728
+               Picture         =   "aw_almacen_salida_rep.frx":B2E6
                ScaleHeight     =   585
                ScaleWidth      =   1275
-               TabIndex        =   142
+               TabIndex        =   140
                Top             =   120
                Width           =   1280
             End
@@ -926,7 +913,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00FFFFFF&
             Height          =   285
             Left            =   6840
-            TabIndex        =   58
+            TabIndex        =   57
             Text            =   "0"
             Top             =   3240
             Visible         =   0   'False
@@ -973,7 +960,7 @@ Begin VB.Form aw_almacen_salida_rep
             Width           =   255
          End
          Begin MSDataListLib.DataCombo dtc_preciocompra15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BEFE
+            Bindings        =   "aw_almacen_salida_rep.frx":BABC
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -994,7 +981,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_subgrupo15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BF18
+            Bindings        =   "aw_almacen_salida_rep.frx":BAD6
             CausesValidation=   0   'False
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
@@ -1025,7 +1012,7 @@ Begin VB.Form aw_almacen_salida_rep
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_grupo15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BF32
+            Bindings        =   "aw_almacen_salida_rep.frx":BAF0
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1168,7 +1155,7 @@ Begin VB.Form aw_almacen_salida_rep
             Width           =   975
          End
          Begin MSDataListLib.DataCombo dtc_precioventafinal15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BF4C
+            Bindings        =   "aw_almacen_salida_rep.frx":BB0A
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -1189,7 +1176,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BF66
+            Bindings        =   "aw_almacen_salida_rep.frx":BB24
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1208,7 +1195,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BF80
+            Bindings        =   "aw_almacen_salida_rep.frx":BB3E
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1227,7 +1214,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc13 
-            Bindings        =   "aw_almacen_salida_rep.frx":BF9A
+            Bindings        =   "aw_almacen_salida_rep.frx":BB58
             DataField       =   "almacen_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1244,7 +1231,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_unimed15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BFB4
+            Bindings        =   "aw_almacen_salida_rep.frx":BB72
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1273,7 +1260,7 @@ Begin VB.Form aw_almacen_salida_rep
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_stocktotal15 
-            Bindings        =   "aw_almacen_salida_rep.frx":BFCE
+            Bindings        =   "aw_almacen_salida_rep.frx":BB8C
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1303,7 +1290,7 @@ Begin VB.Form aw_almacen_salida_rep
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_codigo13 
-            Bindings        =   "aw_almacen_salida_rep.frx":BFE8
+            Bindings        =   "aw_almacen_salida_rep.frx":BBA6
             DataField       =   "almacen_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1323,7 +1310,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Dtc_Stock13 
-            Bindings        =   "aw_almacen_salida_rep.frx":C002
+            Bindings        =   "aw_almacen_salida_rep.frx":BBC0
             Height          =   360
             Left            =   9840
             TabIndex        =   38
@@ -1349,7 +1336,7 @@ Begin VB.Form aw_almacen_salida_rep
             EndProperty
          End
          Begin MSDataListLib.DataCombo Dtc_partida15 
-            Bindings        =   "aw_almacen_salida_rep.frx":C01C
+            Bindings        =   "aw_almacen_salida_rep.frx":BBDA
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos18"
             Height          =   315
@@ -1370,12 +1357,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_precioventabase15 
-            Bindings        =   "aw_almacen_salida_rep.frx":C036
+            Bindings        =   "aw_almacen_salida_rep.frx":BBF4
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
             Left            =   4680
-            TabIndex        =   57
+            TabIndex        =   56
             Top             =   3240
             Visible         =   0   'False
             Width           =   675
@@ -1391,12 +1378,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo6 
-            Bindings        =   "aw_almacen_salida_rep.frx":C050
+            Bindings        =   "aw_almacen_salida_rep.frx":BC0E
             DataField       =   "modelo_elegido_x"
             DataSource      =   "ado_datos18"
             Height          =   315
             Left            =   6000
-            TabIndex        =   135
+            TabIndex        =   133
             Top             =   1680
             Width           =   930
             _ExtentX        =   1640
@@ -1411,12 +1398,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc11 
-            Bindings        =   "aw_almacen_salida_rep.frx":C069
+            Bindings        =   "aw_almacen_salida_rep.frx":BC27
             DataField       =   "almacen_codigoR"
             DataSource      =   "ado_datos18"
             Height          =   315
             Left            =   2880
-            TabIndex        =   137
+            TabIndex        =   135
             Top             =   2160
             Visible         =   0   'False
             Width           =   1275
@@ -1429,12 +1416,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo11 
-            Bindings        =   "aw_almacen_salida_rep.frx":C083
+            Bindings        =   "aw_almacen_salida_rep.frx":BC41
             DataField       =   "almacen_codigoR"
             DataSource      =   "ado_datos18"
             Height          =   315
             Left            =   4200
-            TabIndex        =   138
+            TabIndex        =   136
             Top             =   2175
             Visible         =   0   'False
             Width           =   1410
@@ -1453,7 +1440,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   195
             Left            =   6000
-            TabIndex        =   134
+            TabIndex        =   132
             Top             =   1440
             Width           =   1245
          End
@@ -1464,7 +1451,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   195
             Left            =   6120
-            TabIndex        =   84
+            TabIndex        =   82
             Top             =   1080
             Visible         =   0   'False
             Width           =   930
@@ -1477,7 +1464,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   9240
-            TabIndex        =   56
+            TabIndex        =   55
             Top             =   1080
             Visible         =   0   'False
             Width           =   645
@@ -1651,11 +1638,11 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00C00000&
             Height          =   1725
             Left            =   5960
-            TabIndex        =   104
+            TabIndex        =   102
             Top             =   2505
             Width           =   5895
             Begin MSDataListLib.DataCombo dtc_desc5 
-               Bindings        =   "aw_almacen_salida_rep.frx":C09D
+               Bindings        =   "aw_almacen_salida_rep.frx":BC5B
                DataField       =   "beneficiario_codigo_tecR"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -1671,12 +1658,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   "Todos"
             End
             Begin MSDataListLib.DataCombo dtc_codigo5 
-               Bindings        =   "aw_almacen_salida_rep.frx":C0B6
+               Bindings        =   "aw_almacen_salida_rep.frx":BC74
                DataField       =   "beneficiario_codigo_tecR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4275
-               TabIndex        =   108
+               TabIndex        =   106
                Top             =   120
                Visible         =   0   'False
                Width           =   1455
@@ -1688,12 +1675,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   "0"
             End
             Begin MSDataListLib.DataCombo dtc_desc20 
-               Bindings        =   "aw_almacen_salida_rep.frx":C0CF
+               Bindings        =   "aw_almacen_salida_rep.frx":BC8D
                DataField       =   "almacen_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1275
-               TabIndex        =   109
+               TabIndex        =   107
                Top             =   840
                Width           =   4515
                _ExtentX        =   7964
@@ -1705,12 +1692,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_desc22 
-               Bindings        =   "aw_almacen_salida_rep.frx":C0E9
+               Bindings        =   "aw_almacen_salida_rep.frx":BCA7
                DataField       =   "depto_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1275
-               TabIndex        =   110
+               TabIndex        =   108
                Top             =   1320
                Width           =   4515
                _ExtentX        =   7964
@@ -1722,12 +1709,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo20 
-               Bindings        =   "aw_almacen_salida_rep.frx":C103
+               Bindings        =   "aw_almacen_salida_rep.frx":BCC1
                DataField       =   "almacen_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4755
-               TabIndex        =   111
+               TabIndex        =   109
                Top             =   840
                Visible         =   0   'False
                Width           =   1050
@@ -1739,12 +1726,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo22 
-               Bindings        =   "aw_almacen_salida_rep.frx":C11D
+               Bindings        =   "aw_almacen_salida_rep.frx":BCDB
                DataField       =   "depto_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4755
-               TabIndex        =   112
+               TabIndex        =   110
                Top             =   1320
                Visible         =   0   'False
                Width           =   1050
@@ -1756,12 +1743,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_Aux20 
-               Bindings        =   "aw_almacen_salida_rep.frx":C137
+               Bindings        =   "aw_almacen_salida_rep.frx":BCF5
                DataField       =   "almacen_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   3600
-               TabIndex        =   114
+               TabIndex        =   112
                Top             =   840
                Visible         =   0   'False
                Width           =   1050
@@ -1780,7 +1767,7 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H00000000&
                Height          =   240
                Left            =   480
-               TabIndex        =   107
+               TabIndex        =   105
                Top             =   1365
                Width           =   870
             End
@@ -1792,7 +1779,7 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H00000000&
                Height          =   195
                Left            =   120
-               TabIndex        =   106
+               TabIndex        =   104
                Top             =   840
                Width           =   1020
             End
@@ -1805,7 +1792,7 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H00000000&
                Height          =   240
                Left            =   120
-               TabIndex        =   105
+               TabIndex        =   103
                Top             =   360
                Width           =   1035
             End
@@ -1816,7 +1803,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00C00000&
             Height          =   1725
             Left            =   40
-            TabIndex        =   94
+            TabIndex        =   92
             Top             =   2505
             Width           =   5895
             Begin VB.TextBox Text12 
@@ -1825,7 +1812,7 @@ Begin VB.Form aw_almacen_salida_rep
                Enabled         =   0   'False
                Height          =   290
                Left            =   5490
-               TabIndex        =   133
+               TabIndex        =   131
                Top             =   1330
                Width           =   270
             End
@@ -1835,17 +1822,17 @@ Begin VB.Form aw_almacen_salida_rep
                Enabled         =   0   'False
                Height          =   290
                Left            =   5490
-               TabIndex        =   132
+               TabIndex        =   130
                Top             =   850
                Width           =   270
             End
             Begin MSDataListLib.DataCombo dtc_tipo4 
-               Bindings        =   "aw_almacen_salida_rep.frx":C151
+               Bindings        =   "aw_almacen_salida_rep.frx":BD0F
                DataField       =   "beneficiario_codigo_alm"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1260
-               TabIndex        =   131
+               TabIndex        =   129
                Top             =   840
                Width           =   4515
                _ExtentX        =   7964
@@ -1859,12 +1846,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   "Todos"
             End
             Begin MSDataListLib.DataCombo dtc_Aux11 
-               Bindings        =   "aw_almacen_salida_rep.frx":C16A
+               Bindings        =   "aw_almacen_salida_rep.frx":BD28
                DataField       =   "beneficiario_codigo_alm"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1260
-               TabIndex        =   113
+               TabIndex        =   111
                Top             =   1320
                Width           =   4515
                _ExtentX        =   7964
@@ -1882,7 +1869,7 @@ Begin VB.Form aw_almacen_salida_rep
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   0
-               TabIndex        =   96
+               TabIndex        =   94
                Text            =   "SEPTIEMBRE"
                Top             =   1080
                Visible         =   0   'False
@@ -1893,19 +1880,19 @@ Begin VB.Form aw_almacen_salida_rep
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   6210
-               TabIndex        =   95
+               TabIndex        =   93
                Text            =   "ANUAL"
                Top             =   1080
                Visible         =   0   'False
                Width           =   555
             End
             Begin MSDataListLib.DataCombo dtc_desc4 
-               Bindings        =   "aw_almacen_salida_rep.frx":C183
+               Bindings        =   "aw_almacen_salida_rep.frx":BD41
                DataField       =   "beneficiario_codigo_alm"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1260
-               TabIndex        =   97
+               TabIndex        =   95
                Top             =   300
                Width           =   4515
                _ExtentX        =   7964
@@ -1916,12 +1903,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   "Todos"
             End
             Begin MSDataListLib.DataCombo dtc_codigo4 
-               Bindings        =   "aw_almacen_salida_rep.frx":C19C
+               Bindings        =   "aw_almacen_salida_rep.frx":BD5A
                DataField       =   "beneficiario_codigo_alm"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4320
-               TabIndex        =   98
+               TabIndex        =   96
                Top             =   120
                Visible         =   0   'False
                Width           =   1455
@@ -1933,12 +1920,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   "0"
             End
             Begin MSDataListLib.DataCombo dtc_desc21 
-               Bindings        =   "aw_almacen_salida_rep.frx":C1B5
+               Bindings        =   "aw_almacen_salida_rep.frx":BD73
                DataField       =   "depto_codigo"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1380
-               TabIndex        =   99
+               TabIndex        =   97
                Top             =   1320
                Visible         =   0   'False
                Width           =   1035
@@ -1951,12 +1938,12 @@ Begin VB.Form aw_almacen_salida_rep
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo21 
-               Bindings        =   "aw_almacen_salida_rep.frx":C1CF
+               Bindings        =   "aw_almacen_salida_rep.frx":BD8D
                DataField       =   "beneficiario_codigo_almR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4320
-               TabIndex        =   100
+               TabIndex        =   98
                Top             =   1320
                Visible         =   0   'False
                Width           =   1410
@@ -1976,7 +1963,7 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H00000000&
                Height          =   240
                Left            =   120
-               TabIndex        =   103
+               TabIndex        =   101
                Top             =   360
                Width           =   975
             End
@@ -1988,7 +1975,7 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H00000000&
                Height          =   195
                Left            =   120
-               TabIndex        =   102
+               TabIndex        =   100
                Top             =   855
                Width           =   975
             End
@@ -2000,7 +1987,7 @@ Begin VB.Form aw_almacen_salida_rep
                ForeColor       =   &H00000000&
                Height          =   240
                Left            =   480
-               TabIndex        =   101
+               TabIndex        =   99
                Top             =   1365
                Width           =   825
             End
@@ -2011,7 +1998,7 @@ Begin VB.Form aw_almacen_salida_rep
             Enabled         =   0   'False
             Height          =   290
             Left            =   6190
-            TabIndex        =   91
+            TabIndex        =   89
             Top             =   355
             Width           =   270
          End
@@ -2046,8 +2033,8 @@ Begin VB.Form aw_almacen_salida_rep
             DataSource      =   "Ado_datos"
             ForeColor       =   &H00000000&
             Height          =   300
-            Left            =   5280
-            TabIndex        =   67
+            Left            =   7560
+            TabIndex        =   66
             Text            =   "0"
             Top             =   1260
             Width           =   1815
@@ -2058,17 +2045,17 @@ Begin VB.Form aw_almacen_salida_rep
             Enabled         =   0   'False
             Height          =   290
             Left            =   8025
-            TabIndex        =   55
+            TabIndex        =   54
             Top             =   355
             Width           =   270
          End
          Begin MSDataListLib.DataCombo dtc_codigo3 
-            Bindings        =   "aw_almacen_salida_rep.frx":C1E8
+            Bindings        =   "aw_almacen_salida_rep.frx":BDA6
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   6465
-            TabIndex        =   54
+            TabIndex        =   53
             Top             =   340
             Width           =   1845
             _ExtentX        =   3254
@@ -2084,7 +2071,7 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_desc3 
-            Bindings        =   "aw_almacen_salida_rep.frx":C201
+            Bindings        =   "aw_almacen_salida_rep.frx":BDBF
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2109,17 +2096,17 @@ Begin VB.Form aw_almacen_salida_rep
             Enabled         =   0   'False
             Height          =   280
             Left            =   7980
-            TabIndex        =   59
+            TabIndex        =   58
             Top             =   815
             Width           =   270
          End
          Begin MSDataListLib.DataCombo dtc_codigo1 
-            Bindings        =   "aw_almacen_salida_rep.frx":C21A
+            Bindings        =   "aw_almacen_salida_rep.frx":BDD8
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   6960
-            TabIndex        =   50
+            TabIndex        =   49
             Top             =   600
             Visible         =   0   'False
             Width           =   1215
@@ -2132,12 +2119,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc1 
-            Bindings        =   "aw_almacen_salida_rep.frx":C233
+            Bindings        =   "aw_almacen_salida_rep.frx":BDF1
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1620
-            TabIndex        =   115
+            TabIndex        =   113
             Top             =   800
             Width           =   6645
             _ExtentX        =   11721
@@ -2153,12 +2140,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_aux3 
-            Bindings        =   "aw_almacen_salida_rep.frx":C24C
+            Bindings        =   "aw_almacen_salida_rep.frx":BE0A
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   6960
-            TabIndex        =   53
+            TabIndex        =   52
             Top             =   240
             Visible         =   0   'False
             Width           =   1245
@@ -2183,24 +2170,24 @@ Begin VB.Form aw_almacen_salida_rep
             EndProperty
             Height          =   300
             Left            =   10160
-            TabIndex        =   93
+            TabIndex        =   91
             Top             =   1720
             Width           =   1605
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109445121
+            Format          =   109510657
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "aw_almacen_salida_rep.frx":C265
+            Bindings        =   "aw_almacen_salida_rep.frx":BE23
             DataField       =   "unidad_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   6645
-            TabIndex        =   127
+            TabIndex        =   125
             Top             =   1720
             Width           =   1605
             _ExtentX        =   2831
@@ -2214,12 +2201,12 @@ Begin VB.Form aw_almacen_salida_rep
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "aw_almacen_salida_rep.frx":C27E
+            Bindings        =   "aw_almacen_salida_rep.frx":BE3C
             DataField       =   "unidad_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1620
-            TabIndex        =   128
+            TabIndex        =   126
             Top             =   1720
             Width           =   4995
             _ExtentX        =   8811
@@ -2232,6 +2219,40 @@ Begin VB.Form aw_almacen_salida_rep
             BoundColumn     =   "unidad_codigo"
             Text            =   ""
          End
+         Begin VB.Label Label11 
+            BackColor       =   &H00000000&
+            BackStyle       =   0  'Transparent
+            Caption         =   "EMPRESA:"
+            ForeColor       =   &H00000080&
+            Height          =   285
+            Left            =   10080
+            TabIndex        =   151
+            Top             =   1320
+            Width           =   885
+         End
+         Begin VB.Label LblEmpresa 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BorderStyle     =   1  'Fixed Single
+            Caption         =   "0"
+            DataSource      =   "Ado_datos"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   13.5
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H000000C0&
+            Height          =   420
+            Left            =   11000
+            TabIndex        =   150
+            Top             =   1200
+            Width           =   765
+         End
          Begin VB.Label Label12 
             AutoSize        =   -1  'True
             BackColor       =   &H8000000A&
@@ -2240,7 +2261,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   180
-            TabIndex        =   129
+            TabIndex        =   127
             Top             =   1740
             Width           =   1395
          End
@@ -2252,7 +2273,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   480
             Left            =   8400
-            TabIndex        =   92
+            TabIndex        =   90
             Top             =   1695
             Width           =   1710
          End
@@ -2278,7 +2299,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   180
-            TabIndex        =   90
+            TabIndex        =   88
             Top             =   2160
             Width           =   900
             WordWrap        =   -1  'True
@@ -2303,7 +2324,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H80000008&
             Height          =   300
             Left            =   5535
-            TabIndex        =   89
+            TabIndex        =   87
             Top             =   2160
             Visible         =   0   'False
             Width           =   1485
@@ -2328,7 +2349,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H80000008&
             Height          =   300
             Left            =   2115
-            TabIndex        =   88
+            TabIndex        =   86
             Top             =   2160
             Visible         =   0   'False
             Width           =   1365
@@ -2350,7 +2371,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H000000FF&
             Height          =   480
             Left            =   3600
-            TabIndex        =   68
+            TabIndex        =   67
             Top             =   -30
             Width           =   4875
          End
@@ -2360,9 +2381,9 @@ Begin VB.Form aw_almacen_salida_rep
             Caption         =   "Cite de Trámite"
             ForeColor       =   &H00000000&
             Height          =   285
-            Left            =   4020
-            TabIndex        =   66
-            Top             =   1280
+            Left            =   6420
+            TabIndex        =   65
+            Top             =   1275
             Width           =   1245
          End
          Begin VB.Label txt_venta 
@@ -2384,8 +2405,8 @@ Begin VB.Form aw_almacen_salida_rep
             EndProperty
             ForeColor       =   &H80000008&
             Height          =   300
-            Left            =   10380
-            TabIndex        =   65
+            Left            =   4500
+            TabIndex        =   64
             Top             =   1260
             Width           =   1365
          End
@@ -2409,7 +2430,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H80000008&
             Height          =   300
             Left            =   10395
-            TabIndex        =   64
+            TabIndex        =   63
             Top             =   680
             Width           =   1365
          End
@@ -2423,7 +2444,7 @@ Begin VB.Form aw_almacen_salida_rep
             Height          =   240
             Index           =   3
             Left            =   8730
-            TabIndex        =   63
+            TabIndex        =   62
             Top             =   705
             Width           =   1530
          End
@@ -2436,7 +2457,7 @@ Begin VB.Form aw_almacen_salida_rep
             Height          =   195
             Index           =   13
             Left            =   8760
-            TabIndex        =   62
+            TabIndex        =   61
             Top             =   240
             Width           =   1470
          End
@@ -2460,7 +2481,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H000000C0&
             Height          =   300
             Left            =   10395
-            TabIndex        =   61
+            TabIndex        =   60
             Top             =   225
             Width           =   1365
          End
@@ -2472,7 +2493,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   180
-            TabIndex        =   52
+            TabIndex        =   51
             Top             =   100
             Width           =   1500
          End
@@ -2496,7 +2517,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H80000008&
             Height          =   300
             Left            =   1620
-            TabIndex        =   51
+            TabIndex        =   50
             Top             =   1260
             Width           =   1245
          End
@@ -2509,8 +2530,8 @@ Begin VB.Form aw_almacen_salida_rep
             Height          =   240
             Index           =   0
             Left            =   180
-            TabIndex        =   49
-            Top             =   1280
+            TabIndex        =   48
+            Top             =   1275
             Width           =   1395
          End
          Begin VB.Label lbl_campo1 
@@ -2521,7 +2542,7 @@ Begin VB.Form aw_almacen_salida_rep
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   180
-            TabIndex        =   48
+            TabIndex        =   47
             Top             =   820
             Width           =   1635
          End
@@ -2531,9 +2552,9 @@ Begin VB.Form aw_almacen_salida_rep
             Caption         =   "Nro. de Venta"
             ForeColor       =   &H00000000&
             Height          =   285
-            Left            =   9180
+            Left            =   3420
             TabIndex        =   15
-            Top             =   1280
+            Top             =   1275
             Width           =   1125
          End
       End
@@ -2562,8 +2583,9 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   2160
-         TabIndex        =   126
+         TabIndex        =   124
          Top             =   4360
+         Value           =   -1  'True
          Width           =   1035
       End
       Begin VB.OptionButton Option2 
@@ -2581,9 +2603,8 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   840
-         TabIndex        =   125
+         TabIndex        =   123
          Top             =   4360
-         Value           =   -1  'True
          Width           =   1275
       End
       Begin VB.OptionButton OptFilGral2 
@@ -2601,7 +2622,7 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00FF0000&
          Height          =   210
          Left            =   3360
-         TabIndex        =   47
+         TabIndex        =   46
          Top             =   4360
          Width           =   1275
       End
@@ -2620,246 +2641,13 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H00FF0000&
          Height          =   210
          Left            =   4680
-         TabIndex        =   46
+         TabIndex        =   45
          Top             =   4365
          Width           =   975
       End
-      Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "aw_almacen_salida_rep.frx":C297
-         Height          =   4010
-         Left            =   75
-         TabIndex        =   45
-         Top             =   240
-         Width           =   6345
-         _ExtentX        =   11192
-         _ExtentY        =   7064
-         _Version        =   393216
-         AllowUpdate     =   0   'False
-         BackColor       =   16777215
-         HeadLines       =   1
-         RowHeight       =   15
-         FormatLocked    =   -1  'True
-         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ColumnCount     =   12
-         BeginProperty Column00 
-            DataField       =   "venta_codigo"
-            Caption         =   "Nro.Venta"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column01 
-            DataField       =   "doc_codigo_alm"
-            Caption         =   "DocAlm"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column02 
-            DataField       =   "doc_numero_alm"
-            Caption         =   "Nro.Doc."
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column03 
-            DataField       =   "fecha_verif"
-            Caption         =   "Fecha.Salida"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column04 
-            DataField       =   "unidad_codigo_ant"
-            Caption         =   "Cite / OS"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column05 
-            DataField       =   "edif_descripcion"
-            Caption         =   "Destino/Nombre.Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
-            DataField       =   "estado_almacen"
-            Caption         =   "Estado"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column07 
-            DataField       =   "unidad_codigo"
-            Caption         =   "Unidad"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column08 
-            DataField       =   "solicitud_codigo"
-            Caption         =   "Tramite"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column09 
-            DataField       =   "edif_codigo"
-            Caption         =   "Edif/Destino"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column10 
-            DataField       =   "venta_fecha"
-            Caption         =   "Fecha.Venta"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column11 
-            DataField       =   "usr_codigo"
-            Caption         =   "Usuario"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         SplitCount      =   1
-         BeginProperty Split0 
-            BeginProperty Column00 
-               Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column01 
-               Alignment       =   2
-               ColumnWidth     =   764.787
-            EndProperty
-            BeginProperty Column02 
-               ColumnWidth     =   750.047
-            EndProperty
-            BeginProperty Column03 
-               ColumnWidth     =   1065.26
-            EndProperty
-            BeginProperty Column04 
-               ColumnWidth     =   975.118
-            EndProperty
-            BeginProperty Column05 
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   1769.953
-            EndProperty
-            BeginProperty Column06 
-               Alignment       =   2
-               ColumnWidth     =   645.165
-            EndProperty
-            BeginProperty Column07 
-               ColumnWidth     =   720
-            EndProperty
-            BeginProperty Column08 
-               ColumnWidth     =   689.953
-            EndProperty
-            BeginProperty Column09 
-               Object.Visible         =   -1  'True
-            EndProperty
-            BeginProperty Column10 
-               Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column11 
-               Object.Visible         =   0   'False
-            EndProperty
-         EndProperty
-      End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
-         Left            =   75
+         Left            =   80
          Top             =   4280
          Width           =   6345
          _ExtentX        =   11192
@@ -2882,7 +2670,7 @@ Begin VB.Form aw_almacen_salida_rep
          BackColor       =   16777215
          ForeColor       =   -2147483640
          Orientation     =   0
-         Enabled         =   -1
+         Enabled         =   0
          Connect         =   ""
          OLEDBString     =   ""
          OLEDBFile       =   ""
@@ -2902,6 +2690,14 @@ Begin VB.Form aw_almacen_salida_rep
             Strikethrough   =   0   'False
          EndProperty
          _Version        =   393216
+      End
+      Begin TrueOleDBGrid60.TDBGrid dg_datos 
+         Height          =   3975
+         Left            =   60
+         OleObjectBlob   =   "aw_almacen_salida_rep.frx":BE55
+         TabIndex        =   152
+         Top             =   240
+         Width           =   6345
       End
    End
    Begin VB.Frame FrmDetalle 
@@ -2929,19 +2725,19 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H80000008&
          Height          =   1335
          Left            =   15510
-         Picture         =   "aw_almacen_salida_rep.frx":C2AF
+         Picture         =   "aw_almacen_salida_rep.frx":116CE
          ScaleHeight     =   1335
          ScaleWidth      =   1125
-         TabIndex        =   145
+         TabIndex        =   143
          ToolTipText     =   "Entrega Bien a Destinatario"
          Top             =   240
          Width           =   1125
       End
       Begin MSDataGridLib.DataGrid DtGLista2 
-         Bindings        =   "aw_almacen_salida_rep.frx":D16F
+         Bindings        =   "aw_almacen_salida_rep.frx":1258E
          Height          =   1340
          Left            =   120
-         TabIndex        =   144
+         TabIndex        =   142
          Top             =   240
          Width           =   15375
          _ExtentX        =   27120
@@ -4323,6 +4119,7 @@ Dim CONT2, CONT3, CONT4, VAR_TIPO As Integer
 Dim fdia, fmes, fanio, Dias_Mes, TimeD  As Integer
 Dim VAR_COBR1, VAR_COBR2, VAR_CONTR As Integer
 Dim VAR_NUM, var_cod, VAR_COD2 As Integer
+
 Dim VAR_DET As String
 
 Dim Cobrobs, VAR_COBR, VAR_AUX, VAR_AUX2 As Double
@@ -4365,91 +4162,119 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
  Dim descri_bien As String
 ' Dim Cant_Alm As Integer
  If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
-    DTPfechasol.Value = IIf(IsNull(Ado_datos.Recordset!fecha_verif), Date, Ado_datos.Recordset!fecha_verif)
-    If parametro <> Ado_datos.Recordset!unidad_codigo Then
-        If glusuario = "CARIZACA" Then
+   If Not IsNull(Ado_datos.Recordset!venta_codigo) Then
+        If Ado_datos.Recordset!codigo_empresa = "2" Then
+            LblEmpresa.Caption = "CGE"
+        Else
+            LblEmpresa.Caption = "CGI"
+        End If
+    
+        DTPfechasol.Value = IIf(IsNull(Ado_datos.Recordset!fecha_verif), Date, Ado_datos.Recordset!fecha_verif)
+        If parametro <> Ado_datos.Recordset!unidad_codigo Then
+            If glusuario = "CARIZACA" Then
+                BtnAnlDetalle.Visible = True
+            Else
+                BtnAnlDetalle.Visible = False
+            End If
+        Else
             BtnAnlDetalle.Visible = True
-        Else
-            BtnAnlDetalle.Visible = False
         End If
-    Else
-        BtnAnlDetalle.Visible = True
+        If Not IsNull(Ado_datos.Recordset!venta_codigo) Then
+            NumComp = Ado_datos.Recordset!venta_codigo
+    '        If buscados = 0 Then
+    '           OptFilGral1.Visible = True
+    '           OptFilGral2.Visible = True
+    '        Else
+    '           OptFilGral1.Visible = False
+    '           OptFilGral2.Visible = False
+    '        End If
+            If (Ado_datos.Recordset!estado_almacen = "REG") Then
+                BtnAprobar.Visible = True
+                BtnDesAprobar.Visible = False
+                BtnModificar.Visible = True
+                btnEliminar.Visible = True
+                lbl_cerrado.Caption = ""
+                FrmABMDet.Visible = True
+                BtnModificar2.Visible = True
+            Else
+                BtnAprobar.Visible = False
+                BtnDesAprobar.Visible = True
+                BtnModificar.Visible = False
+                btnEliminar.Visible = False
+                FrmABMDet.Visible = False
+                BtnModificar2.Visible = False
+            End If
+    
+            If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
+                dtc_desc20.Visible = True
+                lbl_Adestino.Visible = True
+                dtc_desc22.Visible = True
+                lbl_Rdestino.Visible = True
+            Else
+                dtc_desc20.Visible = False
+                lbl_Adestino.Visible = False
+                dtc_desc22.Visible = False
+                lbl_Rdestino.Visible = False
+            End If
+            Call CARGAPARAM
+            Call ABRIR_TABLAS_AUX
+'            If Option2.Value = True Then
+'                Call Option2_Click          'CGI    SALIDAS
+'            End If
+'            If Option1.Value = True Then
+'                Call Option1_Click          'CGI    REASPASOS
+'            End If
+'            If OptFilGral2.Value = True Then
+'                Call OptFilGral2_Click        'CGE  SALIDAS
+'            End If
+'            If OptFilGral1.Value = True Then
+'                Call OptFilGral1_Click        'CGE  TRASPASOS
+'            End If
+'             If (dg_datos.SelBookmarks.Count <> 0) Then
+'                dg_datos.SelBookmarks.Remove 0
+'             End If
+'             If Ado_datos.Recordset.RecordCount > 0 Then        'And swgrabar = 2
+'                Ado_datos.Recordset.Find "venta_codigo = " & NumComp & "   ", , , 1
+'                dg_datos.SelBookmarks.Add (Ado_datos.Recordset.Bookmark)
+'             Else
+'                Ado_datos.Recordset.MoveLast
+'             End If
+            Call AbrirDetalle
+            
+            FrmDetalle.Caption = "Bienes NO Entregados - Venta Nro. " + Str((NumComp))
+            FrmDetalle2.Caption = "Bienes ENTREGADOS - Venta Nro. " + Str((NumComp))
+            If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DNEME" Or Ado_datos.Recordset!unidad_codigo = "DNINS" Then
+                lbl_cite = "Cite / O.S."
+            Else
+                lbl_cite = "Cite Trámite"
+            End If
+        End If
+    '        FrmDetalle.Visible = True
+    '        FrmDetalle2.Visible = True
     End If
-    If Not IsNull(Ado_datos.Recordset!venta_codigo) Then
-        If buscados = 0 Then
-           OptFilGral1.Visible = True
-           OptFilGral2.Visible = True
-        Else
-           OptFilGral1.Visible = False
-           OptFilGral2.Visible = False
-        End If
-        If (Ado_datos.Recordset("estado_almacen") = "REG") Then
-            BtnAprobar.Visible = True
-            BtnDesAprobar.Visible = False
-            BtnModificar.Visible = True
-            btnEliminar.Visible = True
-            lbl_cerrado.Caption = ""
-            FrmABMDet.Visible = True
-            BtnModificar2.Visible = True
-        Else
-            BtnAprobar.Visible = False
-            BtnDesAprobar.Visible = True
-            BtnModificar.Visible = False
-            btnEliminar.Visible = False
-            FrmABMDet.Visible = False
-            BtnModificar2.Visible = False
-        End If
-
-        If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
-            dtc_desc20.Visible = True
-            lbl_Adestino.Visible = True
-            dtc_desc22.Visible = True
-            lbl_Rdestino.Visible = True
-        Else
-            dtc_desc20.Visible = False
-            lbl_Adestino.Visible = False
-            dtc_desc22.Visible = False
-            lbl_Rdestino.Visible = False
-        End If
-        Call CARGAPARAM
-        Call ABRIR_TABLAS_AUX
-        Call AbrirDetalle
-        
-        FrmDetalle.Caption = "Bienes NO Entregados - Venta Nro. " + Str((Ado_datos.Recordset("venta_codigo")))
-        FrmDetalle2.Caption = "Bienes ENTREGADOS - Venta Nro. " + Str((Ado_datos.Recordset("venta_codigo")))
-        If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DNEME" Or Ado_datos.Recordset!unidad_codigo = "DNINS" Then
-            lbl_cite = "Cite / O.S."
-        Else
-            lbl_cite = "Cite Trámite"
-        End If
-
-    End If
-'        FrmDetalle.Visible = True
-'        FrmDetalle2.Visible = True
  Else
         FrmABMDet.Visible = False
 '        FrmDetalle.Visible = False
 '        FrmDetalle2.Visible = False
-        If buscados = 0 Then
-           OptFilGral1.Visible = True
-           OptFilGral2.Visible = True
-        Else
-           OptFilGral1.Visible = False
-           OptFilGral2.Visible = False
-        End If
+'        If buscados = 0 Then
+'           OptFilGral1.Visible = True
+'           OptFilGral2.Visible = True
+'        Else
+'           OptFilGral1.Visible = False
+'           OptFilGral2.Visible = False
+'        End If
  End If
  btnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()
-    
     'ORIGEN
     Set rs_datos18 = New ADODB.Recordset
     If rs_datos18.State = 1 Then rs_datos18.Close
     If accion = "NEW" Then
        rs_datos18.Open "select * from ao_ventas_detalle where venta_codigo = '0'  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='REG' OR estado_bien='ING')  order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic        'par_codigo, bien_codigo
     Else
-        rs_datos18.Open "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='REG' OR estado_bien='ING' OR estado_bien='SAL')  order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic        'par_codigo, bien_codigo
+        rs_datos18.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & "  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='REG' OR estado_bien='ING' OR estado_bien='SAL')  order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic        'par_codigo, bien_codigo
     End If
     rs_datos18.Sort = "hora_registro"
     Set ado_datos18.Recordset = rs_datos18.DataSource
@@ -4465,14 +4290,13 @@ Private Sub AbrirDetalle()
         DtGLista2.Visible = False
         FrmDetalle.Visible = False
     End If
-    
     'DESTINO
     Set rs_datos14 = New ADODB.Recordset
     If rs_datos14.State = 1 Then rs_datos14.Close
     If accion = "NEW" Then
        rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '0' and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='SAL' OR estado_bien='APR')   order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic       'par_codigo, bien_codigo
     Else
-        rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='SAL' OR estado_bien='APR')   order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic       'par_codigo, bien_codigo
+        rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = " & NumComp & "  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='SAL' OR estado_bien='APR')   order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic       'par_codigo, bien_codigo
     End If
     'rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='SAL' OR estado_bien='APR')   order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic       'par_codigo, bien_codigo
     rs_datos14.Sort = "hora_registro"
@@ -4489,7 +4313,6 @@ Private Sub AbrirDetalle()
         DtGLista.Visible = False
         FrmDetalle2.Visible = False
     End If
-
 End Sub
 
 Private Sub AbreAlmacen()
@@ -5044,15 +4867,15 @@ Private Sub BtnBuscar_Click()
       PosibleApliqueFiltro = True
   Else
     MsgBox "NO se puede Procesar !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
-    OptFilGral1.Visible = True
-    OptFilGral2.Visible = True
+'    OptFilGral1.Visible = True
+'    OptFilGral2.Visible = True
   End If
 End Sub
 
 Private Sub BtnCancelar_Click()
 On Error GoTo UpdateErr
   If swgrabar = 2 Then
-    var_cod5 = Ado_datos.Recordset!venta_codigo
+    NumComp = Ado_datos.Recordset!venta_codigo
   End If
   'Ado_datos.Refresh
   fraOpciones.Visible = True
@@ -5070,16 +4893,28 @@ On Error GoTo UpdateErr
   dtc_desc3.ForeColor = &H80000005
   
   'Refrescar Grid
-  If OptFilGral1.Value = True Then
-       Call OptFilGral1_Click        'Pendientes
-  Else
-       Call OptFilGral2_Click        'TODOS
-  End If
+  If Option2.Value = True Then
+        Call Option2_Click          'CGI    SALIDAS
+    End If
+    If Option1.Value = True Then
+        Call Option1_Click          'CGI    REASPASOS
+    End If
+    If OptFilGral2.Value = True Then
+        Call OptFilGral2_Click        'CGE  SALIDAS
+    End If
+    If OptFilGral1.Value = True Then
+        Call OptFilGral1_Click        'CGE  TRASPASOS
+    End If
+'  If OptFilGral1.Value = True Then
+'       Call OptFilGral1_Click        'Pendientes
+'  Else
+'       Call OptFilGral2_Click        'TODOS
+'  End If
   If (dg_datos.SelBookmarks.Count <> 0) Then
        dg_datos.SelBookmarks.Remove 0
   End If
   If Ado_datos.Recordset.RecordCount > 0 And swgrabar = 2 Then
-       rs_datos.Find "venta_codigo = " & var_cod5 & "   ", , , 1
+       rs_datos.Find "venta_codigo = " & NumComp & "   ", , , 1
        dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
   Else
        rs_datos.MoveLast
@@ -5178,7 +5013,7 @@ On Error GoTo UpdateErr
   Call valida_campos
   If VAR_VAL = "OK" Then
     If swgrabar = 2 Then
-        var_cod5 = Ado_datos.Recordset!venta_codigo
+        NumComp = Ado_datos.Recordset!venta_codigo
         FInicio = IIf(IsNull(Ado_datos.Recordset!venta_fecha_inicio), Date, Ado_datos.Recordset!venta_fecha_inicio)
         CANTOT = IIf(IsNull(Ado_datos.Recordset!venta_cantidad_total), 1, Ado_datos.Recordset!venta_cantidad_total)
         gestion0 = IIf(IsNull(Ado_datos.Recordset!ges_gestion), glGestion, Ado_datos.Recordset!ges_gestion)
@@ -5193,7 +5028,7 @@ On Error GoTo UpdateErr
     FrmCabecera.Enabled = False
     Call grabar
     '
-    db.Execute "update ao_almacen_salidas set concepto = '" & TxtConcepto.Text & "' WHERE venta_codigo = " & var_cod5
+    db.Execute "update ao_almacen_salidas set concepto = '" & TxtConcepto.Text & "' WHERE venta_codigo = " & NumComp
     fraOpciones.Visible = True
     FraGrabarCancelar.Visible = False
     FraNavega.Enabled = True
@@ -5207,22 +5042,26 @@ On Error GoTo UpdateErr
 '    Fra_Total.Visible = True
     FrmABMDet.Visible = True
     'Refrescar Grid
-    'If OptFilGral1.Value = True Then
-    If OptFilGral2.Value = True Or OptFilGral1.Value = True Then
-        'Call OptFilGral1_Click        'Pendientes
-        Call OptFilGral2_Click        'CGE
-     Else
-        'Call OptFilGral2_Click        'TODOS
-        Call OptFilGral1_Click        'CGI
-     End If
+    If Option2.Value = True Then
+        Call Option2_Click          'CGI    SALIDAS
+    End If
+    If Option1.Value = True Then
+        Call Option1_Click          'CGI    REASPASOS
+    End If
+    If OptFilGral2.Value = True Then
+        Call OptFilGral2_Click        'CGE  SALIDAS
+    End If
+    If OptFilGral1.Value = True Then
+        Call OptFilGral1_Click        'CGE  TRASPASOS
+    End If
      If (dg_datos.SelBookmarks.Count <> 0) Then
         dg_datos.SelBookmarks.Remove 0
      End If
      If Ado_datos.Recordset.RecordCount > 0 And swgrabar = 2 Then
-        rs_datos.Find "venta_codigo = " & var_cod5 & "   ", , , 1
-        dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
+        Ado_datos.Recordset.Find "venta_codigo = " & NumComp & "   ", , , 1
+        dg_datos.SelBookmarks.Add (Ado_datos.Recordset.Bookmark)
      Else
-        rs_datos.MoveLast
+        Ado_datos.Recordset.MoveLast
      End If
      swgrabar = 0
     SSTab1.Tab = 0
@@ -5398,14 +5237,18 @@ End Sub
 Private Sub BtnImprimir3_Click()
    If Ado_datos.Recordset.RecordCount > 0 Then
       If Ado_datos14.Recordset.RecordCount > 0 Then
-        Dim iResult As Variant, i%, Y%
-        Dim co As New ADODB.Command
-        CryS01.ReportFileName = App.Path & "\reportes\Tecnico\tr_orden_servicio_new.rpt"
-        'CryV01.WindowShowRefreshBtn = True
-        CryS01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-        CryS01.StoredProcParam(1) = Me.Ado_datos.Recordset!venta_codigo
-        iResult = CryS01.PrintReport
-        If iResult <> 0 Then MsgBox CryS01.LastErrorNumber & " : " & CryS01.LastErrorString, vbCritical, "Error de impresión"
+        If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DREPS" Or Ado_datos.Recordset!unidad_codigo = "DREPB" Or Ado_datos.Recordset!unidad_codigo = "DREPC" Or Ado_datos.Recordset!unidad_codigo = "DNINS" Or Ado_datos.Recordset!unidad_codigo = "DINSS" Or Ado_datos.Recordset!unidad_codigo = "DINSB" Or Ado_datos.Recordset!unidad_codigo = "DINSC" Then
+            Dim iResult As Variant, i%, Y%
+            Dim co As New ADODB.Command
+            CryS01.ReportFileName = App.Path & "\reportes\Tecnico\tr_orden_servicio_new.rpt"
+            'CryV01.WindowShowRefreshBtn = True
+            CryS01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+            CryS01.StoredProcParam(1) = Me.Ado_datos.Recordset!venta_codigo
+            iResult = CryS01.PrintReport
+            If iResult <> 0 Then MsgBox CryS01.LastErrorNumber & " : " & CryS01.LastErrorString, vbCritical, "Error de impresión"
+        Else
+            MsgBox "No se puede Imprimir ODS, porque en este tipo de trámite NO Corresponde ... " & FrmDetalle.Caption, , "Atención"
+        End If
      Else
         MsgBox "No se puede Imprimir. Debe registrar datos... " & FrmDetalle.Caption, , "Atención"
      End If
@@ -5777,1277 +5620,1277 @@ UpdateErr:
 End Sub
 
 Private Sub Contabiliza_venta()
-    Call graba_proyecto
-    Call graba_ingreso
-  '===== Proceso para generar Asientos Contables Automáticos "DEI" y "REC"
-  'sino = MsgBox("¿Está seguro de aprobar el Registro?", vbYesNo + vbQuestion, "CONFIRMAR...")
-  'If sino = vbYes Then
-    ' INI CORRECCION 18-JUN-2014
-    Dim i As Integer
-    Dim j As Integer
-    Dim v_Tipo_Comp(1, 2)
-
-    '**** INI VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
-    Set rstdestino = New ADODB.Recordset
-    If rstdestino.State = 1 Then rstdestino.Close
-    Select Case VAR_CODTIPO
-        Case "DEI"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-              'cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
-              'Subcta_deb11 = rstdestino!Subcta_cred1
-              'Subcta_deb21 = rstdestino!Subcta_cred2
-
-              'cta_credito1 = rstdestino2!cta_deb
-              'Subcta_cred11 = rstdestino2!Subcta_deb1
-              'Subcta_cred21 = rstdestino2!Subcta_deb2
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-        Case "REC"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-            If rs_aux1.State = 1 Then rs_aux1.Close
-            rs_aux1.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-            If (Not rs_aux1.BOF) And (Not rs_aux1.EOF) Then
-              If rs_aux1("monto_bolivianos") < rs_aux1("monto_recaudado_bolivianos") + VAR_BS2 Then
-                MsgBox "El monto que está intentando recaudar en Bs. es mayor al DEVENGADO, por favor Verifique el Monto Devengado: " & CStr(rs_aux1("monto_bolivianos")) & " Solo puede recaudar :" & CStr(rs_aux1("monto_bolivianos") - rs_aux1("monto_recaudado_bolivianos")), vbOKOnly + vbCritical, "ERROR en el Monto Recaudado"
-                Exit Sub
-              End If
-            End If
-            If rs_aux1.State = 1 Then rs_aux1.Close
-
-        Case "DYR"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-        Case "DES"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-        Case "ANI"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-        Case "DVI"
-            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            If rstdestino.RecordCount > 0 Then
-                j = rstdestino.RecordCount
-            Else
-              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-              Exit Sub
-            End If
-
-            '' 02/07/2014 VERIFICAR
-            'If rstdestino.State = 1 Then rstdestino.Close
-            'rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
-            'If rstdestino2.State = 1 Then rstdestino2.Close
-            'rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-            'If rstdestino.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
-            '  MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-            '  Exit Sub
-            'End If
-        Case Else
-            MsgBox "No se ha definido el tipo " & vbCrLf & " de registro que está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
-            If rstdestino.State = 1 Then rstdestino.Close
-            Exit Sub
-    End Select
-    'If rstdestino.State = 1 Then rstdestino.Close
-    '**** FIN VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
-
-    Dim cta_deb1 As String
-    Dim Subcta_deb11 As String
-    Dim Subcta_deb21 As String
-
-    Dim cta_credito1 As String
-    Dim Subcta_cred11 As String
-    Dim Subcta_cred21 As String
-
-    Dim cod_ant As Integer
-    Dim org_ant As String
-
-    'If DtCCta_codigo.Text <> "01" Then
-    '  If rstdestino.State = 1 Then rstdestino.Close
-    '  rstFc_cuenta_bancaria.Find " cta_codigo = '" & DtCCta_codigo & "'", , adSearchForward, 1
-    '  If Not rstFc_cuenta_bancaria.EOF Then
-    '    fte_codigo1 = rstFc_cuenta_bancaria("fte_codigo")
-    '  Else
-    '  End If
-    'Else
-    '    fte_codigo1 = Me.DtCFte_codigo.Text
-    'End If
-    'If VAR_CODTIPO = "DEI" Or VAR_CODTIPO = "DES" Then
-    '  fte_codigo1 = Me.DtCFte_codigo.Text
-    'End If
-
-'    fte_codigo1 = VAR_FTE
-'
+'    Call graba_proyecto
+'    Call graba_ingreso
+'  '===== Proceso para generar Asientos Contables Automáticos "DEI" y "REC"
+'  'sino = MsgBox("¿Está seguro de aprobar el Registro?", vbYesNo + vbQuestion, "CONFIRMAR...")
+'  'If sino = vbYes Then
+'    ' INI CORRECCION 18-JUN-2014
 '    Dim i As Integer
 '    Dim j As Integer
 '    Dim v_Tipo_Comp(1, 2)
 '
-'    v_Tipo_Comp(1, 1) = VAR_CODTIPO
-
-'    If VAR_CODTIPO = "DYR" Then
-'      'j = 2
-'      'v_Tipo_Comp(1, 1) = "CAD"
-'      'v_Tipo_Comp(1, 2) = "CAR"
-'      j = 2
-'      v_Tipo_Comp(1, 1) = "DYR"
-'    Else
-'      j = 1
-'      v_Tipo_Comp(1, 1) = IIf(VAR_CODTIPO = "DEI", "DEI", IIf(VAR_CODTIPO = "REC", "REC", IIf(VAR_CODTIPO = "DES", "DES", IIf(VAR_CODTIPO = "ANI", "ANI", ""))))
-'    End If
+'    '**** INI VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
+'    Set rstdestino = New ADODB.Recordset
+'    If rstdestino.State = 1 Then rstdestino.Close
+'    Select Case VAR_CODTIPO
+'        Case "DEI"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'              'cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
+'              'Subcta_deb11 = rstdestino!Subcta_cred1
+'              'Subcta_deb21 = rstdestino!Subcta_cred2
 '
-'    If VAR_CODTIPO = "DVI" Then
-'      j = 1
-'      v_Tipo_Comp(1, 1) = "DVI"
-'    End If
-
-'    For i = 1 To j
-'      If rstdestino.State = 1 Then rstdestino.Close
-'      If v_Tipo_Comp(1, i) = "DEI" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "REC" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DYR" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DES" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "ANI" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DVI" Then
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "" Then
-'        MsgBox "Antes de aprobar defina que tipo " & vbCrLf & "de registro está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
-'        Exit Sub
-'      End If
-
-    ' INI CORRECCION 18-JUN-2014
-'      If v_Tipo_Comp(1, i) = "DVI" Then
-'        ' 02/07/2014 VERIFICAR
-'        If rs_aux2.State = 1 Then rs_aux2.Close
-'        rs_aux2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
-'        If rstdestino2.State = 1 Then rstdestino2.Close
-'        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'        If rs_aux2.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
-'          MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-'          Exit Sub
-'        End If
-'      End If
+'              'cta_credito1 = rstdestino2!cta_deb
+'              'Subcta_cred11 = rstdestino2!Subcta_deb1
+'              'Subcta_cred21 = rstdestino2!Subcta_deb2
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
 '
-'      If rs_aux2.RecordCount < 1 Then
-'        MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
-'        Exit Sub
-'      End If
-'    Next
-
-    'If rstdestino.State = 1 Then rstdestino.Close
-
-    fte_codigo1 = VAR_FTE
-    v_Tipo_Comp(1, 1) = VAR_CODTIPO
-
-    db.BeginTrans
-'    Frmmensaje.Visible = True
-'    LblMensaje.Caption = "Este proceso tomará solo unos segundos, gracias"
-    '========================================
-    '==== verifica si ya fue contabilizado
-      yacontabilizo = 0
-      Set rs_aux2 = New ADODB.Recordset
-      If rs_aux2.State = 1 Then rs_aux2.Close
-      rs_aux2.Open "select * from co_comprobante_m where Cod_trans = '" & VAR_CODANT & "' and org_codigo = '" & VAR_ORG & "' and tipo_comp = '" & VAR_CODTIPO & "' AND estado_codigo = 'APR'", db, adOpenKeyset, adLockOptimistic
-      If rs_aux2.RecordCount > 0 Then
-        yacontabilizo = 1
-      Else
-        yacontabilizo = 0
-      End If
-      If yacontabilizo = 1 Then
-        'MsgBox "aqui recontabilizar" & rstdestino!Cod_trans & " -- " & rstdestino!org_codigo & " / " & rstdestino!Cod_Comp
-        Var_Comp = rs_aux2!Cod_Comp
-      Else
-        '===== ini GENERA EL CODIGO DE COMPROBANTE ====
-        Set rstCodComp = New ADODB.Recordset
-        rstCodComp.CursorLocation = adUseClient
-        If rstCodComp.State = 1 Then rstCodComp.Close
-        rstCodComp.Open "select * from fc_Correl  where tipo_tramite = 'CMBTE'", db, adOpenDynamic, adLockOptimistic
-        If rstCodComp.RecordCount > 0 Then
-          Var_Comp = CDbl(rstCodComp!numero_correlativo)
-          Var_Comp = Var_Comp + 1
-          rstCodComp!numero_correlativo = Trim(Str(Var_Comp))
-          rstCodComp.Update
-        End If
-        If rstCodComp.State = 1 Then rstCodComp.Close
-        '===== fin TERMINA GENERACION DE COMPROBANTE =====
-
-      '==== ini registro co_comprobante_m
-
-        rs_aux2.AddNew
-        rs_aux2("cod_comp") = Var_Comp
-      End If
-    '========================================
-    'anterior
-    '      If rstdestino.State = 1 Then rstdestino.Close
-    '      rstdestino.Open "select * from co_comprobante_m where Cod_Comp = 0", db, adOpenKeyset, adLockOptimistic
-    '      If rstdestino.RecordCount > 0 Then
-    '      End If
-    '      rstdestino.AddNew
-
-    '      rstdestino("cod_comp") = Var_Comp
-    'anterior
-      rs_aux2("Tipo_Comp") = VAR_CODTIPO        'v_Tipo_Comp(1, i)
-      rs_aux2("cod_trans") = VAR_CODANT
-      rs_aux2("org_codigo") = VAR_ORG
-      rs_aux2("ges_gestion") = glGestion    'Year(Date)
-      'rstdestino("Num_Respaldo") = Ado_datos.Recordset("numero_documento")
-      If yacontabilizo = 0 Then
-        rs_aux2("Fecha_transacion") = Date
-      End If
-      rs_aux2("beneficiario_codigo") = VAR_BENEF
-      rs_aux2("glosa") = VAR_GLOSA
-      rs_aux2("unidad_codigo") = VAR_COD4       'Ado_datos.Recordset("unidad_codigo")
-      rs_aux2("solicitud_codigo") = Ado_datos.Recordset("solicitud_codigo")
-      rs_aux2("tipo_moneda") = VAR_MONEDA
-      rs_aux2("unidad_codigo_ant") = VAR_CITE
-
-      rs_aux2("proceso_codigo") = "FIN"
-      rs_aux2("subproceso_codigo") = "FIN-02"
-      Select Case VAR_CODTIPO
-        Case "DEI"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "REC"
-            rs_aux2("etapa_codigo") = "FIN-02-02"
-        Case "DYR"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "DES"
-            rs_aux2("etapa_codigo") = "FIN-02-01"
-        Case "ANI"
-            rs_aux2("etapa_codigo") = "FIN-02-02"
-        Case "DVI"
-            rs_aux2("etapa_codigo") = "FIN-02-02"
-      End Select
-
-      rs_aux2("clasif_codigo") = "ADM"
-      rs_aux2("doc_codigo") = "R-128"
-      rs_aux2("doc_numero") = Var_Comp
-      rs_aux2("pro_codigo_det") = VAR_PROY2
-
-      rs_aux2("estado_codigo") = "APR"
-
-      If yacontabilizo = 0 Then
-        rs_aux2("usr_codigo") = glusuario
-        rs_aux2("Fecha_registro") = Format(Date, "dd/mm/yyyy")
-        rs_aux2("Hora_registro") = Format(Time, "hh:mm:ss")
-      End If
-      rs_aux2.Update
-      '==== fin registro co_comprobantre_m
-
-    Dim d_cta_nombre_1 As String
-    Dim d_aux1_1 As String
-    Dim d_aux2_1 As String
-    Dim d_aux3_1 As String
-    Dim h_cta_nombre_1 As String
-    Dim h_aux1_1 As String
-    Dim h_aux2_1 As String
-    Dim h_aux3_1 As String
-    'If rstdestino.State = 1 Then rstdestino.Close
-
-    For i = 1 To j
-'    ' nuevo ini
-'      If v_Tipo_Comp(1, i) = "DEI" Then     'Devengado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "REC" Then     'Recaudado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DYR" Then     'Devengado y Recaudado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DES" Then     'Desafectado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "ANI" Then     'Anulado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-'      If v_Tipo_Comp(1, i) = "DVI" Then     'Desafectado y Anulado
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'      End If
-
-'      If v_Tipo_Comp(1, i) = "DVI" Then
-'        ' VERIFICAR SI SE ESTA CONTROLANDA con el DYR
-'        If rstdestino.State = 1 Then rstdestino.Close
-'        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
-'        If rstdestino2.State = 1 Then rstdestino2.Close
-'        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
-'        If rstdestino.RecordCount > 0 And rstdestino2.RecordCount > 0 Then
-'          cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
-'          Subcta_deb11 = rstdestino!Subcta_cred1
-'          Subcta_deb21 = rstdestino!Subcta_cred2
+'        Case "REC"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
 '
-'          cta_credito1 = rstdestino2!cta_deb
-'          Subcta_cred11 = rstdestino2!Subcta_deb1
-'          Subcta_cred21 = rstdestino2!Subcta_deb2
-'        Else
-'          MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
+'            If rs_aux1.State = 1 Then rs_aux1.Close
+'            rs_aux1.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'            If (Not rs_aux1.BOF) And (Not rs_aux1.EOF) Then
+'              If rs_aux1("monto_bolivianos") < rs_aux1("monto_recaudado_bolivianos") + VAR_BS2 Then
+'                MsgBox "El monto que está intentando recaudar en Bs. es mayor al DEVENGADO, por favor Verifique el Monto Devengado: " & CStr(rs_aux1("monto_bolivianos")) & " Solo puede recaudar :" & CStr(rs_aux1("monto_bolivianos") - rs_aux1("monto_recaudado_bolivianos")), vbOKOnly + vbCritical, "ERROR en el Monto Recaudado"
+'                Exit Sub
+'              End If
+'            End If
+'            If rs_aux1.State = 1 Then rs_aux1.Close
+'
+'        Case "DYR"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'        Case "DES"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'        Case "ANI"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'        Case "DVI"
+'            rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            If rstdestino.RecordCount > 0 Then
+'                j = rstdestino.RecordCount
+'            Else
+'              MsgBox "Este comprobante no puede ser procesado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'              Exit Sub
+'            End If
+'
+'            '' 02/07/2014 VERIFICAR
+'            'If rstdestino.State = 1 Then rstdestino.Close
+'            'rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
+'            'If rstdestino2.State = 1 Then rstdestino2.Close
+'            'rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+'            'If rstdestino.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
+'            '  MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+'            '  Exit Sub
+'            'End If
+'        Case Else
+'            MsgBox "No se ha definido el tipo " & vbCrLf & " de registro que está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
+'            If rstdestino.State = 1 Then rstdestino.Close
+'            Exit Sub
+'    End Select
+'    'If rstdestino.State = 1 Then rstdestino.Close
+'    '**** FIN VERIFICAR VALIDACION REC, DES, ANI Y DVI !!! ***************
+'
+'    Dim cta_deb1 As String
+'    Dim Subcta_deb11 As String
+'    Dim Subcta_deb21 As String
+'
+'    Dim cta_credito1 As String
+'    Dim Subcta_cred11 As String
+'    Dim Subcta_cred21 As String
+'
+'    Dim cod_ant As Integer
+'    Dim org_ant As String
+'
+'    'If DtCCta_codigo.Text <> "01" Then
+'    '  If rstdestino.State = 1 Then rstdestino.Close
+'    '  rstFc_cuenta_bancaria.Find " cta_codigo = '" & DtCCta_codigo & "'", , adSearchForward, 1
+'    '  If Not rstFc_cuenta_bancaria.EOF Then
+'    '    fte_codigo1 = rstFc_cuenta_bancaria("fte_codigo")
+'    '  Else
+'    '  End If
+'    'Else
+'    '    fte_codigo1 = Me.DtCFte_codigo.Text
+'    'End If
+'    'If VAR_CODTIPO = "DEI" Or VAR_CODTIPO = "DES" Then
+'    '  fte_codigo1 = Me.DtCFte_codigo.Text
+'    'End If
+'
+''    fte_codigo1 = VAR_FTE
+''
+''    Dim i As Integer
+''    Dim j As Integer
+''    Dim v_Tipo_Comp(1, 2)
+''
+''    v_Tipo_Comp(1, 1) = VAR_CODTIPO
+'
+''    If VAR_CODTIPO = "DYR" Then
+''      'j = 2
+''      'v_Tipo_Comp(1, 1) = "CAD"
+''      'v_Tipo_Comp(1, 2) = "CAR"
+''      j = 2
+''      v_Tipo_Comp(1, 1) = "DYR"
+''    Else
+''      j = 1
+''      v_Tipo_Comp(1, 1) = IIf(VAR_CODTIPO = "DEI", "DEI", IIf(VAR_CODTIPO = "REC", "REC", IIf(VAR_CODTIPO = "DES", "DES", IIf(VAR_CODTIPO = "ANI", "ANI", ""))))
+''    End If
+''
+''    If VAR_CODTIPO = "DVI" Then
+''      j = 1
+''      v_Tipo_Comp(1, 1) = "DVI"
+''    End If
+'
+''    For i = 1 To j
+''      If rstdestino.State = 1 Then rstdestino.Close
+''      If v_Tipo_Comp(1, i) = "DEI" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "REC" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DYR" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DES" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "ANI" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DVI" Then
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DVI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "" Then
+''        MsgBox "Antes de aprobar defina que tipo " & vbCrLf & "de registro está procesando", vbOKOnly + vbCritical, "Error de aprobación... "
+''        Exit Sub
+''      End If
+'
+'    ' INI CORRECCION 18-JUN-2014
+''      If v_Tipo_Comp(1, i) = "DVI" Then
+''        ' 02/07/2014 VERIFICAR
+''        If rs_aux2.State = 1 Then rs_aux2.Close
+''        rs_aux2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
+''        If rstdestino2.State = 1 Then rstdestino2.Close
+''        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''        If rs_aux2.RecordCount < 1 Or rstdestino2.RecordCount < 1 Then
+''          MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
 ''          Exit Sub
-'        End If
-'      End If
+''        End If
+''      End If
+''
+''      If rs_aux2.RecordCount < 1 Then
+''        MsgBox "Este comprobante no puede ser aprobado, Porque el RUBRO no EXISTE en el RELACIONADOR, por favor contáctese con el administrador", vbOKOnly + vbCritical, "Error al aprobar..."
+''        Exit Sub
+''      End If
+''    Next
 '
-'      If rstdestino.RecordCount > 0 And v_Tipo_Comp(1, i) <> "DVI" Then
+'    'If rstdestino.State = 1 Then rstdestino.Close
+'
+'    fte_codigo1 = VAR_FTE
+'    v_Tipo_Comp(1, 1) = VAR_CODTIPO
+'
+'    db.BeginTrans
+''    Frmmensaje.Visible = True
+''    LblMensaje.Caption = "Este proceso tomará solo unos segundos, gracias"
+'    '========================================
+'    '==== verifica si ya fue contabilizado
+'      yacontabilizo = 0
+'      Set rs_aux2 = New ADODB.Recordset
+'      If rs_aux2.State = 1 Then rs_aux2.Close
+'      rs_aux2.Open "select * from co_comprobante_m where Cod_trans = '" & VAR_CODANT & "' and org_codigo = '" & VAR_ORG & "' and tipo_comp = '" & VAR_CODTIPO & "' AND estado_codigo = 'APR'", db, adOpenKeyset, adLockOptimistic
+'      If rs_aux2.RecordCount > 0 Then
+'        yacontabilizo = 1
+'      Else
+'        yacontabilizo = 0
+'      End If
+'      If yacontabilizo = 1 Then
+'        'MsgBox "aqui recontabilizar" & rstdestino!Cod_trans & " -- " & rstdestino!org_codigo & " / " & rstdestino!Cod_Comp
+'        Var_Comp = rs_aux2!Cod_Comp
+'      Else
+'        '===== ini GENERA EL CODIGO DE COMPROBANTE ====
+'        Set rstCodComp = New ADODB.Recordset
+'        rstCodComp.CursorLocation = adUseClient
+'        If rstCodComp.State = 1 Then rstCodComp.Close
+'        rstCodComp.Open "select * from fc_Correl  where tipo_tramite = 'CMBTE'", db, adOpenDynamic, adLockOptimistic
+'        If rstCodComp.RecordCount > 0 Then
+'          Var_Comp = CDbl(rstCodComp!numero_correlativo)
+'          Var_Comp = Var_Comp + 1
+'          rstCodComp!numero_correlativo = Trim(Str(Var_Comp))
+'          rstCodComp.Update
+'        End If
+'        If rstCodComp.State = 1 Then rstCodComp.Close
+'        '===== fin TERMINA GENERACION DE COMPROBANTE =====
+'
+'      '==== ini registro co_comprobante_m
+'
+'        rs_aux2.AddNew
+'        rs_aux2("cod_comp") = Var_Comp
+'      End If
+'    '========================================
+'    'anterior
+'    '      If rstdestino.State = 1 Then rstdestino.Close
+'    '      rstdestino.Open "select * from co_comprobante_m where Cod_Comp = 0", db, adOpenKeyset, adLockOptimistic
+'    '      If rstdestino.RecordCount > 0 Then
+'    '      End If
+'    '      rstdestino.AddNew
+'
+'    '      rstdestino("cod_comp") = Var_Comp
+'    'anterior
+'      rs_aux2("Tipo_Comp") = VAR_CODTIPO        'v_Tipo_Comp(1, i)
+'      rs_aux2("cod_trans") = VAR_CODANT
+'      rs_aux2("org_codigo") = VAR_ORG
+'      rs_aux2("ges_gestion") = glGestion    'Year(Date)
+'      'rstdestino("Num_Respaldo") = Ado_datos.Recordset("numero_documento")
+'      If yacontabilizo = 0 Then
+'        rs_aux2("Fecha_transacion") = Date
+'      End If
+'      rs_aux2("beneficiario_codigo") = VAR_BENEF
+'      rs_aux2("glosa") = VAR_GLOSA
+'      rs_aux2("unidad_codigo") = VAR_COD4       'Ado_datos.Recordset("unidad_codigo")
+'      rs_aux2("solicitud_codigo") = Ado_datos.Recordset("solicitud_codigo")
+'      rs_aux2("tipo_moneda") = VAR_MONEDA
+'      rs_aux2("unidad_codigo_ant") = VAR_CITE
+'
+'      rs_aux2("proceso_codigo") = "FIN"
+'      rs_aux2("subproceso_codigo") = "FIN-02"
+'      Select Case VAR_CODTIPO
+'        Case "DEI"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "REC"
+'            rs_aux2("etapa_codigo") = "FIN-02-02"
+'        Case "DYR"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "DES"
+'            rs_aux2("etapa_codigo") = "FIN-02-01"
+'        Case "ANI"
+'            rs_aux2("etapa_codigo") = "FIN-02-02"
+'        Case "DVI"
+'            rs_aux2("etapa_codigo") = "FIN-02-02"
+'      End Select
+'
+'      rs_aux2("clasif_codigo") = "ADM"
+'      rs_aux2("doc_codigo") = "R-128"
+'      rs_aux2("doc_numero") = Var_Comp
+'      rs_aux2("pro_codigo_det") = VAR_PROY2
+'
+'      rs_aux2("estado_codigo") = "APR"
+'
+'      If yacontabilizo = 0 Then
+'        rs_aux2("usr_codigo") = glusuario
+'        rs_aux2("Fecha_registro") = Format(Date, "dd/mm/yyyy")
+'        rs_aux2("Hora_registro") = Format(Time, "hh:mm:ss")
+'      End If
+'      rs_aux2.Update
+'      '==== fin registro co_comprobantre_m
+'
+'    Dim d_cta_nombre_1 As String
+'    Dim d_aux1_1 As String
+'    Dim d_aux2_1 As String
+'    Dim d_aux3_1 As String
+'    Dim h_cta_nombre_1 As String
+'    Dim h_aux1_1 As String
+'    Dim h_aux2_1 As String
+'    Dim h_aux3_1 As String
+'    'If rstdestino.State = 1 Then rstdestino.Close
+'
+'    For i = 1 To j
+''    ' nuevo ini
+''      If v_Tipo_Comp(1, i) = "DEI" Then     'Devengado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "REC" Then     'Recaudado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DYR" Then     'Devengado y Recaudado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DYR' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DES" Then     'Desafectado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DES' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & "", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "ANI" Then     'Anulado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+''      If v_Tipo_Comp(1, i) = "DVI" Then     'Desafectado y Anulado
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'ANI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''      End If
+'
+''      If v_Tipo_Comp(1, i) = "DVI" Then
+''        ' VERIFICAR SI SE ESTA CONTROLANDA con el DYR
+''        If rstdestino.State = 1 Then rstdestino.Close
+''        rstdestino.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'DEI' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA), db, adOpenKeyset, adLockReadOnly
+''        If rstdestino2.State = 1 Then rstdestino2.Close
+''        rstdestino2.Open "select * from fc_relacionador_ingresos where Codigo_Tipo = 'REC' and rubro_codigo_I <= " & (VAR_PARTIDA) & " and rubro_codigo_F >= " & (VAR_PARTIDA) & " and subcta_deb2 = '" & IIf(fte_codigo1 = "10" Or fte_codigo1 = "20", "01", IIf(fte_codigo1 = "30", "02", IIf(fte_codigo1 = "40" Or fte_codigo1 = "50", "03", ""))) & "' ", db, adOpenKeyset, adLockReadOnly
+''        If rstdestino.RecordCount > 0 And rstdestino2.RecordCount > 0 Then
+''          cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
+''          Subcta_deb11 = rstdestino!Subcta_cred1
+''          Subcta_deb21 = rstdestino!Subcta_cred2
+''
+''          cta_credito1 = rstdestino2!cta_deb
+''          Subcta_cred11 = rstdestino2!Subcta_deb1
+''          Subcta_cred21 = rstdestino2!Subcta_deb2
+''        Else
+''          MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
+'''          Exit Sub
+''        End If
+''      End If
+''
+''      If rstdestino.RecordCount > 0 And v_Tipo_Comp(1, i) <> "DVI" Then
+''        cta_deb1 = rstdestino("cta_deb")
+''        Subcta_deb11 = rstdestino("Subcta_deb1")
+''        Subcta_deb21 = rstdestino("Subcta_deb2")
+''        cta_credito1 = rstdestino("cta_cred")
+''        Subcta_cred11 = rstdestino("Subcta_cred1")
+''        Subcta_cred21 = rstdestino("Subcta_cred2")
+''      Else
+''        'MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
+''        'Exit Sub
+''
+''      End If
+'      '2115
+'      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
 '        cta_deb1 = rstdestino("cta_deb")
 '        Subcta_deb11 = rstdestino("Subcta_deb1")
 '        Subcta_deb21 = rstdestino("Subcta_deb2")
+'
 '        cta_credito1 = rstdestino("cta_cred")
 '        Subcta_cred11 = rstdestino("Subcta_cred1")
 '        Subcta_cred21 = rstdestino("Subcta_cred2")
 '      Else
-'        'MsgBox "Rubro no presupuestado", vbCritical + vbOKOnly, "ERROR... "
-'        'Exit Sub
+'        cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
+'        Subcta_deb11 = rstdestino!Subcta_cred1
+'        Subcta_deb21 = rstdestino!Subcta_cred2
 '
+'        cta_credito1 = rstdestino!cta_deb
+'        Subcta_cred11 = rstdestino!Subcta_deb1
+'        Subcta_cred21 = rstdestino!Subcta_deb2
 '      End If
-      '2115
-      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
-        cta_deb1 = rstdestino("cta_deb")
-        Subcta_deb11 = rstdestino("Subcta_deb1")
-        Subcta_deb21 = rstdestino("Subcta_deb2")
-
-        cta_credito1 = rstdestino("cta_cred")
-        Subcta_cred11 = rstdestino("Subcta_cred1")
-        Subcta_cred21 = rstdestino("Subcta_cred2")
-      Else
-        cta_deb1 = rstdestino!cta_cred         'rstdestino!cta_credito
-        Subcta_deb11 = rstdestino!Subcta_cred1
-        Subcta_deb21 = rstdestino!Subcta_cred2
-
-        cta_credito1 = rstdestino!cta_deb
-        Subcta_cred11 = rstdestino!Subcta_deb1
-        Subcta_cred21 = rstdestino!Subcta_deb2
-      End If
-
-      If rs_aux1.State = 1 Then rs_aux1.Close
-      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_deb1 & "' and SubCta1 = '" & Subcta_deb11 & "' and SubCta2 = '" & Subcta_deb21 & "' ", db, adOpenKeyset, adLockReadOnly
-      If rs_aux1.RecordCount > 0 Then
-        d_cta_nombre_1 = rs_aux1("NombreCta")
-        d_aux1_1 = rs_aux1("aux1")
-        d_aux2_1 = rs_aux1("aux2")
-        d_aux3_1 = rs_aux1("aux3")
-      End If
-      If rs_aux1.State = 1 Then rs_aux1.Close
-      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_credito1 & "' and SubCta1 = '" & Subcta_cred11 & "' and SubCta2 = '" & Subcta_cred21 & "' ", db, adOpenKeyset, adLockReadOnly
-      If rs_aux1.RecordCount > 0 Then
-        h_cta_nombre_1 = rs_aux1("NombreCta")
-        h_aux1_1 = rs_aux1("aux1")
-        h_aux2_1 = rs_aux1("aux2")
-        h_aux3_1 = rs_aux1("aux3")
-      End If
-    ' nuevo fin
-
-      '===== ini registra CO_diaRIO =========
-      Set rstdestino2 = New ADODB.Recordset
-      If rstdestino2.State = 1 Then rstdestino2.Close
-      rstdestino2.Open "select * from co_diario where Cod_Comp = " & Var_Comp, db, adOpenKeyset, adLockOptimistic
-      'If rstdestino2.RecordCount > 0 Then
-      '  MsgBox "Ya Existe el asiento, se reemplazará con los nuevos datos..."
-      'Else
-        rstdestino2.AddNew
-        rstdestino2("Cod_Comp") = Var_Comp
-      'End If
-        rstdestino2("Cod_Comp_Detalle") = rstdestino2.RecordCount
-      'rstdestino2("Tipo_Comp") = "DEI"   'v_Tipo_Comp(1, i)
-      'rstdestino2("Cod_Comp_C") = Var_Comp
-      'If v_Tipo_Comp(1, i) = "DEI" Or v_Tipo_Comp(1, i) = "REC" Then
-      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
-        rstdestino2("D_Cuenta") = cta_deb1
-        rstdestino2("D_Nombre") = Trim(d_cta_nombre_1) ' CAMPO PARA ELIMINAR
-        rstdestino2("D_Subcta1") = Subcta_deb11
-        rstdestino2("D_SubCta2") = Subcta_deb21
-        rstdestino2("D_Aux1") = d_aux1_1
-        rstdestino2("D_Aux2") = d_aux2_1
-        rstdestino2("D_Aux3") = d_aux3_1
-        ' para Aux1
-'        Select Case d_aux1_1
-'                Case "01"
-'                    VAR_COD1 = VAR_BENEF
-'                Case "02"
-'                    VAR_COD1 = VAR_CTA
-'                Case "03"
-'                    VAR_COD1 = VAR_PROY2
-'                Case "04"
-'                    VAR_COD1 = Ado_datos.Recordset("unidad_codigo")
-'                Case "05"
-'                    VAR_COD1 = ""
-'                Case "06"
-'                    VAR_COD1 = ""
-'                Case "07"
-'                    VAR_COD1 = ""
-'                Case "08"
-'                    VAR_COD1 = ""
-'                Case "09"
-'                    VAR_COD1 = VAR_ORG
-'                Case "10"
-'                    VAR_COD1 = ""
-'                Case "11"
-'                    VAR_COD1 = ""
-'                Case "12"
-'                    VAR_COD1 = ""
-'        End Select
-        ' ini PARA EL FUTURO ******** REVISAR
-'        Set rs_aux4 = New ADODB.Recordset
-'        If rs_aux4.State = 1 Then rs_aux4.Close
-'        SQL_FOR = "select * from cc_tipo_auxiliar where aux = '" & d_aux1_1 & "' "
-'        rs_aux4.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If rs_aux4.RecordCount > 0 Then
-'            Set rs_aux1 = New ADODB.Recordset
-'            If rs_aux1.State = 1 Then rs_aux1.Close
-'            SQL_FOR = "select * from " + rs_aux4!NombreTabla + " where " + rs_aux4!nombre_codigo + " = " + VAR_COD1
-'            rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'            If rs_aux1.RecordCount > 0 Then
-'        Else
-'        End If
-        ' fin PARA EL FUTURO ******** REVISAR
-        Select Case d_aux1_1
-            Case "01"
-                rstdestino2("D_Cta_Aux1") = VAR_BENEF
-                rstdestino2("D_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux1") = VAR_CTA
-                rstdestino2("D_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux1") = VAR_PROY2
-                rstdestino2("D_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux1") = VAR_DPTO
-                rstdestino2("D_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux1") = VAR_ORG
-                rstdestino2("D_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-        End Select
-
-        Select Case d_aux2_1
-            Case "01"
-                rstdestino2("D_Cta_Aux2") = VAR_BENEF
-                rstdestino2("D_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux2") = VAR_CTA
-                rstdestino2("D_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux2") = VAR_PROY2
-                rstdestino2("D_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux2") = VAR_DPTO
-                rstdestino2("D_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux2") = VAR_ORG
-                rstdestino2("D_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-        End Select
-
-        Select Case d_aux3_1
-            Case "01"
-                rstdestino2("D_Cta_Aux3") = VAR_BENEF
-                rstdestino2("D_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux3") = VAR_CTA
-                rstdestino2("D_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux3") = VAR_PROY2
-                rstdestino2("D_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux3") = VAR_DPTO
-                rstdestino2("D_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux3") = VAR_ORG
-                rstdestino2("D_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-        End Select
-'        If d_aux1_1 = "01" Then
-'          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'        End If
-'        If d_aux1_1 = "02" Then
-'          rstdestino2("D_Cta_Aux1") = VAR_CTA
-'        End If
-'        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
-        ' CORREGIR MONTOS JQA 2014-JUL-08
-        If j > 1 Then
-            If i = 1 Then
-                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-            Else
-                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-            End If
-        Else
-            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
-            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
-        End If
-        rstdestino2("D_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
-        'AQUI MONEDA 02/07/01
-        'rstdestino2("D_Cambio") = GlTipoCambioMercado
-        'AAAAAAAAAAAAAAQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUUIIIIIIIIIIIII JQA
-        rstdestino2("H_Cuenta") = cta_credito1
-        rstdestino2("H_Nombre") = Trim(h_cta_nombre_1) ' CAMPO PARA ELIMINAR
-        rstdestino2("H_SubCta1") = Subcta_cred11
-        rstdestino2("H_SubCta2") = Subcta_cred21
-        rstdestino2("H_Aux1") = h_aux1_1
-        rstdestino2("H_Aux2") = h_aux2_1
-        rstdestino2("H_Aux3") = h_aux3_1
-        'rstdestino2("H_Cta_Aux1") = ""
-        Select Case h_aux1_1
-            Case "01"
-                rstdestino2("H_Cta_Aux1") = VAR_BENEF
-                rstdestino2("H_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux1") = VAR_CTA
-                rstdestino2("H_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux1") = VAR_PROY2
-                rstdestino2("H_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux1") = VAR_DPTO
-                rstdestino2("H_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux1") = VAR_ORG
-                rstdestino2("H_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-        End Select
-
-        Select Case h_aux2_1
-            Case "01"
-                rstdestino2("H_Cta_Aux2") = VAR_BENEF
-                rstdestino2("H_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux2") = VAR_CTA
-                rstdestino2("H_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux2") = VAR_PROY2
-                rstdestino2("H_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux2") = VAR_DPTO
-                rstdestino2("H_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux2") = VAR_ORG
-                rstdestino2("H_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-        End Select
-
-        Select Case h_aux3_1
-            Case "01"
-                rstdestino2("H_Cta_Aux3") = VAR_BENEF
-                rstdestino2("H_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux3") = VAR_CTA
-                rstdestino2("H_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux3") = VAR_PROY2
-                rstdestino2("H_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux3") = VAR_DPTO
-                rstdestino2("H_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux3") = VAR_ORG
-                rstdestino2("H_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-        End Select
-
-'        If h_aux1_1 = "01" Then
-'          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'          'DtCCta_descripcion_larga
-'        End If
-'        If h_aux1_1 = "02" Then
-'          rstdestino2("H_Cta_Aux1") = VAR_CTA
-'        End If
-'        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
-        If j > 1 Then
-            If i = 1 Then
-                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-            Else
-                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-            End If
-        Else
-            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
-            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
-        End If
-        rstdestino2("H_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
-      End If
-
-      'If (v_Tipo_Comp(1, i) = "DES") Or (v_Tipo_Comp(1, i) = "ANI") Then
-      If (VAR_CODTIPO = "DES") Or (VAR_CODTIPO = "ANI") Or (VAR_CODTIPO = "DVI") Then
-        'desafecta un devengado
-        rstdestino2("D_Cuenta") = cta_credito1
-        rstdestino2("D_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
-        rstdestino2("D_Subcta1") = Subcta_cred11
-        rstdestino2("D_SubCta2") = Subcta_cred21
-        rstdestino2("D_Aux1") = h_aux1_1
-        rstdestino2("D_Aux2") = h_aux2_1
-        rstdestino2("D_Aux3") = h_aux3_1
-'        rstdestino2("D_Cta_Aux1") = "VESCT"
-        Select Case h_aux1_1
-            Case "01"
-                rstdestino2("D_Cta_Aux1") = VAR_BENEF
-                rstdestino2("D_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux1") = VAR_CTA
-                rstdestino2("D_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux1") = VAR_PROY2
-                rstdestino2("D_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux1") = VAR_DPTO
-                rstdestino2("D_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux1") = VAR_ORG
-                rstdestino2("D_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux1") = ""
-                rstdestino2("D_Des_Aux1") = ""
-        End Select
-
-        Select Case h_aux2_1
-            Case "01"
-                rstdestino2("D_Cta_Aux2") = VAR_BENEF
-                rstdestino2("D_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux2") = VAR_CTA
-                rstdestino2("D_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux2") = VAR_PROY2
-                rstdestino2("D_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux2") = VAR_DPTO
-                rstdestino2("D_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux2") = VAR_ORG
-                rstdestino2("D_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux2") = ""
-                rstdestino2("D_Des_Aux2") = ""
-        End Select
-
-        Select Case h_aux3_1
-            Case "01"
-                rstdestino2("D_Cta_Aux3") = VAR_BENEF
-                rstdestino2("D_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("D_Cta_Aux3") = VAR_CTA
-                rstdestino2("D_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("D_Cta_Aux3") = VAR_PROY2
-                rstdestino2("D_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("D_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("D_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("D_Cta_Aux3") = VAR_DPTO
-                rstdestino2("D_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("D_Cta_Aux3") = VAR_ORG
-                rstdestino2("D_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("D_Cta_Aux3") = ""
-                rstdestino2("D_Des_Aux3") = ""
-        End Select
-'        If h_aux1_1 = "01" Then
-'          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'        End If
-'        If h_aux1_1 = "02" Then
-'          rstdestino2("D_Cta_Aux1") = VAR_CTA
-'        End If
-'        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
-        If i = 1 Then
-            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-        Else
-            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-        End If
-        rstdestino2("D_Cambio") = GlTipoCambioMercado
-
-        rstdestino2("H_Cuenta") = cta_deb1
-        rstdestino2("H_Nombre") = d_cta_nombre_1  ' CAMPO PARA ELIMINAR
-        rstdestino2("H_SubCta1") = Subcta_deb11
-        rstdestino2("H_SubCta2") = Subcta_deb21
-        rstdestino2("H_Aux1") = d_aux1_1
-        rstdestino2("H_Aux2") = d_aux2_1
-        rstdestino2("H_Aux3") = d_aux3_1
-'        rstdestino2("H_Cta_Aux1") = "VESCT"
-        Select Case d_aux1_1
-            Case "01"
-                rstdestino2("H_Cta_Aux1") = VAR_BENEF
-                rstdestino2("H_Des_Aux1") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux1") = VAR_CTA
-                rstdestino2("H_Des_Aux1") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux1") = VAR_PROY2
-                rstdestino2("H_Des_Aux1") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux1") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux1") = VAR_DPTO
-                rstdestino2("H_Des_Aux1") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux1") = VAR_ORG
-                rstdestino2("H_Des_Aux1") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux1") = ""
-                rstdestino2("H_Des_Aux1") = ""
-        End Select
-
-        Select Case d_aux2_1
-            Case "01"
-                rstdestino2("H_Cta_Aux2") = VAR_BENEF
-                rstdestino2("H_Des_Aux2") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux2") = VAR_CTA
-                rstdestino2("H_Des_Aux2") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux2") = VAR_PROY2
-                rstdestino2("H_Des_Aux2") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux2") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux2") = VAR_DPTO
-                rstdestino2("H_Des_Aux2") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux2") = VAR_ORG
-                rstdestino2("H_Des_Aux2") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux2") = ""
-                rstdestino2("H_Des_Aux2") = ""
-        End Select
-
-        Select Case d_aux3_1
-            Case "01"
-                rstdestino2("H_Cta_Aux3") = VAR_BENEF
-                rstdestino2("H_Des_Aux3") = VAR_BEND
-            Case "02"
-                rstdestino2("H_Cta_Aux3") = VAR_CTA
-                rstdestino2("H_Des_Aux3") = VAR_CTAD
-            Case "03"
-                rstdestino2("H_Cta_Aux3") = VAR_PROY2
-                rstdestino2("H_Des_Aux3") = VAR_EDIFD
-            Case "04"
-                rstdestino2("H_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
-                rstdestino2("H_Des_Aux3") = VAR_UNID
-            Case "05"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "06"
-                rstdestino2("H_Cta_Aux3") = VAR_DPTO
-                rstdestino2("H_Des_Aux3") = VAR_DPTOD
-            Case "07"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "08"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "09"
-                rstdestino2("H_Cta_Aux3") = VAR_ORG
-                rstdestino2("H_Des_Aux3") = VAR_ORGD
-            Case "10"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "11"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "12"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-            Case "00"
-                rstdestino2("H_Cta_Aux3") = ""
-                rstdestino2("H_Des_Aux3") = ""
-        End Select
-'        If d_aux1_1 = "01" Then
-'          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'          'DtCCta_descripcion_larga
-'        End If
-'        If d_aux1_1 = "02" Then
-'          rstdestino2("H_Cta_Aux1") = VAR_CTA
-'        End If
-        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
-        If i = 1 Then
-            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
-            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
-        Else
-            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
-            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
-        End If
-        rstdestino2("H_Cambio") = GlTipoCambioMercado
-      End If
-
-'      '==== INI DVI ====
-'      If (VAR_CODTIPO = "DVI") Then
+'
+'      If rs_aux1.State = 1 Then rs_aux1.Close
+'      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_deb1 & "' and SubCta1 = '" & Subcta_deb11 & "' and SubCta2 = '" & Subcta_deb21 & "' ", db, adOpenKeyset, adLockReadOnly
+'      If rs_aux1.RecordCount > 0 Then
+'        d_cta_nombre_1 = rs_aux1("NombreCta")
+'        d_aux1_1 = rs_aux1("aux1")
+'        d_aux2_1 = rs_aux1("aux2")
+'        d_aux3_1 = rs_aux1("aux3")
+'      End If
+'      If rs_aux1.State = 1 Then rs_aux1.Close
+'      rs_aux1.Open "select * from cc_Plan_cuentas where Cuenta = '" & cta_credito1 & "' and SubCta1 = '" & Subcta_cred11 & "' and SubCta2 = '" & Subcta_cred21 & "' ", db, adOpenKeyset, adLockReadOnly
+'      If rs_aux1.RecordCount > 0 Then
+'        h_cta_nombre_1 = rs_aux1("NombreCta")
+'        h_aux1_1 = rs_aux1("aux1")
+'        h_aux2_1 = rs_aux1("aux2")
+'        h_aux3_1 = rs_aux1("aux3")
+'      End If
+'    ' nuevo fin
+'
+'      '===== ini registra CO_diaRIO =========
+'      Set rstdestino2 = New ADODB.Recordset
+'      If rstdestino2.State = 1 Then rstdestino2.Close
+'      rstdestino2.Open "select * from co_diario where Cod_Comp = " & Var_Comp, db, adOpenKeyset, adLockOptimistic
+'      'If rstdestino2.RecordCount > 0 Then
+'      '  MsgBox "Ya Existe el asiento, se reemplazará con los nuevos datos..."
+'      'Else
+'        rstdestino2.AddNew
+'        rstdestino2("Cod_Comp") = Var_Comp
+'      'End If
+'        rstdestino2("Cod_Comp_Detalle") = rstdestino2.RecordCount
+'      'rstdestino2("Tipo_Comp") = "DEI"   'v_Tipo_Comp(1, i)
+'      'rstdestino2("Cod_Comp_C") = Var_Comp
+'      'If v_Tipo_Comp(1, i) = "DEI" Or v_Tipo_Comp(1, i) = "REC" Then
+'      If (VAR_CODTIPO = "DEI") Or (VAR_CODTIPO = "REC") Or (VAR_CODTIPO = "DYR") Then
 '        rstdestino2("D_Cuenta") = cta_deb1
-''        rstdestino2("D_Nombre") = d_cta_nombre_1 ' CAMPO PARA ELIMINAR
+'        rstdestino2("D_Nombre") = Trim(d_cta_nombre_1) ' CAMPO PARA ELIMINAR
 '        rstdestino2("D_Subcta1") = Subcta_deb11
 '        rstdestino2("D_SubCta2") = Subcta_deb21
 '        rstdestino2("D_Aux1") = d_aux1_1
 '        rstdestino2("D_Aux2") = d_aux2_1
 '        rstdestino2("D_Aux3") = d_aux3_1
-'        If d_aux1_1 = "01" Then
-'          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'        End If
-'        If d_aux1_1 = "02" Then
-'          rstdestino2("D_Cta_Aux1") = VAR_CTA
-'        End If
+'        ' para Aux1
+''        Select Case d_aux1_1
+''                Case "01"
+''                    VAR_COD1 = VAR_BENEF
+''                Case "02"
+''                    VAR_COD1 = VAR_CTA
+''                Case "03"
+''                    VAR_COD1 = VAR_PROY2
+''                Case "04"
+''                    VAR_COD1 = Ado_datos.Recordset("unidad_codigo")
+''                Case "05"
+''                    VAR_COD1 = ""
+''                Case "06"
+''                    VAR_COD1 = ""
+''                Case "07"
+''                    VAR_COD1 = ""
+''                Case "08"
+''                    VAR_COD1 = ""
+''                Case "09"
+''                    VAR_COD1 = VAR_ORG
+''                Case "10"
+''                    VAR_COD1 = ""
+''                Case "11"
+''                    VAR_COD1 = ""
+''                Case "12"
+''                    VAR_COD1 = ""
+''        End Select
+'        ' ini PARA EL FUTURO ******** REVISAR
+''        Set rs_aux4 = New ADODB.Recordset
+''        If rs_aux4.State = 1 Then rs_aux4.Close
+''        SQL_FOR = "select * from cc_tipo_auxiliar where aux = '" & d_aux1_1 & "' "
+''        rs_aux4.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+''        If rs_aux4.RecordCount > 0 Then
+''            Set rs_aux1 = New ADODB.Recordset
+''            If rs_aux1.State = 1 Then rs_aux1.Close
+''            SQL_FOR = "select * from " + rs_aux4!NombreTabla + " where " + rs_aux4!nombre_codigo + " = " + VAR_COD1
+''            rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+''            If rs_aux1.RecordCount > 0 Then
+''        Else
+''        End If
+'        ' fin PARA EL FUTURO ******** REVISAR
+'        Select Case d_aux1_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("D_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux1") = VAR_CTA
+'                rstdestino2("D_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("D_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("D_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux1") = VAR_ORG
+'                rstdestino2("D_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case d_aux2_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("D_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux2") = VAR_CTA
+'                rstdestino2("D_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("D_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("D_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux2") = VAR_ORG
+'                rstdestino2("D_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case d_aux3_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("D_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux3") = VAR_CTA
+'                rstdestino2("D_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("D_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("D_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux3") = VAR_ORG
+'                rstdestino2("D_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'        End Select
+''        If d_aux1_1 = "01" Then
+''          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''        End If
+''        If d_aux1_1 = "02" Then
+''          rstdestino2("D_Cta_Aux1") = VAR_CTA
+''        End If
 ''        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
-'        rstdestino2("D_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
-'        rstdestino2("D_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
-'        rstdestino2("D_Cambio") = GlTipoCambioMercado
+'        ' CORREGIR MONTOS JQA 2014-JUL-08
+'        If j > 1 Then
+'            If i = 1 Then
+'                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'            Else
+'                rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'                rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'            End If
+'        Else
+'            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
+'            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
+'        End If
+'        rstdestino2("D_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
+'        'AQUI MONEDA 02/07/01
+'        'rstdestino2("D_Cambio") = GlTipoCambioMercado
+'        'AAAAAAAAAAAAAAQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUUIIIIIIIIIIIII JQA
 '        rstdestino2("H_Cuenta") = cta_credito1
-''        rstdestino2("H_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
+'        rstdestino2("H_Nombre") = Trim(h_cta_nombre_1) ' CAMPO PARA ELIMINAR
 '        rstdestino2("H_SubCta1") = Subcta_cred11
 '        rstdestino2("H_SubCta2") = Subcta_cred21
 '        rstdestino2("H_Aux1") = h_aux1_1
 '        rstdestino2("H_Aux2") = h_aux2_1
 '        rstdestino2("H_Aux3") = h_aux3_1
-'        'rstdestino2("H_Cta_Aux1") = "VESCT"
-'        If h_aux1_1 = "01" Then
-'          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
-'          'DtCCta_descripcion_larga
-'        End If
-'        If h_aux1_1 = "02" Then
-'          rstdestino2("H_Cta_Aux1") = VAR_CTA
-'        End If
+'        'rstdestino2("H_Cta_Aux1") = ""
+'        Select Case h_aux1_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("H_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux1") = VAR_CTA
+'                rstdestino2("H_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("H_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("H_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux1") = VAR_ORG
+'                rstdestino2("H_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case h_aux2_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("H_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux2") = VAR_CTA
+'                rstdestino2("H_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("H_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("H_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux2") = VAR_ORG
+'                rstdestino2("H_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case h_aux3_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("H_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux3") = VAR_CTA
+'                rstdestino2("H_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("H_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("H_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux3") = VAR_ORG
+'                rstdestino2("H_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'        End Select
+'
+''        If h_aux1_1 = "01" Then
+''          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''          'DtCCta_descripcion_larga
+''        End If
+''        If h_aux1_1 = "02" Then
+''          rstdestino2("H_Cta_Aux1") = VAR_CTA
+''        End If
 ''        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
-'        rstdestino2("H_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
-'        rstdestino2("H_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
+'        If j > 1 Then
+'            If i = 1 Then
+'                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'            Else
+'                rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'                rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'            End If
+'        Else
+'            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2))
+'            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2))
+'        End If
+'        rstdestino2("H_Cambio") = GlTipoCambioMercado    'GlTipoCambioMercado
+'      End If
+'
+'      'If (v_Tipo_Comp(1, i) = "DES") Or (v_Tipo_Comp(1, i) = "ANI") Then
+'      If (VAR_CODTIPO = "DES") Or (VAR_CODTIPO = "ANI") Or (VAR_CODTIPO = "DVI") Then
+'        'desafecta un devengado
+'        rstdestino2("D_Cuenta") = cta_credito1
+'        rstdestino2("D_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
+'        rstdestino2("D_Subcta1") = Subcta_cred11
+'        rstdestino2("D_SubCta2") = Subcta_cred21
+'        rstdestino2("D_Aux1") = h_aux1_1
+'        rstdestino2("D_Aux2") = h_aux2_1
+'        rstdestino2("D_Aux3") = h_aux3_1
+''        rstdestino2("D_Cta_Aux1") = "VESCT"
+'        Select Case h_aux1_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("D_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux1") = VAR_CTA
+'                rstdestino2("D_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("D_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("D_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux1") = VAR_ORG
+'                rstdestino2("D_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux1") = ""
+'                rstdestino2("D_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case h_aux2_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("D_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux2") = VAR_CTA
+'                rstdestino2("D_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("D_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("D_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux2") = VAR_ORG
+'                rstdestino2("D_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux2") = ""
+'                rstdestino2("D_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case h_aux3_1
+'            Case "01"
+'                rstdestino2("D_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("D_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("D_Cta_Aux3") = VAR_CTA
+'                rstdestino2("D_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("D_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("D_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("D_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("D_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("D_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("D_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("D_Cta_Aux3") = VAR_ORG
+'                rstdestino2("D_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("D_Cta_Aux3") = ""
+'                rstdestino2("D_Des_Aux3") = ""
+'        End Select
+''        If h_aux1_1 = "01" Then
+''          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''        End If
+''        If h_aux1_1 = "02" Then
+''          rstdestino2("D_Cta_Aux1") = VAR_CTA
+''        End If
+''        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
+'        If i = 1 Then
+'            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'        Else
+'            rstdestino2("D_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'            rstdestino2("D_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'        End If
+'        rstdestino2("D_Cambio") = GlTipoCambioMercado
+'
+'        rstdestino2("H_Cuenta") = cta_deb1
+'        rstdestino2("H_Nombre") = d_cta_nombre_1  ' CAMPO PARA ELIMINAR
+'        rstdestino2("H_SubCta1") = Subcta_deb11
+'        rstdestino2("H_SubCta2") = Subcta_deb21
+'        rstdestino2("H_Aux1") = d_aux1_1
+'        rstdestino2("H_Aux2") = d_aux2_1
+'        rstdestino2("H_Aux3") = d_aux3_1
+''        rstdestino2("H_Cta_Aux1") = "VESCT"
+'        Select Case d_aux1_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux1") = VAR_BENEF
+'                rstdestino2("H_Des_Aux1") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux1") = VAR_CTA
+'                rstdestino2("H_Des_Aux1") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux1") = VAR_PROY2
+'                rstdestino2("H_Des_Aux1") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux1") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux1") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux1") = VAR_DPTO
+'                rstdestino2("H_Des_Aux1") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux1") = VAR_ORG
+'                rstdestino2("H_Des_Aux1") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux1") = ""
+'                rstdestino2("H_Des_Aux1") = ""
+'        End Select
+'
+'        Select Case d_aux2_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux2") = VAR_BENEF
+'                rstdestino2("H_Des_Aux2") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux2") = VAR_CTA
+'                rstdestino2("H_Des_Aux2") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux2") = VAR_PROY2
+'                rstdestino2("H_Des_Aux2") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux2") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux2") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux2") = VAR_DPTO
+'                rstdestino2("H_Des_Aux2") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux2") = VAR_ORG
+'                rstdestino2("H_Des_Aux2") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux2") = ""
+'                rstdestino2("H_Des_Aux2") = ""
+'        End Select
+'
+'        Select Case d_aux3_1
+'            Case "01"
+'                rstdestino2("H_Cta_Aux3") = VAR_BENEF
+'                rstdestino2("H_Des_Aux3") = VAR_BEND
+'            Case "02"
+'                rstdestino2("H_Cta_Aux3") = VAR_CTA
+'                rstdestino2("H_Des_Aux3") = VAR_CTAD
+'            Case "03"
+'                rstdestino2("H_Cta_Aux3") = VAR_PROY2
+'                rstdestino2("H_Des_Aux3") = VAR_EDIFD
+'            Case "04"
+'                rstdestino2("H_Cta_Aux3") = VAR_COD4        'Ado_datos.Recordset("unidad_codigo")
+'                rstdestino2("H_Des_Aux3") = VAR_UNID
+'            Case "05"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "06"
+'                rstdestino2("H_Cta_Aux3") = VAR_DPTO
+'                rstdestino2("H_Des_Aux3") = VAR_DPTOD
+'            Case "07"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "08"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "09"
+'                rstdestino2("H_Cta_Aux3") = VAR_ORG
+'                rstdestino2("H_Des_Aux3") = VAR_ORGD
+'            Case "10"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "11"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "12"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'            Case "00"
+'                rstdestino2("H_Cta_Aux3") = ""
+'                rstdestino2("H_Des_Aux3") = ""
+'        End Select
+''        If d_aux1_1 = "01" Then
+''          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''          'DtCCta_descripcion_larga
+''        End If
+''        If d_aux1_1 = "02" Then
+''          rstdestino2("H_Cta_Aux1") = VAR_CTA
+''        End If
+'        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
+'        If i = 1 Then
+'            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.87
+'            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.87
+'        Else
+'            rstdestino2("H_MontoBs") = (IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)) * 0.13
+'            rstdestino2("H_MontoDl") = (IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)) * 0.13
+'        End If
 '        rstdestino2("H_Cambio") = GlTipoCambioMercado
 '      End If
-'      '==== FIN DVI ====
-
-      If yacontabilizo = 0 Then
-        rstdestino2("Usr_codigo") = glusuario
-        rstdestino2("Fecha_registro") = Date
-        rstdestino2("Hora_registro") = Format(Time, "hh:mm:ss")
-      End If
-
-      rstdestino2.Update
-      If rstdestino2.State = 1 Then rstdestino2.Close
-      '======= fin registra co_diario ==========
-      rstdestino.MoveNext
-    Next i
-    '======= inI Actualiza campos de estatus de ingresos ==========
-'    If rstdestino.State = 1 Then rstdestino.Close
-'    rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = '" & correlativo1 & "' and org_codigo = '" & VAR_ORG & "' and ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' ", db, adOpenDynamic, adLockOptimistic
-'    rstdestino.MoveFirst
-'    If Not (rstdestino.EOF) Then
-'      rstdestino("estado_aprobacion") = "S"
-'        If VAR_CODTIPO = "DEI" Then
-'          rstdestino("estado_devengado") = "S"
-'        End If
-'        If VAR_CODTIPO = "REC" Then
-'          rstdestino("estado_recaudado") = "S"
-'        End If
-'        If VAR_CODTIPO = "DYR" Then
-'          rstdestino("estado_devengado") = "S"
-'          rstdestino("estado_recaudado") = "S"
-'        End If
 '
-'        If VAR_CODTIPO = "DES" Then
-'          rstdestino("estado_desafectado") = "S"
-'        End If
-'        If VAR_CODTIPO = "ANI" Then
-'          rstdestino("estado_anulado") = "S"
-'        End If
-'        If VAR_CODTIPO = "DVI" Then
-'          rstdestino!estado_desafectado = "S"
-'          rstdestino!estado_anulado = "S"
-'        End If
-'       rstdestino.Update
-'       If rstdestino.State = 1 Then rstdestino.Close
-'    End If
-    '======= fin Actualiza campos de estatus de ingresos ==========
-    ' AAAAAAAAAQQQQQQQQQQQUUUUUUUUUUUIIIIIIIIIII
-    cod_ant = 0
-    org_ant = ""
-    '======= ini Actualiza el monto recaudado  ==========
-    If (VAR_CODTIPO = "REC") Then
-      '      If rstdestino.State = 1 Then rstdestino.Close
-      '      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      '      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-      '        cod_ant = rstdestino("ingreso_codigo_anterior")
-      '        org_ant = rstdestino("org_codigo")
-      '      End If
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") + VAR_DOL2
-          rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") + VAR_BS2
-          rstdestino.Update
-      End If
-      If rstdestino.State = 1 Then rstdestino.Close
-    End If
-
-    If (VAR_CODTIPO = "DES") Then
+''      '==== INI DVI ====
+''      If (VAR_CODTIPO = "DVI") Then
+''        rstdestino2("D_Cuenta") = cta_deb1
+'''        rstdestino2("D_Nombre") = d_cta_nombre_1 ' CAMPO PARA ELIMINAR
+''        rstdestino2("D_Subcta1") = Subcta_deb11
+''        rstdestino2("D_SubCta2") = Subcta_deb21
+''        rstdestino2("D_Aux1") = d_aux1_1
+''        rstdestino2("D_Aux2") = d_aux2_1
+''        rstdestino2("D_Aux3") = d_aux3_1
+''        If d_aux1_1 = "01" Then
+''          rstdestino2("D_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''        End If
+''        If d_aux1_1 = "02" Then
+''          rstdestino2("D_Cta_Aux1") = VAR_CTA
+''        End If
+'''        rstdestino2("D_Des_Larga") = "-" ' CAMPO PARA ELIMINAR
+''        rstdestino2("D_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
+''        rstdestino2("D_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
+''        rstdestino2("D_Cambio") = GlTipoCambioMercado
+''        rstdestino2("H_Cuenta") = cta_credito1
+'''        rstdestino2("H_Nombre") = h_cta_nombre_1 ' CAMPO PARA ELIMINAR
+''        rstdestino2("H_SubCta1") = Subcta_cred11
+''        rstdestino2("H_SubCta2") = Subcta_cred21
+''        rstdestino2("H_Aux1") = h_aux1_1
+''        rstdestino2("H_Aux2") = h_aux2_1
+''        rstdestino2("H_Aux3") = h_aux3_1
+''        'rstdestino2("H_Cta_Aux1") = "VESCT"
+''        If h_aux1_1 = "01" Then
+''          rstdestino2("H_Cta_Aux1") = IIf(Len(Trim(VAR_BENEF)) > 0, VAR_BENEF, "-")
+''          'DtCCta_descripcion_larga
+''        End If
+''        If h_aux1_1 = "02" Then
+''          rstdestino2("H_Cta_Aux1") = VAR_CTA
+''        End If
+'''        rstdestino2("H_Des_Larga") = "-"   ' CAMPO PARA ELIMINAR
+''        rstdestino2("H_MontoBs") = IIf(VAR_BS2 < 0, (VAR_BS2 * -1), VAR_BS2)
+''        rstdestino2("H_MontoDl") = IIf(VAR_DOL2 < 0, (VAR_DOL2 * -1), VAR_DOL2)
+''        rstdestino2("H_Cambio") = GlTipoCambioMercado
+''      End If
+''      '==== FIN DVI ====
+'
+'      If yacontabilizo = 0 Then
+'        rstdestino2("Usr_codigo") = glusuario
+'        rstdestino2("Fecha_registro") = Date
+'        rstdestino2("Hora_registro") = Format(Time, "hh:mm:ss")
+'      End If
+'
+'      rstdestino2.Update
+'      If rstdestino2.State = 1 Then rstdestino2.Close
+'      '======= fin registra co_diario ==========
+'      rstdestino.MoveNext
+'    Next i
+'    '======= inI Actualiza campos de estatus de ingresos ==========
+''    If rstdestino.State = 1 Then rstdestino.Close
+''    rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = '" & correlativo1 & "' and org_codigo = '" & VAR_ORG & "' and ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' ", db, adOpenDynamic, adLockOptimistic
+''    rstdestino.MoveFirst
+''    If Not (rstdestino.EOF) Then
+''      rstdestino("estado_aprobacion") = "S"
+''        If VAR_CODTIPO = "DEI" Then
+''          rstdestino("estado_devengado") = "S"
+''        End If
+''        If VAR_CODTIPO = "REC" Then
+''          rstdestino("estado_recaudado") = "S"
+''        End If
+''        If VAR_CODTIPO = "DYR" Then
+''          rstdestino("estado_devengado") = "S"
+''          rstdestino("estado_recaudado") = "S"
+''        End If
+''
+''        If VAR_CODTIPO = "DES" Then
+''          rstdestino("estado_desafectado") = "S"
+''        End If
+''        If VAR_CODTIPO = "ANI" Then
+''          rstdestino("estado_anulado") = "S"
+''        End If
+''        If VAR_CODTIPO = "DVI" Then
+''          rstdestino!estado_desafectado = "S"
+''          rstdestino!estado_anulado = "S"
+''        End If
+''       rstdestino.Update
+''       If rstdestino.State = 1 Then rstdestino.Close
+''    End If
+'    '======= fin Actualiza campos de estatus de ingresos ==========
+'    ' AAAAAAAAAQQQQQQQQQQQUUUUUUUUUUUIIIIIIIIIII
+'    cod_ant = 0
+'    org_ant = ""
+'    '======= ini Actualiza el monto recaudado  ==========
+'    If (VAR_CODTIPO = "REC") Then
+'      '      If rstdestino.State = 1 Then rstdestino.Close
+'      '      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      '      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'      '        cod_ant = rstdestino("ingreso_codigo_anterior")
+'      '        org_ant = rstdestino("org_codigo")
+'      '      End If
 '      If rstdestino.State = 1 Then rstdestino.Close
 '      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-'      Print VAR_CODANT
 '      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-'        cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
-'        org_ant = rstdestino("org_codigo")
+'          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") + VAR_DOL2
+'          rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") + VAR_BS2
+'          rstdestino.Update
 '      End If
-
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-        If rstdestino("codigo_tipo") = "DEI" Then 'And VAR_CODTIPO = "DES"
-'          rstdestino!estado_desafectado = "S" 02/07/01
-          rstdestino!estado_codigo = "DES"
-          rstdestino.Update
-          If rstdestino.State = 1 Then rstdestino.Close
-        Else
-          rstdestino("estado_codigo") = "DES"
-'          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
-          cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
-          org_ant = rstdestino("org_codigo")
-          rstdestino.Update
-          If rstdestino.State = 1 Then rstdestino.Close
-          'rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & cod_ant & " and org_codigo = '" & org_ant & "' ", db, adOpenKeyset, adLockOptimistic
-          rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-          If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-            rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
-            rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") - VAR_BS2
-          End If
-          rstdestino.Update
-          If rstdestino.State = 1 Then rstdestino.Close
-        End If
-      End If
-    End If
-
-    If (VAR_CODTIPO = "ANI") Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-        If rstdestino("codigo_tipo") = "REC" Then
-'          rstdestino("estado_desafectado") = ""
-          rstdestino("estado_codigo") = "ANI"
-'          rstdestino("estado_devengado") = "S" 02/07/01
-'          rstdestino("estado_anulado") = ""
-'          rstdestino("codigo_tipo") = "DEI" 02/07/01
-          rstdestino("monto_recaudado_dolares") = 0
-        End If
-      End If
-      rstdestino.Update
-'      Print rstdestino!ingreso_codigo_anterior
-'      Print rstdestino!monto_recaudado
-      cod_ant = 0
-      org_ant = ""
-
-      'Call f_actual_rec(rstdestino!org_codigo, rstdestino!ingreso_codigo_anterior)
-      If rstdestino.State = 1 Then rstdestino.Close
-    End If
-    If (VAR_CODTIPO = "DVI") Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
-      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
-        rstdestino!estado_codigo = "DVI"
-      End If
-      rstdestino.Update
-      If rstdestino.State = 1 Then rstdestino.Close
-    End If
-    '======= fin Actualiza el monto recaudado  ==========
-
-    '======= ini Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
-    If VAR_CODTIPO = "REC" Or VAR_CODTIPO = "DYR" Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
-      If Not rstdestino.EOF Then
-        VAR_CTAD = rstdestino!cta_descripcion
-        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
-        rstdestino.Update
-      End If
-    End If
-    If VAR_CODTIPO = "ANI" Then
-      If rstdestino.State = 1 Then rstdestino.Close
-      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
-      If Not rstdestino.EOF Then
-        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
-        rstdestino.Update
-      End If
-    End If
-    '======= fin Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
-    'LblMensaje.Caption = "El proceso concluyó exitosamente, gracias"
-    'Frmmensaje.Visible = False
-    db.CommitTrans
-  'End If
-  'marca1 = Ado_datos.Recordset.Bookmark
-  'rs_datos.Update
-  'rs_datos.Requery
-  Call OptFilGral1_Click
-  'Set Ado_datos.Recordset = rs_datos
-  'If rs_datos.RecordCount > 0 Then
-    Ado_datos.Recordset.Move marca1 - 1
-  'End If
-  'db.Execute "EXEC ts_mf_ActualizaCtaBancaria"
+'      If rstdestino.State = 1 Then rstdestino.Close
+'    End If
+'
+'    If (VAR_CODTIPO = "DES") Then
+''      If rstdestino.State = 1 Then rstdestino.Close
+''      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+''      Print VAR_CODANT
+''      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+''        cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
+''        org_ant = rstdestino("org_codigo")
+''      End If
+'
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'        If rstdestino("codigo_tipo") = "DEI" Then 'And VAR_CODTIPO = "DES"
+''          rstdestino!estado_desafectado = "S" 02/07/01
+'          rstdestino!estado_codigo = "DES"
+'          rstdestino.Update
+'          If rstdestino.State = 1 Then rstdestino.Close
+'        Else
+'          rstdestino("estado_codigo") = "DES"
+''          rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
+'          cod_ant = IIf(IsNull(rstdestino("ingreso_codigo_anterior")), 0, rstdestino("ingreso_codigo_anterior"))
+'          org_ant = rstdestino("org_codigo")
+'          rstdestino.Update
+'          If rstdestino.State = 1 Then rstdestino.Close
+'          'rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & cod_ant & " and org_codigo = '" & org_ant & "' ", db, adOpenKeyset, adLockOptimistic
+'          rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'          If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'            rstdestino("monto_recaudado_dolares") = rstdestino("monto_recaudado_dolares") - VAR_DOL2
+'            rstdestino("monto_recaudado_bolivianos") = rstdestino("monto_recaudado_bolivianos") - VAR_BS2
+'          End If
+'          rstdestino.Update
+'          If rstdestino.State = 1 Then rstdestino.Close
+'        End If
+'      End If
+'    End If
+'
+'    If (VAR_CODTIPO = "ANI") Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'        If rstdestino("codigo_tipo") = "REC" Then
+''          rstdestino("estado_desafectado") = ""
+'          rstdestino("estado_codigo") = "ANI"
+''          rstdestino("estado_devengado") = "S" 02/07/01
+''          rstdestino("estado_anulado") = ""
+''          rstdestino("codigo_tipo") = "DEI" 02/07/01
+'          rstdestino("monto_recaudado_dolares") = 0
+'        End If
+'      End If
+'      rstdestino.Update
+''      Print rstdestino!ingreso_codigo_anterior
+''      Print rstdestino!monto_recaudado
+'      cod_ant = 0
+'      org_ant = ""
+'
+'      'Call f_actual_rec(rstdestino!org_codigo, rstdestino!ingreso_codigo_anterior)
+'      If rstdestino.State = 1 Then rstdestino.Close
+'    End If
+'    If (VAR_CODTIPO = "DVI") Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fo_ingresos_cabecera where ingreso_codigo = " & VAR_CODANT & " and org_codigo = '" & VAR_ORG & "' ", db, adOpenKeyset, adLockOptimistic
+'      If (Not rstdestino.BOF) And (Not rstdestino.EOF) Then
+'        rstdestino!estado_codigo = "DVI"
+'      End If
+'      rstdestino.Update
+'      If rstdestino.State = 1 Then rstdestino.Close
+'    End If
+'    '======= fin Actualiza el monto recaudado  ==========
+'
+'    '======= ini Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
+'    If VAR_CODTIPO = "REC" Or VAR_CODTIPO = "DYR" Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
+'      If Not rstdestino.EOF Then
+'        VAR_CTAD = rstdestino!cta_descripcion
+'        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
+'        rstdestino.Update
+'      End If
+'    End If
+'    If VAR_CODTIPO = "ANI" Then
+'      If rstdestino.State = 1 Then rstdestino.Close
+'      rstdestino.Open "select * from fc_cuenta_bancaria where cta_codigo = '" & VAR_CTA & "'", db, adOpenKeyset, adLockOptimistic
+'      If Not rstdestino.EOF Then
+'        rstdestino("cta_ingresos") = rstdestino("cta_ingresos") + VAR_BS2
+'        rstdestino.Update
+'      End If
+'    End If
+'    '======= fin Actualiza el monto bolivianos de fc_cuenta_bancaria ==========
+'    'LblMensaje.Caption = "El proceso concluyó exitosamente, gracias"
+'    'Frmmensaje.Visible = False
+'    db.CommitTrans
+'  'End If
+'  'marca1 = Ado_datos.Recordset.Bookmark
+'  'rs_datos.Update
+'  'rs_datos.Requery
+'  Call OptFilGral1_Click
+'  'Set Ado_datos.Recordset = rs_datos
+'  'If rs_datos.RecordCount > 0 Then
+'    Ado_datos.Recordset.Move marca1 - 1
+'  'End If
+'  'db.Execute "EXEC ts_mf_ActualizaCtaBancaria"
 
 End Sub
 
@@ -7073,201 +6916,201 @@ End Sub
 'End Sub
 
 Private Sub graba_proyecto()
-    Select Case Ado_datos.Recordset!unidad_codigo
-        Case "DNAJS", "DNEME", "DNINS", "DNMAN", "DNMOD", "DNREP"
-            VAR_PROY = 12
-        Case "UCOM"
-            VAR_PROY = 17
-        Case "DVTA"
-            VAR_PROY = 18
-
-    End Select
-
-    Set rs_aux1 = New ADODB.Recordset
-    If rs_aux1.State = 1 Then rs_aux1.Close
-    SQL_FOR = "select * from fo_proyectos_ejecucion where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!edif_codigo & "' "
-    rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-    If rs_aux1.RecordCount > 0 Then
-        db.Execute "update fo_proyectos_ejecucion set pro_codigo_det_descripcion = '" & dtc_desc3.Text & "' Where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!edif_codigo & "' "
-    Else
-        db.Execute "INSERT INTO fo_proyectos_ejecucion (pro_codigo, pro_codigo_det, pro_codigo_det_descripcion, unidad_codigo, ges_gestion, estado_codigo, usr_codigo, fecha_registro) " & _
-           "VALUES (" & VAR_PROY & ", '" & Ado_datos.Recordset!edif_codigo & "', '" & dtc_desc3.Text & "', '" & Ado_datos.Recordset!unidad_codigo & "', " & glGestion & ", 'APR', '" & glusuario & "', '" & Date & "')"
-    End If
-    '
+'    Select Case Ado_datos.Recordset!unidad_codigo
+'        Case "DNAJS", "DNEME", "DNINS", "DNMAN", "DNMOD", "DNREP"
+'            VAR_PROY = 12
+'        Case "UCOM"
+'            VAR_PROY = 17
+'        Case "DVTA"
+'            VAR_PROY = 18
+'
+'    End Select
+'
+'    Set rs_aux1 = New ADODB.Recordset
+'    If rs_aux1.State = 1 Then rs_aux1.Close
+'    SQL_FOR = "select * from fo_proyectos_ejecucion where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!edif_codigo & "' "
+'    rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+'    If rs_aux1.RecordCount > 0 Then
+'        db.Execute "update fo_proyectos_ejecucion set pro_codigo_det_descripcion = '" & dtc_desc3.Text & "' Where pro_codigo = " & VAR_PROY & " AND pro_codigo_det = '" & Ado_datos.Recordset!edif_codigo & "' "
+'    Else
+'        db.Execute "INSERT INTO fo_proyectos_ejecucion (pro_codigo, pro_codigo_det, pro_codigo_det_descripcion, unidad_codigo, ges_gestion, estado_codigo, usr_codigo, fecha_registro) " & _
+'           "VALUES (" & VAR_PROY & ", '" & Ado_datos.Recordset!edif_codigo & "', '" & dtc_desc3.Text & "', '" & Ado_datos.Recordset!unidad_codigo & "', " & glGestion & ", 'APR', '" & glusuario & "', '" & Date & "')"
+'    End If
+'    '
 End Sub
 
 Private Sub graba_ingreso()
-    '======= Ini grabado de datos
-   'swgraba = 0
-   'Call valida
-   VAR_COD4 = Ado_datos.Recordset!unidad_codigo
-   VAR_CODTIPO = "DEI"
-   Select Case VAR_COD4
-        Case "DVTA"              'INI COMERCIAL
-            VAR_ORG = "111"
-            VAR_PARTIDA = "11310"
-        Case "COMEX"            'INI COMEX
-            VAR_ORG = "111"
-            VAR_PARTIDA = "11310"
-        Case "DNINS"            'INI INSTALACIONES
-            VAR_ORG = "111"
-            VAR_PARTIDA = "11350"
-        Case "DNAJS"            'INI AJUSTE
-            VAR_ORG = "113"
-            VAR_PARTIDA = "11350"
-        Case "DNMAN"            'INI MANTENIMIENTO
-            VAR_ORG = "112"
-            VAR_PARTIDA = "11320"
-        Case "DNREP"            'INI REPARACIONES
-            VAR_ORG = "113"
-            VAR_PARTIDA = "11330"
-        Case "DNMOD"            'INI MODERNIZACION
-            VAR_ORG = "114"
-            VAR_PARTIDA = "11340"
-        Case "DNEME"            'INI EMERGENCIAS
-            VAR_ORG = "113"
-            VAR_PARTIDA = "11330"
-        Case Else               'INI CREDITO
-            VAR_ORG = "311"
-            VAR_PARTIDA = "11350"
-   End Select
-'   If swgraba = 1 Then
-'      FraOpciones2.Visible = False
-'      fraOpciones.Visible = True
-'      FraIngresosNav.Enabled = True
-'      FraIngresosDat.Enabled = False
-
-      'If v_añadir = 1 Then
-        'EFECTIVO o a CREDITO
-         'db.BeginTrans
-         Call add_correl
-         Set rstdestino = New ADODB.Recordset
-         rstdestino.Open "select * from fo_ingresos_cabecera order by org_codigo, ingreso_codigo   ", db, adOpenDynamic, adLockOptimistic
-         rstdestino.AddNew
-         rstdestino("Ges_Gestion") = glGestion      'Year(Date)     'Ado_datos.Recordset("ges_gestion")
-         rstdestino("ingreso_codigo") = correlativo1
-         VAR_CODANT = correlativo1
-         'CAMBIAR org_codigo
-         rstdestino("org_codigo") = VAR_ORG
-         'CAMBIAR org_codigo
-         'CAMBIAR COD ingreso_codigo_anterior
-         rstdestino("ingreso_codigo_anterior") = correlativo1
-         'CAMBIAR COD ingreso_codigo_anterior
-         'CAMBIAR DEI O REC
-         'VAR_CODTIPO = "DEI"
-         rstdestino("Codigo_tipo") = VAR_CODTIPO    '"DEI"
-         'VAR_CODTIPO = "DEI"
-         'CAMBIAR DEI O REC
-         rstdestino("proceso_codigo") = "FIN"
-         rstdestino("subproceso_codigo") = "FIN-01"
-         rstdestino("etapa_codigo") = "FIN-01-01"
-         rstdestino("clasif_codigo") = "ADM"
-         rstdestino("doc_codigo") = "R-110"
-         rstdestino("doc_numero") = correlativo1
-         rstdestino("unidad_codigo") = VAR_COD4     'Ado_datos.Recordset("unidad_codigo")
-         rstdestino("solicitud_codigo") = VAR_SOL   'Ado_datos.Recordset("solicitud_codigo")
-         rstdestino("solicitud_tipo") = VAR_TIPO    '"10"
-
-         rstdestino("beneficiario_codigo") = VAR_BENEF      'Ado_datos.Recordset("beneficiario_codigo")
-         'VAR_BENEF = Ado_datos.Recordset("beneficiario_codigo")
-         rstdestino("fecha_ingreso") = Date
-         rstdestino("tipo_cambio") = GlTipoCambioOficial 'GlTipoCambioMercado
-         rstdestino("tipo_moneda") = "BOB"
-         VAR_MONEDA = "BOB"
-         rstdestino("ingreso_concepto") = "INGRESO POR: " + VAR_GLOSA2  'Ado_datos.Recordset("venta_descripcion")
-         VAR_GLOSA = "INGRESO POR: " + VAR_GLOSA2       'Ado_datos.Recordset("venta_descripcion")
-         If Ado_datos.Recordset("venta_tipo") = "E" Then
-            rstdestino("tipo_comp") = "DYR"
-         Else
-            rstdestino("tipo_comp") = "DEI"
-         End If
-         'CAMBIAR FTE
-         Select Case VAR_ORG
-             Case "111"              'INI SERVICIOS DE PROVISION E INSTALACION
-                 VAR_FTE = "10"
-             Case "112"            'INI SERVICIO DE MANTENIMIENTO - MANTENIMIENTO PREVENTIVO
-                 VAR_FTE = "10"
-             Case "113"            'INI SERVICIO DE REPARACIONES - MANTENIMIENTO CORRECTIVO
-                 VAR_FTE = "10"
-             Case "114"            'INI SERVICIO DE MODERNIZACION
-                 VAR_FTE = "10"
-             Case "211"            'INI APORTES DE CAPITAL
-                 VAR_FTE = "20"
-             Case "311"            'INI BANCO MERCANTIL SANTA CRUZ
-                 VAR_FTE = "30"
-             Case "312"            'INI BANCO DE CREDITO
-                 VAR_FTE = "30"
-             Case "411"            'INI AMT - REPOSICION DE PIEZAS Y PARTES
-                 VAR_FTE = "40"
-             Case Else               'INI OTROS
-                 VAR_FTE = "10"
-        End Select
-         rstdestino("fte_codigo") = VAR_FTE
-         'CAMBIAR FTE
-         'CAMBIAR RUBROS    'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww ya pues
-         'rstdestino("rubro_codigo") = "11200"
-         'VAR_PARTIDA = "11200"
-         'VAR_PARTIDA = "11320"
-         rstdestino("rubro_codigo") = VAR_PARTIDA
-         'CAMBIAR RUBROS
-         rstdestino("cheque_o_trf") = ""
-         rstdestino("Bco_codigo") = "NN"
-         'CAMBIAR CTA
-         rstdestino("cta_codigo") = "NN"
-         VAR_CTA = "NN"
-         'CAMBIAR CTA
-         rstdestino("numero_documento") = "0"
-         rstdestino("unidad_codigo_ant") = VAR_CITE     'Ado_datos.Recordset("unidad_codigo_ant")
-         'VAR_CITE = Ado_datos.Recordset("unidad_codigo_ant")
-         rstdestino("monto_dolares") = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
-         VAR_DOL2 = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
-         rstdestino("monto_bolivianos") = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
-         VAR_BS2 = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
-         rstdestino("monto_recaudado_dolares") = 0
-         rstdestino("monto_recaudado_bolivianos") = 0
-         rstdestino("convenio_codigo") = "NN"
-         rstdestino("pro_codigo_det") = Ado_datos.Recordset("edif_codigo")
-         VAR_PROY2 = Ado_datos.Recordset("edif_codigo")
-         rstdestino("estado_CODIGO") = "APR"
-         'rstdestino("estado_codigo_dr") = "DEI"
-
-         rstdestino("usr_CODIGO") = glusuario
-         rstdestino("fecha_registro") = Date
-         rstdestino("hora_registro") = Format(Time, "hh:mm:ss")
-
-         rstdestino.Update
-         If rstdestino.State = 1 Then rstdestino.Close
-        'db.CommitTrans
-
-'          If rstIngresos.State = 1 Then rstIngresos.Close
-'          rstIngresos.Open QueryInicial, db, adOpenKeyset, adLockOptimistic
-'          rstIngresos.Sort = "ingreso_codigo"
-'          rstIngresos.Requery
-
-'          rstIngresos.Requery
-'          Set AdoIngresos.Recordset = rstIngresos
-'          AdoIngresos.Refresh
-'          AdoIngresos.Recordset.Find "ultimo = 'S'"
-'          If Not (AdoIngresos.Recordset.EOF) Then
-'            marca1 = AdoIngresos.Recordset.Bookmark
-'            AdoIngresos.Recordset("ultimo") = "N"
-'            AdoIngresos.Recordset.Update
-'          End If
-
-'          AdoIngresos.Recordset.Move marca1 - 1
-
-'          marca1 = 0
-      'End If
-'   Else
-'      MsgBox "ERROR Los datos no están completos, no se realizará la grabación..."
+'    '======= Ini grabado de datos
+'   'swgraba = 0
+'   'Call valida
+'   VAR_COD4 = Ado_datos.Recordset!unidad_codigo
+'   VAR_CODTIPO = "DEI"
+'   Select Case VAR_COD4
+'        Case "DVTA"              'INI COMERCIAL
+'            VAR_ORG = "111"
+'            VAR_PARTIDA = "11310"
+'        Case "COMEX"            'INI COMEX
+'            VAR_ORG = "111"
+'            VAR_PARTIDA = "11310"
+'        Case "DNINS"            'INI INSTALACIONES
+'            VAR_ORG = "111"
+'            VAR_PARTIDA = "11350"
+'        Case "DNAJS"            'INI AJUSTE
+'            VAR_ORG = "113"
+'            VAR_PARTIDA = "11350"
+'        Case "DNMAN"            'INI MANTENIMIENTO
+'            VAR_ORG = "112"
+'            VAR_PARTIDA = "11320"
+'        Case "DNREP"            'INI REPARACIONES
+'            VAR_ORG = "113"
+'            VAR_PARTIDA = "11330"
+'        Case "DNMOD"            'INI MODERNIZACION
+'            VAR_ORG = "114"
+'            VAR_PARTIDA = "11340"
+'        Case "DNEME"            'INI EMERGENCIAS
+'            VAR_ORG = "113"
+'            VAR_PARTIDA = "11330"
+'        Case Else               'INI CREDITO
+'            VAR_ORG = "311"
+'            VAR_PARTIDA = "11350"
+'   End Select
+''   If swgraba = 1 Then
 ''      FraOpciones2.Visible = False
-''      FraOpciones.Visible = True
+''      fraOpciones.Visible = True
 ''      FraIngresosNav.Enabled = True
 ''      FraIngresosDat.Enabled = False
-''      AdoIngresos.Refresh
-'   End If
-'   LblAccion = ""
-'AAQQQQQUIIIIIIIIII    JQA
+'
+'      'If v_añadir = 1 Then
+'        'EFECTIVO o a CREDITO
+'         'db.BeginTrans
+'         Call add_correl
+'         Set rstdestino = New ADODB.Recordset
+'         rstdestino.Open "select * from fo_ingresos_cabecera order by org_codigo, ingreso_codigo   ", db, adOpenDynamic, adLockOptimistic
+'         rstdestino.AddNew
+'         rstdestino("Ges_Gestion") = glGestion      'Year(Date)     'Ado_datos.Recordset("ges_gestion")
+'         rstdestino("ingreso_codigo") = correlativo1
+'         VAR_CODANT = correlativo1
+'         'CAMBIAR org_codigo
+'         rstdestino("org_codigo") = VAR_ORG
+'         'CAMBIAR org_codigo
+'         'CAMBIAR COD ingreso_codigo_anterior
+'         rstdestino("ingreso_codigo_anterior") = correlativo1
+'         'CAMBIAR COD ingreso_codigo_anterior
+'         'CAMBIAR DEI O REC
+'         'VAR_CODTIPO = "DEI"
+'         rstdestino("Codigo_tipo") = VAR_CODTIPO    '"DEI"
+'         'VAR_CODTIPO = "DEI"
+'         'CAMBIAR DEI O REC
+'         rstdestino("proceso_codigo") = "FIN"
+'         rstdestino("subproceso_codigo") = "FIN-01"
+'         rstdestino("etapa_codigo") = "FIN-01-01"
+'         rstdestino("clasif_codigo") = "ADM"
+'         rstdestino("doc_codigo") = "R-110"
+'         rstdestino("doc_numero") = correlativo1
+'         rstdestino("unidad_codigo") = VAR_COD4     'Ado_datos.Recordset("unidad_codigo")
+'         rstdestino("solicitud_codigo") = VAR_SOL   'Ado_datos.Recordset("solicitud_codigo")
+'         rstdestino("solicitud_tipo") = VAR_TIPO    '"10"
+'
+'         rstdestino("beneficiario_codigo") = VAR_BENEF      'Ado_datos.Recordset("beneficiario_codigo")
+'         'VAR_BENEF = Ado_datos.Recordset("beneficiario_codigo")
+'         rstdestino("fecha_ingreso") = Date
+'         rstdestino("tipo_cambio") = GlTipoCambioOficial 'GlTipoCambioMercado
+'         rstdestino("tipo_moneda") = "BOB"
+'         VAR_MONEDA = "BOB"
+'         rstdestino("ingreso_concepto") = "INGRESO POR: " + VAR_GLOSA2  'Ado_datos.Recordset("venta_descripcion")
+'         VAR_GLOSA = "INGRESO POR: " + VAR_GLOSA2       'Ado_datos.Recordset("venta_descripcion")
+'         If Ado_datos.Recordset("venta_tipo") = "E" Then
+'            rstdestino("tipo_comp") = "DYR"
+'         Else
+'            rstdestino("tipo_comp") = "DEI"
+'         End If
+'         'CAMBIAR FTE
+'         Select Case VAR_ORG
+'             Case "111"              'INI SERVICIOS DE PROVISION E INSTALACION
+'                 VAR_FTE = "10"
+'             Case "112"            'INI SERVICIO DE MANTENIMIENTO - MANTENIMIENTO PREVENTIVO
+'                 VAR_FTE = "10"
+'             Case "113"            'INI SERVICIO DE REPARACIONES - MANTENIMIENTO CORRECTIVO
+'                 VAR_FTE = "10"
+'             Case "114"            'INI SERVICIO DE MODERNIZACION
+'                 VAR_FTE = "10"
+'             Case "211"            'INI APORTES DE CAPITAL
+'                 VAR_FTE = "20"
+'             Case "311"            'INI BANCO MERCANTIL SANTA CRUZ
+'                 VAR_FTE = "30"
+'             Case "312"            'INI BANCO DE CREDITO
+'                 VAR_FTE = "30"
+'             Case "411"            'INI AMT - REPOSICION DE PIEZAS Y PARTES
+'                 VAR_FTE = "40"
+'             Case Else               'INI OTROS
+'                 VAR_FTE = "10"
+'        End Select
+'         rstdestino("fte_codigo") = VAR_FTE
+'         'CAMBIAR FTE
+'         'CAMBIAR RUBROS    'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww ya pues
+'         'rstdestino("rubro_codigo") = "11200"
+'         'VAR_PARTIDA = "11200"
+'         'VAR_PARTIDA = "11320"
+'         rstdestino("rubro_codigo") = VAR_PARTIDA
+'         'CAMBIAR RUBROS
+'         rstdestino("cheque_o_trf") = ""
+'         rstdestino("Bco_codigo") = "NN"
+'         'CAMBIAR CTA
+'         rstdestino("cta_codigo") = "NN"
+'         VAR_CTA = "NN"
+'         'CAMBIAR CTA
+'         rstdestino("numero_documento") = "0"
+'         rstdestino("unidad_codigo_ant") = VAR_CITE     'Ado_datos.Recordset("unidad_codigo_ant")
+'         'VAR_CITE = Ado_datos.Recordset("unidad_codigo_ant")
+'         rstdestino("monto_dolares") = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
+'         VAR_DOL2 = Round(Ado_datos.Recordset("venta_monto_total_dol"), 2)
+'         rstdestino("monto_bolivianos") = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
+'         VAR_BS2 = Round(Ado_datos.Recordset("venta_monto_total_bs"), 2)
+'         rstdestino("monto_recaudado_dolares") = 0
+'         rstdestino("monto_recaudado_bolivianos") = 0
+'         rstdestino("convenio_codigo") = "NN"
+'         rstdestino("pro_codigo_det") = Ado_datos.Recordset("edif_codigo")
+'         VAR_PROY2 = Ado_datos.Recordset("edif_codigo")
+'         rstdestino("estado_CODIGO") = "APR"
+'         'rstdestino("estado_codigo_dr") = "DEI"
+'
+'         rstdestino("usr_CODIGO") = glusuario
+'         rstdestino("fecha_registro") = Date
+'         rstdestino("hora_registro") = Format(Time, "hh:mm:ss")
+'
+'         rstdestino.Update
+'         If rstdestino.State = 1 Then rstdestino.Close
+'        'db.CommitTrans
+'
+''          If rstIngresos.State = 1 Then rstIngresos.Close
+''          rstIngresos.Open QueryInicial, db, adOpenKeyset, adLockOptimistic
+''          rstIngresos.Sort = "ingreso_codigo"
+''          rstIngresos.Requery
+'
+''          rstIngresos.Requery
+''          Set AdoIngresos.Recordset = rstIngresos
+''          AdoIngresos.Refresh
+''          AdoIngresos.Recordset.Find "ultimo = 'S'"
+''          If Not (AdoIngresos.Recordset.EOF) Then
+''            marca1 = AdoIngresos.Recordset.Bookmark
+''            AdoIngresos.Recordset("ultimo") = "N"
+''            AdoIngresos.Recordset.Update
+''          End If
+'
+''          AdoIngresos.Recordset.Move marca1 - 1
+'
+''          marca1 = 0
+'      'End If
+''   Else
+''      MsgBox "ERROR Los datos no están completos, no se realizará la grabación..."
+'''      FraOpciones2.Visible = False
+'''      FraOpciones.Visible = True
+'''      FraIngresosNav.Enabled = True
+'''      FraIngresosDat.Enabled = False
+'''      AdoIngresos.Refresh
+''   End If
+''   LblAccion = ""
+''AAQQQQQUIIIIIIIIII    JQA
 
 End Sub
 
@@ -7450,7 +7293,7 @@ Private Sub CmdGrabaDet_Click()
     'AAAAAAAAAAAAAAAAAAAQQQQQQQQQQQUUUUUUUUUUUUUUUUUUUUIIIIIIIIIIIIIIIIIIIIII
     'VARIABLES DE LA CABECERA
     VAR_ALMX = IIf(IsNull(dtc_codigo13.Text), "0", dtc_codigo13.Text)        ' Ado_datos.Recordset!almacen_codigoR
-    correlv = Ado_datos.Recordset!venta_codigo
+    NumComp = Ado_datos.Recordset!venta_codigo
     VAR_PROY2 = Ado_datos.Recordset!edif_codigo
     VAR_BEN3 = Ado_datos.Recordset!beneficiario_codigo_almR
     VAR_DOC = Ado_datos.Recordset!doc_codigo_alm
@@ -7474,7 +7317,7 @@ Private Sub CmdGrabaDet_Click()
     If swnuevo = 1 Then
         Set rs_aux8 = New ADODB.Recordset
         If rs_aux8.State = 1 Then rs_aux8.Close
-        rs_aux8.Open "select * from ao_ventas_detalle where venta_codigo= " & correlv & "  and bien_codigo = '" & VAR_BIEN2 & "'", db, adOpenKeyset, adLockBatchOptimistic
+        rs_aux8.Open "select * from ao_ventas_detalle where venta_codigo= " & NumComp & "  and bien_codigo = '" & VAR_BIEN2 & "'", db, adOpenKeyset, adLockBatchOptimistic
         If rs_aux8.RecordCount > 0 Then
             MsgBox "Error, El bien ya fue registrado vuelva a intentar...", , "Atención"
             'ado_datos14.Recordset.CancelBatch
@@ -7499,7 +7342,7 @@ Private Sub CmdGrabaDet_Click()
                " subgrupo_codigo, par_codigo, bien_cantidad_por_empaque, tipo_descuento, almacen_codigo, modelo_codigo, modelo_codigo1, modelo_codigo_h, modelo_codigo_x, " & _
                " modelo_elegido, modelo_elegido_x, almacen_tipo, pais_codigo, observaciones, doc_codigo_alm, doc_numero_alm, estado_almacen, " & _
                " estado_codigo , estado_bien, fecha_ingreso_salida, estado_codigo_bien, usr_codigo, fecha_registro, hora_registro) " & _
-        " values ('" & glGestion & "', " & correlv & ", '" & VAR_BIEN2 & "', " & VAR_COTIZA & ",  " & VAR_COTIZA & ", " & CDbl(VAR_CANT2) & ", " & CDbl(VAR_Bs3) & ",  " & _
+        " values ('" & glGestion & "', " & NumComp & ", '" & VAR_BIEN2 & "', " & VAR_COTIZA & ",  " & VAR_COTIZA & ", " & CDbl(VAR_CANT2) & ", " & CDbl(VAR_Bs3) & ",  " & _
         " '0', " & CDbl(CDbl(VAR_CANT2) * CDbl(VAR_Bs3)) & ", " & CDbl(VAR_Bs3) / GlTipoCambioOficial & ", '0', " & CDbl(CDbl(VAR_CANT2) * CDbl(VAR_Bs3)) / GlTipoCambioOficial & ", '" & txt_descripcion_venta.Text & "', '" & dtc_grupo15.Text & "', " & _
         " '" & dtc_subgrupo15.Text & "', '" & Dtc_partida15.Text & "', " & CDbl(TxtDescuento.Text) & ", '0', " & VAR_ALMX & ", 'S/M', 'S/M', 'S/M',  '0',  " & _
         " 'N',  '" & dtc_codigo6.Text & "', '" & VAR_ALMT & "', 'BOL', '" & dtc_desc15.Text & "', '" & VAR_DOC & "', " & Ado_datos.Recordset!doc_numero_alm & ", 'REG', " & _
@@ -7531,39 +7374,60 @@ Private Sub CmdGrabaDet_Click()
             'ado_datos14.Recordset.Update
             'ACTUALIZA MONTOS DEL BIEN
             If swnuevo = 1 Then
-                'db.Execute "UPDATE ao_ventas_detalle SET venta_descuento_bs = '0', venta_descuento_dol = '0' WHERE venta_codigo = " & correlv & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+                'db.Execute "UPDATE ao_ventas_detalle SET venta_descuento_bs = '0', venta_descuento_dol = '0' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
                 
-                'db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & Trim(VAR_BIEN2) & "' WHERE venta_codigo = " & correlv & " AND bien_codigo = '' "
+                'db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & Trim(VAR_BIEN2) & "' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '' "
                 
                 db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_bs  = ac_bienes.bien_precio_venta_final, ao_ventas_detalle.venta_precio_total_bs = ac_bienes.bien_precio_venta_final FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
-                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & correlv & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
+                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
 
                 db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_dol  = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & ", ao_ventas_detalle.venta_precio_total_dol = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & " FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
-                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & correlv & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
+                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
             End If
 
         If swnuevo = 2 Then
             'dtc_codigo6.Text = IIf(ado_datos18.Recordset!modelo_elegido_x = 0, 0, ado_datos18.Recordset!modelo_elegido_x)
-            db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & VAR_BIEN2 & "', bien_cantidad_por_empaque = " & CDbl(TxtDescuento.Text) & ", observaciones = '" & ado_datos18.Recordset!observaciones & "', almacen_codigo = " & dtc_codigo13.Text & ", modelo_elegido_x = '" & dtc_codigo6.Text & "' WHERE venta_codigo = " & correlv & " AND bien_codigo = '" & VAR_BIEN2 & "' "
-            db.Execute "UPDATE ao_ventas_detalle SET fecha_ingreso_salida = '" & FAlmacen & "' WHERE venta_codigo = " & correlv & " AND bien_codigo = '" & VAR_BIEN2 & "' "
-            db.Execute "UPDATE ao_ventas_detalle SET  venta_det_cantidad = " & CDbl(VAR_CANT2) & " WHERE venta_codigo = " & correlv & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+            db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & VAR_BIEN2 & "', bien_cantidad_por_empaque = " & CDbl(TxtDescuento.Text) & ", observaciones = '" & ado_datos18.Recordset!observaciones & "', almacen_codigo = " & dtc_codigo13.Text & ", modelo_elegido_x = '" & dtc_codigo6.Text & "' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+            db.Execute "UPDATE ao_ventas_detalle SET fecha_ingreso_salida = '" & FAlmacen & "' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+            db.Execute "UPDATE ao_ventas_detalle SET  venta_det_cantidad = " & CDbl(VAR_CANT2) & " WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
         End If
             Set rs_datos15 = New ADODB.Recordset
             If rs_datos15.State = 1 Then rs_datos15.Close
             rs_datos15.Open "select * from ac_bienes where almacen_tipo = '" & VAR_ALMT & "' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
             Set ado_datos15.Recordset = rs_datos15
 
-            Call AbrirDetalle
-            SSTab1.Tab = 0
-            SSTab1.TabEnabled(0) = True
-            SSTab1.TabEnabled(1) = False
-            FraNavega.Enabled = True
-            BtnModificar1.Visible = True
+        If Option2.Value = True Then
+            Call Option2_Click          'CGI    SALIDAS
+        End If
+        If Option1.Value = True Then
+            Call Option1_Click          'CGI    REASPASOS
+        End If
+        If OptFilGral2.Value = True Then
+            Call OptFilGral2_Click        'CGE  SALIDAS
+        End If
+        If OptFilGral1.Value = True Then
+            Call OptFilGral1_Click        'CGE  TRASPASOS
+        End If
+         If (dg_datos.SelBookmarks.Count <> 0) Then
+            dg_datos.SelBookmarks.Remove 0
+         End If
+         If Ado_datos.Recordset.RecordCount > 0 And swnuevo = 2 Then
+            Ado_datos.Recordset.Find "venta_codigo = " & NumComp & "   ", , , 1
+            dg_datos.SelBookmarks.Add (Ado_datos.Recordset.Bookmark)
+         Else
+            Ado_datos.Recordset.MoveLast
+         End If
+         Call AbrirDetalle
+        SSTab1.Tab = 0
+        SSTab1.TabEnabled(0) = True
+        SSTab1.TabEnabled(1) = False
+        FraNavega.Enabled = True
+        BtnModificar1.Visible = True
 '            FrmDetalle2.Enabled = True
-            FrmABMDet.Visible = True
-            FrmEdita.Enabled = False
-            'Call OptFilGral1_Click
-            swnuevo = 0
+        FrmABMDet.Visible = True
+        FrmEdita.Enabled = False
+        'Call OptFilGral1_Click
+        swnuevo = 0
 '        End If
     'Else
     '    MsgBox "Saldo Insuficiente en Stock registrado en Almacenes, verifique y luego intente nuevamente !..."
@@ -8570,7 +8434,8 @@ Private Sub Form_Load()
     
     Call CARGAPARAM
     Call ABRIR_TABLAS_AUX
-    Call OptFilGral1_Click
+    Option2.Value = True
+    Call Option2_Click
     'Usuario
     lbl_cerrado.Caption = ""
     
@@ -8760,14 +8625,14 @@ Private Sub grabar()
         If rs_aux6.State = 1 Then rs_aux6.Close
         rs_aux6.Open "Select max(venta_codigo) as Codigo from ao_ventas_cabecera    ", db, adOpenStatic
         If Not rs_aux6.EOF Then
-            var_cod5 = IIf(IsNull(rs_aux6!Codigo), 1, rs_aux6!Codigo + 1)
+            NumComp = IIf(IsNull(rs_aux6!Codigo), 1, rs_aux6!Codigo + 1)
         End If
        VAR_R = "R-115"
        
 '       Ado_datos.Recordset("ges_gestion") = glGestion       'CStr(Year(DTPfechasol.Value))
 '       Ado_datos.Recordset("unidad_codigo") = parametro   'dtc_codigo1.Text DTPEjecucion
 '       Ado_datos.Recordset("solicitud_codigo") = var_cod
-'       Ado_datos.Recordset("venta_codigo") = var_cod5
+'       Ado_datos.Recordset("venta_codigo") = NumComp
 '       Ado_datos.Recordset("edif_codigo") = dtc_codigo3.Text
 ''       Ado_datos.Recordset("depto_codigo") = Left(dtc_codigo3.Text, 1)
 '       Ado_datos.Recordset("venta_fecha") = Format(IIf(IsNull(DTPfechasol.Value), Date, DTPfechasol.Value), "dd,mm,yyyy")
@@ -9097,7 +8962,7 @@ Private Sub grabar()
                    " venta_saldo_p_cobrar_bs, venta_saldo_p_cobrar_dol, venta_plazo_dias_calendario, venta_fecha_inicio, venta_fecha_fin, unimed_codigo, venta_cantidad_cobr, unimed_codigo_cobr, mes_inicio_crono, tipoben_codigo, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, poa_codigo, " & _
                    " doc_codigo_alm, doc_numero_alm, poa_codigo_alm, almacen_codigo, almacen_codigo_d, depto_codigo_d,          doc_codigo_almR, doc_numero_almR, almacen_codigoR, almacen_codigo_dR, depto_codigo_dR, doc_codigo_almH, doc_numero_almH, almacen_codigoH,  depto_codigo_dH, archivo_respaldo, " & _
                    " archivo_respaldo_cargado, correl_detalle, correl_cobro_prog, estado_cancelado, estado_alcance, estado_codigo, estado_almacen, usr_codigo, fecha_registro, estado_codigo_verif, usr_codigo_verif, fecha_verif, literal_a, nro_eqp, tipo_moneda, almacen_tipo, almacen_tipoD, codigo_empresa ) " & _
-            " values ('" & glGestion & "', " & var_cod5 & ",  '" & VAR_DPTO & "', '" & parametro & "', " & var_cod & ", '" & dtc_codigo3.Text & "', '" & dtc_codigo2.Text & "', '" & VAR_CITE & "', '0', '" & FVenta & "', 'A', '" & VAR_BENA & "', '" & dtc_codigo4.Text & "', '0', '" & VAR_BENI & "', " & _
+            " values ('" & glGestion & "', " & NumComp & ",  '" & VAR_DPTO & "', '" & parametro & "', " & var_cod & ", '" & dtc_codigo3.Text & "', '" & dtc_codigo2.Text & "', '" & VAR_CITE & "', '0', '" & FVenta & "', 'A', '" & VAR_BENA & "', '" & dtc_codigo4.Text & "', '0', '" & VAR_BENI & "', " & _
             " '" & VAR_BENR & "', '" & VAR_BENH & "', '" & VAR_BENDI & "', '" & VAR_BENDR & "', '" & VAR_BENDH & "', '" & TxtConcepto.Text & "', '0', '0', '0', " & GlTipoCambioOficial & ", '0', '0', " & _
             " '0',                              '0',                    '0',                        '" & FVenta & "', '" & FVenta & "', 'MES',          '1',            'MES',                  'ENERO',            '1',        '" & VAR_N1 & "', '" & VAR_N2 & "', '" & VAR_N3 & "', 'ADM', '" & VAR_R & "', '0', '" & VAR_POA & "', " & _
             " '" & VAR_DOCI & "', " & VAR_NUMI & ", '" & VAR_POA & "', " & VAR_ALMI & ", " & VAR_ALMDI & ", '" & VAR_DPTOD & "', '" & VAR_DOCR & "', " & VAR_NUMR & ", " & VAR_ALMR & ", " & VAR_ALMDR & ", '" & VAR_DPTOD & "', '" & VAR_DOCH & "', " & VAR_NUMH & ", '" & VAR_ALMH & "', '" & VAR_DPTOD & "', '" & VAR_CITE & "', " & _
@@ -9185,16 +9050,16 @@ Private Sub grabar()
             VAR_R = "R-119"
             Select Case VAR_ORIGEN
                 Case "UALMI"
-                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_d = '" & dtc_codigo20.Text & "', depto_codigo_d = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & var_cod5 & " "
+                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_d = '" & dtc_codigo20.Text & "', depto_codigo_d = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & NumComp & " "
                     VAR_NUM = Ado_datos.Recordset!doc_numero_alm
                 Case "UALMR"
-                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_dR = '" & dtc_codigo20.Text & "', depto_codigo_dR = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & var_cod5 & " "
+                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_dR = '" & dtc_codigo20.Text & "', depto_codigo_dR = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & NumComp & " "
                     VAR_NUM = Ado_datos.Recordset!doc_numero_alm
                 Case "UALMH"
-                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_d = '" & dtc_codigo20.Text & "', depto_codigo_dH = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & var_cod5 & " "
+                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_d = '" & dtc_codigo20.Text & "', depto_codigo_dH = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & NumComp & " "
                     VAR_NUM = Ado_datos.Recordset!doc_numero_almH
                 Case Else
-                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_dA = '" & dtc_codigo20.Text & "', depto_codigo_dA = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & var_cod5 & " "
+                    db.Execute "UPDATE ao_ventas_cabecera SET almacen_codigo_dA = '" & dtc_codigo20.Text & "', depto_codigo_dA = '" & dtc_codigo22.Text & "'   WHERE venta_codigo = " & NumComp & " "
                     VAR_NUM = Ado_datos.Recordset!doc_numero_almA
             End Select
             
@@ -9211,25 +9076,25 @@ Private Sub grabar()
                 Case Else
                     VAR_NUM = Ado_datos.Recordset!doc_numero_almA
             End Select
-            'db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almR = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almR = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecR= '" & dtc_codigo5.Text & "', almacen_codigoR = " & dtc_codigo11.Text & ", depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_almR = " & VAR_NUM & "   WHERE venta_codigo = " & var_cod5 & " "
-            'db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & var_cod5 & " "
+            'db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almR = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almR = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecR= '" & dtc_codigo5.Text & "', almacen_codigoR = " & dtc_codigo11.Text & ", depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_almR = " & VAR_NUM & "   WHERE venta_codigo = " & NumComp & " "
+            'db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & NumComp & " "
         End If
         Select Case VAR_ORIGEN
             Case "UALMI"
-                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almR = '" & VAR_R & "', doc_codigo_alm = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almR = '" & dtc_codigo4.Text & "', beneficiario_codigo_alm = '" & dtc_codigo4.Text & "', beneficiario_codigo_tec = '" & dtc_codigo5.Text & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "', almacen_codigo = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_alm = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & var_cod5 & " "
-                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tec = '" & dtc_codigo5.Text & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & var_cod5 & " "
+                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almR = '" & VAR_R & "', doc_codigo_alm = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almR = '" & dtc_codigo4.Text & "', beneficiario_codigo_alm = '" & dtc_codigo4.Text & "', beneficiario_codigo_tec = '" & dtc_codigo5.Text & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "', almacen_codigo = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_alm = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & NumComp & " "
+                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tec = '" & dtc_codigo5.Text & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & NumComp & " "
             Case "UALMR"
-                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "', doc_codigo_almR = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almR = '" & dtc_codigo4.Text & "', beneficiario_codigo_alm = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecR= '" & dtc_codigo5.Text & "', beneficiario_codigo_tec = '" & dtc_codigo5.Text & "', almacen_codigoR = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_alm = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & var_cod5 & " "
-                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & var_cod5 & " "
+                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "', doc_codigo_almR = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almR = '" & dtc_codigo4.Text & "', beneficiario_codigo_alm = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecR= '" & dtc_codigo5.Text & "', beneficiario_codigo_tec = '" & dtc_codigo5.Text & "', almacen_codigoR = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_alm = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & NumComp & " "
+                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & NumComp & " "
             Case "UALMH"
-                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almH = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almH = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecH= '" & dtc_codigo5.Text & "', almacen_codigoR = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_almH = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & var_cod5 & " "
-                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecH = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & var_cod5 & " "
+                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almH = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almH = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecH= '" & dtc_codigo5.Text & "', almacen_codigoR = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_almH = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & NumComp & " "
+                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecH = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & NumComp & " "
             Case Else
-                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almA = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almA = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecA = '" & dtc_codigo5.Text & "', almacen_codigoA = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_almA = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & var_cod5 & " "
-                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecA = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & var_cod5 & " "
+                db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_almA = '" & VAR_R & "', usr_codigo_verif = '" & glusuario & "', fecha_verif = '" & DTPfechasol & "', beneficiario_codigo_almA = '" & dtc_codigo4.Text & "', beneficiario_codigo_tecA = '" & dtc_codigo5.Text & "', almacen_codigoA = '0', depto_codigo = '" & dtc_codigo21.Text & "', doc_numero_almA = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & NumComp & " "
+                db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecA = '" & dtc_codigo5.Text & "' WHERE venta_codigo = " & NumComp & " "
         End Select
-        db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "', beneficiario_codigo_alm = '" & dtc_codigo4.Text & "', beneficiario_codigo_tec= '" & dtc_codigo5.Text & "', doc_numero_alm = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & var_cod5 & " "
-        db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "', depto_codigo = '" & VAR_DPTO & "' WHERE venta_codigo = " & var_cod5 & " "
+        db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "', beneficiario_codigo_alm = '" & dtc_codigo4.Text & "', beneficiario_codigo_tec= '" & dtc_codigo5.Text & "', doc_numero_alm = " & VAR_NUM & ", almacen_tipo ='" & VAR_ALMT & "', almacen_tipoD ='" & VAR_ALMT & "'   WHERE venta_codigo = " & NumComp & " "
+        db.Execute "update ao_ventas_cabecera set unidad_destino = '" & dtc_codigo2.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', beneficiario_codigo_tecR = '" & dtc_codigo5.Text & "', depto_codigo = '" & VAR_DPTO & "' WHERE venta_codigo = " & NumComp & " "
                
                'Entrega de Almacen  'swgrabar = 2   'modificar
 '        Ado_datos.Recordset!doc_numero_almR = VAR_NUM
@@ -9312,8 +9177,8 @@ Private Sub grabar()
          rs_aux1!codigo_empresa = GlEmpresa
          rs_aux1!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
          rs_aux1.Update    'Batch 'adAffectAll
-        'db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "' WHERE venta_codigo = " & var_cod5 & " "
-        'db.Execute "UPDATE ao_ventas_cabecera SET doc_numero_almR = " & VAR_NUM & " WHERE venta_codigo = " & var_cod5 & " "
+        'db.Execute "UPDATE ao_ventas_cabecera SET doc_codigo_alm = '" & VAR_R & "' WHERE venta_codigo = " & NumComp & " "
+        'db.Execute "UPDATE ao_ventas_cabecera SET doc_numero_almR = " & VAR_NUM & " WHERE venta_codigo = " & NumComp & " "
     End If
 End Sub
 
@@ -9328,6 +9193,7 @@ Private Sub Form_Unload(Cancel As Integer)
 '  glPersNew = "N"
 
 End Sub
+
 
 Private Sub OptFilGral1_Click()
    '===== Proceso para filtrado general de datos(registros no aprobados)
@@ -9373,12 +9239,13 @@ Private Sub OptFilGral1_Click()
 '                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen = 'REG' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
 '            End If
 '    End Select
-    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%' AND codigo_empresa = 2 ) "
+    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND doc_codigo_alm = 'R-119' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%' AND codigo_empresa = 2 ) "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = " almacen_codigoR, doc_numero_alm"
     'rs_datos.Sort = "doc_codigo_almR,"
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
+'    Set TDBGrid1.DataSource = Ado_datos.Recordset
 '  '===== Proceso para filtrado general de datos(registros no aprobados)
 '    Set rs_datos = New Recordset
 '    If rs_datos.State = 1 Then rs_datos.Close
@@ -9413,25 +9280,25 @@ Private Sub OptFilGral2_Click()
         Case "UALMR", "ALMRS", "ALMRB", "ALMRC"
             Select Case glusuario
                 Case "CARIZACA"
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND doc_codigo_alm <> 'R-119' AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case "RRONDAL"
                     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo = '1'  ) OR (unidad_codigo = '" & parametro & "' )))) "
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' doc_codigo_alm <> 'R-119' AND AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case Else
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End Select
         Case "UALMI", "ALMIS", "ALMIB", "ALMIC"
             If glusuario = "AFLORES" Then
                 'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "')))) "
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND doc_codigo_alm <> 'R-119' AND (estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
             Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 doc_codigo_alm <> 'R-119' AND AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End If
         Case Else
             If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
             Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 2 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End If
     End Select
 '    'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND (almacen_tipo = '" & VAR_ALMT & "' OR unidad_codigo = '" & parametro & "') AND depto_codigo = '" & VAR_DPTO & "'  "
@@ -9442,6 +9309,7 @@ Private Sub OptFilGral2_Click()
     'rs_datos.Sort = "doc_codigo_almR, "
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
+'    Set TDBGrid1.DataSource = Ado_datos.Recordset
 '  '===== Proceso para filtrado general de datos (todos los registros )
 '    Set rs_datos = New Recordset
 '    If rs_datos.State = 1 Then rs_datos.Close
@@ -9773,12 +9641,13 @@ Private Sub Option1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND (almacen_tipo = '" & VAR_ALMT & "' OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%'  AND depto_codigo = '" & VAR_DPTO & "'"
     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE estado_codigo = 'APR' AND LEFT(doc_codigo_almH,5) = '" & Left(VAR_R, 5) & "' "
-    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%' AND codigo_empresa = 1 ) "
+    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND doc_codigo_alm = 'R-119' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and edif_descripcion LIKE 'TRASPASO%' AND codigo_empresa = 1 ) "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = "doc_codigo_alm, doc_numero_alm"
     'rs_datos.Sort = "unidad_codigo, SOLICITUD_codigo"
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
+'    Set TDBGrid1.DataSource = Ado_datos.Recordset
 End Sub
 
 Private Sub Option2_Click()
@@ -9822,33 +9691,34 @@ Private Sub Option2_Click()
         Case "UALMR", "ALMRS", "ALMRB", "ALMRC"
             Select Case glusuario
                 Case "CARIZACA"
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case "RRONDAL"
                     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo = '1'  ) OR (unidad_codigo = '" & parametro & "' )))) "
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND (estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '6' AND depto_codigo <> '5'  ) OR (unidad_codigo = '" & parametro & "' )))) "
                 Case Else
-                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                    queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End Select
         Case "UALMI", "ALMIS", "ALMIB", "ALMIC"
             If glusuario = "AFLORES" Then
                 'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE ((estado_codigo = 'APR' AND estado_almacen <>'ANL' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "')))) "
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND (estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND (estado_codigo = 'APR' AND estado_almacen <>'ANL'  AND estado_almacen <>'ERR' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND unidad_codigo <> 'DNINS' AND depto_codigo <> '3' AND depto_codigo <> '7' ) OR (unidad_codigo = '" & parametro & "' )))) "
             Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End If
         Case Else
             If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND almacen_tipo = '" & VAR_ALMT & "' )"
             Else
-                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
+                queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (codigo_empresa = 1 AND doc_codigo_alm <> 'R-119' AND estado_codigo = 'APR' AND estado_almacen <>'ANL' AND estado_almacen <>'ERR'  AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "'))"
             End If
     End Select
     'queryinicial = "select * From av_ventas_cabecera_sol_alm WHERE (estado_codigo = 'APR' AND estado_almacen <> 'ANL' AND doc_codigo_almR = 'R-115' AND ((almacen_tipo = '" & VAR_ALMT & "' AND unidad_codigo <> '" & parametro & "' AND depto_codigo = '" & VAR_DPTO & "') OR unidad_codigo = '" & parametro & "') and  (NOT (edif_descripcion LIKE 'TRASPASO%'))) "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-    rs_datos.Sort = "doc_codigo_alm, doc_numero_alm"
+    rs_datos.Sort = "doc_numero_alm, doc_codigo_alm"
     'rs_datos.Sort = "almacen_codigoR, "
     Set Ado_datos.Recordset = rs_datos.DataSource
     Set dg_datos.DataSource = Ado_datos.Recordset
+'    Set TDBGrid1.DataSource = Ado_datos.Recordset
 End Sub
 
 Private Sub sstab1_Click(PreviousTab As Integer)

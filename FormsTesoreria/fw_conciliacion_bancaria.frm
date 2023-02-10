@@ -17,8 +17,8 @@ Begin VB.Form fw_conciliacion_bancaria
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   8790
+   ScaleWidth      =   14835
    WindowState     =   2  'Maximized
    Begin VB.Frame FraBusca4 
       BackColor       =   &H00C0C0C0&
@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118292481
+         Format          =   109314049
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118292481
+         Format          =   109314049
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118292481
+         Format          =   109314049
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -367,14 +367,14 @@ Begin VB.Form fw_conciliacion_bancaria
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "BtnImprimir2"
-      Tab(1).Control(1)=   "BtnBuscar2"
-      Tab(1).Control(2)=   "BtnBuscar3"
-      Tab(1).Control(3)=   "Frame3"
-      Tab(1).Control(4)=   "FrmDetalle"
-      Tab(1).Control(5)=   "Frame2"
-      Tab(1).Control(6)=   "FrmDetalle2"
-      Tab(1).Control(7)=   "FrmABMDet"
+      Tab(1).Control(0)=   "FrmABMDet"
+      Tab(1).Control(1)=   "FrmDetalle2"
+      Tab(1).Control(2)=   "Frame2"
+      Tab(1).Control(3)=   "FrmDetalle"
+      Tab(1).Control(4)=   "Frame3"
+      Tab(1).Control(5)=   "BtnBuscar3"
+      Tab(1).Control(6)=   "BtnBuscar2"
+      Tab(1).Control(7)=   "BtnImprimir2"
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
@@ -2598,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   118292481
+            Format          =   109314049
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -2869,10 +2869,10 @@ Begin VB.Form fw_conciliacion_bancaria
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20250
+      ScaleWidth      =   14835
       TabIndex        =   0
-      Top             =   10935
-      Width           =   20250
+      Top             =   8790
+      Width           =   14835
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3318,7 +3318,7 @@ Private Sub BtnCancelar3_Click()
     Fra_reporte.Visible = False
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
     Frame1.Visible = True
 End Sub
 
@@ -3452,7 +3452,7 @@ Private Sub BtnAñadir_Click()
 '    Image2.Visible = False
 '    cmb_gestion_rep.Text = Year(Date)
 
-    If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "MWILDE" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then         'Or glusuario = "MVALDIVIA"
+    If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "PLOPEZ" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then         'Or glusuario = "MVALDIVIA"
         Dim e As Long
         Dim ruta As String
         ruta = App.Path & "\Extractos\SofiaNetCore.exe"
@@ -3498,7 +3498,7 @@ End Sub
 Private Sub btnCargarArchivo_Click()
   Dim rutaArchivo As String
   rutaArchivo = App.Path & "\EXTRACTOS\"
-  LblMensaje.Visible = False
+  lblMensaje.Visible = False
   Dim existeRuta As Boolean
   Dim oDir As New Scripting.FileSystemObject
   existeRuta = oDir.FolderExists(rutaArchivo)
@@ -3690,7 +3690,7 @@ End Sub
 Private Sub ImportarDato()
   On Error GoTo ErrorHandler
             
-        LblMensaje.Visible = True
+        lblMensaje.Visible = True
         MsgBox " Se inicia el proceso de importación de datos..."
                 
         Dim conExcel As New ADODB.Connection
@@ -3929,7 +3929,7 @@ Private Sub ImportarDato()
 '                     ' Inserta registros.
 '                    db.Execute sql
 '              End If
-              LblMensaje.Visible = False
+              lblMensaje.Visible = False
               MsgBox "Los datos de las Facturas se registraron correctamente."
              
            Else
@@ -3940,7 +3940,7 @@ Private Sub ImportarDato()
            ' VERIFICA REGISTROS
 ErrorHandler:
     If Trim(Err.Description) <> "" Then
-       LblMensaje.Visible = False
+       lblMensaje.Visible = False
        MsgBox Err.Description, , "Error"
        Fra_ABM.Enabled = True
        BtnAñadir.Visible = True

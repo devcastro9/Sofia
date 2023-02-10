@@ -35,7 +35,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   1680
       Left            =   6840
       TabIndex        =   59
-      Top             =   5040
+      Top             =   6360
       Visible         =   0   'False
       Width           =   4860
       Begin VB.CommandButton BtnCancelar2 
@@ -935,7 +935,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2760
       Left            =   6240
       TabIndex        =   116
-      Top             =   4320
+      Top             =   5280
       Visible         =   0   'False
       Width           =   6300
       Begin VB.PictureBox Picture5 
@@ -1101,7 +1101,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2160
       Left            =   5760
       TabIndex        =   54
-      Top             =   5520
+      Top             =   5880
       Visible         =   0   'False
       Width           =   7140
       Begin VB.PictureBox Picture11 
@@ -2200,7 +2200,7 @@ Begin VB.Form frm_to_cronograma_mensual
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110231553
+         Format          =   108855297
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -6935,7 +6935,7 @@ Private Sub OptFilGral2_Click()
             queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '5' OR depto_codigo = '6') AND estado_codigo = 'REG' ) "
         Case "2"    'La Paz - Tecnico
             '(ges_gestion = '2022' or ges_gestion = '2023') AND
-            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "ADMIN" Then
+            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
                 queryinicial = "select * From to_cronograma_mensual WHERE ( estado_codigo = 'REG' ) "
             Else
                 'queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND (ges_gestion = '2022' or ges_gestion = '2023')    AND estado_codigo = 'REG' ) "
@@ -7315,7 +7315,7 @@ Private Sub Option25_Click()
             queryinicial = "select * From to_cronograma_mensual WHERE ((depto_codigo = '" & VAR_DPTO & "' OR depto_codigo = '5' OR depto_codigo = '6') AND estado_codigo = 'APR' ) "
         Case "2"    'La Paz - Tecnico
             '(ges_gestion = '2022' or ges_gestion = '2023') AND
-            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "ADMIN" Then
+            If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
                 queryinicial = "select * From to_cronograma_mensual WHERE ( estado_codigo = 'APR' ) "
             Else
                 'queryinicial = "select * From to_cronograma_mensual WHERE ((zpiloto_codigo<'16' OR zpiloto_codigo='28' OR zpiloto_codigo='29' OR zpiloto_codigo='30' OR zpiloto_codigo='37' OR zpiloto_codigo='39' OR zpiloto_codigo='40')  AND (ges_gestion = '2022' or ges_gestion = '2023')    AND estado_codigo = 'REG' ) "

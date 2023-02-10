@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119078913
+            Format          =   109969409
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119078913
+            Format          =   109969409
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   119078913
+            Format          =   109969409
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -5292,7 +5292,7 @@ End Sub
 '    FraGrabarCancelar.Enabled = True
 'End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 '  If Ado_datos.Recordset.RecordCount > 0 Then
 '    If Ado_datos.Recordset!estado_codigo_fac = "APR" And Ado_datos.Recordset!estado_codigo_bco = "REG" Then      'Ado_datos.Recordset("estado_codigo_anl") = "REG"
 '      sino = MsgBox("Esta seguro de ANULAR la facturación registrada ?", vbYesNo, "Confirmando")
@@ -9752,7 +9752,7 @@ Private Sub Form_Load()
             SW_MODIF = "MOD"
             OptFilGral03.Visible = True
             OptFilGral05.Visible = True
-        Case "ULEDESMA", "GMORA", "SQUISPE", "RCUELA", "GSOLIZ", "MARTEAGA", "ADMIN", "APALACIOS", "JCASTRO", "RGIL", "LMORALES", "CPAREDES", "CSALINAS", "LVEDIA", "PMAJLUF"
+        Case "ULEDESMA", "GMORA", "SQUISPE", "RCUELA", "GSOLIZ", "MARTEAGA", "ADMIN", "APALACIOS", "JCASTRO", "RGIL", "LMORALES", "CPAREDES", "CSALINAS", "LVEDIA", "PMAJLUF", "CESPINOZA"
             SW_MODIF = "MOD"
             OptFilGral03.Visible = True
             OptFilGral05.Visible = True

@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118620161
+         Format          =   109510657
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -3929,7 +3929,7 @@ On Error GoTo UpdateErr
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_gral.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -4101,7 +4101,7 @@ If Ado_detalle2.Recordset.RecordCount > 0 Then
         rs_compra_det.Update
         DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
         DETALLE1 = Ado_detalle1.Recordset!compra_codigo_det
-        If Opt_CGE.Value = True Or opt_local.Value = True Then
+        If opt_CGE.Value = True Or opt_local.Value = True Then
             Call opt_CGE_Click
         Else
             Call OptFilGral1_Click
@@ -4769,7 +4769,7 @@ If Ado_datos.Recordset.RecordCount > 0 Then
 '     rs_aux7.Update
 '     rs_datos.Update
      'Call OptFilGral1_Click
-     If Opt_CGE.Value = True Or opt_local.Value = True Then
+     If opt_CGE.Value = True Or opt_local.Value = True Then
         Call opt_CGE_Click
      Else
         Call OptFilGral1_Click
@@ -5233,7 +5233,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!archivo_respaldo_cargado = "N"
         rs_datos!doc_numero = "0"
         rs_datos!venta_tipo = VAR_TIPO_ALM
-        If Opt_CGE.Value = True Or opt_local = True Then
+        If opt_CGE.Value = True Or opt_local = True Then
             rs_datos!codigo_empresa = 2
         Else
             rs_datos!codigo_empresa = 1
@@ -5609,7 +5609,7 @@ Private Sub BtnModDetalle1_Click()
            If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
            End If
-           frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+           frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
           
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -5760,7 +5760,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
             fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_gral.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_gral.Txt_estado.Caption = "REG"
@@ -5996,7 +5996,7 @@ End If
     '    BtnVer.Visible = True
 '        dtc_codigo9.Enabled = False
         FraGrabarCancelar.Visible = True
-        BtnCancelar.Visible = True
+        btnCancelar.Visible = True
     'Else
      ' MsgBox "No se puede MODIFICAR un registro ya APROBADO ...", vbExclamation, "Validación de Registro"
     'End If

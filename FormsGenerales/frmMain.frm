@@ -5,10 +5,10 @@ Begin VB.MDIForm frmMain
    AutoShowChildren=   0   'False
    BackColor       =   &H00C0C0C0&
    Caption         =   "Sistema de Organización Financiera y Administrativa (SOFIA)"
-   ClientHeight    =   7680
+   ClientHeight    =   8010
    ClientLeft      =   885
-   ClientTop       =   1065
-   ClientWidth     =   11280
+   ClientTop       =   735
+   ClientWidth     =   14715
    Icon            =   "frmMain.frx":0000
    Moveable        =   0   'False
    NegotiateToolbars=   0   'False
@@ -19,11 +19,11 @@ Begin VB.MDIForm frmMain
       Height          =   2055
       Left            =   0
       ScaleHeight     =   1995
-      ScaleWidth      =   11220
+      ScaleWidth      =   14655
       TabIndex        =   27
       Top             =   525
       Visible         =   0   'False
-      Width           =   11280
+      Width           =   14715
       Begin VB.Frame Frame1 
          Caption         =   "ALERTAS"
          BeginProperty Font 
@@ -105,10 +105,10 @@ Begin VB.MDIForm frmMain
       Height          =   525
       Left            =   0
       ScaleHeight     =   525
-      ScaleWidth      =   11280
+      ScaleWidth      =   14715
       TabIndex        =   10
       Top             =   0
-      Width           =   11280
+      Width           =   14715
       Begin VB.CommandButton CmdRepA 
          BackColor       =   &H00E0E0E0&
          Caption         =   "Cambiar Contraseña"
@@ -444,10 +444,10 @@ Begin VB.MDIForm frmMain
       Height          =   270
       Left            =   0
       ScaleHeight     =   210
-      ScaleWidth      =   11220
+      ScaleWidth      =   14655
       TabIndex        =   0
-      Top             =   7410
-      Width           =   11280
+      Top             =   7740
+      Width           =   14715
       Begin VB.Label txtVersion 
          AutoSize        =   -1  'True
          Caption         =   "Usuario:"
@@ -616,9 +616,9 @@ Begin VB.MDIForm frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   26
-      Top             =   7020
-      Width           =   11280
-      _ExtentX        =   19897
+      Top             =   7350
+      Width           =   14715
+      _ExtentX        =   25956
       _ExtentY        =   688
       _Version        =   327682
       Appearance      =   1

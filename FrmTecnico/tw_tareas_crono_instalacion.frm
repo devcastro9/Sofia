@@ -36,7 +36,7 @@ Begin VB.Form tw_tareas_crono_instalacion
       Height          =   2640
       Left            =   7320
       TabIndex        =   16
-      Top             =   7080
+      Top             =   4200
       Visible         =   0   'False
       Width           =   8460
       Begin VB.PictureBox FraGrabarCancelar 
@@ -52,7 +52,6 @@ Begin VB.Form tw_tareas_crono_instalacion
          ScaleWidth      =   8280
          TabIndex        =   52
          Top             =   1800
-         Visible         =   0   'False
          Width           =   8280
          Begin VB.PictureBox BtnCancelar 
             Appearance      =   0  'Flat
@@ -151,7 +150,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -165,7 +164,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -179,7 +178,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -193,7 +192,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118423553
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -837,7 +836,7 @@ Begin VB.Form tw_tareas_crono_instalacion
    End
    Begin VB.Frame FraDet1 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "LISTADO DE EDIFICIOS"
+      Caption         =   "LISTADO DE TAREAS POR TIPO DE EQUIPO"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -947,6 +946,7 @@ Begin VB.Form tw_tareas_crono_instalacion
             TabIndex        =   65
             ToolTipText     =   "Modifica datos del Grupo elegido"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1430
          End
          Begin VB.PictureBox BtnAñadir 
@@ -978,6 +978,7 @@ Begin VB.Form tw_tareas_crono_instalacion
             TabIndex        =   46
             ToolTipText     =   "Busca Registros "
             Top             =   0
+            Visible         =   0   'False
             Width           =   1215
          End
          Begin VB.PictureBox BtnModificar2 
@@ -1022,6 +1023,7 @@ Begin VB.Form tw_tareas_crono_instalacion
             ScaleWidth      =   1425
             TabIndex        =   10
             Top             =   0
+            Visible         =   0   'False
             Width           =   1430
          End
          Begin VB.PictureBox BtnAnlDetalle 
@@ -2142,7 +2144,7 @@ Private Sub BtnCancelarDet_Click()
     dtc_desc5.Visible = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!tipo_eqp) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
    If rs_datos!estado_codigo = "APR" Then
@@ -2366,25 +2368,25 @@ EditErr:
 End Sub
 
 Private Sub BtnModificar2_Click()
-    Set rs_aux4 = New ADODB.Recordset
-    If rs_aux4.State = 1 Then rs_aux4.Close
-    rs_aux4.Open "select * from tc_tareas_crono_instalacion where IdTareaInst = '" & Ado_datos.Recordset!tipo_eqp & "' order by IdTareaInst ", db, adOpenKeyset, adLockOptimistic, adCmdText
-    If rs_aux4.RecordCount > 0 Then
-        VAR_CONT = 0
-        rs_aux4.MoveFirst
-        While Not rs_aux4.EOF
-            VAR_CONT = VAR_CONT + 1
-            rs_aux4!zorden_cambio = VAR_CONT
-            rs_aux4.Update
-            rs_aux4.MoveNext
-        Wend
-        db.Execute "UPDATE tc_tareas_crono_instalacion SET IdTareaInst = zorden_cambio WHERE IdTareaInst = '" & Ado_datos.Recordset!tipo_eqp & "' "
-        db.Execute "UPDATE tc_tareas_crono_instalacion SET zorden_cambio ='0' WHERE IdTareaInst = '" & Ado_datos.Recordset!tipo_eqp & "' "
-'        Call ABRIR_TABLA_DET
-        'MsgBox "Se recodificó la columna ORDEN, satisfactoriamente ...", vbInformation, "Información"
-    Else
-        MsgBox "No Existen Registros para Ordenar ...", vbExclamation, "Información"
-    End If
+'    Set rs_aux4 = New ADODB.Recordset
+'    If rs_aux4.State = 1 Then rs_aux4.Close
+'    rs_aux4.Open "select * from tc_tareas_crono_instalacion where IdTareaInst = '" & Ado_datos.Recordset!IdTareaInst & "' order by IdTareaInst ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'    If rs_aux4.RecordCount > 0 Then
+'        VAR_CONT = 0
+'        rs_aux4.MoveFirst
+'        While Not rs_aux4.EOF
+'            VAR_CONT = VAR_CONT + 1
+'            rs_aux4!zorden_cambio = VAR_CONT
+'            rs_aux4.Update
+'            rs_aux4.MoveNext
+'        Wend
+'        db.Execute "UPDATE tc_tareas_crono_instalacion SET IdTareaInst = zorden_cambio WHERE IdTareaInst = '" & Ado_datos.Recordset!tipo_eqp & "' "
+'        db.Execute "UPDATE tc_tareas_crono_instalacion SET zorden_cambio ='0' WHERE IdTareaInst = '" & Ado_datos.Recordset!tipo_eqp & "' "
+''        Call ABRIR_TABLA_DET
+'        'MsgBox "Se recodificó la columna ORDEN, satisfactoriamente ...", vbInformation, "Información"
+'    Else
+'        MsgBox "No Existen Registros para Ordenar ...", vbExclamation, "Información"
+'    End If
     
 End Sub
 

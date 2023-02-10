@@ -1309,7 +1309,7 @@ Begin VB.Form fw_recibos_oficiales
             _ExtentX        =   2778
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   120127489
+            Format          =   109314049
             CurrentDate     =   44419
          End
          Begin VB.TextBox Text8 
@@ -3997,7 +3997,7 @@ Private Sub AbreOrigen()
         rs_datos7.Open "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic
     'End If
     'rs_datos7.Sort = "cobranza_fecha desc"
-    Set ado_datos7.Recordset = rs_datos7.DataSource
+    Set Ado_datos7.Recordset = rs_datos7.DataSource
     'ado_datos7.Recordset.Requery
     'dtc_desc7.BoundText = dtc_codigo7.BoundText
     dtc_fecha7.BoundText = dtc_codigo7.BoundText
@@ -4029,7 +4029,7 @@ End Sub
 
 Private Sub BtnAddDetalle_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then       '
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then       '
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -4076,7 +4076,7 @@ Private Sub BtnAñadir_Click()
 accion = "NEW"
     
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -4114,7 +4114,7 @@ End Sub
 Private Sub BtnAprobar_Click()
  On Error GoTo UpdateErr
   If Ado_datos.Recordset!estado_codigo = "REG" Then
-    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
       VAR_RECIBO = Ado_datos.Recordset!IdRecibo
       'Actualiza Totales
       'db.Execute "update fo_recibos_oficiales set fo_recibos_oficiales.total_bs = fv_recibos_detalle_acumulado.totalCobro_Bs,  -.total_dol = fv_recibos_detalle_acumulado.totalCobro_dol from fo_recibos_oficiales inner join fv_recibos_detalle_acumulado on fo_recibos_oficiales.IdRecibo = fv_recibos_detalle_acumulado.IdRecibo WHERE fo_recibos_oficiales.IdRecibo =  " & VAR_RECIBO & "  "
@@ -4337,7 +4337,7 @@ Private Sub BtnCancelar3_Click()
         Fra_reporte.Visible = False
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 '  If Ado_datos.Recordset.RecordCount > 0 Then
 '    If Ado_datos.Recordset("estado_almacen") = "REG" Then
 '      sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
@@ -4376,7 +4376,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!EDIF_CODIGO & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -4555,7 +4555,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MWILDE" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
         accion = "MOD"
@@ -7199,7 +7199,7 @@ Private Sub OptFilGral1_Click()
     Select Case glusuario
         Case "ADMIN", "VPAREDES", "SQUISPE", "CSALINAS"
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG') "
-        Case "MPEÑARANDA", "SPAREDES", "MWILDE", "MVALDIVIA"
+        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA"
             'queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo ='6962804')) "
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG') "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
@@ -7237,7 +7237,7 @@ Private Sub OptFilGral2_Click()
     Select Case glusuario
         Case "ADMIN", "VPAREDES", "SQUISPE", "CSALINAS"
             queryinicial = "select * From fo_recibos_oficiales  "
-        Case "MPEÑARANDA", "SPAREDES", "MWILDE", "MVALDIVIA"
+        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA"
             'queryinicial = "select * From fo_recibos_oficiales WHERE (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo ='6962804') "
             queryinicial = "select * From fo_recibos_oficiales  "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
@@ -7396,7 +7396,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  txtTDC.Text = GlTipoCambioOficial
+  TxtTDC.Text = GlTipoCambioOficial
 
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0

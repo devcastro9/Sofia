@@ -512,46 +512,35 @@ Begin VB.Form rw_ficha_rrhh
                   Object.Visible         =   0   'False
                EndProperty
                BeginProperty Column01 
-                  ColumnWidth     =   645.165
                EndProperty
                BeginProperty Column02 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1620.284
                EndProperty
                BeginProperty Column03 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   989.858
                EndProperty
                BeginProperty Column04 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   959.811
                EndProperty
                BeginProperty Column05 
                   ColumnWidth     =   720
                EndProperty
                BeginProperty Column06 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   734.74
                EndProperty
                BeginProperty Column07 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   750.047
                EndProperty
                BeginProperty Column08 
-                  ColumnWidth     =   840.189
                EndProperty
                BeginProperty Column09 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   794.835
                EndProperty
                BeginProperty Column10 
-                  ColumnWidth     =   900.284
                EndProperty
                BeginProperty Column11 
-                  ColumnWidth     =   764.787
                EndProperty
                BeginProperty Column12 
-                  ColumnWidth     =   3195.213
                EndProperty
             EndProperty
          End
@@ -802,45 +791,34 @@ Begin VB.Form rw_ficha_rrhh
             SplitCount      =   1
             BeginProperty Split0 
                BeginProperty Column00 
-                  ColumnWidth     =   510.236
                EndProperty
                BeginProperty Column01 
                   Alignment       =   2
-                  ColumnWidth     =   750.047
                EndProperty
                BeginProperty Column02 
-                  ColumnWidth     =   989.858
                EndProperty
                BeginProperty Column03 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1035.213
                EndProperty
                BeginProperty Column04 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1425.26
                EndProperty
                BeginProperty Column05 
                   Alignment       =   2
-                  ColumnWidth     =   854.929
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   2775.118
                EndProperty
                BeginProperty Column07 
                   Alignment       =   1
-                  ColumnWidth     =   1094.74
                EndProperty
                BeginProperty Column08 
                   Alignment       =   1
-                  ColumnWidth     =   1005.165
                EndProperty
                BeginProperty Column09 
                   Alignment       =   2
-                  ColumnWidth     =   989.858
                EndProperty
                BeginProperty Column10 
                   Alignment       =   2
-                  ColumnWidth     =   540.284
                EndProperty
             EndProperty
          End
@@ -1364,35 +1342,25 @@ Begin VB.Form rw_ficha_rrhh
             SplitCount      =   1
             BeginProperty Split0 
                BeginProperty Column00 
-                  ColumnWidth     =   764.787
                EndProperty
                BeginProperty Column01 
-                  ColumnWidth     =   1065.26
                EndProperty
                BeginProperty Column02 
-                  ColumnWidth     =   2564.788
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   2294.929
                EndProperty
                BeginProperty Column04 
-                  ColumnWidth     =   2174.74
                EndProperty
                BeginProperty Column05 
-                  ColumnWidth     =   2415.118
                EndProperty
                BeginProperty Column06 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   1544.882
                EndProperty
                BeginProperty Column07 
-                  ColumnWidth     =   555.024
                EndProperty
                BeginProperty Column08 
-                  ColumnWidth     =   1184.882
                EndProperty
                BeginProperty Column09 
-                  ColumnWidth     =   2204.788
                EndProperty
             EndProperty
          End
@@ -1846,32 +1814,24 @@ Begin VB.Form rw_ficha_rrhh
             SplitCount      =   1
             BeginProperty Split0 
                BeginProperty Column00 
-                  ColumnWidth     =   1170.142
                EndProperty
                BeginProperty Column01 
-                  ColumnWidth     =   1140.095
                EndProperty
                BeginProperty Column02 
                   ColumnWidth     =   1080
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   975.118
                EndProperty
                BeginProperty Column04 
-                  ColumnWidth     =   1244.976
                EndProperty
                BeginProperty Column05 
-                  ColumnWidth     =   1154.835
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   659.906
                EndProperty
                BeginProperty Column07 
-                  ColumnWidth     =   1019.906
                EndProperty
                BeginProperty Column08 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   975.118
                EndProperty
             EndProperty
          End
@@ -2196,40 +2156,29 @@ Begin VB.Form rw_ficha_rrhh
             SplitCount      =   1
             BeginProperty Split0 
                BeginProperty Column00 
-                  ColumnWidth     =   1214.929
                EndProperty
                BeginProperty Column01 
-                  ColumnWidth     =   1170.142
                EndProperty
                BeginProperty Column02 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1035.213
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   1005.165
                EndProperty
                BeginProperty Column04 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   929.764
                EndProperty
                BeginProperty Column05 
                   Object.Visible         =   0   'False
-                  ColumnWidth     =   900.284
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   585.071
                EndProperty
                BeginProperty Column07 
-                  ColumnWidth     =   734.74
                EndProperty
                BeginProperty Column08 
-                  ColumnWidth     =   870.236
                EndProperty
                BeginProperty Column09 
-                  ColumnWidth     =   824.882
                EndProperty
                BeginProperty Column10 
-                  ColumnWidth     =   870.236
                EndProperty
             EndProperty
          End
@@ -3023,7 +2972,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109248513
+               Format          =   62717953
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3124,7 +3073,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109248513
+               Format          =   62717953
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3343,33 +3292,24 @@ Begin VB.Form rw_ficha_rrhh
                SplitCount      =   1
                BeginProperty Split0 
                   BeginProperty Column00 
-                     ColumnWidth     =   675.213
                   EndProperty
                   BeginProperty Column01 
                      Object.Visible         =   -1  'True
-                     ColumnWidth     =   884.976
                   EndProperty
                   BeginProperty Column02 
-                     ColumnWidth     =   1769.953
                   EndProperty
                   BeginProperty Column03 
-                     ColumnWidth     =   675.213
                   EndProperty
                   BeginProperty Column04 
-                     ColumnWidth     =   854.929
                   EndProperty
                   BeginProperty Column05 
                      Object.Visible         =   -1  'True
-                     ColumnWidth     =   1814.74
                   EndProperty
                   BeginProperty Column06 
-                     ColumnWidth     =   689.953
                   EndProperty
                   BeginProperty Column07 
-                     ColumnWidth     =   854.929
                   EndProperty
                   BeginProperty Column08 
-                     ColumnWidth     =   2445.166
                   EndProperty
                EndProperty
             End
@@ -3386,7 +3326,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109248513
+            Format          =   62717953
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3403,7 +3343,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109248513
+            Format          =   62717953
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3567,7 +3507,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109248513
+            Format          =   62717953
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -4325,23 +4265,18 @@ Begin VB.Form rw_ficha_rrhh
                   WrapText        =   -1  'True
                EndProperty
                BeginProperty Column01 
-                  ColumnWidth     =   1005.165
                EndProperty
                BeginProperty Column02 
                   ColumnWidth     =   1080
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   2399.811
                EndProperty
                BeginProperty Column04 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   2025.071
                EndProperty
                BeginProperty Column05 
-                  ColumnWidth     =   794.835
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   1170.142
                EndProperty
                BeginProperty Column07 
                EndProperty
@@ -4754,26 +4689,19 @@ Begin VB.Form rw_ficha_rrhh
                   Object.Visible         =   0   'False
                EndProperty
                BeginProperty Column01 
-                  ColumnWidth     =   1049.953
                EndProperty
                BeginProperty Column02 
-                  ColumnWidth     =   975.118
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   2369.764
                EndProperty
                BeginProperty Column04 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1769.953
                EndProperty
                BeginProperty Column05 
-                  ColumnWidth     =   734.74
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   1140.095
                EndProperty
                BeginProperty Column07 
-                  ColumnWidth     =   585.071
                EndProperty
                BeginProperty Column08 
                EndProperty
@@ -5164,35 +5092,26 @@ Begin VB.Form rw_ficha_rrhh
             SplitCount      =   1
             BeginProperty Split0 
                BeginProperty Column00 
-                  ColumnWidth     =   1110.047
                EndProperty
                BeginProperty Column01 
                   Object.Visible         =   -1  'True
-                  ColumnWidth     =   1184.882
                EndProperty
                BeginProperty Column02 
                   Object.Visible         =   0   'False
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   599.811
                EndProperty
                BeginProperty Column04 
-                  ColumnWidth     =   1395.213
                EndProperty
                BeginProperty Column05 
-                  ColumnWidth     =   1454.74
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   1214.929
                EndProperty
                BeginProperty Column07 
-                  ColumnWidth     =   1154.835
                EndProperty
                BeginProperty Column08 
-                  ColumnWidth     =   1679.811
                EndProperty
                BeginProperty Column09 
-                  ColumnWidth     =   780.095
                EndProperty
             EndProperty
          End
@@ -5604,28 +5523,20 @@ Begin VB.Form rw_ficha_rrhh
                   Object.Visible         =   0   'False
                EndProperty
                BeginProperty Column03 
-                  ColumnWidth     =   794.835
                EndProperty
                BeginProperty Column04 
-                  ColumnWidth     =   555.024
                EndProperty
                BeginProperty Column05 
-                  ColumnWidth     =   884.976
                EndProperty
                BeginProperty Column06 
-                  ColumnWidth     =   645.165
                EndProperty
                BeginProperty Column07 
-                  ColumnWidth     =   975.118
                EndProperty
                BeginProperty Column08 
-                  ColumnWidth     =   750.047
                EndProperty
                BeginProperty Column09 
-                  ColumnWidth     =   1260.284
                EndProperty
                BeginProperty Column10 
-                  ColumnWidth     =   585.071
                EndProperty
                BeginProperty Column11 
                EndProperty
@@ -6264,20 +6175,16 @@ Begin VB.Form rw_ficha_rrhh
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   3465.071
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               ColumnWidth     =   1319.811
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Object.Visible         =   0   'False
-               ColumnWidth     =   959.811
             EndProperty
             BeginProperty Column04 
                Object.Visible         =   0   'False
@@ -6286,7 +6193,6 @@ Begin VB.Form rw_ficha_rrhh
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   4919.811
             EndProperty
          EndProperty
       End
@@ -8197,7 +8103,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '      BtnModificar.Enabled = False
      ' BtnEliminar.Enabled = False
       'TxtTipo.Text = Empty
-      txtCodigo = Empty
+      TxtCodigo = Empty
   Else
 'lblActivo.Caption = Ado_datos.Recordset!sigla_emprea
 
@@ -8459,7 +8365,7 @@ End If
 '       DE.dbo_fc_correl_ben CORREL
        Set rstbeneaux = New ADODB.Recordset
        'SQL_FOR = "select * from rv_personal_contratado where beneficiario_codigo= '" & TxtCodigo.Text & "' OR beneficiario_codigo= '" & txtCodigo2.Text & "' "
-       SQL_FOR = "select * from Gc_beneficiario where beneficiario_codigo= '" & txtCodigo & "'  "
+       SQL_FOR = "select * from Gc_beneficiario where beneficiario_codigo= '" & TxtCodigo & "'  "
        rstbeneaux.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic        ', adCmdText
        'If rstbeneaux.RecordCount > 0 And txtCodigo.Enabled Then
        If rstbeneaux.RecordCount > 0 Then
@@ -8470,7 +8376,7 @@ End If
        End If
      End If
      If TxtTipo < "20" Then
-        If Trim(txtCodigo) = "" Then
+        If Trim(TxtCodigo) = "" Then
             MsgBox "Introduzca el No. Documento de Identidad :"
 '                TxtCodigo.SetFocus
             Exit Sub
@@ -8489,8 +8395,8 @@ End If
         ' CORREL = CORREL + 1
         db.BeginTrans
         SW = False
-        If txtCodigo.Enabled And swnuevo = 1 Then
-            .Recordset("beneficiario_codigo") = Trim(txtCodigo)
+        If TxtCodigo.Enabled And swnuevo = 1 Then
+            .Recordset("beneficiario_codigo") = Trim(TxtCodigo)
 '            If TxtTipo2.Text = "6" Then
 '                 .Recordset("NIT") = TxtCodigo.Text
 '            End If
@@ -8576,7 +8482,7 @@ End If
    FraGrabarCancelar.Visible = False
    FraNavega.Enabled = True
    fraDatos.Enabled = False
-   txtCodigo.Enabled = True
+   TxtCodigo.Enabled = True
 '   FraSS_SS.Enabled = False
 
    Call Carga_Recor
@@ -9802,7 +9708,7 @@ Private Sub CmdMod5_Click()
         marca1 = Ado_datos.Recordset.Bookmark
         frm_ro_movilidad_personal.txtSW = "MOD"
         
-        frm_ro_movilidad_personal.txtCodigo.Text = AdoMovilidad.Recordset!numero_cambio
+        frm_ro_movilidad_personal.TxtCodigo.Text = AdoMovilidad.Recordset!numero_cambio
           frm_ro_movilidad_personal.TxtForm.Text = AdoMovilidad.Recordset!numero_resolucion
           frm_ro_movilidad_personal.DtcRespaldoCod.Text = AdoMovilidad.Recordset!tipo_memo
           frm_ro_movilidad_personal.DtcRespaldo.BoundText = frm_ro_movilidad_personal.DtcRespaldoCod.BoundText
@@ -9873,10 +9779,10 @@ On Error GoTo EditErr
     Set rsauxiliar = New ADODB.Recordset
     'SQL_FOR = "select * from rc_personal where ci = '" & txtCodigo.Text & "'"
     'rsauxiliar.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic        ', adCmdText
-    rsauxiliar.Open "select * from rc_personal where ci = '" & txtCodigo & "' ", db, adOpenKeyset, adLockOptimistic
+    rsauxiliar.Open "select * from rc_personal where ci = '" & TxtCodigo & "' ", db, adOpenKeyset, adLockOptimistic
     If rsauxiliar.RecordCount = 0 Then
         rsauxiliar.AddNew
-        rsauxiliar!ci = txtCodigo
+        rsauxiliar!ci = TxtCodigo
         rsauxiliar!idfuncionario = CORREL
     Else
         'MsgBox " YA EXISTE EL CODIGO ..."
@@ -9892,14 +9798,14 @@ On Error GoTo EditErr
         rsauxiliar!usr_usuario = glusuario 'frmLogin.txtUserName.Text
         rsauxiliar!fecha_registro = Date
         rsauxiliar!hora_registro = Format(Time, "HH:mm:ss")
-        rsauxiliar!departamento_nacimiento = Dtc_depto.Text
+        rsauxiliar!departamento_nacimiento = dtc_depto.Text
         rsauxiliar!Procedencia = Dtc_prov.Text
         rsauxiliar!lugar_procedencia = Dtc_munic.Text
         'rsauxiliar!codigo_cargo = "-"   'TxtCargo.Text
 '        rsauxiliar!numero_folder = Txt_mail.Text
         rsauxiliar!profesion = TxtProfesion.Text
         rsauxiliar.Update
-        MkDir txtCodigo
+        MkDir TxtCodigo
         If Guardar_Imagen(db, "Select Foto From rv_personal_contratado Where beneficiario_codigo= '" & Ado_datos.Recordset("beneficiario_codigo") & "' ", "Foto", App.Path) Then
             MsgBox "ok"
         Else
@@ -9940,10 +9846,10 @@ On Error GoTo EditErr
       SSTab1.Tab = 0
       SSTab1.TabEnabled(0) = True
       SSTab1.TabEnabled(1) = False
-      txtCodigo.Enabled = True
+      TxtCodigo.Enabled = True
       fraDatos.Enabled = True
       Frame2.Enabled = True
-      txtCodigo = Empty
+      TxtCodigo = Empty
 '      Text1.Text = Empty
 '      Text2.Text = Empty
 '      Text3.Text = Empty
@@ -10102,7 +10008,7 @@ EditErr:
 End Sub
 
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 On Error GoTo EditErr
    sino = MsgBox("Está Seguro de ANULAR el Registro?", vbYesNo + vbQuestion, "Atención")
    If Ado_datos.Recordset("estado_codigo") = "APR" Or Ado_datos.Recordset("estado_codigo") = "REG" Then
@@ -10140,7 +10046,7 @@ Ado_datos.Recordset.CancelUpdate
    FraGrabarCancelar.Visible = False
    FraNavega.Enabled = True
    fraDatos.Enabled = False
-   txtCodigo.Enabled = True
+   TxtCodigo.Enabled = True
 '   FraSS_SS.Enabled = False
    CmdAdd1.Visible = False
    CmdMod1.Visible = False
@@ -10212,7 +10118,7 @@ End Sub
  
  Public Sub opciones()
  On Error GoTo EditErr
-   txtCodigo.Enabled = True
+   TxtCodigo.Enabled = True
    fraDatos.Enabled = False
    'Carga_Recor
    swnuevo = 0
@@ -10261,12 +10167,19 @@ EditErr:
 Private Sub BtnModificar_Click()
 On Error GoTo EditErr
 '  If Ado_datos.Recordset("estado_codigo") = "N" Then
-     If Ado_datos.Recordset("estado_codigo") = "APR" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
+
+'     If Ado_datos.Recordset("estado_codigo") = "APR" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
+     If glusuario = "EHALKYER" Or glusuario = "ADMIN" Then
+
+'     If (Ado_datos.Recordset("estado_codigo") = "APR") And (glusuario = "EHALKYER" Or glusuario = "ADMIN") Then
+'        Frame2.Enabled = False
+'     ElseIf (Ado_datos.Recordset("estado_codigo") = "REG") And (glusuario = "EHALKYER" Or glusuario = "ADMIN") Then
+
         Frame2.Enabled = False
-     ElseIf Ado_datos.Recordset("estado_codigo") = "REG" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
-        Frame2.Enabled = False
+'     ElseIf Ado_datos.Recordset("estado_codigo") = "REG" And (Ado_datos.Recordset("usr_codigo") = "EHALKYER" Or Ado_datos.Recordset("usr_codigo") = "ADMIN") Then
+'        Frame2.Enabled = False
      Else
-        MsgBox "El usuario no tiene acceso a modificar ..."
+        MsgBox "El usuario no tiene acceso a Modificar ..."
         Exit Sub
      End If
      swnuevo = 2
@@ -10318,7 +10231,7 @@ On Error GoTo EditErr
      FraGrabarCancelar.Visible = True
      FraNavega.Enabled = False
 '     FraSS_SS.Enabled = True
-     txtCodigo.Enabled = False
+     TxtCodigo.Enabled = False
      rst_ben.Open "SELECT * FROM gc_Tipo_Beneficiario where estado_codigo ='APR' ORDER BY tipoben_descripcion ", db, adOpenStatic
      Set AdoTip_ben.Recordset = rst_ben
      
@@ -10491,7 +10404,7 @@ On Error GoTo EditErr
         ro_Personal_Liquidacion.txtpago6.Text = IIf(IsNull(AdoLiquidacion.Recordset!OtroPago_Utimo), "0", AdoLiquidacion.Recordset!OtroPago_Utimo)
         ro_Personal_Liquidacion.lblARCH.Caption = AdoLiquidacion.Recordset!ARCHIVO
         ro_Personal_Liquidacion.CmbAño.Text = IIf(IsNull(AdoLiquidacion.Recordset!Años), "0", AdoLiquidacion.Recordset!Años)
-        ro_Personal_Liquidacion.CmbMes.Text = IIf(IsNull(AdoLiquidacion.Recordset!meses), "0", AdoLiquidacion.Recordset!meses)
+        ro_Personal_Liquidacion.cmbMes.Text = IIf(IsNull(AdoLiquidacion.Recordset!meses), "0", AdoLiquidacion.Recordset!meses)
         ro_Personal_Liquidacion.CmbDia.Text = IIf(IsNull(AdoLiquidacion.Recordset!DIAS), "0", AdoLiquidacion.Recordset!DIAS)
         ro_Personal_Liquidacion.TxtImdemAño.Text = IIf(IsNull(AdoLiquidacion.Recordset!Imdem_Año), "0", AdoLiquidacion.Recordset!Imdem_Año)
         ro_Personal_Liquidacion.TxtImdemMes.Text = IIf(IsNull(AdoLiquidacion.Recordset!Imdem_Mes), "0", AdoLiquidacion.Recordset!Imdem_Mes)
@@ -10610,7 +10523,7 @@ Private Sub Command17_Click()
         frm_ro_personal_contrato.TxtForm = Ado_Contrato.Recordset!solicitud_codigo
         frm_ro_personal_contrato.TxtAprob = Ado_Contrato.Recordset!estado_contrato
         frm_ro_personal_contrato.lblARCH.Caption = Ado_Contrato.Recordset!ARCHIVO
-        frm_ro_personal_contrato.txtCodigo.Text = Ado_Contrato.Recordset!codigo_contrato
+        frm_ro_personal_contrato.TxtCodigo.Text = Ado_Contrato.Recordset!codigo_contrato
         frm_ro_personal_contrato.txtObjContrato.Text = IIf(IsNull(Ado_Contrato.Recordset!objeto_contrato), "-", Ado_Contrato.Recordset!objeto_contrato)
         frm_ro_personal_contrato.DTcFte.Text = IIf(IsNull(Ado_Contrato.Recordset!fte_codigo), "10", Ado_Contrato.Recordset!fte_codigo)
         frm_ro_personal_contrato.dtc_codigo.Text = Ado_Contrato.Recordset!unidad_codigo
@@ -10941,13 +10854,13 @@ Private Sub DtcEstCiv_Click(Area As Integer)
 End Sub
 
 Private Sub Dtc_depto_Click(Area As Integer)
-    Dtc_depto_cod.BoundText = Dtc_depto.BoundText
+    Dtc_depto_cod.BoundText = dtc_depto.BoundText
     Call pProvincia(Dtc_depto_cod.BoundText)
 End Sub
 
 Private Sub Dtc_depto_cod_Click(Area As Integer)
-    Dtc_depto.BoundText = Dtc_depto_cod.BoundText
-    Call pProvincia(Dtc_depto.BoundText)
+    dtc_depto.BoundText = Dtc_depto_cod.BoundText
+    Call pProvincia(dtc_depto.BoundText)
 End Sub
 
 Private Sub pProvincia(depto_codigo As String)
@@ -11688,7 +11601,7 @@ Private Sub Carga_Recor()
     Set rs_Depto = New ADODB.Recordset
     rs_Depto.Open "select * from gc_Departamento", db, adOpenKeyset, adLockOptimistic
     Set Ado_Depto.Recordset = rs_Depto
-    Dtc_depto.BoundText = Dtc_depto_cod.BoundText
+    dtc_depto.BoundText = Dtc_depto_cod.BoundText
     
     Set rs_Prov = New ADODB.Recordset
     rs_Prov.Open "select * from GC_Provincia", db, adOpenKeyset, adLockOptimistic

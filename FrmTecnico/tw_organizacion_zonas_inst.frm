@@ -34,9 +34,9 @@ Begin VB.Form tw_organizacion_zonas_inst
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   2640
-      Left            =   7320
+      Left            =   8400
       TabIndex        =   16
-      Top             =   7080
+      Top             =   4800
       Visible         =   0   'False
       Width           =   8460
       Begin VB.PictureBox FraGrabarCancelar 
@@ -52,7 +52,6 @@ Begin VB.Form tw_organizacion_zonas_inst
          ScaleWidth      =   8280
          TabIndex        =   57
          Top             =   1800
-         Visible         =   0   'False
          Width           =   8280
          Begin VB.PictureBox BtnCancelar 
             Appearance      =   0  'Flat
@@ -151,7 +150,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109117441
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -165,7 +164,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109117441
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -179,7 +178,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109117441
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -193,7 +192,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109117441
+         Format          =   117899265
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -309,7 +308,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       Height          =   4680
       Left            =   8040
       TabIndex        =   21
-      Top             =   2520
+      Top             =   2640
       Visible         =   0   'False
       Width           =   9300
       Begin VB.PictureBox fra_opciones2 
@@ -1117,6 +1116,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             TabIndex        =   62
             ToolTipText     =   "Modifica datos del Grupo elegido"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1430
          End
          Begin VB.Label lbl_texto2 
@@ -1483,18 +1483,22 @@ Begin VB.Form tw_organizacion_zonas_inst
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
+               Object.Visible         =   0   'False
                ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
+               Object.Visible         =   0   'False
                ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
+               Object.Visible         =   0   'False
                ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
+               Object.Visible         =   0   'False
                ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column06 
@@ -2550,6 +2554,9 @@ Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         rs_datos10.Open "Select * from AV_EDIF_VS_BIENES_VENTANUEVA where edif_codigo = '" & Ado_detalle1.Recordset!edif_codigo & "' ", db, adOpenStatic
         Set Ado_detalle2.Recordset = rs_datos10
         Set DtGLista.DataSource = Ado_detalle2.Recordset
+        If Ado_detalle2.Recordset.RecordCount > 0 Then
+            
+        End If
     Else
         FrmDetalle.Visible = False
     End If
@@ -2686,7 +2693,7 @@ Private Sub BtnBuscar_Click()
     ClBuscaGrid.Ejecutar
 End Sub
 
-Private Sub BtnCancelar_Click()
+Private Sub btnCancelar_Click()
 '  On Error Resume Next
 '   sino = MsgBox("Está Seguro de CANCELAR la operación ? ", vbYesNo + vbQuestion, "Atención")
 '   If sino = vbYes Then

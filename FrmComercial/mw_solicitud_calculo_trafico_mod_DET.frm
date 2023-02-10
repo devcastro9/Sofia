@@ -9,8 +9,8 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod_DET
    ClientWidth     =   4560
    LinkTopic       =   "Form1"
    Picture         =   "mw_solicitud_calculo_trafico_mod_DET.frx":0000
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    StartUpPosition =   3  'Windows Default
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
@@ -243,36 +243,32 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod_DET
       _ExtentY        =   13150
       _Version        =   393216
       Tabs            =   7
-      Tab             =   6
+      Tab             =   4
       TabsPerRow      =   4
       TabHeight       =   520
       TabCaption(0)   =   "DATOS GENERALES"
       TabPicture(0)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5E67
       Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "Frame1"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "MAQUINA DE TRACCION"
       TabPicture(1)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5E83
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "Frame2"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "CABINA"
       TabPicture(2)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5E9F
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "Frame3"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "PUERTAS"
       TabPicture(3)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5EBB
       Tab(3).ControlEnabled=   0   'False
       Tab(3).Control(0)=   "Frame4"
-      Tab(3).Control(0).Enabled=   0   'False
       Tab(3).ControlCount=   1
       TabCaption(4)   =   "CONTROL"
       TabPicture(4)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5ED7
-      Tab(4).ControlEnabled=   0   'False
+      Tab(4).ControlEnabled=   -1  'True
       Tab(4).Control(0)=   "Frame5"
       Tab(4).Control(0).Enabled=   0   'False
       Tab(4).ControlCount=   1
@@ -280,17 +276,15 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod_DET
       TabPicture(5)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5EF3
       Tab(5).ControlEnabled=   0   'False
       Tab(5).Control(0)=   "Frame6"
-      Tab(5).Control(0).Enabled=   0   'False
       Tab(5).ControlCount=   1
       TabCaption(6)   =   "SEÑALIZACION DE PISO"
       TabPicture(6)   =   "mw_solicitud_calculo_trafico_mod_DET.frx":5F0F
-      Tab(6).ControlEnabled=   -1  'True
+      Tab(6).ControlEnabled=   0   'False
       Tab(6).Control(0)=   "Frame7"
-      Tab(6).Control(0).Enabled=   0   'False
       Tab(6).ControlCount=   1
       Begin VB.Frame Frame7 
          Height          =   6495
-         Left            =   240
+         Left            =   -74760
          TabIndex        =   85
          Top             =   720
          Width           =   10575
@@ -925,7 +919,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod_DET
       End
       Begin VB.Frame Frame5 
          Height          =   6495
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   58
          Top             =   720
          Width           =   10455
