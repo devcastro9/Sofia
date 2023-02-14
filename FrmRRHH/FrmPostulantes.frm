@@ -984,7 +984,7 @@ Private Sub adoListaPostuantes_MoveComplete(ByVal adReason As ADODB.EventReasonE
         lblNombrePostulante.Caption = lblNombrePostulante.Caption & " " & adoListaPostuantes.Recordset!Nombres
         lblCiPostulante.Caption = adoListaPostuantes.Recordset!DocumentoIdentidad
         lblCelularPostulante.Caption = adoListaPostuantes.Recordset!TelefonoCelular
-        lblTelefonoPostulante.Caption = adoListaPostuantes.Recordset!TelefonoFijo
+        lblTelefonoPostulante.Caption = IIf(Not IsNull(adoListaPostuantes.Recordset!TelefonoFijo), adoListaPostuantes.Recordset!TelefonoFijo, "")
         lblEmailPostulante.Caption = adoListaPostuantes.Recordset!EmailPersonal
         lblEstadoCivilPostulante.Caption = adoListaPostuantes.Recordset!estado_civil_descripcion
         lblGeneroPostulante.Caption = adoListaPostuantes.Recordset!generoDescripcion
