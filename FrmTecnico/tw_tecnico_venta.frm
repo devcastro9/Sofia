@@ -18,9 +18,9 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   15357.08
+   ScaleHeight     =   15336.33
    ScaleMode       =   0  'User
-   ScaleWidth      =   8.0726e5
+   ScaleWidth      =   1.05914e6
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
@@ -38,7 +38,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   4920
+      Top             =   4800
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -122,7 +122,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   4920
+      Top             =   4800
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -237,7 +237,7 @@ Begin VB.Form tw_tecnico_venta
       Height          =   4455
       Left            =   6720
       TabIndex        =   143
-      Top             =   5160
+      Top             =   1200
       Visible         =   0   'False
       Width           =   11775
       Begin VB.OptionButton Option3 
@@ -750,14 +750,13 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1311,7 +1310,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   119013377
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1575,7 +1574,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   119013377
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1603,7 +1602,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   119013377
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2101,7 +2100,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   110166017
+               Format          =   119013377
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2126,7 +2125,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110166017
+               Format          =   119013377
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2570,7 +2569,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110166017
+               Format          =   119013377
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2653,7 +2652,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110166017
+               Format          =   119013377
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3379,7 +3378,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   119013377
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -8822,7 +8821,7 @@ Private Sub BtnModDetalle2_Click()
     'swgrabar = 0
     swnuevo = 2
     TxtCobrador.Visible = False
-    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "JCASTRO" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Then
+    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "JCASTRO" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "PMAJLUF" Then
         TxtMonto.Enabled = True
         TxtMonto.Locked = False
         TxtDsctoTot.Enabled = False
@@ -9272,7 +9271,7 @@ Private Sub CmdGrabaCobro_Click()
     nitespacio = InStr(1, dtc_codigo2A.Text, " ", 1)
     nitPunto = InStr(1, dtc_codigo2A.Text, ".", 1)
     'FILTER ADD BY JASM
-    If (nitespacio > 0) Or (dtc_codigo2A.Text = "0") Or (nitPunto > 0) Or (Len(dtc_codigo2A.Text) < 5) Then
+    If (nitespacio > 0) Or (dtc_codigo2A.Text = "0") Or (nitPunto > 0) Or (Len(dtc_codigo2A.Text) < 3) Then
         MsgBox "El NIT del cliente a Facturar NO debe ser CERO ni tener caracteres especiales(espacios, puntos, etc) y debe tener CINCO o mas digitos", vbCritical, "Atención"
         Exit Sub
     End If

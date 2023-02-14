@@ -18,9 +18,9 @@ Begin VB.Form aw_almacen_salida_rep
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   1.13773e5
+   ScaleHeight     =   1.2115e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   4.01267e7
+   ScaleWidth      =   7.53558e7
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -422,7 +422,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109510657
+         Format          =   110100481
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -435,7 +435,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109510657
+         Format          =   110100481
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -775,6 +775,7 @@ Begin VB.Form aw_almacen_salida_rep
       TabPicture(1)   =   "aw_almacen_salida_rep.frx":A9C5
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       Begin VB.Frame FrmEdita 
          BackColor       =   &H00C0C0C0&
@@ -946,7 +947,7 @@ Begin VB.Form aw_almacen_salida_rep
             Height          =   280
             Left            =   11100
             TabIndex        =   40
-            Top             =   1455
+            Top             =   2775
             Width           =   255
          End
          Begin VB.TextBox Text1 
@@ -1266,8 +1267,7 @@ Begin VB.Form aw_almacen_salida_rep
             Height          =   315
             Left            =   9960
             TabIndex        =   34
-            Top             =   1440
-            Visible         =   0   'False
+            Top             =   2760
             Width           =   1410
             _ExtentX        =   2487
             _ExtentY        =   556
@@ -2176,7 +2176,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109510657
+            Format          =   110100481
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -8086,7 +8086,8 @@ Private Sub dtc_desc15_Click(Area As Integer)
     dtc_subgrupo15.BoundText = dtc_desc15.BoundText
     Dtc_partida15.BoundText = dtc_desc15.BoundText
     If dtc_codigo15.Text = "" Or dtc_codigo13.Text = "" Then
-        dtc_codigo15.Text = "0"
+        ' revisar WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+        'dtc_codigo15.Text = "0"
     Else
      Set rs_aux9 = New ADODB.Recordset
      If rs_aux9.State = 1 Then rs_aux9.Close

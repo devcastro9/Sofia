@@ -15,8 +15,8 @@ Begin VB.Form aw_bienes
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   8355
+   ScaleWidth      =   11145
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00E0E0E0&
@@ -115,7 +115,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117506049
+         Format          =   119013377
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -1126,7 +1126,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   117506049
+         Format          =   119013377
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1370,7 +1370,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   117506049
+         Format          =   119013377
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -2296,10 +2296,10 @@ Begin VB.Form aw_bienes
       Height          =   480
       Left            =   0
       ScaleHeight     =   480
-      ScaleWidth      =   20250
+      ScaleWidth      =   11145
       TabIndex        =   26
-      Top             =   10455
-      Width           =   20250
+      Top             =   7875
+      Width           =   11145
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -2828,12 +2828,12 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "TCRUZ" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         Else
@@ -2867,12 +2867,12 @@ Else
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         If Ado_datos.Recordset!bien_stock_minimo < Ado_datos.Recordset!bien_stock_actual Then
@@ -2882,7 +2882,7 @@ Else
         End If
 '    End If
         'TDBC_Montador
-    Set Img_Foto = Leer_Imagen(db, "Select Foto From ac_bienes Where bien_codigo = '" & Ado_datos.Recordset("bien_codigo") & "' ", "Foto")
+    Set Img_Foto = Leer_Imagen(db, "Select Foto From ac_bienes_foto Where bien_codigo = '" & Ado_datos.Recordset("bien_codigo") & "' ", "Foto")
     Image2 = Img_Foto
     If Ado_datos.Recordset!estado_codigo = "APR" Then
         'chkEstado.Value = vbChecked
@@ -2964,7 +2964,7 @@ Private Sub BtnAprobar_Click()
        If Ado_datos.Recordset("estado_codigo") = "REG" Then
           If sino = vbYes Then
             CodBien = Ado_datos.Recordset!bien_codigo
-            COD_EDIF = Ado_datos.Recordset!EDIF_CODIGO
+            COD_EDIF = Ado_datos.Recordset!edif_codigo
             COD_MOD = Ado_datos.Recordset!modelo_codigo
 '            If Ado_datos.Recordset!grupo_codigo = "40000" Then
 '                Call ACTUALIZA_ID
@@ -3335,7 +3335,7 @@ Que_Error:
     MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 On Error GoTo Que_Error
     'ao_adjudica_detalle_D
    If Ado_datos.Recordset.RecordCount > 0 Then
@@ -3418,7 +3418,7 @@ Private Sub BtnVer_Click()
 '    End If
     'ARCH_FOTO = App.Path + "\" + "PERSONAL" + "\" + Ado_datos.Recordset!codigo_beneficiario + "\" + Ado_datos.Recordset("codigo_beneficiario") + "-FOTO.JPG"
     CodBien = Ado_datos.Recordset!bien_codigo
-    If Guardar_Imagen(db, "Select Foto From ac_bienes Where bien_codigo= '" & CodBien & "' ", "Foto", ARCH_FOTO) Then
+    If Guardar_Imagen(db, "Select Foto From ac_bienes_foto Where bien_codigo= '" & CodBien & "' ", "Foto", ARCH_FOTO) Then
         MsgBox "Se cargo la Imagen Correctamente !!"
     Else
         MsgBox "ERROR No existe la Imagen, Verifique por Favor..."
@@ -3545,7 +3545,7 @@ On Error GoTo QError
             Ado_datos.Recordset!bien_stock_minimo = IIf(txtStockMin.Text = "", 0, CDbl(txtStockMin.Text))      'CDbl(txtStockMin)
             
             Ado_datos.Recordset!bien_rotacion = IIf(cmd_rotacion.Text = "", "PROMEDIO", cmd_rotacion.Text)      'CDbl(txtStockMin)
-            Ado_datos.Recordset!EDIF_CODIGO = IIf(dtc_codigo10.Text = "", "20101-0", dtc_codigo10.Text)      'CDbl(txtStockMin)
+            Ado_datos.Recordset!edif_codigo = IIf(dtc_codigo10.Text = "", "20101-0", dtc_codigo10.Text)      'CDbl(txtStockMin)
             'Ado_datos.Recordset!tipo_eqp = IIf(dtc_codigo8.Text = "", "X", dtc_codigo8.Text)
             Ado_datos.Recordset!pais_codigo = DtcPais.Text
             'Ado_datos.Recordset!ARCHIVO_F = Trim(Ado_datos.Recordset!subgrupo_codigo) + "-" + Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
@@ -3787,12 +3787,12 @@ Private Sub Form_Load()
     If glusuario = "CARIZACA" Or glusuario = "RCUELA" Or glusuario = "AFLORES" Or glusuario = "ADMIN" Or glusuario = "JYMAMANI" Or glusuario = "AFLORES" Or glusuario = "CSALINAS" Then
         BtnAñadir.Visible = True
         BtnModificar.Visible = True
-        BtnEliminar.Visible = True
+        btnEliminar.Visible = True
         BtnAprobar.Visible = True
     Else
         BtnAñadir.Visible = False
         BtnModificar.Visible = False
-        BtnEliminar.Visible = False
+        btnEliminar.Visible = False
         BtnAprobar.Visible = False
     End If
             
@@ -3825,7 +3825,7 @@ Private Sub Form_Load()
     C_ROTBAJ = 0.02
     C_FIJO = 0.0636
     C_IMPSTO2 = 0.1494
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 
