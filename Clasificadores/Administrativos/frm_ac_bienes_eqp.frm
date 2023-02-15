@@ -15,8 +15,8 @@ Begin VB.Form frm_ac_bienes_eqp
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleHeight     =   8355
+   ScaleWidth      =   11145
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumo 
       BackColor       =   &H00C0C0C0&
@@ -727,49 +727,49 @@ Begin VB.Form frm_ac_bienes_eqp
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   794.835
+               ColumnWidth     =   794,835
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   884.976
+               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   840.189
+               ColumnWidth     =   840,189
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   884.976
+               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1019.906
+               ColumnWidth     =   1019,906
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   884.976
+               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               ColumnWidth     =   884.976
+               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1289.764
+               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   884.976
+               ColumnWidth     =   884,976
             EndProperty
          EndProperty
       End
@@ -1241,10 +1241,10 @@ Begin VB.Form frm_ac_bienes_eqp
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   1319.811
+               ColumnWidth     =   1319,811
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   3135.118
+               ColumnWidth     =   3135,118
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
@@ -1540,7 +1540,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   111411201
+         Format          =   136970241
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1803,7 +1803,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   111411201
+         Format          =   136970241
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -2924,10 +2924,10 @@ Begin VB.Form frm_ac_bienes_eqp
       Height          =   495
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   20250
+      ScaleWidth      =   11145
       TabIndex        =   27
-      Top             =   10440
-      Width           =   20250
+      Top             =   7860
+      Width           =   11145
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -3473,7 +3473,7 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
         If Ado_datos.Recordset.BOF And Ado_datos.Recordset.EOF Then
             TxtGrupo.Caption = ""
             TxtDetalle.Text = ""
-            TxtDescripcion.Text = ""
+            txtDescripcion.Text = ""
             TxtActual.Caption = ""
             chkEstado.Value = vbUnchecked
 '            Ado_datos.Caption = "Registro: 0 de 0"
@@ -3489,7 +3489,7 @@ Else
         End If
 
         'dtc_sub_des
-    Set Img_Foto = Leer_Imagen(db, "Select Foto From ac_bienes Where bien_codigo = '" & Ado_datos.Recordset("bien_codigo") & "' ", "Foto")
+    Set Img_Foto = Leer_Imagen(db, "Select Foto From ac_bienes_foto Where bien_codigo = '" & Ado_datos.Recordset("bien_codigo") & "' ", "Foto")
     Image2 = Img_Foto
     If Ado_datos.Recordset!estado_codigo = "APR" Then
         'chkEstado.Value = vbChecked
@@ -3562,7 +3562,7 @@ Private Sub BtnAprobar_Click()
        If Ado_datos.Recordset("estado_codigo") = "REG" Then
           If sino = vbYes Then
             CodBien = Ado_datos.Recordset!bien_codigo
-            COD_EDIF = Ado_datos.Recordset!EDIF_CODIGO
+            COD_EDIF = Ado_datos.Recordset!edif_codigo
             COD_MOD = Ado_datos.Recordset!modelo_codigo
 '            If Ado_datos.Recordset!grupo_codigo = "40000" Then
 '                Call ACTUALIZA_ID
@@ -3867,7 +3867,7 @@ Que_Error:
     MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 On Error GoTo Que_Error
     'ao_adjudica_detalle_D
     If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "JSAAVEDRA" Or glusuario = "GSOLIZ" Or glusuario = "CSALINAS" Then
@@ -4034,7 +4034,7 @@ Private Sub BtnVer_Click()
 '    End If
     'ARCH_FOTO = App.Path + "\" + "PERSONAL" + "\" + Ado_datos.Recordset!codigo_beneficiario + "\" + Ado_datos.Recordset("codigo_beneficiario") + "-FOTO.JPG"
     CodBien = Ado_datos.Recordset!bien_codigo
-    If Guardar_Imagen(db, "Select Foto From ac_bienes Where bien_codigo= '" & CodBien & "' ", "Foto", ARCH_FOTO) Then
+    If Guardar_Imagen(db, "Select Foto From ac_bienes_foto Where bien_codigo= '" & CodBien & "' ", "Foto", ARCH_FOTO) Then
         MsgBox "Se cargo la Imagen Correctamente !!"
     Else
         MsgBox "ERROR No existe la Imagen, Verifique por Favor..."
@@ -4141,10 +4141,10 @@ On Error GoTo QError
         Ado_datos.Recordset!bien_codigo = CodBien
         
         Ado_datos.Recordset!ARCHIVO_Foto = "Cargar_Archivo"
-        Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text + " - " + TxtInicial
+        Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text + " - " + TxtInicial
       End If
       If swnuevo = False Then
-        Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text
+        Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text
         CodBien = Ado_datos.Recordset!bien_codigo
       End If
         Ado_datos.Recordset!bien_descripcion_anterior = TxtDescripcion2.Text
@@ -4184,7 +4184,7 @@ On Error GoTo QError
         Ado_datos.Recordset!observaciones = IIf(dtc_desc10.Text = "", "NO ASIGNADO", dtc_desc10.Text)
         
         Ado_datos.Recordset!bien_rotacion = IIf(cmd_rotacion.Text = "", "PROMEDIO", cmd_rotacion.Text)      'CDbl(txtStockMin)
-        Ado_datos.Recordset!EDIF_CODIGO = IIf(dtc_codigo10.Text = "", "20101-0", dtc_codigo10.Text)      'CDbl(txtStockMin)
+        Ado_datos.Recordset!edif_codigo = IIf(dtc_codigo10.Text = "", "20101-0", dtc_codigo10.Text)      'CDbl(txtStockMin)
         'Ado_datos.Recordset!tipo_eqp = IIf(dtc_codigo8.Text = "", "X", dtc_codigo8.Text)
         Ado_datos.Recordset!pais_codigo = DtcPais.Text
         'Ado_datos.Recordset!ARCHIVO_F = Trim(Ado_datos.Recordset!subgrupo_codigo) + "-" + Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
@@ -4615,10 +4615,10 @@ Private Function Valida() As Boolean
         End If
         Exit Function
     End If
-    If Trim(TxtDescripcion.Text) = "" Then
+    If Trim(txtDescripcion.Text) = "" Then
         MsgBox "Ingrese la Descripción del Detalle.", vbExclamation + vbOKOnly, "Atención"
         If estado <> 0 Then
-            TxtDescripcion.SetFocus
+            txtDescripcion.SetFocus
         End If
         Exit Function
     End If
