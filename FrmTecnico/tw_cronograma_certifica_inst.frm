@@ -16,7 +16,7 @@ Begin VB.Form tw_cronograma_certifica_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleWidth      =   10620
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet2 
       BackColor       =   &H00C0C0C0&
@@ -190,7 +190,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   117899267
+         Format          =   110100483
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -227,7 +227,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          CalendarBackColor=   16777215
          CheckBox        =   -1  'True
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   117899267
+         Format          =   110100483
          CurrentDate     =   44797
          MaxDate         =   109939
          MinDate         =   36526
@@ -2677,7 +2677,7 @@ Begin VB.Form tw_cronograma_certifica_inst
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   117899267
+         Format          =   110100483
          CurrentDate     =   44235
          MaxDate         =   109939
          MinDate         =   36526
@@ -3652,7 +3652,7 @@ End Sub
 
 Private Sub BtnModDetalle_Click()
 'If glusuario = "ADMIN" Or glusuario = "AURBINA" Or glusuario = "JSAAVEDRA" Or glusuario = "JAGUTIERREZ" Or glusuario = "KGARCIA" Or glusuario = "OCOLODRO" Or glusuario = "VMEJIA" Or glusuario = "RVALDIVIEZO" Or glusuario = "BMONTAÑO" Or glusuario = "RALARCON" Or glusuario = "FDELGADILLO" Or glusuario = "RRONDAL" Or glusuario = "FDELGADILLO" Or glusuario = "RRONDAL" Then
-If glusuario = "ADMIN" Or glusuario = "AURBINA" Or glusuario = "JSAAVEDRA" Or glusuario = "MARTEAGA" Or glusuario = "KGARCIA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "FDELGADILLO" Or glusuario = "RRONDAL" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "FFLORES" Then
+If glusuario = "ADMIN" Or glusuario = "AURBINA" Or glusuario = "JSAAVEDRA" Or glusuario = "MARTEAGA" Or glusuario = "KGARCIA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "FDELGADILLO" Or glusuario = "RRONDAL" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Then
    If Ado_detalle2.Recordset("estado_codigo") = "REG" Then
         VAR_BUSCA = 1
 '      'sino = MsgBox("Para modificar elija una de las 2 opciones: (SI=Modifica SOLO el Registro Elegido, NO=Acceso a Modificar a TODOS los Registros de la ZONA) ", vbYesNo + vbQuestion, "Atención")
@@ -3688,7 +3688,7 @@ End If
 End Sub
 
 Private Sub BtnModifica_Click()
-If glusuario = "ADMIN" Or glusuario = "AURBINA" Or glusuario = "JSAAVEDRA" Or glusuario = "MARTEAGA" Or glusuario = "KGARCIA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "FDELGADILLO" Or glusuario = "RRONDAL" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "FFLORES" Then
+If glusuario = "ADMIN" Or glusuario = "AURBINA" Or glusuario = "JSAAVEDRA" Or glusuario = "MARTEAGA" Or glusuario = "KGARCIA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "FDELGADILLO" Or glusuario = "RRONDAL" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Then
    If Ado_detalle2.Recordset!estado_codigo = "REG" Then
       '  VAR_BUSCA = 1
       sino = MsgBox("Para modificar elija una de las 2 opciones:" & vbCr & _

@@ -15,8 +15,8 @@ Begin VB.Form tw_identificacion_cliente
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   10260
+   ScaleWidth      =   18585
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprimeRepara 
@@ -860,7 +860,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   112918529
+         Format          =   110100481
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -2931,10 +2931,10 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20160
+      ScaleWidth      =   18585
       TabIndex        =   5
-      Top             =   10935
-      Width           =   20160
+      Top             =   10260
+      Width           =   18585
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4585,7 +4585,7 @@ Private Sub BtnAnlDetalle7_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then         'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -5222,7 +5222,7 @@ Private Sub BtnCancelar_Click()
 End Sub
 
 Private Sub btnEliminar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then         'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -6389,7 +6389,7 @@ Private Sub BtnModDetalle7_Click()
 End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then     'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -7274,7 +7274,7 @@ Private Sub Ado_datos_WillChangeRecord(ByVal adReason As ADODB.EventReasonEnum, 
 End Sub
 
 Private Sub BtnAñadir_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then     'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If

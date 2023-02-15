@@ -1507,7 +1507,7 @@ Private Sub Mnu_AsignacionTareasD_Click()
 End Sub
 
 Private Sub Mnu_AsignacionTareasM_Click()
-    If glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "TCRUZ" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
+    If glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "TCRUZ" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
         Aux = "DNMAN"
         frm_to_cronograma_mensual.lbl_titulo = Mnu_AsignacionTareasM.Caption
         frm_to_cronograma_mensual.FraNavega = Mnu_AsignacionTareasM.Caption
@@ -1658,7 +1658,7 @@ Private Sub Mnu_CronogramaInstalaciones_Click()
 End Sub
 
 Private Sub Mnu_CronogramaMantenimiento_Click()
-    If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "FFLORES" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "JMAMANI" Or glusuario = "CESCALANTE" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Then
+    If glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "ADMIN" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "JSAAVEDRA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "KGARCIA" Or glusuario = "VMEJIA" Or glusuario = "JMAMANI" Or glusuario = "CESCALANTE" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Then
         Aux = "DNMAN"
         Frm_to_tecnico_cronograma.lbl_titulo = Mnu_CronogramaMantenimiento.Caption
         Frm_to_tecnico_cronograma.FraNavega = Mnu_CronogramaMantenimiento.Caption
@@ -1701,7 +1701,7 @@ Private Sub Mnu_Definicion_zonas_Click()
 '    tw_cronograma_zonas.FraNavega = Mnu_Definicion_zonas.Caption
 '    tw_cronograma_zonas.lbl_titulo2 = Mnu_Definicion_zonas.Caption
 '    tw_cronograma_zonas.Show
-    If glusuario = "ADMIN" Or glusuario = "JMAMANI" Or glusuario = "VMEJIA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
+    If glusuario = "ADMIN" Or glusuario = "JMAMANI" Or glusuario = "VMEJIA" Or glusuario = "ACASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "KGARCIA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "CSALINAS" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "LVEDIA" Then
         Aux = "DNMAN"
         tw_organizacion_zonas.lbl_titulo = Mnu_Definicion_zonas.Caption
         tw_organizacion_zonas.FraNavega = Mnu_Definicion_zonas.Caption
@@ -1764,7 +1764,7 @@ Private Sub Mnu_EdificiosInstalacion_Click()
 End Sub
 
 Private Sub Mnu_Ejecucion_Servicio_M_Click()
-    If glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "LVEDIA" Or glusuario = "JSAAVEDRA" Or glusuario = "KGARCIA" Or glusuario = "TCRUZ" Or glusuario = "EMACHICADO" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "SQUISPE" Or glusuario = "FCABRERA" Or glusuario = "VPEÑA" Or glusuario = "TCASTILLO" Or glusuario = "GFLORES" Or glusuario = "BMONTAÑO" Or glusuario = "JCHIPANA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "MMENACHO" Or glusuario = "CLEDEZMA" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "ULEDEZMA" Or glusuario = "MARTEAGA" Or glusuario = "LVASQUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "RPRIETO" Or glusuario = "PMAJLUF" Then
+    If glusuario = "ADMIN" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "LVEDIA" Or glusuario = "JSAAVEDRA" Or glusuario = "KGARCIA" Or glusuario = "TCRUZ" Or glusuario = "EMACHICADO" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Or glusuario = "LNAVA" Or glusuario = "VMEJIA" Or glusuario = "SQUISPE" Or glusuario = "FCABRERA" Or glusuario = "VPEÑA" Or glusuario = "TCASTILLO" Or glusuario = "GFLORES" Or glusuario = "BMONTAÑO" Or glusuario = "JCHIPANA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "MMENACHO" Or glusuario = "CLEDEZMA" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "PRODAS" Or glusuario = "CESCALANTE" Or glusuario = "ULEDEZMA" Or glusuario = "MARTEAGA" Or glusuario = "LVASQUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "NPAREDES" Or glusuario = "ARODRIGUEZ" Or glusuario = "MARTEAGA" Or glusuario = "RPRIETO" Then
         Aux = "DNMAN"
 '        frm_to_cronograma_certifica.lbl_titulo = Mnu_Ejecucion_Servicio_M.Caption
 '        frm_to_cronograma_certifica.FraNavega = Mnu_Ejecucion_Servicio_M.Caption

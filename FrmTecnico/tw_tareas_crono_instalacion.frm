@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
@@ -150,7 +150,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   111476737
+         Format          =   110100481
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -164,7 +164,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   111476737
+         Format          =   110100481
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -178,7 +178,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   111476737
+         Format          =   110100481
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -192,7 +192,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   111476737
+         Format          =   110100481
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -1147,15 +1147,15 @@ Begin VB.Form tw_tareas_crono_instalacion
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   585,071
+               ColumnWidth     =   540.284
             EndProperty
             BeginProperty Column01 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   4229,858
+               ColumnWidth     =   4364.788
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               ColumnWidth     =   599,811
+               ColumnWidth     =   659.906
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False

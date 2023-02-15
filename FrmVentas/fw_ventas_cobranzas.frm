@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109969409
+            Format          =   109903873
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109969409
+            Format          =   109903873
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   109969409
+            Format          =   109903873
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -4530,7 +4530,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
 '            DTPFechaProg1.backColor = &H404040       '&H80000013      'Fondo Oscuro
         End If
         If (Ado_datos01.Recordset("estado_codigo") = "REG") Then          'REG
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "FCABRERA" Or glusuario = "TCASTILLO" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "CPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "KGARCIA" Or glusuario = "GMORA" Or glusuario = "CSALINAS" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "FCABRERA" Or glusuario = "TCASTILLO" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "CPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "KGARCIA" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "CSALINAS" Then
                 BtnAprobar.Visible = True
             Else
                 BtnAprobar.Visible = False
@@ -4566,9 +4566,9 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos01.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos01.Recordset!venta_codigo & " and correl_venta = " & Ado_datos01.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set ado_datos14.Recordset = rs_datos14
-        ado_datos14.Recordset.Requery
-        If ado_datos14.Recordset.RecordCount > 0 Then
+        Set Ado_datos14.Recordset = rs_datos14
+        Ado_datos14.Recordset.Requery
+        If Ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'TxtMontoBs.Text = Ado_datos01.Recordset!monto_total_bS
             'TxtMontoUs.Text = Ado_datos01.Recordset!deuda_cobrada
@@ -4899,7 +4899,7 @@ Private Sub BtnAñadir1_Click()
         'DTPFechaCobro.Value = Date
         DTPicker1.Value = Date
         Txt_docnro.Text = "0"          'Recibo
-        TxtTDC.Text = GlTipoCambioMercado
+        txtTDC.Text = GlTipoCambioMercado
         FrmCobrosDet.Visible = False
       Else
         MsgBox "Ya se Cobró el Total de la Factura, ya NO podrá registrar la cobranza para este registro ...", , "Atención"
@@ -5034,12 +5034,12 @@ Private Sub BtnAprobar1_Click()
          'LIQ_VTA_CBB
          'LIQ_VTA_CBB_DOL
         'LIQ_VTA_LPZ
-'LIQ_VTA_LPZ_DOL
-'LIQ_VTA_SCZ
-'LIQ_VTA_SCZ_DOL
-'TRF_DIRECTA_CBB
-'TRF_DIRECTA_LPZ
-'TRF_DIRECTA_SCZ
+        'LIQ_VTA_LPZ_DOL
+        'LIQ_VTA_SCZ
+        'LIQ_VTA_SCZ_DOL
+        'TRF_DIRECTA_CBB
+        'TRF_DIRECTA_LPZ
+        'TRF_DIRECTA_SCZ
          If (Ado_datos02.Recordset!doc_numero = "0" Or IsNull(Ado_datos02.Recordset!doc_numero)) And (dtc_cta2.Text <> "LIQ_VTA_LPZ") Then
             MsgBox "No se puede APROBAR debe registrar el Numero de RECIBO, verifique los datos y vuelva a intentar ...", , "Atención"
             Exit Sub
@@ -5553,13 +5553,20 @@ Private Sub valida_campos()
         Exit Sub
     End If
     'INI POR CIERRE WWWWWWWWWWWWWWW
-    If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
-            MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+    If glusuario = "APALACIOS" Then
+    Else
+        'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
+        If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
+            'MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+            MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+            VAR_VAL = "ERR"
             Exit Sub
-    End If
-    If CDate(DTPFechaCmpbte.Value) >= CDate("01/01/2021") And CDate(DTPFechaCmpbte.Value) <= CDate("30/06/2022") Then
-            MsgBox "No se puede Registrar una cobranza con fecha de Comprobante menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+        End If
+        If CDate(DTPFechaCmpbte.Value) >= CDate("01/01/2021") And CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
+            MsgBox "No se puede Registrar una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+            VAR_VAL = "ERR"
             Exit Sub
+        End If
     End If
     'FIN POR CIERRE WWWWWWWWWWWWWWW
     If (TxtMonto02.Text = "" Or TxtMonto02 = "0" Or TxtMonto02 = "0.00") Then
@@ -5758,12 +5765,12 @@ Private Sub BtnGrabar1_Click()
         If swnuevo = 1 Then
             correldet = Ado_datos02.Recordset.RecordCount
             db.Execute "insert into ao_ventas_cobranza_det (ges_gestion, cobranza_detalle, cobranza_codigo, beneficiario_codigo_resp,    cobranza_bs,       cobranza_dol,           cobranza_fecha,             cobranza_observaciones,             cta_codigo,             cmpbte_deposito,            doc_numero,              trans_codigo,              literal,    estado_codigo, estado_codigo_bco, usr_codigo,           fecha_registro,                     tipo_moneda,        usr_codigo_mod,     usr_codigo_apr,         cobranza_tdc,       cmpbte_fecha, depto_codigo, nro_autorizacion) " & _
-                " VALUES ('" & Ado_datos01.Recordset!ges_gestion & "', " & correldet & ", " & NRO_COBR & ", '" & DataCombo1.Text & "', " & COBR_BS & ", " & VAR_DOL2 & ", '" & CDate(DTPicker1.Value) & "', '" & txt_observaciones.Text & "', '" & dtc_cta2.Text & "', '" & Txt_deposito.Text & "', " & Txt_docnro.Text & ", '" & DataCombo9.Text & "', '" & var_literal & "', 'REG',      'REG', '" & glusuario & "', '" & Format(Date, "dd/mm/yyyy") & "', '" & cmd_moneda.Text & "', '" & glusuario & "', '" & glusuario & "', " & TxtTDC.Text & ", '" & CDate(DTPFechaCmpbte.Value) & "', '" & VAR_DEPTO & "', " & Autorizacion & " )"
+                " VALUES ('" & Ado_datos01.Recordset!ges_gestion & "', " & correldet & ", " & NRO_COBR & ", '" & DataCombo1.Text & "', " & COBR_BS & ", " & VAR_DOL2 & ", '" & CDate(DTPicker1.Value) & "', '" & txt_observaciones.Text & "', '" & dtc_cta2.Text & "', '" & Txt_deposito.Text & "', " & Txt_docnro.Text & ", '" & DataCombo9.Text & "', '" & var_literal & "', 'REG',      'REG', '" & glusuario & "', '" & Format(Date, "dd/mm/yyyy") & "', '" & cmd_moneda.Text & "', '" & glusuario & "', '" & glusuario & "', " & txtTDC.Text & ", '" & CDate(DTPFechaCmpbte.Value) & "', '" & VAR_DEPTO & "', " & Autorizacion & " )"
             'Ado_datos02.Recordset!estado_codigo = "REG"
         End If
         If swnuevo = 2 Then
             correldet = Ado_datos02.Recordset!cobranza_detalle
-            db.Execute "UPDATE ao_ventas_cobranza_det SET cobranza_bs = " & COBR_BS & ",  cobranza_dol = " & Round(VAR_DOL2, 2) & ",  cobranza_fecha = '" & CDate(DTPicker1.Value) & "', cobranza_observaciones = '" & txt_observaciones.Text & "', cta_codigo = '" & dtc_cta2.Text & "', doc_numero = " & Txt_docnro.Text & ", cmpbte_deposito ='" & Txt_deposito.Text & "', trans_codigo = '" & DataCombo9.Text & "', literal = '" & var_literal & "', fecha_mod = '" & Format(Date, "dd/mm/yyyy") & "', tipo_moneda = '" & cmd_moneda.Text & "', usr_codigo_mod = '" & glusuario & "', cobranza_tdc = " & TxtTDC.Text & ", cmpbte_fecha = '" & CDate(DTPFechaCmpbte.Value) & "'  " & _
+            db.Execute "UPDATE ao_ventas_cobranza_det SET cobranza_bs = " & COBR_BS & ",  cobranza_dol = " & Round(VAR_DOL2, 2) & ",  cobranza_fecha = '" & CDate(DTPicker1.Value) & "', cobranza_observaciones = '" & txt_observaciones.Text & "', cta_codigo = '" & dtc_cta2.Text & "', doc_numero = " & Txt_docnro.Text & ", cmpbte_deposito ='" & Txt_deposito.Text & "', trans_codigo = '" & DataCombo9.Text & "', literal = '" & var_literal & "', fecha_mod = '" & Format(Date, "dd/mm/yyyy") & "', tipo_moneda = '" & cmd_moneda.Text & "', usr_codigo_mod = '" & glusuario & "', cobranza_tdc = " & txtTDC.Text & ", cmpbte_fecha = '" & CDate(DTPFechaCmpbte.Value) & "'  " & _
             " where cobranza_codigo = " & NRO_COBR & " AND cobranza_detalle = " & correldet & " "
             
         End If
@@ -6893,7 +6900,7 @@ Private Sub BtnModificar1_Click()
     If SW_MODIF = "MOD" Then
     'If glusuario = "APALACIOS" Or glusuario = "EMACHICADO" Or glusuario = "IRAMOS" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "GSOLIZ" Or glusuario = "VPEÑA" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "BMONTAÑO" Or glusuario = "MVALDIVIA" Or glusuario = "SPAREDES" Or glusuario = "GPALLY" Or glusuario = "MMENACHO" Or glusuario = "RCUELA" Or glusuario = "BCASTRO" Or glusuario = "CESCALANTE" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "DPANIAGUA" Or glusuario = "MARTEAGA" Or glusuario = "RROMERO" Or glusuario = "CORTEGA" Or glusuario = "JHERESI" Or glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "MARTEAGA" Or glusuario = "EVILLALOBOS" Or glusuario = "TCASTILLO" Or glusuario = "HMARIN" Or glusuario = "CURDININEA" Or glusuario = "ULEDESMA" Or glusuario = "AACOSTA" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Then
       If Ado_datos02.Recordset.RecordCount > 0 Then
-        If (Ado_datos02.Recordset!estado_codigo_bco = "REG") Or ((Ado_datos02.Recordset!estado_codigo_bco = "APR" And Ado_datos02.Recordset!estado_codigo = "REG") And (glusuario = "RVALDIVIEZO" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RPRIETO")) Or (SWCOBRO = 1) Or (glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "CSALINAS") Then
+        If (Ado_datos02.Recordset!estado_codigo_bco = "REG") Or ((Ado_datos02.Recordset!estado_codigo_bco = "APR" And Ado_datos02.Recordset!estado_codigo = "REG") And (glusuario = "RVALDIVIEZO" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RPRIETO" Or glusuario = "PMAJLUF")) Or (SWCOBRO = 1) Or (glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "CSALINAS") Then
           'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
           swnuevo = 2
           FrmCobros.Visible = True
@@ -6926,9 +6933,9 @@ Private Sub BtnModificar1_Click()
             DTPicker1.Value = IIf(IsNull(Ado_datos02.Recordset!cobranza_fecha), "01/01/1900", Ado_datos02.Recordset!cobranza_fecha)
             Txt_docnro.Text = Ado_datos02.Recordset!doc_numero          'Recibo
             If IsNull(Ado_datos02.Recordset!cobranza_tdc) Or Ado_datos02.Recordset!cobranza_tdc < 2 Then
-                TxtTDC.Text = GlTipoCambioMercado
+                txtTDC.Text = GlTipoCambioMercado
             Else
-                TxtTDC.Text = Ado_datos02.Recordset!cobranza_tdc
+                txtTDC.Text = Ado_datos02.Recordset!cobranza_tdc
             End If
             FrmCobrosDet.Visible = True
             If glusuario = "ASANTIVAÑEZ" Then
@@ -8943,7 +8950,7 @@ Private Sub cmd_moneda1_LostFocus()
     If rs_datos20.State = 1 Then rs_datos20.Close
     rs_datos20.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda1.Text & "' ", db, adOpenStatic
     Set Ado_datos20.Recordset = rs_datos20
-    dtc_ctaDes.BoundText = dtc_cta.BoundText
+    dtc_ctades.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub cmd_moneda2_LostFocus()
@@ -9096,7 +9103,7 @@ Private Sub cmd_moneda_LostFocus()
             rs_datos7.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda.Text & "'  or bco_codigo= 'TES' ", db, adOpenStatic
     End Select
     Set Ado_datos7.Recordset = rs_datos7
-    dtc_ctaDes.BoundText = dtc_cta2.BoundText
+    dtc_ctades.BoundText = dtc_cta2.BoundText
 End Sub
 
 Private Sub CmdCancelaDet_Click()
@@ -9406,7 +9413,7 @@ End Sub
 'End Sub
 
 Private Sub dtc_cta2_LostFocus()
-    dtc_ctaDes.BoundText = dtc_cta2.BoundText
+    dtc_ctades.BoundText = dtc_cta2.BoundText
     
     If dtc_cta2.Text <> "NN" Then
         If Ado_datos02.Recordset!cobranza_bs = "0" Or IsNull(Ado_datos02.Recordset!cobranza_bs) Then
@@ -9592,7 +9599,7 @@ Private Sub DTPFechaCobro2A_LostFocus()
 End Sub
 
 Private Sub dtc_ctades_Click(Area As Integer)
-    dtc_cta2.BoundText = dtc_ctaDes.BoundText
+    dtc_cta2.BoundText = dtc_ctades.BoundText
 End Sub
 'Private Sub DTPfechasol_Change()
 '    txtGes_gestion = CStr(Year(DTPfechasol.Value))
@@ -9600,13 +9607,17 @@ End Sub
 
 Private Sub DTPicker1_LostFocus()
     ' CIERRE TEMPORAL DE COBRANZAS GESTION 2021 Y hasta Abril 2022
-    If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
-        'If Ado_datos01.Recordset!unidad_codigo = "DVTA" Or Ado_datos01.Recordset!unidad_codigo = "DCOMS" Or Ado_datos01.Recordset!unidad_codigo = "DCOMB" Or Ado_datos01.Recordset!unidad_codigo = "DCOMC" Then
-        '    MsgBox "El registro para la Gestión 2021, será CERRADO el 31-mar-2022, consulte con Contabilidad ... ", , "Atención"
-        'Else
-            MsgBox "No se puede Registrar una cobranza con fecha menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-            Exit Sub
-        'End If
+    If glusuario = "APALACIOS" Then
+    Else
+        'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
+        If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
+            'If Ado_datos01.Recordset!unidad_codigo = "DVTA" Or Ado_datos01.Recordset!unidad_codigo = "DCOMS" Or Ado_datos01.Recordset!unidad_codigo = "DCOMB" Or Ado_datos01.Recordset!unidad_codigo = "DCOMC" Then
+            '    MsgBox "El registro para la Gestión 2021, será CERRADO el 31-mar-2022, consulte con Contabilidad ... ", , "Atención"
+            'Else
+                MsgBox "No se puede Registrar una cobranza con fecha menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                Exit Sub
+            'End If
+        End If
     End If
     'Para CONTROL de Recibos    HASTA QUE SE HABILITE LA DOSIFICACION
     Set rs_aux8 = New ADODB.Recordset
@@ -9748,7 +9759,7 @@ Private Sub Form_Load()
             SW_MODIF = "MOD"
             OptFilGral03.Visible = True
             OptFilGral05.Visible = True
-        Case "TCASTILLO", "HMARIN", "RPRIETO"
+        Case "TCASTILLO", "HMARIN", "RPRIETO", "PMAJLUF"
             SW_MODIF = "MOD"
             OptFilGral03.Visible = True
             OptFilGral05.Visible = True
@@ -10042,7 +10053,7 @@ Private Sub OptFilGral04_Click()
     
     Set rs_datos02 = New Recordset
     If rs_datos02.State = 1 Then rs_datos02.Close
-    If glusuario = "RVALDIVIEZO" Or glusuario = "MVALDIVIA" Or glusuario = "NPAREDES" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "ULEDESMA" Or glusuario = "HMARIN" Or glusuario = "MARTEAGA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "JCASTRO" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
+    If glusuario = "RVALDIVIEZO" Or glusuario = "MVALDIVIA" Or glusuario = "NPAREDES" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "ULEDESMA" Or glusuario = "HMARIN" Or glusuario = "MARTEAGA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "JCASTRO" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "PMAJLUF" Then
         queryinicial2 = "select * From av_ventas_cobranza WHERE estado_codigo_fac = 'APR'  "
     Else
         If glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
@@ -10330,7 +10341,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
@@ -10653,7 +10664,7 @@ Private Sub TxtMonto02_LostFocus()
 '    TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / Ado_datos01.Recordset!cobranza_tdc, 2)
     '
     'TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / GlTipoCambioMercado, 2)
-    TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / CDbl(IIf(TxtTDC.Text = "0", GlTipoCambioMercado, TxtTDC.Text)), 2)
+    TxtMonto02D.Text = Round(CDbl(TxtMonto02.Text) / CDbl(IIf(txtTDC.Text = "0", GlTipoCambioMercado, txtTDC.Text)), 2)
 End Sub
 
 Private Sub TxtMonto02D_KeyPress(KeyAscii As Integer)
@@ -10664,7 +10675,7 @@ Private Sub TxtMonto02D_LostFocus()
     'TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * Ado_datos01.Recordset!cobranza_tdc, 2)
     '
     'TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * GlTipoCambioMercado, 2)
-    TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * CDbl(TxtTDC.Text), 2)
+    TxtMonto02.Text = Round(CDbl(TxtMonto02D.Text) * CDbl(txtTDC.Text), 2)
 End Sub
 
 Private Sub TxtMontoDol_Change()

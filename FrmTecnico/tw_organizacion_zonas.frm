@@ -3003,7 +3003,7 @@ Private Sub BtnAnlDetalle_Click()
 End Sub
 
 Private Sub BtnAñadir_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then         'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If

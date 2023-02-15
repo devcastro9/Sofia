@@ -754,9 +754,9 @@ Begin VB.Form tw_tecnico_venta
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1310,7 +1310,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   119013377
+            Format          =   118161409
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1574,7 +1574,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   119013377
+            Format          =   118161409
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1602,7 +1602,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   119013377
+            Format          =   118161409
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2100,7 +2100,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   119013377
+               Format          =   118161409
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2125,7 +2125,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119013377
+               Format          =   118161409
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2569,7 +2569,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119013377
+               Format          =   118161409
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2652,7 +2652,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119013377
+               Format          =   118161409
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3378,7 +3378,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119013377
+            Format          =   118161409
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -5999,7 +5999,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                     BtnVer.Visible = False
                 Case "P"
                     lbl_cerrado.Caption = "TRAMITE PROVISIONAL !!"
-                    If glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JAVIER" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+                    If glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JAVIER" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
                         BtnModificar.Visible = True
                         BtnVer2.Visible = True
                         FrmABMDet.Visible = True
@@ -6021,7 +6021,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                     BtnVer.Visible = True
                 Case Else
                     BtnAñadir.Visible = True   'Cerrar Tramite
-                    If glusuario = "MARTEAGA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "VBELLIDO" Or glusuario = "TCASTILLO" Or glusuario = "RVALDIVIEZO" Or glusuario = "SQUISPE" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+                    If glusuario = "MARTEAGA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "VBELLIDO" Or glusuario = "TCASTILLO" Or glusuario = "RVALDIVIEZO" Or glusuario = "SQUISPE" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
                         BtnDesAprobar.Visible = True     'Provisional
                     Else
                         BtnDesAprobar.Visible = False     'Provisional
@@ -6230,7 +6230,7 @@ End Sub
 
 Private Sub BtnAñadir_Click()
 'CERRAR UN TRAMITE = S
-If glusuario = "CARIZACA" Or glusuario = "VBELLIDO" Or glusuario = "JAVIER" Or glusuario = "JSAAVEDRA" Or glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "MARTEAGA" Or glusuario = "ULEDEZMA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
+If glusuario = "CARIZACA" Or glusuario = "VBELLIDO" Or glusuario = "JAVIER" Or glusuario = "JSAAVEDRA" Or glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "ULEDEZMA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_cancelado = "N" And Ado_datos.Recordset!estado_codigo = "APR" Then
       sino = MsgBox("Esta seguro de CERRAR EL TRAMITE, ya no podrá realizar modificaciones... ", vbYesNo, "Confirmando")
@@ -6748,7 +6748,7 @@ Private Sub CRONO_MTTO()
 End Sub
 
 Private Sub BtnAprobar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then     'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -7685,7 +7685,7 @@ Private Sub BtnAprobar2_Click()
 End Sub
 
 Private Sub BtnAprobar3_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then     'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -8503,7 +8503,11 @@ Private Sub BtnImprimir1_Click()
       If Ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
-        CryV01.ReportFileName = App.Path & "\reportes\Tecnico\tr_orden_servicio_new.rpt"
+'        If GlBaseDatos = "ADMIN_EMPRESA" Then
+            CryV01.ReportFileName = App.Path & "\reportes\Tecnico\tr_orden_servicio_new.rpt"
+'        Else
+'            CryV01.ReportFileName = App.Path & "\reportes\Tecnico\tr_orden_servicio_CGE_new.rpt"
+'        End If
         'CryV01.WindowShowRefreshBtn = True
         CryV01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
         CryV01.StoredProcParam(1) = Me.Ado_datos.Recordset!venta_codigo
@@ -8564,7 +8568,7 @@ End Sub
 'End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then     'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -8601,7 +8605,7 @@ Private Sub BtnModificar_Click()
         dtc_desc2.backColor = &H80000018
         Text11.Visible = False
     Else
-        If (Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_cancelado = "P") And (glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "VMEJIA" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "FDELGADILLO" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ") Then
+        If (Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_cancelado = "P") And (glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "VMEJIA" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "FDELGADILLO" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ") Then
             FrmCabecera.Enabled = True
             FrmDetalle.Visible = False
             FrmCobranza.Visible = False
@@ -8821,7 +8825,7 @@ Private Sub BtnModDetalle2_Click()
     'swgrabar = 0
     swnuevo = 2
     TxtCobrador.Visible = False
-    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "JCASTRO" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Or glusuario = "PMAJLUF" Then
+    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "JCASTRO" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Then
         TxtMonto.Enabled = True
         TxtMonto.Locked = False
         TxtDsctoTot.Enabled = False
@@ -11094,7 +11098,7 @@ Private Sub OptFilGral1_Click()
                         queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%MAN%')) "
                     End If
                 Case "DNREP"
-                    If glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Then
+                    If glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Then
                         queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%REP%')) "
                     Else
                         queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%REP%')) "
@@ -11210,7 +11214,7 @@ Private Sub OptFilGral2_Click()
                         queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
                     End If
                 Case "DNREP"
-                    If glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
+                    If glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
                         queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%REP%') "
                     Else
                         queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%REP%') "

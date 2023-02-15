@@ -17,7 +17,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleWidth      =   11280
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_datos2 
@@ -197,7 +197,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
          CalendarBackColor=   12632256
          CalendarTitleBackColor=   -2147483638
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   109248515
+         Format          =   118685699
          CurrentDate     =   44235
          MaxDate         =   55153
          MinDate         =   32874
@@ -3952,7 +3952,7 @@ Private Sub Ado_datosE_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
 End Sub
 
 Private Sub BtnAddDetalle_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Then                     'Or glusuario = "LNAVA"
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If

@@ -84,7 +84,7 @@ Begin VB.Form fw_orden_cobranza
       Height          =   2655
       Left            =   6000
       TabIndex        =   62
-      Top             =   3600
+      Top             =   3240
       Visible         =   0   'False
       Width           =   10335
       Begin VB.CommandButton BtnCancelarBen 
@@ -582,7 +582,7 @@ Begin VB.Form fw_orden_cobranza
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   109445121
+         Format          =   119341057
          CurrentDate     =   42873
       End
       Begin MSComCtl2.DTPicker DTPicker1 
@@ -606,7 +606,7 @@ Begin VB.Form fw_orden_cobranza
             Strikethrough   =   0   'False
          EndProperty
          CheckBox        =   -1  'True
-         Format          =   109445121
+         Format          =   119341057
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_codigo6 
@@ -3642,9 +3642,9 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and correl_venta = " & Ado_datos.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
         Else
             deta2 = 0
@@ -3673,7 +3673,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         Set Ado_datos5.Recordset = rs_datos5
         dtc_desc5.BoundText = dtc_codigo5.BoundText
         dtc_aux5.BoundText = dtc_codigo5.BoundText
-        If glusuario = "ADMIN" Or glusuario = "OPLAZA" Or glusuario = "VPAREDES" Or glusuario = "CORTEGA" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "ULEDESMA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "CPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "RROMERO" Or glusuario = "CSALINAS" Or glusuario = "RLAVAYEN" Or glusuario = "DGOMEZ" Or glusuario = "TCASTILLO" Then
+        If glusuario = "ADMIN" Or glusuario = "OPLAZA" Or glusuario = "VPAREDES" Or glusuario = "CORTEGA" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "ULEDESMA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "CPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "RROMERO" Or glusuario = "PMAJLUF" Or glusuario = "CSALINAS" Or glusuario = "RLAVAYEN" Or glusuario = "DGOMEZ" Or glusuario = "TCASTILLO" Then
             BtnImprimir5.Visible = True
             BtnImprimir6.Visible = True
         Else
@@ -7721,7 +7721,7 @@ Private Sub cmd_moneda1_LostFocus()
     If rs_datos20.State = 1 Then rs_datos20.Close
     rs_datos20.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda1.Text & "' ", db, adOpenStatic
     Set Ado_datos20.Recordset = rs_datos20
-    dtc_ctades.BoundText = dtc_cta.BoundText
+    dtc_ctaDes.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub cmd_moneda_LostFocus()
@@ -8564,7 +8564,7 @@ Private Sub OptFilGral1_Click()
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
             Case "ULEDESMA", "MARTEAGA", "EVILLALOBOS", "CPAREDES", "RGIL", "GMORA", "LVEDIA", "JCASTRO", "LMORALES", "TCASTILLO"
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
-            Case "CORTEGA", "RROMERO", "CURDININEA", "AACOSTA", "FCABRERA", "KGARCIA", "JSOLIZ", "ASANTIVAÑEZ", "DGOMEZ"
+            Case "CORTEGA", "RROMERO", "CURDININEA", "AACOSTA", "FCABRERA", "KGARCIA", "JSOLIZ", "ASANTIVAÑEZ", "DGOMEZ", "PMAJLUF"
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
             Case Else
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'A' AND estado_codigo_fac = 'A') "      'ORDER BY cobranza_fecha_prog
@@ -8585,11 +8585,11 @@ Private Sub OptFilGral2_Click()
     If rs_datos.State = 1 Then rs_datos.Close
         Select Case glusuario
             Case "OPLAZA", "RLAVAYEN", "GSOLIZ", "CPLATA", "DTERCEROS", "ADMIN", "VPAREDES", "CSALINAS"
-                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393')) "
+                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-100')) "
             Case "ULEDESMA", "MARTEAGA", "EVILLALOBOS", "CPAREDES", "GMORA", "RGIL", "LVEDIA", "JCASTRO", "LMORALES", "TCASTILLO"
-                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393')) "
-            Case "CORTEGA", "RROMERO", "CURDININEA", "AACOSTA", "FCABRERA", "KGARCIA", "JSOLIZ", "ASANTIVAÑEZ", "DGOMEZ"
-                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393')) "
+                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-100')) "
+            Case "CORTEGA", "RROMERO", "CURDININEA", "AACOSTA", "FCABRERA", "KGARCIA", "JSOLIZ", "ASANTIVAÑEZ", "DGOMEZ", "PMAJLUF"
+                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-100')) "
             Case Else
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'A' AND estado_codigo_fac = 'A' AND estado_codigo_bco = 'R') "
         End Select
@@ -8725,7 +8725,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  txtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
+  TxtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
@@ -8855,11 +8855,11 @@ Private Sub Option1_Click()
     
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    If glusuario = "OPLAZA" Or glusuario = "FACTURACION" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "GSOLIZ" Or glusuario = "CPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "MARTEAGA" Or glusuario = "CORTEGA" Or glusuario = "RROMERO" Or glusuario = "DGOMEZ" Then
+    If glusuario = "OPLAZA" Or glusuario = "FACTURACION" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "GSOLIZ" Or glusuario = "CPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "CORTEGA" Or glusuario = "RROMERO" Or glusuario = "DGOMEZ" Or glusuario = "TCASTILLO" Or glusuario = "PMAJLUF" Then
         queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_fac = 'APR' AND doc_codigo_fac <> 'R-103' "     'ORDER BY cobranza_fecha_prog
     Else
-        If glusuario = "MVALDIVIA" Or glusuario = "SPAREDES" Then
-                queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND doc_codigo_fac = 'R-103' "      'ORDER BY cobranza_fecha_prog
+        If glusuario = "MVALDIVIA" Or glusuario = "SPAREDES" Or glusuario = "TCASTILLO" Or glusuario = "PMAJLUF" Then
+                queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND doc_codigo_fac <> 'R-103' "      'ORDER BY cobranza_fecha_prog
             Else
                 If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
                     queryinicial1 = "select * From av_ventas_cobranza WHERE estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  "      'ORDER BY cobranza_fecha_prog       'AND estado_codigo_bco = 'REG'
