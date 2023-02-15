@@ -727,49 +727,39 @@ Begin VB.Form frm_ac_bienes_eqp
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   794,835
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   840,189
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1019,906
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               ColumnWidth     =   884,976
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1289,764
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   884,976
             EndProperty
          EndProperty
       End
@@ -1241,10 +1231,8 @@ Begin VB.Form frm_ac_bienes_eqp
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   1319,811
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   3135,118
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
@@ -1540,7 +1528,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   136970241
+         Format          =   119013377
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1803,7 +1791,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   136970241
+         Format          =   119013377
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
