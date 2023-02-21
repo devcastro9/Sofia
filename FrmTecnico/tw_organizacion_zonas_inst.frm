@@ -17,7 +17,7 @@ Begin VB.Form tw_organizacion_zonas_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   16770
+   ScaleWidth      =   20160
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_datos 
@@ -35,7 +35,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00C00000&
       Height          =   2640
       Left            =   8400
-      TabIndex        =   16
+      TabIndex        =   14
       Top             =   4800
       Visible         =   0   'False
       Width           =   8460
@@ -50,7 +50,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   120
          ScaleHeight     =   675
          ScaleWidth      =   8280
-         TabIndex        =   57
+         TabIndex        =   53
          Top             =   1800
          Width           =   8280
          Begin VB.PictureBox BtnCancelar 
@@ -63,7 +63,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":0A02
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   59
+            TabIndex        =   55
             Top             =   0
             Width           =   1455
          End
@@ -77,7 +77,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":12EE
             ScaleHeight     =   615
             ScaleWidth      =   1275
-            TabIndex        =   58
+            TabIndex        =   54
             Top             =   0
             Width           =   1280
          End
@@ -98,7 +98,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H00FFFF80&
             Height          =   285
             Left            =   375
-            TabIndex        =   60
+            TabIndex        =   56
             Top             =   180
             Visible         =   0   'False
             Width           =   1005
@@ -127,7 +127,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   5040
-         TabIndex        =   18
+         TabIndex        =   16
          Top             =   1800
          Visible         =   0   'False
          Width           =   885
@@ -144,13 +144,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   2400
-         TabIndex        =   67
+         TabIndex        =   63
          Top             =   480
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117899265
+         Format          =   109248513
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -158,13 +158,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   6480
-         TabIndex        =   68
+         TabIndex        =   64
          Top             =   480
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117899265
+         Format          =   109248513
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -172,13 +172,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   2400
-         TabIndex        =   69
+         TabIndex        =   65
          Top             =   1200
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117899265
+         Format          =   109248513
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -186,13 +186,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   6480
-         TabIndex        =   70
+         TabIndex        =   66
          Top             =   1200
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117899265
+         Format          =   109248513
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -212,7 +212,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   66
+         TabIndex        =   62
          Top             =   480
          Width           =   2085
       End
@@ -233,7 +233,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   4560
-         TabIndex        =   65
+         TabIndex        =   61
          Top             =   480
          Width           =   1890
       End
@@ -254,7 +254,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   64
+         TabIndex        =   60
          Top             =   1200
          Width           =   1950
       End
@@ -275,7 +275,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   4560
-         TabIndex        =   63
+         TabIndex        =   59
          Top             =   1200
          Width           =   1755
       End
@@ -287,7 +287,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   19
+         TabIndex        =   17
          Top             =   1860
          Width           =   2055
       End
@@ -307,7 +307,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00C00000&
       Height          =   4680
       Left            =   8040
-      TabIndex        =   21
+      TabIndex        =   19
       Top             =   2640
       Visible         =   0   'False
       Width           =   9300
@@ -318,7 +318,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   30
          ScaleHeight     =   660
          ScaleWidth      =   9225
-         TabIndex        =   35
+         TabIndex        =   33
          Top             =   3960
          Width           =   9225
          Begin VB.PictureBox BtnGrabarDet 
@@ -331,7 +331,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":1AF6
             ScaleHeight     =   615
             ScaleWidth      =   1275
-            TabIndex        =   37
+            TabIndex        =   35
             Top             =   0
             Width           =   1280
          End
@@ -345,7 +345,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Picture         =   "tw_organizacion_zonas_inst.frx":22CC
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   36
+            TabIndex        =   34
             Top             =   0
             Width           =   1400
          End
@@ -377,7 +377,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Enabled         =   0   'False
          Height          =   290
          Left            =   2160
-         TabIndex        =   32
+         TabIndex        =   30
          Top             =   855
          Width           =   270
       End
@@ -440,7 +440,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   360
          Left            =   5400
          Locked          =   -1  'True
-         TabIndex        =   22
+         TabIndex        =   20
          Top             =   360
          Visible         =   0   'False
          Width           =   1335
@@ -467,7 +467,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   23
+         TabIndex        =   21
          Top             =   1320
          Visible         =   0   'False
          Width           =   885
@@ -552,7 +552,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   29
+         TabIndex        =   27
          Top             =   1800
          Visible         =   0   'False
          Width           =   885
@@ -570,7 +570,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   30
+         TabIndex        =   28
          Top             =   2280
          Visible         =   0   'False
          Width           =   885
@@ -588,7 +588,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   3360
-         TabIndex        =   39
+         TabIndex        =   37
          Top             =   2760
          Width           =   5685
          _ExtentX        =   10028
@@ -605,7 +605,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          DataSource      =   "Ado_detalle1"
          Height          =   315
          Left            =   9120
-         TabIndex        =   40
+         TabIndex        =   38
          Top             =   2760
          Visible         =   0   'False
          Width           =   885
@@ -634,7 +634,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   42
+         TabIndex        =   40
          Top             =   360
          Width           =   5025
       End
@@ -655,7 +655,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   41
+         TabIndex        =   39
          Top             =   2760
          Width           =   1785
       End
@@ -679,7 +679,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H80000008&
          Height          =   315
          Left            =   2400
-         TabIndex        =   34
+         TabIndex        =   32
          Top             =   840
          Visible         =   0   'False
          Width           =   6645
@@ -701,7 +701,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   33
+         TabIndex        =   31
          Top             =   3360
          Width           =   1380
       End
@@ -722,7 +722,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   31
+         TabIndex        =   29
          Top             =   885
          Width           =   660
       End
@@ -743,7 +743,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   4200
-         TabIndex        =   28
+         TabIndex        =   26
          Top             =   3375
          Visible         =   0   'False
          Width           =   1200
@@ -765,7 +765,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   1680
-         TabIndex        =   27
+         TabIndex        =   25
          Top             =   3375
          Visible         =   0   'False
          Width           =   1830
@@ -787,7 +787,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   26
+         TabIndex        =   24
          Top             =   1815
          Width           =   2610
       End
@@ -808,7 +808,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   25
+         TabIndex        =   23
          Top             =   2280
          Width           =   2730
       End
@@ -829,7 +829,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   240
-         TabIndex        =   24
+         TabIndex        =   22
          Top             =   1320
          Width           =   3015
       End
@@ -849,7 +849,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00C00000&
       Height          =   7335
       Left            =   6240
-      TabIndex        =   17
+      TabIndex        =   15
       Top             =   0
       Width           =   12885
       Begin VB.OptionButton Option2 
@@ -867,7 +867,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00C00000&
          Height          =   210
          Left            =   7440
-         TabIndex        =   44
+         TabIndex        =   42
          Top             =   6915
          Width           =   2295
       End
@@ -886,7 +886,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00C00000&
          Height          =   210
          Left            =   3120
-         TabIndex        =   43
+         TabIndex        =   41
          Top             =   6915
          Value           =   -1  'True
          Width           =   2295
@@ -898,23 +898,23 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   150
          ScaleHeight     =   660
          ScaleWidth      =   12585
-         TabIndex        =   20
+         TabIndex        =   18
          Top             =   240
          Width           =   12585
-         Begin VB.PictureBox BtnBuscar 
+         Begin VB.PictureBox BtnSalir 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   6600
+            Left            =   11040
             Picture         =   "tw_organizacion_zonas_inst.frx":2E9D
             ScaleHeight     =   615
-            ScaleWidth      =   1215
-            TabIndex        =   48
-            ToolTipText     =   "Busca Registros "
-            Top             =   0
-            Width           =   1215
+            ScaleWidth      =   1245
+            TabIndex        =   75
+            ToolTipText     =   "Cierra la Ventana Activa"
+            Top             =   60
+            Width           =   1245
          End
          Begin VB.PictureBox BtnModificar2 
             Appearance      =   0  'Flat
@@ -922,29 +922,14 @@ Begin VB.Form tw_organizacion_zonas_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   2520
-            Picture         =   "tw_organizacion_zonas_inst.frx":3652
+            Left            =   1680
+            Picture         =   "tw_organizacion_zonas_inst.frx":365F
             ScaleHeight     =   615
             ScaleWidth      =   1545
-            TabIndex        =   38
+            TabIndex        =   36
             Top             =   0
             Visible         =   0   'False
             Width           =   1545
-         End
-         Begin VB.PictureBox BtnAddDetalle 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   9840
-            Picture         =   "tw_organizacion_zonas_inst.frx":45FB
-            ScaleHeight     =   615
-            ScaleWidth      =   1200
-            TabIndex        =   9
-            Top             =   0
-            Visible         =   0   'False
-            Width           =   1200
          End
          Begin VB.PictureBox BtnModDetalle 
             Appearance      =   0  'Flat
@@ -952,28 +937,63 @@ Begin VB.Form tw_organizacion_zonas_inst
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   4425
-            Picture         =   "tw_organizacion_zonas_inst.frx":4DBA
+            Left            =   3345
+            Picture         =   "tw_organizacion_zonas_inst.frx":4608
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   10
+            TabIndex        =   9
             Top             =   0
             Width           =   1430
          End
-         Begin VB.PictureBox BtnAnlDetalle 
-            Appearance      =   0  'Flat
-            BackColor       =   &H80000006&
-            BorderStyle     =   0  'None
-            ForeColor       =   &H80000008&
-            Height          =   615
-            Left            =   11040
-            Picture         =   "tw_organizacion_zonas_inst.frx":56CF
-            ScaleHeight     =   615
-            ScaleWidth      =   1215
-            TabIndex        =   11
+         Begin MSDataListLib.DataCombo dtc_desc2 
+            Bindings        =   "tw_organizacion_zonas_inst.frx":4F1D
+            DataField       =   "edif_codigo"
+            Height          =   315
+            Left            =   5040
+            TabIndex        =   72
+            Top             =   555
+            Width           =   4890
+            _ExtentX        =   8625
+            _ExtentY        =   556
+            _Version        =   393216
+            ListField       =   "edif_descripcion"
+            BoundColumn     =   "edif_codigo"
+            Text            =   ""
+         End
+         Begin MSDataListLib.DataCombo dtc_cod2 
+            Bindings        =   "tw_organizacion_zonas_inst.frx":4F3A
+            DataField       =   "edif_codigo"
+            Height          =   315
+            Left            =   7680
+            TabIndex        =   73
             Top             =   0
             Visible         =   0   'False
-            Width           =   1215
+            Width           =   1410
+            _ExtentX        =   2487
+            _ExtentY        =   556
+            _Version        =   393216
+            ListField       =   "edif_codigo"
+            BoundColumn     =   "edif_codigo"
+            Text            =   ""
+         End
+         Begin VB.Label lbl_bien 
+            BackColor       =   &H80000015&
+            Caption         =   "Buscar por Nombre -->"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00C0C0FF&
+            Height          =   255
+            Left            =   5040
+            TabIndex        =   71
+            Top             =   285
+            Width           =   1935
          End
          Begin VB.Label lbl_texto0 
             Appearance      =   0  'Flat
@@ -993,7 +1013,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H00FFFFC0&
             Height          =   300
             Left            =   1200
-            TabIndex        =   72
+            TabIndex        =   68
             Top             =   120
             Width           =   615
          End
@@ -1014,7 +1034,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   135
-            TabIndex        =   71
+            TabIndex        =   67
             Top             =   120
             Width           =   975
          End
@@ -1066,11 +1086,11 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin TrueOleDBGrid60.TDBGrid dg_det1 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":5E1B
+         Bindings        =   "tw_organizacion_zonas_inst.frx":4F57
          Height          =   5775
          Left            =   120
-         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":5E36
-         TabIndex        =   47
+         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":4F72
+         TabIndex        =   45
          Top             =   960
          Width           =   12615
       End
@@ -1090,7 +1110,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00800000&
       Height          =   2745
       Left            =   0
-      TabIndex        =   45
+      TabIndex        =   43
       Top             =   6480
       Width           =   19095
       Begin VB.PictureBox Picture1 
@@ -1100,7 +1120,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   5985
-         TabIndex        =   61
+         TabIndex        =   57
          Top             =   240
          Width           =   5985
          Begin VB.PictureBox BtnModificar 
@@ -1110,10 +1130,10 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2760
-            Picture         =   "tw_organizacion_zonas_inst.frx":12842
+            Picture         =   "tw_organizacion_zonas_inst.frx":1197E
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   62
+            TabIndex        =   58
             ToolTipText     =   "Modifica datos del Grupo elegido"
             Top             =   0
             Visible         =   0   'False
@@ -1137,7 +1157,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H00FFFFC0&
             Height          =   300
             Left            =   1200
-            TabIndex        =   74
+            TabIndex        =   70
             Top             =   120
             Width           =   615
          End
@@ -1158,16 +1178,16 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   120
-            TabIndex        =   73
+            TabIndex        =   69
             Top             =   120
             Width           =   945
          End
       End
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":13157
+         Bindings        =   "tw_organizacion_zonas_inst.frx":12293
          Height          =   1740
          Left            =   120
-         TabIndex        =   46
+         TabIndex        =   44
          Top             =   960
          Width           =   18855
          _ExtentX        =   33258
@@ -1571,7 +1591,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       ForeColor       =   &H00800000&
       Height          =   6360
       Left            =   0
-      TabIndex        =   12
+      TabIndex        =   10
       Top             =   0
       Width           =   6180
       Begin VB.PictureBox fra_opciones 
@@ -1581,23 +1601,39 @@ Begin VB.Form tw_organizacion_zonas_inst
          Left            =   120
          ScaleHeight     =   1020
          ScaleWidth      =   6000
-         TabIndex        =   49
+         TabIndex        =   46
          Top             =   240
          Width           =   6000
-         Begin VB.PictureBox BtnSalir 
+         Begin VB.PictureBox BtnBuscar 
             Appearance      =   0  'Flat
             BackColor       =   &H80000006&
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   4560
-            Picture         =   "tw_organizacion_zonas_inst.frx":13172
+            Left            =   4320
+            Picture         =   "tw_organizacion_zonas_inst.frx":122AE
             ScaleHeight     =   615
-            ScaleWidth      =   1245
-            TabIndex        =   55
-            ToolTipText     =   "Cierra la Ventana Activa"
+            ScaleWidth      =   1215
+            TabIndex        =   76
+            ToolTipText     =   "Busca Registros "
             Top             =   480
-            Width           =   1245
+            Visible         =   0   'False
+            Width           =   1215
+         End
+         Begin VB.PictureBox BtnAnlDetalle 
+            Appearance      =   0  'Flat
+            BackColor       =   &H80000006&
+            BorderStyle     =   0  'None
+            ForeColor       =   &H80000008&
+            Height          =   615
+            Left            =   3120
+            Picture         =   "tw_organizacion_zonas_inst.frx":12A63
+            ScaleHeight     =   615
+            ScaleWidth      =   1215
+            TabIndex        =   74
+            Top             =   360
+            Visible         =   0   'False
+            Width           =   1215
          End
          Begin VB.PictureBox BtnImprimir 
             Appearance      =   0  'Flat
@@ -1606,10 +1642,10 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "tw_organizacion_zonas_inst.frx":13934
+            Picture         =   "tw_organizacion_zonas_inst.frx":131AF
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   54
+            TabIndex        =   51
             ToolTipText     =   "Imprimir Todas las Zonas Piloto"
             Top             =   360
             Visible         =   0   'False
@@ -1622,10 +1658,10 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4440
-            Picture         =   "tw_organizacion_zonas_inst.frx":14201
+            Picture         =   "tw_organizacion_zonas_inst.frx":13A7C
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   53
+            TabIndex        =   50
             ToolTipText     =   "Aprueba el Registro Elegido"
             Top             =   0
             Visible         =   0   'False
@@ -1638,10 +1674,10 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3120
-            Picture         =   "tw_organizacion_zonas_inst.frx":14A34
+            Picture         =   "tw_organizacion_zonas_inst.frx":142AF
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   52
+            TabIndex        =   49
             ToolTipText     =   "Anula Zona elegida"
             Top             =   0
             Visible         =   0   'False
@@ -1654,10 +1690,10 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2040
-            Picture         =   "tw_organizacion_zonas_inst.frx":15180
+            Picture         =   "tw_organizacion_zonas_inst.frx":149FB
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   51
+            TabIndex        =   48
             ToolTipText     =   "Crea una Nueva Zona Piloto"
             Top             =   0
             Visible         =   0   'False
@@ -1670,10 +1706,10 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1440
-            Picture         =   "tw_organizacion_zonas_inst.frx":1593F
+            Picture         =   "tw_organizacion_zonas_inst.frx":151BA
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   50
+            TabIndex        =   47
             ToolTipText     =   "Edificios en Cronograma vs. Contratos de Mantenimiento"
             Top             =   360
             Visible         =   0   'False
@@ -1695,7 +1731,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H00FFFF80&
             Height          =   285
             Left            =   120
-            TabIndex        =   56
+            TabIndex        =   52
             Top             =   60
             Width           =   1815
          End
@@ -1715,7 +1751,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   1560
-         TabIndex        =   15
+         TabIndex        =   13
          Top             =   6045
          Value           =   -1  'True
          Visible         =   0   'False
@@ -1736,7 +1772,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   3600
-         TabIndex        =   14
+         TabIndex        =   12
          Top             =   6045
          Visible         =   0   'False
          Width           =   1335
@@ -1788,10 +1824,10 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":1620C
+         Bindings        =   "tw_organizacion_zonas_inst.frx":15A87
          Height          =   4530
          Left            =   120
-         TabIndex        =   13
+         TabIndex        =   11
          Top             =   1320
          Width           =   5955
          _ExtentX        =   10504
@@ -2434,7 +2470,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       _Version        =   393216
    End
    Begin Crystal.CrystalReport CR02 
-      Left            =   5160
+      Left            =   5040
       Top             =   9600
       _ExtentX        =   741
       _ExtentY        =   741
@@ -2449,6 +2485,53 @@ Begin VB.Form tw_organizacion_zonas_inst
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
+   End
+   Begin MSAdodcLib.Adodc ado_datos_busq 
+      Height          =   330
+      Left            =   5520
+      Top             =   9600
+      Visible         =   0   'False
+      Width           =   2535
+      _ExtentX        =   4471
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "ado_datos_busq"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
    End
 End
 Attribute VB_Name = "tw_organizacion_zonas_inst"
@@ -2562,46 +2645,6 @@ Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
     End If
 End Sub
 
-Private Sub BtnAddDetalle_Click()
-  marca1 = Ado_datos.Recordset.Bookmark
-  If Ado_datos.Recordset!estado_codigo <> "ANL" Then
-    swnuevo = 1
-    dg_det1.Visible = True
-    fra_opciones.Enabled = False
-    FraNavega.Enabled = False
-    dg_det1.Enabled = False
-'    Fra_datos.Visible = False
-    FraDet2.Visible = True
-    
-    fra_opciones_det.Visible = False
-    If VAR_UORIGEN = "DNINS" Then
-        lbl_campo6.Caption = "Tecnico Instalaciones"
-    Else
-        lbl_campo6.Caption = "Tecnico Mantenimiento"
-    End If
-    
-    Call ABRIR_DET
-    'Ado_detalle1.Recordset.AddNew
-    dtc_codigo6.Text = dtc_codigo4.Text
-    dtc_codigo7.Text = dtc_codigo4.Text
-    dtc_desc6.Text = dtc_desc4.Text
-    dtc_desc7.Text = dtc_desc4.Text
-    lbl_orden_camb.Visible = False
-    cmd_campo2.Visible = False
-'    dtc_codigo5.Locked = False
-    dtc_desc5.Locked = False
-  Else
-    MsgBox "No se puede Adicionar un nuevo registro, porque este ya está Aprobado!! ", vbExclamation
-  End If
-'  If Ado_datos.Recordset!estado_codigo = "REG" Then
-''    Call OptFilGral1_Click
-'  Else
-    Call OptFilGral2_Click
-    Ado_datos.Recordset.Move marca1 - 1
-'  End If
-'  'Call ABRIR_TABLA_DET
-End Sub
-
 Private Sub ABRIR_DET()
     'gc_edificaciones
     Set rs_datos5 = New ADODB.Recordset
@@ -2616,23 +2659,23 @@ Private Sub ABRIR_DET()
 End Sub
 
 Private Sub BtnAnlDetalle_Click()
-   If Ado_detalle1.Recordset("estado_activo") = "REG" Then
-      sino = MsgBox("Está Seguro de Anular este registro ? (Este ya no será considerado en la presente Zona) ", vbYesNo + vbQuestion, "Atención")
-      If sino = vbYes Then
-        cmd_campo2.Text = Ado_detalle1.Recordset!zona_edif_orden
-        
-        db.Execute "update gc_edificaciones set tomadoInst= 'N' where edif_codigo = '" & dtc_codigo5.Text & "' "
-        'If cmd_campo2.Text <> "0" Then
-            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden >= " & cmd_campo2.Text & "  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
-            db.Execute "update tc_zona_piloto_edif_inst set zona_edif_orden = zorden_cambio  where zorden_cambio > '0'  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " "
-            db.Execute "delete tc_zona_piloto_edif_inst where correlativo = " & Text1.Text & " "
-            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = '0'  where zorden_cambio > '0'"
-        'End If
-        'Call ABRIR_TABLA_DET
-      End If
-   Else
-      MsgBox "No se puede ANULAR, el registro ya fue APROBADO o ya fue ANULADO anteriormente ...", vbExclamation, "Validación de Registro"
-   End If
+'   If Ado_detalle1.Recordset("estado_activo") = "REG" Then
+'      sino = MsgBox("Está Seguro de Anular este registro ? (Este ya no será considerado en la presente Zona) ", vbYesNo + vbQuestion, "Atención")
+'      If sino = vbYes Then
+'        cmd_campo2.Text = Ado_detalle1.Recordset!zona_edif_orden
+'
+'        db.Execute "update gc_edificaciones set tomadoInst= 'N' where edif_codigo = '" & dtc_codigo5.Text & "' "
+'        'If cmd_campo2.Text <> "0" Then
+'            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = zona_edif_orden - 1 where zona_edif_orden >= " & cmd_campo2.Text & "  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & ""
+'            db.Execute "update tc_zona_piloto_edif_inst set zona_edif_orden = zorden_cambio  where zorden_cambio > '0'  and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " "
+'            db.Execute "delete tc_zona_piloto_edif_inst where correlativo = " & Text1.Text & " "
+'            db.Execute "update tc_zona_piloto_edif_inst set zorden_cambio = '0'  where zorden_cambio > '0'"
+'        'End If
+'        'Call ABRIR_TABLA_DET
+'      End If
+'   Else
+'      MsgBox "No se puede ANULAR, el registro ya fue APROBADO o ya fue ANULADO anteriormente ...", vbExclamation, "Validación de Registro"
+'   End If
 End Sub
 
 Private Sub BtnAñadir_Click()
@@ -2658,42 +2701,42 @@ EditErr:
 End Sub
 
 Private Sub BtnAprobar_Click()
-  On Error GoTo UpdateErr
-  Set rs_aux2 = New ADODB.Recordset
-  If rs_aux2.State = 1 Then rs_aux2.Close
-  rs_aux2.Open "select * from tv_zona_piloto_edif where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
-  If rs_aux2.RecordCount > 0 Then
-   If rs_datos!estado_codigo = "REG" Then
-      sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
-      If sino = vbYes Then
-         rs_datos!estado_codigo = "APR"
-         rs_datos!fecha_registro = Date
-         rs_datos!usr_codigo = glusuario
-         rs_datos.UpdateBatch adAffectAll
-      End If
-   Else
-       MsgBox "No se puede APROBAR un registro Anulado (ANL) o Aprobado (APR) anteriormente ...", vbExclamation, "Validación de Registro"
-   End If
-  Else
-    MsgBox "No se puede APROBAR debe asignar por lo menos un Edificio a esta Zona ...", vbExclamation, "Validación de Registro"
-  End If
-   Exit Sub
-UpdateErr:
-  MsgBox Err.Description
+'  On Error GoTo UpdateErr
+'  Set rs_aux2 = New ADODB.Recordset
+'  If rs_aux2.State = 1 Then rs_aux2.Close
+'  rs_aux2.Open "select * from tv_zona_piloto_edif where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' order by zona_edif_orden ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'  If rs_aux2.RecordCount > 0 Then
+'   If rs_datos!estado_codigo = "REG" Then
+'      sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
+'      If sino = vbYes Then
+'         rs_datos!estado_codigo = "APR"
+'         rs_datos!fecha_registro = Date
+'         rs_datos!usr_codigo = glusuario
+'         rs_datos.UpdateBatch adAffectAll
+'      End If
+'   Else
+'       MsgBox "No se puede APROBAR un registro Anulado (ANL) o Aprobado (APR) anteriormente ...", vbExclamation, "Validación de Registro"
+'   End If
+'  Else
+'    MsgBox "No se puede APROBAR debe asignar por lo menos un Edificio a esta Zona ...", vbExclamation, "Validación de Registro"
+'  End If
+'   Exit Sub
+'UpdateErr:
+'  MsgBox Err.Description
 End Sub
 
 Private Sub BtnBuscar_Click()
-    Set ClBuscaGrid = New ClBuscaEnGridExterno
-    Set ClBuscaGrid.Conexión = db
-    ClBuscaGrid.EsTdbGrid = False
-    Set ClBuscaGrid.GridTrabajo = dg_datos
-    ClBuscaGrid.QueryUtilizado = queryinicial
-    Set ClBuscaGrid.RecordsetTrabajo = rs_datos
-    'ClBuscaGrid.CamposVisibles = "11010011"
-    ClBuscaGrid.Ejecutar
+'    Set ClBuscaGrid = New ClBuscaEnGridExterno
+'    Set ClBuscaGrid.Conexión = db
+'    ClBuscaGrid.EsTdbGrid = False
+'    Set ClBuscaGrid.GridTrabajo = dg_datos
+'    ClBuscaGrid.QueryUtilizado = queryinicial
+'    Set ClBuscaGrid.RecordsetTrabajo = rs_datos
+'    'ClBuscaGrid.CamposVisibles = "11010011"
+'    ClBuscaGrid.Ejecutar
 End Sub
 
-Private Sub btnCancelar_Click()
+Private Sub BtnCancelar_Click()
 '  On Error Resume Next
 '   sino = MsgBox("Está Seguro de CANCELAR la operación ? ", vbYesNo + vbQuestion, "Atención")
 '   If sino = vbYes Then
@@ -3045,6 +3088,10 @@ Private Sub BtnSalir_Click()
     Unload Me
 End Sub
 
+Private Sub dtc_cod2_Click(Area As Integer)
+    dtc_desc2.BoundText = dtc_cod2.BoundText
+End Sub
+
 'Private Sub dtc_codigo2_Click(Area As Integer)
 '    dtc_desc2.BoundText = dtc_codigo2.BoundText
 'End Sub
@@ -3077,6 +3124,29 @@ End Sub
 
 Private Sub dtc_codigo4_Click(Area As Integer)
     dtc_desc4.BoundText = dtc_codigo4.BoundText
+End Sub
+
+Private Sub dtc_desc2_Change()
+    dtc_cod2.BoundText = dtc_desc2.BoundText
+    If dtc_cod2.SelectedItem <> "" Then
+         Call Buscar
+    End If
+End Sub
+
+Private Sub dtc_desc2_Click(Area As Integer)
+    dtc_cod2.BoundText = dtc_desc2.BoundText
+End Sub
+
+Private Sub Buscar()
+    If (dg_det1.SelBookmarks.Count <> 0) Then
+       dg_det1.SelBookmarks.Remove 0
+    End If
+    If rs_det1.RecordCount > 0 Then
+        rs_det1.Find "edif_codigo = '" & dtc_cod2.Text & "'", , , 1
+        dg_det1.SelBookmarks.Add (rs_det1.Bookmark)
+    Else
+        MsgBox "No Existe el Edificio en este Grupo ..."
+    End If
 End Sub
 
 'Private Sub pnivel2(codigo2 As String)
@@ -3177,8 +3247,8 @@ Private Sub Form_Load()
 '    End If
     parametro = Aux
     'Actualiza Edificios tomadoInsts en Organizacion de Zonas
-    'db.Execute "update gc_edificaciones set tomadoInst = 'N' "
     'db.Execute "update gc_edificaciones set gc_edificaciones.tomadoInst = 'S' from gc_edificaciones inner join tc_zona_piloto_edif_inst on gc_edificaciones.edif_codigo = tc_zona_piloto_edif_inst.edif_codigo"
+    db.Execute "update tc_zona_piloto_edif_inst set fmes_plan = correlativo where (fmes_plan IS NULL) "
     Call ABRIR_TABLAS_AUX
     Call OptFilGral2_Click
     
@@ -3516,10 +3586,12 @@ End Function
 Private Sub Option1_Click()
     Set rs_det1 = New ADODB.Recordset
     If rs_det1.State = 1 Then rs_det1.Close
-    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' and estado_codigo = 'REG' order by fecha_ini_max ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    rs_det1.Open "select * from tv_zona_piloto_edif_inst where zpiloto_codigo = '" & Ado_datos.Recordset!zpiloto_codigo & "' and estado_codigo = 'REG'  order by edif_descripcion ", db, adOpenKeyset, adLockOptimistic, adCmdText          'order by fecha_ini_max "
+    rs_det1.Sort = "edif_descripcion"
     Set Ado_detalle1.Recordset = rs_det1
     Set dg_det1.DataSource = Ado_detalle1.Recordset
     If Ado_detalle1.Recordset.RecordCount > 0 Then
+        Set ado_datos_busq.Recordset = rs_det1.DataSource
         dg_det1.Visible = True
         'If swnuevo = 0 Then
         '    'gc_edificaciones

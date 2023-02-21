@@ -554,7 +554,7 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   110231553
+         Format          =   119144449
          CurrentDate     =   44699
       End
       Begin VB.Label dtc_desc5 
@@ -5938,9 +5938,9 @@ Private Sub BtnImprimir5_Click()
   VARFECHAFAC = CDate(Format("01/09/2022", "dd/mm/yyyy"))
   VARFECHAFAC2 = CDate(Format("19/12/2022", "dd/mm/yyyy"))
   If (Ado_datos1.Recordset!fecha_fac >= VARFECHAFAC And Ado_datos1.Recordset!fecha_fac < VARFECHAFAC2) Then
-    
   Else
     MsgBox "Sólo se pueden RE-IMPRIMIR Facturas con Fechas entre el 01-SEP-2022 y 19-DIC-2022, verifique los datos y vuelva a intentar ...", , "Atención"
+    'MsgBox "Sólo se pueden RE-IMPRIMIR Facturas Mayores o Iguales a 01-SEP-2022 , verifique los datos y vuelva a intentar ...", , "Atención"
     Exit Sub
   End If
   If Ado_datos1.Recordset.RecordCount > 0 And (Ado_datos1.Recordset!nro_factura > 0) Then         '

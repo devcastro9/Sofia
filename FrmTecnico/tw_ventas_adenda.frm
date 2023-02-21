@@ -666,7 +666,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   110100481
+         Format          =   110886913
          CurrentDate     =   44197
          MinDate         =   32874
       End
@@ -682,7 +682,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   110100481
+         Format          =   110886913
          CurrentDate     =   44197
          MinDate         =   36526
       End

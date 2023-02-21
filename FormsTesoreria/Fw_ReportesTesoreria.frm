@@ -31,7 +31,7 @@ Begin VB.Form Fw_ReportesTesoreria
       Height          =   2775
       Left            =   120
       TabIndex        =   101
-      Top             =   1800
+      Top             =   1680
       Width           =   15195
       Begin VB.OptionButton optRep002 
          BackColor       =   &H00C0C0C0&
@@ -1881,7 +1881,7 @@ Begin VB.Form Fw_ReportesTesoreria
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   108396545
+         Format          =   110231553
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -1893,7 +1893,7 @@ Begin VB.Form Fw_ReportesTesoreria
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   108396545
+         Format          =   110231553
          CurrentDate     =   42735
       End
       Begin VB.Label Label2 
@@ -2242,8 +2242,8 @@ Dim titulo2, subtitulo2 As String
 Public Sub inicio(Usuario, Proceso As String)
   glRepPresup = Proceso
   Call llena_datos
-  dtpFecha1.Value = Format("01/01/2020", "dd/mm/yyyy")
-  dtpFecha2.Value = Format(Date, "dd/mm/yyyy")
+  DTPfecha1.Value = Format("01/01/2020", "dd/mm/yyyy")
+  DTPfecha2.Value = Format(Date, "dd/mm/yyyy")
   'dtpFecha2.Value = Date
 '  frmRepPresupuesto.Show
 End Sub
@@ -3007,8 +3007,8 @@ End Sub
 Private Sub RepUnidad(tipoRep As String, ArchRep As String, titulo1 As String)
   CryUnidad.ReportFileName = App.Path & ArchRep
   If optRep008.Value <> True Then
-    CryUnidad.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
-    CryUnidad.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
+    CryUnidad.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
+    CryUnidad.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
     CryUnidad.StoredProcParam(0) = tipoRep
   End If
 'ini reporte
@@ -3047,8 +3047,8 @@ Private Sub RepUnidad(tipoRep As String, ArchRep As String, titulo1 As String)
   End If
 'fin reporte
 '  Call setParametros(CryUnidad)
-  CryUnidad.Formulas(0) = "FFInicio ='" & dtpFecha1.Value & "'"
-  CryUnidad.Formulas(1) = "FFFinal ='" & dtpFecha2.Value & "'"
+  CryUnidad.Formulas(0) = "FFInicio ='" & DTPfecha1.Value & "'"
+  CryUnidad.Formulas(1) = "FFFinal ='" & DTPfecha2.Value & "'"
   If optRep008.Value = True Then
     subtitulo2 = "VENTAS VS COBRADORES"
     CryUnidad.Formulas(2) = "Titulo = '" & titulo1 & "'"
@@ -3090,12 +3090,12 @@ Private Sub Rep001(tipoRep As String, ArchRep As String, titulo1 As String)
 End Sub
 Private Sub RepVsLey(tipoRep As String, ArchRep As String, titulo1 As String)
   CryVsLey.ReportFileName = App.Path & ArchRep
-  CryVsLey.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
-  CryVsLey.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
+  CryVsLey.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
+  CryVsLey.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
   CryVsLey.StoredProcParam(2) = tipoRep
   Call setParametros(CryVsLey)
-  CryVsLey.Formulas(0) = "fFecha1 ='" & dtpFecha1.Value & "'"
-  CryVsLey.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
+  CryVsLey.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
+  CryVsLey.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
   If titulo1 <> "" Then
     CryVsLey.Formulas(2) = "Titulo1 = '" & titulo1 & "'"
   End If
@@ -3110,12 +3110,12 @@ End Sub
 
 Private Sub RepDetalle(tipoRep As String, ArchRep As String, titulo1 As String)
   CryDetalle.ReportFileName = App.Path & ArchRep
-  CryDetalle.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
-  CryDetalle.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
+  CryDetalle.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
+  CryDetalle.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
   CryDetalle.StoredProcParam(2) = tipoRep
   Call setParametros(CryDetalle)
-  CryDetalle.Formulas(0) = "fFecha1 ='" & dtpFecha1.Value & "'"
-  CryDetalle.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
+  CryDetalle.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
+  CryDetalle.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
   If titulo1 <> "" Then
     CryDetalle.Formulas(2) = "Titulo1 = '" & titulo1 & "'"
   End If
@@ -3372,7 +3372,7 @@ End Sub
 Private Sub Form_Load()
     BtnImprimir2.Visible = False
     Call llena_datos
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
     Unload Me
@@ -3579,12 +3579,12 @@ End Sub
 
 Private Sub RepVsLeyFinanciador(tipoRep As String, ArchRep As String, titulo1 As String)
   CryRep002_financiador.ReportFileName = App.Path & ArchRep
-  CryRep002_financiador.StoredProcParam(0) = Format(dtpFecha1.Value, "dd/mm/yyyy")
-  CryRep002_financiador.StoredProcParam(1) = Format(dtpFecha2.Value, "dd/mm/yyyy")
+  CryRep002_financiador.StoredProcParam(0) = Format(DTPfecha1.Value, "dd/mm/yyyy")
+  CryRep002_financiador.StoredProcParam(1) = Format(DTPfecha2.Value, "dd/mm/yyyy")
   CryRep002_financiador.StoredProcParam(2) = tipoRep
   Call setParametros(CryRep002_financiador)
-  CryRep002_financiador.Formulas(0) = "fFecha1 ='" & dtpFecha1.Value & "'"
-  CryRep002_financiador.Formulas(1) = "fFecha2 ='" & dtpFecha2.Value & "'"
+  CryRep002_financiador.Formulas(0) = "fFecha1 ='" & DTPfecha1.Value & "'"
+  CryRep002_financiador.Formulas(1) = "fFecha2 ='" & DTPfecha2.Value & "'"
   CryRep002_financiador.Formulas(2) = "conDetalle = " & IIf(optSi.Value = True, "true", "false")
   iResult = CryRep002_financiador.PrintReport
   If iResult <> 0 Then
