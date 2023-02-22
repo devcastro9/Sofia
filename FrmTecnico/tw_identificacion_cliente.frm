@@ -15,8 +15,8 @@ Begin VB.Form tw_identificacion_cliente
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   18585
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprimeRepara 
@@ -35,7 +35,7 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   6615
       Left            =   9480
       TabIndex        =   112
-      Top             =   840
+      Top             =   720
       Visible         =   0   'False
       Width           =   9375
       Begin VB.CommandButton btnPanelSalir 
@@ -860,7 +860,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110100481
+         Format          =   109838337
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -2931,10 +2931,10 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   18585
+      ScaleWidth      =   20160
       TabIndex        =   5
-      Top             =   10260
-      Width           =   18585
+      Top             =   10935
+      Width           =   20160
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545

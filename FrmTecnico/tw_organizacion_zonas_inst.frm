@@ -17,7 +17,7 @@ Begin VB.Form tw_organizacion_zonas_inst
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleWidth      =   16770
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_datos 
@@ -150,7 +150,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109248513
+         Format          =   109641729
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -164,7 +164,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109248513
+         Format          =   109641729
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -178,7 +178,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109248513
+         Format          =   109641729
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -192,7 +192,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109248513
+         Format          =   109641729
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
