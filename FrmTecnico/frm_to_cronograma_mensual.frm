@@ -35,7 +35,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   1680
       Left            =   6840
       TabIndex        =   59
-      Top             =   6360
+      Top             =   3360
       Visible         =   0   'False
       Width           =   4860
       Begin VB.CommandButton BtnCancelar2 
@@ -935,7 +935,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2760
       Left            =   6240
       TabIndex        =   116
-      Top             =   5280
+      Top             =   5400
       Visible         =   0   'False
       Width           =   6300
       Begin VB.PictureBox Picture5 
@@ -1101,7 +1101,7 @@ Begin VB.Form frm_to_cronograma_mensual
       Height          =   2160
       Left            =   5760
       TabIndex        =   54
-      Top             =   5880
+      Top             =   5520
       Visible         =   0   'False
       Width           =   7140
       Begin VB.PictureBox Picture11 
@@ -2200,7 +2200,7 @@ Begin VB.Form frm_to_cronograma_mensual
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110231553
+         Format          =   118030337
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2
@@ -4861,7 +4861,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         End If
         If glusuario = "VPAREDES" Or glusuario = "NPAREDES" Then
             BtnModificar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             BtnAprobar.Visible = False
             BtnAnlDetalle4.Visible = False
             BtnModDetalle.Visible = False
@@ -5074,10 +5074,10 @@ Private Sub BtnAnlDetalle3_Click()
       If rs_aux6.State = 1 Then rs_aux6.Close
       rs_aux6.Open "Select * from to_cronograma_diario_final where fmes_plan = " & VAR_FMES & " AND bien_codigo <> '' ", db, adOpenStatic
       If rs_aux6.RecordCount > 0 Then
-        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' "
-
-        db.Execute "UPDATE to_cronograma_diario set estado_codigo = 'REG' where fmes_plan  = " & VAR_FMES & " AND estado_activo = 'APR' "
+        db.Execute "UPDATE to_cronograma_diario_final SET bien_orden  = '0', bien_codigo = '', unidad_codigo_tec = '', tec_plan_codigo = '0', edif_descripcion = '', observaciones = '', estado_activo = 'REG', edif_codigo='' WHERE fmes_plan = " & VAR_FMES & " AND estado_activo = 'APR' "
+        db.Execute "UPDATE to_cronograma_diario set estado_codigo = 'REG' where fmes_plan  = " & VAR_FMES & " AND estado_activo = 'APR' AND bien_codigo <> '' "
       
+        
         Call ABRIR_TABLA_DET
       End If
     Else
@@ -5136,7 +5136,7 @@ End Sub
 Private Function ExisteReg(codigo2 As String) As Boolean
     Dim rs As ADODB.Recordset
     Set rs = New ADODB.Recordset
-    GlSqlAux = "SELECT Count(*) AS Cuantos FROM to_cronograma_diario_final  WHERE fmes_plan = " & codigo2 & " AND bien_codigo <> '' and (nro_fojas IS NOT NULL) AND (doc_numero IS NOT NULL)  "
+    GlSqlAux = "SELECT Count(*) AS Cuantos FROM to_cronograma_diario_final  WHERE fmes_plan = " & codigo2 & " AND bien_codigo <> '' and (nro_fojas IS NOT NULL) AND (doc_numero IS NOT NULL AND doc_numero <> '0')  "
     rs.Open GlSqlAux, db, adOpenStatic
     ExisteReg = rs!Cuantos > 0
 End Function
@@ -5758,7 +5758,7 @@ Private Sub BtnGrabar2_Click()
          Set rs_aux3 = New ADODB.Recordset
          If rs_aux3.State = 1 Then rs_aux3.Close
          'rs_aux3.Open "select * from to_cronograma_detalle where unidad_codigo_tec = '" & VAR_UNITEC & "' and tec_plan_codigo = " & VAR_TECCOD & "   ", db, adOpenKeyset, adLockBatchOptimistic
-         rs_aux3.Open "select * from to_cronograma_diario_final where fmes_plan = " & VAR_AUX2 & "   ", db, adOpenKeyset, adLockBatchOptimistic
+         rs_aux3.Open "select * from to_cronograma_diario_final where fmes_plan = " & VAR_AUX2 & " AND estado_activo <> 'ANL' AND bien_codigo = '' ", db, adOpenKeyset, adLockBatchOptimistic
          If rs_aux3.RecordCount > 0 Then
              rs_aux3.MoveFirst
              While Not rs_aux3.EOF
@@ -5808,6 +5808,9 @@ Private Sub BtnGrabar2_Click()
                 'Habilitar .....
                 'db.Execute "Update to_cronograma Set estado_detalle = 'APR' Where unidad_codigo_tec = '" & VAR_UNITEC & "' and tec_plan_codigo = " & VAR_TECCOD & "   "
              Wend
+         Else
+            MsgBox "El Cronograma FINAL (DESTINO) ya NO tiene horarios libres, Verifique y vuelva a intentar ...", vbExclamation, "Validación de Registro"
+            Exit Sub
          End If
      End If
      'db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.edif_descripcion = av_bienes_vs_edificios.edif_descripcion FROM to_cronograma_diario_final INNER JOIN av_bienes_vs_edificios ON to_cronograma_diario_final.bien_codigo  = av_bienes_vs_edificios.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final.bien_codigo <>'' "
@@ -5838,7 +5841,7 @@ Private Sub BtnGrabar2_Click()
     db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.EDIF_CODIGO = ac_bienes.edif_codigo FROM to_cronograma_diario_final INNER JOIN ac_bienes ON to_cronograma_diario_final.bien_codigo  = ac_bienes.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final.bien_codigo <>'' "
     db.Execute "update to_cronograma_diario_final set to_cronograma_diario_final.edif_descripcion = gc_edificaciones.edif_descripcion FROM to_cronograma_diario_final INNER JOIN gc_edificaciones ON to_cronograma_diario_final.edif_codigo = gc_edificaciones.edif_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final.bien_codigo <>'' "
     '-- PASO 5. ACTUALIZA VENTA_CODIGO EN CRONO FINAL
-    db.Execute "UPDATE to_cronograma_diario_final SET to_cronograma_diario_final.venta_codigo  = AV_VENTAS_PROG_BIEN_FMESPLAN.venta_codigo FROM to_cronograma_diario_final INNER JOIN AV_VENTAS_PROG_BIEN_FMESPLAN ON to_cronograma_diario_final.fmes_plan = AV_VENTAS_PROG_BIEN_FMESPLAN.fmes_plan AND to_cronograma_diario_final.bien_codigo = AV_VENTAS_PROG_BIEN_FMESPLAN.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final.venta_codigo Is Null "
+    db.Execute "UPDATE to_cronograma_diario_final SET to_cronograma_diario_final.venta_codigo  = AV_VENTAS_PROG_BIEN_FMESPLAN.venta_codigo FROM to_cronograma_diario_final INNER JOIN AV_VENTAS_PROG_BIEN_FMESPLAN ON to_cronograma_diario_final.fmes_plan = AV_VENTAS_PROG_BIEN_FMESPLAN.fmes_plan AND to_cronograma_diario_final.bien_codigo = AV_VENTAS_PROG_BIEN_FMESPLAN.bien_codigo where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & " AND to_cronograma_diario_final.venta_codigo Is Null AND to_cronograma_diario_final.bien_codigo <> '' "
     db.Execute "UPDATE to_cronograma_diario_final SET to_cronograma_diario_final.unidad_codigo_tec = ao_ventas_cabecera.unidad_codigo, to_cronograma_diario_final.tec_plan_codigo = ao_ventas_cabecera.solicitud_codigo FROM to_cronograma_diario_final INNER JOIN ao_ventas_cabecera ON to_cronograma_diario_final.venta_codigo = ao_ventas_cabecera.venta_codigo  where to_cronograma_diario_final.fmes_plan = " & VAR_AUX2 & "  "
     'ZONA PILOTO INI
     Set rs_aux4 = New ADODB.Recordset

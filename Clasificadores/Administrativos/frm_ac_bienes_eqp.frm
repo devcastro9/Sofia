@@ -15,8 +15,8 @@ Begin VB.Form frm_ac_bienes_eqp
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8355
-   ScaleWidth      =   11145
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumo 
       BackColor       =   &H00C0C0C0&
@@ -1231,12 +1231,14 @@ Begin VB.Form frm_ac_bienes_eqp
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
+               ColumnWidth     =   1154.835
             EndProperty
             BeginProperty Column01 
+               ColumnWidth     =   1695.118
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               ColumnWidth     =   720
+               ColumnWidth     =   599.811
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False
@@ -1257,6 +1259,7 @@ Begin VB.Form frm_ac_bienes_eqp
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column09 
+               ColumnWidth     =   1844.787
             EndProperty
          EndProperty
       End
@@ -1528,7 +1531,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   119013377
+         Format          =   108724225
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1791,7 +1794,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   119013377
+         Format          =   108724225
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -2912,10 +2915,10 @@ Begin VB.Form frm_ac_bienes_eqp
       Height          =   495
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   11145
+      ScaleWidth      =   20160
       TabIndex        =   27
-      Top             =   7860
-      Width           =   11145
+      Top             =   10440
+      Width           =   20160
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15

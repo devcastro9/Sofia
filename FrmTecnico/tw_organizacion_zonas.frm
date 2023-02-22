@@ -1354,7 +1354,7 @@ Begin VB.Form tw_organizacion_zonas
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   5160
+         Left            =   4920
          Picture         =   "tw_organizacion_zonas.frx":713C
          ScaleHeight     =   615
          ScaleWidth      =   1275
@@ -1928,7 +1928,7 @@ Begin VB.Form tw_organizacion_zonas
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   1800
+         Left            =   3720
          TabIndex        =   26
          Top             =   2955
          Value           =   -1  'True
@@ -1948,7 +1948,7 @@ Begin VB.Form tw_organizacion_zonas
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   3600
+         Left            =   1680
          TabIndex        =   25
          Top             =   2955
          Visible         =   0   'False
@@ -2859,7 +2859,6 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                         'rs_aux6.Open "Select * from ao_ventas_cabecera where venta_fecha_fin = '" & rs_aux5!venta_fecha_fin & "' and edif_codigo = '" & rs_aux5!EDIF_CODIGO & "' and zpiloto_codigo = " & Ado_datos.Recordset!zpiloto_codigo & " AND estado_codigo = 'APR' ", db, adOpenStatic
                         rs_aux6.Open "Select * from av_ventas_cabecera_mant where venta_codigo = " & rs_aux5!venta_codigo & " ", db, adOpenStatic
                         If rs_aux6.RecordCount > 0 Then
-
                             db.Execute "UPDATE tc_zona_piloto_edif SET codigo_empresa= " & rs_aux6!codigo_empresa & ", unimed_codigo = '" & IIf(IsNull(rs_aux6!unimed_codigo_tec), "MES", rs_aux6!unimed_codigo_tec) & "', solicitud_tipo = " & rs_aux5!solicitud_tipo & ", fecha_fin_max = '" & rs_aux5!venta_fecha_fin & "', Gratuito = 'NO', mes_par_impar = '" & VAR_IMPAR & "', venta_codigo = " & rs_aux5!venta_codigo & "  WHERE edif_codigo = '" & rs_aux6!edif_codigo & "'  "
                         End If
                         rs_aux5.MoveNext
@@ -2886,7 +2885,9 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '                    Wend
 '                End If
             End If
-            Call ABRIR_TABLA_DET
+            If VAR_SW <> "ADD" Then
+                Call ABRIR_TABLA_DET
+            End If
 '            If lbl_texto1.Caption <> "" And lbl_texto1.Caption <> "0" Then
 '                lbl_texto2.Caption = UCase(MonthName(Val(lbl_texto1.Caption)))
 '            End If
