@@ -36,7 +36,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       Height          =   2640
       Left            =   8400
       TabIndex        =   14
-      Top             =   4800
+      Top             =   4680
       Visible         =   0   'False
       Width           =   8460
       Begin VB.PictureBox FraGrabarCancelar 
@@ -150,7 +150,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   109182977
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -164,7 +164,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   109182977
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -178,7 +178,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   109182977
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -192,7 +192,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   109182977
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -951,7 +951,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Height          =   315
             Left            =   5040
             TabIndex        =   72
-            Top             =   555
+            Top             =   315
             Width           =   4890
             _ExtentX        =   8625
             _ExtentY        =   556
@@ -992,7 +992,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Height          =   255
             Left            =   5040
             TabIndex        =   71
-            Top             =   285
+            Top             =   45
             Width           =   1935
          End
          Begin VB.Label lbl_texto0 
@@ -1732,7 +1732,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Height          =   285
             Left            =   120
             TabIndex        =   52
-            Top             =   60
+            Top             =   180
             Width           =   1815
          End
       End

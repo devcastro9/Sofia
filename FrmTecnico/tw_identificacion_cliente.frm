@@ -15,8 +15,8 @@ Begin VB.Form tw_identificacion_cliente
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   10260
+   ScaleWidth      =   18585
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprimeRepara 
@@ -33,7 +33,7 @@ Begin VB.Form tw_identificacion_cliente
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   6615
-      Left            =   9480
+      Left            =   9600
       TabIndex        =   112
       Top             =   720
       Visible         =   0   'False
@@ -343,7 +343,7 @@ Begin VB.Form tw_identificacion_cliente
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       Height          =   8115
-      Left            =   7665
+      Left            =   7785
       TabIndex        =   11
       Top             =   660
       Visible         =   0   'False
@@ -860,7 +860,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109838337
+         Format          =   109182977
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -2931,10 +2931,10 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20160
+      ScaleWidth      =   18585
       TabIndex        =   5
-      Top             =   10935
-      Width           =   20160
+      Top             =   10260
+      Width           =   18585
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4176,8 +4176,10 @@ Private Sub BtnAddDetalle2_Click()
      If Ado_datos.Recordset.RecordCount > 0 Then
         rs_datos.Find "solicitud_codigo = " & VAR_COD2 & "   ", , , 1
         dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
-         If rs_det1.RecordCount > 0 Then
-         rs_det1.MoveLast
+         'If rs_det1.RecordCount > 0 Then
+         'rs_det1.MoveLast
+         If rs_datos.RecordCount > 0 Then
+         rs_datos.MoveLast
         End If
      Else
         rs_datos.MoveLast
