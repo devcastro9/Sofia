@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -13,8 +13,8 @@ Begin VB.Form aw_almacen_inventario
    Icon            =   "aw_almacen_inventario.frx":0000
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8415
-   ScaleWidth      =   11400
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.Frame fra_reportes 
       BackColor       =   &H00FFC0C0&
@@ -30,9 +30,9 @@ Begin VB.Form aw_almacen_inventario
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   4575
-      Left            =   2040
+      Left            =   1920
       TabIndex        =   33
-      Top             =   2640
+      Top             =   3720
       Visible         =   0   'False
       Width           =   8775
       Begin VB.CommandButton btnSalirPanel 
@@ -332,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   108855297
+         Format          =   117178369
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -345,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   108855297
+         Format          =   117178369
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -384,10 +384,10 @@ Begin VB.Form aw_almacen_inventario
       Height          =   660
       Left            =   0
       ScaleHeight     =   660
-      ScaleWidth      =   11400
+      ScaleWidth      =   20160
       TabIndex        =   5
       Top             =   0
-      Width           =   11400
+      Width           =   20160
       Begin VB.PictureBox BtnImprimir4 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -508,10 +508,10 @@ Begin VB.Form aw_almacen_inventario
       Height          =   555
       Left            =   0
       ScaleHeight     =   555
-      ScaleWidth      =   11400
+      ScaleWidth      =   20160
       TabIndex        =   4
       Top             =   660
-      Width           =   11400
+      Width           =   20160
       Begin MSDataListLib.DataCombo dtc_desc1 
          Bindings        =   "aw_almacen_inventario.frx":B7BC
          DataField       =   "almacen_codigo"
@@ -640,10 +640,10 @@ Begin VB.Form aw_almacen_inventario
       Height          =   495
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   11400
+      ScaleWidth      =   20160
       TabIndex        =   0
-      Top             =   7920
-      Width           =   11400
+      Top             =   10440
+      Width           =   20160
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   1215
@@ -873,14 +873,14 @@ Begin VB.Form aw_almacen_inventario
    Begin MSDataGridLib.DataGrid tdbgInventario 
       Align           =   3  'Align Left
       Bindings        =   "aw_almacen_inventario.frx":B828
-      Height          =   6705
+      Height          =   9225
       Left            =   0
       Negotiate       =   -1  'True
       TabIndex        =   26
       Top             =   1215
       Width           =   13935
       _ExtentX        =   24580
-      _ExtentY        =   11827
+      _ExtentY        =   16272
       _Version        =   393216
       AllowUpdate     =   0   'False
       BackColor       =   12572159
@@ -1494,7 +1494,7 @@ Private Sub dtc_desc1_Change()
         Set tdbgInventario.DataSource = RsInventario.DataSource
         If RsInventario.RecordCount > 0 Then
             'RsInventario.Sort = "bien_descripcion"
-            Set Ado_datos_busq.Recordset = RsInventario.DataSource
+            Set ado_datos_busq.Recordset = RsInventario.DataSource
             dtc_cod2.BoundText = dtc_desc2.BoundText
             dtc_desc2.Visible = True
             lbl_bien.Visible = True

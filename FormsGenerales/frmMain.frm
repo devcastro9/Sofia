@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.MDIForm frmMain 
    AutoShowChildren=   0   'False
    BackColor       =   &H00C0C0C0&
@@ -19,11 +19,11 @@ Begin VB.MDIForm frmMain
       Height          =   2055
       Left            =   0
       ScaleHeight     =   1995
-      ScaleWidth      =   14655
+      ScaleWidth      =   20100
       TabIndex        =   27
       Top             =   525
       Visible         =   0   'False
-      Width           =   14715
+      Width           =   20160
       Begin VB.Frame Frame1 
          Caption         =   "ALERTAS"
          BeginProperty Font 
@@ -105,10 +105,10 @@ Begin VB.MDIForm frmMain
       Height          =   525
       Left            =   0
       ScaleHeight     =   525
-      ScaleWidth      =   14715
+      ScaleWidth      =   20160
       TabIndex        =   10
       Top             =   0
-      Width           =   14715
+      Width           =   20160
       Begin VB.CommandButton CmdRepA 
          BackColor       =   &H00E0E0E0&
          Caption         =   "Cambiar Contraseña"
@@ -444,10 +444,10 @@ Begin VB.MDIForm frmMain
       Height          =   270
       Left            =   0
       ScaleHeight     =   210
-      ScaleWidth      =   14655
+      ScaleWidth      =   20100
       TabIndex        =   0
-      Top             =   7740
-      Width           =   14715
+      Top             =   10365
+      Width           =   20160
       Begin VB.Label txtVersion 
          AutoSize        =   -1  'True
          Caption         =   "Usuario:"
@@ -616,9 +616,9 @@ Begin VB.MDIForm frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   26
-      Top             =   7350
-      Width           =   14715
-      _ExtentX        =   25956
+      Top             =   9975
+      Width           =   20160
+      _ExtentX        =   35560
       _ExtentY        =   688
       _Version        =   327682
       Appearance      =   1
@@ -2485,10 +2485,16 @@ End Sub
 
 Private Sub mnu_SalidaAlmacenRep_Click()
     Aux = "UALMR"
-    aw_almacen_salida_rep.lbl_titulo = mnu_SalidaAlmacenRep.Caption
-    aw_almacen_salida_rep.FraNavega = mnu_SalidaAlmacenRep.Caption
-    aw_almacen_salida_rep.lbl_titulo2 = mnu_SalidaAlmacenRep.Caption
-    aw_almacen_salida_rep.Show
+'    aw_almacen_salida_rep.lbl_titulo = mnu_SalidaAlmacenRep.Caption
+'    aw_almacen_salida_rep.FraNavega = mnu_SalidaAlmacenRep.Caption
+'    aw_almacen_salida_rep.lbl_titulo2 = mnu_SalidaAlmacenRep.Caption
+'    aw_almacen_salida_rep.Show
+
+    aw_almacen_salida.lbl_titulo = mnu_SalidaAlmacenRep.Caption
+    aw_almacen_salida.FraNavega = mnu_SalidaAlmacenRep.Caption
+    aw_almacen_salida.lbl_titulo2 = mnu_SalidaAlmacenRep.Caption
+    aw_almacen_salida.Show
+
 End Sub
 
 Private Sub mnu_SalirSistema_Click()

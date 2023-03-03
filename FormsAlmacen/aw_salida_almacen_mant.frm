@@ -1,9 +1,9 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
-Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form aw_salida_almacen_mant 
    BackColor       =   &H00C0C0C0&
@@ -17,7 +17,7 @@ Begin VB.Form aw_salida_almacen_mant
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   10620
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0C0C0&
@@ -161,7 +161,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109969409
+            Format          =   117178369
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -349,6 +349,7 @@ Begin VB.Form aw_salida_almacen_mant
             TabIndex        =   61
             ToolTipText     =   "GRUPO de Cmpbtes. de Salida Almacen"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1400
          End
          Begin VB.PictureBox BtnBuscar2 
@@ -379,6 +380,7 @@ Begin VB.Form aw_salida_almacen_mant
             TabIndex        =   59
             ToolTipText     =   "Cmpbte.INDIVIDUAL de Salida Almacen"
             Top             =   0
+            Visible         =   0   'False
             Width           =   1400
          End
          Begin VB.PictureBox BtnAprobarDet 
@@ -490,11 +492,11 @@ Begin VB.Form aw_salida_almacen_mant
          Width           =   12600
       End
       Begin TrueOleDBGrid60.TDBGrid TDBGrid2 
-         Bindings        =   "aw_salida_almacen_mant.frx":1529A
+         Bindings        =   "aw_salida_almacen_mant.frx":152F4
          Height          =   2775
          Left            =   120
          Negotiate       =   -1  'True
-         OleObjectBlob   =   "aw_salida_almacen_mant.frx":152B5
+         OleObjectBlob   =   "aw_salida_almacen_mant.frx":1530F
          TabIndex        =   88
          Top             =   5400
          Width           =   12615
@@ -694,7 +696,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "aw_salida_almacen_mant.frx":24FFA
+            Picture         =   "aw_salida_almacen_mant.frx":250A2
             ScaleHeight     =   615
             ScaleWidth      =   1200
             TabIndex        =   48
@@ -709,7 +711,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1305
-            Picture         =   "aw_salida_almacen_mant.frx":257B9
+            Picture         =   "aw_salida_almacen_mant.frx":25861
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   47
@@ -724,7 +726,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2640
-            Picture         =   "aw_salida_almacen_mant.frx":260CE
+            Picture         =   "aw_salida_almacen_mant.frx":26176
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   46
@@ -739,7 +741,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   7320
-            Picture         =   "aw_salida_almacen_mant.frx":2681A
+            Picture         =   "aw_salida_almacen_mant.frx":268C2
             ScaleHeight     =   615
             ScaleWidth      =   1320
             TabIndex        =   45
@@ -754,7 +756,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3720
-            Picture         =   "aw_salida_almacen_mant.frx":2704D
+            Picture         =   "aw_salida_almacen_mant.frx":270F5
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   44
@@ -768,7 +770,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5760
-            Picture         =   "aw_salida_almacen_mant.frx":27802
+            Picture         =   "aw_salida_almacen_mant.frx":278AA
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   43
@@ -783,7 +785,7 @@ Begin VB.Form aw_salida_almacen_mant
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   17880
-            Picture         =   "aw_salida_almacen_mant.frx":280CF
+            Picture         =   "aw_salida_almacen_mant.frx":28177
             ScaleHeight     =   615
             ScaleWidth      =   1245
             TabIndex        =   42
@@ -820,7 +822,7 @@ Begin VB.Form aw_salida_almacen_mant
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "aw_salida_almacen_mant.frx":28891
+         Picture         =   "aw_salida_almacen_mant.frx":28939
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   39
@@ -834,7 +836,7 @@ Begin VB.Form aw_salida_almacen_mant
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "aw_salida_almacen_mant.frx":2917D
+         Picture         =   "aw_salida_almacen_mant.frx":29225
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   38
@@ -1726,7 +1728,7 @@ Begin VB.Form aw_salida_almacen_mant
          Width           =   255
       End
       Begin MSDataListLib.DataCombo dtc_codigo4 
-         Bindings        =   "aw_salida_almacen_mant.frx":29953
+         Bindings        =   "aw_salida_almacen_mant.frx":299FB
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1877,7 +1879,7 @@ Begin VB.Form aw_salida_almacen_mant
          Width           =   855
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "aw_salida_almacen_mant.frx":2996C
+         Bindings        =   "aw_salida_almacen_mant.frx":29A14
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1896,7 +1898,7 @@ Begin VB.Form aw_salida_almacen_mant
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "aw_salida_almacen_mant.frx":29985
+         Bindings        =   "aw_salida_almacen_mant.frx":29A2D
          DataField       =   "unidad_codigo_tec"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1915,7 +1917,7 @@ Begin VB.Form aw_salida_almacen_mant
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "aw_salida_almacen_mant.frx":2999E
+         Bindings        =   "aw_salida_almacen_mant.frx":29A46
          DataField       =   "unidad_codigo_tec"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1975,13 +1977,13 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   109969411
+         Format          =   117178371
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "aw_salida_almacen_mant.frx":299B7
+         Bindings        =   "aw_salida_almacen_mant.frx":29A5F
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2010,7 +2012,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc4 
-         Bindings        =   "aw_salida_almacen_mant.frx":299D0
+         Bindings        =   "aw_salida_almacen_mant.frx":29A78
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -2491,6 +2493,7 @@ Dim VAR_DC As Integer
 Dim VAR_ALMH, VAR_ALMI As Integer
 Dim VAR_CRTL, VAR_CRONO As Integer
 Dim VAR_NUMGRP, VAR_REG As Integer
+Dim VAR_FMESP As Integer
 
 'OTROS
 'Dim swnuevo As String
@@ -2529,6 +2532,9 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         '            Case "4"
         '        End Select
         If Ado_datos.Recordset.RecordCount > 0 Then
+            VAR_FMESP = Ado_datos.Recordset!fmes_plan
+            BtnImprimir2.Visible = False
+            BtnImprimir4.Visible = False
             TDBGrid2.Visible = False
             buscados = buscados + 1
             If buscados = 1 Then
@@ -2541,7 +2547,8 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             End If
             Set rs_aux6 = New ADODB.Recordset
             If rs_aux6.State = 1 Then rs_aux6.Close
-            rs_aux6.Open "select sum(cantidad1) as cant1, sum(cantidad2) as cant2,sum(cantidad3) as cant3,sum(cantidad4) as cant4, sum(cantidad5) as cant5  from to_cronograma_diario_final where fmes_plan= " & Ado_datos.Recordset!fmes_plan & " ", db, adOpenKeyset, adLockBatchOptimistic
+            'rs_aux6.Open "select sum(cantidad1) as cant1, sum(cantidad2) as cant2,sum(cantidad3) as cant3,sum(cantidad4) as cant4, sum(cantidad5) as cant5  from to_cronograma_diario_final where fmes_plan= " & Ado_datos.Recordset!fmes_plan & " ", db, adOpenKeyset, adLockBatchOptimistic
+            rs_aux6.Open "select sum(cantidad1) as cant1, sum(cantidad2) as cant2,sum(cantidad3) as cant3,sum(cantidad4) as cant4, sum(cantidad5) as cant5  from to_cronograma_diario_final where fmes_plan = " & VAR_FMESP & " ", db, adOpenKeyset, adLockBatchOptimistic
             If rs_aux6.RecordCount > 0 Then
                 lblcant1.Caption = IIf(IsNull(rs_aux6!cant1), 0, rs_aux6!cant1)
                 lblcant2.Caption = IIf(IsNull(rs_aux6!cant2), 0, rs_aux6!cant2)
@@ -2577,7 +2584,8 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         TDBGrid2.Visible = True
         Set rs_det3 = New ADODB.Recordset
         If rs_det3.State = 1 Then rs_det3.Close
-        rs_det3.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "  AND correl_prog = " & Ado_detalle2.Recordset!correl_prog & " ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText       'and hora_registro = '0'
+        'rs_det3.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "  AND correl_prog = " & Ado_detalle2.Recordset!correl_prog & " ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText       'and hora_registro = '0'
+        rs_det3.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & VAR_FMESP & "  AND correl_prog = " & Ado_detalle2.Recordset!correl_prog & " ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText       'and hora_registro = '0'
         'rs_det2.Sort = "dia_fecha"
         rs_det3.Sort = "dia_fecha, horario_codigo"
         Set Ado_detalle3.Recordset = rs_det3
@@ -2587,9 +2595,13 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         If Ado_detalle3.Recordset.RecordCount > 0 Then
             BtnAnlDetalle.Visible = True
             BtnAprobarDet.Visible = True
+            BtnImprimir2.Visible = True
+            BtnImprimir4.Visible = True
         Else
             BtnAnlDetalle.Visible = False
             BtnAprobarDet.Visible = False
+            BtnImprimir2.Visible = False
+            BtnImprimir4.Visible = False
         End If
         '
     Else
@@ -2623,8 +2635,8 @@ Private Sub BtnAnlDetalle_Click()
            'db.Execute "Update to_cronograma_diario_final SET estado_almacen = 'REG' Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!edif_codigo & "'"
            'db.Execute "Update to_cronograma_diario_final SET correl_prog = '0' Where fmes_plan=" & Ado_detalle2.Recordset!fmes_plan & " and edif_codigo='" & Ado_detalle3.Recordset!edif_codigo & "' "
            'db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0'  Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!edif_codigo & "'  AND estado_almacen = 'APR'  AND doc_numero_m = " & Ado_detalle3.Recordset!doc_numero_m & " "
-           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0', correl_prog = '0', ok_almacen = 'False', estado_almacen = 'REG'  Where fmes_plan=" & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!edif_codigo & "'  AND estado_almacen = 'APR'  AND doc_numero_m = " & Ado_detalle3.Recordset!doc_numero_m & " "
-           
+           'db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0', correl_prog = '0', ok_almacen = 'False', estado_almacen = 'REG'  Where fmes_plan = " & Ado_detalle3.Recordset!fmes_plan & " and edif_codigo ='" & Ado_detalle3.Recordset!edif_codigo & "'  AND estado_almacen = 'APR'  AND doc_numero_m = " & Ado_detalle3.Recordset!doc_numero_m & " "
+           db.Execute "Update to_cronograma_diario_final SET doc_numero_m = '0', correl_prog = '0', ok_almacen = 'False', estado_almacen = 'REG'  Where fmes_plan = " & VAR_FMESP & " and edif_codigo ='" & Ado_detalle3.Recordset!edif_codigo & "'  AND estado_almacen = 'APR'  AND doc_numero_m = " & Ado_detalle3.Recordset!doc_numero_m & " "
            Call ABRIR_TABLA_DET(1)
            
         Else
@@ -2864,8 +2876,8 @@ Private Sub BtnAprobarDet_Click()
         Else
             VAR_NUMGRP = 1
         End If
-        db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'True' Where fmes_plan=" & Ado_datos.Recordset!fmes_plan & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & "  "
-        db.Execute "Update to_cronograma_diario_final SET correl_prog = " & VAR_NUMGRP & " Where fmes_plan= " & Ado_datos.Recordset!fmes_plan & " AND correl_prog = " & Ado_detalle3.Recordset!correl_prog & "  "
+        db.Execute "Update to_cronograma_diario_final SET ok_almacen = 'True' Where fmes_plan=" & VAR_FMESP & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & "  "
+        db.Execute "Update to_cronograma_diario_final SET correl_prog = " & VAR_NUMGRP & " Where fmes_plan= " & VAR_FMESP & " AND correl_prog = " & Ado_detalle3.Recordset!correl_prog & "  "
         
         ' rs_det3.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "  AND correl_prog = " & Ado_detalle2.Recordset!correl_prog & " ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText
         MsgBox "Los registros se enviaron a Almacenes satisfactoriamente !!. ", vbInformation, "Información"
@@ -3216,14 +3228,14 @@ Private Sub BtnGrabar_Click()
      '
      Set rs_aux5 = New ADODB.Recordset
      If rs_aux5.State = 1 Then rs_aux5.Close
-     rs_aux5.Open "select dia_correl from to_cronograma_diario where fmes_plan = " & Ado_datos.Recordset!fmes_plan & " and estado_activo <> 'ANL' group by dia_correl", db, adOpenStatic
+     rs_aux5.Open "select dia_correl from to_cronograma_diario where fmes_plan = " & VAR_FMESP & " and estado_activo <> 'ANL' group by dia_correl", db, adOpenStatic
      If rs_aux5.RecordCount > 0 Then
         DIAS_HAB = rs_aux5.RecordCount
      End If
         
      Set rs_aux5 = New ADODB.Recordset
      If rs_aux5.State = 1 Then rs_aux5.Close
-     rs_aux5.Open "select COUNT(dia_correl) as nro_horarios, SUM(nro_total_horas) as nro_horas from to_cronograma_diario where fmes_plan = " & Ado_datos.Recordset!fmes_plan & " and estado_activo <> 'ANL' ", db, adOpenStatic
+     rs_aux5.Open "select COUNT(dia_correl) as nro_horarios, SUM(nro_total_horas) as nro_horas from to_cronograma_diario where fmes_plan = " & VAR_FMESP & " and estado_activo <> 'ANL' ", db, adOpenStatic
      If rs_aux5.RecordCount > 0 Then
         NRO_HORARIO = rs_aux5!nro_horarios
         NRO_HRS = rs_aux5!nro_horas
@@ -3240,7 +3252,7 @@ Private Sub BtnGrabar_Click()
      rs_datos!fecha_registro = Date     'no cambia
      rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
      rs_datos.Update    'Batch 'adAffectAll
-     db.Execute "Update to_cronograma_diario Set beneficiario_codigo_resp = " & dtc_codigo4.Text & ", beneficiario_codigo_resp2 = " & dtc_codigo4.Text & " Where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "   "
+     db.Execute "Update to_cronograma_diario Set beneficiario_codigo_resp = " & dtc_codigo4.Text & ", beneficiario_codigo_resp2 = " & dtc_codigo4.Text & " Where fmes_plan = " & VAR_FMESP & "   "
      
      Call OptFilGral2_Click
      rs_datos.MoveFirst
@@ -3382,8 +3394,10 @@ Private Sub BtnImprimir2_Click()
             VAR_CRTL = 2
             txt_obs.Text = "Salida Almacen de Insumos Mantenimiento"
             VAR_EDIFD = Trim(Ado_detalle2.Recordset!edif_descripcion)
-            VAR_CRONO = Ado_detalle2.Recordset!fmes_plan
+            VAR_CRONO = Ado_datos.Recordset!fmes_plan
+            'VAR_CRONO = Ado_detalle2.Recordset!fmes_plan
             'Call BtnGraba3_Click
+            'VAR_FMESP
             Dim iResult As Integer
             'Dim co As New ADODB.Command
             If GlBaseDatos = "ADMIN_EMPRESA" Then
@@ -3409,8 +3423,9 @@ Private Sub BtnImprimir4_Click()
 If Ado_detalle3.Recordset.RecordCount > 0 Then
     'to_cronograma_diario_final
     Set rs_datos1 = New ADODB.Recordset
-    If rs_datos1.State = 1 Then rs_datos1.Close
-    rs_datos1.Open "select distinct bien_codigo  from to_cronograma_diario_final where fmes_plan = " & Ado_detalle3.Recordset!fmes_plan & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & " ", db, adOpenStatic
+    If rs_datos1.State = 1 Then rs_datos1.Close     '
+    'rs_datos1.Open "select distinct bien_codigo  from to_cronograma_diario_final where fmes_plan = " & Ado_detalle3.Recordset!fmes_plan & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & " ", db, adOpenStatic
+    rs_datos1.Open "select distinct bien_codigo  from to_cronograma_diario_final where fmes_plan = " & VAR_FMESP & " and correl_prog = " & Ado_detalle3.Recordset!correl_prog & " ", db, adOpenStatic
     If rs_datos1.RecordCount > 0 Then
         VAR_REG = rs_datos1.RecordCount
         VAR_CANT1 = rs_datos1.RecordCount
@@ -3452,7 +3467,7 @@ If Ado_detalle3.Recordset.RecordCount > 0 Then
       CR04.Formulas(3) = "TotalReg = " & VAR_REG & " "
       CR04.Formulas(4) = "CANT1 = " & VAR_CANT1 & " "
       
-     CR04.StoredProcParam(0) = Me.Ado_detalle3.Recordset!fmes_plan
+     CR04.StoredProcParam(0) = VAR_FMESP                                    'Me.Ado_detalle3.Recordset!fmes_plan
      CR04.StoredProcParam(1) = Me.Ado_detalle3.Recordset!correl_prog             'Me.Ado_detalle2.Recordset!zpiloto_codigo
      
     iResult = CR04.PrintReport
@@ -3954,7 +3969,7 @@ Private Sub Form_Load()
     
     If glusuario = "MLLOSA" Then
         BtnModificar.Visible = False
-        btnEliminar.Visible = False
+        BtnEliminar.Visible = False
         BtnAprobar.Visible = False
         BtnModDetalle.Visible = False
         BtnGrabarDet.Visible = False
@@ -4284,10 +4299,8 @@ Private Sub ABRIR_TABLA_DET(posicion As Integer)
     Case 1
         Set rs_det2 = New ADODB.Recordset
         If rs_det2.State = 1 Then rs_det2.Close
-        rs_det2.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "  AND estado_activo = 'APR' ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText       'and hora_registro = '0'
-        'rs_det2.Open "SEECT distinct fmes_plan, dia_correl, bien_orden, bien_codigo, unidad_codigo_tec, tec_plan_codigo, beneficiario_codigo_resp, beneficiario_codigo_resp2, dia_fecha, dia_nombre, nro_total_horas, observaciones, edif_descripcion, bien_codigo1, bien_codigo2, bien_codigo3, bien_codigo4, " & _
-        " bien_codigo5, cantidad1, cantidad2, cantidad3, cantidad4, cantidad5, carta, doc_numero_carta, fecha_carta, fecha_conformidad, fecha_equipo_hdm, nro_fojas, doc_numero , estado_activo, estado_codigo, usr_codigo, fecha_registro, hora_registro  " & _
-        " From dbo.to_cronograma_diario_final where fmes_plan = '" & Ado_datos.Recordset!fmes_plan & "'  AND estado_activo = 'APR' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        'rs_det2.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & Ado_datos.Recordset!fmes_plan & "  AND estado_activo = 'APR' ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText       'and hora_registro = '0'
+        rs_det2.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & VAR_FMESP & " AND estado_activo = 'APR' ORDER BY dia_fecha ", db, adOpenKeyset, adLockOptimistic, adCmdText       'and hora_registro = '0'
         'rs_det2.Sort = "dia_fecha"
         rs_det2.Sort = "dia_fecha, horario_codigo"
         Set Ado_detalle2.Recordset = rs_det2
@@ -4299,11 +4312,9 @@ Private Sub ABRIR_TABLA_DET(posicion As Integer)
     Case 2
         Set rs_busqueda = New ADODB.Recordset
         If rs_busqueda.State = 1 Then rs_busqueda.Close
-        rs_busqueda.Open "select * from tv_cronograma_salida_insumos where fmes_plan = '" & Ado_datos.Recordset!fmes_plan & "'  AND estado_activo = 'APR'  and edif_codigo = '" & dtc_codigo2.Text & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText      'and hora_registro = '0'
+        'rs_busqueda.Open "select * from tv_cronograma_salida_insumos where fmes_plan = '" & Ado_datos.Recordset!fmes_plan & "'  AND estado_activo = 'APR'  and edif_codigo = '" & dtc_codigo2.Text & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText      'and hora_registro = '0'
+        rs_busqueda.Open "select * from tv_cronograma_salida_insumos where fmes_plan = " & VAR_FMESP & " AND estado_activo = 'APR'  and edif_codigo = '" & dtc_codigo2.Text & "'  ", db, adOpenKeyset, adLockOptimistic, adCmdText      'and hora_registro = '0'
          rs_busqueda.Sort = "edif_descripcion"
-        'rs_det2.Open "SELECT distinct fmes_plan, dia_correl, bien_orden, bien_codigo, unidad_codigo_tec, tec_plan_codigo, beneficiario_codigo_resp, beneficiario_codigo_resp2, dia_fecha, dia_nombre, nro_total_horas, observaciones, edif_descripcion, bien_codigo1, bien_codigo2, bien_codigo3, bien_codigo4, " & _
-        " bien_codigo5, cantidad1, cantidad2, cantidad3, cantidad4, cantidad5, carta, doc_numero_carta, fecha_carta, fecha_conformidad, fecha_equipo_hdm, nro_fojas, doc_numero , estado_activo, estado_codigo, usr_codigo, fecha_registro, hora_registro  " & _
-        " From dbo.to_cronograma_diario_final where fmes_plan = '" & Ado_datos.Recordset!fmes_plan & "'  AND estado_activo = 'APR' ", db, adOpenKeyset, adLockOptimistic, adCmdText
         Set Ado_busqueda.Recordset = rs_busqueda
        ' Set TDBGrid1.DataSource = Ado_busqueda.Recordset
     

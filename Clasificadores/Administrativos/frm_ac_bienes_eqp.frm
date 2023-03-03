@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -560,7 +560,7 @@ Begin VB.Form frm_ac_bienes_eqp
       End
       Begin MSDataGridLib.DataGrid dg_datos2 
          Bindings        =   "frm_ac_bienes_eqp.frx":3054
-         Height          =   530
+         Height          =   525
          Left            =   120
          TabIndex        =   102
          Top             =   240
@@ -727,39 +727,49 @@ Begin VB.Form frm_ac_bienes_eqp
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   870.236
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   870.236
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
+               ColumnWidth     =   870.236
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1035.213
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   870.236
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1154.835
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
+               ColumnWidth     =   870.236
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1214.929
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
+               ColumnWidth     =   870.236
             EndProperty
          EndProperty
       End
@@ -1018,10 +1028,10 @@ Begin VB.Form frm_ac_bienes_eqp
       Caption         =   "LISTADO"
       ForeColor       =   &H00C00000&
       Height          =   7200
-      Left            =   120
+      Left            =   60
       TabIndex        =   50
       Top             =   825
-      Width           =   5895
+      Width           =   6015
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00FFFFFF&
          Caption         =   "Todos"
@@ -1066,11 +1076,11 @@ Begin VB.Form frm_ac_bienes_eqp
       Begin MSDataGridLib.DataGrid dg_datos 
          Bindings        =   "frm_ac_bienes_eqp.frx":907A
          Height          =   6450
-         Left            =   120
+         Left            =   60
          TabIndex        =   0
          Top             =   240
-         Width           =   5640
-         _ExtentX        =   9948
+         Width           =   5880
+         _ExtentX        =   10372
          _ExtentY        =   11377
          _Version        =   393216
          AllowUpdate     =   0   'False
@@ -1259,7 +1269,7 @@ Begin VB.Form frm_ac_bienes_eqp
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   1844.787
+               ColumnWidth     =   2115.213
             EndProperty
          EndProperty
       End
@@ -1267,8 +1277,8 @@ Begin VB.Form frm_ac_bienes_eqp
          Height          =   330
          Left            =   120
          Top             =   6765
-         Width           =   5625
-         _ExtentX        =   9922
+         Width           =   5865
+         _ExtentX        =   10345
          _ExtentY        =   582
          ConnectMode     =   0
          CursorLocation  =   3
@@ -1531,7 +1541,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   108724225
+         Format          =   37617665
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1794,7 +1804,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   108724225
+         Format          =   37617665
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 

@@ -754,9 +754,9 @@ Begin VB.Form tw_tecnico_venta
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1310,7 +1310,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   118161409
+            Format          =   110100481
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1574,7 +1574,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   118161409
+            Format          =   110100481
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1602,7 +1602,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   118161409
+            Format          =   110100481
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2100,7 +2100,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   118161409
+               Format          =   110100481
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2125,7 +2125,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   118161409
+               Format          =   110100481
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2569,7 +2569,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   118161409
+               Format          =   110100481
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2652,7 +2652,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   118161409
+               Format          =   110100481
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3378,7 +3378,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118161409
+            Format          =   110100481
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -5935,9 +5935,9 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             LblEmpresa.Caption = "CGI"
         End If
         If glusuario = "CARIZACA" Or glusuario = "KBETANCOURTH" Or glusuario = "DTORRICO" Or glusuario = "VBELLIDO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
-            btnEliminar.Visible = True
+            BtnEliminar.Visible = True
         Else
-            btnEliminar.Visible = False
+            BtnEliminar.Visible = False
         End If
         If buscados = 0 Then
            OptFilGral1.Visible = True
@@ -6037,6 +6037,13 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                 BtnAñadir.Visible = False
                 BtnDesAprobar.Visible = False
             End If
+            If Ado_datos.Recordset!venta_tipo = "R" Then
+                DtgCobro.Visible = False
+                FrmABMDet2.Visible = False
+            Else
+                DtgCobro.Visible = True
+                FrmABMDet2.Visible = True
+            End If
         End If
         
         If Dtc_deudor2.Text = "SI" Then
@@ -6072,7 +6079,6 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         'FrmDetalle.Caption = "BIENES DEL CONTRATO NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
         'FrmCobranza.Caption = "PLAN DE CUOTAS - CONTRATO NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
         
-        
         End If
         FrmDetalle.Visible = True
         FrmCobranza.Visible = True
@@ -6096,9 +6102,9 @@ Private Sub ABRIR_DETALLE()
         Set rs_datos14 = New ADODB.Recordset
         If rs_datos14.State = 1 Then rs_datos14.Close
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "' order by  par_codigo, bien_codigo ", db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'Call AbreAlmacen
         Else
@@ -7879,7 +7885,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechaFin.Value = "" Then
+  If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPFechaFin.Value = "" Then
       MsgBox "Debe registrar la Fecha de Inicio !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7890,13 +7896,13 @@ Private Sub valida_campos()
     Exit Sub
   End If
   If parametro = "DNMAN" Then
-    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
     End If
   Else
-    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR o IGUAL a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7935,7 +7941,7 @@ Private Sub valida_campos()
 '        Exit Sub
 '    End If
 '  End If
-  If Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
+  If Month(CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
     'If Val(VAR_MES2) < Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) Then
         MsgBox "El 'MES Inicio del Plan de Cuotas' NO puede ser DIFERENTE al MES de la Fecha de Inicio del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
         VAR_VAL = "ERR"
@@ -7946,7 +7952,7 @@ Private Sub valida_campos()
     'DTPFechaFin
     'meses = DateDiff("m", Text1.Text, Text2.Text)
     'txtCantCobr
-    CONT4 = DateDiff("m", DTPfechaIni.Value, DTPfechaFin.Value)
+    CONT4 = DateDiff("m", DTPFechaIni.Value, DTPFechaFin.Value)
   If (txtCantCobr.Text <> CONT4 + 1) And (cmd_unimed2.Text = "MES") Then
      sino = MsgBox("El 'Número de Cuotas' es DIFERENTE al número de meses de la Fecha de INICIO y FIN, aún así desea continuar ??...", vbYesNo + vbQuestion, "Atención ...")
      If sino = vbYes Then
@@ -8011,8 +8017,8 @@ Private Sub BtnGrabar_Click()
   Call valida_campos2
   If VAR_VAL = "OK" And VAR_VALD = "OK" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    FInicio = IIf(DTPfechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
-    FFin = IIf(DTPfechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaFin.Value)
+    FInicio = IIf(DTPFechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
+    FFin = IIf(DTPFechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaFin.Value)
     CANTOT = Ado_datos.Recordset!venta_cantidad_total
     gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
     VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
@@ -8500,7 +8506,7 @@ End Sub
 
 Private Sub BtnImprimir1_Click()
    If Ado_datos.Recordset.RecordCount > 0 Then
-      If Ado_datos14.Recordset.RecordCount > 0 Then
+      If ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
 '        If GlBaseDatos = "ADMIN_EMPRESA" Then
@@ -9712,7 +9718,7 @@ Private Sub BtnAnlDetalle_Click()
 '     'cerea
 '     ado_datos14.Refresh
       'db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
-      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & Ado_datos14.Recordset("venta_codigo_det") & " "
+      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
    End If
   Else
     MsgBox "Los Bienes del registro Aprobado o Anulado, NO pueden ser ANULADOS !! ", vbExclamation, "Atención!"
@@ -10178,7 +10184,7 @@ End Sub
 
 Private Sub BtnImprimir4_Click()
  If Ado_datos.Recordset.RecordCount > 0 Then
-      If Ado_datos14.Recordset.RecordCount > 0 Then
+      If ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
 
@@ -10212,9 +10218,9 @@ End Sub
 'End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
-    dtc_codigo2.BoundText = dtc_aux2.BoundText
-    dtc_desc2.BoundText = dtc_aux2.BoundText
-    Dtc_deudor2.BoundText = dtc_aux2.BoundText
+    dtc_codigo2.BoundText = Dtc_aux2.BoundText
+    dtc_desc2.BoundText = Dtc_aux2.BoundText
+    Dtc_deudor2.BoundText = Dtc_aux2.BoundText
 End Sub
 
 Private Sub dtc_aux3_Click(Area As Integer)
@@ -10244,7 +10250,7 @@ End Sub
 
 Private Sub dtc_codigo2_Click(Area As Integer)
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    dtc_aux2.BoundText = dtc_codigo2.BoundText
+    Dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 End Sub
 
@@ -10277,7 +10283,7 @@ End Sub
 
 Private Sub dtc_desc2_Click(Area As Integer)
     dtc_codigo2.BoundText = dtc_desc2.BoundText
-    dtc_aux2.BoundText = dtc_desc2.BoundText
+    Dtc_aux2.BoundText = dtc_desc2.BoundText
     Dtc_deudor2.BoundText = dtc_desc2.BoundText
 End Sub
 
@@ -10394,7 +10400,7 @@ End Sub
 
 Private Sub Dtc_deudor2_Click(Area As Integer)
     dtc_codigo2.BoundText = Dtc_deudor2.BoundText
-    dtc_aux2.BoundText = Dtc_deudor2.BoundText
+    Dtc_aux2.BoundText = Dtc_deudor2.BoundText
     dtc_desc2.BoundText = Dtc_deudor2.BoundText
 End Sub
 
@@ -10747,7 +10753,7 @@ Private Sub ABRIR_TABLAS_AUX()
     'rs_datos2.Open "gp_listar_gc_beneficiario_personas", db, adOpenStatic
     Set Ado_datos2.Recordset = rs_datos2
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    dtc_aux2.BoundText = dtc_codigo2.BoundText
+    Dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 
 
@@ -10969,7 +10975,7 @@ Private Sub grabar()
         " beneficiario_codigo = '" & dtc_codigo2.Text & "', beneficiario_codigo_RESP = '" & usuario2 & "', beneficiario_codigo_cobr = '" & dtc_codigo5.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', edif_codigo_corto ='" & dtc_aux3.Text & "'  " & _
         " WHERE venta_codigo = " & NumComp & " "
     
-        db.Execute "UPDATE ao_ventas_cabecera SET venta_tipo_cambio = " & GlTipoCambioMercado & ", tipoben_codigo = " & IIf(dtc_aux2.Text = "", 2, Val(dtc_aux2.Text)) & ", codigo_empresa = " & dtc_codigo8.Text & ", venta_tipo = '" & dtc_codigo11.Text & "', " & _
+        db.Execute "UPDATE ao_ventas_cabecera SET venta_tipo_cambio = " & GlTipoCambioMercado & ", tipoben_codigo = " & IIf(Dtc_aux2.Text = "", 2, Val(Dtc_aux2.Text)) & ", codigo_empresa = " & dtc_codigo8.Text & ", venta_tipo = '" & dtc_codigo11.Text & "', " & _
         " mes_inicio_crono = '" & MControl & "', venta_cantidad_cobr = " & VAR_COBR2 & ", unimed_codigo_cobr = '" & VAR_MED2 & "', venta_cantidad_total = " & VAR_COBR2 & ", doc_codigo = '" & VAR_CODDOC & "', depto_codigo = '" & VAR_DPTO & "'  " & _
         " WHERE venta_codigo = " & NumComp & " "
         
@@ -11789,8 +11795,8 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             'If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
                 cmd_unimed_tec.Text = cmd_unimed2.Text
             'End If
-            lbl_fecha_ini.Value = IIf(IsNull(DTPfechaIni.Value), Date, DTPfechaIni.Value)       'Fecha Inicio Crono.)
-            lbl_fecha_fin.Value = IIf(IsNull(DTPfechaFin.Value), Date, DTPfechaFin.Value)       'Fecha Fin Crono.)
+            lbl_fecha_ini.Value = IIf(IsNull(DTPFechaIni.Value), Date, DTPFechaIni.Value)       'Fecha Inicio Crono.)
+            lbl_fecha_fin.Value = IIf(IsNull(DTPFechaFin.Value), Date, DTPFechaFin.Value)       'Fecha Fin Crono.)
             'lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
             'lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
             

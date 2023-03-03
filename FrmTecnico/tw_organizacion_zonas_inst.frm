@@ -22,7 +22,7 @@ Begin VB.Form tw_organizacion_zonas_inst
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Fechas para el Cronograma por Equipo"
+      Caption         =   "Fechas para el Cronograma"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   9.75
@@ -33,10 +33,10 @@ Begin VB.Form tw_organizacion_zonas_inst
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   2640
+      Height          =   1560
       Left            =   8400
       TabIndex        =   14
-      Top             =   4680
+      Top             =   4920
       Visible         =   0   'False
       Width           =   8460
       Begin VB.PictureBox FraGrabarCancelar 
@@ -52,6 +52,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ScaleWidth      =   8280
          TabIndex        =   53
          Top             =   1800
+         Visible         =   0   'False
          Width           =   8280
          Begin VB.PictureBox BtnCancelar 
             Appearance      =   0  'Flat
@@ -150,7 +151,8 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109182977
+         CheckBox        =   -1  'True
+         Format          =   411435009
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -164,7 +166,8 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109182977
+         CheckBox        =   -1  'True
+         Format          =   411435009
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -173,12 +176,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   315
          Left            =   2400
          TabIndex        =   65
-         Top             =   1200
+         Top             =   1080
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109182977
+         CheckBox        =   -1  'True
+         Format          =   411435009
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -187,12 +191,13 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   315
          Left            =   6480
          TabIndex        =   66
-         Top             =   1200
+         Top             =   1080
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109182977
+         CheckBox        =   -1  'True
+         Format          =   411435009
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -255,7 +260,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   240
          Left            =   240
          TabIndex        =   60
-         Top             =   1200
+         Top             =   1080
          Width           =   1950
       End
       Begin VB.Label Label8 
@@ -276,7 +281,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   240
          Left            =   4560
          TabIndex        =   59
-         Top             =   1200
+         Top             =   1080
          Width           =   1755
       End
       Begin VB.Label lbl_campo4 
@@ -305,10 +310,10 @@ Begin VB.Form tw_organizacion_zonas_inst
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   4680
+      Height          =   6240
       Left            =   8040
       TabIndex        =   19
-      Top             =   2640
+      Top             =   1080
       Visible         =   0   'False
       Width           =   9300
       Begin VB.PictureBox fra_opciones2 
@@ -319,7 +324,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          ScaleHeight     =   660
          ScaleWidth      =   9225
          TabIndex        =   33
-         Top             =   3960
+         Top             =   5520
          Width           =   9225
          Begin VB.PictureBox BtnGrabarDet 
             Appearance      =   0  'Flat
@@ -2761,6 +2766,7 @@ Private Sub BtnCancelarDet_Click()
     dg_det1.Enabled = True
 '    Fra_datos.Visible = True
     FraDet2.Visible = False
+    Fra_datos.Visible = False
     FraDet1.Visible = True
     If Ado_detalle1.Recordset.RecordCount > 0 Then
         Ado_detalle1.Recordset.CancelUpdate
@@ -2931,7 +2937,7 @@ Private Sub BtnGrabarDet_Click()
     dg_det1.Enabled = True
 '    Fra_datos.Visible = True
     FraDet2.Visible = False
-    
+    Fra_datos.Visible = False
     fra_opciones_det.Visible = True
     
     lbl_orden_camb.Visible = True
@@ -3005,7 +3011,7 @@ Private Sub BtnModDetalle_Click()
     dg_det1.Enabled = False
 '    Fra_datos.Visible = False
     FraDet2.Visible = True
-    
+    Fra_datos.Visible = True
     fra_opciones_det.Visible = False
 
     'Call ABRIR_DET

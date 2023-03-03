@@ -1,10 +1,10 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
-Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form aw_almacen_salida_rep 
    BackColor       =   &H00C0C0C0&
@@ -13,14 +13,14 @@ Begin VB.Form aw_almacen_salida_rep
    ClientHeight    =   10410
    ClientLeft      =   1560
    ClientTop       =   1725
-   ClientWidth     =   10815
+   ClientWidth     =   11520
    Icon            =   "aw_almacen_salida_rep.frx":0000
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   1.29006e5
+   ScaleHeight     =   1.46278e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.41514e8
+   ScaleWidth      =   5.31609e8
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -344,7 +344,7 @@ Begin VB.Form aw_almacen_salida_rep
       Height          =   2055
       Left            =   360
       TabIndex        =   114
-      Top             =   2400
+      Top             =   1440
       Visible         =   0   'False
       Width           =   6015
       Begin VB.PictureBox Picture1 
@@ -422,7 +422,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118030337
+         Format          =   110624769
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -435,7 +435,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118030337
+         Format          =   110624769
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2175,7 +2175,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   118030337
+            Format          =   110624769
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -2644,12 +2644,251 @@ Begin VB.Form aw_almacen_salida_rep
          Top             =   4365
          Width           =   975
       End
+      Begin TrueOleDBGrid60.TDBGrid dg_datosXX 
+         Height          =   1335
+         Left            =   60
+         OleObjectBlob   =   "aw_almacen_salida_rep.frx":BE55
+         TabIndex        =   152
+         Top             =   2760
+         Visible         =   0   'False
+         Width           =   6345
+      End
+      Begin MSDataGridLib.DataGrid dg_datos 
+         Bindings        =   "aw_almacen_salida_rep.frx":1156E
+         Height          =   4050
+         Left            =   120
+         TabIndex        =   153
+         Top             =   240
+         Width           =   6240
+         _ExtentX        =   11007
+         _ExtentY        =   7144
+         _Version        =   393216
+         AllowUpdate     =   0   'False
+         BackColor       =   16777215
+         HeadLines       =   1
+         RowHeight       =   15
+         FormatLocked    =   -1  'True
+         BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ColumnCount     =   12
+         BeginProperty Column00 
+            DataField       =   "venta_codigo"
+            Caption         =   "Nro.Venta"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column01 
+            DataField       =   "doc_codigo_alm"
+            Caption         =   "DocAlm"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column02 
+            DataField       =   "doc_numero_alm"
+            Caption         =   "Nro.Doc."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
+            DataField       =   "fecha_verif"
+            Caption         =   "Fecha Salida"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column04 
+            DataField       =   "edif_descripcion"
+            Caption         =   "Destino/Nombre_Edificio"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column05 
+            DataField       =   "unidad_codigo_ant"
+            Caption         =   "Cite.Trámite/OS"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
+            DataField       =   "unidad_codigo"
+            Caption         =   "Unidad"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "solicitud_codigo"
+            Caption         =   "Tramite"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "estado_almacen"
+            Caption         =   "Estado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "edif_codigo"
+            Caption         =   "Edif/Destino"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "venta_fecha"
+            Caption         =   "Fecha.Venta"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "usr_codigo"
+            Caption         =   "Usuario"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         SplitCount      =   1
+         BeginProperty Split0 
+            BeginProperty Column00 
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column01 
+               Alignment       =   2
+               ColumnWidth     =   734.74
+            EndProperty
+            BeginProperty Column02 
+               ColumnWidth     =   780.095
+            EndProperty
+            BeginProperty Column03 
+               ColumnWidth     =   1110.047
+            EndProperty
+            BeginProperty Column04 
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   2835.213
+            EndProperty
+            BeginProperty Column05 
+               ColumnWidth     =   1275.024
+            EndProperty
+            BeginProperty Column06 
+            EndProperty
+            BeginProperty Column07 
+            EndProperty
+            BeginProperty Column08 
+               Alignment       =   2
+            EndProperty
+            BeginProperty Column09 
+               Object.Visible         =   -1  'True
+            EndProperty
+            BeginProperty Column10 
+               Object.Visible         =   0   'False
+            EndProperty
+            BeginProperty Column11 
+               Object.Visible         =   0   'False
+            EndProperty
+         EndProperty
+      End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
-         Left            =   80
-         Top             =   4280
-         Width           =   6345
-         _ExtentX        =   11192
+         Left            =   120
+         Top             =   4320
+         Width           =   6225
+         _ExtentX        =   10980
          _ExtentY        =   582
          ConnectMode     =   0
          CursorLocation  =   3
@@ -2669,7 +2908,7 @@ Begin VB.Form aw_almacen_salida_rep
          BackColor       =   16777215
          ForeColor       =   -2147483640
          Orientation     =   0
-         Enabled         =   0
+         Enabled         =   -1
          Connect         =   ""
          OLEDBString     =   ""
          OLEDBFile       =   ""
@@ -2689,15 +2928,6 @@ Begin VB.Form aw_almacen_salida_rep
             Strikethrough   =   0   'False
          EndProperty
          _Version        =   393216
-      End
-      Begin TrueOleDBGrid60.TDBGrid dg_datos 
-         Bindings        =   "aw_almacen_salida_rep.frx":BE55
-         Height          =   3975
-         Left            =   60
-         OleObjectBlob   =   "aw_almacen_salida_rep.frx":BE6D
-         TabIndex        =   152
-         Top             =   240
-         Width           =   6345
       End
    End
    Begin VB.Frame FrmDetalle 
@@ -2725,7 +2955,7 @@ Begin VB.Form aw_almacen_salida_rep
          ForeColor       =   &H80000008&
          Height          =   1335
          Left            =   15510
-         Picture         =   "aw_almacen_salida_rep.frx":116E6
+         Picture         =   "aw_almacen_salida_rep.frx":11586
          ScaleHeight     =   1335
          ScaleWidth      =   1125
          TabIndex        =   143
@@ -2734,7 +2964,7 @@ Begin VB.Form aw_almacen_salida_rep
          Width           =   1125
       End
       Begin MSDataGridLib.DataGrid DtGLista2 
-         Bindings        =   "aw_almacen_salida_rep.frx":125A6
+         Bindings        =   "aw_almacen_salida_rep.frx":12446
          Height          =   1340
          Left            =   120
          TabIndex        =   142
@@ -4181,6 +4411,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
         End If
         If Not IsNull(Ado_datos.Recordset!venta_codigo) Then
             NumComp = Ado_datos.Recordset!venta_codigo
+            
     '        If buscados = 0 Then
     '           OptFilGral1.Visible = True
     '           OptFilGral2.Visible = True
@@ -4192,7 +4423,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 BtnAprobar.Visible = True
                 BtnDesAprobar.Visible = False
                 BtnModificar.Visible = True
-                btnEliminar.Visible = True
+                BtnEliminar.Visible = True
                 lbl_cerrado.Caption = ""
                 FrmABMDet.Visible = True
                 BtnModificar2.Visible = True
@@ -4200,7 +4431,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 BtnAprobar.Visible = False
                 BtnDesAprobar.Visible = True
                 BtnModificar.Visible = False
-                btnEliminar.Visible = False
+                BtnEliminar.Visible = False
                 FrmABMDet.Visible = False
                 BtnModificar2.Visible = False
             End If
@@ -4264,7 +4495,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '           OptFilGral2.Visible = False
 '        End If
  End If
- btnEliminar.Visible = True
+ BtnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()
@@ -4599,56 +4830,6 @@ If Ado_datos.Recordset!estado_almacen = "REG" Then
     'db.Execute " UPDATE ao_almacen_ingresos SET importe_compra_bs = '0' WHERE (importe_compra_bs IS NULL) "
     
     'REGISTRA SALIDA A ALMACEN
-'    If rs_datos14.State = 1 Then rs_datos14.Close
-'    rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "'  and almacen_tipo = '" & VAR_ALMT & "' AND estado_almacen <> 'DVL'  AND estado_bien = 'APR' order by  par_codigo, bien_codigo ", db, adOpenKeyset, adLockOptimistic
-'    rs_datos14.MoveFirst
-'    While Not rs_datos14.EOF
-'        Set rs_precio = New ADODB.Recordset
-'        If rs_precio.State = 1 Then rs_precio.Close
-'        'rs_precio.Open "SELECT TOP 1 * from ao_almacen_ingresos where ges_gestion = '" & glGestion & "' AND almacen_codigo = " & Ado_datos.Recordset!almacen_codigoR & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' ORDER BY fecha_ingreso DESC", db, adOpenKeyset, adLockOptimistic
-'        rs_precio.Open "SELECT TOP 1 * from ao_almacen_ingresos where ges_gestion = '" & glGestion & "' AND almacen_codigo = " & ado_datos14.Recordset!almacen_codigo & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' ORDER BY fecha_ingreso DESC", db, adOpenKeyset, adLockOptimistic
-'        If rs_precio.RecordCount > 0 Then
-'            precio_uni = IIf(IsNull(rs_precio!precio_unitario_bs) Or rs_precio!precio_unitario_bs = "0", 1, rs_precio!precio_unitario_bs)
-'        Else
-'            precio_uni = 1
-'        End If
-'        precio_tot = 0
-'        'AAAAAAAAAAAAQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUIIIIIIIIIIIIIIIIIIII
-'        'db.Execute "ap_ventas_grla 2 ,'" & glGestion & "', " & ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_almR & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
-'        db.Execute "ap_ventas_grla 2 ,'" & glGestion & "', " & ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_almR & "','" & ado_datos14.Recordset!fecha_ingreso_salida & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
-'        If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
-'            'db.Execute "ap_compras_grla 2,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo_dR & ", '" & Ado_datos.Recordset!doc_codigo_almR & "', " & Ado_datos.Recordset!doc_numero_almR & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!venta_codigo & ", '" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & Ado_datos.Recordset!fecha_verif & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "', " & precio_tot & ""
-'            db.Execute "ap_compras_grla 2,'" & glGestion & "', " & ado_datos14.Recordset!modelo_elegido_x & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "', " & Ado_datos.Recordset!venta_codigo & ", '" & Ado_datos.Recordset!beneficiario_codigo_almR & "', '" & Ado_datos.Recordset!fecha_verif & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "', " & precio_tot & ""
-'            Set rs_almacen2 = New ADODB.Recordset
-'            If rs_almacen2.State = 1 Then rs_almacen2.Close
-'            'rs_almacen2.Open "select * from ao_almacen_totales where almacen_codigo = " & Ado_datos.Recordset!almacen_codigo_dR & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
-'            rs_almacen2.Open "select * from ao_almacen_totales where almacen_codigo = " & ado_datos14.Recordset!modelo_elegido_x & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
-'            If rs_almacen2.RecordCount > 0 Then
-'                 'db.Execute "ap_almacen_totales 2," & Ado_datos.Recordset!almacen_codigo_dR & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", 0, 0, " & precio_tot / GlTipoCambioOficial & ", 0, 0, 'REG','" & glusuario & "'"
-'                 db.Execute "ap_almacen_totales 2," & ado_datos14.Recordset!modelo_elegido_x & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", 0, 0, " & precio_tot / GlTipoCambioOficial & ", 0, 0, 'REG','" & glusuario & "'"
-'            Else
-'                 db.Execute "ap_almacen_totales 1," & ado_datos14.Recordset!modelo_elegido_x & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", 0, 0, " & precio_tot / GlTipoCambioOficial & ", 0, 0, 'REG','" & glusuario & "'"
-'            End If
-'        End If
-'
-'        'ACtualiza ac_bienes    'Todos Los Almacenes
-'        db.Execute "update ac_bienes set ac_bienes.bien_stock_salida = total_salidas_js.cantidad_salida from total_salidas_js Where ac_bienes.bien_codigo = total_salidas_js.bien_codigo"
-'        'db.Execute "update ac_bienes set bien_stock_actual = bien_stock_inicial + bien_stock_ingreso - bien_stock_salida"
-'        db.Execute "update ac_bienes set bien_stock_actual = ISNULL(bien_stock_ingreso,0) - bien_stock_salida"
-'
-'        'ACTUALIZA ao_almacen_totales   'Actualiza en el Almacen ORIGEN
-'        Set rs_almacen2 = New ADODB.Recordset
-'        If rs_almacen2.State = 1 Then rs_almacen2.Close
-'        rs_almacen2.Open "select * from ao_almacen_totales where almacen_codigo = " & ado_datos14.Recordset!almacen_codigo & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
-'        If rs_almacen2.RecordCount > 0 Then
-'             'db.Execute "update ao_almacen_totales set ao_almacen_totales.stock_salida = av_acumula_ventas_detalle.bien_cantidad_salida from ao_almacen_totales inner join av_acumula_ventas_detalle on ao_almacen_totales.almacen_codigo = av_acumula_ventas_detalle.almacen_codigo and ao_almacen_totales.bien_codigo = av_acumula_ventas_detalle.bien_codigo WHERE ao_almacen_totales.almacen_codigo = " & VAR_ALMH & " And ao_almacen_totales.bien_codigo = '" & VAR_BIEN2 & "'     "
-'             db.Execute "ap_almacen_totales 2," & ado_datos14.Recordset!almacen_codigo & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", 0, 0, " & precio_tot / GlTipoCambioOficial & ", 0, 0, 'REG','" & glusuario & "'"
-'        Else
-'             db.Execute "ap_almacen_totales 1," & ado_datos14.Recordset!almacen_codigo & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & precio_tot & ", 0, 0, " & precio_tot / GlTipoCambioOficial & ", 0, 0, 'REG','" & glusuario & "'"
-'        End If
-'
-'        rs_datos14.MoveNext
-'    Wend
     Ado_datos.Recordset!estado_almacen = "APR"
     Ado_datos.Recordset.Update
 '    Set rs_datos15 = New ADODB.Recordset
@@ -4858,8 +5039,8 @@ Private Sub BtnBuscar_Click()
       Dim GrSqlAux As String
       Set ClBuscaGrid = New ClBuscaEnGridExterno
       Set ClBuscaGrid.Conexión = db
-      'ClBuscaGrid.EsTdbGrid = False
-      ClBuscaGrid.EsTdbGrid = True
+      ClBuscaGrid.EsTdbGrid = False
+      'ClBuscaGrid.EsTdbGrid = True
       Set ClBuscaGrid.GridTrabajo = dg_datos
       ClBuscaGrid.QueryUtilizado = queryinicial
       Set ClBuscaGrid.RecordsetTrabajo = Ado_datos.Recordset
@@ -7349,6 +7530,21 @@ Private Sub CmdGrabaDet_Click()
         " 'N',  '" & dtc_codigo6.Text & "', '" & VAR_ALMT & "', 'BOL', '" & dtc_desc15.Text & "', '" & VAR_DOC & "', " & Ado_datos.Recordset!doc_numero_alm & ", 'REG', " & _
         " 'REG', 'REG', '" & FAlmacen & "', 'REG', '" & glusuario & "', '" & Date & "', ''  ) "
         
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW MOVER A swnuevo = 1
+            'Call CARGAPARAM
+            'ACTUALIZA MONTOS DEL BIEN
+            'If swnuevo = 1 Then
+                'db.Execute "UPDATE ao_ventas_detalle SET venta_descuento_bs = '0', venta_descuento_dol = '0' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+                'db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & Trim(VAR_BIEN2) & "' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '' "
+
+                db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_bs  = ac_bienes.bien_precio_venta_final, ao_ventas_detalle.venta_precio_total_bs = ac_bienes.bien_precio_venta_final FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
+                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
+
+                db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_dol  = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & ", ao_ventas_detalle.venta_precio_total_dol = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & " FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
+                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
+            'End If
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW MOVER A swnuevo = 1
+        
     End If
         'VAR_BIEN2 = Trim(dtc_codigo15.Text)                                     'Codigo Bien (Equipo, Producto, etc)
         'ado_datos14.Recordset!bien_codigo = Trim(VAR_BIEN2)                     'Codigo Bien (Equipo, Producto, etc)
@@ -7358,24 +7554,25 @@ Private Sub CmdGrabaDet_Click()
             'If TxtCantidad.Text = "" Then
             '    TxtCantidad.Text = TxtDescuento.Text
             'End If
-            Call CARGAPARAM
-            'ACTUALIZA MONTOS DEL BIEN
-            If swnuevo = 1 Then
-                'db.Execute "UPDATE ao_ventas_detalle SET venta_descuento_bs = '0', venta_descuento_dol = '0' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
-                'db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & Trim(VAR_BIEN2) & "' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '' "
-                
-                db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_bs  = ac_bienes.bien_precio_venta_final, ao_ventas_detalle.venta_precio_total_bs = ac_bienes.bien_precio_venta_final FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
-                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
-
-                db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_dol  = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & ", ao_ventas_detalle.venta_precio_total_dol = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & " FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
-                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
-            End If
-
+'            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW MOVER A swnuevo = 1
+'            'Call CARGAPARAM
+'            'ACTUALIZA MONTOS DEL BIEN
+'            If swnuevo = 1 Then
+'                'db.Execute "UPDATE ao_ventas_detalle SET venta_descuento_bs = '0', venta_descuento_dol = '0' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+'                'db.Execute "UPDATE ao_ventas_detalle SET bien_codigo = '" & Trim(VAR_BIEN2) & "' WHERE venta_codigo = " & NumComp & " AND bien_codigo = '' "
+'
+'                db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_bs  = ac_bienes.bien_precio_venta_final, ao_ventas_detalle.venta_precio_total_bs = ac_bienes.bien_precio_venta_final FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
+'                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
+'
+'                db.Execute "UPDATE ao_ventas_detalle SET ao_ventas_detalle.venta_precio_unitario_dol  = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & ", ao_ventas_detalle.venta_precio_total_dol = ac_bienes.bien_precio_venta_final / " & GlTipoCambioOficial & " FROM ao_ventas_detalle INNER JOIN ac_bienes " & _
+'                    " ON ao_ventas_detalle.bien_codigo  = ac_bienes.bien_codigo WHERE ao_ventas_detalle.venta_codigo = " & NumComp & " AND ao_ventas_detalle.bien_codigo = '" & VAR_BIEN2 & "' "
+'            End If
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW MOVER A swnuevo = 1
         If swnuevo = 2 Then
             Set rs_aux8 = New ADODB.Recordset
             If rs_aux8.State = 1 Then rs_aux8.Close
             rs_aux8.Open "select * from ao_ventas_detalle where venta_codigo= " & NumComp & "  and bien_codigo = '" & VAR_BIEN2 & "'", db, adOpenKeyset, adLockBatchOptimistic
-            If rs_aux8.RecordCount > 0 Then
+            If rs_aux8.RecordCount > 1 Then
                 MsgBox "Error, El bien ya fue registrado, elija otro y vuelva a intentar...", , "Atención"
                 Exit Sub
             Else
@@ -7492,12 +7689,12 @@ End Sub
 Private Sub BtnModDetalle_Click()
  If ado_datos18.Recordset.RecordCount > 0 Then
   If ado_datos18.Recordset!estado_almacen = "REG" Then
-    If Option1.Value = True Or Option1.Value = True Then
-    
-    Else
-      MsgBox "No se puede modificar el registro, verifique y vuelva a intentar... !! ", vbExclamation, "Atención!"
-      Exit Sub
-    End If
+'    If Option1.Value = True Or Option1.Value = True Then
+'
+'    Else
+'      MsgBox "No se puede modificar el registro, verifique y vuelva a intentar... !! ", vbExclamation, "Atención!"
+'      Exit Sub
+'    End If
     'If IsNull(Ado_datos.Recordset!almacen_codigoR) Then
     '    MsgBox "El Almacen Origen NO esta registrado, verifique y vuelva a intentar... !! ", vbExclamation, "Atención!"
     '    Exit Sub
@@ -7530,7 +7727,7 @@ Private Sub BtnModDetalle_Click()
         If VAR_BENEF = "0" Then
             rs_datos11.Open "select * from ac_almacenes where almacen_codigo <> '1' and almacen_codigo <> '2'  ", db, adOpenStatic
         Else
-            rs_datos11.Open "select * from ac_almacenes where beneficiario_codigo = '" & VAR_BENEF & "'  ", db, adOpenStatic
+            rs_datos11.Open "select * from ac_almacenes where beneficiario_codigo = '" & VAR_BENEF & "' AND almacen_tipo = '" & TIPOALM & "' ", db, adOpenStatic
         End If
         Set Ado_datos11.Recordset = rs_datos11
         dtc_desc13.BoundText = dtc_codigo13.BoundText
@@ -8247,13 +8444,6 @@ End Sub
 'End Sub
 
 'Private Sub DTPfechasol_LostFocus()
-'    Set rs_TipoCambio = New ADODB.Recordset
-'    If rs_TipoCambio.State = 1 Then rs_TipoCambio.Close
-'    rs_TipoCambio.Open "select * from gc_tipo_cambio WHERE Fecha_Cambio='" & DTPfechasol & "'  ", db, adOpenKeyset, adLockReadOnly
-'    If rs_TipoCambio.RecordCount > 0 Then
-'        txtTDC.Text = rs_TipoCambio!cambio_oficial_compra
-'    End If
-'    'Ado_datos4.Refresh
 
 '    DTPfechaIni.Value = DTPfechasol.Value
 ''    'validar fecha solicitud OJO JQA 31/12/2014
@@ -8349,7 +8539,7 @@ Private Sub Form_Load()
             VAR_DPTO = "3"
             Select Case Aux
                Case "UALMI"    'INSUMOS
-                    TIPOTRAMALM = "R-115i3"
+                   TIPOTRAMALM = "R-115i3"
                    Aux = "ALMIB"
                    TIPOALM = "I"
                Case "UALMR"    'REPUESTOS
@@ -8436,8 +8626,10 @@ Private Sub Form_Load()
     
     Call CARGAPARAM
     Call ABRIR_TABLAS_AUX
-    Option2.Value = True
-    Call Option2_Click
+    'Option2.Value = True
+    'Call Option2_Click
+    Option1.Value = True
+    Call Option1_Click
     'Usuario
     lbl_cerrado.Caption = ""
     
@@ -8573,30 +8765,40 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos15 = New ADODB.Recordset
     If rs_datos15.State = 1 Then rs_datos15.Close
     'rs_aux2.Open "select * from ao_solicitud_bienes where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-    
-    Select Case VAR_ORIGEN
-        Case "UALMI"            ', "ALMIB", "ALMIS", "ALMIC"    'INSUMOS
-            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'I' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
-            Set ado_datos15.Recordset = rs_datos15
-            ado_datos15.Refresh
-'            VAR_DET = "30000"
-        Case "UALMR"            ', "ALMRB", "ALMRS", "ALMRC"    'REPUESTOS
-            'rs_datos15.Open "select * from ac_bienes where (par_codigo = '39810' or par_codigo = '39820')   ", db, adOpenKeyset, adLockReadOnly        'and estado_codigo = 'APR'
-            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'R' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
-'            VAR_DET = "39800"
-            Set ado_datos15.Recordset = rs_datos15
-            ado_datos15.Refresh
-        Case "UALMH"            ', "ALMHB", "ALMHS", "ALMHC"    'HERRAMIENTASan
-            'rs_aux2.Open "select * from av_solicitud_bienes2 where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & VAR_SOL & "  and (par_codigo = '43700' or par_codigo = '34800')  ", db, adOpenKeyset, adLockOptimistic, adCmdText
-            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'H' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
-'            VAR_DET = "34800"
-            Set ado_datos15.Recordset = rs_datos15
-              ado_datos15.Refresh
-        Case Else
-            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'A' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
-            Set ado_datos15.Recordset = rs_datos15
-            ado_datos15.Refresh
-    End Select
+    rs_datos15.Open "select * from ac_bienes where almacen_tipo = '" & TIPOALM & "' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
+    Set ado_datos15.Recordset = rs_datos15
+    dtc_desc15.BoundText = dtc_codigo15.BoundText
+    dtc_unimed15.BoundText = dtc_codigo15.BoundText
+    dtc_stocktotal15.BoundText = dtc_codigo15.BoundText
+    dtc_grupo15.BoundText = dtc_codigo15.BoundText
+    dtc_subgrupo15.BoundText = dtc_codigo15.BoundText
+    Dtc_partida15.BoundText = dtc_codigo15.BoundText
+
+    'ado_datos15.Refresh
+            
+'    Select Case VAR_ORIGEN
+'        Case "UALMI"            ', "ALMIB", "ALMIS", "ALMIC"    'INSUMOS
+'            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'I' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
+'            Set ado_datos15.Recordset = rs_datos15
+'            ado_datos15.Refresh
+''            VAR_DET = "30000"
+'        Case "UALMR"            ', "ALMRB", "ALMRS", "ALMRC"    'REPUESTOS
+'            'rs_datos15.Open "select * from ac_bienes where (par_codigo = '39810' or par_codigo = '39820')   ", db, adOpenKeyset, adLockReadOnly        'and estado_codigo = 'APR'
+'            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'R' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
+''            VAR_DET = "39800"
+'            Set ado_datos15.Recordset = rs_datos15
+'            ado_datos15.Refresh
+'        Case "UALMH"            ', "ALMHB", "ALMHS", "ALMHC"    'HERRAMIENTASan
+'            'rs_aux2.Open "select * from av_solicitud_bienes2 where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & VAR_SOL & "  and (par_codigo = '43700' or par_codigo = '34800')  ", db, adOpenKeyset, adLockOptimistic, adCmdText
+'            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'H' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
+''            VAR_DET = "34800"
+'            Set ado_datos15.Recordset = rs_datos15
+'              ado_datos15.Refresh
+'        Case Else
+'            rs_datos15.Open "select * from ac_bienes where almacen_tipo = 'A' ORDER BY bien_descripcion", db, adOpenKeyset, adLockReadOnly
+'            Set ado_datos15.Recordset = rs_datos15
+'            ado_datos15.Refresh
+'    End Select
    'wwwwwwwwwwwwwwwwwwww
     'db.Execute "DELETE ao_ventas_cabecera where venta_codigo = 0 "
     'Call ABREVENTAS
@@ -8610,7 +8812,6 @@ Private Sub ABRIR_TABLAS_AUX()
 End Sub
 
 Private Sub grabar()
-
   'db.BeginTrans
     If swgrabar = 1 Then
         Set rs_aux4 = New ADODB.Recordset
@@ -8630,35 +8831,6 @@ Private Sub grabar()
             NumComp = IIf(IsNull(rs_aux6!Codigo), 1, rs_aux6!Codigo + 1)
         End If
        VAR_R = "R-115"
-       
-'       Ado_datos.Recordset("ges_gestion") = glGestion       'CStr(Year(DTPfechasol.Value))
-'       Ado_datos.Recordset("unidad_codigo") = parametro   'dtc_codigo1.Text DTPEjecucion
-'       Ado_datos.Recordset("solicitud_codigo") = var_cod
-'       Ado_datos.Recordset("venta_codigo") = NumComp
-'       Ado_datos.Recordset("edif_codigo") = dtc_codigo3.Text
-''       Ado_datos.Recordset("depto_codigo") = Left(dtc_codigo3.Text, 1)
-'       Ado_datos.Recordset("venta_fecha") = Format(IIf(IsNull(DTPfechasol.Value), Date, DTPfechasol.Value), "dd,mm,yyyy")
-'       Ado_datos.Recordset("venta_fecha_inicio") = Format(Ado_datos.Recordset!venta_fecha, "dd,mm,yyyy")  'DTPFechaIni.Caption
-'       Ado_datos.Recordset("venta_fecha_fin") = Format(Ado_datos.Recordset!venta_fecha, "dd,mm,yyyy") 'DTPFechaFin.Caption
-'       Ado_datos.Recordset("venta_tipo") = "A"      'dtc_codigo11.Text                'E=Efectivo, C=Credito
-'       Ado_datos.Recordset("beneficiario_codigo") = dtc_codigo2.Text        'CLIENTE
-'       Ado_datos.Recordset("beneficiario_codigo_resp") = dtc_codigo4.Text   'Responsable Proceso
-'
-'       Ado_datos.Recordset("beneficiario_codigo_cobr") = "0"      'dtc_codigo5.Text   'Cobrador
-'       Ado_datos.Recordset("venta_descripcion") = Trim(UCase(TxtConcepto.Text))
-'       'CONT2 = 365 / 30 * Ado_datos.Recordset!venta_cantidad_total
-'       'Ado_datos.Recordset("venta_plazo_dias_calendario") = IIf(TxtPlazo.Text = "", CONT2, TxtPlazo.Text)
-'       Ado_datos.Recordset("venta_tipo_cambio") = GlTipoCambioMercado        'Val(txtTDC.Text)venta_tipo_cambio
-'        'GlTipoCambioOficial As Currency        'GlTipoCambioMercado As Currency        'GlTipoCambioGestion As Currency
-''       Ado_datos.Recordset("tipoben_codigo") = IIf(dtc_aux2.Text = "", "1", dtc_aux2.Text)      'Tipo de Beneficiario
-'
-'       Ado_datos.Recordset("unimed_codigo_cobr") = "MES"        'cmd_unimed2.Text
-'       Ado_datos.Recordset("venta_cantidad_cobr") = "1"         'txtCantCobr.Text
-'       Ado_datos.Recordset("mes_inicio_crono") = "ENERO"        'RTrim(cmb_mes_ini.Text)
-
-'       VAR_MED2 = Ado_datos.Recordset!unimed_codigo_cobr
-'       VAR_COBR2 = Ado_datos.Recordset!venta_cantidad_cobr
-'       MControl = Ado_datos.Recordset!mes_inicio_crono
        
        VAR_MED2 = "MES"
        VAR_COBR2 = "1"
@@ -8700,34 +8872,16 @@ Private Sub grabar()
         End If
 '        Ado_datos.Recordset!doc_codigo = VAR_R
         'INI ACTUALIZA CORRELATIVO POR ALMACEN
-'        Set rs_aux5 = New ADODB.Recordset
-'        If rs_aux5.State = 1 Then rs_aux5.Close
-'        SQL_FOR = "select * from ac_almacenes where almacen_codigo = " & Val(dtc_codigo11.Text) & "  "
-'        rs_aux5.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If rs_aux5.RecordCount > 0 Then
            If (dtc_aux3.Text = "APR") Or (dtc_codigo3.Text = "20101-1" Or dtc_codigo3.Text = "30101-1" Or dtc_codigo3.Text = "70101-1" Or dtc_codigo3.Text = "10101-1") Then
                 '===== ini GENERA EL CORRELATIVO POR SALIDA DE ALMACEN ====
                 Set rs_aux7 = New ADODB.Recordset
                 rs_aux7.CursorLocation = adUseClient
                 If rs_aux7.State = 1 Then rs_aux7.Close
-'                Select Case parametro
-'                  Case "ALMRS"          ', "ALMIB", "ALMIS", "ALMIC"
-'                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-115R7' AND cta_codigo1 = '7' ", db, adOpenDynamic, adLockOptimistic
-'                  Case "UALMR"          ', "ALMRB", "ALMRS", "ALMRC"
-'                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-115R2' AND cta_codigo1 = '2' ", db, adOpenDynamic, adLockOptimistic
-'                  Case "ALMRB"          ', "ALMHB", "ALMHS", "ALMHC"
-'                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-115R3' AND cta_codigo1 = '3' ", db, adOpenDynamic, adLockOptimistic
-'                  Case "ALMRC"
-'                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-115R1' AND cta_codigo1 = '3' ", db, adOpenDynamic, adLockOptimistic
-'                  Case Else
-'                      rs_aux7.Open "select * from fc_Correl  where tipo_tramite = 'R-115R2' AND cta_codigo1 = '2' ", db, adOpenDynamic, adLockOptimistic
-'                End Select
-'                rs_aux7.Open "select * from fc_Correl  where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
                 If OptFilGral2.Value = True Then
-                    rs_aux7.Open "select * from fc_correl_2 where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
+                    rs_aux7.Open "select * from fc_correl_2 where tipo_tramite = '" & TIPOTRAMALM & "'  AND cta_codigo1 = '" & VAR_DPTO & "'  ", db, adOpenDynamic, adLockOptimistic
                     GlEmpresa = 2
                 Else
-                    rs_aux7.Open "select * from fc_Correl where tipo_tramite = '" & TIPOTRAMALM & "'  ", db, adOpenDynamic, adLockOptimistic
+                    rs_aux7.Open "select * from fc_Correl where tipo_tramite = '" & TIPOTRAMALM & "' AND cta_codigo1 = '" & VAR_DPTO & "'  ", db, adOpenDynamic, adLockOptimistic
                     GlEmpresa = 1
                 End If
                 If rs_aux7.RecordCount > 0 Then
@@ -8805,7 +8959,7 @@ Private Sub grabar()
 '        Else
 '           VAR_NUM = 1
 '        End If
-
+        ' OK WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
         Select Case VAR_ORIGEN
             Case "UALMI"
                 VAR_DOCI = VAR_R
@@ -9625,19 +9779,19 @@ Private Sub acumulaMont(ges, Nro)
 End Sub
 
 Private Sub Option1_Click()
-    'Proyecto de Edificación
-    Set rs_datos3 = New ADODB.Recordset
-    If rs_datos3.State = 1 Then rs_datos3.Close
-    Select Case glusuario
-        Case "CARIZACA"
-            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo <> '3' AND depto_codigo <> '7' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN'))) order by edif_descripcion", db, adOpenStatic
-        Case "RRONDAL"
-            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '4' AND depto_codigo <> '5' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) ) order by edif_descripcion", db, adOpenStatic
-        Case Else
-            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo= '" & VAR_DPTO & "' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) ) order by edif_descripcion", db, adOpenStatic
-    End Select
-    Set Ado_datos3.Recordset = rs_datos3
-    dtc_desc3.BoundText = dtc_codigo3.BoundText
+'    'Proyecto de Edificación
+'    Set rs_datos3 = New ADODB.Recordset
+'    If rs_datos3.State = 1 Then rs_datos3.Close
+'    Select Case glusuario
+'        Case "CARIZACA"
+'            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo <> '3' AND depto_codigo <> '7' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN'))) order by edif_descripcion", db, adOpenStatic
+'        Case "RRONDAL"
+'            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo <> '3' AND depto_codigo <> '2' AND depto_codigo <> '4' AND depto_codigo <> '5' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) ) order by edif_descripcion", db, adOpenStatic
+'        Case Else
+'            rs_datos3.Open "Select * from gc_edificaciones WHERE (depto_codigo= '" & VAR_DPTO & "' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) ) order by edif_descripcion", db, adOpenStatic
+'    End Select
+'    Set Ado_datos3.Recordset = rs_datos3
+'    dtc_desc3.BoundText = dtc_codigo3.BoundText
 
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
@@ -9653,17 +9807,17 @@ Private Sub Option1_Click()
 End Sub
 
 Private Sub Option2_Click()
-    'Proyecto de Edificación
-    Set rs_datos3 = New ADODB.Recordset
-    If rs_datos3.State = 1 Then rs_datos3.Close
-    If glusuario = "CARIZACA" Then
-        rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo <> '3' AND depto_codigo <> '7' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
-    Else
-        rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo= '" & VAR_DPTO & "' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
-    End If
-    'rs_datos3.Open "gp_listar_apr_gc_edificaciones", db, adOpenStatic
-    Set Ado_datos3.Recordset = rs_datos3
-    dtc_desc3.BoundText = dtc_codigo3.BoundText
+'    'Proyecto de Edificación
+'    Set rs_datos3 = New ADODB.Recordset
+'    If rs_datos3.State = 1 Then rs_datos3.Close
+'    If glusuario = "CARIZACA" Then
+'        rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo <> '3' AND depto_codigo <> '7' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
+'    Else
+'        rs_datos3.Open "Select * from gc_edificaciones WHERE depto_codigo= '" & VAR_DPTO & "' AND (estado_codigo = 'APR' OR (estado_codigo = 'ANL' AND edif_tipo = 'NN')) order by edif_descripcion", db, adOpenStatic
+'    End If
+'    'rs_datos3.Open "gp_listar_apr_gc_edificaciones", db, adOpenStatic
+'    Set Ado_datos3.Recordset = rs_datos3
+'    dtc_desc3.BoundText = dtc_codigo3.BoundText
 
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close

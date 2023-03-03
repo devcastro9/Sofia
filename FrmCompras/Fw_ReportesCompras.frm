@@ -355,6 +355,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   300
          TabIndex        =   58
          Top             =   880
+         Visible         =   0   'False
          Width           =   3855
       End
       Begin VB.OptionButton opt_4 
@@ -375,6 +376,7 @@ Begin VB.Form Fw_ReportesCompras
          TabIndex        =   57
          Top             =   1200
          Value           =   -1  'True
+         Visible         =   0   'False
          Width           =   2805
       End
       Begin VB.OptionButton Opt_1 
@@ -394,6 +396,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   300
          TabIndex        =   56
          Top             =   255
+         Visible         =   0   'False
          Width           =   3630
       End
       Begin VB.OptionButton opt_2 
@@ -413,6 +416,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   300
          TabIndex        =   55
          Top             =   550
+         Visible         =   0   'False
          Width           =   3750
       End
    End
@@ -516,6 +520,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   10200
          TabIndex        =   94
          Top             =   360
+         Visible         =   0   'False
          Width           =   3915
       End
       Begin VB.OptionButton optRep026 
@@ -535,6 +540,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   10200
          TabIndex        =   93
          Top             =   720
+         Visible         =   0   'False
          Width           =   4155
       End
       Begin VB.OptionButton optRep013 
@@ -554,6 +560,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   10200
          TabIndex        =   92
          Top             =   1080
+         Visible         =   0   'False
          Width           =   4155
       End
       Begin VB.OptionButton optRep022 
@@ -573,6 +580,7 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   10200
          TabIndex        =   91
          Top             =   1440
+         Visible         =   0   'False
          Width           =   4515
       End
       Begin VB.OptionButton optRep014 
@@ -852,7 +860,7 @@ Begin VB.Form Fw_ReportesCompras
       End
       Begin VB.OptionButton optRep002 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "por SERVICIO (Proceso ISO)"
+         Caption         =   "Seguimiento COMEX"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -867,7 +875,6 @@ Begin VB.Form Fw_ReportesCompras
          Left            =   5280
          TabIndex        =   6
          Top             =   375
-         Visible         =   0   'False
          Width           =   3540
       End
       Begin VB.Frame Frame3 
@@ -1923,7 +1930,7 @@ Begin VB.Form Fw_ReportesCompras
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118226945
+         Format          =   119603201
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -1935,7 +1942,7 @@ Begin VB.Form Fw_ReportesCompras
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118226945
+         Format          =   119603201
          CurrentDate     =   42735
       End
       Begin VB.Label Label2 
@@ -2118,9 +2125,9 @@ Private Sub BtnImprimir_Click()
   'Detalle de Ventas por SERVICIO (SUB-PROCESO ISO)
   ElseIf optRep002.Value = True Then        'And Opt_1.Value = True     '
     'Call RepUnidad("CONSALDO", "\Reportes\Ventas\ar_lista_de_ventas_unidad.rpt", "VENTAS EN GENERAL")
-        CryUnidad.ReportFileName = App.Path & "\Reportes\Ventas\ar_lista_de_ventas_servicio_regional.rpt"
-        titulo2 = "MODULO VENTAS"
-        subtitulo2 = "DETALLE VENTAS POR SERVICIO"
+        CryUnidad.ReportFileName = App.Path & "\Reportes\COMEX\fr_seguimiento_comex_detalle.rpt"
+        titulo2 = "MODULO COMEX"
+        subtitulo2 = "SEGUIMIENTO POR IMPORTACION"
         CryUnidad.Formulas(2) = "Titulo = '" & titulo2 & "'"
         CryUnidad.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
         CryUnidad.StoredProcParam(0) = "%"           'cmb_gestion_rep.Text

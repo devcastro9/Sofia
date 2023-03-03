@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -605,7 +605,6 @@ Begin VB.Form mw_ventas_cabecera
       _ExtentY        =   8414
       _Version        =   393216
       Tabs            =   4
-      Tab             =   1
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -621,14 +620,14 @@ Begin VB.Form mw_ventas_cabecera
       EndProperty
       TabCaption(0)   =   "REGISTRO DE VENTAS"
       TabPicture(0)   =   "mw_ventas_cabecera.frx":C5A5
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Equipos)"
       TabPicture(1)   =   "mw_ventas_cabecera.frx":C5C1
-      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "REGISTRO PLAN DE CUOTAS"
       TabPicture(2)   =   "mw_ventas_cabecera.frx":C5DD
@@ -1070,7 +1069,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109641729
+            Format          =   114556929
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1378,7 +1377,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   109641731
+            Format          =   114556931
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -1831,7 +1830,7 @@ Begin VB.Form mw_ventas_cabecera
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   4350
-         Left            =   40
+         Left            =   -74960
          TabIndex        =   36
          Top             =   380
          Width           =   12015
@@ -2860,7 +2859,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   -74960
+         Left            =   40
          TabIndex        =   23
          Top             =   380
          Width           =   12015
@@ -3078,7 +3077,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   109641729
+               Format          =   114556929
                CurrentDate     =   44228
                MinDate         =   32874
             End

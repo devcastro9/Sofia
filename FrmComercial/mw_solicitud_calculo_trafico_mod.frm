@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -16,8 +16,8 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmDetalle 
       BackColor       =   &H00E0E0E0&
@@ -826,7 +826,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   115146755
+         Format          =   117178371
          CurrentDate     =   44914
          MaxDate         =   55153
          MinDate         =   32874
@@ -8842,7 +8842,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos23 = New ADODB.Recordset
     If rs_datos23.State = 1 Then rs_datos23.Close
     rs_datos23.Open "Select * from ac_bienes_equipo_recorrido ", db, adOpenStatic
-    Set Ado_datos23.Recordset = rs_datos23
+    Set ado_datos23.Recordset = rs_datos23
     'dtc_desc23.BoundText = dtc_codigo23.BoundText
     
     Set rs_datos24 = New ADODB.Recordset
@@ -9089,7 +9089,7 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos14.State = 1 Then rs_datos14.Close
     rs_datos14.Open "Select * from ac_bienes_equipo_ctrl_maquina ", db, adOpenStatic
     'rs_datos9.Open "gp_listar_apr_gc_documentos_respaldo", db, adOpenStatic
-    Set Ado_datos14.Recordset = rs_datos14
+    Set ado_datos14.Recordset = rs_datos14
     dtc_desc14.BoundText = dtc_codigo14.BoundText
     
 End Sub
