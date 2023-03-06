@@ -15,6 +15,53 @@ Begin VB.Form frm_ReportesRRH
    ScaleWidth      =   10950
    StartUpPosition =   1  'CenterOwner
    Visible         =   0   'False
+   Begin MSAdodcLib.Adodc adoMensajeBoleta 
+      Height          =   330
+      Left            =   240
+      Top             =   10440
+      Visible         =   0   'False
+      Width           =   1455
+      _ExtentX        =   2566
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "Adodc1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
    Begin VB.Frame Frame6 
       BackColor       =   &H00E0E0E0&
       Caption         =   "Parámetros"
@@ -403,7 +450,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119472129
+         Format          =   113246209
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker DTP_Fvigencia 
@@ -415,7 +462,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119472129
+         Format          =   113246209
          CurrentDate     =   42735
       End
       Begin MSDataListLib.DataCombo dtc_ctades 
@@ -658,7 +705,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119472129
+         Format          =   113246209
          CurrentDate     =   42005
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -671,7 +718,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119472129
+         Format          =   113246209
          CurrentDate     =   42369
       End
       Begin MSDataListLib.DataCombo dtc_rep_det 
@@ -2753,7 +2800,7 @@ Public vActi As String
 Public glRepPresup As String
 Public conDetalle As Boolean
 
-Dim rs_proveedor, rs_cliente, rs_vendedor, rs_cobrador As New ADODB.Recordset
+Dim rs_proveedor, rs_cliente, rs_vendedor, rs_cobrador, rsMensajeBoleta As New ADODB.Recordset
 Dim rs_tipo, rs_tipoBenef, rs_ciudad As New ADODB.Recordset
 Dim rs_meses, rs_producto, rs_empresa As New ADODB.Recordset
 Dim rs_aux7, rs_aux8, rs_aux9  As New ADODB.Recordset
@@ -2775,6 +2822,31 @@ If rbBoletaReverso.Value = True Then
         MsgBox "Llene todos los datos para el REPORTE por favor", vbCritical, "Atención"
         Exit Sub
     Else
+        Set rsMensajeBoleta = New ADODB.Recordset
+        If rsMensajeBoleta.State = 1 Then rsMensajeBoleta.Close
+        rsMensajeBoleta.Open "select LEN(mensaje) as tam from rcMensajeBoletaPago_JASM " & _
+        "WHERE gestion = '" & cmb_gestion_rep.Text & "' AND mes = " & CInt(txt_mes.Text) & " ORDER BY estado desc", db, adOpenStatic
+        If rsMensajeBoleta.RecordCount > 0 Then
+            Set adoMensajeBoleta.Recordset = rsMensajeBoleta
+            If adoMensajeBoleta.Recordset!tam < 150 Then
+                CryReporte2.Reset
+                CryReporte2.WindowState = crptMaximized
+                CryReporte2.WindowShowSearchBtn = True
+                CryReporte2.WindowShowRefreshBtn = True
+                CryReporte2.WindowShowPrintSetupBtn = True
+
+                CryReporte2.ReportFileName = App.Path & "\REPORTES\RRHH\rrBoletaPagoReverso_corto.rpt"
+                CryReporte2.StoredProcParam(0) = cmb_gestion_rep.Text
+                CryReporte2.StoredProcParam(1) = txt_mes.Text
+                CryReporte2.StoredProcParam(2) = dtc_empresa_cod.Text
+                CryReporte2.StoredProcParam(3) = dtc_rep_cod.Text
+                iResult = CryReporte2.PrintReport
+                If iResult <> 0 Then
+                    MsgBox CryReporte2.LastErrorNumber & " : " & CryReporte2.LastErrorString, vbCritical + vbOKOnly, "Error..."
+                End If
+                Exit Sub
+            End If
+        End If
         CryReporte2.Reset
         CryReporte2.WindowState = crptMaximized
         CryReporte2.WindowShowSearchBtn = True
