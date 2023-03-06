@@ -31,7 +31,7 @@ Begin VB.Form aw_almacen_inventario
       ForeColor       =   &H00FF0000&
       Height          =   4575
       Left            =   1920
-      TabIndex        =   33
+      TabIndex        =   32
       Top             =   3720
       Visible         =   0   'False
       Width           =   8775
@@ -39,7 +39,7 @@ Begin VB.Form aw_almacen_inventario
          Caption         =   "Salir"
          Height          =   495
          Left            =   7320
-         TabIndex        =   44
+         TabIndex        =   43
          Top             =   3840
          Width           =   1095
       End
@@ -47,7 +47,7 @@ Begin VB.Form aw_almacen_inventario
          Caption         =   "Imprimir"
          Height          =   495
          Left            =   5760
-         TabIndex        =   43
+         TabIndex        =   42
          Top             =   3840
          Width           =   1335
       End
@@ -57,7 +57,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   1080
-         TabIndex        =   40
+         TabIndex        =   39
          Top             =   3120
          Visible         =   0   'False
          Width           =   5175
@@ -68,7 +68,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   1080
-         TabIndex        =   39
+         TabIndex        =   38
          Top             =   3480
          Visible         =   0   'False
          Width           =   5295
@@ -79,7 +79,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   1080
-         TabIndex        =   38
+         TabIndex        =   37
          Top             =   2760
          Visible         =   0   'False
          Width           =   5295
@@ -99,7 +99,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   960
-         TabIndex        =   37
+         TabIndex        =   36
          Top             =   2400
          Width           =   6735
       End
@@ -118,7 +118,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   960
-         TabIndex        =   36
+         TabIndex        =   35
          Top             =   1440
          Width           =   6855
       End
@@ -137,7 +137,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   960
-         TabIndex        =   35
+         TabIndex        =   34
          Top             =   720
          Width           =   6495
       End
@@ -156,7 +156,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   960
-         TabIndex        =   34
+         TabIndex        =   33
          Top             =   1080
          Width           =   6735
       End
@@ -193,7 +193,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   480
-         TabIndex        =   42
+         TabIndex        =   41
          Top             =   2040
          Width           =   5415
       End
@@ -212,7 +212,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   480
-         TabIndex        =   41
+         TabIndex        =   40
          Top             =   360
          Width           =   5415
       End
@@ -222,7 +222,7 @@ Begin VB.Form aw_almacen_inventario
       ForeColor       =   &H00FFFF00&
       Height          =   1935
       Left            =   2280
-      TabIndex        =   13
+      TabIndex        =   12
       Top             =   4560
       Visible         =   0   'False
       Width           =   8055
@@ -237,7 +237,7 @@ Begin VB.Form aw_almacen_inventario
          Left            =   120
          ScaleHeight     =   675
          ScaleWidth      =   7800
-         TabIndex        =   15
+         TabIndex        =   14
          Top             =   240
          Width           =   7800
          Begin VB.PictureBox CmdFiltrar 
@@ -250,7 +250,7 @@ Begin VB.Form aw_almacen_inventario
             Picture         =   "aw_almacen_inventario.frx":6852
             ScaleHeight     =   615
             ScaleWidth      =   1245
-            TabIndex        =   30
+            TabIndex        =   29
             ToolTipText     =   "Cierra la Ventana Activa"
             Top             =   0
             Width           =   1245
@@ -265,7 +265,7 @@ Begin VB.Form aw_almacen_inventario
             Picture         =   "aw_almacen_inventario.frx":7040
             ScaleHeight     =   615
             ScaleWidth      =   1245
-            TabIndex        =   28
+            TabIndex        =   27
             ToolTipText     =   "Cierra la Ventana Activa"
             Top             =   0
             Width           =   1245
@@ -280,7 +280,7 @@ Begin VB.Form aw_almacen_inventario
             Picture         =   "aw_almacen_inventario.frx":7802
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   27
+            TabIndex        =   26
             ToolTipText     =   "Kardex Valorado"
             Top             =   0
             Width           =   1455
@@ -295,7 +295,7 @@ Begin VB.Form aw_almacen_inventario
             Picture         =   "aw_almacen_inventario.frx":80CF
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   16
+            TabIndex        =   15
             ToolTipText     =   "Kardex Físico"
             Top             =   0
             Width           =   1455
@@ -317,7 +317,7 @@ Begin VB.Form aw_almacen_inventario
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   14175
-            TabIndex        =   17
+            TabIndex        =   16
             Top             =   195
             Width           =   1005
          End
@@ -326,26 +326,26 @@ Begin VB.Form aw_almacen_inventario
          DataField       =   "Fecha_Alerta"
          Height          =   315
          Left            =   1800
-         TabIndex        =   14
+         TabIndex        =   13
          Top             =   1440
          Width           =   1485
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117178369
+         Format          =   118095873
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
          DataField       =   "Fecha_Alerta"
          Height          =   315
          Left            =   4440
-         TabIndex        =   21
+         TabIndex        =   20
          Top             =   1440
          Width           =   1485
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117178369
+         Format          =   118095873
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -358,7 +358,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   1680
-         TabIndex        =   20
+         TabIndex        =   19
          Top             =   1080
          Width           =   1620
       End
@@ -372,7 +372,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   4440
-         TabIndex        =   18
+         TabIndex        =   17
          Top             =   1080
          Width           =   1485
       End
@@ -388,6 +388,22 @@ Begin VB.Form aw_almacen_inventario
       TabIndex        =   5
       Top             =   0
       Width           =   20160
+      Begin VB.PictureBox Picture1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   8760
+         Picture         =   "aw_almacen_inventario.frx":899C
+         ScaleHeight     =   615
+         ScaleWidth      =   1215
+         TabIndex        =   44
+         ToolTipText     =   "Busca Registros "
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   1215
+      End
       Begin VB.PictureBox BtnImprimir4 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -395,10 +411,10 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   6480
-         Picture         =   "aw_almacen_inventario.frx":899C
+         Picture         =   "aw_almacen_inventario.frx":9151
          ScaleHeight     =   735
          ScaleWidth      =   1395
-         TabIndex        =   31
+         TabIndex        =   30
          ToolTipText     =   "Salidas de Almacenes p/Exportar a Excel..."
          Top             =   0
          Visible         =   0   'False
@@ -411,10 +427,10 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   4920
-         Picture         =   "aw_almacen_inventario.frx":9269
+         Picture         =   "aw_almacen_inventario.frx":9A1E
          ScaleHeight     =   735
          ScaleWidth      =   1395
-         TabIndex        =   29
+         TabIndex        =   28
          ToolTipText     =   "Inventario Detallado de un Almacen Elegido..."
          Top             =   0
          Visible         =   0   'False
@@ -427,27 +443,13 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17400
-         Picture         =   "aw_almacen_inventario.frx":9B36
+         Picture         =   "aw_almacen_inventario.frx":A2EB
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   9
+         TabIndex        =   8
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
-      End
-      Begin VB.CommandButton BtnVer 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000015&
-         Caption         =   "Digitaliza"
-         Height          =   710
-         Left            =   11400
-         Picture         =   "aw_almacen_inventario.frx":A2F8
-         Style           =   1  'Graphical
-         TabIndex        =   8
-         ToolTipText     =   "Guarda en Archivo Digital"
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   1125
       End
       Begin VB.PictureBox BtnBuscar 
          Appearance      =   0  'Flat
@@ -456,7 +458,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "aw_almacen_inventario.frx":A73A
+         Picture         =   "aw_almacen_inventario.frx":AAAD
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   7
@@ -472,7 +474,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   3360
-         Picture         =   "aw_almacen_inventario.frx":AEEF
+         Picture         =   "aw_almacen_inventario.frx":B262
          ScaleHeight     =   735
          ScaleWidth      =   1395
          TabIndex        =   6
@@ -497,7 +499,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00FFFF80&
          Height          =   285
          Left            =   13305
-         TabIndex        =   10
+         TabIndex        =   9
          Top             =   195
          Width           =   885
       End
@@ -513,12 +515,12 @@ Begin VB.Form aw_almacen_inventario
       Top             =   660
       Width           =   20160
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "aw_almacen_inventario.frx":B7BC
+         Bindings        =   "aw_almacen_inventario.frx":BB2F
          DataField       =   "almacen_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   1680
-         TabIndex        =   11
+         TabIndex        =   10
          Top             =   120
          Width           =   4995
          _ExtentX        =   8811
@@ -529,12 +531,12 @@ Begin VB.Form aw_almacen_inventario
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "aw_almacen_inventario.frx":B7D5
+         Bindings        =   "aw_almacen_inventario.frx":BB48
          DataField       =   "almacen_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   1680
-         TabIndex        =   12
+         TabIndex        =   11
          Top             =   -120
          Visible         =   0   'False
          Width           =   1410
@@ -546,11 +548,11 @@ Begin VB.Form aw_almacen_inventario
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc2 
-         Bindings        =   "aw_almacen_inventario.frx":B7EE
+         Bindings        =   "aw_almacen_inventario.frx":BB61
          DataField       =   "bien_codigo"
          Height          =   315
          Left            =   9000
-         TabIndex        =   22
+         TabIndex        =   21
          Top             =   120
          Visible         =   0   'False
          Width           =   4890
@@ -562,11 +564,11 @@ Begin VB.Form aw_almacen_inventario
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_cod2 
-         Bindings        =   "aw_almacen_inventario.frx":B80B
+         Bindings        =   "aw_almacen_inventario.frx":BB7E
          DataField       =   "bien_codigo"
          Height          =   315
          Left            =   16080
-         TabIndex        =   23
+         TabIndex        =   22
          Top             =   120
          Visible         =   0   'False
          Width           =   2130
@@ -591,7 +593,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H000000C0&
          Height          =   255
          Left            =   14040
-         TabIndex        =   32
+         TabIndex        =   31
          Top             =   120
          Visible         =   0   'False
          Width           =   1935
@@ -610,7 +612,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H000000C0&
          Height          =   255
          Left            =   6960
-         TabIndex        =   25
+         TabIndex        =   24
          Top             =   120
          Visible         =   0   'False
          Width           =   1935
@@ -629,7 +631,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H00C00000&
          Height          =   255
          Left            =   120
-         TabIndex        =   24
+         TabIndex        =   23
          Top             =   120
          Width           =   1455
       End
@@ -872,11 +874,11 @@ Begin VB.Form aw_almacen_inventario
    End
    Begin MSDataGridLib.DataGrid tdbgInventario 
       Align           =   3  'Align Left
-      Bindings        =   "aw_almacen_inventario.frx":B828
+      Bindings        =   "aw_almacen_inventario.frx":BB9B
       Height          =   9225
       Left            =   0
       Negotiate       =   -1  'True
-      TabIndex        =   26
+      TabIndex        =   25
       Top             =   1215
       Width           =   13935
       _ExtentX        =   24580
@@ -905,7 +907,7 @@ Begin VB.Form aw_almacen_inventario
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Caption         =   $"aw_almacen_inventario.frx":B840
+      Caption         =   $"aw_almacen_inventario.frx":BBB3
       ColumnCount     =   9
       BeginProperty Column00 
          DataField       =   "almacen_codigo"
@@ -1127,7 +1129,7 @@ Begin VB.Form aw_almacen_inventario
       ForeColor       =   &H00C00000&
       Height          =   1095
       Left            =   14160
-      TabIndex        =   19
+      TabIndex        =   18
       Top             =   5160
       Width           =   1935
    End
@@ -1141,6 +1143,8 @@ Option Explicit
 'Dim cnn As ADODB.Connection
 Dim RsInventario As ADODB.Recordset
 Dim rs_datos1 As ADODB.Recordset
+Dim rs_datos2 As ADODB.Recordset
+Dim rs_datos3 As ADODB.Recordset
 Dim RsGrupos As ADODB.Recordset
 
 '==== busquedas ====
@@ -1150,8 +1154,13 @@ Dim PosibleApliqueFiltro As Boolean
 Dim iResult As Integer
 
 Dim VAR_SW As String
-Dim VAR_BIEN As String
+Dim VAR_BIEN, VAR_BIEN2 As String
 Dim CodGrupo As String
+
+Dim CANT_ING, COMPRA_UNIT_BS, COMPRA_TOT_BS As Double
+Dim CANT_SAL, VENTA_UNIT_BS, VENTA_TOT_BS As Double
+Dim CANT_SALDO, SALDO_UNIT_BS, SALDO_TOT_BS As Double
+Dim UNIT87_BS, TOT87_BS As Double
 
 'Dim cmm As ADODB.Command
 Dim VAR_ALM As Integer
@@ -1477,6 +1486,7 @@ Private Sub dtc_desc1_Change()
         dtc_codigo1.BoundText = dtc_desc1.BoundText
         dtc_cod2.BoundText = dtc_desc2.BoundText
     End If
+        Call ACTUALIZA_PPP
     'f dtc_codigo1.Text = "" Then
     '    MsgBox "El Almacen No existe o no tiene Movimiento... , vuelva a intentar ...", vbInformation + vbOKOnly, "Atención"
     '    VAR_SW = "SI"
@@ -1512,6 +1522,92 @@ End Sub
 
 Private Sub dtc_desc1_Click(Area As Integer)
     dtc_codigo1.BoundText = dtc_desc1.BoundText
+End Sub
+
+Private Sub ACTUALIZA_PPP()
+'Dim CANT_ING, COMPRA_UNIT_BS, COMPRA_TOT_BS As Double
+'Dim CANT_SAL, VENTA_UNIT_BS, VENTA_TOT_BS As Double
+'Dim CANT_SALDO, SALDO_UNIT_BS, SALDO_TOT_BS As Double
+'Dim UNIT87_BS, TOT87_BS As Double
+    ' CLONA INGRESOS Y SALIDAS DE ALMACEN
+    'db.Execute "DROP TABLE ao_saldos3 "
+    'db.Execute "SELECT * INTO ao_saldos3 FROM av_almacenes_saldos "
+    db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " "
+    db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & ""
+    
+    Set rs_datos2 = New ADODB.Recordset
+    If rs_datos2.State = 1 Then rs_datos2.Close
+    rs_datos2.Open "select bien_codigo from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " GROUP BY bien_codigo  ", db, adOpenStatic
+    'Set Ado_datos2.Recordset = rs_datos2
+    If rs_datos2.RecordCount > 0 Then
+        rs_datos2.MoveFirst
+        While Not rs_datos2.EOF
+            VAR_BIEN2 = rs_datos2!bien_codigo
+            Set rs_datos3 = New ADODB.Recordset
+            If rs_datos3.State = 1 Then rs_datos3.Close
+            rs_datos3.Open "select * from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' ORDER BY fecha_ingreso, doc_codigo ", db, adOpenStatic
+            If rs_datos3.RecordCount > 0 Then
+                rs_datos3.MoveFirst
+                CANT_ING = rs_datos3!cantidad_ingreso
+                COMPRA_UNIT_BS = rs_datos3!compra_bs_unit
+                COMPRA_TOT_BS = rs_datos3!importe_compra_bs
+                CANT_SAL = rs_datos3!cantidad_salida
+                'VENTA_UNIT_BS = rs_datos3!CostoUnitario
+                '=SI(cantidad_salida=0;CostoUnitarioCPP;0)
+                If CANT_SAL = 0 Then
+                    VENTA_UNIT_BS = 0
+                Else
+                    VENTA_UNIT_BS = COMPRA_UNIT_BS                  'SALDO_UNIT_BS
+                End If
+                'VENTA_TOT_BS = rs_datos3!importe_venta_bs
+                VENTA_TOT_BS = Round(CANT_SAL * VENTA_UNIT_BS, 2)
+                'CANT_SALDO = rs_datos3!cantidad_saldo
+                CANT_SALDO = CANT_ING - CANT_SAL
+                'SALDO_UNIT_BS = rs_datos3!CostoUnitarioCPP
+                ''SI(CostoUnitario>0;CostoUnitario;(importe_compra_bs+importe_venta_bs)/)cantidad_saldo
+                If VENTA_UNIT_BS > 0 Then
+                    SALDO_UNIT_BS = VENTA_UNIT_BS
+                Else
+                    SALDO_UNIT_BS = Round((COMPRA_TOT_BS + VENTA_TOT_BS) / CANT_SALDO, 2)
+                End If
+                'SALDO_TOT_BS = rs_datos3!CostoTotalCPP
+                SALDO_TOT_BS = Round(CANT_SALDO * SALDO_UNIT_BS, 2)
+                'UNIT87_BS = rs_datos3!CostoUnitario87
+                UNIT87_BS = Round(SALDO_UNIT_BS * 0.87, 2)
+                'TOT87_BS = rs_datos3!valortotal87
+                TOT87_BS = Round(SALDO_TOT_BS * 0.87, 2)
+                While Not rs_datos3.EOF
+                    db.Execute "UPDATE ao_saldos3 SET CostoUnitario = " & VENTA_UNIT_BS & ", importe_venta_bs = " & VENTA_TOT_BS & ", cantidad_saldo = " & CANT_SALDO & ", CostoUnitarioCPP = " & SALDO_UNIT_BS & ", CostoTotalCPP = " & SALDO_TOT_BS & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & " AND fecha_ingreso = '" & rs_datos3!fecha_ingreso & "' "
+                    rs_datos3.MoveNext
+                    If Not rs_datos3.EOF Then
+                        'VARIABLES
+                        If rs_datos3!compra_bs_unit = 0 Then
+                            VENTA_UNIT_BS = SALDO_UNIT_BS
+                        Else
+                            VENTA_UNIT_BS = 0
+                        End If
+                        VENTA_TOT_BS = Round(rs_datos3!cantidad_salida * VENTA_UNIT_BS, 2)
+                        CANT_SALDO = (rs_datos3!cantidad_ingreso - rs_datos3!cantidad_salida) + CANT_SALDO
+                        If rs_datos3!compra_bs_unit = 0 Then
+                            SALDO_UNIT_BS = SALDO_UNIT_BS
+                        Else
+                            If CANT_SALDO = 0 Then
+                                SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS), 2)
+                            Else
+                                SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS) / CANT_SALDO, 2)
+                            End If
+                        End If
+                        SALDO_TOT_BS = Round(CANT_SALDO * SALDO_UNIT_BS, 2)
+                    End If
+                Wend
+            End If
+            rs_datos2.MoveNext
+        Wend
+        db.Execute "UPDATE ao_saldos3 SET CostoUnitario87 = CostoUnitarioCPP * 0.87 , valortotal87 = CostoTotalCPP * 0.87  where almacen_codigo = " & dtc_codigo1.Text & "  "
+    Else
+        rs_datos2.Close
+    End If
+    
 End Sub
 
 Private Sub Form_Load()

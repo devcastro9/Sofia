@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -403,7 +403,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110297089
+         Format          =   134086657
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker DTP_Fvigencia 
@@ -415,7 +415,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110297089
+         Format          =   134086657
          CurrentDate     =   42735
       End
       Begin MSDataListLib.DataCombo dtc_ctades 
@@ -658,7 +658,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110297089
+         Format          =   134086657
          CurrentDate     =   42005
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -671,7 +671,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110297089
+         Format          =   134086657
          CurrentDate     =   42369
       End
       Begin MSDataListLib.DataCombo dtc_rep_det 
@@ -2928,11 +2928,11 @@ CryDetalle.WindowShowPrintSetupBtn = True
     ElseIf optrep006C.Value = True Then
     
     If txt_mes.Text = 1 Or txt_mes.Text = 5 Or txt_mes.Text = 9 Then
-    Call Reportes2("\REPORTES\RRHH\rr_boleta_pago_politica_calidad.rpt")
+        Call Reportes2("\REPORTES\RRHH\rr_boleta_pago_politica_calidad.rpt")
     End If
     
     If txt_mes.Text = 2 Or txt_mes.Text = 6 Or txt_mes.Text = 10 Then
-    Call Reportes2("\REPORTES\RRHH\rr_boleta_pago_vision.rpt")
+        Call Reportes2("\REPORTES\RRHH\rr_boleta_pago_vision.rpt")
     End If
     
     If txt_mes.Text = 3 Or txt_mes.Text = 7 Or txt_mes.Text = 11 Then
