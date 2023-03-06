@@ -13,8 +13,8 @@ Begin VB.Form aw_almacen_inventario
    Icon            =   "aw_almacen_inventario.frx":0000
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   8415
+   ScaleWidth      =   11400
    WindowState     =   2  'Maximized
    Begin VB.Frame fra_reportes 
       BackColor       =   &H00FFC0C0&
@@ -332,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118095873
+         Format          =   117768193
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -345,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118095873
+         Format          =   117768193
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -384,10 +384,10 @@ Begin VB.Form aw_almacen_inventario
       Height          =   660
       Left            =   0
       ScaleHeight     =   660
-      ScaleWidth      =   20160
+      ScaleWidth      =   11400
       TabIndex        =   5
       Top             =   0
-      Width           =   20160
+      Width           =   11400
       Begin VB.PictureBox Picture1 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -510,10 +510,10 @@ Begin VB.Form aw_almacen_inventario
       Height          =   555
       Left            =   0
       ScaleHeight     =   555
-      ScaleWidth      =   20160
+      ScaleWidth      =   11400
       TabIndex        =   4
       Top             =   660
-      Width           =   20160
+      Width           =   11400
       Begin MSDataListLib.DataCombo dtc_desc1 
          Bindings        =   "aw_almacen_inventario.frx":BB2F
          DataField       =   "almacen_codigo"
@@ -642,10 +642,10 @@ Begin VB.Form aw_almacen_inventario
       Height          =   495
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   20160
+      ScaleWidth      =   11400
       TabIndex        =   0
-      Top             =   10440
-      Width           =   20160
+      Top             =   7920
+      Width           =   11400
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   1215
@@ -875,14 +875,14 @@ Begin VB.Form aw_almacen_inventario
    Begin MSDataGridLib.DataGrid tdbgInventario 
       Align           =   3  'Align Left
       Bindings        =   "aw_almacen_inventario.frx":BB9B
-      Height          =   9225
+      Height          =   6705
       Left            =   0
       Negotiate       =   -1  'True
       TabIndex        =   25
       Top             =   1215
       Width           =   13935
       _ExtentX        =   24580
-      _ExtentY        =   16272
+      _ExtentY        =   11827
       _Version        =   393216
       AllowUpdate     =   0   'False
       BackColor       =   12572159
@@ -1604,6 +1604,9 @@ Private Sub ACTUALIZA_PPP()
             rs_datos2.MoveNext
         Wend
         db.Execute "UPDATE ao_saldos3 SET CostoUnitario87 = CostoUnitarioCPP * 0.87 , valortotal87 = CostoTotalCPP * 0.87  where almacen_codigo = " & dtc_codigo1.Text & "  "
+        'ACTUALIZA PRECIO SALIDA ALMACEN
+        'ACTUALIZA ao_almacen_totales
+        
     Else
         rs_datos2.Close
     End If
