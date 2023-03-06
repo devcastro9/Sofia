@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -403,7 +403,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   134086657
+         Format          =   119472129
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker DTP_Fvigencia 
@@ -415,7 +415,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   134086657
+         Format          =   119472129
          CurrentDate     =   42735
       End
       Begin MSDataListLib.DataCombo dtc_ctades 
@@ -658,7 +658,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   134086657
+         Format          =   119472129
          CurrentDate     =   42005
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -671,7 +671,7 @@ Begin VB.Form frm_ReportesRRH
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   134086657
+         Format          =   119472129
          CurrentDate     =   42369
       End
       Begin MSDataListLib.DataCombo dtc_rep_det 
@@ -981,6 +981,16 @@ Begin VB.Form frm_ReportesRRH
       Top             =   840
       WhatsThisHelpID =   100
       Width           =   10740
+      Begin VB.OptionButton rbBoletaReverso 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "REVERSO NUEVO"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3600
+         TabIndex        =   144
+         Top             =   2280
+         Width           =   1875
+      End
       Begin VB.OptionButton Option15 
          BackColor       =   &H00E0E0E0&
          Caption         =   "PLANILLA AGUINALDO(1)"
@@ -998,7 +1008,7 @@ Begin VB.Form frm_ReportesRRH
          Height          =   195
          Left            =   3600
          TabIndex        =   138
-         Top             =   2280
+         Top             =   1800
          Visible         =   0   'False
          Width           =   1125
       End
@@ -1159,7 +1169,7 @@ Begin VB.Form frm_ReportesRRH
          Height          =   195
          Left            =   3600
          TabIndex        =   94
-         Top             =   1812
+         Top             =   1575
          Visible         =   0   'False
          Width           =   1125
       End
@@ -2760,6 +2770,28 @@ Public Sub inicio(Usuario, Proceso As String)
 End Sub
 
 Private Sub BtnImprimir_Click()
+If rbBoletaReverso.Value = True Then
+    If cmb_gestion_rep.Text = "" Or cbo_mes_rep = "" Or dtc_empresa_sigla.Text = "" Or dtc_rep_cod.Text = "" Then
+        MsgBox "Llene todos los datos para el REPORTE por favor", vbCritical, "Atención"
+        Exit Sub
+    Else
+        CryReporte2.Reset
+        CryReporte2.WindowState = crptMaximized
+        CryReporte2.WindowShowSearchBtn = True
+        CryReporte2.WindowShowRefreshBtn = True
+        CryReporte2.WindowShowPrintSetupBtn = True
+
+        CryReporte2.ReportFileName = App.Path & "\REPORTES\RRHH\rrBoletaPagoReverso.rpt"
+        CryReporte2.StoredProcParam(0) = cmb_gestion_rep.Text
+        CryReporte2.StoredProcParam(1) = txt_mes.Text
+        CryReporte2.StoredProcParam(2) = dtc_empresa_cod.Text
+        CryReporte2.StoredProcParam(3) = dtc_rep_cod.Text
+        iResult = CryReporte2.PrintReport
+        If iResult <> 0 Then
+            MsgBox CryReporte2.LastErrorNumber & " : " & CryReporte2.LastErrorString, vbCritical + vbOKOnly, "Error..."
+        End If
+    End If
+End If
 If Option12.Value = True Then
     If cmb_mes_a.Text = "" Or cmb_gestion_a.Text = "" Or cmb_mes_b.Text = "" Or cmb_gestion_b.Text = "" Then
         MsgBox "Llene todos los datos para el REPORTE por favor", vbCritical, "Atención"
@@ -2842,9 +2874,6 @@ If optRep003.Value = True Then
         Exit Sub
     End If
 End If
-
-
-
 
 CryReporte.Reset
 CryReporte2.Reset
@@ -4769,3 +4798,16 @@ Frame1.Visible = True
 
 End Sub
 
+Private Sub rbBoletaReverso_Click()
+Frame6.Visible = False
+ Frame1.Visible = True
+    Frame2.Visible = False
+      Option2.Visible = False
+      
+       cbo_mes_rep.Visible = True
+ Label33.Visible = True
+ 
+ cmb_gestion_rep.Visible = True
+ Label32.Visible = True
+ Frame5.Visible = False
+End Sub

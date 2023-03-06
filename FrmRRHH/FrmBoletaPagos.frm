@@ -1,16 +1,16 @@
 VERSION 5.00
-Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDatGrd.ocx"
-Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
+Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Begin VB.Form FrmBoletaPagos 
    Caption         =   "Boletas de Pagos"
-   ClientHeight    =   9030
+   ClientHeight    =   9105
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   12450
+   ClientWidth     =   12240
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   9030
-   ScaleWidth      =   12450
+   ScaleHeight     =   9105
+   ScaleWidth      =   12240
    WindowState     =   2  'Maximized
    Begin VB.CommandButton btnGuardar 
       Caption         =   "GUARDAR"
@@ -437,14 +437,15 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim rsListaMensaje As New ADODB.Recordset
+Dim rsExiste As New ADODB.Recordset
 Dim esNuevo As Boolean
 
 
 Private Sub adoListaMensaje_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If Not rsListaMensaje.BOF And Not rsListaMensaje.EOF Then
-        lblIdMensaje.Caption = adoListaMensaje.Recordset!id
-        TxtGestion.Text = adoListaMensaje.Recordset!gestion
-        CmbMes.Text = mesaCadena(adoListaMensaje.Recordset!mes)
+        lblIdMensaje.Caption = adoListaMensaje.Recordset!Id
+        txtGestion.Text = adoListaMensaje.Recordset!gestion
+        cmbMes.Text = mesaCadena(adoListaMensaje.Recordset!mes)
         lblUsuarioMensaje.Caption = adoListaMensaje.Recordset!usrCodigo
         lblFechaRegistroMensaje = adoListaMensaje.Recordset!fechaRegistro
         txtTitulo.Text = adoListaMensaje.Recordset!Titulo
@@ -453,14 +454,18 @@ Private Sub adoListaMensaje_MoveComplete(ByVal adReason As ADODB.EventReasonEnum
 End Sub
 
 Private Sub BtnCancelar_Click()
-    Call deshabCampos
+    If MsgBox("¿Cancelar la operacion?", vbExclamation + vbYesNo, "CANCELAR") = vbYes Then
+        Call deshabCampos
+        rsListaMensaje.MoveNext
+        rsListaMensaje.MovePrevious
+    End If
 End Sub
 
 Private Sub btnEditar_Click()
     esNuevo = False
     Call habCampos
     btnGuardar.Visible = True
-    BtnCancelar.Visible = True
+    btnCancelar.Visible = True
 End Sub
 
 Private Sub btnEliminar_Click()
@@ -471,29 +476,62 @@ Private Sub btnEliminar_Click()
 End Sub
 
 Private Sub btnGuardar_Click()
-    If esNuevo Then
+    'borramos posibles espacios en blanco
+    txtGestion.Text = LTrim(txtGestion.Text)
+    txtGestion.Text = RTrim(txtGestion.Text)
+    cmbMes.Text = LTrim(cmbMes.Text)
+    cmbMes.Text = RTrim(cmbMes.Text)
+    txtTitulo.Text = LTrim(txtTitulo.Text)
+    txtTitulo.Text = RTrim(txtTitulo.Text)
+    txtMensaje.Text = LTrim(txtMensaje.Text)
+    txtMensaje.Text = RTrim(txtMensaje.Text)
     
-    Else
-        If mesaEntero(CmbMes.Text) <> 0 Then
-            If Len(txtTitulo.Text) <= 70 Then
-                If Len(txtMensaje.Text) <= 700 Then
-                    MsgBox "Guardado correctamente", vbCritical, "GUARDADO"
-                    db.Execute "UPDATE rcMensajeBoletaPago_JASM set gestion = '" & TxtGestion.Text & "', mes = " & mesaEntero(CmbMes.Text) & ""
-                    
-                Else
-                    MsgBox "El mensaje sobrepasa los 700 caracteres", vbCritical, "ERROR EN EL MENSAJE"
-                End If
+    If validar Then
+        If esNuevo Then
+            If existe Then
+                MsgBox "El mensaje ya existe", vbCritical, "GUARDADO"
             Else
-                MsgBox "El titulo sobrepasa los 70 caracteres", vbCritical, "ERROR EN EL TITULO"
+                If MsgBox("¿Esta seguro de agregar el Mensaje?", vbExclamation + vbYesNo, "AGREGAR MENSAJE") = vbYes Then
+                    db.Execute "INSERT INTO rcMensajeBoletaPago_JASM (gestion, mes, titulo, mensaje, usrCodigo, fechaRegistro) VALUES ('" & txtGestion.Text & _
+                    "', " & mesaEntero(cmbMes.Text) & ", '" & txtTitulo.Text & "', '" & txtMensaje.Text & "', '" & glusuario & _
+                    "', '" & ObtenerFechaServidor & "')"
+                    MsgBox "Guardado correctamente", vbInformation, "GUARDADO"
+                    Call deshabCampos
+                    Call leerMensajes
+                End If
             End If
         Else
-            MsgBox "El mes no corresponde a ninguno de los doce meses!!!", vbCritical, "ERROR EN EL MES"
+            If existe Then
+                MsgBox "El mensaje ya existe", vbCritical, "GUARDADO"
+            Else
+                If MsgBox("¿Esta seguro de editar el Mensaje?", vbExclamation + vbYesNo, "EDITAR MENSAJE") = vbYes Then
+                    db.Execute "UPDATE rcMensajeBoletaPago_JASM SET gestion = '" & txtGestion.Text & "', mes = " & mesaEntero(cmbMes.Text) & _
+                    ", titulo = '" & txtTitulo.Text & "', mensaje = '" & txtMensaje.Text & "', usrCodigo = '" & glusuario & _
+                    "', nroModificacion = nroModificacion + 1, fechaModificacion = '" & ObtenerFechaServidor & _
+                    "' WHERE id = " & CInt(lblIdMensaje.Caption)
+                    MsgBox "Editado correctamente", vbInformation, "GUARDADO"
+                    Call deshabCampos
+                    Call leerMensajes
+                End If
+            End If
         End If
     End If
 End Sub
 
 Private Sub btnNuevo_Click()
     esNuevo = True
+    Call habCampos
+    btnGuardar.Visible = True
+    btnCancelar.Visible = True
+    
+    'limpiamos campos
+    lblIdMensaje.Caption = "0"
+    txtGestion.Text = "2020"
+    cmbMes.Text = "ENERO"
+    lblUsuarioMensaje.Caption = glusuario
+    lblFechaRegistroMensaje.Caption = ObtenerFechaServidor
+    txtTitulo.Text = ""
+    txtMensaje.Text = ""
 End Sub
 
 Private Sub Form_Load()
@@ -504,29 +542,68 @@ End Sub
 Private Sub leerMensajes()
     Set rsListaMensaje = New ADODB.Recordset
     If rsListaMensaje.State = 1 Then rsListaMensaje.Close
-    rsListaMensaje.Open "SELECT * FROM rcMensajeBoletaPago_JASM WHERE estado = 'APR' ORDER BY gestion DESC", db, adOpenStatic
+    rsListaMensaje.Open "SELECT * FROM rcMensajeBoletaPago_JASM WHERE estado = 'APR' ORDER BY gestion DESC, mes", db, adOpenStatic
     Set adoListaMensaje.Recordset = rsListaMensaje
 End Sub
 Private Sub deshabCampos()
-    TxtGestion.Enabled = False
-    CmbMes.Enabled = False
+    txtGestion.Enabled = False
+    cmbMes.Enabled = False
     txtTitulo.Enabled = False
     txtMensaje.Enabled = False
-    BtnCancelar.Visible = False
+    btnCancelar.Visible = False
     btnGuardar.Visible = False
     btnNuevo.Visible = True
     btnEditar.Visible = True
-    BtnEliminar.Visible = True
+    btnEliminar.Visible = True
 End Sub
 Private Sub habCampos()
-    TxtGestion.Enabled = True
-    CmbMes.Enabled = True
+    txtGestion.Enabled = True
+    cmbMes.Enabled = True
     txtTitulo.Enabled = True
     txtMensaje.Enabled = True
     btnNuevo.Visible = False
     btnEditar.Visible = False
-    BtnEliminar.Visible = False
+    btnEliminar.Visible = False
 End Sub
+Private Function validar() As Boolean
+    validar = False
+    If Not IsNumeric(txtGestion.Text) Then
+        MsgBox "La gestion debe de ser un número", vbCritical, "ERROR EN LA GESTION"
+        Exit Function
+    End If
+    If mesaEntero(cmbMes.Text) = 0 Then    'comprueba el mes correcto
+        MsgBox "El mes no corresponde a ninguno de los doce meses!!!", vbCritical, "ERROR EN EL MES"
+        Exit Function
+    End If
+    If Len(txtTitulo.Text) > 70 Then   'titulo no tan largo
+        MsgBox "El titulo sobrepasa los 70 caracteres", vbCritical, "ERROR EN EL TITULO"
+        Exit Function
+    End If
+    If Len(txtMensaje.Text) > 700 Then 'mensaje no tan larga
+        MsgBox "El mensaje sobrepasa los 700 caracteres", vbCritical, "ERROR EN EL MENSAJE"
+        Exit Function
+    End If
+    If Len(txtTitulo.Text) < 5 Then   'titulo no tan corto
+        MsgBox "El titulo es muy corto", vbCritical, "ERROR EN EL TITULO"
+        Exit Function
+    End If
+    If Len(txtMensaje.Text) < 20 Then 'mensaje no tan corto
+        MsgBox "El mensaje es muy corto", vbCritical, "ERROR EN EL MENSAJE"
+        Exit Function
+    End If
+    validar = True
+End Function
+Private Function existe() As Boolean 'si existe algun registro similar
+    existe = True
+    Set rsExiste = New ADODB.Recordset
+    If rsExiste.State = 1 Then rsExiste.Close
+    rsExiste.Open "SELECT * FROM rcMensajeBoletaPago_JASM WHERE gestion = '" & txtGestion.Text & _
+    "' AND mes = '" & mesaEntero(cmbMes.Text) & "' AND id <> '" & lblIdMensaje.Caption & "' AND estado = 'APR'", db, adOpenStatic
+    If rsExiste.RecordCount = 0 Then
+        existe = False
+    End If
+    rsExiste.Close
+End Function
 Public Function mesaCadena(numMes As Integer) As String
     Select Case numMes
         Case 1
