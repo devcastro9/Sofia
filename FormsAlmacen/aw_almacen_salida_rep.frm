@@ -18,9 +18,9 @@ Begin VB.Form aw_almacen_salida_rep
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   1.46278e5
+   ScaleHeight     =   1.55763e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   5.31609e8
+   ScaleWidth      =   9.37238e8
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnImprimir3 
       Appearance      =   0  'Flat
@@ -422,7 +422,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110624769
+         Format          =   126091265
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -435,7 +435,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110624769
+         Format          =   126091265
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -2175,7 +2175,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   110624769
+            Format          =   126091265
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4423,7 +4423,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 BtnAprobar.Visible = True
                 BtnDesAprobar.Visible = False
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 lbl_cerrado.Caption = ""
                 FrmABMDet.Visible = True
                 BtnModificar2.Visible = True
@@ -4431,7 +4431,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 BtnAprobar.Visible = False
                 BtnDesAprobar.Visible = True
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 FrmABMDet.Visible = False
                 BtnModificar2.Visible = False
             End If
@@ -4495,7 +4495,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '           OptFilGral2.Visible = False
 '        End If
  End If
- BtnEliminar.Visible = True
+ btnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()

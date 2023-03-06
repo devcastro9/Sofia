@@ -332,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117768193
+         Format          =   134676481
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -345,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   117768193
+         Format          =   134676481
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1486,7 +1486,7 @@ Private Sub dtc_desc1_Change()
         dtc_codigo1.BoundText = dtc_desc1.BoundText
         dtc_cod2.BoundText = dtc_desc2.BoundText
     End If
-        Call ACTUALIZA_PPP
+        'Call ACTUALIZA_PPP
     'f dtc_codigo1.Text = "" Then
     '    MsgBox "El Almacen No existe o no tiene Movimiento... , vuelva a intentar ...", vbInformation + vbOKOnly, "Atención"
     '    VAR_SW = "SI"
