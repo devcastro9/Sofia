@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -1929,7 +1929,7 @@ Begin VB.Form mw_solicitud
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110100481
+         Format          =   110821377
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   2
@@ -3650,7 +3650,6 @@ UpdateErr:
   MsgBox Err.Description
 End Sub
 
-
 Private Sub BtnGrabar_Click()
   On Error GoTo UpdateErr
   VAR_VAL = "OK"
@@ -5019,7 +5018,7 @@ Private Sub OptFilGral1_Click()
 '                queryinicial = "select * From ao_solicitud WHERE ((estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo = 'REG'  AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '4' ))) "
 '            End If
         Case "1.7"    'Santa Cruz
-            If glusuario = "CURDININEA" Then        'SCZ
+            If glusuario = "CURDININEA" Or glusuario = "TCASTILLO" Or glusuario = "CPAREDES" Then        'SCZ
                 queryinicial = "select * From ao_solicitud WHERE ((estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo = 'REG' AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' or left(edif_codigo,1) = '9' or left(edif_codigo,1) = '3' ) )) "
             Else
                 queryinicial = "select * From ao_solicitud WHERE ((estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo = 'REG' AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' ) )) "

@@ -422,7 +422,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   126091265
+         Format          =   110821377
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -435,7 +435,7 @@ Begin VB.Form aw_almacen_salida_rep
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   126091265
+         Format          =   110821377
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -1851,7 +1851,7 @@ Begin VB.Form aw_almacen_salida_rep
                Height          =   315
                Left            =   1260
                TabIndex        =   111
-               Top             =   1320
+               Top             =   1080
                Width           =   4515
                _ExtentX        =   7964
                _ExtentY        =   556
@@ -2175,7 +2175,7 @@ Begin VB.Form aw_almacen_salida_rep
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   126091265
+            Format          =   110821377
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4423,7 +4423,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 BtnAprobar.Visible = True
                 BtnDesAprobar.Visible = False
                 BtnModificar.Visible = True
-                btnEliminar.Visible = True
+                BtnEliminar.Visible = True
                 lbl_cerrado.Caption = ""
                 FrmABMDet.Visible = True
                 BtnModificar2.Visible = True
@@ -4431,7 +4431,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 BtnAprobar.Visible = False
                 BtnDesAprobar.Visible = True
                 BtnModificar.Visible = False
-                btnEliminar.Visible = False
+                BtnEliminar.Visible = False
                 FrmABMDet.Visible = False
                 BtnModificar2.Visible = False
             End If
@@ -4495,7 +4495,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
 '           OptFilGral2.Visible = False
 '        End If
  End If
- btnEliminar.Visible = True
+ BtnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()
@@ -4531,13 +4531,13 @@ Private Sub AbrirDetalle()
     End If
     'rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  and almacen_tipo = '" & VAR_ALMT & "' AND (estado_bien='SAL' OR estado_bien='APR')   order by  concepto_venta ", db, adOpenKeyset, adLockOptimistic       'par_codigo, bien_codigo
     rs_datos14.Sort = "hora_registro"
-    Set Ado_datos14.Recordset = rs_datos14.DataSource
-    Ado_datos14.Recordset.Requery
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+    Set ado_datos14.Recordset = rs_datos14.DataSource
+    ado_datos14.Recordset.Requery
+    If ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
         DtGLista.Visible = True
         FrmDetalle2.Visible = True
-        Set DtGLista.DataSource = Ado_datos14.Recordset
+        Set DtGLista.DataSource = ado_datos14.Recordset
         'Call AbreAlmacen
     Else
         deta2 = 0
@@ -4709,13 +4709,13 @@ On Error GoTo UpdateErr
     End If
     dtc_desc3.backColor = &H80000005
     dtc_desc3.ForeColor = &H80000008
-    Txt_campo1.Caption = "0"
+    txt_campo1.Caption = "0"
     dtc_desc3.Locked = False
     dtc_desc3.Width = 5955
     'lbl_campo4.Visible = False
-    DTPfechaIni.Visible = False
+    DTPFechaIni.Visible = False
     'lbl_campo5.Visible = False
-    DTPfechaFin.Visible = False
+    DTPFechaFin.Visible = False
     'DTPfechasol.Value = Date
     swgrabar = 1
     FrmCabecera.Enabled = True
@@ -4740,13 +4740,25 @@ On Error GoTo UpdateErr
         Else
             dtc_codigo4.Text = VAR_BENEF
             dtc_desc4.BoundText = dtc_codigo4.BoundText
-            dtc_codigo11.Text = VAR_ALMX
-            dtc_desc11.BoundText = dtc_codigo11.BoundText
-            dtc_Aux11.BoundText = dtc_codigo11.BoundText
-            dtc_codigo21.Text = VAR_DPTO
-            dtc_desc21.BoundText = dtc_codigo21.BoundText
+            dtc_tipo4.BoundText = dtc_codigo4.BoundText
+            dtc_Aux11.BoundText = dtc_codigo4.BoundText
+    
+'            dtc_codigo11.Text = VAR_ALMX
+'            dtc_desc11.BoundText = dtc_codigo11.BoundText
+'            dtc_Aux11.BoundText = dtc_codigo11.BoundText
+'            dtc_codigo21.Text = VAR_DPTO
+'            dtc_desc21.BoundText = dtc_codigo21.BoundText
         End If
         'ac_almacenes ' Origen
+        'Beneficiario Funcionario - Almacen     av_almacen_responsable
+        Set rs_datos4 = New ADODB.Recordset
+        If rs_datos4.State = 1 Then rs_datos4.Close
+        rs_datos4.Open "Select * from av_almacen_responsable where unidad_codigo = '" & parametro & "' and almacen_tipo = '" & TIPOALM & "' order by beneficiario_denominacion", db, adOpenStatic
+        Set Ado_datos4.Recordset = rs_datos4
+        dtc_desc4.BoundText = dtc_codigo4.BoundText
+        dtc_tipo4.BoundText = dtc_codigo4.BoundText
+        dtc_Aux11.BoundText = dtc_codigo4.BoundText
+    
         Set rs_datos11 = New ADODB.Recordset
         If rs_datos11.State = 1 Then rs_datos11.Close
         'rs_datos11.Open "select * from ac_almacenes where depto_codigo = '" & VAR_DPTO & "' AND almacen_tipo = '" & VAR_ALMT & "' ", db, adOpenStatic
@@ -5155,15 +5167,15 @@ On Error GoTo UpdateErr
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
           rs_datos.UpdateBatch adAffectAll
-          db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & Ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & Ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(Ado_datos14.Recordset!venta_precio_total_dol), 0, Ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+          db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
           'VERIFICARRRRRRRRRRRRRRRRRR LO SIGUIENTE, YA DEBERIA ESTAR ACTUALIZADO
           Set rs_almacen2 = New ADODB.Recordset
           If rs_almacen2.State = 1 Then rs_almacen2.Close
-          rs_almacen2.Open "select * from ao_almacen_totales where almacen_codigo = " & Ado_datos14.Recordset!almacen_codigo & " and bien_codigo = '" & Ado_datos14.Recordset!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
+          rs_almacen2.Open "select * from ao_almacen_totales where almacen_codigo = " & ado_datos14.Recordset!almacen_codigo & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
             If rs_almacen2.RecordCount > 0 Then
-                 db.Execute "ap_almacen_totales 2," & Ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos14.Recordset!bien_codigo & "', " & Ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & Ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & Ado_datos14.Recordset!venta_precio_total_bs & ", 0, 0, " & Ado_datos14.Recordset!venta_precio_total_dol & ", 0, 0, 'REG','" & glusuario & "'"
+                 db.Execute "ap_almacen_totales 2," & ado_datos14.Recordset!almacen_codigo & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & ado_datos14.Recordset!venta_precio_total_bs & ", 0, 0, " & ado_datos14.Recordset!venta_precio_total_dol & ", 0, 0, 'REG','" & glusuario & "'"
             Else
-                 db.Execute "ap_almacen_totales 1," & Ado_datos14.Recordset!almacen_codigo & ", '" & Ado_datos14.Recordset!bien_codigo & "', " & Ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & Ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & Ado_datos14.Recordset!venta_precio_total_bs & ", 0, 0, " & Ado_datos14.Recordset!venta_precio_total_dol & ", 0, 0, 'REG','" & glusuario & "'"
+                 db.Execute "ap_almacen_totales 1," & ado_datos14.Recordset!almacen_codigo & ", '" & ado_datos14.Recordset!bien_codigo & "', " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", 0" & ", " & ado_datos14.Recordset!bien_cantidad_por_empaque & ", " & ado_datos14.Recordset!venta_precio_total_bs & ", 0, 0, " & ado_datos14.Recordset!venta_precio_total_dol & ", 0, 0, 'REG','" & glusuario & "'"
             End If
           Call AbrirDetalle
        Else
@@ -5302,7 +5314,7 @@ Private Sub BtnImprimir_Click()
         'Dim co As New ADODB.Command
         Call CARGAPARAM
         If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
-            If Ado_datos14.Recordset.RecordCount > 10 Then
+            If ado_datos14.Recordset.RecordCount > 10 Then
                 CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_salida_almacenes_trf_Pag1.rpt"
             Else
                 CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_salida_almacenes_trf.rpt"
@@ -5312,7 +5324,7 @@ Private Sub BtnImprimir_Click()
         Else
             Select Case VAR_BIEN
                 Case "INSUMOS", "REPUESTOS"
-                    If Ado_datos14.Recordset.RecordCount > 8 Then
+                    If ado_datos14.Recordset.RecordCount > 8 Then
                         CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_salida_almacenes_repuestos.rpt"
                     Else
                         CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_salida_almacenes.rpt"
@@ -5400,7 +5412,7 @@ Private Sub BtnImprimir1_Click()
         CryV01.WindowShowRefreshBtn = True
         CryV01.StoredProcParam(0) = Ado_datos.Recordset!venta_codigo
         CryV01.StoredProcParam(1) = Ado_datos.Recordset!ges_gestion
-        CryV01.StoredProcParam(2) = Ado_datos14.Recordset!fecha_ingreso_salida
+        CryV01.StoredProcParam(2) = ado_datos14.Recordset!fecha_ingreso_salida
         'var_titulo = "MODULO ALMACENES"
         CryV01.Formulas(0) = "titulo = '" & var_titulo & "' "
         CryV01.Formulas(1) = "subtitulo = '" & "ALMACEN DE " & "' + '" & VAR_BIEN & "' "
@@ -5418,7 +5430,7 @@ End Sub
 
 Private Sub BtnImprimir3_Click()
    If Ado_datos.Recordset.RecordCount > 0 Then
-      If Ado_datos14.Recordset.RecordCount > 0 Then
+      If ado_datos14.Recordset.RecordCount > 0 Then
         If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DREPS" Or Ado_datos.Recordset!unidad_codigo = "DREPB" Or Ado_datos.Recordset!unidad_codigo = "DREPC" Or Ado_datos.Recordset!unidad_codigo = "DNINS" Or Ado_datos.Recordset!unidad_codigo = "DINSS" Or Ado_datos.Recordset!unidad_codigo = "DINSB" Or Ado_datos.Recordset!unidad_codigo = "DINSC" Then
             Dim iResult As Variant, i%, Y%
             Dim co As New ADODB.Command
@@ -5541,13 +5553,13 @@ Private Sub SalidaAlmacen()
 End Sub
 
 Private Sub BtnModificar2_Click()
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+    If ado_datos14.Recordset.RecordCount > 0 Then
         'TRASPASOS
         If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
             'db.Execute " DELETE ao_almacen_ingresos WHERE doc_numero = " & Ado_datos.Recordset!doc_numero_alm & "  AND bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' "
             MsgBox "El Traspaso NO puede ser revertido, desde el Almacen Destino debe realizarse un Traspaso de devolucion de los Items... ", vbQuestion, "Advertencia ..."
         Else
-            db.Execute " DELETE ao_almacen_salidas WHERE venta_codigo  =  " & Ado_datos.Recordset!venta_codigo & "  AND bien_codigo = '" & Ado_datos14.Recordset!bien_codigo & "' "
+            db.Execute " DELETE ao_almacen_salidas WHERE venta_codigo  =  " & Ado_datos.Recordset!venta_codigo & "  AND bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' "
             
             db.Execute " update ac_bienes set ac_bienes.bien_stock_ingreso = total_ingresos_js.cantidad_ingreso from total_ingresos_js Where ac_bienes.bien_codigo = total_ingresos_js.bien_codigo"
             db.Execute " update ac_bienes set ac_bienes.bien_stock_salida = total_salidas_js.cantidad_salida from total_salidas_js Where ac_bienes.bien_codigo = total_salidas_js.bien_codigo"
@@ -5565,7 +5577,7 @@ Private Sub BtnModificar2_Click()
             db.Execute " UPDATE ao_almacen_totales SET total_venta_bs = av_almacen_salidas_alm.importe_venta_bs FROM ao_almacen_totales INNER JOIN av_almacen_salidas_alm ON ao_almacen_totales.almacen_codigo = av_almacen_salidas_alm.almacen_codigo  AND ao_almacen_totales.bien_codigo = av_almacen_salidas_alm.bien_codigo"
             db.Execute " update ao_almacen_totales set utilidad_Bs = total_compra_bs - ISNULL(total_venta_bs,0)"
             
-            db.Execute " update ao_ventas_detalle set estado_almacen = 'REG', estado_bien = 'REG' where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " AND bien_codigo = '" & Ado_datos14.Recordset!bien_codigo & "'    "
+            db.Execute " update ao_ventas_detalle set estado_almacen = 'REG', estado_bien = 'REG' where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " AND bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "'    "
             Call AbrirDetalle
         End If
     Else
@@ -5613,7 +5625,7 @@ Private Sub CmdCancelaDet_Click()
     FrmABMDet.Visible = True
     
 '     Call AbrirDetalle
-  Ado_datos14.Recordset.Cancel
+  ado_datos14.Recordset.Cancel
   Call AbrirDetalle
   'Ado_datos.Recordset.Move marca1 - 1
   accion = ""
@@ -7635,7 +7647,7 @@ End Sub
 
 
 Private Sub BtnImprimir2_Click()
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+    If ado_datos14.Recordset.RecordCount > 0 Then
          Dim iResult As Integer
         'Dim co As New ADODB.Command
         'CryV01.ReportFileName = App.Path & "\Reportes\Almacenes\ar_almacen_kardex.rpt"
@@ -7643,8 +7655,8 @@ Private Sub BtnImprimir2_Click()
         CryR01.WindowShowPrintSetupBtn = True
         CryR01.WindowShowRefreshBtn = True
         'CryR01.StoredProcParam(0) = Ado_datos.Recordset!bien_codigo
-        CryR01.StoredProcParam(0) = Ado_datos14.Recordset!bien_codigo
-        CryR01.StoredProcParam(1) = Trim(Str(Ado_datos14.Recordset!almacen_codigo))            'dtc_codigo1.Text
+        CryR01.StoredProcParam(0) = ado_datos14.Recordset!bien_codigo
+        CryR01.StoredProcParam(1) = Trim(Str(ado_datos14.Recordset!almacen_codigo))            'dtc_codigo1.Text
         CryR01.StoredProcParam(2) = Format(DTP_Finicio.Value, "dd/mm/yyyy")
         CryR01.StoredProcParam(3) = Format(DTP_Ffin.Value, "dd/mm/yyyy")
         CryR01.Formulas(0) = "almace = '" & dtc_desc1.Text & "' "
@@ -7662,21 +7674,21 @@ Private Sub BtnImprimir2_Click()
 End Sub
 
 Private Sub BtnAnlDetalle_Click()
-   If Ado_datos14.Recordset.RecordCount > 0 Then
-      If Ado_datos14.Recordset("estado_almacen") = "REG" Then
-          sino = MsgBox("Está Seguro de ANULAR el Registro Activo --> " + Ado_datos14.Recordset!bien_codigo, vbYesNo + vbQuestion, "Atención")
+   If ado_datos14.Recordset.RecordCount > 0 Then
+      If ado_datos14.Recordset("estado_almacen") = "REG" Then
+          sino = MsgBox("Está Seguro de ANULAR el Registro Activo --> " + ado_datos14.Recordset!bien_codigo, vbYesNo + vbQuestion, "Atención")
           If sino = vbYes Then
             If parametro <> Ado_datos.Recordset!unidad_codigo Then
-                db.Execute "UPDATE ao_ventas_detalle SET estado_codigo = 'DVL', estado_almacen = 'DVL', estado_codigo_bien = 'DVL', estado_bien = 'DVL', almacen_codigo= '0', bien_cantidad_por_empaque='0', venta_det_cantidad ='0'  Where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and bien_codigo = '" & Ado_datos14.Recordset!bien_codigo & "' "
+                db.Execute "UPDATE ao_ventas_detalle SET estado_codigo = 'DVL', estado_almacen = 'DVL', estado_codigo_bien = 'DVL', estado_bien = 'DVL', almacen_codigo= '0', bien_cantidad_por_empaque='0', venta_det_cantidad ='0'  Where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' "
             Else
-                db.Execute "delete ao_ventas_detalle Where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "' and ges_gestion = " & Ado_datos.Recordset!ges_gestion & " and bien_codigo = '" & Ado_datos14.Recordset!bien_codigo & "' "
+                db.Execute "delete ao_ventas_detalle Where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "' and ges_gestion = " & Ado_datos.Recordset!ges_gestion & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' "
             End If
             'db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & ado_datos14.Recordset!almacen_codigo & ", '" & ado_datos14.Recordset!doc_codigo_alm & "', " & ado_datos14.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
             Call AbrirDetalle
           End If
       Else
-          If Ado_datos14.Recordset("estado_almacen") = "DVL" Then
-            db.Execute "UPDATE ao_ventas_detalle SET estado_codigo = 'REG', estado_almacen = 'REG', estado_codigo_bien = 'REG', estado_bien = 'REG'   Where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and bien_codigo = '" & Ado_datos14.Recordset!bien_codigo & "' "
+          If ado_datos14.Recordset("estado_almacen") = "DVL" Then
+            db.Execute "UPDATE ao_ventas_detalle SET estado_codigo = 'REG', estado_almacen = 'REG', estado_codigo_bien = 'REG', estado_bien = 'REG'   Where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and bien_codigo = '" & ado_datos14.Recordset!bien_codigo & "' "
           Else
             MsgBox "No se puede ANULAR, el registro ya está APROBADO o ANULADO, Verifique por favor ...", vbExclamation, "Validación de Registro"
           End If
@@ -8697,6 +8709,8 @@ Private Sub ABRIR_TABLAS_AUX()
     rs_datos4.Open "Select * from av_almacen_responsable where unidad_codigo = '" & parametro & "' and almacen_tipo = '" & TIPOALM & "' order by beneficiario_denominacion", db, adOpenStatic
     Set Ado_datos4.Recordset = rs_datos4
     dtc_desc4.BoundText = dtc_codigo4.BoundText
+    dtc_tipo4.BoundText = dtc_codigo4.BoundText
+    dtc_Aux11.BoundText = dtc_codigo4.BoundText
 
     'Beneficiario Funcionario - Entregado a:
     Set rs_datos5 = New ADODB.Recordset

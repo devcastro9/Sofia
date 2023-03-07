@@ -19,11 +19,11 @@ Begin VB.MDIForm frmMain
       Height          =   2055
       Left            =   0
       ScaleHeight     =   1995
-      ScaleWidth      =   20100
+      ScaleWidth      =   14655
       TabIndex        =   27
       Top             =   525
       Visible         =   0   'False
-      Width           =   20160
+      Width           =   14715
       Begin VB.Frame Frame1 
          Caption         =   "ALERTAS"
          BeginProperty Font 
@@ -105,10 +105,10 @@ Begin VB.MDIForm frmMain
       Height          =   525
       Left            =   0
       ScaleHeight     =   525
-      ScaleWidth      =   20160
+      ScaleWidth      =   14715
       TabIndex        =   10
       Top             =   0
-      Width           =   20160
+      Width           =   14715
       Begin VB.CommandButton CmdRepA 
          BackColor       =   &H00E0E0E0&
          Caption         =   "Cambiar Contraseña"
@@ -444,10 +444,10 @@ Begin VB.MDIForm frmMain
       Height          =   270
       Left            =   0
       ScaleHeight     =   210
-      ScaleWidth      =   20100
+      ScaleWidth      =   14655
       TabIndex        =   0
-      Top             =   10365
-      Width           =   20160
+      Top             =   7740
+      Width           =   14715
       Begin VB.Label txtVersion 
          AutoSize        =   -1  'True
          Caption         =   "Usuario:"
@@ -616,9 +616,9 @@ Begin VB.MDIForm frmMain
       Height          =   390
       Left            =   0
       TabIndex        =   26
-      Top             =   9975
-      Width           =   20160
-      _ExtentX        =   35560
+      Top             =   7350
+      Width           =   14715
+      _ExtentX        =   25956
       _ExtentY        =   688
       _Version        =   327682
       Appearance      =   1
@@ -2457,29 +2457,29 @@ Private Sub mnu_SalidaAlmacen_Click()
 End Sub
 
 Private Sub mnu_SalidaAlmacenHerr_Click()
-'    Aux = "UALMH"
-'    aw_almacen_salida_herra.lbl_titulo = mnu_SalidaAlmacenHerr.Caption
-'    aw_almacen_salida_herra.FraNavega = mnu_SalidaAlmacenHerr.Caption
-'    aw_almacen_salida_herra.lbl_titulo2 = mnu_SalidaAlmacenHerr.Caption
-'    aw_almacen_salida_herra.Show
     Aux = "UALMH"
-    aw_almacen_salida_rep.lbl_titulo = mnu_SalidaAlmacenHerr.Caption
-    aw_almacen_salida_rep.FraNavega = mnu_SalidaAlmacenHerr.Caption
-    aw_almacen_salida_rep.lbl_titulo2 = mnu_SalidaAlmacenHerr.Caption
-    aw_almacen_salida_rep.Show
+    aw_almacen_salida.lbl_titulo = mnu_SalidaAlmacenHerr.Caption
+    aw_almacen_salida.FraNavega = mnu_SalidaAlmacenHerr.Caption
+    aw_almacen_salida.lbl_titulo2 = mnu_SalidaAlmacenHerr.Caption
+    aw_almacen_salida.Show
+'    Aux = "UALMH"
+'    aw_almacen_salida_rep.lbl_titulo = mnu_SalidaAlmacenHerr.Caption
+'    aw_almacen_salida_rep.FraNavega = mnu_SalidaAlmacenHerr.Caption
+'    aw_almacen_salida_rep.lbl_titulo2 = mnu_SalidaAlmacenHerr.Caption
+'    aw_almacen_salida_rep.Show
 End Sub
 
 Private Sub mnu_SalidaAlmacenOtro_Click()
     Aux = "UALMI"
-'    aw_almacen_salida.lbl_titulo = mnu_SalidaAlmacenOtro.Caption
-'    aw_almacen_salida.FraNavega = mnu_SalidaAlmacenOtro.Caption
-'    aw_almacen_salida.lbl_titulo2 = mnu_SalidaAlmacenOtro.Caption
-'    aw_almacen_salida.Show
+    aw_almacen_salida.lbl_titulo = mnu_SalidaAlmacenOtro.Caption
+    aw_almacen_salida.FraNavega = mnu_SalidaAlmacenOtro.Caption
+    aw_almacen_salida.lbl_titulo2 = mnu_SalidaAlmacenOtro.Caption
+    aw_almacen_salida.Show
     
-    aw_almacen_salida_rep.lbl_titulo = mnu_SalidaAlmacenOtro.Caption
-    aw_almacen_salida_rep.FraNavega = mnu_SalidaAlmacenOtro.Caption
-    aw_almacen_salida_rep.lbl_titulo2 = mnu_SalidaAlmacenOtro.Caption
-    aw_almacen_salida_rep.Show
+'    aw_almacen_salida_rep.lbl_titulo = mnu_SalidaAlmacenOtro.Caption
+'    aw_almacen_salida_rep.FraNavega = mnu_SalidaAlmacenOtro.Caption
+'    aw_almacen_salida_rep.lbl_titulo2 = mnu_SalidaAlmacenOtro.Caption
+'    aw_almacen_salida_rep.Show
 
 End Sub
 

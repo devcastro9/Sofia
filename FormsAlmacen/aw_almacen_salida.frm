@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -391,7 +391,7 @@ Begin VB.Form aw_almacen_salida
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110362625
+         Format          =   110821377
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -404,7 +404,7 @@ Begin VB.Form aw_almacen_salida
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110362625
+         Format          =   110821377
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -734,6 +734,7 @@ Begin VB.Form aw_almacen_salida
       _ExtentY        =   8837
       _Version        =   393216
       Tabs            =   2
+      Tab             =   1
       TabsPerRow      =   2
       TabHeight       =   520
       BackColor       =   12632256
@@ -749,14 +750,15 @@ Begin VB.Form aw_almacen_salida
       EndProperty
       TabCaption(0)   =   "SOLICITUDES A ALMACEN"
       TabPicture(0)   =   "aw_almacen_salida.frx":A9A9
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Insumos)"
       TabPicture(1)   =   "aw_almacen_salida.frx":A9C5
-      Tab(1).ControlEnabled=   0   'False
+      Tab(1).ControlEnabled=   -1  'True
       Tab(1).Control(0)=   "FrmEdita"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       Begin VB.Frame FrmEdita 
          BackColor       =   &H00C0C0C0&
@@ -773,7 +775,7 @@ Begin VB.Form aw_almacen_salida
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   4200
-         Left            =   -74940
+         Left            =   60
          TabIndex        =   101
          Top             =   360
          Width           =   11860
@@ -1574,7 +1576,7 @@ Begin VB.Form aw_almacen_salida
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4275
-         Left            =   60
+         Left            =   -74940
          TabIndex        =   43
          Top             =   360
          Width           =   11860
@@ -1849,9 +1851,65 @@ Begin VB.Form aw_almacen_salida
             TabIndex        =   44
             Top             =   2505
             Width           =   5895
-            Begin MSDataListLib.DataCombo dtc_desc5 
+            Begin VB.TextBox Text15 
+               BackColor       =   &H00C0C0C0&
+               BorderStyle     =   0  'None
+               Enabled         =   0   'False
+               Height          =   290
+               Left            =   5500
+               TabIndex        =   155
+               Top             =   850
+               Width           =   270
+            End
+            Begin VB.TextBox Text14 
+               BackColor       =   &H00C0C0C0&
+               BorderStyle     =   0  'None
+               Enabled         =   0   'False
+               Height          =   290
+               Left            =   5500
+               TabIndex        =   154
+               Top             =   1330
+               Width           =   270
+            End
+            Begin MSDataListLib.DataCombo dtc_depto5 
                Bindings        =   "aw_almacen_salida.frx":BCBE
-               DataField       =   "beneficiario_codigo_tecR"
+               DataField       =   "beneficiario_codigo_tec"
+               DataSource      =   "Ado_datos"
+               Height          =   315
+               Left            =   1275
+               TabIndex        =   153
+               Top             =   1320
+               Width           =   4515
+               _ExtentX        =   7964
+               _ExtentY        =   556
+               _Version        =   393216
+               Appearance      =   0
+               BackColor       =   12632256
+               ListField       =   "depto_descripcion"
+               BoundColumn     =   "beneficiario_codigo"
+               Text            =   "Todos"
+            End
+            Begin MSDataListLib.DataCombo dtc_puesto5 
+               Bindings        =   "aw_almacen_salida.frx":BCD7
+               DataField       =   "beneficiario_codigo_tec"
+               DataSource      =   "Ado_datos"
+               Height          =   315
+               Left            =   1275
+               TabIndex        =   152
+               Top             =   840
+               Width           =   4515
+               _ExtentX        =   7964
+               _ExtentY        =   556
+               _Version        =   393216
+               Appearance      =   0
+               BackColor       =   12632256
+               ListField       =   "puesto_descripcion"
+               BoundColumn     =   "beneficiario_codigo"
+               Text            =   "Todos"
+            End
+            Begin MSDataListLib.DataCombo dtc_desc5 
+               Bindings        =   "aw_almacen_salida.frx":BCF0
+               DataField       =   "beneficiario_codigo_tec"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1275
@@ -1866,8 +1924,8 @@ Begin VB.Form aw_almacen_salida
                Text            =   "Todos"
             End
             Begin MSDataListLib.DataCombo dtc_codigo5 
-               Bindings        =   "aw_almacen_salida.frx":BCD7
-               DataField       =   "beneficiario_codigo_tecR"
+               Bindings        =   "aw_almacen_salida.frx":BD09
+               DataField       =   "beneficiario_codigo_tec"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4275
@@ -1883,15 +1941,16 @@ Begin VB.Form aw_almacen_salida
                Text            =   "0"
             End
             Begin MSDataListLib.DataCombo dtc_desc20 
-               Bindings        =   "aw_almacen_salida.frx":BCF0
+               Bindings        =   "aw_almacen_salida.frx":BD22
                DataField       =   "almacen_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1275
                TabIndex        =   47
-               Top             =   840
-               Width           =   4515
-               _ExtentX        =   7964
+               Top             =   720
+               Visible         =   0   'False
+               Width           =   1035
+               _ExtentX        =   1826
                _ExtentY        =   556
                _Version        =   393216
                Enabled         =   0   'False
@@ -1900,15 +1959,16 @@ Begin VB.Form aw_almacen_salida
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_desc22 
-               Bindings        =   "aw_almacen_salida.frx":BD0A
+               Bindings        =   "aw_almacen_salida.frx":BD3C
                DataField       =   "depto_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   1275
                TabIndex        =   48
-               Top             =   1320
-               Width           =   4515
-               _ExtentX        =   7964
+               Top             =   1200
+               Visible         =   0   'False
+               Width           =   1275
+               _ExtentX        =   2249
                _ExtentY        =   556
                _Version        =   393216
                Enabled         =   0   'False
@@ -1917,13 +1977,13 @@ Begin VB.Form aw_almacen_salida
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo20 
-               Bindings        =   "aw_almacen_salida.frx":BD24
+               Bindings        =   "aw_almacen_salida.frx":BD56
                DataField       =   "almacen_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4755
                TabIndex        =   49
-               Top             =   840
+               Top             =   720
                Visible         =   0   'False
                Width           =   1050
                _ExtentX        =   1852
@@ -1934,16 +1994,16 @@ Begin VB.Form aw_almacen_salida
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo22 
-               Bindings        =   "aw_almacen_salida.frx":BD3E
+               Bindings        =   "aw_almacen_salida.frx":BD70
                DataField       =   "depto_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   4755
                TabIndex        =   50
-               Top             =   1320
+               Top             =   1200
                Visible         =   0   'False
-               Width           =   1050
-               _ExtentX        =   1852
+               Width           =   690
+               _ExtentX        =   1217
                _ExtentY        =   556
                _Version        =   393216
                ListField       =   "depto_codigo"
@@ -1951,13 +2011,13 @@ Begin VB.Form aw_almacen_salida
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_Aux20 
-               Bindings        =   "aw_almacen_salida.frx":BD58
+               Bindings        =   "aw_almacen_salida.frx":BD8A
                DataField       =   "almacen_codigo_dR"
                DataSource      =   "Ado_datos"
                Height          =   315
                Left            =   3600
                TabIndex        =   51
-               Top             =   840
+               Top             =   720
                Visible         =   0   'False
                Width           =   1050
                _ExtentX        =   1852
@@ -1984,13 +2044,13 @@ Begin VB.Form aw_almacen_salida
                AutoSize        =   -1  'True
                BackColor       =   &H8000000A&
                BackStyle       =   0  'Transparent
-               Caption         =   "Tipo Almacen "
+               Caption         =   "Puesto/Cargo"
                ForeColor       =   &H00000000&
                Height          =   195
                Left            =   120
                TabIndex        =   53
                Top             =   840
-               Width           =   1020
+               Width           =   990
             End
             Begin VB.Label lbl_Rdestino 
                AutoSize        =   -1  'True
@@ -2006,7 +2066,7 @@ Begin VB.Form aw_almacen_salida
             End
          End
          Begin MSDataListLib.DataCombo dtc_codigo3 
-            Bindings        =   "aw_almacen_salida.frx":BD72
+            Bindings        =   "aw_almacen_salida.frx":BDA4
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2027,7 +2087,7 @@ Begin VB.Form aw_almacen_salida
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_desc3 
-            Bindings        =   "aw_almacen_salida.frx":BD8B
+            Bindings        =   "aw_almacen_salida.frx":BDBD
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2047,7 +2107,7 @@ Begin VB.Form aw_almacen_salida
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo1 
-            Bindings        =   "aw_almacen_salida.frx":BDA4
+            Bindings        =   "aw_almacen_salida.frx":BDD6
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2065,7 +2125,7 @@ Begin VB.Form aw_almacen_salida
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc1 
-            Bindings        =   "aw_almacen_salida.frx":BDBD
+            Bindings        =   "aw_almacen_salida.frx":BDEF
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2086,7 +2146,7 @@ Begin VB.Form aw_almacen_salida
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_aux3 
-            Bindings        =   "aw_almacen_salida.frx":BDD6
+            Bindings        =   "aw_almacen_salida.frx":BE08
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2122,13 +2182,13 @@ Begin VB.Form aw_almacen_salida
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   110362625
+            Format          =   110821377
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "aw_almacen_salida.frx":BDEF
+            Bindings        =   "aw_almacen_salida.frx":BE21
             DataField       =   "unidad_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2147,7 +2207,7 @@ Begin VB.Form aw_almacen_salida
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "aw_almacen_salida.frx":BE08
+            Bindings        =   "aw_almacen_salida.frx":BE3A
             DataField       =   "unidad_destino"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2612,7 +2672,7 @@ Begin VB.Form aw_almacen_salida
          Width           =   1215
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "aw_almacen_salida.frx":BE21
+         Bindings        =   "aw_almacen_salida.frx":BE53
          Height          =   4290
          Left            =   120
          TabIndex        =   7
@@ -2933,7 +2993,7 @@ Begin VB.Form aw_almacen_salida
          ForeColor       =   &H80000008&
          Height          =   1335
          Left            =   15520
-         Picture         =   "aw_almacen_salida.frx":BE39
+         Picture         =   "aw_almacen_salida.frx":BE6B
          ScaleHeight     =   1335
          ScaleWidth      =   1125
          TabIndex        =   42
@@ -2942,7 +3002,7 @@ Begin VB.Form aw_almacen_salida
          Width           =   1125
       End
       Begin MSDataGridLib.DataGrid DtGLista2 
-         Bindings        =   "aw_almacen_salida.frx":CCF9
+         Bindings        =   "aw_almacen_salida.frx":CD2B
          Height          =   1020
          Left            =   120
          TabIndex        =   5
@@ -4114,6 +4174,53 @@ Begin VB.Form aw_almacen_salida
       EndProperty
       _Version        =   393216
    End
+   Begin MSAdodcLib.Adodc ado_datos6 
+      Height          =   330
+      Left            =   9240
+      Top             =   9480
+      Visible         =   0   'False
+      Width           =   2265
+      _ExtentX        =   3995
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "ado_datos6"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
    Begin VB.Label LblUsuario 
       BackStyle       =   0  'Transparent
       Caption         =   "."
@@ -4333,62 +4440,32 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
 ''                FrmCobranza.Visible = False
 '            Else
             FrmABMDet.Visible = True
-''                FrmABMDet2.Visible = True
-''                FrmCobranza.Visible = True
-'            End If
         Else
             BtnAprobar.Visible = False
             BtnDesAprobar.Visible = True
             BtnModificar.Visible = False
             btnEliminar.Visible = False
-'            BtnVer.Visible = True
-'            Select Case Ado_datos.Recordset!estado_cancelado
-'                Case "S"
-'                    lbl_cerrado.Caption = "TRAMITE CERRADO !!"
-''                    FrmABMDet2.Visible = False
-''                    BtnAñadir.Visible = False   'Cerrar Tramite
-''                    BtnVer3.Visible = False     'Provisional
-'                Case "P"
-'                    lbl_cerrado.Caption = "TRAMITE PROVISIONAL !!"
-''                    FrmABMDet2.Visible = True
-''                    BtnAñadir.Visible = False   'Cerrar Tramite5
-''                    BtnVer3.Visible = False     'Provisional
-'                Case Else
-''                    BtnAñadir.Visible = True   'Cerrar Tramite
-''                    BtnVer3.Visible = True     'Provisional
-'                    lbl_cerrado.Caption = ""
-''                    FrmABMDet2.Visible = True
-'            End Select
             FrmABMDet.Visible = False
 ''            FrmCobranza.Visible = True
 '            BtnImprimir2.Visible = True
         End If
         
-'        If (Ado_datos.Recordset("venta_tipo") = "C") Or (Ado_datos.Recordset("venta_tipo") = "V") Then
-''            TxtPlazo.Visible = True
-''            BtnAddDetalle2.Visible = True
+'        If Option1.Value = True Or OptFilGral2.Value = True Then
+'        'If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
+'            dtc_desc20.Visible = True
+'            lbl_Adestino.Visible = True
+'            dtc_desc22.Visible = True
+'            lbl_Rdestino.Visible = True
 '        Else
-''            TxtPlazo.Visible = False
-'            If Ado_datos.Recordset("venta_tipo") = "E" Then
-''                BtnAddDetalle2.Visible = False
-'            End If
+'            dtc_desc20.Visible = False
+'            lbl_Adestino.Visible = False
+'            dtc_desc22.Visible = False
+'            lbl_Rdestino.Visible = False
 '        End If
-
-        If Ado_datos.Recordset!edif_codigo = "20101-2" Or Ado_datos.Recordset!edif_codigo = "70101-2" Or Ado_datos.Recordset!edif_codigo = "30101-2" Or Ado_datos.Recordset!edif_codigo = "10101-2" Then
-            dtc_desc20.Visible = True
-            lbl_Adestino.Visible = True
-            dtc_desc22.Visible = True
-            lbl_Rdestino.Visible = True
-        Else
-            dtc_desc20.Visible = False
-            lbl_Adestino.Visible = False
-            dtc_desc22.Visible = False
-            lbl_Rdestino.Visible = False
-        End If
         Call AbrirDetalle
         
         FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
-        If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DNEME" Then
+        If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DNINS" Or Ado_datos.Recordset!unidad_codigo = "DREPS" Or Ado_datos.Recordset!unidad_codigo = "DREPB" Or Ado_datos.Recordset!unidad_codigo = "DREPC" Then
             lbl_cite = "Cite / O.S."
         Else
             lbl_cite = "Cite Trámite"
@@ -4609,6 +4686,7 @@ End If
   Exit Sub
 UpdateErr:
     MsgBox Err.Description
+
 End Sub
 
 Private Sub BtnAñadir_Click()
@@ -4658,11 +4736,15 @@ On Error GoTo UpdateErr
         Else
             dtc_codigo4.Text = VAR_BENEF
             dtc_desc4.BoundText = dtc_codigo4.BoundText
-            dtc_codigo11.Text = VAR_ALMX
-            dtc_desc11.BoundText = dtc_codigo11.BoundText
-            dtc_Aux11.BoundText = dtc_codigo11.BoundText
-            dtc_codigo21.Text = VAR_DPTO
-            dtc_desc21.BoundText = dtc_codigo21.BoundText
+            dtc_desc4.BoundText = dtc_codigo4.BoundText
+            dtc_tipo4.BoundText = dtc_codigo4.BoundText
+            dtc_Aux11.BoundText = dtc_codigo4.BoundText
+    
+'            dtc_codigo11.Text = VAR_ALMX
+'            dtc_desc11.BoundText = dtc_codigo11.BoundText
+'            dtc_Aux11.BoundText = dtc_codigo11.BoundText
+'            dtc_codigo21.Text = VAR_DPTO
+'            dtc_desc21.BoundText = dtc_codigo21.BoundText
         End If
         'ac_almacenes ' Origen
         Set rs_datos11 = New ADODB.Recordset
@@ -4675,10 +4757,10 @@ On Error GoTo UpdateErr
         End If
         Set Ado_datos11.Recordset = rs_datos11
         If accion <> "NEW" Then
-            dtc_desc11.BoundText = dtc_codigo11.BoundText
+            dtc_desc13.BoundText = dtc_codigo13.BoundText
         End If
         If Ado_datos11.Recordset.RecordCount > 0 Then
-           Ado_datos11.Recordset.MoveFirst
+           'Ado_datos11.Recordset.MoveFirst
            VAR_ALMT = rs_datos11!almacen_tipo
            VAR_DPTO = rs_datos11!depto_codigo
            VAR_ALMX = rs_datos11!almacen_codigo
@@ -7461,10 +7543,10 @@ On Error GoTo UpdateErr
     Exit Sub
   End If
   
-'  If dtc_desc13 = "" Then
-'    MsgBox "Debe Elejir el Almacen de Origen, !! Vuelva a Intentar ...", vbExclamation, "Atención"
-'    Exit Sub
-'  End If
+  If dtc_desc13.Text = "" Then
+    MsgBox "Debe Elejir el Almacen de Origen, !! Vuelva a Intentar ...", vbExclamation, "Atención"
+    Exit Sub
+  End If
   'If Ado_datos.Recordset!unidad_codigo <> "DNREP" And Ado_datos.Recordset!unidad_codigo <> "UALMR" Then
     If CDbl(TxtDescuento.Text) > CDbl(IIf(Dtc_Stock13.Text = "", "0", Dtc_Stock13.Text)) Then
     '        'VAR_PARTIDA = "OK"
@@ -7476,7 +7558,7 @@ On Error GoTo UpdateErr
   'End If
     
     'VARIABLES DE LA CABECERA
-    VAR_ALMX = Ado_datos11.Recordset!almacen_codigo
+    VAR_ALMX = dtc_codigo13.Text        'Ado_datos11.Recordset!almacen_codigo
     correlv = Ado_datos.Recordset!venta_codigo
     VAR_PROY2 = Ado_datos.Recordset!edif_codigo
     VAR_BEN3 = Ado_datos.Recordset!beneficiario_codigo_alm
@@ -7781,10 +7863,18 @@ End Sub
 
 Private Sub dtc_codigo5_Click(Area As Integer)
     dtc_desc5.BoundText = dtc_codigo5.BoundText
+    dtc_puesto5.BoundText = dtc_codigo5.BoundText
+    dtc_depto5.BoundText = dtc_codigo5.BoundText
 End Sub
 
 Private Sub dtc_codigo6_Click(Area As Integer)
     dtc_desc6.BoundText = dtc_codigo6.BoundText
+End Sub
+
+Private Sub dtc_depto5_Click(Area As Integer)
+    dtc_desc5.BoundText = dtc_depto5.BoundText
+    dtc_puesto5.BoundText = dtc_depto5.BoundText
+    dtc_codigo5.BoundText = dtc_depto5.BoundText
 End Sub
 
 Private Sub dtc_desc1_Click(Area As Integer)
@@ -7900,21 +7990,21 @@ Private Sub dtc_desc3_Click(Area As Integer)
 End Sub
 
 Private Sub dtc_desc3_LostFocus()
-    If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
-        dtc_desc20.Visible = True
-        lbl_Adestino.Visible = True
-        dtc_desc22.Visible = True
-        lbl_Rdestino.Visible = True
-        TxtConcepto.Locked = False
-        TxtConcepto.Text = "TRASPASO DESDE ALMACEN DE " + VAR_BIEN + " A " + dtc_desc20.Text
-    Else
-        dtc_desc20.Visible = False
-        lbl_Adestino.Visible = False
-        dtc_desc22.Visible = False
-        lbl_Rdestino.Visible = False
-        TxtConcepto.Locked = False
-        TxtConcepto.Text = "SALIDA DE ALMACEN DE " + VAR_BIEN
-    End If
+'    If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
+'        dtc_desc20.Visible = True
+'        lbl_Adestino.Visible = True
+'        dtc_desc22.Visible = True
+'        lbl_Rdestino.Visible = True
+'        TxtConcepto.Locked = False
+'        TxtConcepto.Text = "TRASPASO DESDE ALMACEN DE " + VAR_BIEN + " A " + dtc_desc20.Text
+'    Else
+'        dtc_desc20.Visible = False
+'        lbl_Adestino.Visible = False
+'        dtc_desc22.Visible = False
+'        lbl_Rdestino.Visible = False
+'        TxtConcepto.Locked = False
+'        TxtConcepto.Text = "SALIDA DE ALMACEN DE " + VAR_BIEN
+'    End If
 End Sub
 
 Private Sub dtc_desc4_Click(Area As Integer)
@@ -7959,10 +8049,12 @@ End Sub
 
 Private Sub dtc_desc5_Click(Area As Integer)
     dtc_codigo5.BoundText = dtc_desc5.BoundText
-    If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
-        Call pAlmacenD(dtc_codigo5.BoundText)
-        dtc_desc20.Enabled = True
-    End If
+    dtc_puesto5.BoundText = dtc_desc5.BoundText
+    dtc_depto5.BoundText = dtc_desc5.BoundText
+'    If dtc_codigo3.Text = "20101-2" Or dtc_codigo3.Text = "30101-2" Or dtc_codigo3.Text = "70101-2" Or dtc_codigo3.Text = "10101-2" Then
+'        Call pAlmacenD(dtc_codigo5.BoundText)
+'        dtc_desc20.Enabled = True
+'    End If
 End Sub
 
 Private Sub pAlmacenD(CodigoA As String)
@@ -8120,8 +8212,24 @@ Private Sub DtCDescripcion_Click(Area As Integer)
     dtccodpeso.BoundText = DtCDescripcion.BoundText
 End Sub
 
+Private Sub dtc_desc5_LostFocus()
+    If Option1.Value = True Or OptFilGral2.Value = True Then
+        TxtConcepto.Locked = False
+        TxtConcepto.Text = "TRASPASO DESDE ALMACEN DE " + VAR_BIEN + " " + dtc_Aux11.Text + " A ALMACEN " + dtc_depto5.Text
+    Else
+        TxtConcepto.Locked = False
+        TxtConcepto.Text = "SALIDA DE ALMACEN DE " + VAR_BIEN + " " + dtc_Aux11.Text
+    End If
+End Sub
+
 Private Sub dtc_desc6_Click(Area As Integer)
     dtc_codigo6.BoundText = dtc_desc6.BoundText
+End Sub
+
+Private Sub dtc_puesto5_Click(Area As Integer)
+    dtc_desc5.BoundText = dtc_puesto5.BoundText
+    dtc_codigo5.BoundText = dtc_puesto5.BoundText
+    dtc_depto5.BoundText = dtc_puesto5.BoundText
 End Sub
 
 Private Sub dtc_subgrupo15_Click(Area As Integer)
@@ -8158,7 +8266,9 @@ Private Sub dtc_desc15_Click(Area As Integer)
     
     Set rs_aux9 = New ADODB.Recordset
     If rs_aux9.State = 1 Then rs_aux9.Close
-    rs_aux9.Open "SELECT * FROM ao_almacen_totales WHERE almacen_codigo = " & IIf(IsNull(Ado_datos11.Recordset!almacen_codigo), 0, Ado_datos11.Recordset!almacen_codigo) & " and bien_codigo ='" & dtc_codigo15.Text & "' ", db, adOpenStatic
+    'rs_aux9.Open "SELECT * FROM ao_almacen_totales WHERE almacen_codigo = " & IIf(IsNull(Ado_datos11.Recordset!almacen_codigo), 0, Ado_datos11.Recordset!almacen_codigo) & " and bien_codigo ='" & dtc_codigo15.Text & "' ", db, adOpenStatic
+    rs_aux9.Open "SELECT sum(cantidad_ingreso) - sum(cantidad_salida) as stock_actual  FROM av_almacenes_saldos WHERE almacen_codigo = " & dtc_codigo13.Text & " and bien_codigo ='" & dtc_codigo15.Text & "' ", db, adOpenStatic
+    'SELECT sum(cantidad_ingreso) as stock_ingreso, sum(cantidad_salida) as stock_salida, sum(cantidad_ingreso) - sum(cantidad_salida) as stock_actual  FROM av_almacenes_saldos WHERE (almacen_codigo = 9) AND bien_codigo  LIKE  '%BO6410H1%'
    ' Set AdoAux9.Recordset = rs_aux9
     If rs_aux9.RecordCount > 0 Then
         Dtc_Stock13.Text = IIf(IsNull(rs_aux9!stock_actual), 0, rs_aux9!stock_actual)
@@ -8510,7 +8620,7 @@ Private Sub Form_Load()
     'Call Option1_Click            'OptFilGral1_Click      'Option2
     'Usuario
     lbl_cerrado.Caption = ""
-    Call ABRIR_TABLAS_AUX       'NO estaba WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+    'Call ABRIR_TABLAS_AUX       'NO estaba WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     FrmDetalle.Caption = "NO Entregado de " + VAR_BIEN
     FrmDetalle2.Caption = "ENTREGADO de " + VAR_BIEN
     'FrmDetalle.Caption = "DETALLE DE " + VAR_BIEN
@@ -8575,11 +8685,14 @@ Private Sub ABRIR_TABLAS_AUX()
     rs_datos4.Open "Select * from av_almacen_responsable where unidad_codigo = '" & parametro & "' and almacen_tipo = '" & VAR_ALMT & "' ", db, adOpenStatic
     Set Ado_datos4.Recordset = rs_datos4
     dtc_desc4.BoundText = dtc_codigo4.BoundText
+    dtc_tipo4.BoundText = dtc_codigo4.BoundText
+    dtc_Aux11.BoundText = dtc_codigo4.BoundText
 
     'Beneficiario Funcionario - Entregado a:
     Set rs_datos5 = New ADODB.Recordset
     If rs_datos5.State = 1 Then rs_datos5.Close
-    rs_datos5.Open "select * from gc_beneficiario where tipoben_codigo = '1' and estado_codigo = 'APR' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    'rs_datos5.Open "select * from gc_beneficiario where tipoben_codigo = '1' and estado_codigo = 'APR' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos5.Open "select * from gv_beneficiario_y_puesto ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos5.Recordset = rs_datos5
     dtc_desc5.BoundText = dtc_codigo5.BoundText
 

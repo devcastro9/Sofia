@@ -332,7 +332,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   134676481
+         Format          =   114098177
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -345,7 +345,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   134676481
+         Format          =   114098177
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1486,7 +1486,7 @@ Private Sub dtc_desc1_Change()
         dtc_codigo1.BoundText = dtc_desc1.BoundText
         dtc_cod2.BoundText = dtc_desc2.BoundText
     End If
-        'Call ACTUALIZA_PPP
+    Call ACTUALIZA_PPP
     'f dtc_codigo1.Text = "" Then
     '    MsgBox "El Almacen No existe o no tiene Movimiento... , vuelva a intentar ...", vbInformation + vbOKOnly, "Atención"
     '    VAR_SW = "SI"
@@ -1497,7 +1497,7 @@ Private Sub dtc_desc1_Change()
         If RsInventario.State = 1 Then RsInventario.Close
         'queryinicial = "select * from av_almacen_inventario where almacen_codigo = " & dtc_codigo1.Text & "  "
         'RsInventario.Open queryinicial, db, adOpenKeyset, adLockReadOnly            'adLockOptimistic
-        RsInventario.Open "select * from av_almacen_inventario where almacen_codigo = " & dtc_codigo1.Text & " order by bien_descripcion ", db, adOpenKeyset, adLockReadOnly
+        RsInventario.Open "select * from av_almacen_inventario_total where almacen_codigo = " & dtc_codigo1.Text & " order by bien_descripcion ", db, adOpenKeyset, adLockReadOnly
         'RsInventario.Sort = "bien_descripcion"
         VAR_SW = "SI"
         Set Ado_datos.Recordset = RsInventario.DataSource
@@ -1525,9 +1525,6 @@ Private Sub dtc_desc1_Click(Area As Integer)
 End Sub
 
 Private Sub ACTUALIZA_PPP()
-'Dim CANT_ING, COMPRA_UNIT_BS, COMPRA_TOT_BS As Double
-'Dim CANT_SAL, VENTA_UNIT_BS, VENTA_TOT_BS As Double
-'Dim CANT_SALDO, SALDO_UNIT_BS, SALDO_TOT_BS As Double
 'Dim UNIT87_BS, TOT87_BS As Double
     ' CLONA INGRESOS Y SALIDAS DE ALMACEN
     'db.Execute "DROP TABLE ao_saldos3 "
@@ -1577,7 +1574,7 @@ Private Sub ACTUALIZA_PPP()
                 'TOT87_BS = rs_datos3!valortotal87
                 TOT87_BS = Round(SALDO_TOT_BS * 0.87, 2)
                 While Not rs_datos3.EOF
-                    db.Execute "UPDATE ao_saldos3 SET CostoUnitario = " & VENTA_UNIT_BS & ", importe_venta_bs = " & VENTA_TOT_BS & ", cantidad_saldo = " & CANT_SALDO & ", CostoUnitarioCPP = " & SALDO_UNIT_BS & ", CostoTotalCPP = " & SALDO_TOT_BS & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & " AND fecha_ingreso = '" & rs_datos3!fecha_ingreso & "' "
+                    db.Execute "UPDATE ao_saldos3 SET CostoUnitario = " & VENTA_UNIT_BS & ", importe_venta_bs = " & VENTA_TOT_BS & ", cantidad_saldo = " & CANT_SALDO & ", CostoUnitarioCPP = " & SALDO_UNIT_BS & ", CostoTotalCPP = " & SALDO_TOT_BS & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & "  "            'AND fecha_ingreso = '" & Format(rs_datos3!fecha_ingreso, "dd/mm/yyyy") & "'
                     rs_datos3.MoveNext
                     If Not rs_datos3.EOF Then
                         'VARIABLES
@@ -1605,8 +1602,9 @@ Private Sub ACTUALIZA_PPP()
         Wend
         db.Execute "UPDATE ao_saldos3 SET CostoUnitario87 = CostoUnitarioCPP * 0.87 , valortotal87 = CostoTotalCPP * 0.87  where almacen_codigo = " & dtc_codigo1.Text & "  "
         'ACTUALIZA PRECIO SALIDA ALMACEN
+        db.Execute "update ao_almacen_salidas set precio_unitario_bs = ao_saldos3.CostoUnitario, importe_venta_bs = ao_saldos3.importe_venta_bs FROM ao_almacen_salidas INNER JOIN ao_saldos3 ON ao_almacen_salidas.almacen_codigo = ao_saldos3.almacen_codigo AND ao_almacen_salidas.doc_codigo  = ao_saldos3.doc_codigo AND ao_almacen_salidas.doc_numero = ao_saldos3.doc_numero AND ao_almacen_salidas.bien_codigo = ao_saldos3.bien_codigo WHERE ao_almacen_salidas.almacen_codigo = " & dtc_codigo1.Text & "  "
         'ACTUALIZA ao_almacen_totales
-        
+                
     Else
         rs_datos2.Close
     End If
