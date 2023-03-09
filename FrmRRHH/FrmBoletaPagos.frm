@@ -444,8 +444,8 @@ Dim esNuevo As Boolean
 Private Sub adoListaMensaje_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If Not rsListaMensaje.BOF And Not rsListaMensaje.EOF Then
         lblIdMensaje.Caption = adoListaMensaje.Recordset!Id
-        txtGestion.Text = adoListaMensaje.Recordset!gestion
-        cmbMes.Text = mesaCadena(adoListaMensaje.Recordset!mes)
+        TxtGestion.Text = adoListaMensaje.Recordset!gestion
+        CmbMes.Text = mesaCadena(adoListaMensaje.Recordset!mes)
         lblUsuarioMensaje.Caption = adoListaMensaje.Recordset!usrCodigo
         lblFechaRegistroMensaje = adoListaMensaje.Recordset!fechaRegistro
         txtTitulo.Text = adoListaMensaje.Recordset!Titulo
@@ -465,7 +465,7 @@ Private Sub btnEditar_Click()
     esNuevo = False
     Call habCampos
     btnGuardar.Visible = True
-    btnCancelar.Visible = True
+    BtnCancelar.Visible = True
 End Sub
 
 Private Sub btnEliminar_Click()
@@ -477,10 +477,10 @@ End Sub
 
 Private Sub btnGuardar_Click()
     'borramos posibles espacios en blanco
-    txtGestion.Text = LTrim(txtGestion.Text)
-    txtGestion.Text = RTrim(txtGestion.Text)
-    cmbMes.Text = LTrim(cmbMes.Text)
-    cmbMes.Text = RTrim(cmbMes.Text)
+    TxtGestion.Text = LTrim(TxtGestion.Text)
+    TxtGestion.Text = RTrim(TxtGestion.Text)
+    CmbMes.Text = LTrim(CmbMes.Text)
+    CmbMes.Text = RTrim(CmbMes.Text)
     txtTitulo.Text = LTrim(txtTitulo.Text)
     txtTitulo.Text = RTrim(txtTitulo.Text)
     txtMensaje.Text = LTrim(txtMensaje.Text)
@@ -492,8 +492,8 @@ Private Sub btnGuardar_Click()
                 MsgBox "El mensaje ya existe", vbCritical, "GUARDADO"
             Else
                 If MsgBox("¿Esta seguro de agregar el Mensaje?", vbExclamation + vbYesNo, "AGREGAR MENSAJE") = vbYes Then
-                    db.Execute "INSERT INTO rcMensajeBoletaPago_JASM (gestion, mes, titulo, mensaje, usrCodigo, fechaRegistro) VALUES ('" & txtGestion.Text & _
-                    "', " & mesaEntero(cmbMes.Text) & ", '" & txtTitulo.Text & "', '" & txtMensaje.Text & "', '" & glusuario & _
+                    db.Execute "INSERT INTO rcMensajeBoletaPago_JASM (gestion, mes, titulo, mensaje, usrCodigo, fechaRegistro) VALUES ('" & TxtGestion.Text & _
+                    "', " & mesaEntero(CmbMes.Text) & ", '" & txtTitulo.Text & "', '" & txtMensaje.Text & "', '" & glusuario & _
                     "', '" & ObtenerFechaServidor & "')"
                     MsgBox "Guardado correctamente", vbInformation, "GUARDADO"
                     Call deshabCampos
@@ -505,7 +505,7 @@ Private Sub btnGuardar_Click()
                 MsgBox "El mensaje ya existe", vbCritical, "GUARDADO"
             Else
                 If MsgBox("¿Esta seguro de editar el Mensaje?", vbExclamation + vbYesNo, "EDITAR MENSAJE") = vbYes Then
-                    db.Execute "UPDATE rcMensajeBoletaPago_JASM SET gestion = '" & txtGestion.Text & "', mes = " & mesaEntero(cmbMes.Text) & _
+                    db.Execute "UPDATE rcMensajeBoletaPago_JASM SET gestion = '" & TxtGestion.Text & "', mes = " & mesaEntero(CmbMes.Text) & _
                     ", titulo = '" & txtTitulo.Text & "', mensaje = '" & txtMensaje.Text & "', usrCodigo = '" & glusuario & _
                     "', nroModificacion = nroModificacion + 1, fechaModificacion = '" & ObtenerFechaServidor & _
                     "' WHERE id = " & CInt(lblIdMensaje.Caption)
@@ -522,12 +522,12 @@ Private Sub btnNuevo_Click()
     esNuevo = True
     Call habCampos
     btnGuardar.Visible = True
-    btnCancelar.Visible = True
+    BtnCancelar.Visible = True
     
     'limpiamos campos
     lblIdMensaje.Caption = "0"
-    txtGestion.Text = "2020"
-    cmbMes.Text = "ENERO"
+    TxtGestion.Text = "2020"
+    CmbMes.Text = "ENERO"
     lblUsuarioMensaje.Caption = glusuario
     lblFechaRegistroMensaje.Caption = ObtenerFechaServidor
     txtTitulo.Text = ""
@@ -546,32 +546,36 @@ Private Sub leerMensajes()
     Set adoListaMensaje.Recordset = rsListaMensaje
 End Sub
 Private Sub deshabCampos()
-    txtGestion.Enabled = False
-    cmbMes.Enabled = False
+    TxtGestion.Enabled = False
+    CmbMes.Enabled = False
     txtTitulo.Enabled = False
     txtMensaje.Enabled = False
-    btnCancelar.Visible = False
+    BtnCancelar.Visible = False
     btnGuardar.Visible = False
     btnNuevo.Visible = True
     btnEditar.Visible = True
-    btnEliminar.Visible = True
+    BtnEliminar.Visible = True
+    dgListaMensaje.Enabled = True
+    adoListaMensaje.Enabled = True
 End Sub
 Private Sub habCampos()
-    txtGestion.Enabled = True
-    cmbMes.Enabled = True
+    TxtGestion.Enabled = True
+    CmbMes.Enabled = True
     txtTitulo.Enabled = True
     txtMensaje.Enabled = True
     btnNuevo.Visible = False
     btnEditar.Visible = False
-    btnEliminar.Visible = False
+    BtnEliminar.Visible = False
+    dgListaMensaje.Enabled = False
+    adoListaMensaje.Enabled = False
 End Sub
 Private Function validar() As Boolean
     validar = False
-    If Not IsNumeric(txtGestion.Text) Then
+    If Not IsNumeric(TxtGestion.Text) Then
         MsgBox "La gestion debe de ser un número", vbCritical, "ERROR EN LA GESTION"
         Exit Function
     End If
-    If mesaEntero(cmbMes.Text) = 0 Then    'comprueba el mes correcto
+    If mesaEntero(CmbMes.Text) = 0 Then    'comprueba el mes correcto
         MsgBox "El mes no corresponde a ninguno de los doce meses!!!", vbCritical, "ERROR EN EL MES"
         Exit Function
     End If
@@ -597,8 +601,8 @@ Private Function existe() As Boolean 'si existe algun registro similar
     existe = True
     Set rsExiste = New ADODB.Recordset
     If rsExiste.State = 1 Then rsExiste.Close
-    rsExiste.Open "SELECT * FROM rcMensajeBoletaPago_JASM WHERE gestion = '" & txtGestion.Text & _
-    "' AND mes = '" & mesaEntero(cmbMes.Text) & "' AND id <> '" & lblIdMensaje.Caption & "' AND estado = 'APR'", db, adOpenStatic
+    rsExiste.Open "SELECT * FROM rcMensajeBoletaPago_JASM WHERE gestion = '" & TxtGestion.Text & _
+    "' AND mes = '" & mesaEntero(CmbMes.Text) & "' AND id <> '" & lblIdMensaje.Caption & "' AND estado = 'APR'", db, adOpenStatic
     If rsExiste.RecordCount = 0 Then
         existe = False
     End If
