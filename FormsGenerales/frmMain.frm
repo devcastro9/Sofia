@@ -2056,7 +2056,6 @@ Private Sub mnu_InventarioAlmacen_Click()
     'aw_almacen_inventario.FraNavega = Mnu_LineasEquipos.Caption
     'aw_almacen_inventario.lbl_titulo2 = Mnu_LineasEquipos.Caption
     aw_almacen_inventario.Show
-    
 End Sub
 
 Private Sub mnu_InventarioAlmacenHerr_Click()
