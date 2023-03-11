@@ -815,7 +815,7 @@ Begin VB.MDIForm frmMain
             Caption         =   "DESCARGUIO"
          End
          Begin VB.Menu Mnu_SeguimientoPago 
-            Caption         =   "BITACORA COMEX"
+            Caption         =   "SEGUIMIENTO COMEX"
          End
       End
       Begin VB.Menu mnu_instalaciones 

@@ -3,7 +3,7 @@ Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form aw_seguimiento_comex 
-   BackColor       =   &H00000000&
+   BackColor       =   &H00C0C0C0&
    Caption         =   "Procesos Administrativos - COMEX - Compra Servicios"
    ClientHeight    =   10260
    ClientLeft      =   1110
@@ -25,6 +25,21 @@ Begin VB.Form aw_seguimiento_comex
       TabIndex        =   24
       Top             =   0
       Width           =   20280
+      Begin VB.PictureBox BtnImprimir1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   7200
+         Picture         =   "aw_seguimiento_comex.frx":0000
+         ScaleHeight     =   615
+         ScaleWidth      =   1395
+         TabIndex        =   33
+         ToolTipText     =   "Seguimiento Fisico"
+         Top             =   0
+         Width           =   1400
+      End
       Begin VB.PictureBox BtnSalir 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -32,10 +47,10 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   18840
-         Picture         =   "aw_seguimiento_comex.frx":0000
+         Picture         =   "aw_seguimiento_comex.frx":08CD
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   34
+         TabIndex        =   32
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
@@ -47,10 +62,11 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5520
-         Picture         =   "aw_seguimiento_comex.frx":07C2
+         Picture         =   "aw_seguimiento_comex.frx":108F
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   32
+         TabIndex        =   30
+         ToolTipText     =   "Seguimiento Financiero"
          Top             =   0
          Width           =   1400
       End
@@ -60,11 +76,11 @@ Begin VB.Form aw_seguimiento_comex
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   4200
-         Picture         =   "aw_seguimiento_comex.frx":108F
+         Left            =   2280
+         Picture         =   "aw_seguimiento_comex.frx":195C
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   31
+         TabIndex        =   29
          Top             =   0
          Width           =   1215
       End
@@ -77,7 +93,7 @@ Begin VB.Form aw_seguimiento_comex
          Left            =   6960
          ScaleHeight     =   615
          ScaleWidth      =   1320
-         TabIndex        =   30
+         TabIndex        =   28
          Top             =   0
          Visible         =   0   'False
          Width           =   1320
@@ -91,7 +107,7 @@ Begin VB.Form aw_seguimiento_comex
          Left            =   2760
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   29
+         TabIndex        =   27
          Top             =   0
          Visible         =   0   'False
          Width           =   1215
@@ -102,37 +118,13 @@ Begin VB.Form aw_seguimiento_comex
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   1305
+         Left            =   105
+         Picture         =   "aw_seguimiento_comex.frx":2111
          ScaleHeight     =   615
          ScaleWidth      =   1425
-         TabIndex        =   28
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   1430
-      End
-      Begin VB.PictureBox BtnAñadir 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000006&
-         BorderStyle     =   0  'None
-         ForeColor       =   &H80000008&
-         Height          =   615
-         Left            =   0
-         ScaleHeight     =   615
-         ScaleWidth      =   1200
-         TabIndex        =   27
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   1200
-      End
-      Begin VB.CommandButton BtnDesAprobar 
-         BackColor       =   &H00808080&
-         Height          =   600
-         Left            =   11760
-         Style           =   1  'Graphical
          TabIndex        =   26
          Top             =   0
-         Visible         =   0   'False
-         Width           =   1125
+         Width           =   1430
       End
       Begin VB.CommandButton BtnVer 
          BackColor       =   &H00808000&
@@ -163,7 +155,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H00FFFFC0&
          Height          =   285
          Left            =   12855
-         TabIndex        =   33
+         TabIndex        =   31
          Top             =   195
          Width           =   1815
       End
@@ -256,7 +248,7 @@ Begin VB.Form aw_seguimiento_comex
       Width           =   1215
    End
    Begin VB.Frame FraDet1 
-      BackColor       =   &H00000000&
+      BackColor       =   &H00C0C0C0&
       Caption         =   "EQUIPOS A IMPORTAR"
       ForeColor       =   &H00FFFFFF&
       Height          =   1605
@@ -269,8 +261,8 @@ Begin VB.Form aw_seguimiento_comex
          Left            =   75
          TabIndex        =   14
          Top             =   225
-         Width           =   14895
-         _ExtentX        =   26273
+         Width           =   18375
+         _ExtentX        =   32411
          _ExtentY        =   2302
          _Version        =   393216
          AllowUpdate     =   0   'False
@@ -457,6 +449,7 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
+               ColumnWidth     =   7620.095
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
@@ -486,13 +479,14 @@ Begin VB.Form aw_seguimiento_comex
       End
    End
    Begin VB.Frame FraDet3 
-      BackColor       =   &H00000000&
+      BackColor       =   &H00C0C0C0&
       Caption         =   "CRONOGRAMA - ORDEN DE PAGO"
       ForeColor       =   &H00FFFFFF&
       Height          =   1480
       Left            =   120
       TabIndex        =   11
       Top             =   8115
+      Visible         =   0   'False
       Width           =   18735
       Begin MSDataGridLib.DataGrid dg_det3 
          Height          =   1200
@@ -801,7 +795,7 @@ Begin VB.Form aw_seguimiento_comex
       End
    End
    Begin VB.Frame FraDet2 
-      BackColor       =   &H00000000&
+      BackColor       =   &H00C0C0C0&
       Caption         =   "ADJUDICACION"
       ForeColor       =   &H00FFFFFF&
       Height          =   1480
@@ -814,8 +808,8 @@ Begin VB.Form aw_seguimiento_comex
          Left            =   75
          TabIndex        =   8
          Top             =   225
-         Width           =   14895
-         _ExtentX        =   26273
+         Width           =   18375
+         _ExtentX        =   32411
          _ExtentY        =   2117
          _Version        =   393216
          AllowUpdate     =   0   'False
@@ -964,12 +958,14 @@ Begin VB.Form aw_seguimiento_comex
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
+               ColumnWidth     =   7634.835
             EndProperty
             BeginProperty Column03 
                Locked          =   -1  'True
@@ -979,6 +975,7 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
+               ColumnWidth     =   840.189
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
@@ -992,7 +989,7 @@ Begin VB.Form aw_seguimiento_comex
       End
    End
    Begin VB.Frame FraNavega 
-      BackColor       =   &H00000000&
+      BackColor       =   &H00C0C0C0&
       Caption         =   "LISTADO"
       ForeColor       =   &H00FFFFFF&
       Height          =   4080
@@ -1005,11 +1002,11 @@ Begin VB.Form aw_seguimiento_comex
          Left            =   120
          TabIndex        =   9
          Top             =   240
-         Width           =   14835
-         _ExtentX        =   26167
+         Width           =   18315
+         _ExtentX        =   32306
          _ExtentY        =   5874
          _Version        =   393216
-         AllowUpdate     =   0   'False
+         AllowUpdate     =   -1  'True
          BackColor       =   16777215
          HeadLines       =   1
          RowHeight       =   15
@@ -1018,7 +1015,7 @@ Begin VB.Form aw_seguimiento_comex
             Name            =   "MS Sans Serif"
             Size            =   8.25
             Charset         =   0
-            Weight          =   700
+            Weight          =   400
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
@@ -1032,7 +1029,7 @@ Begin VB.Form aw_seguimiento_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   14
+         ColumnCount     =   22
          BeginProperty Column00 
             DataField       =   "unidad_codigo_ant"
             Caption         =   "Cite.Trámite"
@@ -1047,8 +1044,8 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column01 
-            DataField       =   "compra_fecha"
-            Caption         =   "Fecha.Reg."
+            DataField       =   "unidad_codigo"
+            Caption         =   "U.Ejecutora"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1073,8 +1070,8 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column03 
-            DataField       =   "unidad_codigo"
-            Caption         =   "U.Ejecutora"
+            DataField       =   "edif_codigo"
+            Caption         =   "Edificio/Id"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1086,21 +1083,8 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column04 
-            DataField       =   "edif_codigo"
-            Caption         =   "Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column05 
-            DataField       =   "nombre_edificio"
-            Caption         =   "Nombre Edificio"
+            DataField       =   "compra_descripcion"
+            Caption         =   "Descripcion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1111,7 +1095,111 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
+         BeginProperty Column05 
+            DataField       =   "Fecha_etapa1"
+            Caption         =   "Fecha.Pedido"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
          BeginProperty Column06 
+            DataField       =   "Fecha_etapa2"
+            Caption         =   "F.Pago.Provee"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "Fecha_etapa3"
+            Caption         =   "F.Envio.Swift"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "Fecha_etapa4"
+            Caption         =   "F.Instr.Embarq."
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "Nro_Guia"
+            Caption         =   "Nro.Guia"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "Fecha_etapa5"
+            Caption         =   "F.Embarque"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "Fecha_etapa6"
+            Caption         =   "F.Llega.Aduana"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column12 
+            DataField       =   "Fecha_etapa7"
+            Caption         =   "F.Llega.Almacen"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column13 
             DataField       =   "compra_codigo"
             Caption         =   "Correlativo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1124,9 +1212,9 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
-            DataField       =   "proveedor"
-            Caption         =   "Fabricacion"
+         BeginProperty Column14 
+            DataField       =   "estado_codigo_eqp"
+            Caption         =   "Fabrica"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1137,8 +1225,8 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
-            DataField       =   "transporte"
+         BeginProperty Column15 
+            DataField       =   "estado_codigo_tra"
             Caption         =   "Transporte"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1150,9 +1238,9 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column09 
-            DataField       =   "aduanisacion"
-            Caption         =   "Aduanizacion"
+         BeginProperty Column16 
+            DataField       =   "estado_codigo_nac"
+            Caption         =   "Aduana"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1163,8 +1251,8 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column10 
-            DataField       =   "descarguio"
+         BeginProperty Column17 
+            DataField       =   "estado_codigo_des"
             Caption         =   "Descarguio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -1176,9 +1264,9 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column11 
-            DataField       =   "tecnico"
-            Caption         =   "Tecnico"
+         BeginProperty Column18 
+            DataField       =   "estado_codigo"
+            Caption         =   "Almacen"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1189,9 +1277,22 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column12 
-            DataField       =   "nombre_cliente"
-            Caption         =   "Cliente"
+         BeginProperty Column19 
+            DataField       =   "compra_fecha"
+            Caption         =   "Fecha.Inicio.COMEX"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column20 
+            DataField       =   "compra_observaciones"
+            Caption         =   "Observaciones"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1202,7 +1303,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column13 
+         BeginProperty Column21 
             DataField       =   "estado_cabecera"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1218,42 +1319,86 @@ Begin VB.Form aw_seguimiento_comex
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
+               Locked          =   -1  'True
                Object.Visible         =   -1  'True
+               ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               Object.Visible         =   -1  'True
+               Locked          =   -1  'True
+               ColumnWidth     =   1019.906
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   645.165
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   884.976
             EndProperty
             BeginProperty Column04 
-               Alignment       =   2
-               Object.Visible         =   -1  'True
+               Locked          =   -1  'True
+               ColumnWidth     =   3674.835
             EndProperty
             BeginProperty Column05 
+               ColumnWidth     =   1094.74
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   1080
+               ColumnWidth     =   1170.142
             EndProperty
             BeginProperty Column07 
+               ColumnWidth     =   1065.26
             EndProperty
             BeginProperty Column08 
-               ColumnWidth     =   1080
+               ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column09 
+               ColumnWidth     =   1035.213
             EndProperty
             BeginProperty Column10 
+               ColumnWidth     =   975.118
             EndProperty
             BeginProperty Column11 
+               ColumnWidth     =   1260.284
             EndProperty
             BeginProperty Column12 
+               ColumnWidth     =   1289.764
             EndProperty
             BeginProperty Column13 
+               Locked          =   -1  'True
+               ColumnWidth     =   900.284
+            EndProperty
+            BeginProperty Column14 
+               ColumnWidth     =   675.213
+            EndProperty
+            BeginProperty Column15 
+               ColumnWidth     =   915.024
+            EndProperty
+            BeginProperty Column16 
+               ColumnWidth     =   720
+            EndProperty
+            BeginProperty Column17 
+               ColumnWidth     =   959.811
+            EndProperty
+            BeginProperty Column18 
+               ColumnWidth     =   780.095
+            EndProperty
+            BeginProperty Column19 
                Alignment       =   2
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1154.835
+            EndProperty
+            BeginProperty Column20 
+               Locked          =   -1  'True
+            EndProperty
+            BeginProperty Column21 
+               Alignment       =   2
+               Locked          =   -1  'True
+               ColumnWidth     =   659.906
             EndProperty
          EndProperty
       End
@@ -1282,8 +1427,8 @@ Begin VB.Form aw_seguimiento_comex
          Height          =   330
          Left            =   120
          Top             =   3600
-         Width           =   5505
-         _ExtentX        =   9710
+         Width           =   18345
+         _ExtentX        =   32359
          _ExtentY        =   582
          ConnectMode     =   0
          CursorLocation  =   3
@@ -1431,8 +1576,8 @@ Begin VB.Form aw_seguimiento_comex
       _Version        =   393216
    End
    Begin Crystal.CrystalReport CR01 
-      Left            =   7200
-      Top             =   11040
+      Left            =   120
+      Top             =   9705
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   348160
@@ -2105,6 +2250,23 @@ Begin VB.Form aw_seguimiento_comex
       EndProperty
       _Version        =   393216
    End
+   Begin Crystal.CrystalReport CR02 
+      Left            =   720
+      Top             =   9720
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      WindowState     =   2
+      PrintFileLinesPerPage=   60
+      WindowShowGroupTree=   -1  'True
+      WindowShowCloseBtn=   -1  'True
+      WindowShowSearchBtn=   -1  'True
+      WindowShowPrintSetupBtn=   -1  'True
+      WindowShowRefreshBtn=   -1  'True
+   End
    Begin VB.Label Label1 
       Alignment       =   2  'Center
       BackColor       =   &H00404040&
@@ -2272,6 +2434,7 @@ AddErr:
   MsgBox Err.Description
 End Sub
 
+
 ' Boton guardar
 Private Sub BtnGrabar_Click()
   On Error GoTo UpdateErr
@@ -2304,7 +2467,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!archivo_respaldo_cargado = "N"
         rs_datos!correl_bitacora = 0
      End If
-     rs_datos!compra_fecha = dtpFecha1.Value
+     rs_datos!compra_fecha = DTPfecha1.Value
      rs_datos!solicitud_tipo = "15"
      rs_datos!venta_tipo = dtc_codigo2.Text
      rs_datos!edif_codigo = dtc_codigo3.Text
@@ -2314,7 +2477,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!beneficiario_codigo = dtc_codigo4.Text
      End If
      Txt_descripcion.Text = lbl_titulo + " - Edificio: " + dtc_desc3.Text + " Cite: " + Txt_campo2.Caption
-     rs_datos!compra_descripcion = Txt_descripcion.Text
+     rs_datos!compra_DESCRIPCION = Txt_descripcion.Text
 
      Select Case dtc_codigo2.Text
         Case "1"    'SOLO COMPRAS BB y SS
@@ -2384,7 +2547,7 @@ Private Sub BtnGrabar_Click()
      End If
      rs_datos!beneficiario_codigo_resp = dtc_codigo11.Text
 
-     rs_datos!Fecha_Registro = Date     'no cambia
+     rs_datos!fecha_registro = Date     'no cambia
      rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
      rs_datos.Update    'Batch 'adAffectAll
      If Ado_datos.Recordset!estado_codigo = "REG" Then
@@ -2421,20 +2584,20 @@ On Error GoTo EditErr
   If Ado_datos.Recordset.RecordCount > 0 Then
 '  lblStatus.Caption = "Modificar registro"
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        Fra_datos.Enabled = True
-        fraOpciones.Visible = False
-        FraGrabarCancelar.Visible = True
-        dg_datos.Enabled = False
-        
-        FraDet3.Visible = False
-        FraDet2.Visible = False
-        FraDet1.Visible = False
-        FrmABMDet3.Visible = False
-        FrmABMDet2.Visible = False
-        FrmABMDet.Visible = False
-        
-        VAR_SW = "MOD"
-        dtc_desc11.SetFocus
+'        Fra_datos.Enabled = True
+'        fraOpciones.Visible = False
+'        FraGrabarCancelar.Visible = True
+'        dg_datos.Enabled = False
+'
+'        FraDet3.Visible = False
+'        FraDet2.Visible = False
+'        FraDet1.Visible = False
+'        FrmABMDet3.Visible = False
+'        FrmABMDet2.Visible = False
+'        FrmABMDet.Visible = False
+'
+'        VAR_SW = "MOD"
+'        dtc_desc11.SetFocus
     Else
       MsgBox "No se puede MODIFICAR un registro ya APROBADO ...", vbExclamation, "Validación de Registro"
     End If
@@ -2448,139 +2611,139 @@ EditErr:
 End Sub
 
 ' Boton anular
-Private Sub BtnEliminar_Click()
-  On Error GoTo UpdateErr
-  If Ado_datos.Recordset.RecordCount > 0 Then
-    'If ExisteReg(Ado_datos.Recordset!edif_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado previamente ...", vbInformation + vbOKOnly, "Atención": Exit Sub
-    If rs_datos!estado_codigo = "APR" Then
-       sino = MsgBox("Está Seguro de ANULAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
-       If sino = vbYes Then
-          rs_datos!estado_codigo = "ERR"
-          rs_datos!Fecha_Registro = Date
-          rs_datos!usr_codigo = glusuario
-          rs_datos.UpdateBatch adAffectAll
-       End If
-    Else
-       MsgBox "No se puede ANULAR un registro Elaborado o Errado ...", vbExclamation, "Validación de Registro"
-    End If
-  Else
-      MsgBox "NO se puede ANULAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
-  End If
-  Exit Sub
-
-UpdateErr:
-  MsgBox Err.Description
-End Sub
+'Private Sub btnEliminar_Click()
+'  On Error GoTo UpdateErr
+'  If Ado_datos.Recordset.RecordCount > 0 Then
+'    'If ExisteReg(Ado_datos.Recordset!edif_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado previamente ...", vbInformation + vbOKOnly, "Atención": Exit Sub
+'    If rs_datos!estado_codigo = "APR" Then
+'       sino = MsgBox("Está Seguro de ANULAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
+'       If sino = vbYes Then
+'          rs_datos!estado_codigo = "ERR"
+'          rs_datos!fecha_registro = Date
+'          rs_datos!usr_codigo = glusuario
+'          rs_datos.UpdateBatch adAffectAll
+'       End If
+'    Else
+'       MsgBox "No se puede ANULAR un registro Elaborado o Errado ...", vbExclamation, "Validación de Registro"
+'    End If
+'  Else
+'      MsgBox "NO se puede ANULAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
+'  End If
+'  Exit Sub
+'
+'UpdateErr:
+'  MsgBox Err.Description
+'End Sub
 
 ' Boton aprobar
-Private Sub BtnAprobar_Click()
-On Error GoTo UpdateErr
-  If Ado_datos.Recordset.RecordCount > 0 Then
-   If Ado_datos.Recordset!beneficiario_codigo = "0" Or Ado_datos.Recordset!beneficiario_codigo = "" Then
-        MsgBox "No se puede APROBAR, debe registrar al Propietario del Proyecto de Edificación: " + lbl_campo4.Caption, vbExclamation, "Validación de Registro"
-        Exit Sub
-   End If
-   Set rs_aux1 = New ADODB.Recordset
-   rs_aux1.Open "Select * from ao_solicitud_edificacion where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "'  and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
-   If rs_aux1.RecordCount > 0 Then
-        VAR_CONT2 = rs_aux1.RecordCount
-   End If
-
-   If rs_datos!estado_codigo = "REG" And VAR_CONT2 > 0 Then
-      sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
-      If sino = vbYes Then
-        
-        Dim sqlUp As String
-        ' -------------- Actualiza estado proceso
-        Select Case Glaux
-        Case "PROVI"    'PROVISION DE EQUIPOS
-            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_eqp = 'APR', estado_codigo_tra = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
-        Case "TRANS"    'TRANSPORTE
-            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_tra = 'APR', estado_codigo_nac = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
-        Case "ADUAN"    'DESADUANIZACION
-            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_nac = 'APR', estado_codigo_des = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
-        Case "DESCA"    'DESCARGUIO Y OTROS
-            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_des = 'APR', estado_codigo_tec = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
-        Case "CONTR"    'CONTRATACION TECNICO
-            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_tec = 'APR', estado_codigo = 'APR'  WHERE  compra_codigo = " + Label1.Caption + "  "
-        End Select
-       
-        db.Execute sqlUp
-    
-        MsgBox " El registro se aprobo correctamente."
-        Call OptFilGral1_Click
-      ' ====== Codigo anterior aprovar 01/09/2016
-'        Select Case dtc_codigo2.Text
-'            Case "1"    'SOLO COMPRAS BB y SS
-'            Case "2"    'SOLO VENTA DE BIENES
-'            Case "3"    ' COMPRA-VENTA BB Y SS - COMERCIAL
-'                Set rs_aux1 = New ADODB.Recordset
+'Private Sub BtnAprobar_Click()
+'On Error GoTo UpdateErr
+'  If Ado_datos.Recordset.RecordCount > 0 Then
+'   If Ado_datos.Recordset!beneficiario_codigo = "0" Or Ado_datos.Recordset!beneficiario_codigo = "" Then
+'        MsgBox "No se puede APROBAR, debe registrar al Propietario del Proyecto de Edificación: " + lbl_campo4.Caption, vbExclamation, "Validación de Registro"
+'        Exit Sub
+'   End If
+'   Set rs_aux1 = New ADODB.Recordset
+'   rs_aux1.Open "Select * from ao_solicitud_edificacion where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "'  and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
+'   If rs_aux1.RecordCount > 0 Then
+'        VAR_CONT2 = rs_aux1.RecordCount
+'   End If
 '
-'                SQL_FOR = "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   "
-'                rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+'   If rs_datos!estado_codigo = "REG" And VAR_CONT2 > 0 Then
+'      sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
+'      If sino = vbYes Then
 '
-'                    Set rs_aux2 = New ADODB.Recordset
-'                    If rs_aux2.State = 1 Then rs_aux2.Close
-'
-'                    rs_aux2.Open "Select max(trafico_codigo) as Codigo from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' ", db, adOpenStatic
-'                    If Not rs_aux2.EOF Then
-'                        var_cod = IIf(IsNull(rs_aux2!Codigo), 1, rs_aux2!Codigo + 1)
-'                    End If
-'                    Set rs_aux2 = New ADODB.Recordset
-'                    If rs_aux2.State = 1 Then rs_aux2.Close
-'                    rs_aux2.Open "Select edif_capacidad_min_trafico as Codigo from ao_solicitud_edificacion where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
-'                    If Not rs_aux2.EOF Then
-'                        VAR_AUX = rs_aux2!Codigo
-'                    End If
-'                    rs_aux1.AddNew
-'                    rs_aux1!ges_gestion = Year(Date)
-'                    rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
-'                    rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
-'                    rs_aux1!edif_codigo = Ado_detalle1.Recordset!edif_codigo
-'                    rs_aux1!trafico_codigo = var_cod
-'                    rs_aux1!trafico_h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
-'                    rs_aux1!estado_codigo = "REG"
-'                    rs_aux1!fecha_registro = Date
-'                    rs_aux1!usr_codigo = glusuario
-'                    rs_aux1.Update
-'                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  "
-'
-'
-'            Case "4"    'VENTA DE SERVICIOS (INST, AJUSTE, REP, EMERG, MANT)
-'            Case "5"    ' SERVICIO MODERNIZACION
+'        Dim sqlUp As String
+'        ' -------------- Actualiza estado proceso
+'        Select Case Glaux
+'        Case "PROVI"    'PROVISION DE EQUIPOS
+'            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_eqp = 'APR', estado_codigo_tra = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
+'        Case "TRANS"    'TRANSPORTE
+'            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_tra = 'APR', estado_codigo_nac = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
+'        Case "ADUAN"    'DESADUANIZACION
+'            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_nac = 'APR', estado_codigo_des = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
+'        Case "DESCA"    'DESCARGUIO Y OTROS
+'            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_des = 'APR', estado_codigo_tec = 'REG'  WHERE  compra_codigo = " + Label1.Caption + "  "
+'        Case "CONTR"    'CONTRATACION TECNICO
+'            sqlUp = " UPDATE ao_compra_cabecera SET estado_codigo_tec = 'APR', estado_codigo = 'APR'  WHERE  compra_codigo = " + Label1.Caption + "  "
 '        End Select
-'        Set rs_aux2 = New ADODB.Recordset
-'        SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & dtc_codigo9 & "'  "
-'        rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-'        If rs_aux2.RecordCount > 0 Then
-'            rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-'            txt_campo1.Caption = rs_aux2!correl_doc
-'            rs_aux2.Update
-'        End If
-'        rs_datos!doc_numero = txt_campo1.Caption
-'        VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
 '
-'        rs_datos!archivo_respaldo_cargado = "N"
-'        rs_datos!archivo_respaldo = (VAR_ARCH + ".PDF")
-'        'rs_datos!estado_codigo = "APR"
-'        rs_datos!fecha_registro = Date
-'        rs_datos!usr_codigo = glusuario
+'        db.Execute sqlUp
 '
+'        MsgBox " El registro se aprobo correctamente."
+'        Call OptFilGral1_Click
+'      ' ====== Codigo anterior aprovar 01/09/2016
+''        Select Case dtc_codigo2.Text
+''            Case "1"    'SOLO COMPRAS BB y SS
+''            Case "2"    'SOLO VENTA DE BIENES
+''            Case "3"    ' COMPRA-VENTA BB Y SS - COMERCIAL
+''                Set rs_aux1 = New ADODB.Recordset
+''
+''                SQL_FOR = "select * from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   "
+''                rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+''
+''                    Set rs_aux2 = New ADODB.Recordset
+''                    If rs_aux2.State = 1 Then rs_aux2.Close
+''
+''                    rs_aux2.Open "Select max(trafico_codigo) as Codigo from ao_solicitud_calculo_trafico where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' ", db, adOpenStatic
+''                    If Not rs_aux2.EOF Then
+''                        var_cod = IIf(IsNull(rs_aux2!Codigo), 1, rs_aux2!Codigo + 1)
+''                    End If
+''                    Set rs_aux2 = New ADODB.Recordset
+''                    If rs_aux2.State = 1 Then rs_aux2.Close
+''                    rs_aux2.Open "Select edif_capacidad_min_trafico as Codigo from ao_solicitud_edificacion where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
+''                    If Not rs_aux2.EOF Then
+''                        VAR_AUX = rs_aux2!Codigo
+''                    End If
+''                    rs_aux1.AddNew
+''                    rs_aux1!ges_gestion = Year(Date)
+''                    rs_aux1!unidad_codigo = Ado_datos.Recordset!unidad_codigo
+''                    rs_aux1!solicitud_codigo = Ado_datos.Recordset!solicitud_codigo
+''                    rs_aux1!edif_codigo = Ado_detalle1.Recordset!edif_codigo
+''                    rs_aux1!trafico_codigo = var_cod
+''                    rs_aux1!trafico_h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
+''                    rs_aux1!estado_codigo = "REG"
+''                    rs_aux1!fecha_registro = Date
+''                    rs_aux1!usr_codigo = glusuario
+''                    rs_aux1.Update
+''                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  "
+''
+''
+''            Case "4"    'VENTA DE SERVICIOS (INST, AJUSTE, REP, EMERG, MANT)
+''            Case "5"    ' SERVICIO MODERNIZACION
+''        End Select
+''        Set rs_aux2 = New ADODB.Recordset
+''        SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & dtc_codigo9 & "'  "
+''        rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+''        If rs_aux2.RecordCount > 0 Then
+''            rs_aux2!correl_doc = rs_aux2!correl_doc + 1
+''            txt_campo1.Caption = rs_aux2!correl_doc
+''            rs_aux2.Update
+''        End If
+''        rs_datos!doc_numero = txt_campo1.Caption
+''        VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
+''
+''        rs_datos!archivo_respaldo_cargado = "N"
+''        rs_datos!archivo_respaldo = (VAR_ARCH + ".PDF")
+''        'rs_datos!estado_codigo = "APR"
+''        rs_datos!fecha_registro = Date
+''        rs_datos!usr_codigo = glusuario
+''
+''
+''
+''        rs_datos.UpdateBatch adAffectAll
 '
-'
-'        rs_datos.UpdateBatch adAffectAll
-        
-      End If
-   Else
-       MsgBox "No se puede APROBAR un registro Anulado o Aprobado o que no tiene DETALLE ...", vbExclamation, "Validación de Registro"
-   End If
-  Else
-      MsgBox "NO se puede APROBAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
-  End If
-  Exit Sub
-UpdateErr:
-  MsgBox Err.Description
-End Sub
+'      End If
+'   Else
+'       MsgBox "No se puede APROBAR un registro Anulado o Aprobado o que no tiene DETALLE ...", vbExclamation, "Validación de Registro"
+'   End If
+'  Else
+'      MsgBox "NO se puede APROBAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
+'  End If
+'  Exit Sub
+'UpdateErr:
+'  MsgBox Err.Description
+'End Sub
 
 ' Boton buscar
 Private Sub BtnBuscar_Click()
@@ -2601,8 +2764,23 @@ End Sub
 ' Boton imprimir
 Private Sub BtnImprimir_Click()
   If (Ado_datos.Recordset.RecordCount > 0) Then
-   fw_seg_cobranza_parametro.lblTipoReporte = "pago"
-   fw_seg_cobranza_parametro.Show vbModal
+   'fw_seg_cobranza_parametro.lblTipoReporte = "pago"
+   'fw_seg_cobranza_parametro.Show vbModal
+       'If Ado_detalle2.Recordset.RecordCount > 0 Then
+        Dim iResult As Integer
+        'Dim co As New ADODB.Command
+        CR02.ReportFileName = App.Path & "\Reportes\comex\ar_seguimiento_comex_NEW.rpt"
+        CR02.WindowShowPrintSetupBtn = True
+        CR02.WindowShowRefreshBtn = True
+        'CR02.StoredProcParam(0) = Ado_detalle2.Recordset!fmes_plan
+        'CR02.StoredProcParam(1) = Ado_detalle2.Recordset!dia_correl
+        'CR02.StoredProcParam(2) = RTrim(Ado_detalle2.Recordset!edif_descripcion)
+        iResult = CR02.PrintReport
+        If iResult <> 0 Then MsgBox CR02.LastErrorNumber & " : " & CR02.LastErrorString, vbCritical, "Error de impresión"
+        CR02.WindowState = crptMaximized
+    'Else
+    '    MsgBox "No se puede Imprimir. Debe registrar los datos correspondientes ...", , "Atención"
+    'End If
   Else
     MsgBox "No se puede Imprimir. Debe elegir el Registro que desea Imprimir ...", , "Atención"
   End If
@@ -2613,67 +2791,67 @@ Private Sub BtnSalir_Click()
 End Sub
 
 ' Boton digitalizar
-Private Sub BtnVer_Click()
-    On Error GoTo QError
-  If rs_datos!estado_codigo = "APR" Then
-    Dim ARCH_FOTO As String
-    Dim SW0 As String
-    Select Case Left(Trim(Ado_datos.Recordset("edif_codigo")), 1)
-        Case "1"    'CHQ
-            VAR_DPTO = "CHQ"
-        Case "2"    'LPZ
-            VAR_DPTO = "LPZ"
-        Case "3"    'CBB
-            VAR_DPTO = "CBB"
-        Case "4"    'SCZ
-            VAR_DPTO = "SCZ"
-        Case "5"    'PTS
-            VAR_DPTO = "PTS"
-        Case "6"    'ORU
-            VAR_DPTO = "ORU"
-        Case "7"    'TJA
-            VAR_DPTO = "TJA"
-        Case "8"    'BEN
-            VAR_DPTO = "BEN"
-        Case "9"    'PDO
-            VAR_DPTO = "PDO"
-    End Select
-    If Ado_datos.Recordset!archivo_respaldo_cargado = "N" Then
-      'NombreCarpeta = App.Path & "\BIENES\EDIFICIOS\" & Trim(Ado_datos.Recordset!edif_tipo) & "\" & Trim(Ado_datos.Recordset!negocia_codigo) & "\"
-      NombreCarpeta = App.Path & "\BIENES\EDIFICIOS\" & Trim(VAR_DPTO) & "\" & Trim(Ado_datos.Recordset("edif_codigo")) & "\"
-      Frmexporta.DirDestino.Path = NombreCarpeta
-      GlArch = "DED2"
-         e = NombreCarpeta
-
-      Frmexporta.DirDestino2.Path = e
-      Frmexporta.Show vbModal
-      SW0 = 1
-    Else
-      sino = MsgBox("El archivo ya existe, elija: <SI> para Volver a Cargarlo. <NO> para Visualizarlo. ", vbYesNo + vbQuestion, "Atención")
-      If sino = vbYes Then
-          NombreCarpeta = App.Path & "\BIENES\EDIFICIOS\" & Trim(VAR_DPTO) & "\" & Trim(Ado_datos.Recordset("edif_codigo")) & "\"
-          Frmexporta.DirDestino.Path = NombreCarpeta
-          GlArch = "DED2"
-            e = NombreCarpeta
-          Frmexporta.DirDestino2.Path = e
-          Frmexporta.Show vbModal
-          SW0 = 1
-      Else
-        SW0 = 0
-        e = ShellExecute(0, vbNullString, App.Path & "\BIENES\EDIFICIOS\" & Trim(VAR_DPTO) & "\" & Trim(Ado_datos.Recordset("edif_codigo")) & "\" & Trim(Ado_datos.Recordset("archivo_respaldo")), vbNullString, vbNullString, vbNormalFocus)
-      End If
-    End If
-    
-  Else
-       MsgBox "No se puede Guardar el documento PDF, debe APROBAR previamente el registro ...", vbExclamation, "Validación de Registro"
-  End If
-QError:
-    ' Manejo de errores
-    If Err.Number > 0 Then
-        MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
-        Screen.MousePointer = vbDefault
-    End If
-End Sub
+'Private Sub BtnVer_Click()
+'    On Error GoTo QError
+'  If rs_datos!estado_codigo = "APR" Then
+'    Dim ARCH_FOTO As String
+'    Dim SW0 As String
+'    Select Case Left(Trim(Ado_datos.Recordset("edif_codigo")), 1)
+'        Case "1"    'CHQ
+'            VAR_DPTO = "CHQ"
+'        Case "2"    'LPZ
+'            VAR_DPTO = "LPZ"
+'        Case "3"    'CBB
+'            VAR_DPTO = "CBB"
+'        Case "4"    'SCZ
+'            VAR_DPTO = "SCZ"
+'        Case "5"    'PTS
+'            VAR_DPTO = "PTS"
+'        Case "6"    'ORU
+'            VAR_DPTO = "ORU"
+'        Case "7"    'TJA
+'            VAR_DPTO = "TJA"
+'        Case "8"    'BEN
+'            VAR_DPTO = "BEN"
+'        Case "9"    'PDO
+'            VAR_DPTO = "PDO"
+'    End Select
+'    If Ado_datos.Recordset!archivo_respaldo_cargado = "N" Then
+'      'NombreCarpeta = App.Path & "\BIENES\EDIFICIOS\" & Trim(Ado_datos.Recordset!edif_tipo) & "\" & Trim(Ado_datos.Recordset!negocia_codigo) & "\"
+'      NombreCarpeta = App.Path & "\BIENES\EDIFICIOS\" & Trim(VAR_DPTO) & "\" & Trim(Ado_datos.Recordset("edif_codigo")) & "\"
+'      Frmexporta.DirDestino.Path = NombreCarpeta
+'      GlArch = "DED2"
+'         e = NombreCarpeta
+'
+'      Frmexporta.DirDestino2.Path = e
+'      Frmexporta.Show vbModal
+'      SW0 = 1
+'    Else
+'      sino = MsgBox("El archivo ya existe, elija: <SI> para Volver a Cargarlo. <NO> para Visualizarlo. ", vbYesNo + vbQuestion, "Atención")
+'      If sino = vbYes Then
+'          NombreCarpeta = App.Path & "\BIENES\EDIFICIOS\" & Trim(VAR_DPTO) & "\" & Trim(Ado_datos.Recordset("edif_codigo")) & "\"
+'          Frmexporta.DirDestino.Path = NombreCarpeta
+'          GlArch = "DED2"
+'            e = NombreCarpeta
+'          Frmexporta.DirDestino2.Path = e
+'          Frmexporta.Show vbModal
+'          SW0 = 1
+'      Else
+'        SW0 = 0
+'        e = ShellExecute(0, vbNullString, App.Path & "\BIENES\EDIFICIOS\" & Trim(VAR_DPTO) & "\" & Trim(Ado_datos.Recordset("edif_codigo")) & "\" & Trim(Ado_datos.Recordset("archivo_respaldo")), vbNullString, vbNullString, vbNormalFocus)
+'      End If
+'    End If
+'
+'  Else
+'       MsgBox "No se puede Guardar el documento PDF, debe APROBAR previamente el registro ...", vbExclamation, "Validación de Registro"
+'  End If
+'QError:
+'    ' Manejo de errores
+'    If Err.Number > 0 Then
+'        MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
+'        Screen.MousePointer = vbDefault
+'    End If
+'End Sub
 
 ' Boton cancelar
 Private Sub BtnCancelar_Click()
@@ -2717,13 +2895,6 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
   'Esto mostrará la posición de registro actual para este Recordset
  
 End Sub
-
-
-
-
-
-
-
 
 ' Combo 1
 Private Sub dtc_aux1_Click(Area As Integer)
@@ -2789,7 +2960,7 @@ Private Sub Form_Load()
   
    numAdjudicacion = 0
    numAdjudicacionCargado = 0
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 ' Numero compra evento cambio de texto.
@@ -2825,7 +2996,7 @@ Private Sub OptFilGral1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     
     'queryinicial = " EXEC ra_select_aocompracabecera "
-    queryinicial = " SELECT * FROM av_compra_cabecera "
+    queryinicial = " SELECT * FROM ao_compra_cabecera where venta_tipo = 'R' "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = "solicitud_codigo"
     Set Ado_datos.Recordset = rs_datos.DataSource
@@ -2872,7 +3043,8 @@ End Sub
 ' Funcion carga grillas detalle 1
 Private Sub ABRIR_TABLA_DET()
     Dim sqlgrid As String
-    sqlgrid = " SELECT * FROM av_compra_detalle_tipo WHERE compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' "
+    '
+    sqlgrid = " SELECT * FROM av_compra_detalle_tipo WHERE compra_codigo = " & Ado_datos.Recordset!compra_codigo & "   and (par_codigo = '43340' OR par_codigo = '39810')"
      ' Asigna tipo proceso comex
     txtprocesocomex.Text = "CMX-01"
     Set rs_det1 = New ADODB.Recordset
@@ -3440,23 +3612,23 @@ End Sub
 ' Boton imprimir orden pago
 Private Sub BtnImprimir1_Click()
   If (Ado_datos.Recordset.RecordCount > 0) Then
-    If Ado_detalle1.Recordset.RecordCount > 0 Then
+'    If Ado_detalle1.Recordset.RecordCount > 0 Then
         Dim iResult As Integer
-        cr01.ReportFileName = App.Path & "\Reportes\tecnico\tr_identificacion_cliente.rpt"
-        cr01.WindowShowPrintSetupBtn = True
-        cr01.WindowShowRefreshBtn = True
-          cr01.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
-          cr01.Formulas(1) = "Subtitulo = '" & FraDet1.Caption & "' "
+        CR01.ReportFileName = App.Path & "\Reportes\comex\ar_seguimiento_comex.rpt"
+        CR01.WindowShowPrintSetupBtn = True
+        CR01.WindowShowRefreshBtn = True
+          'CR01.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
+          'CR01.Formulas(1) = "Subtitulo = '" & FraDet1.Caption & "' "
 
-        cr01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
-        cr01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
-        cr01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = cr01.PrintReport
-        If iResult <> 0 Then MsgBox cr01.LastErrorNumber & " : " & cr01.LastErrorString, vbCritical, "Error de impresión"
-        cr01.WindowState = crptMaximized
-    Else
-        MsgBox "No se puede Imprimir. Debe registrar datos del Detalle ...", , "Atención"
-    End If
+        'CR01.StoredProcParam(0) = Me.Ado_datos.Recordset!ges_gestion
+        'CR01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
+        'CR01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
+        iResult = CR01.PrintReport
+        If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
+        CR01.WindowState = crptMaximized
+'    Else
+'        MsgBox "No se puede Imprimir. Debe registrar datos del Detalle ...", , "Atención"
+'    End If
   Else
     MsgBox "No se puede Imprimir. Debe elegir el Registro que desea Imprimir ...", , "Atención"
   End If

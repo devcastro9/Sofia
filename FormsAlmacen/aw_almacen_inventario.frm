@@ -33,7 +33,7 @@ Begin VB.Form aw_almacen_inventario
       Height          =   4575
       Left            =   1920
       TabIndex        =   32
-      Top             =   2520
+      Top             =   2400
       Visible         =   0   'False
       Width           =   8775
       Begin VB.CommandButton btnSalirPanel 
@@ -333,7 +333,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   122617857
+         Format          =   111607809
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -346,7 +346,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   122617857
+         Format          =   111607809
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1159,6 +1159,8 @@ Dim rs_datos1 As ADODB.Recordset
 Dim rs_datos2 As ADODB.Recordset
 Dim rs_datos3 As ADODB.Recordset
 Dim RsGrupos As ADODB.Recordset
+Dim rs_aux1 As ADODB.Recordset
+Dim rs_aux2 As ADODB.Recordset
 
 '==== busquedas ====
 Dim ClBuscaGrid As ClBuscaEnGridExterno
@@ -1176,7 +1178,7 @@ Dim CANT_SALDO, SALDO_UNIT_BS, SALDO_TOT_BS As Double
 Dim UNIT87_BS, TOT87_BS As Double
 
 'Dim cmm As ADODB.Command
-Dim VAR_ALM As Integer
+Dim VAR_ALM, VAR_CONTAR As Integer
 
 Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
@@ -1290,9 +1292,11 @@ End Sub
 
 Private Sub BtnImprimir2_Click()
     If Ado_datos.Recordset.RecordCount > 0 Then
+        Call ACTUALIZA_PPP_BIEN
         Dim iResult As Integer
         'Dim co As New ADODB.Command
-        CryV02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_kardex_almacen_acumulado_valorado.rpt" '
+        'CryV02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_kardex_almacen_acumulado_valorado.rpt" '
+        CryV02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_kardex_almacen_acumulado_valorado_full.rpt" '
         CryV02.WindowShowPrintSetupBtn = True
         CryV02.WindowShowRefreshBtn = True
         'CryV02.StoredProcParam(0) = Ado_datos.Recordset!bien_codigo
@@ -1499,7 +1503,17 @@ Private Sub dtc_desc1_Change()
         dtc_codigo1.BoundText = dtc_desc1.BoundText
         dtc_cod2.BoundText = dtc_desc2.BoundText
     End If
-    'Call ACTUALIZA_PPP
+    Set rs_aux1 = New ADODB.Recordset
+    If rs_aux1.State = 1 Then rs_aux1.Close
+    rs_aux1.Open "select count(almacen_codigo) as cont1 from av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & "   ", db, adOpenStatic
+    
+    Set rs_aux2 = New ADODB.Recordset
+    If rs_aux2.State = 1 Then rs_aux2.Close
+    rs_aux2.Open "select count(almacen_codigo) as cont2 from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & "   ", db, adOpenStatic
+    
+    If rs_aux1!CONT1 <> rs_aux2!CONT2 Then
+        Call ACTUALIZA_PPP
+    End If
     'f dtc_codigo1.Text = "" Then
     '    MsgBox "El Almacen No existe o no tiene Movimiento... , vuelva a intentar ...", vbInformation + vbOKOnly, "Atención"
     '    VAR_SW = "SI"
@@ -1542,11 +1556,13 @@ Private Sub ACTUALIZA_PPP()
     ' CLONA INGRESOS Y SALIDAS DE ALMACEN
     'db.Execute "DROP TABLE ao_saldos3 "
     'db.Execute "SELECT * INTO ao_saldos3 FROM av_almacenes_saldos "
-    db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " "
-    db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & ""
+    
+'    db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " "
+'    db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & ""
     Set rs_datos2 = New ADODB.Recordset
     If rs_datos2.State = 1 Then rs_datos2.Close
-    rs_datos2.Open "select bien_codigo from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " GROUP BY bien_codigo  ", db, adOpenStatic
+    'rs_datos2.Open "select bien_codigo from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " GROUP BY bien_codigo  ", db, adOpenStatic
+    rs_datos2.Open "select bien_codigo from av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " GROUP BY bien_codigo  ", db, adOpenStatic
     'Set Ado_datos2.Recordset = rs_datos2
     If rs_datos2.RecordCount > 0 Then
         ProgressBar1.Visible = True
@@ -1555,16 +1571,135 @@ Private Sub ACTUALIZA_PPP()
             .Min = 0
             .Value = 0
         End With
-      'ProgressBar1.Max =
         rs_datos2.MoveFirst
         While Not rs_datos2.EOF
             ProgressBar1.Value = ProgressBar1.Value + 1
             VAR_BIEN2 = rs_datos2!bien_codigo
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+            Set rs_aux1 = New ADODB.Recordset
+            If rs_aux1.State = 1 Then rs_aux1.Close
+            rs_aux1.Open "select count(almacen_codigo) as cont1 from av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "'  ", db, adOpenStatic
+            
+            Set rs_aux2 = New ADODB.Recordset
+            If rs_aux2.State = 1 Then rs_aux2.Close
+            rs_aux2.Open "select count(almacen_codigo) as cont2 from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "'  ", db, adOpenStatic
+            
+            If rs_aux1!CONT1 <> rs_aux2!CONT2 Then
+                'ACTUALIZA PPP DEL ALMACEN Y BIEN
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "'  "
+                db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & "  AND bien_codigo = '" & VAR_BIEN2 & "' "
+    
+                Set rs_datos3 = New ADODB.Recordset
+                If rs_datos3.State = 1 Then rs_datos3.Close
+                rs_datos3.Open "select * from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' ORDER BY fecha_ingreso, doc_codigo ", db, adOpenStatic
+                If rs_datos3.RecordCount > 0 Then
+                    rs_datos3.MoveFirst
+                    CANT_ING = rs_datos3!cantidad_ingreso
+                    COMPRA_UNIT_BS = rs_datos3!compra_bs_unit
+                    COMPRA_TOT_BS = rs_datos3!importe_compra_bs
+                    CANT_SAL = rs_datos3!cantidad_salida
+                    'VENTA_UNIT_BS = rs_datos3!CostoUnitario
+                    '=SI(cantidad_salida=0;CostoUnitarioCPP;0)
+                    If CANT_SAL = 0 Then
+                        VENTA_UNIT_BS = 0
+                    Else
+                        VENTA_UNIT_BS = COMPRA_UNIT_BS                  'SALDO_UNIT_BS
+                    End If
+                    'VENTA_TOT_BS = rs_datos3!importe_venta_bs
+                    VENTA_TOT_BS = Round(CANT_SAL * VENTA_UNIT_BS, 2)
+                    'CANT_SALDO = rs_datos3!cantidad_saldo
+                    CANT_SALDO = CANT_ING - CANT_SAL
+                    'SALDO_UNIT_BS = rs_datos3!CostoUnitarioCPP
+                    ''SI(CostoUnitario>0;CostoUnitario;(importe_compra_bs+importe_venta_bs)/)cantidad_saldo
+                    If VENTA_UNIT_BS > 0 Then
+                        SALDO_UNIT_BS = VENTA_UNIT_BS
+                    Else
+                        SALDO_UNIT_BS = Round((COMPRA_TOT_BS + VENTA_TOT_BS) / CANT_SALDO, 2)
+                    End If
+                    'SALDO_TOT_BS = rs_datos3!CostoTotalCPP
+                    SALDO_TOT_BS = Round(CANT_SALDO * SALDO_UNIT_BS, 2)
+                    'UNIT87_BS = rs_datos3!CostoUnitario87
+                    UNIT87_BS = Round(SALDO_UNIT_BS * 0.87, 2)
+                    'TOT87_BS = rs_datos3!valortotal87
+                    TOT87_BS = Round(SALDO_TOT_BS * 0.87, 2)
+                    While Not rs_datos3.EOF
+                        db.Execute "UPDATE ao_saldos3 SET CostoUnitario = " & VENTA_UNIT_BS & ", importe_venta_bs = " & VENTA_TOT_BS & ", cantidad_saldo = " & CANT_SALDO & ", CostoUnitarioCPP = " & SALDO_UNIT_BS & ", CostoTotalCPP = " & SALDO_TOT_BS & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & "  "            'AND fecha_ingreso = '" & Format(rs_datos3!fecha_ingreso, "dd/mm/yyyy") & "'
+                        db.Execute "UPDATE ao_saldos3 SET correlativo = " & rs_datos3.RecordCount & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & "  "
+                        rs_datos3.MoveNext
+                        If Not rs_datos3.EOF Then
+                            'VARIABLES
+                            If rs_datos3!compra_bs_unit = 0 Then
+                                VENTA_UNIT_BS = SALDO_UNIT_BS
+                            Else
+                                VENTA_UNIT_BS = 0
+                            End If
+                            VENTA_TOT_BS = Round(rs_datos3!cantidad_salida * VENTA_UNIT_BS, 2)
+                            CANT_SALDO = (rs_datos3!cantidad_ingreso - rs_datos3!cantidad_salida) + CANT_SALDO
+                            If rs_datos3!compra_bs_unit = 0 Then
+                                SALDO_UNIT_BS = SALDO_UNIT_BS
+                            Else
+                                If CANT_SALDO = 0 Then
+                                    SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS), 2)
+                                Else
+                                    SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS) / CANT_SALDO, 2)
+                                End If
+                            End If
+                            SALDO_TOT_BS = Round(CANT_SALDO * SALDO_UNIT_BS, 2)
+                        End If
+                    Wend
+                End If
+            End If
+            rs_datos2.MoveNext
+        Wend
+        
+        db.Execute "UPDATE ao_saldos3 SET CostoUnitario87 = CostoUnitarioCPP * 0.87 , valortotal87 = CostoTotalCPP * 0.87  where almacen_codigo = " & dtc_codigo1.Text & "  "
+        'ACTUALIZA PRECIO SALIDA ALMACEN
+        db.Execute "update ao_almacen_salidas set precio_unitario_bs = ao_saldos3.CostoUnitario, importe_venta_bs = ao_saldos3.importe_venta_bs FROM ao_almacen_salidas INNER JOIN ao_saldos3 ON ao_almacen_salidas.almacen_codigo = ao_saldos3.almacen_codigo AND ao_almacen_salidas.doc_codigo  = ao_saldos3.doc_codigo AND ao_almacen_salidas.doc_numero = ao_saldos3.doc_numero AND ao_almacen_salidas.bien_codigo = ao_saldos3.bien_codigo WHERE ao_almacen_salidas.almacen_codigo = " & dtc_codigo1.Text & "  "
+        'ACTUALIZA ao_almacen_totales
+        ProgressBar1.Visible = False
+    Else
+        rs_datos2.Close
+    End If
+End Sub
+
+Private Sub ACTUALIZA_PPP_BIEN()
+'Dim UNIT87_BS, TOT87_BS As Double
+    ' CLONA INGRESOS Y SALIDAS DE ALMACEN
+    'db.Execute "DROP TABLE ao_saldos3 "
+    'db.Execute "SELECT * INTO ao_saldos3 FROM av_almacenes_saldos "
+    VAR_CONTAR = 0
+    VAR_BIEN2 = Ado_datos.Recordset!bien_codigo
+    db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+    db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+'    Set rs_datos2 = New ADODB.Recordset
+'    If rs_datos2.State = 1 Then rs_datos2.Close
+'    rs_datos2.Open "select bien_codigo from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " GROUP BY bien_codigo  ", db, adOpenStatic
+'    'Set Ado_datos2.Recordset = rs_datos2
+'    If rs_datos2.RecordCount > 0 Then
+'        ProgressBar1.Visible = True
+'        With ProgressBar1
+'            .Max = rs_datos2.RecordCount
+'            .Min = 0
+'            .Value = 0
+'        End With
+'      'ProgressBar1.Max =
+'        rs_datos2.MoveFirst
+'        While Not rs_datos2.EOF
+'            ProgressBar1.Value = ProgressBar1.Value + 1
+'            VAR_BIEN2 = rs_datos2!bien_codigo
             Set rs_datos3 = New ADODB.Recordset
             If rs_datos3.State = 1 Then rs_datos3.Close
             rs_datos3.Open "select * from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' ORDER BY fecha_ingreso, doc_codigo ", db, adOpenStatic
             If rs_datos3.RecordCount > 0 Then
+                ProgressBar1.Visible = True
+                With ProgressBar1
+                    .Max = rs_datos3.RecordCount
+                    .Min = 0
+                    .Value = 0
+                End With
                 rs_datos3.MoveFirst
+                VAR_CONTAR = 1
                 CANT_ING = rs_datos3!cantidad_ingreso
                 COMPRA_UNIT_BS = rs_datos3!compra_bs_unit
                 COMPRA_TOT_BS = rs_datos3!importe_compra_bs
@@ -1594,47 +1729,47 @@ Private Sub ACTUALIZA_PPP()
                 'TOT87_BS = rs_datos3!valortotal87
                 TOT87_BS = Round(SALDO_TOT_BS * 0.87, 2)
                 While Not rs_datos3.EOF
+                    ProgressBar1.Value = ProgressBar1.Value + 1
                     db.Execute "UPDATE ao_saldos3 SET CostoUnitario = " & VENTA_UNIT_BS & ", importe_venta_bs = " & VENTA_TOT_BS & ", cantidad_saldo = " & CANT_SALDO & ", CostoUnitarioCPP = " & SALDO_UNIT_BS & ", CostoTotalCPP = " & SALDO_TOT_BS & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & "  "            'AND fecha_ingreso = '" & Format(rs_datos3!fecha_ingreso, "dd/mm/yyyy") & "'
-                    db.Execute "UPDATE ao_saldos3 SET correlativo = " & rs_datos3.RecordCount & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & "  "
+                    db.Execute "UPDATE ao_saldos3 SET correlativo = " & VAR_CONTAR & " where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' AND doc_codigo = '" & rs_datos3!doc_codigo & "' AND doc_numero = " & rs_datos3!doc_numero & "  "
                     rs_datos3.MoveNext
+                    VAR_CONTAR = VAR_CONTAR + 1
                     If Not rs_datos3.EOF Then
                         'VARIABLES
-                        If rs_datos3!compra_bs_unit = 0 Then
-                            VENTA_UNIT_BS = SALDO_UNIT_BS
-                        Else
-                            VENTA_UNIT_BS = 0
-                        End If
-                        VENTA_TOT_BS = Round(rs_datos3!cantidad_salida * VENTA_UNIT_BS, 2)
-                        CANT_SALDO = (rs_datos3!cantidad_ingreso - rs_datos3!cantidad_salida) + CANT_SALDO
-                        If rs_datos3!compra_bs_unit = 0 Then
-                            SALDO_UNIT_BS = SALDO_UNIT_BS
-                        Else
-                            If CANT_SALDO = 0 Then
-                                SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS), 2)
+                            If rs_datos3!compra_bs_unit = 0 Then
+                                VENTA_UNIT_BS = SALDO_UNIT_BS
                             Else
-                                SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS) / CANT_SALDO, 2)
+                                VENTA_UNIT_BS = 0
                             End If
-                        End If
-                        SALDO_TOT_BS = Round(CANT_SALDO * SALDO_UNIT_BS, 2)
+                            VENTA_TOT_BS = Round(rs_datos3!cantidad_salida * VENTA_UNIT_BS, 2)
+                            CANT_SALDO = (rs_datos3!cantidad_ingreso - rs_datos3!cantidad_salida) + CANT_SALDO
+                            If rs_datos3!compra_bs_unit = 0 Then
+                                SALDO_UNIT_BS = SALDO_UNIT_BS
+                            Else
+                                If CANT_SALDO = 0 Then
+                                    SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS), 2)
+                                    'SALDO_UNIT_BS = Round((rs_datos3!compra_bs_unit + SALDO_TOT_BS), 2)
+                                Else
+                                    SALDO_UNIT_BS = Round((rs_datos3!importe_compra_bs + SALDO_TOT_BS) / CANT_SALDO, 2)
+                                End If
+                            End If
+                            SALDO_TOT_BS = Round(CANT_SALDO * SALDO_UNIT_BS, 2)
                     End If
                 Wend
             End If
-            rs_datos2.MoveNext
-        Wend
-        
+'            rs_datos2.MoveNext
+'        Wend
         db.Execute "UPDATE ao_saldos3 SET CostoUnitario87 = CostoUnitarioCPP * 0.87 , valortotal87 = CostoTotalCPP * 0.87  where almacen_codigo = " & dtc_codigo1.Text & "  "
         'ACTUALIZA PRECIO SALIDA ALMACEN
         db.Execute "update ao_almacen_salidas set precio_unitario_bs = ao_saldos3.CostoUnitario, importe_venta_bs = ao_saldos3.importe_venta_bs FROM ao_almacen_salidas INNER JOIN ao_saldos3 ON ao_almacen_salidas.almacen_codigo = ao_saldos3.almacen_codigo AND ao_almacen_salidas.doc_codigo  = ao_saldos3.doc_codigo AND ao_almacen_salidas.doc_numero = ao_saldos3.doc_numero AND ao_almacen_salidas.bien_codigo = ao_saldos3.bien_codigo WHERE ao_almacen_salidas.almacen_codigo = " & dtc_codigo1.Text & "  "
         'ACTUALIZA ao_almacen_totales
         ProgressBar1.Visible = False
-    Else
-        rs_datos2.Close
-    End If
-    
+'    Else
+'        rs_datos2.Close
+'    End If
 End Sub
 
 Private Sub Form_Load()
-
     Screen.MousePointer = vbHourglass
     Me.Top = 0
     Me.Left = 0

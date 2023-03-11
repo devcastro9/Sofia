@@ -1069,7 +1069,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   114556929
+            Format          =   117571585
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1377,7 +1377,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   114556931
+            Format          =   117571587
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -3077,7 +3077,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   114556929
+               Format          =   117571585
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -9826,7 +9826,11 @@ Private Sub CmdGrabaCobro_Click()
       '  Ado_datos16.Recordset!cobranza_descuento_dol = CDbl(TxtDscto.Text) / GlTipoCambioMercado        'Descuento Dol
       'End If
       If cmd_fac = "FACTURA" Then
-        Ado_datos16.Recordset!doc_codigo_fac = "R-101"
+        If Ado_datos.Recordset!codigo_empresa = 2 Then
+            Ado_datos16.Recordset!doc_codigo_fac = "R-100"
+        Else
+            Ado_datos16.Recordset!doc_codigo_fac = "R-101"
+        End If
         VAR_EMISION = "28"
       Else
         Ado_datos16.Recordset!doc_codigo_fac = "R-393"           '"R-103"

@@ -17,7 +17,7 @@ Begin VB.Form aw_salida_almacen_mant
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleWidth      =   10620
    WindowState     =   2  'Maximized
    Begin VB.Frame Frame1 
       BackColor       =   &H00C0C0C0&
@@ -161,7 +161,7 @@ Begin VB.Form aw_salida_almacen_mant
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   117178369
+            Format          =   117571585
             CurrentDate     =   42682
             MaxDate         =   55153
             MinDate         =   32874
@@ -1977,7 +1977,7 @@ Begin VB.Form aw_salida_almacen_mant
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   117178371
+         Format          =   117571587
          CurrentDate     =   41678
          MaxDate         =   109939
          MinDate         =   36526
@@ -3969,7 +3969,7 @@ Private Sub Form_Load()
     
     If glusuario = "MLLOSA" Then
         BtnModificar.Visible = False
-        BtnEliminar.Visible = False
+        btnEliminar.Visible = False
         BtnAprobar.Visible = False
         BtnModDetalle.Visible = False
         BtnGrabarDet.Visible = False
