@@ -15,8 +15,8 @@ Begin VB.Form aw_bienes
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8355
-   ScaleWidth      =   11145
+   ScaleHeight     =   12495
+   ScaleWidth      =   22920
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00E0E0E0&
@@ -115,7 +115,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   119013377
+         Format          =   158203905
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -643,7 +643,7 @@ Begin VB.Form aw_bienes
       BackColor       =   &H00C0C0C0&
       Caption         =   "LISTADO"
       ForeColor       =   &H00000000&
-      Height          =   7200
+      Height          =   8040
       Left            =   120
       TabIndex        =   51
       Top             =   720
@@ -663,7 +663,7 @@ Begin VB.Form aw_bienes
          Height          =   210
          Left            =   3600
          TabIndex        =   20
-         Top             =   6825
+         Top             =   7665
          Width           =   915
       End
       Begin VB.OptionButton OptFilGral1 
@@ -681,19 +681,19 @@ Begin VB.Form aw_bienes
          Height          =   210
          Left            =   1320
          TabIndex        =   19
-         Top             =   6825
+         Top             =   7665
          Value           =   -1  'True
          Width           =   1455
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Bindings        =   "aw_bienes.frx":96A8
-         Height          =   6450
+         Height          =   7290
          Left            =   120
          TabIndex        =   0
          Top             =   240
          Width           =   5640
          _ExtentX        =   9948
-         _ExtentY        =   11377
+         _ExtentY        =   12859
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   16777215
@@ -854,14 +854,14 @@ Begin VB.Form aw_bienes
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   1170.142
+               ColumnWidth     =   1170,142
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   3479.811
+               ColumnWidth     =   3479,811
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               ColumnWidth     =   585.071
+               ColumnWidth     =   585,071
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False
@@ -889,7 +889,7 @@ Begin VB.Form aw_bienes
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
          Left            =   120
-         Top             =   6765
+         Top             =   7605
          Width           =   5625
          _ExtentX        =   9922
          _ExtentY        =   582
@@ -935,7 +935,7 @@ Begin VB.Form aw_bienes
    End
    Begin VB.Frame FraArticulos 
       BackColor       =   &H00C0C0C0&
-      Height          =   7200
+      Height          =   8040
       Left            =   6120
       TabIndex        =   25
       Top             =   720
@@ -1126,7 +1126,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   119013377
+         Format          =   158269441
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1370,7 +1370,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   119013377
+         Format          =   158269441
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -2152,7 +2152,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc AdoMontador 
       Height          =   375
       Left            =   6960
-      Top             =   8160
+      Top             =   8880
       Visible         =   0   'False
       Width           =   2520
       _ExtentX        =   4445
@@ -2199,7 +2199,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc AdoMedida 
       Height          =   375
       Left            =   9480
-      Top             =   8160
+      Top             =   8880
       Visible         =   0   'False
       Width           =   2400
       _ExtentX        =   4233
@@ -2246,7 +2246,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc AdoMarca 
       Height          =   375
       Left            =   11880
-      Top             =   8160
+      Top             =   8880
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2296,10 +2296,10 @@ Begin VB.Form aw_bienes
       Height          =   480
       Left            =   0
       ScaleHeight     =   480
-      ScaleWidth      =   11145
+      ScaleWidth      =   22920
       TabIndex        =   26
-      Top             =   7875
-      Width           =   11145
+      Top             =   12015
+      Width           =   22920
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -2342,7 +2342,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc AdoPais 
       Height          =   375
       Left            =   4680
-      Top             =   8160
+      Top             =   8880
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2389,7 +2389,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc AdoGrupo 
       Height          =   375
       Left            =   2400
-      Top             =   8160
+      Top             =   8880
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2478,7 +2478,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc Ado_datos10 
       Height          =   330
       Left            =   120
-      Top             =   8160
+      Top             =   8880
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2525,7 +2525,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc Ado_datos6 
       Height          =   330
       Left            =   120
-      Top             =   8640
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2572,7 +2572,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc Ado_datos7 
       Height          =   330
       Left            =   2400
-      Top             =   8640
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2619,7 +2619,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc Ado_datos8 
       Height          =   330
       Left            =   4680
-      Top             =   8640
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2665,7 +2665,7 @@ Begin VB.Form aw_bienes
    End
    Begin Crystal.CrystalReport CryV01 
       Left            =   120
-      Top             =   8880
+      Top             =   9600
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   348160
@@ -2684,7 +2684,7 @@ Begin VB.Form aw_bienes
    Begin MSAdodcLib.Adodc Ado_datos5 
       Height          =   330
       Left            =   6960
-      Top             =   8640
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2820,7 +2820,7 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
         If Ado_datos.Recordset.BOF And Ado_datos.Recordset.EOF Then
             TxtGrupo.Caption = ""
             TxtDetalle.Text = ""
-            TxtDescripcion.Text = ""
+            txtDescripcion.Text = ""
             TxtActual.Caption = ""
 '            chkEstado.Value = vbUnchecked
 '            Ado_datos.Caption = "Registro: 0 de 0"
@@ -3518,11 +3518,11 @@ On Error GoTo QError
             End If
             Ado_datos.Recordset!bien_codigo = CodBien
             Ado_datos.Recordset!ARCHIVO_Foto = "Cargar_Archivo"
-            Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text          '+ " - " + TxtInicial
+            Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text          '+ " - " + TxtInicial
             
           End If
           If swnuevo = False Then
-            Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text
+            Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text
             CodBien = Ado_datos.Recordset!bien_codigo
           End If
             Ado_datos.Recordset!bien_descripcion_anterior = TxtDescripcion2.Text
@@ -3953,10 +3953,10 @@ Private Function Valida() As Boolean
 '            Exit Function
 '          End If
 '    End If
-    If Trim(TxtDescripcion.Text) = "" Then
+    If Trim(txtDescripcion.Text) = "" Then
         MsgBox "Ingrese la Descripción del Bien.", vbExclamation + vbOKOnly, "Atención"
         If estado <> 0 Then
-            TxtDescripcion.SetFocus
+            txtDescripcion.SetFocus
         End If
         Exit Function
     End If
