@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   111804417
+         Format          =   119275521
          CurrentDate     =   44562
          MinDate         =   2
       End

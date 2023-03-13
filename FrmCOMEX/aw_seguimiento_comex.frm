@@ -12,8 +12,8 @@ Begin VB.Form aw_seguimiento_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   16545
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
@@ -254,7 +254,7 @@ Begin VB.Form aw_seguimiento_comex
       Height          =   1605
       Left            =   105
       TabIndex        =   13
-      Top             =   4860
+      Top             =   4740
       Width           =   18735
       Begin MSDataGridLib.DataGrid dg_det1 
          Height          =   1305
@@ -290,7 +290,7 @@ Begin VB.Form aw_seguimiento_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   11
+         ColumnCount     =   12
          BeginProperty Column00 
             DataField       =   "grupo_codigo"
             Caption         =   "Grupo"
@@ -357,6 +357,19 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column05 
+            DataField       =   "unimed_codigo_bien"
+            Caption         =   "Unidad.Medida"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   21514
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
             DataField       =   "compra_precio_unitario_bs"
             Caption         =   "Precio.BOB"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -369,7 +382,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column06 
+         BeginProperty Column07 
             DataField       =   "compra_precio_total_bs"
             Caption         =   "Precio.Total"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -382,7 +395,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
+         BeginProperty Column08 
             DataField       =   "compra_precio_unitario_dol"
             Caption         =   "Precio.USD"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -395,7 +408,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column09 
             DataField       =   "compra_precio_total_dol"
             Caption         =   "Total USD"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -408,7 +421,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column09 
+         BeginProperty Column10 
             DataField       =   "tipo_eqp_descripcion"
             Caption         =   "Tipo.Bien/Serv."
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -421,7 +434,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column10 
+         BeginProperty Column11 
             DataField       =   "marca_descripcion"
             Caption         =   "Marca"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -453,27 +466,33 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
+               ColumnWidth     =   810.142
             EndProperty
             BeginProperty Column05 
-               Locked          =   -1  'True
+               ColumnWidth     =   1260.284
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column08 
                Locked          =   -1  'True
-               Object.Visible         =   0   'False
+               Object.Visible         =   -1  'True
             EndProperty
             BeginProperty Column09 
+               Locked          =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column10 
+               ColumnWidth     =   1830.047
+            EndProperty
+            BeginProperty Column11 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
+               ColumnWidth     =   1874.835
             EndProperty
          EndProperty
       End
@@ -485,16 +504,15 @@ Begin VB.Form aw_seguimiento_comex
       Height          =   1480
       Left            =   120
       TabIndex        =   11
-      Top             =   8115
-      Visible         =   0   'False
+      Top             =   7875
       Width           =   18735
       Begin MSDataGridLib.DataGrid dg_det3 
          Height          =   1200
          Left            =   75
          TabIndex        =   12
          Top             =   225
-         Width           =   14895
-         _ExtentX        =   26273
+         Width           =   18375
+         _ExtentX        =   32411
          _ExtentY        =   2117
          _Version        =   393216
          AllowUpdate     =   0   'False
@@ -524,8 +542,8 @@ Begin VB.Form aw_seguimiento_comex
          EndProperty
          ColumnCount     =   17
          BeginProperty Column00 
-            DataField       =   "pago_codigo"
-            Caption         =   "Nro.O.P."
+            DataField       =   "IdRecibo"
+            Caption         =   "#Recibo.Teso"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -537,8 +555,8 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column01 
-            DataField       =   "pago_descripcion"
-            Caption         =   "Concepto.de.la. Orden de Pago"
+            DataField       =   "fecha_registro_bco"
+            Caption         =   "Fecha.Transaccion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -550,8 +568,34 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column02 
-            DataField       =   "pago_fecha_prog"
-            Caption         =   "Fecha.O.P."
+            DataField       =   "trans_descripcion"
+            Caption         =   "Tipo Transaccion"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
+            DataField       =   "adjudica_bs"
+            Caption         =   "Monto.a.Pagar.Bs"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   4105
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column04 
+            DataField       =   "adjudica_dol"
+            Caption         =   "Monto.a.Pagar.USD"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -562,7 +606,98 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column03 
+         BeginProperty Column05 
+            DataField       =   "observaciones_prov"
+            Caption         =   "Concepto.de.la.Orden.Cancelacion"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
+            DataField       =   "cta_codigo_origen"
+            Caption         =   "Cta.Bancaria.Origen"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column07 
+            DataField       =   "adjudica_descripcion"
+            Caption         =   "Concepto.Adjudicacion"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
+            DataField       =   "cmpbte_deposito_bco"
+            Caption         =   "Nro.Documento"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column09 
+            DataField       =   "cta_codigo_destino"
+            Caption         =   "Cta.Bancaria.Destino"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "beneficiario_denominacion"
+            Caption         =   "Proveedor"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column11 
+            DataField       =   "tipo_moneda"
+            Caption         =   "Tipo.Moneda"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column12 
             DataField       =   "fecha_pago"
             Caption         =   "Fecha Pago"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -575,125 +710,8 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column04 
-            DataField       =   "tipo_transaccion"
-            Caption         =   "Tipo Transaccion"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column05 
-            DataField       =   "cta_codigo"
-            Caption         =   "Cta. Bancaria"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
-            DataField       =   "concepto_pago"
-            Caption         =   "Concepto Pago"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column07 
-            DataField       =   "pago_total_bs"
-            Caption         =   "Monto.a.Pagar.Bs"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   4105
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column08 
-            DataField       =   "pago_total_dol"
-            Caption         =   "Monto.a.Pagar.USD"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column09 
-            DataField       =   "numero_cheque_trf"
-            Caption         =   "Nro. Documento"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column10 
-            DataField       =   "cta_codigo_destino"
-            Caption         =   "Cta. Bancaria Destino"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column11 
-            DataField       =   "beneficiario_destino"
-            Caption         =   "Beneficiario Destino"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column12 
-            DataField       =   "tipo_cambio"
-            Caption         =   "Tipo Cambio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   3082
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
          BeginProperty Column13 
-            DataField       =   "estado_codigo"
+            DataField       =   "estado_codigo_adj"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -732,7 +750,7 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column16 
-            DataField       =   "pago_emite_factura"
+            DataField       =   "factura"
             Caption         =   "Emite.Factura"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
@@ -747,28 +765,31 @@ Begin VB.Form aw_seguimiento_comex
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
+               ColumnWidth     =   1154.835
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
             EndProperty
             BeginProperty Column02 
-               Locked          =   -1  'True
             EndProperty
             BeginProperty Column03 
+               Locked          =   -1  'True
             EndProperty
             BeginProperty Column04 
+               Locked          =   -1  'True
             EndProperty
             BeginProperty Column05 
+               Locked          =   -1  'True
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   4619.906
             EndProperty
             BeginProperty Column06 
-               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
-               Locked          =   -1  'True
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column08 
-               Locked          =   -1  'True
+               ColumnWidth     =   1214.929
             EndProperty
             BeginProperty Column09 
             EndProperty
@@ -801,7 +822,7 @@ Begin VB.Form aw_seguimiento_comex
       Height          =   1480
       Left            =   120
       TabIndex        =   7
-      Top             =   6495
+      Top             =   6375
       Width           =   18735
       Begin MSDataGridLib.DataGrid dg_det2 
          Height          =   1200
@@ -837,7 +858,7 @@ Begin VB.Form aw_seguimiento_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   9
+         ColumnCount     =   8
          BeginProperty Column00 
             DataField       =   "tipo"
             Caption         =   "Tipo"
@@ -904,19 +925,6 @@ Begin VB.Form aw_seguimiento_comex
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "adjudica_cantidad_total"
-            Caption         =   "Cantidad"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column06 
             DataField       =   "fecha_inicio_contrato"
             Caption         =   "Fecha.Inicio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -929,7 +937,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
+         BeginProperty Column06 
             DataField       =   "fecha_fin_contrato"
             Caption         =   "Fecha.Finalizacion"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -942,7 +950,7 @@ Begin VB.Form aw_seguimiento_comex
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column07 
             DataField       =   "Fecha_envio_proveedor"
             Caption         =   "Fecha.Entrega/Salida"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -974,16 +982,13 @@ Begin VB.Form aw_seguimiento_comex
                Locked          =   -1  'True
             EndProperty
             BeginProperty Column05 
-               Locked          =   -1  'True
-               ColumnWidth     =   840.189
+               Object.Visible         =   -1  'True
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
             EndProperty
             BeginProperty Column07 
-               Object.Visible         =   -1  'True
-            EndProperty
-            BeginProperty Column08 
+               ColumnWidth     =   1725.165
             EndProperty
          EndProperty
       End
@@ -992,7 +997,7 @@ Begin VB.Form aw_seguimiento_comex
       BackColor       =   &H00C0C0C0&
       Caption         =   "LISTADO"
       ForeColor       =   &H00FFFFFF&
-      Height          =   4080
+      Height          =   3960
       Left            =   120
       TabIndex        =   6
       Top             =   720
@@ -1478,10 +1483,10 @@ Begin VB.Form aw_seguimiento_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   16545
+      ScaleWidth      =   20160
       TabIndex        =   0
-      Top             =   10260
-      Width           =   16545
+      Top             =   10935
+      Width           =   20160
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -2287,6 +2292,7 @@ Begin VB.Form aw_seguimiento_comex
       Left            =   12000
       TabIndex        =   19
       Top             =   4800
+      Visible         =   0   'False
       Width           =   1215
    End
    Begin VB.Label lblcodigopagosig 
@@ -3078,7 +3084,8 @@ Public Sub CargarGridDetalles()
     If rs_det2.State = 1 Then rs_det2.Close
     ' ---- Consulta filtra adjudicaciones por proceso de comex.
     Dim sqlAdju As String
-    sqlAdju = " EXEC ra_select_aocompraadjudica " & Ado_datos.Recordset!solicitud_codigo & "  "
+    'sqlAdju = " EXEC ra_select_aocompraadjudica " & Ado_datos.Recordset!solicitud_codigo & "  "
+    sqlAdju = " EXEC ra_select_aocompraadjudica " & Ado_datos.Recordset!compra_codigo & "  "
     rs_det2.Open sqlAdju, db, adOpenKeyset, adLockOptimistic, adCmdText
     'rs_det2.Open "select * from ao_compra_adjudica where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  ", db, adOpenKeyset, adLockOptimistic, adCmdText
     Set Ado_detalle2.Recordset = rs_det2
@@ -3086,7 +3093,9 @@ Public Sub CargarGridDetalles()
     
         Set rs_det3 = New ADODB.Recordset
         If rs_det3.State = 1 Then rs_det3.Close
-        sqlAux = " EXEC ra_select_pagos " & rs_det2!compra_codigo & ", " & numAdjudicacion & "  "
+        'sqlAux = " EXEC ra_select_pagos " & rs_det2!compra_codigo & ", " & numAdjudicacion & "  "
+        sqlAux = "select * from fv_tes_adjudica_recibos where compra_codigo = " & rs_det2!compra_codigo & " "
+        '
         rs_det3.Open sqlAux, db, adOpenKeyset, adLockOptimistic, adCmdText
         Set Ado_detalle3.Recordset = rs_det3
         If Ado_detalle3.Recordset.RecordCount > 0 Then

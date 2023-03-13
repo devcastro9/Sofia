@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -18,27 +18,18 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   15336.33
+   ScaleHeight     =   15315.61
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.05914e6
+   ScaleWidth      =   1.38961e6
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
       Caption         =   "Registra Justificacion para Anulación de Factura"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
       Left            =   8520
       TabIndex        =   200
-      Top             =   4800
+      Top             =   4920
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -89,15 +80,6 @@ Begin VB.Form tw_tecnico_venta
       Begin VB.Label Label23 
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   120
@@ -109,20 +91,11 @@ Begin VB.Form tw_tecnico_venta
    Begin VB.Frame frm_benef 
       BackColor       =   &H00404040&
       Caption         =   "Registra Datos del Cliente"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
       Left            =   8520
       TabIndex        =   193
-      Top             =   4800
+      Top             =   4920
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -193,15 +166,6 @@ Begin VB.Form tw_tecnico_venta
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
          Caption         =   "Correo Electrónico:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   720
@@ -213,15 +177,6 @@ Begin VB.Form tw_tecnico_venta
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
          Caption         =   "Telefono Celular:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   720
@@ -846,15 +801,6 @@ Begin VB.Form tw_tecnico_venta
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Para Modificar la ""Fecha.Inicio y Fecha.Fin"", edite la casilla y digite Enter..."
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00FFFFC0&
             Height          =   240
             Left            =   600
@@ -867,15 +813,6 @@ Begin VB.Form tw_tecnico_venta
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "... Luego -->"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00FFFFC0&
             Height          =   240
             Left            =   8280
@@ -1129,7 +1066,7 @@ Begin VB.Form tw_tecnico_venta
             BackColor       =   &H80000018&
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -1310,7 +1247,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110100481
+            Format          =   119275521
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1574,7 +1511,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   110100481
+            Format          =   119275521
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1602,7 +1539,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   110100481
+            Format          =   119275521
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2100,7 +2037,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   110100481
+               Format          =   119275521
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2125,7 +2062,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110100481
+               Format          =   119275521
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2278,15 +2215,6 @@ Begin VB.Form tw_tecnico_venta
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Zona Piloto"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   6840
@@ -2299,15 +2227,6 @@ Begin VB.Form tw_tecnico_venta
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Responsable/Supervisor del Servicio Técnico:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   240
@@ -2495,15 +2414,6 @@ Begin VB.Form tw_tecnico_venta
          Begin VB.Frame Fra_datos 
             BackColor       =   &H00C0C0C0&
             Caption         =   "- EMPRESA ------------------------------------------------------------------------------------------ Cobrador "
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00800000&
             Height          =   1965
             Left            =   60
@@ -2569,7 +2479,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110100481
+               Format          =   119275521
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2652,7 +2562,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   110100481
+               Format          =   119275521
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -2813,15 +2723,6 @@ Begin VB.Form tw_tecnico_venta
          Begin VB.Frame Fra_Total 
             BackColor       =   &H00C0C0C0&
             Caption         =   $"tw_tecnico_venta.frx":11EC4
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00C00000&
             Height          =   1215
             Left            =   60
@@ -2845,7 +2746,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -2877,7 +2778,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -2909,7 +2810,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -2941,7 +2842,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -2973,7 +2874,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -3005,7 +2906,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -3037,7 +2938,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -3082,15 +2983,6 @@ Begin VB.Form tw_tecnico_venta
                   SubFormatType   =   0
                EndProperty
                DataSource      =   "Ado_datos"
-               BeginProperty Font 
-                  Name            =   "MS Sans Serif"
-                  Size            =   9.75
-                  Charset         =   0
-                  Weight          =   400
-                  Underline       =   0   'False
-                  Italic          =   0   'False
-                  Strikethrough   =   0   'False
-               EndProperty
                ForeColor       =   &H00000000&
                Height          =   360
                Left            =   7800
@@ -3149,7 +3041,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -3181,7 +3073,7 @@ Begin VB.Form tw_tecnico_venta
                DataSource      =   "Ado_datos"
                BeginProperty Font 
                   Name            =   "MS Sans Serif"
-                  Size            =   9.75
+                  Size            =   8.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -3378,7 +3270,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110100481
+            Format          =   119275521
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -3431,7 +3323,7 @@ Begin VB.Form tw_tecnico_venta
             DataSource      =   "Ado_datos"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   13.5
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -3880,10 +3772,10 @@ Begin VB.Form tw_tecnico_venta
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   645.165
+               ColumnWidth     =   675.213
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   675.213
+               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   0   'False
@@ -3893,15 +3785,15 @@ Begin VB.Form tw_tecnico_venta
                ColumnWidth     =   929.764
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1094.74
+               ColumnWidth     =   1124.787
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   569.764
+               ColumnWidth     =   585.071
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   2594.835
+               ColumnWidth     =   3660.095
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
@@ -3911,10 +3803,10 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   854.929
+               ColumnWidth     =   840.189
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   884.976
+               ColumnWidth     =   870.236
             EndProperty
          EndProperty
       End
@@ -4173,7 +4065,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4110.236
+               ColumnWidth     =   4680
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
@@ -4182,7 +4074,7 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1080
+               ColumnWidth     =   1019.906
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
@@ -4191,19 +4083,20 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1049.953
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   810.142
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   645.165
+               ColumnWidth     =   599.811
             EndProperty
             BeginProperty Column10 
                ColumnWidth     =   4484.977
@@ -4292,7 +4185,7 @@ Begin VB.Form tw_tecnico_venta
          EndProperty
          BeginProperty Column02 
             DataField       =   "cobranza_programada_bs"
-            Caption         =   "Monto Programado Bs."
+            Caption         =   "Monto.Cuota.Bs."
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   1
                Format          =   "###,###,##0.00"
@@ -4438,38 +4331,38 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   764.787
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               ColumnWidth     =   1305.071
+               ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1665.071
+               ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1124.787
+               ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1395.213
+               ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
-               ColumnWidth     =   7859.906
+               ColumnWidth     =   8219.906
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               ColumnWidth     =   615.118
+               ColumnWidth     =   569.764
             EndProperty
             BeginProperty Column08 
                Object.Visible         =   0   'False
@@ -4483,12 +4376,11 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column11 
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   1110.047
             EndProperty
             BeginProperty Column12 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1005.165
             EndProperty
          EndProperty
       End
@@ -5935,9 +5827,9 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             LblEmpresa.Caption = "CGI"
         End If
         If glusuario = "CARIZACA" Or glusuario = "KBETANCOURTH" Or glusuario = "DTORRICO" Or glusuario = "VBELLIDO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
-            BtnEliminar.Visible = True
+            btnEliminar.Visible = True
         Else
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
         End If
         If buscados = 0 Then
            OptFilGral1.Visible = True
@@ -5999,7 +5891,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                     BtnVer.Visible = False
                 Case "P"
                     lbl_cerrado.Caption = "TRAMITE PROVISIONAL !!"
-                    If glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JAVIER" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+                    If glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JAVIER" Or glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
                         BtnModificar.Visible = True
                         BtnVer2.Visible = True
                         FrmABMDet.Visible = True
@@ -6021,7 +5913,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                     BtnVer.Visible = True
                 Case Else
                     BtnAñadir.Visible = True   'Cerrar Tramite
-                    If glusuario = "MARTEAGA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "VBELLIDO" Or glusuario = "TCASTILLO" Or glusuario = "RVALDIVIEZO" Or glusuario = "SQUISPE" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+                    If glusuario = "MARTEAGA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "VBELLIDO" Or glusuario = "TCASTILLO" Or glusuario = "RVALDIVIEZO" Or glusuario = "SQUISPE" Or glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
                         BtnDesAprobar.Visible = True     'Provisional
                     Else
                         BtnDesAprobar.Visible = False     'Provisional
@@ -6102,9 +5994,9 @@ Private Sub ABRIR_DETALLE()
         Set rs_datos14 = New ADODB.Recordset
         If rs_datos14.State = 1 Then rs_datos14.Close
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "' order by  par_codigo, bien_codigo ", db, adOpenKeyset, adLockOptimistic
-        Set ado_datos14.Recordset = rs_datos14
-        ado_datos14.Recordset.Requery
-        If ado_datos14.Recordset.RecordCount > 0 Then
+        Set Ado_datos14.Recordset = rs_datos14
+        Ado_datos14.Recordset.Requery
+        If Ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'Call AbreAlmacen
         Else
@@ -7885,7 +7777,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPFechaFin.Value = "" Then
+  If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) = "01/01/1900" Or DTPfechaFin.Value = "" Then
       MsgBox "Debe registrar la Fecha de Inicio !! , Verifique y vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7896,13 +7788,13 @@ Private Sub valida_campos()
     Exit Sub
   End If
   If parametro = "DNMAN" Then
-    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) <= CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
     End If
   Else
-    If CDate(Format(DTPFechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy")) Then
+    If CDate(Format(DTPfechaFin.Value, "dd/mm/yyyy")) < CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy")) Then
       MsgBox "La Fecha de Inicio debe ser MENOR o IGUAL a la Fecha de Fin del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
       VAR_VAL = "ERR"
       Exit Sub
@@ -7941,7 +7833,7 @@ Private Sub valida_campos()
 '        Exit Sub
 '    End If
 '  End If
-  If Month(CDate(Format(DTPFechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
+  If Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) <> VAR_MES2 Then
     'If Val(VAR_MES2) < Month(CDate(Format(DTPfechaIni.Value, "dd/mm/yyyy"))) Then
         MsgBox "El 'MES Inicio del Plan de Cuotas' NO puede ser DIFERENTE al MES de la Fecha de Inicio del Contrato!! , Vuelva a Intentar ...", vbExclamation, "Atención"
         VAR_VAL = "ERR"
@@ -7952,7 +7844,7 @@ Private Sub valida_campos()
     'DTPFechaFin
     'meses = DateDiff("m", Text1.Text, Text2.Text)
     'txtCantCobr
-    CONT4 = DateDiff("m", DTPFechaIni.Value, DTPFechaFin.Value)
+    CONT4 = DateDiff("m", DTPfechaIni.Value, DTPfechaFin.Value)
   If (txtCantCobr.Text <> CONT4 + 1) And (cmd_unimed2.Text = "MES") Then
      sino = MsgBox("El 'Número de Cuotas' es DIFERENTE al número de meses de la Fecha de INICIO y FIN, aún así desea continuar ??...", vbYesNo + vbQuestion, "Atención ...")
      If sino = vbYes Then
@@ -8017,8 +7909,8 @@ Private Sub BtnGrabar_Click()
   Call valida_campos2
   If VAR_VAL = "OK" And VAR_VALD = "OK" Then
     NumComp = Ado_datos.Recordset!venta_codigo
-    FInicio = IIf(DTPFechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
-    FFin = IIf(DTPFechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPFechaFin.Value)
+    FInicio = IIf(DTPfechaIni.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaIni.Value)            'Ado_datos.Recordset!venta_fecha_inicio
+    FFin = IIf(DTPfechaFin.Value = "", Format(Date, "dd,mm,yyyy"), DTPfechaFin.Value)
     CANTOT = Ado_datos.Recordset!venta_cantidad_total
     gestion0 = glGestion        'Ado_datos.Recordset("ges_gestion")
     VAR_BENEF = Ado_datos.Recordset!beneficiario_codigo
@@ -8506,7 +8398,7 @@ End Sub
 
 Private Sub BtnImprimir1_Click()
    If Ado_datos.Recordset.RecordCount > 0 Then
-      If ado_datos14.Recordset.RecordCount > 0 Then
+      If Ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
 '        If GlBaseDatos = "ADMIN_EMPRESA" Then
@@ -9718,7 +9610,7 @@ Private Sub BtnAnlDetalle_Click()
 '     'cerea
 '     ado_datos14.Refresh
       'db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
-      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
+      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & Ado_datos14.Recordset("venta_codigo_det") & " "
    End If
   Else
     MsgBox "Los Bienes del registro Aprobado o Anulado, NO pueden ser ANULADOS !! ", vbExclamation, "Atención!"
@@ -10184,7 +10076,7 @@ End Sub
 
 Private Sub BtnImprimir4_Click()
  If Ado_datos.Recordset.RecordCount > 0 Then
-      If ado_datos14.Recordset.RecordCount > 0 Then
+      If Ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
 
@@ -10218,9 +10110,9 @@ End Sub
 'End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
-    dtc_codigo2.BoundText = Dtc_aux2.BoundText
-    dtc_desc2.BoundText = Dtc_aux2.BoundText
-    Dtc_deudor2.BoundText = Dtc_aux2.BoundText
+    dtc_codigo2.BoundText = dtc_aux2.BoundText
+    dtc_desc2.BoundText = dtc_aux2.BoundText
+    Dtc_deudor2.BoundText = dtc_aux2.BoundText
 End Sub
 
 Private Sub dtc_aux3_Click(Area As Integer)
@@ -10250,7 +10142,7 @@ End Sub
 
 Private Sub dtc_codigo2_Click(Area As Integer)
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    Dtc_aux2.BoundText = dtc_codigo2.BoundText
+    dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 End Sub
 
@@ -10283,7 +10175,7 @@ End Sub
 
 Private Sub dtc_desc2_Click(Area As Integer)
     dtc_codigo2.BoundText = dtc_desc2.BoundText
-    Dtc_aux2.BoundText = dtc_desc2.BoundText
+    dtc_aux2.BoundText = dtc_desc2.BoundText
     Dtc_deudor2.BoundText = dtc_desc2.BoundText
 End Sub
 
@@ -10400,7 +10292,7 @@ End Sub
 
 Private Sub Dtc_deudor2_Click(Area As Integer)
     dtc_codigo2.BoundText = Dtc_deudor2.BoundText
-    Dtc_aux2.BoundText = Dtc_deudor2.BoundText
+    dtc_aux2.BoundText = Dtc_deudor2.BoundText
     dtc_desc2.BoundText = Dtc_deudor2.BoundText
 End Sub
 
@@ -10753,7 +10645,7 @@ Private Sub ABRIR_TABLAS_AUX()
     'rs_datos2.Open "gp_listar_gc_beneficiario_personas", db, adOpenStatic
     Set Ado_datos2.Recordset = rs_datos2
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    Dtc_aux2.BoundText = dtc_codigo2.BoundText
+    dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 
 
@@ -10975,7 +10867,7 @@ Private Sub grabar()
         " beneficiario_codigo = '" & dtc_codigo2.Text & "', beneficiario_codigo_RESP = '" & usuario2 & "', beneficiario_codigo_cobr = '" & dtc_codigo5.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', edif_codigo_corto ='" & dtc_aux3.Text & "'  " & _
         " WHERE venta_codigo = " & NumComp & " "
     
-        db.Execute "UPDATE ao_ventas_cabecera SET venta_tipo_cambio = " & GlTipoCambioMercado & ", tipoben_codigo = " & IIf(Dtc_aux2.Text = "", 2, Val(Dtc_aux2.Text)) & ", codigo_empresa = " & dtc_codigo8.Text & ", venta_tipo = '" & dtc_codigo11.Text & "', " & _
+        db.Execute "UPDATE ao_ventas_cabecera SET venta_tipo_cambio = " & GlTipoCambioMercado & ", tipoben_codigo = " & IIf(dtc_aux2.Text = "", 2, Val(dtc_aux2.Text)) & ", codigo_empresa = " & dtc_codigo8.Text & ", venta_tipo = '" & dtc_codigo11.Text & "', " & _
         " mes_inicio_crono = '" & MControl & "', venta_cantidad_cobr = " & VAR_COBR2 & ", unimed_codigo_cobr = '" & VAR_MED2 & "', venta_cantidad_total = " & VAR_COBR2 & ", doc_codigo = '" & VAR_CODDOC & "', depto_codigo = '" & VAR_DPTO & "'  " & _
         " WHERE venta_codigo = " & NumComp & " "
         
@@ -11795,8 +11687,8 @@ Private Sub sstab1_Click(PreviousTab As Integer)
             'If cmd_unimed_tec.Text = "" Or cmd_unimed_tec.Text = "0" Then      'Periodicidad
                 cmd_unimed_tec.Text = cmd_unimed2.Text
             'End If
-            lbl_fecha_ini.Value = IIf(IsNull(DTPFechaIni.Value), Date, DTPFechaIni.Value)       'Fecha Inicio Crono.)
-            lbl_fecha_fin.Value = IIf(IsNull(DTPFechaFin.Value), Date, DTPFechaFin.Value)       'Fecha Fin Crono.)
+            lbl_fecha_ini.Value = IIf(IsNull(DTPfechaIni.Value), Date, DTPfechaIni.Value)       'Fecha Inicio Crono.)
+            lbl_fecha_fin.Value = IIf(IsNull(DTPfechaFin.Value), Date, DTPfechaFin.Value)       'Fecha Fin Crono.)
             'lbl_fecha_ini.Value = IIf(IsNull(lbl_fecha_ini.Value), DTPfechaIni.Value, lbl_fecha_ini.Value)       'Fecha Inicio Crono.)
             'lbl_fecha_fin.Value = IIf(IsNull(lbl_fecha_fin.Value), DTPfechaFin.Value, lbl_fecha_fin.Value)       'Fecha Fin Crono.)
             
