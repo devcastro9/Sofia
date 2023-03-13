@@ -115,7 +115,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   158466049
+         Format          =   156762113
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -1144,7 +1144,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   158531585
+         Format          =   156696577
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1388,7 +1388,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   158007297
+         Format          =   156696577
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -1597,6 +1597,16 @@ Begin VB.Form aw_bienes
          ListField       =   "almacen_tipo"
          BoundColumn     =   "almacen_tipo"
          Text            =   "Elige Marca..."
+      End
+      Begin VB.Label LblProductoSIN 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Producto SIN"
+         Height          =   255
+         Left            =   360
+         TabIndex        =   128
+         Top             =   7680
+         Visible         =   0   'False
+         Width           =   975
       End
       Begin VB.Label LblDescripcionSIN 
          BackStyle       =   0  'Transparent
@@ -2856,7 +2866,7 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
         If Ado_datos.Recordset.BOF And Ado_datos.Recordset.EOF Then
             TxtGrupo.Caption = ""
             TxtDetalle.Text = ""
-            TxtDescripcion.Text = ""
+            txtDescripcion.Text = ""
             TxtActual.Caption = ""
 '            chkEstado.Value = vbUnchecked
 '            Ado_datos.Caption = "Registro: 0 de 0"
@@ -2864,12 +2874,12 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "TCRUZ" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         Else
@@ -2903,12 +2913,12 @@ Else
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         If Ado_datos.Recordset!bien_stock_minimo < Ado_datos.Recordset!bien_stock_actual Then
@@ -3554,11 +3564,11 @@ On Error GoTo QError
             End If
             Ado_datos.Recordset!bien_codigo = CodBien
             Ado_datos.Recordset!ARCHIVO_Foto = "Cargar_Archivo"
-            Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text          '+ " - " + TxtInicial
+            Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text          '+ " - " + TxtInicial
             
           End If
           If swnuevo = False Then
-            Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text
+            Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text
             CodBien = Ado_datos.Recordset!bien_codigo
           End If
             Ado_datos.Recordset!bien_descripcion_anterior = TxtDescripcion2.Text
@@ -3826,12 +3836,12 @@ Private Sub Form_Load()
     If glusuario = "CARIZACA" Or glusuario = "RCUELA" Or glusuario = "AFLORES" Or glusuario = "ADMIN" Or glusuario = "JYMAMANI" Or glusuario = "AFLORES" Or glusuario = "CSALINAS" Then
         BtnAñadir.Visible = True
         BtnModificar.Visible = True
-        BtnEliminar.Visible = True
+        btnEliminar.Visible = True
         BtnAprobar.Visible = True
     Else
         BtnAñadir.Visible = False
         BtnModificar.Visible = False
-        BtnEliminar.Visible = False
+        btnEliminar.Visible = False
         BtnAprobar.Visible = False
     End If
             
@@ -3991,10 +4001,10 @@ Private Function Valida() As Boolean
 '            Exit Function
 '          End If
 '    End If
-    If Trim(TxtDescripcion.Text) = "" Then
+    If Trim(txtDescripcion.Text) = "" Then
         MsgBox "Ingrese la Descripción del Bien.", vbExclamation + vbOKOnly, "Atención"
         If estado <> 0 Then
-            TxtDescripcion.SetFocus
+            txtDescripcion.SetFocus
         End If
         Exit Function
     End If
