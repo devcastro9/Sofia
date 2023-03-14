@@ -15,8 +15,8 @@ Begin VB.Form aw_bienes
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8355
-   ScaleWidth      =   11145
+   ScaleHeight     =   12495
+   ScaleWidth      =   22920
    WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc AdoProductoSin 
       Height          =   330
@@ -162,7 +162,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   156696577
+         Format          =   220594177
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -1016,7 +1016,7 @@ Begin VB.Form aw_bienes
       Begin VB.TextBox TxtCodigo_pSIN 
          DataField       =   "codigo_pSIN"
          DataSource      =   "Ado_datos"
-         Height          =   375
+         Height          =   495
          Left            =   1440
          TabIndex        =   124
          Top             =   7080
@@ -1208,7 +1208,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   144637953
+         Format          =   155975681
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1452,7 +1452,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   155516929
+         Format          =   155910145
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -2423,10 +2423,10 @@ Begin VB.Form aw_bienes
       Height          =   480
       Left            =   0
       ScaleHeight     =   480
-      ScaleWidth      =   11145
+      ScaleWidth      =   22920
       TabIndex        =   26
-      Top             =   7875
-      Width           =   11145
+      Top             =   12015
+      Width           =   22920
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -2948,7 +2948,7 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
         If Ado_datos.Recordset.BOF And Ado_datos.Recordset.EOF Then
             TxtGrupo.Caption = ""
             TxtDetalle.Text = ""
-            txtDescripcion.Text = ""
+            TxtDescripcion.Text = ""
             TxtActual.Caption = ""
 '            chkEstado.Value = vbUnchecked
 '            Ado_datos.Caption = "Registro: 0 de 0"
@@ -2956,12 +2956,12 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "TCRUZ" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                btnEliminar.Visible = True
+                BtnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                btnEliminar.Visible = False
+                BtnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         Else
@@ -2995,12 +2995,12 @@ Else
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                btnEliminar.Visible = True
+                BtnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                btnEliminar.Visible = False
+                BtnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         If Ado_datos.Recordset!bien_stock_minimo < Ado_datos.Recordset!bien_stock_actual Then
@@ -3646,11 +3646,11 @@ On Error GoTo QError
             End If
             Ado_datos.Recordset!bien_codigo = CodBien
             Ado_datos.Recordset!ARCHIVO_Foto = "Cargar_Archivo"
-            Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text          '+ " - " + TxtInicial
+            Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text          '+ " - " + TxtInicial
             
           End If
           If swnuevo = False Then
-            Ado_datos.Recordset!bien_descripcion = txtDescripcion.Text
+            Ado_datos.Recordset!bien_descripcion = TxtDescripcion.Text
             CodBien = Ado_datos.Recordset!bien_codigo
           End If
             Ado_datos.Recordset!bien_descripcion_anterior = TxtDescripcion2.Text
@@ -3919,12 +3919,12 @@ Private Sub Form_Load()
     If glusuario = "CARIZACA" Or glusuario = "RCUELA" Or glusuario = "AFLORES" Or glusuario = "ADMIN" Or glusuario = "JYMAMANI" Or glusuario = "AFLORES" Or glusuario = "CSALINAS" Then
         BtnAñadir.Visible = True
         BtnModificar.Visible = True
-        btnEliminar.Visible = True
+        BtnEliminar.Visible = True
         BtnAprobar.Visible = True
     Else
         BtnAñadir.Visible = False
         BtnModificar.Visible = False
-        btnEliminar.Visible = False
+        BtnEliminar.Visible = False
         BtnAprobar.Visible = False
     End If
             
@@ -4084,10 +4084,10 @@ Private Function Valida() As Boolean
 '            Exit Function
 '          End If
 '    End If
-    If Trim(txtDescripcion.Text) = "" Then
+    If Trim(TxtDescripcion.Text) = "" Then
         MsgBox "Ingrese la Descripción del Bien.", vbExclamation + vbOKOnly, "Atención"
         If estado <> 0 Then
-            txtDescripcion.SetFocus
+            TxtDescripcion.SetFocus
         End If
         Exit Function
     End If

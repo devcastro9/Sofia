@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -15,8 +15,8 @@ Begin VB.Form frm_ac_bienes_eqp
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   12495
+   ScaleWidth      =   22920
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumo 
       BackColor       =   &H00C0C0C0&
@@ -33,7 +33,7 @@ Begin VB.Form frm_ac_bienes_eqp
       EndProperty
       ForeColor       =   &H000040C0&
       Height          =   4575
-      Left            =   6120
+      Left            =   9840
       TabIndex        =   105
       Top             =   960
       Visible         =   0   'False
@@ -727,49 +727,49 @@ Begin VB.Form frm_ac_bienes_eqp
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   764.787
+               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1035.213
+               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1154.835
+               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1214.929
+               ColumnWidth     =   1214,929
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   870.236
+               ColumnWidth     =   870,236
             EndProperty
          EndProperty
       End
@@ -1027,7 +1027,7 @@ Begin VB.Form frm_ac_bienes_eqp
       BackColor       =   &H00C0C0C0&
       Caption         =   "LISTADO"
       ForeColor       =   &H00C00000&
-      Height          =   7200
+      Height          =   8070
       Left            =   60
       TabIndex        =   50
       Top             =   825
@@ -1048,7 +1048,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Height          =   210
          Left            =   3600
          TabIndex        =   20
-         Top             =   6825
+         Top             =   7665
          Visible         =   0   'False
          Width           =   915
       End
@@ -1068,20 +1068,20 @@ Begin VB.Form frm_ac_bienes_eqp
          Height          =   210
          Left            =   1320
          TabIndex        =   19
-         Top             =   6825
+         Top             =   7665
          Value           =   -1  'True
          Visible         =   0   'False
          Width           =   1455
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Bindings        =   "frm_ac_bienes_eqp.frx":907A
-         Height          =   6450
+         Height          =   7290
          Left            =   60
          TabIndex        =   0
          Top             =   240
          Width           =   5880
          _ExtentX        =   10372
-         _ExtentY        =   11377
+         _ExtentY        =   12859
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   16777215
@@ -1241,14 +1241,14 @@ Begin VB.Form frm_ac_bienes_eqp
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   1154.835
+               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   1695.118
+               ColumnWidth     =   1695,118
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               ColumnWidth     =   599.811
+               ColumnWidth     =   599,811
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False
@@ -1269,14 +1269,14 @@ Begin VB.Form frm_ac_bienes_eqp
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   2115.213
+               ColumnWidth     =   2115,213
             EndProperty
          EndProperty
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
          Left            =   120
-         Top             =   6765
+         Top             =   7605
          Width           =   5865
          _ExtentX        =   10345
          _ExtentY        =   582
@@ -1322,11 +1322,29 @@ Begin VB.Form frm_ac_bienes_eqp
    End
    Begin VB.Frame FraArticulos 
       BackColor       =   &H00C0C0C0&
-      Height          =   7200
+      Height          =   7995
       Left            =   6120
       TabIndex        =   26
-      Top             =   825
+      Top             =   840
       Width           =   10725
+      Begin VB.TextBox TxtDescripcionSIN 
+         DataField       =   "descripcion_pSIN"
+         DataSource      =   "Ado_datos"
+         Height          =   375
+         Left            =   4680
+         TabIndex        =   138
+         Top             =   7080
+         Width           =   5775
+      End
+      Begin VB.TextBox TxtCodigo_pSIN 
+         DataField       =   "codigo_pSIN"
+         DataSource      =   "Ado_datos"
+         Height          =   375
+         Left            =   1440
+         TabIndex        =   136
+         Top             =   7080
+         Width           =   1695
+      End
       Begin VB.TextBox TxtCantidad 
          Alignment       =   2  'Center
          DataField       =   "bien_cantidad_por_empaque"
@@ -1541,7 +1559,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   37617665
+         Format          =   158138369
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1804,7 +1822,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   37617665
+         Format          =   158138369
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -1980,6 +1998,68 @@ Begin VB.Form frm_ac_bienes_eqp
          ListField       =   "tipo_eqp_descripcion"
          BoundColumn     =   "tipo_eqp"
          Text            =   "Elige Tipo Equipo ..."
+      End
+      Begin MSDataListLib.DataCombo Dtc_descripcionSIN 
+         Bindings        =   "frm_ac_bienes_eqp.frx":9286
+         DataField       =   "correlativo_pSIN"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   1320
+         TabIndex        =   140
+         Top             =   7560
+         Width           =   8535
+         _ExtentX        =   15055
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "descripcion"
+         BoundColumn     =   "correlativo_pSIN"
+         Text            =   "Elige producto de SIN..."
+      End
+      Begin MSDataListLib.DataCombo Dtc_codigoSIN 
+         Bindings        =   "frm_ac_bienes_eqp.frx":92A3
+         DataField       =   "correlativo_pSIN"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   9960
+         TabIndex        =   141
+         Top             =   7560
+         Visible         =   0   'False
+         Width           =   615
+         _ExtentX        =   1085
+         _ExtentY        =   556
+         _Version        =   393216
+         BackColor       =   -2147483624
+         ListField       =   "correlativo_pSIN"
+         BoundColumn     =   "correlativo_pSIN"
+         Text            =   "Elige Marca..."
+      End
+      Begin VB.Label LblProductoSIN 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Producto SIN"
+         Height          =   255
+         Left            =   240
+         TabIndex        =   139
+         Top             =   7680
+         Width           =   975
+      End
+      Begin VB.Label LblDescripcionSIN 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Descripcion del Producto para SIN"
+         Height          =   375
+         Left            =   3240
+         TabIndex        =   137
+         Top             =   7080
+         Width           =   1455
+      End
+      Begin VB.Label LblCodigoPSin 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Codigo para SIN"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   135
+         Top             =   7200
+         Width           =   1215
       End
       Begin VB.Label Label5 
          Appearance      =   0  'Flat
@@ -2781,7 +2861,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc AdoSubGrupo 
       Height          =   375
       Left            =   6960
-      Top             =   8160
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2520
       _ExtentX        =   4445
@@ -2828,7 +2908,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc AdoMedida 
       Height          =   375
       Left            =   9360
-      Top             =   8160
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2400
       _ExtentX        =   4233
@@ -2875,7 +2955,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc AdoMarca 
       Height          =   375
       Left            =   11760
-      Top             =   8160
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -2925,10 +3005,10 @@ Begin VB.Form frm_ac_bienes_eqp
       Height          =   495
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   20160
+      ScaleWidth      =   22920
       TabIndex        =   27
-      Top             =   10440
-      Width           =   20160
+      Top             =   12000
+      Width           =   22920
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -2971,7 +3051,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc AdoPais 
       Height          =   375
       Left            =   4680
-      Top             =   8160
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3018,7 +3098,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc AdoGrupo 
       Height          =   375
       Left            =   2400
-      Top             =   8160
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3107,7 +3187,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc Ado_datos10 
       Height          =   330
       Left            =   120
-      Top             =   8160
+      Top             =   9360
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3154,7 +3234,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc Ado_datos6 
       Height          =   330
       Left            =   120
-      Top             =   8640
+      Top             =   9840
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3201,7 +3281,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc Ado_datos7 
       Height          =   330
       Left            =   2400
-      Top             =   8640
+      Top             =   9840
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3248,7 +3328,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc Ado_datos8 
       Height          =   330
       Left            =   4680
-      Top             =   8640
+      Top             =   9840
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3295,7 +3375,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc Ado_datos2 
       Height          =   330
       Left            =   6960
-      Top             =   8640
+      Top             =   9840
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3342,7 +3422,7 @@ Begin VB.Form frm_ac_bienes_eqp
    Begin MSAdodcLib.Adodc Ado_datos3 
       Height          =   330
       Left            =   9240
-      Top             =   8640
+      Top             =   9840
       Visible         =   0   'False
       Width           =   2280
       _ExtentX        =   4022
@@ -3386,6 +3466,53 @@ Begin VB.Form frm_ac_bienes_eqp
       EndProperty
       _Version        =   393216
    End
+   Begin MSAdodcLib.Adodc AdoProductoSin 
+      Height          =   330
+      Left            =   11640
+      Top             =   9840
+      Visible         =   0   'False
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "AdoProductoSin"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
 End
 Attribute VB_Name = "frm_ac_bienes_eqp"
 Attribute VB_GlobalNameSpace = False
@@ -3397,6 +3524,7 @@ Option Explicit
 Dim rsMarcas As ADODB.Recordset
 Dim rsUnidad As ADODB.Recordset
 Dim rsSubGrupo As ADODB.Recordset
+Dim rsProductosSIN As ADODB.Recordset
 
 Dim rsgrupo As ADODB.Recordset
 Dim RsArt, rsPais As ADODB.Recordset
@@ -4195,6 +4323,10 @@ On Error GoTo QError
         Ado_datos.Recordset!fecha_registro = Date
         Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
         '*********************************
+        Ado_datos.Recordset!codigo_pSIN = IIf(IsNull(TxtCodigo_pSIN.Text), "", TxtCodigo_pSIN.Text)
+        Ado_datos.Recordset!descripcion_pSIN = IIf(IsNull(TxtDescripcionSIN.Text), "", TxtDescripcionSIN.Text)
+        Ado_datos.Recordset!correlativo_pSIN = IIf(IsNull(Dtc_codigoSIN.Text), 9, Dtc_codigoSIN.Text)
+        '*********************************
         ' Grabar
         Ado_datos.Recordset.Update
         db.CommitTrans
@@ -4891,6 +5023,11 @@ Dim rs As ADODB.Recordset
 End Function
 
 Private Sub CARGA()
+    Set rsProductosSIN = New ADODB.Recordset
+    If rsProductosSIN.State = 1 Then rsProductosSIN.Close
+    rsProductosSIN.Open "SELECT [correlativo] AS correlativo_pSIN, CONCAT([CodProducto], ' ', [Producto], ' || ', [CodActividad], ' ', [ActividadEconomica]) AS descripcion FROM [dbo].[gc_productos_sin] WHERE [EsBien] = CAST(1 AS BIT)", db, adOpenStatic
+    Set AdoProductoSin.Recordset = rsProductosSIN
+    
     Set rsMarcas = New ADODB.Recordset
     If rsMarcas.State = 1 Then rsMarcas.Close
     rsMarcas.Open "SELECT * FROM ac_bienes_marcas ORDER BY marca_descripcion", db, adOpenStatic
