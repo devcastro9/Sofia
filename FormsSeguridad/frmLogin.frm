@@ -404,7 +404,7 @@ Dim rsAux As ADODB.Recordset
     TipoCambioOficial = 0
     TipoCambioMercado = 0
     Set rsAux = New ADODB.Recordset
-    LcSQLAux = "SELECT * FROM gc_tipo_cambio WHERE Fecha_Cambio = '" & Date & "' "
+    LcSQLAux = "SELECT * FROM gc_tipo_cambio WHERE Fecha_Cambio = '" & Format(CDate(Date), "dd/mm/yyyy") & "' "
     rsAux.Open LcSQLAux, db, adOpenStatic
     ExisteTCambio = rsAux.RecordCount > 0
     If ExisteTCambio Then TipoCambioOficial = rsAux!cambio_oficial_compra: TipoCambioMercado = rsAux!cambio_mercado_venta

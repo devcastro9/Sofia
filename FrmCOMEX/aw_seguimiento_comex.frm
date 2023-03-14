@@ -12,8 +12,8 @@ Begin VB.Form aw_seguimiento_comex
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   10260
+   ScaleWidth      =   16545
    WindowState     =   2  'Maximized
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
@@ -23,7 +23,7 @@ Begin VB.Form aw_seguimiento_comex
       ScaleHeight     =   660
       ScaleWidth      =   20280
       TabIndex        =   24
-      Top             =   0
+      Top             =   600
       Width           =   20280
       Begin VB.PictureBox BtnImprimir1 
          Appearance      =   0  'Flat
@@ -35,7 +35,7 @@ Begin VB.Form aw_seguimiento_comex
          Picture         =   "aw_seguimiento_comex.frx":0000
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   33
+         TabIndex        =   32
          ToolTipText     =   "Seguimiento Fisico"
          Top             =   0
          Width           =   1400
@@ -50,7 +50,7 @@ Begin VB.Form aw_seguimiento_comex
          Picture         =   "aw_seguimiento_comex.frx":08CD
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   32
+         TabIndex        =   31
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
@@ -65,7 +65,7 @@ Begin VB.Form aw_seguimiento_comex
          Picture         =   "aw_seguimiento_comex.frx":108F
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   30
+         TabIndex        =   29
          ToolTipText     =   "Seguimiento Financiero"
          Top             =   0
          Width           =   1400
@@ -76,11 +76,11 @@ Begin VB.Form aw_seguimiento_comex
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   2280
+         Left            =   3240
          Picture         =   "aw_seguimiento_comex.frx":195C
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   29
+         TabIndex        =   28
          Top             =   0
          Width           =   1215
       End
@@ -93,7 +93,7 @@ Begin VB.Form aw_seguimiento_comex
          Left            =   6960
          ScaleHeight     =   615
          ScaleWidth      =   1320
-         TabIndex        =   28
+         TabIndex        =   27
          Top             =   0
          Visible         =   0   'False
          Width           =   1320
@@ -104,10 +104,10 @@ Begin VB.Form aw_seguimiento_comex
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   2760
+         Left            =   1560
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   27
+         TabIndex        =   26
          Top             =   0
          Visible         =   0   'False
          Width           =   1215
@@ -122,21 +122,9 @@ Begin VB.Form aw_seguimiento_comex
          Picture         =   "aw_seguimiento_comex.frx":2111
          ScaleHeight     =   615
          ScaleWidth      =   1425
-         TabIndex        =   26
+         TabIndex        =   25
          Top             =   0
          Width           =   1430
-      End
-      Begin VB.CommandButton BtnVer 
-         BackColor       =   &H00808000&
-         Caption         =   "Digitaliza"
-         Height          =   600
-         Left            =   10800
-         Style           =   1  'Graphical
-         TabIndex        =   25
-         ToolTipText     =   "Guarda en Archivo Digital"
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   1005
       End
       Begin VB.Label lbl_titulo 
          Alignment       =   2  'Center
@@ -155,7 +143,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H00FFFFC0&
          Height          =   285
          Left            =   12855
-         TabIndex        =   31
+         TabIndex        =   30
          Top             =   195
          Width           =   1815
       End
@@ -194,7 +182,8 @@ Begin VB.Form aw_seguimiento_comex
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   5160
+         Left            =   8040
+         Picture         =   "aw_seguimiento_comex.frx":2A26
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   21
@@ -266,7 +255,7 @@ Begin VB.Form aw_seguimiento_comex
          _ExtentY        =   2302
          _Version        =   393216
          AllowUpdate     =   0   'False
-         BackColor       =   16777215
+         BackColor       =   14737632
          Enabled         =   -1  'True
          ForeColor       =   0
          HeadLines       =   1
@@ -516,7 +505,7 @@ Begin VB.Form aw_seguimiento_comex
          _ExtentY        =   2117
          _Version        =   393216
          AllowUpdate     =   0   'False
-         BackColor       =   16777215
+         BackColor       =   14737632
          Enabled         =   -1  'True
          ForeColor       =   0
          HeadLines       =   1
@@ -834,7 +823,7 @@ Begin VB.Form aw_seguimiento_comex
          _ExtentY        =   2117
          _Version        =   393216
          AllowUpdate     =   0   'False
-         BackColor       =   16777215
+         BackColor       =   14737632
          Enabled         =   -1  'True
          ForeColor       =   0
          HeadLines       =   1
@@ -994,9 +983,9 @@ Begin VB.Form aw_seguimiento_comex
       End
    End
    Begin VB.Frame FraNavega 
-      BackColor       =   &H00C0C0C0&
+      BackColor       =   &H80000018&
       Caption         =   "LISTADO"
-      ForeColor       =   &H00FFFFFF&
+      ForeColor       =   &H00FF0000&
       Height          =   3960
       Left            =   120
       TabIndex        =   6
@@ -1011,7 +1000,7 @@ Begin VB.Form aw_seguimiento_comex
          _ExtentX        =   32306
          _ExtentY        =   5874
          _Version        =   393216
-         AllowUpdate     =   -1  'True
+         AllowUpdate     =   0   'False
          BackColor       =   16777215
          HeadLines       =   1
          RowHeight       =   15
@@ -1483,10 +1472,10 @@ Begin VB.Form aw_seguimiento_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20160
+      ScaleWidth      =   16545
       TabIndex        =   0
-      Top             =   10935
-      Width           =   20160
+      Top             =   10260
+      Width           =   16545
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -2443,144 +2432,149 @@ End Sub
 
 ' Boton guardar
 Private Sub BtnGrabar_Click()
-  On Error GoTo UpdateErr
-  VAR_VAL = "OK"
-  Call valida_campos
-  If VAR_VAL = "OK" Then
-    If VAR_SW = "ADD" Then
-        VAR_UNI = dtc_codigo1.Text
-        var_cod = IIf(txt_codigo.Caption = "", 0, txt_codigo.Caption)
-        Set rs_aux1 = New ADODB.Recordset
-        SQL_FOR = "select * from ao_compras_cabecera where unidad_codigo = '" & VAR_UNI & "' "
-        rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-        If rs_aux1.RecordCount > 0 Then
-            var_cod = rs_aux1.RecordCount + 1
-        
-        Else
-            'var_cod = rs_datos.RecordCount '+ 1
-            var_cod = 1
-        End If
-        
-        txt_codigo.Caption = var_cod
-        rs_datos!solicitud_codigo = var_cod
-        rs_datos!estado_codigo = "REG"      'no cambia
-        rs_datos!ges_gestion = glGestion    ' Year(Date)   'no cambia
-        rs_datos!unidad_codigo = VAR_UNI
-        'Actualiza correaltivo ...
-        db.Execute "Update gc_unidad_ejecutora Set correl_solicitud = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "'   "
-        rs_datos!doc_numero = "0"    'txt_campo1.Caption
-        rs_datos!archivo_respaldo = "sin_nombre"
-        rs_datos!archivo_respaldo_cargado = "N"
-        rs_datos!correl_bitacora = 0
-     End If
-     rs_datos!compra_fecha = DTPfecha1.Value
-     rs_datos!solicitud_tipo = "15"
-     rs_datos!venta_tipo = dtc_codigo2.Text
-     rs_datos!edif_codigo = dtc_codigo3.Text
-     If dtc_codigo4.Text = "" Or dtc_codigo4.Text = "0" Then
-        rs_datos!beneficiario_codigo = dtc_aux3.Text
-     Else
-        rs_datos!beneficiario_codigo = dtc_codigo4.Text
-     End If
-     Txt_descripcion.Text = lbl_titulo + " - Edificio: " + dtc_desc3.Text + " Cite: " + Txt_campo2.Caption
-     rs_datos!compra_DESCRIPCION = Txt_descripcion.Text
+    FraDet1.Enabled = True
+    FraDet2.Enabled = True
+    FraDet3.Enabled = True
+    dg_datos.AllowUpdate = False
 
-     Select Case dtc_codigo2.Text
-        Case "1"    'SOLO COMPRAS BB y SS
-            rs_datos!proceso_codigo = "CMX"
-            rs_datos!subproceso_codigo = "CMX-01"
-            rs_datos!etapa_codigo = "CMX-01-01"
-            rs_datos!clasif_codigo = "CMX"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-            rs_datos!doc_codigo = "R-207"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-        Case "2"    'SOLO VENTA DE BIENES
-        Case "3"    ' COMPRA-VENTA BB Y SS - COMERCIAL
-
-            rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-            rs_datos!subproceso_codigo = "COM-01"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-            rs_datos!etapa_codigo = "COM-01-02"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-            rs_datos!clasif_codigo = "COM"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-            rs_datos!doc_codigo = "R-234"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-        Case "4"    'VENTA DE SERVICIOS (INST, AJUSTE, REP, EMERG, MANT)
-            If VAR_UNI = "DNINS" Then
-                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            End If
-            If VAR_UNI = "DNAJS" Then
-                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            End If
-            If VAR_UNI = "DNMAN" Then
-                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            End If
-            If VAR_UNI = "DNIREP" Then
-                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            End If
-            If VAR_UNI = "DNEME" Then
-                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            End If
-            If VAR_UNI = "DNMOD" Then
-                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            End If
-        Case "5"    ' SERVICIO MODERNIZACION
-     End Select
-     rs_datos!poa_codigo = dtc_codigo10.Text
-     If txt_obs.Text = "" Then
-        rs_datos!compra_observaciones = dtc_desc3.Text   'txt_obs.Text
-     Else
-        rs_datos!compra_observaciones = txt_obs.Text
-     End If
-     rs_datos!beneficiario_codigo_resp = dtc_codigo11.Text
-
-     rs_datos!fecha_registro = Date     'no cambia
-     rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
-     rs_datos.Update    'Batch 'adAffectAll
-     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        Call OptFilGral1_Click
-     Else
-        Call OptFilGral2_Click
-     End If
-     rs_datos.MoveLast
-     mbDataChanged = False
-
-     Fra_datos.Enabled = False
-     fraOpciones.Visible = True
-     FraGrabarCancelar.Visible = False
-     dg_datos.Enabled = True
-     
-        FraDet3.Visible = True
-        FraDet2.Visible = True
-        FraDet1.Visible = True
-        FrmABMDet3.Visible = True
-        FrmABMDet2.Visible = True
-        FrmABMDet.Visible = True
-     
-     VAR_SW = ""
-  End If
-  Exit Sub
-UpdateErr:
-  MsgBox Err.Description
+'  On Error GoTo UpdateErr
+'  VAR_VAL = "OK"
+'  Call valida_campos
+'  If VAR_VAL = "OK" Then
+'    If VAR_SW = "ADD" Then
+'        VAR_UNI = dtc_codigo1.Text
+'        var_cod = IIf(txt_codigo.Caption = "", 0, txt_codigo.Caption)
+'        Set rs_aux1 = New ADODB.Recordset
+'        SQL_FOR = "select * from ao_compras_cabecera where unidad_codigo = '" & VAR_UNI & "' "
+'        rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
+'        If rs_aux1.RecordCount > 0 Then
+'            var_cod = rs_aux1.RecordCount + 1
+'
+'        Else
+'            'var_cod = rs_datos.RecordCount '+ 1
+'            var_cod = 1
+'        End If
+'
+'        txt_codigo.Caption = var_cod
+'        rs_datos!solicitud_codigo = var_cod
+'        rs_datos!estado_codigo = "REG"      'no cambia
+'        rs_datos!ges_gestion = glGestion    ' Year(Date)   'no cambia
+'        rs_datos!unidad_codigo = VAR_UNI
+'        'Actualiza correaltivo ...
+'        db.Execute "Update gc_unidad_ejecutora Set correl_solicitud = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "'   "
+'        rs_datos!doc_numero = "0"    'txt_campo1.Caption
+'        rs_datos!archivo_respaldo = "sin_nombre"
+'        rs_datos!archivo_respaldo_cargado = "N"
+'        rs_datos!correl_bitacora = 0
+'     End If
+'     rs_datos!compra_fecha = DTPfecha1.Value
+'     rs_datos!solicitud_tipo = "15"
+'     rs_datos!venta_tipo = dtc_codigo2.Text
+'     rs_datos!edif_codigo = dtc_codigo3.Text
+'     If dtc_codigo4.Text = "" Or dtc_codigo4.Text = "0" Then
+'        rs_datos!beneficiario_codigo = dtc_aux3.Text
+'     Else
+'        rs_datos!beneficiario_codigo = dtc_codigo4.Text
+'     End If
+'     Txt_descripcion.Text = lbl_titulo + " - Edificio: " + dtc_desc3.Text + " Cite: " + Txt_campo2.Caption
+'     rs_datos!compra_DESCRIPCION = Txt_descripcion.Text
+'
+'     Select Case dtc_codigo2.Text
+'        Case "1"    'SOLO COMPRAS BB y SS
+'            rs_datos!proceso_codigo = "CMX"
+'            rs_datos!subproceso_codigo = "CMX-01"
+'            rs_datos!etapa_codigo = "CMX-01-01"
+'            rs_datos!clasif_codigo = "CMX"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'            rs_datos!doc_codigo = "R-207"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'        Case "2"    'SOLO VENTA DE BIENES
+'        Case "3"    ' COMPRA-VENTA BB Y SS - COMERCIAL
+'
+'            rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'            rs_datos!subproceso_codigo = "COM-01"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'            rs_datos!etapa_codigo = "COM-01-02"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'            rs_datos!clasif_codigo = "COM"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'            rs_datos!doc_codigo = "R-234"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'        Case "4"    'VENTA DE SERVICIOS (INST, AJUSTE, REP, EMERG, MANT)
+'            If VAR_UNI = "DNINS" Then
+'                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'            End If
+'            If VAR_UNI = "DNAJS" Then
+'                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'            End If
+'            If VAR_UNI = "DNMAN" Then
+'                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'            End If
+'            If VAR_UNI = "DNIREP" Then
+'                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'            End If
+'            If VAR_UNI = "DNEME" Then
+'                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'            End If
+'            If VAR_UNI = "DNMOD" Then
+'                rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'                rs_datos!subproceso_codigo = "COM-03"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
+'                rs_datos!etapa_codigo = "COM-03-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'                rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'                rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'            End If
+'        Case "5"    ' SERVICIO MODERNIZACION
+'     End Select
+'     rs_datos!poa_codigo = dtc_codigo10.Text
+'     If txt_obs.Text = "" Then
+'        rs_datos!compra_observaciones = dtc_desc3.Text   'txt_obs.Text
+'     Else
+'        rs_datos!compra_observaciones = txt_obs.Text
+'     End If
+'     rs_datos!beneficiario_codigo_resp = dtc_codigo11.Text
+'
+'     rs_datos!fecha_registro = Date     'no cambia
+'     rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
+'     rs_datos.Update    'Batch 'adAffectAll
+'     If Ado_datos.Recordset!estado_codigo = "REG" Then
+'        Call OptFilGral1_Click
+'     Else
+'        Call OptFilGral2_Click
+'     End If
+'     rs_datos.MoveLast
+'     mbDataChanged = False
+'
+'     Fra_datos.Enabled = False
+'     fraOpciones.Visible = True
+'     FraGrabarCancelar.Visible = False
+'     dg_datos.Enabled = True
+'
+'        FraDet3.Visible = True
+'        FraDet2.Visible = True
+'        FraDet1.Visible = True
+'        FrmABMDet3.Visible = True
+'        FrmABMDet2.Visible = True
+'        FrmABMDet.Visible = True
+'
+'     VAR_SW = ""
+'  End If
+'  Exit Sub
+'UpdateErr:
+'  MsgBox Err.Description
 
 End Sub
 
@@ -2604,6 +2598,10 @@ On Error GoTo EditErr
 '
 '        VAR_SW = "MOD"
 '        dtc_desc11.SetFocus
+        FraDet1.Enabled = False
+        FraDet2.Enabled = False
+        FraDet3.Enabled = False
+        dg_datos.AllowUpdate = True
     Else
       MsgBox "No se puede MODIFICAR un registro ya APROBADO ...", vbExclamation, "Validación de Registro"
     End If
@@ -2947,6 +2945,7 @@ End Sub
 Private Sub dtc_codigo11_Click(Area As Integer)
     dtc_desc11.BoundText = dtc_codigo11.BoundText
 End Sub
+
 
 ' Carga de formulario
 Private Sub Form_Load()
