@@ -391,7 +391,7 @@ Begin VB.Form aw_almacen_salida
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120913921
+         Format          =   117178369
          CurrentDate     =   42880
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -404,7 +404,7 @@ Begin VB.Form aw_almacen_salida
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   120913921
+         Format          =   117178369
          CurrentDate     =   42880
       End
       Begin VB.Label Label6 
@@ -752,7 +752,6 @@ Begin VB.Form aw_almacen_salida
       TabPicture(0)   =   "aw_almacen_salida.frx":A9A9
       Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Insumos)"
       TabPicture(1)   =   "aw_almacen_salida.frx":A9C5
@@ -2183,7 +2182,7 @@ Begin VB.Form aw_almacen_salida
             _ExtentX        =   2831
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   120913921
+            Format          =   117178369
             CurrentDate     =   44564
             MaxDate         =   55153
             MinDate         =   2
@@ -4350,6 +4349,7 @@ Dim CONT2, CONT3, CONT4, VAR_TIPO As Integer
 Dim fdia, fmes, fanio, Dias_Mes, TimeD  As Integer
 Dim VAR_COBR1, VAR_COBR2, VAR_CONTR As Integer
 Dim VAR_NUM, var_cod, VAR_COD2 As Integer
+
 Dim VAR_DET As String
 
 Dim Cobrobs, VAR_COBR, VAR_AUX, VAR_AUX2 As Double
@@ -4429,7 +4429,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             BtnAprobar.Visible = True
             BtnDesAprobar.Visible = False
             BtnModificar.Visible = True
-            BtnEliminar.Visible = True
+            btnEliminar.Visible = True
 '            BtnVer.Visible = False
 '            BtnAñadir.Visible = False   'Cerrar Tramite
 '            BtnVer3.Visible = False     'Provisional
@@ -4445,7 +4445,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             BtnAprobar.Visible = False
             BtnDesAprobar.Visible = True
             BtnModificar.Visible = False
-            BtnEliminar.Visible = False
+            btnEliminar.Visible = False
             FrmABMDet.Visible = False
 ''            FrmCobranza.Visible = True
 '            BtnImprimir2.Visible = True
@@ -4486,7 +4486,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
            OptFilGral2.Visible = False
         End If
     End If
-        BtnEliminar.Visible = True
+        btnEliminar.Visible = True
 End Sub
 
 Private Sub AbrirDetalle()
@@ -7526,7 +7526,7 @@ On Error GoTo UpdateErr
     
     'VARIABLES DE LA CABECERA
     VAR_ALMX = dtc_codigo13.Text        'Ado_datos11.Recordset!almacen_codigo
-    correlv = Ado_datos.Recordset!venta_codigo
+    NumComp = Ado_datos.Recordset!venta_codigo
     VAR_PROY2 = Ado_datos.Recordset!edif_codigo
     VAR_BEN3 = Ado_datos.Recordset!beneficiario_codigo_alm
     VAR_DOC = Ado_datos.Recordset!doc_codigo_alm
@@ -7550,7 +7550,7 @@ On Error GoTo UpdateErr
             VAR_COTIZA = ado_datos18.Recordset.RecordCount
             Set rs_aux8 = New ADODB.Recordset
             If rs_aux8.State = 1 Then rs_aux8.Close
-            rs_aux8.Open "select * from ao_ventas_detalle where venta_codigo= " & correlv & "  and bien_codigo = '" & dtc_codigo15.Text & "' ", db, adOpenKeyset, adLockBatchOptimistic
+            rs_aux8.Open "select * from ao_ventas_detalle where venta_codigo= " & NumComp & "  and bien_codigo = '" & dtc_codigo15.Text & "' ", db, adOpenKeyset, adLockBatchOptimistic
             If rs_aux8.RecordCount > 0 Then
                 MsgBox "Error, El bien ya fue registrado vuelva a intentar...", , "Atención"
                 'ado_datos14.Recordset.CancelBatch

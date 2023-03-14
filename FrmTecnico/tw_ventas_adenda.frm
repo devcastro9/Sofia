@@ -666,7 +666,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   109510657
+         Format          =   109707265
          CurrentDate     =   44197
          MinDate         =   32874
       End
@@ -682,7 +682,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   109510657
+         Format          =   109707265
          CurrentDate     =   44197
          MinDate         =   36526
       End
@@ -1132,6 +1132,7 @@ Dim ClBuscaGrid As ClBuscaEnGridExterno
 Dim var_cod As String
 Dim VAR_VAL As String
 Dim VAR_SW As String
+Dim VAR_TIPO As String
 
 Dim mvBookMark, marca1 As Variant
 Dim mbDataChanged As Boolean
@@ -1282,7 +1283,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!tipo_moneda = RTrim(TxtMoneda.Text)
      End If
      Select Case dtc_codigo1.Text
-        Case 19
+        Case "19"
             rs_datos!monto_total_bs = IIf(Txt_MontoBs.Text = "", "0", CDbl(Txt_MontoBs.Text))
             rs_datos!monto_total_dol = IIf(Txt_montoDol.Text = "", "0", CDbl(Txt_montoDol.Text))
             'If rs_datos!monto_total_bs = 0 Then
@@ -1290,7 +1291,7 @@ Private Sub BtnGrabar_Click()
             'Else
             '   rs_datos!monto_total_dol = rs_datos!monto_total_bs / GlTipoCambioOficial
             'End If
-        Case 22
+        Case "22"
             rs_datos!monto_total_bs = IIf(Txt_MontoBs.Text = "", "0", CDbl(Txt_MontoBs.Text) * (-1))
             rs_datos!monto_total_dol = IIf(Txt_montoDol.Text = "", "0", CDbl(Txt_montoDol.Text) * (-1))
             
@@ -1299,12 +1300,12 @@ Private Sub BtnGrabar_Click()
 '            Else
 '               rs_datos!monto_total_dol = rs_datos!monto_total_bs / GlTipoCambioOficial
 '            End If
-        Case 18, 21
+        Case "18", "21"
             rs_datos!fecha_inicio = IIf(IsNull(DTPfechaIni.Value), "01/01/1900", DTPfechaIni.Value)
             rs_datos!fecha_fin = IIf(IsNull(DTPfechaFin.Value), "01/01/1900", DTPfechaFin.Value)
             rs_datos!monto_total_bs = 0
             rs_datos!monto_total_dol = 0
-        Case 20
+        Case "20"
             rs_datos!monto_total_bs = IIf(Txt_MontoBs.Text = "", "0", CDbl(Txt_MontoBs.Text))
             rs_datos!monto_total_dol = IIf(Txt_montoDol.Text = "", "0", CDbl(Txt_montoDol.Text))
             
@@ -1316,7 +1317,7 @@ Private Sub BtnGrabar_Click()
 '            End If
             rs_datos!fecha_inicio = IIf(IsNull(DTPfechaIni.Value), "01/01/1900", DTPfechaIni.Value)
             rs_datos!fecha_fin = IIf(IsNull(DTPfechaFin.Value), "01/01/1900", DTPfechaFin.Value)
-        Case 23
+        Case "23"
             rs_datos!monto_total_bs = IIf(Txt_MontoBs.Text = "", "0", CDbl(Txt_MontoBs.Text) * (-1))
             rs_datos!monto_total_dol = IIf(Txt_montoDol.Text = "", "0", CDbl(Txt_montoDol.Text) * (-1))
 
@@ -1368,22 +1369,26 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-    
+    If dtc_codigo1.Text <> VAR_TIPO Then
+        MsgBox "Verifique el Motivo del Cambio del Contrato, y vuelva a intentar... ", vbCritical + vbExclamation, "Validación de datos"
+        VAR_VAL = "ERR"
+        Exit Sub
+    End If
     Select Case dtc_codigo1.Text
-        Case 19, 22
+        Case "19", "22"
             If Txt_MontoBs.Text = "" Then
               MsgBox "Debe registrar el " + lblMonto.Caption, vbCritical + vbExclamation, "Validación de datos"
               VAR_VAL = "ERR"
               Exit Sub
             End If
-        Case 18, 21
+        Case "18", "21"
             If Val(Txt_tiempo) < 1 Then
               MsgBox "La Fecha de Inicio NO puede ser MAYOR ni IGUAL a la Fecha de Finalización, Vuelva a Intentar ...", vbExclamation, "Validación de Registro"
               DTPfechaFin.SetFocus
               VAR_VAL = "ERR"
               Exit Sub
             End If
-        Case 20, 23
+        Case "20", "23"
             If Txt_MontoBs.Text = "" Then
               MsgBox "Debe registrar el " + lblMonto.Caption, vbCritical + vbExclamation, "Validación de datos"
               VAR_VAL = "ERR"
@@ -1414,19 +1419,19 @@ Private Sub BtnImprimir_Click()
   If (Ado_datos.Recordset.RecordCount > 0) Then
         Dim iResult As Integer
         'Dim co As New ADODB.Command
-        CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_orden_adenda.rpt"
-        CR01.WindowShowPrintSetupBtn = True
-        CR01.WindowShowRefreshBtn = True
+        cr01.ReportFileName = App.Path & "\Reportes\tecnico\tr_orden_adenda.rpt"
+        cr01.WindowShowPrintSetupBtn = True
+        cr01.WindowShowRefreshBtn = True
         'MsgBox rs.RecordCount
         '  cr01.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
         '  cr01.Formulas(1) = "Subtitulo = '" & FraDet1.Caption & "' "
 
-        CR01.StoredProcParam(0) = Ado_datos.Recordset!venta_codigo_adenda      'ges_gestion
+        cr01.StoredProcParam(0) = Ado_datos.Recordset!venta_codigo_adenda      'ges_gestion
         'cr01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
         'cr01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = CR01.PrintReport
-        If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
-        CR01.WindowState = crptMaximized
+        iResult = cr01.PrintReport
+        If iResult <> 0 Then MsgBox cr01.LastErrorNumber & " : " & cr01.LastErrorString, vbCritical, "Error de impresión"
+        cr01.WindowState = crptMaximized
   Else
     MsgBox "No se puede Imprimir. Debe elegir el Registro que desea Imprimir ...", , "Atención"
   End If
@@ -1493,6 +1498,7 @@ End Sub
 
 Private Sub dtc_desc1_Click(Area As Integer)
     dtc_codigo1.BoundText = dtc_desc1.BoundText
+    VAR_TIPO = dtc_codigo1.Text
 End Sub
 
 Private Sub dtc_desc1_LostFocus()
@@ -1575,7 +1581,8 @@ End Sub
 Private Sub DTPFechaFin_LostFocus()
     'Me.Print Format(DateDiff("y", Fecha_Inicial, Fecha_Final), Formato) & " dias"
     'Txt_MontoBs = Format(DateDiff("y", DTPfechaIni, DTPfechaFin), Formato)
-    Txt_tiempo = DateDiff("y", DTPfechaIni, DTPfechaFin)
+    
+    Txt_tiempo = DateDiff("y", DTPfechaIni, IIf(IsNull(DTPfechaFin), Date, DTPfechaFin))
     If Val(Txt_tiempo) < 0 Then
         MsgBox "La Fecha de Inicio NO puede ser MAYOR a la Fecha de Finalización, Vuelva a Intentar ...", vbExclamation, "Validación de Registro"
         DTPfechaFin.SetFocus
