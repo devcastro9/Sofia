@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -15,8 +15,8 @@ Begin VB.Form frm_ac_bienes_eqp
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12495
-   ScaleWidth      =   22920
+   ScaleHeight     =   8355
+   ScaleWidth      =   11145
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumo 
       BackColor       =   &H00C0C0C0&
@@ -727,49 +727,39 @@ Begin VB.Form frm_ac_bienes_eqp
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   764,787
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1035,213
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               ColumnWidth     =   870,236
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1214,929
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   870,236
             EndProperty
          EndProperty
       End
@@ -1241,14 +1231,11 @@ Begin VB.Form frm_ac_bienes_eqp
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   1154,835
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   1695,118
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               ColumnWidth     =   599,811
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False
@@ -1269,7 +1256,6 @@ Begin VB.Form frm_ac_bienes_eqp
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   2115,213
             EndProperty
          EndProperty
       End
@@ -1559,7 +1545,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   158138369
+         Format          =   133562369
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1822,7 +1808,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   158138369
+         Format          =   133562369
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -3005,10 +2991,10 @@ Begin VB.Form frm_ac_bienes_eqp
       Height          =   495
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   22920
+      ScaleWidth      =   11145
       TabIndex        =   27
-      Top             =   12000
-      Width           =   22920
+      Top             =   7860
+      Width           =   11145
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
