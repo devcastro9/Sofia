@@ -162,7 +162,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   156434433
+         Format          =   156696577
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -1208,7 +1208,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   119799809
+         Format          =   144637953
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1452,7 +1452,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   119341057
+         Format          =   155516929
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
