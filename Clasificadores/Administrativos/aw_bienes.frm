@@ -18,6 +18,53 @@ Begin VB.Form aw_bienes
    ScaleHeight     =   12495
    ScaleWidth      =   22920
    WindowState     =   2  'Maximized
+   Begin MSAdodcLib.Adodc AdoProductoSin 
+      Height          =   330
+      Left            =   9360
+      Top             =   9360
+      Visible         =   0   'False
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "AdoProductoSin"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00E0E0E0&
       FillColor       =   &H00FFFFFF&
@@ -115,7 +162,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   156762113
+         Format          =   158924801
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -940,28 +987,45 @@ Begin VB.Form aw_bienes
       TabIndex        =   25
       Top             =   720
       Width           =   9525
+      Begin MSDataListLib.DataCombo Dtc_descripcionSIN 
+         Bindings        =   "aw_bienes.frx":96C0
+         DataField       =   "correlativo_pSIN"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   1320
+         TabIndex        =   129
+         Top             =   7560
+         Width           =   7695
+         _ExtentX        =   13573
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "descripcion"
+         BoundColumn     =   "correlativo_pSIN"
+         Text            =   "Elige producto de SIN..."
+      End
       Begin VB.TextBox TxtDescripcionSIN 
          DataField       =   "descripcion_pSIN"
          DataSource      =   "Ado_datos"
          Height          =   375
-         Left            =   4920
+         Left            =   4680
          TabIndex        =   127
          Top             =   7080
-         Width           =   4455
+         Width           =   4695
       End
       Begin VB.TextBox TxtCodigo_pSIN 
          DataField       =   "codigo_pSIN"
          DataSource      =   "Ado_datos"
          Height          =   375
-         Left            =   1680
+         Left            =   1440
          TabIndex        =   124
          Top             =   7080
-         Width           =   1575
+         Width           =   1695
       End
       Begin VB.CommandButton BtnAux1 
          Height          =   320
          Left            =   9120
-         Picture         =   "aw_bienes.frx":96C0
+         Picture         =   "aw_bienes.frx":96DD
          Style           =   1  'Graphical
          TabIndex        =   121
          ToolTipText     =   "Nueva Marca"
@@ -1025,9 +1089,9 @@ Begin VB.Form aw_bienes
          DataField       =   "bien_rotacion"
          DataSource      =   "Ado_datos"
          Height          =   315
-         ItemData        =   "aw_bienes.frx":A0C2
+         ItemData        =   "aw_bienes.frx":A0DF
          Left            =   8040
-         List            =   "aw_bienes.frx":A0CF
+         List            =   "aw_bienes.frx":A0EC
          TabIndex        =   12
          Text            =   "ALTA"
          Top             =   4560
@@ -1044,7 +1108,7 @@ Begin VB.Form aw_bienes
          Width           =   270
       End
       Begin MSDataListLib.DataCombo dtc_partida 
-         Bindings        =   "aw_bienes.frx":A0E9
+         Bindings        =   "aw_bienes.frx":A106
          DataField       =   "par_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1062,7 +1126,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
-         Bindings        =   "aw_bienes.frx":A102
+         Bindings        =   "aw_bienes.frx":A11F
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1144,7 +1208,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   156696577
+         Format          =   157286401
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1184,7 +1248,7 @@ Begin VB.Form aw_bienes
          Width           =   1335
       End
       Begin MSDataListLib.DataCombo Montador 
-         Bindings        =   "aw_bienes.frx":A11C
+         Bindings        =   "aw_bienes.frx":A139
          DataField       =   "subgrupo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1238,7 +1302,7 @@ Begin VB.Form aw_bienes
          Width           =   2295
       End
       Begin MSDataListLib.DataCombo TDBC_marcas 
-         Bindings        =   "aw_bienes.frx":A137
+         Bindings        =   "aw_bienes.frx":A154
          DataField       =   "marca_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1255,7 +1319,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo marcas 
-         Bindings        =   "aw_bienes.frx":A14E
+         Bindings        =   "aw_bienes.frx":A16B
          DataField       =   "marca_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1273,7 +1337,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo TDBC_Montador 
-         Bindings        =   "aw_bienes.frx":A165
+         Bindings        =   "aw_bienes.frx":A182
          DataField       =   "subgrupo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   360
@@ -1299,7 +1363,7 @@ Begin VB.Form aw_bienes
          EndProperty
       End
       Begin MSDataListLib.DataCombo TDBC_Unidad 
-         Bindings        =   "aw_bienes.frx":A17F
+         Bindings        =   "aw_bienes.frx":A19C
          DataField       =   "unimed_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1316,7 +1380,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Medida ..."
       End
       Begin MSDataListLib.DataCombo Unidad 
-         Bindings        =   "aw_bienes.frx":A197
+         Bindings        =   "aw_bienes.frx":A1B4
          DataField       =   "unimed_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1334,7 +1398,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo DtcGrupoCod 
-         Bindings        =   "aw_bienes.frx":A1AF
+         Bindings        =   "aw_bienes.frx":A1CC
          DataField       =   "grupo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1352,7 +1416,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Grupo ..."
       End
       Begin MSDataListLib.DataCombo DtcGrupoDes 
-         Bindings        =   "aw_bienes.frx":A1C6
+         Bindings        =   "aw_bienes.frx":A1E3
          DataField       =   "grupo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   360
@@ -1388,11 +1452,11 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   156696577
+         Format          =   157286401
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
-         Bindings        =   "aw_bienes.frx":A1DD
+         Bindings        =   "aw_bienes.frx":A1FA
          DataField       =   "pais_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1409,7 +1473,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Medida ..."
       End
       Begin MSDataListLib.DataCombo DtcPais 
-         Bindings        =   "aw_bienes.frx":A1F3
+         Bindings        =   "aw_bienes.frx":A210
          DataField       =   "pais_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1427,7 +1491,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo DtcGrupoUni 
-         Bindings        =   "aw_bienes.frx":A209
+         Bindings        =   "aw_bienes.frx":A226
          DataField       =   "grupo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1445,7 +1509,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Grupo ..."
       End
       Begin MSDataListLib.DataCombo dtc_codigo10 
-         Bindings        =   "aw_bienes.frx":A220
+         Bindings        =   "aw_bienes.frx":A23D
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1466,7 +1530,7 @@ Begin VB.Form aw_bienes
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_partida_des 
-         Bindings        =   "aw_bienes.frx":A23A
+         Bindings        =   "aw_bienes.frx":A257
          DataField       =   "par_codigo"
          DataSource      =   "Ado_datos"
          Height          =   360
@@ -1492,7 +1556,7 @@ Begin VB.Form aw_bienes
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc6 
-         Bindings        =   "aw_bienes.frx":A253
+         Bindings        =   "aw_bienes.frx":A270
          DataField       =   "modelo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1511,7 +1575,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Modelo ..."
       End
       Begin MSDataListLib.DataCombo dtc_codigo6 
-         Bindings        =   "aw_bienes.frx":A26C
+         Bindings        =   "aw_bienes.frx":A289
          DataField       =   "modelo_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1528,7 +1592,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo dtc_codigo8 
-         Bindings        =   "aw_bienes.frx":A285
+         Bindings        =   "aw_bienes.frx":A2A2
          DataField       =   "bien_codigo_universal"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1546,7 +1610,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
       End
       Begin MSDataListLib.DataCombo dtc_desc8 
-         Bindings        =   "aw_bienes.frx":A29E
+         Bindings        =   "aw_bienes.frx":A2BB
          DataField       =   "bien_codigo_universal"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1564,7 +1628,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Medida ..."
       End
       Begin MSDataListLib.DataCombo dtc_desc5 
-         Bindings        =   "aw_bienes.frx":A2B7
+         Bindings        =   "aw_bienes.frx":A2D4
          DataField       =   "almacen_tipo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1581,7 +1645,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Medida ..."
       End
       Begin MSDataListLib.DataCombo dtc_codigo5 
-         Bindings        =   "aw_bienes.frx":A2D0
+         Bindings        =   "aw_bienes.frx":A2ED
          DataField       =   "almacen_tipo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -1598,21 +1662,38 @@ Begin VB.Form aw_bienes
          BoundColumn     =   "almacen_tipo"
          Text            =   "Elige Marca..."
       End
+      Begin MSDataListLib.DataCombo Dtc_codigoSIN 
+         Bindings        =   "aw_bienes.frx":A306
+         DataField       =   "correlativo_pSIN"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   8880
+         TabIndex        =   130
+         Top             =   7560
+         Visible         =   0   'False
+         Width           =   615
+         _ExtentX        =   1085
+         _ExtentY        =   556
+         _Version        =   393216
+         BackColor       =   -2147483624
+         ListField       =   "correlativo_pSIN"
+         BoundColumn     =   "correlativo_pSIN"
+         Text            =   "Elige Marca..."
+      End
       Begin VB.Label LblProductoSIN 
          BackStyle       =   0  'Transparent
          Caption         =   "Producto SIN"
          Height          =   255
-         Left            =   360
+         Left            =   240
          TabIndex        =   128
          Top             =   7680
-         Visible         =   0   'False
          Width           =   975
       End
       Begin VB.Label LblDescripcionSIN 
          BackStyle       =   0  'Transparent
          Caption         =   "Descripcion del Producto para SIN"
          Height          =   375
-         Left            =   3480
+         Left            =   3240
          TabIndex        =   126
          Top             =   7080
          Width           =   1455
@@ -1621,7 +1702,7 @@ Begin VB.Form aw_bienes
          BackStyle       =   0  'Transparent
          Caption         =   "Codigo para SIN"
          Height          =   255
-         Left            =   240
+         Left            =   120
          TabIndex        =   125
          Top             =   7200
          Width           =   1335
@@ -2785,6 +2866,7 @@ Option Explicit
 Dim rsMarcas As ADODB.Recordset
 Dim rsUnidad As ADODB.Recordset
 Dim rsMontador As ADODB.Recordset
+Dim rsProductosSIN As ADODB.Recordset
 
 Dim rsgrupo As ADODB.Recordset
 Dim RsArt, rsPais As ADODB.Recordset
@@ -4381,6 +4463,11 @@ Dim rs As ADODB.Recordset
 End Function
 
 Private Sub CARGA()
+    Set rsProductosSIN = New ADODB.Recordset
+    If rsProductosSIN.State = 1 Then rsProductosSIN.Close
+    rsProductosSIN.Open "SELECT [correlativo] AS correlativo_pSIN, CONCAT([CodProducto], ' ', [Producto], ' || ', [CodActividad], ' ', [ActividadEconomica]) AS descripcion FROM [dbo].[gc_productos_sin] WHERE [EsBien] = CAST(1 AS BIT)", db, adOpenStatic
+    Set AdoProductoSin.Recordset = rsProductosSIN
+    
     Set rsMarcas = New ADODB.Recordset
     If rsMarcas.State = 1 Then rsMarcas.Close
     rsMarcas.Open "SELECT * FROM ac_bienes_marcas ORDER BY marca_descripcion", db, adOpenStatic
@@ -4398,7 +4485,7 @@ Private Sub CARGA()
     
     Set rsgrupo = New ADODB.Recordset
     If rsgrupo.State = 1 Then rsgrupo.Close
-    rsgrupo.Open "SELECT * FROM ac_bienes_grupo WHERE estado_codigo='APR' ", db, adOpenStatic
+    rsgrupo.Open "SELECT * FROM ac_bienes_grupo WHERE estado_codigo='APR'", db, adOpenStatic
     Set AdoGrupo.Recordset = rsgrupo
     
     Set rsPais = New ADODB.Recordset
