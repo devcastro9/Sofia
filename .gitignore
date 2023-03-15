@@ -6,7 +6,19 @@
 *.ldb
 
 # Ignorar log (generados por el IDE Vb6)
-*.log
+#*.log
 
 # Ignorar configuracion
-.vscode/
+#.vscode/
+
+.DS_Store
+.Trashes
+*.vbw
+*.csi
+*.exp
+*.lib
+*.lvw
+*.dca
+*.scc
+*.tmp
+<name of built binary, exe, dll or ocx>
