@@ -4,7 +4,7 @@ Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form aw_almacen_inventario 
    Caption         =   "Inventario de Almacenes"
    ClientHeight    =   8415
@@ -31,9 +31,9 @@ Begin VB.Form aw_almacen_inventario
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   4575
-      Left            =   1920
+      Left            =   2040
       TabIndex        =   32
-      Top             =   2400
+      Top             =   2760
       Visible         =   0   'False
       Width           =   8775
       Begin VB.CommandButton btnSalirPanel 
@@ -333,7 +333,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   111607809
+         Format          =   110231553
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -346,7 +346,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   111607809
+         Format          =   110231553
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1670,8 +1670,21 @@ Private Sub ACTUALIZA_PPP_BIEN()
     'db.Execute "SELECT * INTO ao_saldos3 FROM av_almacenes_saldos "
     VAR_CONTAR = 0
     VAR_BIEN2 = Ado_datos.Recordset!bien_codigo
-    db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' "
-    db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+    'VAR_BIEN2 = Ado_datos.Recordset!bien_codigo
+    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+    Set rs_aux1 = New ADODB.Recordset
+    If rs_aux1.State = 1 Then rs_aux1.Close
+    rs_aux1.Open "select count(almacen_codigo) as cont1 from av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "'  ", db, adOpenStatic
+    
+    Set rs_aux2 = New ADODB.Recordset
+    If rs_aux2.State = 1 Then rs_aux2.Close
+    rs_aux2.Open "select count(almacen_codigo) as cont2 from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "'  ", db, adOpenStatic
+    
+    If rs_aux1!CONT1 <> rs_aux2!CONT2 Then
+        db.Execute "DELETE ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & Trim(VAR_BIEN2) & "' "
+        db.Execute "INSERT INTO ao_saldos3 SELECT * FROM av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' "
+    End If
+    'db.Execute "UPDATE ao_saldos3  SET bien_codigo = LTRIM(RTRIM(bien_codigo)) WHERE bien_codigo LIKE '% %'"
 '    Set rs_datos2 = New ADODB.Recordset
 '    If rs_datos2.State = 1 Then rs_datos2.Close
 '    rs_datos2.Open "select bien_codigo from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " GROUP BY bien_codigo  ", db, adOpenStatic
@@ -1691,6 +1704,7 @@ Private Sub ACTUALIZA_PPP_BIEN()
             Set rs_datos3 = New ADODB.Recordset
             If rs_datos3.State = 1 Then rs_datos3.Close
             rs_datos3.Open "select * from ao_saldos3 where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' ORDER BY fecha_ingreso, doc_codigo ", db, adOpenStatic
+            'rs_datos3.Open "select * from av_almacenes_saldos where almacen_codigo = " & dtc_codigo1.Text & " AND bien_codigo = '" & VAR_BIEN2 & "' ORDER BY fecha_ingreso, doc_codigo ", db, adOpenStatic
             If rs_datos3.RecordCount > 0 Then
                 ProgressBar1.Visible = True
                 With ProgressBar1
@@ -1759,6 +1773,8 @@ Private Sub ACTUALIZA_PPP_BIEN()
             End If
 '            rs_datos2.MoveNext
 '        Wend
+        db.Execute "UPDATE ao_saldos3 SET CostoUnitarioCPP =0  where almacen_codigo = " & dtc_codigo1.Text & " and CostoUnitarioCPP is null  "
+        db.Execute "UPDATE ao_saldos3 SET CostoTotalCPP =0  where almacen_codigo = " & dtc_codigo1.Text & " and CostoTotalCPP is null  "
         db.Execute "UPDATE ao_saldos3 SET CostoUnitario87 = CostoUnitarioCPP * 0.87 , valortotal87 = CostoTotalCPP * 0.87  where almacen_codigo = " & dtc_codigo1.Text & "  "
         'ACTUALIZA PRECIO SALIDA ALMACEN
         db.Execute "update ao_almacen_salidas set precio_unitario_bs = ao_saldos3.CostoUnitario, importe_venta_bs = ao_saldos3.importe_venta_bs FROM ao_almacen_salidas INNER JOIN ao_saldos3 ON ao_almacen_salidas.almacen_codigo = ao_saldos3.almacen_codigo AND ao_almacen_salidas.doc_codigo  = ao_saldos3.doc_codigo AND ao_almacen_salidas.doc_numero = ao_saldos3.doc_numero AND ao_almacen_salidas.bien_codigo = ao_saldos3.bien_codigo WHERE ao_almacen_salidas.almacen_codigo = " & dtc_codigo1.Text & "  "

@@ -9,7 +9,6 @@ Begin VB.Form aw_seguimiento_comex
    ClientLeft      =   1110
    ClientTop       =   345
    ClientWidth     =   16545
-   Icon            =   "aw_seguimiento_comex.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
@@ -24,7 +23,7 @@ Begin VB.Form aw_seguimiento_comex
       ScaleHeight     =   660
       ScaleWidth      =   20280
       TabIndex        =   24
-      Top             =   0
+      Top             =   600
       Width           =   20280
       Begin VB.PictureBox BtnImprimir1 
          Appearance      =   0  'Flat
@@ -33,7 +32,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7200
-         Picture         =   "aw_seguimiento_comex.frx":058A
+         Picture         =   "aw_seguimiento_comex.frx":0000
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   32
@@ -48,7 +47,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   18840
-         Picture         =   "aw_seguimiento_comex.frx":0E57
+         Picture         =   "aw_seguimiento_comex.frx":08CD
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   31
@@ -63,7 +62,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5520
-         Picture         =   "aw_seguimiento_comex.frx":1619
+         Picture         =   "aw_seguimiento_comex.frx":108F
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   29
@@ -78,7 +77,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   3240
-         Picture         =   "aw_seguimiento_comex.frx":1EE6
+         Picture         =   "aw_seguimiento_comex.frx":195C
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   28
@@ -120,7 +119,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   105
-         Picture         =   "aw_seguimiento_comex.frx":269B
+         Picture         =   "aw_seguimiento_comex.frx":2111
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   25
@@ -184,7 +183,7 @@ Begin VB.Form aw_seguimiento_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8040
-         Picture         =   "aw_seguimiento_comex.frx":2FB0
+         Picture         =   "aw_seguimiento_comex.frx":2A26
          ScaleHeight     =   615
          ScaleWidth      =   1335
          TabIndex        =   21
@@ -2433,9 +2432,6 @@ End Sub
 
 ' Boton guardar
 Private Sub BtnGrabar_Click()
-    fraOpciones.Visible = True
-    FraGrabarCancelar.Visible = False
-    
     FraDet1.Enabled = True
     FraDet2.Enabled = True
     FraDet3.Enabled = True
@@ -2589,8 +2585,8 @@ On Error GoTo EditErr
 '  lblStatus.Caption = "Modificar registro"
     If Ado_datos.Recordset!estado_codigo = "REG" Then
 '        Fra_datos.Enabled = True
-        fraOpciones.Visible = False
-        FraGrabarCancelar.Visible = True
+'        fraOpciones.Visible = False
+'        FraGrabarCancelar.Visible = True
 '        dg_datos.Enabled = False
 '
 '        FraDet3.Visible = False
@@ -3005,7 +3001,7 @@ Private Sub OptFilGral1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     
     'queryinicial = " EXEC ra_select_aocompracabecera "
-    queryinicial = " SELECT * FROM ao_compra_cabecera where venta_tipo = 'R' AND unidad_codigo_ant like '%36A%' "
+    queryinicial = " SELECT * FROM ao_compra_cabecera where venta_tipo = 'R' "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = "solicitud_codigo"
     Set Ado_datos.Recordset = rs_datos.DataSource

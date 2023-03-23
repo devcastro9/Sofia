@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -2102,7 +2102,7 @@ Begin VB.Form Fw_ReportesCobranzas
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109641729
+         Format          =   118489089
          CurrentDate     =   42370
       End
       Begin MSComCtl2.DTPicker dtpFecha2 
@@ -2114,7 +2114,7 @@ Begin VB.Form Fw_ReportesCobranzas
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109641729
+         Format          =   118489089
          CurrentDate     =   42735
       End
       Begin VB.Label Label2 
@@ -2313,7 +2313,7 @@ Private Sub BtnImprimir_Click()
     ElseIf optRep003.Value = True And opt_4.Value = True Then
         CryUnidad.ReportFileName = App.Path & "\Reportes\Ventas\fr_solicitud_factura_cobrador_CGE.rpt"
         titulo2 = "COBRANZAS CGE"
-        subtitulo2 = "SOLICITUD DE FACTURACION R-100"
+        subtitulo2 = "SOLICITUD DE FACTURACION R-110"
         CryUnidad.Formulas(2) = "Titulo = '" & titulo2 & "'"
         CryUnidad.Formulas(3) = "SubTitulo = '" & subtitulo2 & "'"
         iResult = CryUnidad.PrintReport

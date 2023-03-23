@@ -524,7 +524,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119275521
+         Format          =   110231553
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -3374,7 +3374,7 @@ Private Sub AbrirDetalle()
             Case "0"
                 If VAR_BUSCA = 0 Then
                     'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "  'unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo_adm & "'   "    '
-                    queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo & "' )  "            'beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' )  "  '
+                    queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!UNIDAD_codigo & "' )  "            'beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' )  "  '
                 Else
                     queryinicial2 = queryinicial0
                 End If
@@ -3595,7 +3595,7 @@ Private Sub BtnAñadir_Click()
 accion = "NEW"
     
 On Error GoTo UpdateErr
-If glusuario = "FCHAVEZ" Or glusuario = "DBRAÑEZ" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Then
+If glusuario = "FVASQUEZ" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "SQUISPE" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -4104,7 +4104,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CARIZACA" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
         accion = "MOD"
@@ -4745,7 +4745,7 @@ Private Sub Form_Load()
         usuario2 = rs_aux3!beneficiario_codigo
         VAR_BENEF = rs_aux3!beneficiario_codigo
         VAR_DA = rs_aux3!da_codigo
-        VAR_UNID = rs_aux3!unidad_codigo
+        VAR_UNID = rs_aux3!UNIDAD_codigo
     Else
         usuario2 = "3361040"
         VAR_BENEF = "0"
@@ -4783,7 +4783,7 @@ Private Sub Form_Load()
         '
     Else
         'queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "
-        queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo & "'   "
+        queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!UNIDAD_codigo & "'   "
         '
     End If
     'Call CARGAPARAM
@@ -4918,13 +4918,14 @@ Private Sub OptFilGral1_Click()
     rs_datos6.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
     If rs_datos6.RecordCount > 0 Then
         VAR_BENI = rs_datos6!beneficiario_codigo
+        VAR_BENR = rs_datos6!UNIDAD_codigo
     End If
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case glusuario
         Case "ADMIN", "VPAREDES", "RCUELA", "DBRAÑEZ", "FCHAVEZ", "CSALINAS"
             queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG') "
-        Case "PLOPEZ", "MVALDIVIA"
+        Case "PLOPEZ", "MVALDIVIA", "CARIZACA", "FMOREIRA", "AFLORES"
             'queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo ='6962804')) "
             queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG') "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"

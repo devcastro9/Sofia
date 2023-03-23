@@ -1,0 +1,45 @@
+USE [ADMIN_EMPRESA_JS]
+GO
+/****** Object:  StoredProcedure [dbo].[ap_salida_almacenes_trf]    Script Date: 03/21/2017 14:42:20 ******/
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Autor: Elizabeth Huanca Alejo
+-- Modificado por:
+-- Sistema: ADMIN.EMPRESA_JS
+-- Objeto: PROCEDIMIENTO ALMACENADO
+-- Nombre del objeto: ap_salida_almacenes_trf
+-- Descripcion:	REPORTE DE COMERCIAL - RECIBO DE COBRANZA R-103
+-- Tabla: ao_ventas_cobranza
+-- Tablas relacionadas: 
+-- Fecha de creacion: 21/03/2017
+-- Fecha de modificacion;
+-- Version: 1.0
+-- =============================================
+ALTER PROCEDURE [dbo].[ap_salida_almacenes_trf]
+@venta_codigo INTEGER,
+--@dia_correl INT,
+@ges_gestion varchar(4)
+
+AS
+SELECT     dbo.gc_beneficiario.beneficiario_denominacion, dbo.ac_almacen_aux.bien_codigo, dbo.ac_almacen_aux.cantidad, dbo.ac_almacen_aux.edif_descripcion, 
+                      dbo.ac_almacen_aux.fecha_almi, dbo.ac_almacen_aux.doc_codigo, dbo.ac_almacen_aux.doc_numero_m, dbo.ac_almacen_aux.observaciones2, 
+                      dbo.ac_almacen_aux.unimed_codigo, dbo.ac_almacen_aux.bien_descripcion, dbo.ac_almacen_aux.fmes_plan, dbo.ao_ventas_cabecera.beneficiario_codigo_tec, 
+                      dbo.gc_edificaciones.edif_descripcion AS edif_descripcion_edif, dbo.ao_ventas_cabecera.unidad_codigo, dbo.ao_ventas_cabecera.solicitud_codigo, 
+                      dbo.ao_ventas_cabecera.venta_codigo, dbo.ao_ventas_cabecera.fecha_verif, dbo.ao_ventas_cabecera.estado_codigo_verif, 
+                      dbo.ao_ventas_cabecera.estado_almacen, dbo.ao_ventas_cabecera.almacen_codigo, dbo.ac_almacenes.almacen_descripcion, 
+                      dbo.ao_ventas_cabecera.ges_gestion, ac_almacenes_1.almacen_descripcion AS almacen_descripcion_d, dbo.gc_departamento.depto_descripcion, 
+                      gc_departamento_1.depto_descripcion AS depto_descripcion_d
+FROM         dbo.ac_almacen_aux INNER JOIN
+                      dbo.ao_ventas_cabecera ON dbo.ac_almacen_aux.fmes_plan = dbo.ao_ventas_cabecera.venta_codigo INNER JOIN
+                      dbo.gc_edificaciones ON dbo.ao_ventas_cabecera.edif_codigo = dbo.gc_edificaciones.edif_codigo INNER JOIN
+                      dbo.gc_beneficiario ON dbo.ao_ventas_cabecera.beneficiario_codigo_tec = dbo.gc_beneficiario.beneficiario_codigo INNER JOIN
+                      dbo.ac_almacenes ON dbo.ao_ventas_cabecera.almacen_codigo = dbo.ac_almacenes.almacen_codigo INNER JOIN
+                      dbo.ac_almacenes AS ac_almacenes_1 ON dbo.ao_ventas_cabecera.almacen_codigo_d = ac_almacenes_1.almacen_codigo INNER JOIN
+                      dbo.gc_departamento ON dbo.ao_ventas_cabecera.depto_codigo = dbo.gc_departamento.depto_codigo INNER JOIN
+                      dbo.gc_departamento AS gc_departamento_1 ON dbo.ao_ventas_cabecera.almacen_codigo_d = gc_departamento_1.depto_codigo
+WHERE ac_almacen_aux.fmes_plan = @venta_codigo and ao_ventas_cabecera.ges_gestion  = @ges_gestion and cantidad > 0
+--and ao_ventas_cabecera.almacen_codigo <>'NULL' 
+--AND  dbo.ao_compra_planilla_pagos.pago_codigo =  @pago_codigo

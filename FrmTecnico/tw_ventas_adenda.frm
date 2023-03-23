@@ -157,7 +157,7 @@ Begin VB.Form tw_ventas_adenda
          Caption         =   "ADENDA DEL CONTRATO"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   15.75
+            Size            =   14.25
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -165,11 +165,11 @@ Begin VB.Form tw_ventas_adenda
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00FFFF80&
-         Height          =   360
-         Left            =   8130
+         Height          =   330
+         Left            =   7455
          TabIndex        =   25
          Top             =   300
-         Width           =   3900
+         Width           =   4410
       End
    End
    Begin VB.PictureBox FraGrabarCancelar 
@@ -211,7 +211,7 @@ Begin VB.Form tw_ventas_adenda
          Caption         =   "ADENDA DEL CONTRATO"
          BeginProperty Font 
             Name            =   "Arial"
-            Size            =   15.75
+            Size            =   8.25
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -401,26 +401,26 @@ Begin VB.Form tw_ventas_adenda
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   810.142
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   945.071
+               ColumnWidth     =   900.284
             EndProperty
             BeginProperty Column02 
-               ColumnWidth     =   3929.953
+               ColumnWidth     =   3780.284
             EndProperty
             BeginProperty Column03 
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1170.142
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   975.118
+               ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   585.071
+               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   959.811
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   -1  'True
@@ -666,7 +666,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   109707265
+         Format          =   117964801
          CurrentDate     =   44197
          MinDate         =   32874
       End
@@ -682,7 +682,7 @@ Begin VB.Form tw_ventas_adenda
          _ExtentY        =   503
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   109707265
+         Format          =   117964801
          CurrentDate     =   44197
          MinDate         =   36526
       End
@@ -691,15 +691,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Elija el Tipo de Moneda :"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   360
@@ -712,15 +703,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Tipo de Cambio"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   5520
@@ -733,15 +715,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Importe (Incremento/Reducción) de Adenda en Dolares."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   360
@@ -754,15 +727,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Importe (Incremento/Reducción) de la Adenda en Bs."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   360
@@ -775,15 +739,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Fecha Fin Adenda"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   3120
@@ -798,7 +753,7 @@ Begin VB.Form tw_ventas_adenda
          Caption         =   "Nro. de Venta"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   9.75
+            Size            =   8.25
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -817,15 +772,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Fecha Inicio Adenda"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   360
@@ -862,15 +808,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Observaciones sobre el Motivo del Cambio"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   360
@@ -883,15 +820,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Motivo del Cambio de Contrato"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   360
@@ -928,15 +856,6 @@ Begin VB.Form tw_ventas_adenda
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
          Caption         =   "Estado Registro"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Index           =   2
@@ -1419,19 +1338,19 @@ Private Sub BtnImprimir_Click()
   If (Ado_datos.Recordset.RecordCount > 0) Then
         Dim iResult As Integer
         'Dim co As New ADODB.Command
-        cr01.ReportFileName = App.Path & "\Reportes\tecnico\tr_orden_adenda.rpt"
-        cr01.WindowShowPrintSetupBtn = True
-        cr01.WindowShowRefreshBtn = True
+        CR01.ReportFileName = App.Path & "\Reportes\tecnico\tr_orden_adenda.rpt"
+        CR01.WindowShowPrintSetupBtn = True
+        CR01.WindowShowRefreshBtn = True
         'MsgBox rs.RecordCount
         '  cr01.Formulas(0) = "Titulo = '" & lbl_titulo.Caption & "' "
         '  cr01.Formulas(1) = "Subtitulo = '" & FraDet1.Caption & "' "
 
-        cr01.StoredProcParam(0) = Ado_datos.Recordset!venta_codigo_adenda      'ges_gestion
+        CR01.StoredProcParam(0) = Ado_datos.Recordset!venta_codigo_adenda      'ges_gestion
         'cr01.StoredProcParam(1) = Me.Ado_datos.Recordset!unidad_codigo
         'cr01.StoredProcParam(2) = Me.Ado_datos.Recordset!solicitud_codigo
-        iResult = cr01.PrintReport
-        If iResult <> 0 Then MsgBox cr01.LastErrorNumber & " : " & cr01.LastErrorString, vbCritical, "Error de impresión"
-        cr01.WindowState = crptMaximized
+        iResult = CR01.PrintReport
+        If iResult <> 0 Then MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbCritical, "Error de impresión"
+        CR01.WindowState = crptMaximized
   Else
     MsgBox "No se puede Imprimir. Debe elegir el Registro que desea Imprimir ...", , "Atención"
   End If

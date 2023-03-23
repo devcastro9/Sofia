@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_gral
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109510657
+         Format          =   110690305
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2510,10 +2510,10 @@ Begin VB.Form fw_compras_gral
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20160
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   10935
-      Width           =   20160
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4097,7 +4097,7 @@ If Ado_detalle2.Recordset.RecordCount > 0 Then
         rs_compra_det!almacen_codigo = Ado_detalle1.Recordset!almacen_codigo
          rs_compra_det!estado_codigo = "APR"
         rs_compra_det!usr_codigo = glusuario
-        rs_compra_det!fecha_registro = Date
+        rs_compra_det!Fecha_Registro = Date
         rs_compra_det.Update
         DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
         DETALLE1 = Ado_detalle1.Recordset!compra_codigo_det
@@ -4380,7 +4380,7 @@ Private Sub BtnAprobar_Click()
 '        rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
 '        rs_datos!archivo_respaldo_cargado = "N"
         rs_datos!estado_codigo = "APR"
-        rs_datos!fecha_registro = Date
+        rs_datos!Fecha_Registro = Date
         rs_datos!usr_codigo = glusuario
         rs_datos.UpdateBatch adAffectAll
         
@@ -5109,7 +5109,7 @@ Private Sub btnEliminar_Click()
                Ado_datos.Recordset!estado_codigo_eqp = "ANL"
        End Select
           'rs_datos!estado_codigo_eqp = "ANL"
-       rs_datos!fecha_registro = Date
+       rs_datos!Fecha_Registro = Date
        rs_datos!usr_codigo = glusuario
        rs_datos.UpdateBatch adAffectAll
        db.Execute "ap_compras_grla 1 ,'',0, '' ,0,'',''," & Ado_datos.Recordset!compra_codigo & ",'','',0,0,0, 'REG', '" & glusuario & "','',0"
@@ -5158,7 +5158,7 @@ Private Sub BtnDesAprobar_Click()
    If rs_datos!estado_codigo = "APR" Then
       If sino = vbYes Then
          rs_datos!estado_codigo = "REG"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -5408,7 +5408,7 @@ Private Sub BtnGrabar_Click()
      'rs_datos!ARCHIVO_Foto = var_cod + ".JPG"
      'rs_datos!archivo_foto_cargado = "N"
      'hora_registro
-     rs_datos!fecha_registro = Date     'no cambia
+     rs_datos!Fecha_Registro = Date     'no cambia
 '     Select Case Glaux
 '             Case "PROVI"
 '            rs_datos!estado_codigo_eqp = "REG"

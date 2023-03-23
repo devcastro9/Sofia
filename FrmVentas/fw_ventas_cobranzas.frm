@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109903873
+            Format          =   110166017
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   109903873
+            Format          =   110166017
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   109903873
+            Format          =   110166017
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -5547,6 +5547,11 @@ Private Sub valida_campos()
         VAR_VAL = "ERR"
         Exit Sub
     End If
+    If IsNull(DTPFechaCmpbte.Value) Then
+        MsgBox "Debe Registrar la Fecha de Cheque o Transferencia o Cmpbte.Depósito..., Vuelva a Intentar ...", vbExclamation, "Atención"
+        VAR_VAL = "ERR"
+        Exit Sub
+    End If
     If IsNull(DTPFechaCmpbte.Value) Or CDate(DTPFechaCmpbte.Value) = "01/01/1900" Then
         MsgBox "Debe Registrar la Fecha de Cheque o Transferencia o Cmpbte.Depósito..., Vuelva a Intentar ...", vbExclamation, "Atención"
         VAR_VAL = "ERR"
@@ -5555,17 +5560,20 @@ Private Sub valida_campos()
     'INI POR CIERRE WWWWWWWWWWWWWWW
     If glusuario = "APALACIOS" Then
     Else
-        'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
-        If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
-            'MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-            MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-            VAR_VAL = "ERR"
-            Exit Sub
-        End If
-        If CDate(DTPFechaCmpbte.Value) >= CDate("01/01/2021") And CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
-            MsgBox "No se puede Registrar una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-            VAR_VAL = "ERR"
-            Exit Sub
+        If DataCombo9.Text = "O" Or DataCombo9.Text = "T" Then
+        '        C E F I O T X
+            'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
+            If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
+                'MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                VAR_VAL = "ERR"
+                Exit Sub
+            End If
+            If CDate(DTPFechaCmpbte.Value) >= CDate("01/01/2021") And CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
+                MsgBox "No se puede Registrar una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                VAR_VAL = "ERR"
+                Exit Sub
+            End If
         End If
     End If
     'FIN POR CIERRE WWWWWWWWWWWWWWW
@@ -9607,6 +9615,7 @@ End Sub
 
 Private Sub DTPicker1_LostFocus()
     ' CIERRE TEMPORAL DE COBRANZAS GESTION 2021 Y hasta Abril 2022
+    
     If glusuario = "APALACIOS" Then
     Else
         'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
@@ -9962,27 +9971,27 @@ Private Sub OptFilGral01_Click()
         Case "ADMIN", "VPAREDES", "APALACIOS", "GSOLIZ", "CSALINAS"
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
-            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') "
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100') "
         Case "JCASTRO", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
-            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') "
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100') "
         Case "FCABRERA", "FDELGADILLO", "DPANIAGUA", "MARTEAGA", "KGARCIA", "ASANTIVAÑEZ", "OPLAZA", "RLAVAYEN"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
-            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '3' or depto_codigo = '4' or depto_codigo = '5') "
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100') AND (depto_codigo = '3' or depto_codigo = '4' or depto_codigo = '5') "
         Case "TCASTILLO", "HMARIN", "ULEDESMA", "CPAREDES", "RGIL", "RPRIETO", "LMORALES"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
-            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '7' or depto_codigo = '8' or depto_codigo = '9' or depto_codigo = '1') "
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100')  AND (depto_codigo = '7' or depto_codigo = '8' or depto_codigo = '9' or depto_codigo = '1') "
         Case "EVILLALOBOS", "GMORA", "LVEDIA", "PMAJLUF"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
-            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101') AND (depto_codigo = '5' or depto_codigo = '6' or depto_codigo = '1') "
+            queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100')  AND (depto_codigo = '5' or depto_codigo = '6' or depto_codigo = '1') "
         Case Else
             BtnAprobar.Visible = False
             BtnModificar.Visible = False
-            queryinicial = "select * From av_venta_cobranza_fac WHERE (doc_codigo_fac = 'R-101' AND beneficiario_codigo_resp = '" & rs_datos9!beneficiario_codigo & "' ) "
+            queryinicial = "select * From av_venta_cobranza_fac WHERE ((doc_codigo_fac = 'R-101'  OR doc_codigo_fac = 'R-100') AND beneficiario_codigo_resp = '" & rs_datos9!beneficiario_codigo & "' ) "
     End Select
     rs_datos01.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos01.Sort = "cobranza_fecha_fac desc"

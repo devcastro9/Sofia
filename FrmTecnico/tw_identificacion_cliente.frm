@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -33,9 +33,9 @@ Begin VB.Form tw_identificacion_cliente
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   6615
-      Left            =   9600
+      Left            =   7080
       TabIndex        =   112
-      Top             =   720
+      Top             =   840
       Visible         =   0   'False
       Width           =   9375
       Begin VB.CommandButton btnPanelSalir 
@@ -343,9 +343,9 @@ Begin VB.Form tw_identificacion_cliente
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       Height          =   8115
-      Left            =   7785
+      Left            =   5760
       TabIndex        =   11
-      Top             =   660
+      Top             =   600
       Visible         =   0   'False
       Width           =   11175
       Begin VB.Frame fra_cliente 
@@ -860,7 +860,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   109182977
+         Format          =   118489089
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -4653,7 +4653,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!trafico_codigo = var_cod
                    ' rs_aux1!trafico_h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!fecha_registro = Date
+                    rs_aux1!Fecha_Registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
                     db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -4723,7 +4723,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
                     rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!fecha_registro = Date
+                    rs_aux1!Fecha_Registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -4794,7 +4794,7 @@ Private Sub BtnAprobar_Click()
 '                        rs_aux3!modelo_elegido_h = "N"
 '                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!estado_codigo = "REG"
-                        rs_aux3!fecha_registro = Date
+                        rs_aux3!Fecha_Registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                         rs_aux5.MoveNext
@@ -4860,7 +4860,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
                     rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!fecha_registro = Date
+                    rs_aux1!Fecha_Registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -4929,7 +4929,7 @@ Private Sub BtnAprobar_Click()
 '                        rs_aux3!modelo_elegido_h = "N"
 '                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!estado_codigo = "REG"
-                        rs_aux3!fecha_registro = Date
+                        rs_aux3!Fecha_Registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                      rs_aux5.MoveNext
@@ -4995,7 +4995,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
                     rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!fecha_registro = Date
+                    rs_aux1!Fecha_Registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -5063,7 +5063,7 @@ Private Sub BtnAprobar_Click()
 '                        rs_aux3!modelo_elegido_h = "N"
 '                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!estado_codigo = "REG"
-                        rs_aux3!fecha_registro = Date
+                        rs_aux3!Fecha_Registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                      rs_aux5.MoveNext
@@ -5236,13 +5236,13 @@ Private Sub btnEliminar_Click()
        sino = MsgBox("Está Seguro de ANULAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
        If sino = vbYes Then
           rs_datos!estado_codigo = "ANL"
-          rs_datos!fecha_registro = Date
+          rs_datos!Fecha_Registro = Date
           rs_datos!usr_codigo = glusuario
           rs_datos.UpdateBatch adAffectAll
        End If
     Else
         rs_datos!estado_codigo = "ERR"
-        rs_datos!fecha_registro = Date
+        rs_datos!Fecha_Registro = Date
         rs_datos!usr_codigo = glusuario
         rs_datos.UpdateBatch adAffectAll
        'MsgBox "No se puede ANULAR un registro Elaborado o Errado ...", vbExclamation, "Validación de Registro"
@@ -5262,7 +5262,7 @@ Private Sub BtnDesAprobar_Click()
    If rs_datos!estado_codigo = "APR" Then
       If sino = vbYes Then
          rs_datos!estado_codigo = "REG"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -5498,7 +5498,7 @@ Private Sub BtnGrabar_Click()
      'rs_datos!ARCHIVO_Foto = var_cod + ".JPG"
      'rs_datos!archivo_foto_cargado = "N"
      rs_datos!codigo_empresa = dtc_codigo8.Text
-     rs_datos!fecha_registro = Date     'no cambia
+     rs_datos!Fecha_Registro = Date     'no cambia
      rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
      rs_datos.Update    'Batch 'adAffectAll
      VAR_SOLA = rs_datos!solicitud_codigo
@@ -6487,6 +6487,7 @@ Private Sub btnPanelImprimir_Click()
         ' 3. Con datos del Cliente (Nombre, Cargo, Institución, etc.)   -    - OPCION 3
         '-----------------------------------------------------------------     PAGINA 1
         CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_cliente_SM.rpt"
+        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_cliente.rpt"
         CR02.WindowShowPrintSetupBtn = True
         CR02.WindowShowRefreshBtn = True
 
@@ -6503,7 +6504,8 @@ Private Sub btnPanelImprimir_Click()
     ElseIf Option4.Value = True Then
         '4. Sólo con Nombre de Edificio (Sin Datos del Cliente)         - OPCION 4
         '-----------------------------------------------------------------PAGINA 1
-        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1_SM.rpt"
+        'CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1_SM.rpt"
+        CR02.ReportFileName = App.Path & "\Reportes\tecnico\tr_cotizacion_reparacion_pag1.rpt"
         CR02.WindowShowPrintSetupBtn = True
         CR02.WindowShowRefreshBtn = True
 

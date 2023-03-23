@@ -54,7 +54,11 @@ Public Sub ExecProcedure(ByVal query_stored As String)
         .Execute
     End With
 Handler:
-    MsgBox ("Stored Procedure error: " & Err.Number & " : " & Err.Description)
+    If Err.Number > 0 Then
+        MsgBox ("Stored Procedure error: " & Err.Number & " : " & Err.Description)
+    Else
+        Err.Clear
+    End If
 End Sub
 
 Public Sub Contabiliza_Contratos(ByVal venta_codigo As Long)

@@ -1,9 +1,9 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
-Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form tw_organizacion_zonas_inst 
    BackColor       =   &H00C0C0C0&
@@ -36,7 +36,7 @@ Begin VB.Form tw_organizacion_zonas_inst
       Height          =   1560
       Left            =   8400
       TabIndex        =   14
-      Top             =   4920
+      Top             =   5400
       Visible         =   0   'False
       Width           =   8460
       Begin VB.PictureBox FraGrabarCancelar 
@@ -152,7 +152,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   411435009
+         Format          =   109969409
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -167,7 +167,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   411435009
+         Format          =   109969409
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -182,7 +182,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   411435009
+         Format          =   109969409
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -197,7 +197,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   411435009
+         Format          =   109969409
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -310,7 +310,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   6240
+      Height          =   6720
       Left            =   8040
       TabIndex        =   19
       Top             =   1080
@@ -320,11 +320,11 @@ Begin VB.Form tw_organizacion_zonas_inst
          BackColor       =   &H80000015&
          BorderStyle     =   0  'None
          Height          =   660
-         Left            =   30
+         Left            =   0
          ScaleHeight     =   660
          ScaleWidth      =   9225
          TabIndex        =   33
-         Top             =   5520
+         Top             =   6000
          Width           =   9225
          Begin VB.PictureBox BtnGrabarDet 
             Appearance      =   0  'Flat
@@ -373,7 +373,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   5
-         Top             =   3240
+         Top             =   3720
          Width           =   7365
       End
       Begin VB.TextBox Text7 
@@ -397,7 +397,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          List            =   "tw_organizacion_zonas_inst.frx":2C8E
          TabIndex        =   6
          Text            =   "0"
-         Top             =   3360
+         Top             =   3840
          Visible         =   0   'False
          Width           =   855
       End
@@ -422,7 +422,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          MultiLine       =   -1  'True
          TabIndex        =   8
          Text            =   "tw_organizacion_zonas_inst.frx":2DA1
-         Top             =   3360
+         Top             =   3840
          Visible         =   0   'False
          Width           =   645
       End
@@ -622,6 +622,62 @@ Begin VB.Form tw_organizacion_zonas_inst
          BoundColumn     =   "beneficiario_codigo"
          Text            =   "Todos"
       End
+      Begin MSDataListLib.DataCombo DataCombo1 
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2E9D
+         DataField       =   "beneficiario_codigo_cobr"
+         DataSource      =   "Ado_detalle1"
+         Height          =   315
+         Left            =   3360
+         TabIndex        =   78
+         Top             =   3240
+         Width           =   5685
+         _ExtentX        =   10028
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "beneficiario_denominacion"
+         BoundColumn     =   "beneficiario_codigo"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo DataCombo2 
+         Bindings        =   "tw_organizacion_zonas_inst.frx":2EB6
+         DataField       =   "beneficiario_codigo_cobr"
+         DataSource      =   "Ado_detalle1"
+         Height          =   315
+         Left            =   9000
+         TabIndex        =   79
+         Top             =   3240
+         Visible         =   0   'False
+         Width           =   885
+         _ExtentX        =   1561
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "beneficiario_codigo"
+         BoundColumn     =   "beneficiario_codigo"
+         Text            =   "Todos"
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000012&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Responsable de Entrega Equipo"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   77
+         Top             =   3240
+         Width           =   2955
+      End
       Begin VB.Label Label6 
          AutoSize        =   -1  'True
          BackColor       =   &H80000012&
@@ -707,7 +763,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   240
          Left            =   240
          TabIndex        =   31
-         Top             =   3360
+         Top             =   3840
          Width           =   1380
       End
       Begin VB.Label lbl_campo5 
@@ -749,7 +805,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   240
          Left            =   4200
          TabIndex        =   26
-         Top             =   3375
+         Top             =   3855
          Visible         =   0   'False
          Width           =   1200
       End
@@ -771,7 +827,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          Height          =   240
          Left            =   1680
          TabIndex        =   25
-         Top             =   3375
+         Top             =   3855
          Visible         =   0   'False
          Width           =   1830
       End
@@ -913,7 +969,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   11040
-            Picture         =   "tw_organizacion_zonas_inst.frx":2E9D
+            Picture         =   "tw_organizacion_zonas_inst.frx":2ECF
             ScaleHeight     =   615
             ScaleWidth      =   1245
             TabIndex        =   75
@@ -928,7 +984,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1680
-            Picture         =   "tw_organizacion_zonas_inst.frx":365F
+            Picture         =   "tw_organizacion_zonas_inst.frx":3691
             ScaleHeight     =   615
             ScaleWidth      =   1545
             TabIndex        =   36
@@ -943,7 +999,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3345
-            Picture         =   "tw_organizacion_zonas_inst.frx":4608
+            Picture         =   "tw_organizacion_zonas_inst.frx":463A
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   9
@@ -951,7 +1007,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Width           =   1430
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "tw_organizacion_zonas_inst.frx":4F1D
+            Bindings        =   "tw_organizacion_zonas_inst.frx":4F4F
             DataField       =   "edif_codigo"
             Height          =   315
             Left            =   5040
@@ -966,7 +1022,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_cod2 
-            Bindings        =   "tw_organizacion_zonas_inst.frx":4F3A
+            Bindings        =   "tw_organizacion_zonas_inst.frx":4F6C
             DataField       =   "edif_codigo"
             Height          =   315
             Left            =   7680
@@ -1091,10 +1147,10 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin TrueOleDBGrid60.TDBGrid dg_det1 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":4F57
+         Bindings        =   "tw_organizacion_zonas_inst.frx":4F89
          Height          =   5775
          Left            =   120
-         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":4F72
+         OleObjectBlob   =   "tw_organizacion_zonas_inst.frx":4FA4
          TabIndex        =   45
          Top             =   960
          Width           =   12615
@@ -1135,7 +1191,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2760
-            Picture         =   "tw_organizacion_zonas_inst.frx":1197E
+            Picture         =   "tw_organizacion_zonas_inst.frx":119D2
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   58
@@ -1189,7 +1245,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          End
       End
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":12293
+         Bindings        =   "tw_organizacion_zonas_inst.frx":122E7
          Height          =   1740
          Left            =   120
          TabIndex        =   44
@@ -1616,7 +1672,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4320
-            Picture         =   "tw_organizacion_zonas_inst.frx":122AE
+            Picture         =   "tw_organizacion_zonas_inst.frx":12302
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   76
@@ -1632,7 +1688,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3120
-            Picture         =   "tw_organizacion_zonas_inst.frx":12A63
+            Picture         =   "tw_organizacion_zonas_inst.frx":12AB7
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   74
@@ -1647,7 +1703,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "tw_organizacion_zonas_inst.frx":131AF
+            Picture         =   "tw_organizacion_zonas_inst.frx":13203
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   51
@@ -1663,7 +1719,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4440
-            Picture         =   "tw_organizacion_zonas_inst.frx":13A7C
+            Picture         =   "tw_organizacion_zonas_inst.frx":13AD0
             ScaleHeight     =   615
             ScaleWidth      =   1320
             TabIndex        =   50
@@ -1679,7 +1735,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3120
-            Picture         =   "tw_organizacion_zonas_inst.frx":142AF
+            Picture         =   "tw_organizacion_zonas_inst.frx":14303
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   49
@@ -1695,7 +1751,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2040
-            Picture         =   "tw_organizacion_zonas_inst.frx":149FB
+            Picture         =   "tw_organizacion_zonas_inst.frx":14A4F
             ScaleHeight     =   615
             ScaleWidth      =   1215
             TabIndex        =   48
@@ -1711,7 +1767,7 @@ Begin VB.Form tw_organizacion_zonas_inst
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1440
-            Picture         =   "tw_organizacion_zonas_inst.frx":151BA
+            Picture         =   "tw_organizacion_zonas_inst.frx":1520E
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   47
@@ -1829,7 +1885,7 @@ Begin VB.Form tw_organizacion_zonas_inst
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "tw_organizacion_zonas_inst.frx":15A87
+         Bindings        =   "tw_organizacion_zonas_inst.frx":15ADB
          Height          =   4530
          Left            =   120
          TabIndex        =   11
@@ -2784,7 +2840,7 @@ Private Sub btnEliminar_Click()
       sino = MsgBox("Está Seguro de ANULAR el Registro? Este ya no podrá ser utilizado...", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
          rs_datos!estado_codigo = "ANL"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -3329,6 +3385,13 @@ Private Sub ABRIR_TABLAS_AUX()
     rs_datos9.Open "rv_unidad_vs_responsable where unidad_codigo = 'DCOBR' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos9.Recordset = rs_datos9
     dtc_desc9.BoundText = dtc_codigo9.BoundText
+    
+    'Beneficiario Funcionario CGI (Quien Entrega el Equipo)
+    Set rs_datos8 = New ADODB.Recordset
+    If rs_datos8.State = 1 Then rs_datos8.Close
+    rs_datos8.Open "rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    Set Ado_datos8.Recordset = rs_datos8
+    dtc_desc8.BoundText = dtc_codigo8.BoundText
     
 End Sub
 

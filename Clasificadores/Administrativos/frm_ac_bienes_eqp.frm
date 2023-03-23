@@ -20,7 +20,7 @@ Begin VB.Form frm_ac_bienes_eqp
    WindowState     =   2  'Maximized
    Begin VB.Frame FraInsumo 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "INSUMOS PARA EL CRONOGRAMA DEL EQUIPO"
+      Caption         =   "INSUMOS PARA EL CRONOGRAMA POR CADA EQUIPO"
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -33,7 +33,7 @@ Begin VB.Form frm_ac_bienes_eqp
       EndProperty
       ForeColor       =   &H000040C0&
       Height          =   4575
-      Left            =   9840
+      Left            =   6120
       TabIndex        =   105
       Top             =   960
       Visible         =   0   'False
@@ -727,39 +727,49 @@ Begin VB.Form frm_ac_bienes_eqp
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   675.213
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   900.284
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   854.929
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
+               ColumnWidth     =   884.976
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1005.165
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
                Object.Visible         =   -1  'True
+               ColumnWidth     =   915.024
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1170.142
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
+               ColumnWidth     =   884.976
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1230.236
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
+               ColumnWidth     =   884.976
             EndProperty
          EndProperty
       End
@@ -1231,11 +1241,14 @@ Begin VB.Form frm_ac_bienes_eqp
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
+               ColumnWidth     =   1244.976
             EndProperty
             BeginProperty Column01 
+               ColumnWidth     =   2145.26
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
+               ColumnWidth     =   599.811
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False
@@ -1256,6 +1269,7 @@ Begin VB.Form frm_ac_bienes_eqp
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column09 
+               ColumnWidth     =   1950.236
             EndProperty
          EndProperty
       End
@@ -1316,19 +1330,38 @@ Begin VB.Form frm_ac_bienes_eqp
       Begin VB.TextBox TxtDescripcionSIN 
          DataField       =   "descripcion_pSIN"
          DataSource      =   "Ado_datos"
-         Height          =   375
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
          Left            =   4680
+         ScrollBars      =   1  'Horizontal
          TabIndex        =   138
-         Top             =   7080
+         Top             =   7200
          Width           =   5775
       End
       Begin VB.TextBox TxtCodigo_pSIN 
          DataField       =   "codigo_pSIN"
          DataSource      =   "Ado_datos"
-         Height          =   375
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
          Left            =   1440
          TabIndex        =   136
-         Top             =   7080
+         Top             =   7200
          Width           =   1695
       End
       Begin VB.TextBox TxtCantidad 
@@ -1545,7 +1578,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   133562369
+         Format          =   117571585
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1696,7 +1729,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Top             =   1160
          Width           =   6660
          _ExtentX        =   11748
-         _ExtentY        =   556
+         _ExtentY        =   741
          _Version        =   393216
          Locked          =   -1  'True
          Appearance      =   0
@@ -1707,7 +1740,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Text            =   "Elige Marca..."
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   12
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -1778,7 +1811,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Top             =   480
          Width           =   6660
          _ExtentX        =   11748
-         _ExtentY        =   556
+         _ExtentY        =   741
          _Version        =   393216
          Locked          =   -1  'True
          Appearance      =   0
@@ -1789,7 +1822,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Text            =   "Elige Grupo ..."
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   12
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -1808,7 +1841,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   133562369
+         Format          =   117571585
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -1895,7 +1928,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Top             =   1840
          Width           =   6660
          _ExtentX        =   11748
-         _ExtentY        =   556
+         _ExtentY        =   741
          _Version        =   393216
          Locked          =   -1  'True
          Appearance      =   0
@@ -1906,7 +1939,7 @@ Begin VB.Form frm_ac_bienes_eqp
          Text            =   "Elige Marca..."
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   12
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -2053,15 +2086,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Horas de Servicio (Cronograma):"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   6600
@@ -2109,15 +2133,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "USD"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   4440
@@ -2131,15 +2146,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "USD"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   2400
@@ -2153,15 +2159,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Bs."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   4440
@@ -2175,15 +2172,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Bs."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   2400
@@ -2197,15 +2185,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "USD"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   120
@@ -2219,15 +2198,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Bs."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00C00000&
          Height          =   240
          Left            =   150
@@ -2242,15 +2212,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Stock Iinicial"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   2280
@@ -2265,15 +2226,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Rotación"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   9000
@@ -2287,15 +2239,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Tipo de Equipo"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   6600
@@ -2309,15 +2252,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "SUB GRUPO 2"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   160
@@ -2331,15 +2265,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "SUB GRUPO 1"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   160
@@ -2353,15 +2278,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "GRUPO"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   160
@@ -2375,15 +2291,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Modelo"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   165
@@ -2421,15 +2328,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Edificio"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   165
@@ -2559,15 +2457,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Stock Mínimo"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   165
@@ -2581,15 +2470,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Características Complementarias"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   480
          Left            =   165
@@ -2603,15 +2483,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Industria (Pais Origen)"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   3015
@@ -2626,15 +2497,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Cant.Total Vendida"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   6525
@@ -2650,15 +2512,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Cant.Total Comprada"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   4155
@@ -2672,15 +2525,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Precio.Venta.Cliente"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   4560
@@ -2694,15 +2538,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Código Referencia"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   7005
@@ -2716,15 +2551,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Stock Actual"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   8880
@@ -2740,15 +2566,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Precio.Compra.FOB"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   180
@@ -2762,15 +2579,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Precio.Venta.Base"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   2400
@@ -2785,15 +2593,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Unidad de Medida"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   180
@@ -2807,15 +2606,6 @@ Begin VB.Form frm_ac_bienes_eqp
          BackColor       =   &H80000005&
          BackStyle       =   0  'Transparent
          Caption         =   "Marca"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   6765
@@ -4306,7 +4096,7 @@ On Error GoTo QError
         Ado_datos.Recordset!archivo_foto2 = Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
         Ado_datos.Recordset!estado_codigo = "REG"  'chkEstado
         Ado_datos.Recordset!usr_codigo = glusuario
-        Ado_datos.Recordset!fecha_registro = Date
+        Ado_datos.Recordset!Fecha_Registro = Date
         Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
         '*********************************
         Ado_datos.Recordset!codigo_pSIN = IIf(IsNull(TxtCodigo_pSIN.Text), "", TxtCodigo_pSIN.Text)
@@ -5013,6 +4803,7 @@ Private Sub CARGA()
     If rsProductosSIN.State = 1 Then rsProductosSIN.Close
     rsProductosSIN.Open "SELECT [correlativo] AS correlativo_pSIN, CONCAT([CodProducto], ' ', [Producto], ' || ', [CodActividad], ' ', [ActividadEconomica]) AS descripcion FROM [dbo].[gc_productos_sin] WHERE [EsBien] = CAST(1 AS BIT)", db, adOpenStatic
     Set AdoProductoSin.Recordset = rsProductosSIN
+    Dtc_descripcionSIN.BoundText = Dtc_codigoSIN.BoundText
     
     Set rsMarcas = New ADODB.Recordset
     If rsMarcas.State = 1 Then rsMarcas.Close

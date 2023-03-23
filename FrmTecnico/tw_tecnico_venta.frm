@@ -18,16 +18,16 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   15315.61
+   ScaleHeight     =   15274.24
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.38961e6
+   ScaleWidth      =   2.39205e6
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
       Caption         =   "Registra Justificacion para Anulación de Factura"
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
-      Left            =   8520
+      Left            =   8640
       TabIndex        =   200
       Top             =   4920
       Visible         =   0   'False
@@ -82,9 +82,9 @@ Begin VB.Form tw_tecnico_venta
          BackStyle       =   0  'Transparent
          ForeColor       =   &H00FFFFFF&
          Height          =   240
-         Left            =   120
+         Left            =   240
          TabIndex        =   204
-         Top             =   1425
+         Top             =   360
          Width           =   2025
       End
    End
@@ -93,7 +93,7 @@ Begin VB.Form tw_tecnico_venta
       Caption         =   "Registra Datos del Cliente"
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
-      Left            =   8520
+      Left            =   8640
       TabIndex        =   193
       Top             =   4920
       Visible         =   0   'False
@@ -705,13 +705,14 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmAlcance"
+      Tab(3).Control(0)=   "FrmABMDet1"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmABMDet1"
+      Tab(3).Control(2)=   "FrmAlcance"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1247,7 +1248,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   119275521
+            Format          =   35913729
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1511,7 +1512,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   119275521
+            Format          =   35913729
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1539,7 +1540,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   119275521
+            Format          =   35913729
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2037,7 +2038,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   119275521
+               Format          =   35913729
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2062,7 +2063,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119275521
+               Format          =   35913729
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2479,7 +2480,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119275521
+               Format          =   35913729
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2562,7 +2563,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   119275521
+               Format          =   35913729
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -3270,7 +3271,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   119275521
+            Format          =   35913729
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -3772,7 +3773,7 @@ Begin VB.Form tw_tecnico_venta
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   675.213
+               ColumnWidth     =   810.142
             EndProperty
             BeginProperty Column01 
                ColumnWidth     =   615.118
@@ -3782,18 +3783,18 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   929.764
+               ColumnWidth     =   989.858
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   1124.787
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   585.071
+               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   3660.095
+               ColumnWidth     =   4155.024
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
@@ -3803,10 +3804,10 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column09 
                Object.Visible         =   -1  'True
-               ColumnWidth     =   840.189
+               ColumnWidth     =   794.835
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   870.236
+               ColumnWidth     =   900.284
             EndProperty
          EndProperty
       End
@@ -4002,19 +4003,6 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
          EndProperty
          BeginProperty Column07 
-            DataField       =   "modelo_codigo"
-            Caption         =   "Modelo.Equipo"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column08 
             DataField       =   "bien_cantidad_por_empaque"
             Caption         =   "Hrs.X Dia"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -4027,7 +4015,7 @@ Begin VB.Form tw_tecnico_venta
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column09 
+         BeginProperty Column08 
             DataField       =   "estado_codigo"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -4040,7 +4028,7 @@ Begin VB.Form tw_tecnico_venta
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column10 
+         BeginProperty Column09 
             DataField       =   "observaciones"
             Caption         =   "Descripción.para.el.Cliente"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -4050,6 +4038,19 @@ Begin VB.Form tw_tecnico_venta
                FirstDayOfWeek  =   0
                FirstWeekOfYear =   0
                LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column10 
+            DataField       =   "modelo_codigo"
+            Caption         =   "Modelo.Equipo"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
                SubFormatType   =   0
             EndProperty
          EndProperty
@@ -4065,7 +4066,7 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   4680
+               ColumnWidth     =   4694.74
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
@@ -4074,7 +4075,7 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1019.906
+               ColumnWidth     =   1200.189
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
@@ -4083,23 +4084,22 @@ Begin VB.Form tw_tecnico_venta
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
-               ColumnWidth     =   1049.953
+               ColumnWidth     =   1184.882
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               Locked          =   -1  'True
-               ColumnWidth     =   1184.882
+               ColumnWidth     =   824.882
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   764.787
+               ColumnWidth     =   629.858
             EndProperty
             BeginProperty Column09 
-               Alignment       =   2
-               ColumnWidth     =   599.811
+               ColumnWidth     =   5490.142
             EndProperty
             BeginProperty Column10 
-               ColumnWidth     =   4484.977
+               Alignment       =   2
+               Locked          =   -1  'True
             EndProperty
          EndProperty
       End
@@ -4331,38 +4331,38 @@ Begin VB.Form tw_tecnico_venta
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   780.095
+               ColumnWidth     =   794.835
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
-               ColumnWidth     =   1335.118
+               ColumnWidth     =   1305.071
             EndProperty
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1305.071
+               ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1140.095
+               ColumnWidth     =   1200.189
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1335.118
+               ColumnWidth     =   1365.165
             EndProperty
             BeginProperty Column05 
                Locked          =   -1  'True
-               ColumnWidth     =   8219.906
+               ColumnWidth     =   8084.977
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
-               ColumnWidth     =   569.764
+               ColumnWidth     =   585.071
             EndProperty
             BeginProperty Column08 
                Object.Visible         =   0   'False
@@ -4376,7 +4376,7 @@ Begin VB.Form tw_tecnico_venta
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column11 
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1094.74
             EndProperty
             BeginProperty Column12 
                Alignment       =   2
@@ -5591,6 +5591,7 @@ Dim VAR_CODDOC, VAR_EMISION As String
 Dim VAR_EXPOR, VAR_VALD As String
 Dim VAR_NEWZ, VAR_ESTADO As String
 Dim VAR_PRO, VAR_SUB, VAR_ETAPA, VAR_CLASIF, VAR_DOCS As String
+Dim VAR_FACTURA As String
 
 Dim FInicio, FFin, FControl As Date
 
@@ -6650,7 +6651,7 @@ Private Sub BtnAprobar_Click()
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
-  If Ado_datos.Recordset!estado_codigo_verif = "REG" Then
+  If Ado_datos.Recordset!estado_codigo_verif = "REG" And Ado_datos.Recordset!venta_tipo <> "R" Then
         MsgBox "No se puede APROBAR debe registrar el PLAN DE CUOTAS, verifique los datos y vuelva a intentar ...", , "Atención"
         Exit Sub
   End If
@@ -6664,8 +6665,10 @@ Private Sub BtnAprobar_Click()
     If rs_aux21.RecordCount > 0 Then
         If Round(VAR_BS2, 0) = Round(rs_aux21!SumaCuota, 0) Then        'Las Cuotas no igualan con el Total del contrato
         Else
-            MsgBox "No se puede APROBAR, la SUMA de las Cuotas Bs, NO iguala con el TOTAL del Contrato Bs, verifique y vuelva a intentar ...", , "Atención"
-            Exit Sub
+            If Ado_datos.Recordset!venta_tipo <> "R" Then
+                MsgBox "No se puede APROBAR, la SUMA de las Cuotas Bs, NO iguala con el TOTAL del Contrato Bs, verifique y vuelva a intentar ...", , "Atención"
+                Exit Sub
+            End If
         End If
     End If
 
@@ -7119,7 +7122,7 @@ Private Sub PARA_COMEX()
                    rs_aux3!estado_codigo_eqp = "REG"
                    rs_aux3!estado_codigo = "REG"
                    rs_aux3!usr_codigo = glusuario
-                   rs_aux3!fecha_registro = Date
+                   rs_aux3!Fecha_Registro = Date
                    rs_aux3.Update
                    
                    'db.Execute "INSERT INTO ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto, grupo_codigo, subgrupo_codigo, par_codigo, tipo_descuento, almacen_codigo , usr_usuario, fecha_registro) " &
@@ -7453,6 +7456,7 @@ Private Sub BtnAprobar2_Click()
  VAR_PROY2 = Ado_datos.Recordset!edif_codigo
  VAR_EDIFC = Ado_datos.Recordset!edif_codigo_corto
  VAR_EMPRESA = Ado_datos.Recordset!codigo_empresa
+ VAR_FACTURA = Ado_datos16.Recordset!doc_codigo_fac
  If VAR_COBRANZA > 1 Then
     'VERIFICA SI HAY CUOTAS ANTERIORES
     Set rs_aux22 = New ADODB.Recordset
@@ -7492,41 +7496,46 @@ Private Sub BtnAprobar2_Click()
     End If
     
     If Ado_datos16.Recordset("estado_codigo") = "REG" Then
-       sino = MsgBox("Realizarás la solicitud de VARIAS cuotas en UNA sola FACTURA ? ", vbYesNo, "Confirmando")
-       If sino = vbYes Then             'VARIAS CUOTAS PARA UNA SOLA FACTURA
-            tw_ventas_cuotas_vs_fac.Show vbModal
-       Else                             'UNA CUOTA PARA UNA FACTURA
-            'SI ES CGI o CGE (Falta)
-            ', edif_codigo_corto
-            ', " & Ado_datos.Recordset!edif_codigo_corto & "
-            nroventa = Ado_datos16.Recordset!venta_codigo
-            db.Execute "update gc_documentos_respaldo set gc_documentos_respaldo.correl_doc = " & nroventa & " Where gc_documentos_respaldo.doc_codigo = '" & Ado_datos16.Recordset!doc_codigo & "' "
-            'GRABA CABECERA DE FACTURACION NUEVA (ao_ventas_cobranza_fac)   'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-            'SE GENERAN CON LA FACTURA (dosifica_autorizacion, nro_factura, fecha_fac, codigo_control, archivo_foto, depto_codigo, Gestion, mes, edif_codigo_corto)
-            db.Execute "INSERT INTO ao_ventas_cobranza_fac (ges_gestion, venta_codigo, doc_codigo_fac,              beneficiario_codigo_fac,                                beneficiario_nit,           glosa_Descripcion,                                  beneficiario_RazonSocial, nro_dui,      total_bs,                                       total_dol,                                      cambio_oficial, " & _
-                        " Importe_ICE, Exportaciones_Exentas, Ventas_tasa_0, Subtotal_ICE, Descuentos_Bonos, Importe_Base_Debito_Fiscal,                    factura_87_bs,                                                      factura_87_dol,                                                 debito_fiscal_13_bs,                                                debito_fiscal_13_dol,                                               literal, " & _
-                        " clasif_codigo, doc_codigo, doc_numero, factura_impresa, tipo_moneda, cta_codigo, cta_codigo2, correl_contab, estado_fac, estado_codigo_fac, estado_codigo,  " & _
-                        " usr_codigo, fecha_registro, edif_codigo_corto, edif_codigo, codigo_empresa ) " & _
-                " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
-                        " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
-                        " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                        " '" & glusuario & "', '" & CDate(Date) & "', " & VAR_EDIFC & ", '" & VAR_PROY2 & "', " & VAR_EMPRESA & "  ) "
-                        
-            'Actualiza CORREO ELECTRONICO
-            db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
-
-            Set rs_aux20 = New ADODB.Recordset
-            If rs_aux20.State = 1 Then rs_aux20.Close
-            rs_aux20.Open "Select max(IdFactura) as Codigo3 from ao_ventas_cobranza_fac  ", db, adOpenKeyset, adLockOptimistic
-            If IsNull(rs_aux20!codigo3) Then
-               VAR_IDFAC = 1
-            Else
-               VAR_IDFAC = rs_aux20!codigo3
+       If (VAR_FACTURA = "R-101") Then           'Or VAR_DOCFAC = "R-100"
+       
+           sino = MsgBox("Realizarás la solicitud de VARIAS cuotas en UNA sola FACTURA ? ", vbYesNo, "Confirmando")
+           If sino = vbYes Then             'VARIAS CUOTAS PARA UNA SOLA FACTURA
+                tw_ventas_cuotas_vs_fac.Show vbModal
+           Else                             'UNA CUOTA PARA UNA FACTURA
+                'SI ES CGI o CGE (Falta)
+                ', edif_codigo_corto
+                ', " & Ado_datos.Recordset!edif_codigo_corto & "
+                nroventa = Ado_datos16.Recordset!venta_codigo
+                db.Execute "update gc_documentos_respaldo set gc_documentos_respaldo.correl_doc = " & nroventa & " Where gc_documentos_respaldo.doc_codigo = '" & Ado_datos16.Recordset!doc_codigo & "' "
+                'GRABA CABECERA DE FACTURACION NUEVA (ao_ventas_cobranza_fac)   'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                'SE GENERAN CON LA FACTURA (dosifica_autorizacion, nro_factura, fecha_fac, codigo_control, archivo_foto, depto_codigo, Gestion, mes, edif_codigo_corto)
+                db.Execute "INSERT INTO ao_ventas_cobranza_fac (ges_gestion, venta_codigo, doc_codigo_fac,              beneficiario_codigo_fac,                                beneficiario_nit,           glosa_Descripcion,                                  beneficiario_RazonSocial, nro_dui,      total_bs,                                       total_dol,                                      cambio_oficial, " & _
+                            " Importe_ICE, Exportaciones_Exentas, Ventas_tasa_0, Subtotal_ICE, Descuentos_Bonos, Importe_Base_Debito_Fiscal,                    factura_87_bs,                                                      factura_87_dol,                                                 debito_fiscal_13_bs,                                                debito_fiscal_13_dol,                                               literal, " & _
+                            " clasif_codigo, doc_codigo, doc_numero, factura_impresa, tipo_moneda, cta_codigo, cta_codigo2, correl_contab, estado_fac, estado_codigo_fac, estado_codigo,  " & _
+                            " usr_codigo, fecha_registro, edif_codigo_corto, edif_codigo, codigo_empresa ) " & _
+                    " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
+                            " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
+                            " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
+                            " '" & glusuario & "', '" & CDate(Date) & "', " & VAR_EDIFC & ", '" & VAR_PROY2 & "', " & VAR_EMPRESA & "  ) "
+                            
+                'Actualiza CORREO ELECTRONICO
+                db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
+    
+                Set rs_aux20 = New ADODB.Recordset
+                If rs_aux20.State = 1 Then rs_aux20.Close
+                rs_aux20.Open "Select max(IdFactura) as Codigo3 from ao_ventas_cobranza_fac  ", db, adOpenKeyset, adLockOptimistic
+                If IsNull(rs_aux20!codigo3) Then
+                   VAR_IDFAC = 1
+                Else
+                   VAR_IDFAC = rs_aux20!codigo3
+                End If
+                'GRABA CABECERA DE LA FACTURA (QR)
+                db.Execute "INSERT INTO ao_ventas_cobranza_fac_QR (IdFactura, archivo_foto_cargado, estado_codigo, usr_codigo, fecha_registro ) " & _
+                    " VALUES ('" & VAR_IDFAC & "',  'N',            'REG',   '" & glusuario & "', '" & CDate(Date) & "' ) "
             End If
-            'GRABA CABECERA DE LA FACTURA (QR)
-            db.Execute "INSERT INTO ao_ventas_cobranza_fac_QR (IdFactura, archivo_foto_cargado, estado_codigo, usr_codigo, fecha_registro ) " & _
-                " VALUES ('" & VAR_IDFAC & "',  'N',            'REG',   '" & glusuario & "', '" & CDate(Date) & "' ) "
-
+       Else
+            VAR_IDFAC = 0
+       End If
             'GRABA DETALLE DE FACTURACION NUEVA (ao_ventas_cobranza)
             db.Execute "INSERT INTO ao_ventas_cobranza (ges_gestion, cobranza_prog_codigo, venta_codigo,                                    beneficiario_codigo,                                    beneficiario_codigo_fac,                            beneficiario_codigo_resp,                               cobranza_programada_bs,                                 cobranza_programada_dol,                                cobranza_solicitado_bs,                                  cobranza_solicitado_dol,                 cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs,         cobranza_total_dol,                                     Literal,    cobranza_fecha_prog,                              cobranza_fecha_cobro, cobranza_observaciones, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, poa_codigo,  " & _
             " estado_codigo, usr_codigo, fecha_registro, cobranza_fecha_sol, estado_codigo_sol, estado_codigo_fac, venta_codigo_new) " & _
@@ -7535,7 +7544,7 @@ Private Sub BtnAprobar2_Click()
 
             ' APRUEBA ao_ventas_cobranza_prog
             'db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
-            db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!fecha_registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+            db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!Fecha_Registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
             ' Actualiza CODIGO_COBRNAZA en el cronogrma
             db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_codigo = ao_ventas_cobranza.cobranza_codigo from ao_ventas_cobranza_prog INNER JOIN ao_ventas_cobranza " & _
             " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & nroventa & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & Ado_datos16.Recordset!cobranza_prog_codigo & " )"
@@ -7579,7 +7588,7 @@ Private Sub BtnAprobar2_Click()
             'Ado_datos16.Refresh
        End If
     End If
- End If
+ 'End If
 End Sub
 
 Private Sub BtnAprobar3_Click()
@@ -8229,7 +8238,7 @@ Private Sub CRONO2()
             rs_aux2!poa_codigo = "3.2.3"
             rs_aux2!estado_codigo = "REG"
             rs_aux2!usr_codigo = glusuario
-            rs_aux2!fecha_registro = Format(Date, "dd/mm/yyyy")
+            rs_aux2!Fecha_Registro = Format(Date, "dd/mm/yyyy")
             rs_aux2!hora_registro = Format(Time, "hh:mm:ss")
             rs_aux2!correl_ac = 0
             rs_aux2!estado_ac = "REG"
@@ -8503,7 +8512,7 @@ Private Sub BtnModificar_Click()
         dtc_desc2.backColor = &H80000018
         Text11.Visible = False
     Else
-        If (Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_cancelado = "P") And (glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "VMEJIA" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "FDELGADILLO" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ") Then
+        If (Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_cancelado = "P") And (glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "VMEJIA" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "FDELGADILLO" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ") Then
             FrmCabecera.Enabled = True
             FrmDetalle.Visible = False
             FrmCobranza.Visible = False
@@ -8558,7 +8567,7 @@ Private Sub BtnVer_Click()
 End Sub
 
 Private Sub BtnVer2_Click()
-  If Ado_datos.Recordset!estado_codigo = "REG" Or Ado_datos.Recordset!estado_cancelado = "P" Then
+  If (Ado_datos.Recordset!estado_codigo = "REG" Or Ado_datos.Recordset!estado_cancelado = "P") And Ado_datos.Recordset!venta_tipo <> "R" Then
     If Ado_datos.Recordset!venta_monto_total_bs = "0" Then
         '
     End If
@@ -8597,7 +8606,7 @@ Private Sub BtnVer2_Click()
         End If
     End If
   Else
-    MsgBox "NO se puede procesar, el trámite ya fue APROBADO o ANULADO ...", , "Atencion"
+    MsgBox "NO se puede procesar, el trámite ya fue APROBADO o ANULADO o ES UNA IMPORTACION ...", , "Atencion"
   End If
 End Sub
 
@@ -9243,7 +9252,16 @@ Private Sub CmdGrabaCobro_Click()
     Case Else
         VAR_EMISION = "28"
   End Select
-  
+    'If cmd_fac = "FACTURA" Then
+        If Ado_datos.Recordset!codigo_empresa = 2 Then
+            VAR_FACTURA = "R-100"
+        Else
+            VAR_FACTURA = "R-101"
+        End If
+    '  Else
+    '    VAR_FACTURA = "R-393"           '"R-103"
+    '  End If
+      
   'If swnuevo = 2 Then
   'ini PARA COBRANZA WWWWWWWWWWWWWWWWWWW
 '  If DTPFechaProg.Visible = False Then
@@ -9363,6 +9381,7 @@ Private Sub CmdGrabaCobro_Click()
 '        Ado_datos16.Recordset!cobranza_requisito_plazo = "N"
 '        Ado_datos16.Recordset!cobranza_concepto_plazo = txt_plazo.Text
 '      End If
+        
       Ado_datos16.Recordset!nro_fojas = IIf(txt_fojas.Text = "", "1", txt_fojas.Text)
       Ado_datos16.Recordset!cobranza_observaciones = TxtObs.Text
       Ado_datos16.Recordset!proceso_codigo = "TEC"
@@ -9370,6 +9389,7 @@ Private Sub CmdGrabaCobro_Click()
       Ado_datos16.Recordset!etapa_codigo = "TEC-02-02"
       Ado_datos16.Recordset!clasif_codigo = "TEC"
       Ado_datos16.Recordset!doc_codigo = "R-110"        '"R-307"
+      Ado_datos16.Recordset!doc_codigo_fac = VAR_FACTURA
       If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DREPS" Or Ado_datos.Recordset!unidad_codigo = "DREPB" Or Ado_datos.Recordset!unidad_codigo = "DREPC" Then
         Ado_datos16.Recordset!doc_numero = IIf(Ado_datos.Recordset!doc_numero = "", "0", Ado_datos.Recordset!doc_numero)
       Else
@@ -9386,7 +9406,7 @@ Private Sub CmdGrabaCobro_Click()
       Ado_datos16.Recordset!trans_codigo = VAR_EMISION
       Ado_datos16.Recordset!estado_codigo = "REG"
       Ado_datos16.Recordset!usr_codigo = glusuario
-      Ado_datos16.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+      Ado_datos16.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
       Ado_datos16.Recordset!hora_registro = Format(Time, "hh:mm:ss")
       Ado_datos16.Recordset.Update
     db.CommitTrans

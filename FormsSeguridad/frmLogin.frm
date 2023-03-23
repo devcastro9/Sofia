@@ -335,7 +335,7 @@ On Error Resume Next
        End If
       End With
       Unload frmLogin
-      If glusuario = "RCUELA" Or glusuario = "VPAREDES" Or glusuario = "MPAREDES" Or glusuario = "APALACIOS" Or glusuario = "VBELLIDO" Or glusuario = "NPAREDES" Or glusuario = "JSAAVEDRA" Then 'Or glusuario = "ADMIN" Or glusuario = "CSALINAS"
+      If glusuario = "VPAREDES" Or glusuario = "MPAREDES" Or glusuario = "NPAREDES" Or glusuario = "JSAAVEDRA" Then 'glusuario = "RCUELA" Or  glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "APALACIOS" Or glusuario = "VBELLIDO"
         ' INI - ALERTAS VENTAS NUEVAS
         Set rs_aux12 = New ADODB.Recordset
         If rs_aux12.State = 1 Then rs_aux12.Close

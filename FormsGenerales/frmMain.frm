@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.MDIForm frmMain 
    AutoShowChildren=   0   'False
    BackColor       =   &H00C0C0C0&
@@ -624,7 +624,7 @@ Begin VB.MDIForm frmMain
       Appearance      =   1
    End
    Begin VB.Menu Mnu_Planificacion 
-      Caption         =   "PLANIFICACIÓN"
+      Caption         =   "PLANIFICACION"
       Begin VB.Menu Mnu_ClasificadoresGral 
          Caption         =   "CLASIFICADORES DE USO GENERAL"
          Begin VB.Menu MnuClasificacionBeneficiarios 
@@ -689,31 +689,6 @@ Begin VB.MDIForm frmMain
             Caption         =   "ETAPAS (CLASIFICACION NIVEL 3)"
          End
       End
-      Begin VB.Menu Mnu_PlanOperaciones 
-         Caption         =   "PLAN DE OPERACIONES (ISO)"
-         Enabled         =   0   'False
-         Begin VB.Menu MnuObjetivoGeneral 
-            Caption         =   "OBJETIVOS GENERALES"
-         End
-         Begin VB.Menu MnuObjetivoEspecifico 
-            Caption         =   "OBJETIVOS ESPECIFICOS"
-         End
-         Begin VB.Menu MnuActividades 
-            Caption         =   "ACTIVIDADES DEL POA"
-         End
-         Begin VB.Menu MnuTareas 
-            Caption         =   "TAREAS DEL POA"
-         End
-         Begin VB.Menu MnuInsumos 
-            Caption         =   "INSUMOS DEL POA"
-         End
-         Begin VB.Menu DivP01 
-            Caption         =   "-"
-         End
-         Begin VB.Menu MnuPlanConsolidado 
-            Caption         =   "PLAN CONSOLIDADO"
-         End
-      End
       Begin VB.Menu MnuModPpto 
          Caption         =   "PRESUPUESTO"
          Enabled         =   0   'False
@@ -732,15 +707,15 @@ Begin VB.MDIForm frmMain
          Begin VB.Menu Mnu_EdificiosInstalacion 
             Caption         =   "ORGANIZACION EDIFICIOS EN INSTALACION"
          End
-         Begin VB.Menu Mnu_ModalidadesContratacion 
-            Caption         =   "MODALIDADES DE CONTRATACION"
-            Visible         =   0   'False
-         End
          Begin VB.Menu Mnu_TareasCronoInstalacion 
             Caption         =   "TAREAS CRONOGRAMA INSTALACION"
          End
          Begin VB.Menu DivA02 
             Caption         =   "-"
+         End
+         Begin VB.Menu Mnu_ModalidadesContratacion 
+            Caption         =   "MODALIDADES DE CONTRATACION"
+            Visible         =   0   'False
          End
          Begin VB.Menu Mnu_Componentes_Equipos 
             Caption         =   "CARACTERISTICAS EQUIPOS Y OTROS BIENES"
@@ -947,16 +922,6 @@ Begin VB.MDIForm frmMain
             Visible         =   0   'False
          End
       End
-      Begin VB.Menu mnu_ajustes 
-         Caption         =   "INSTALACIONES (MONTAJE)"
-         Visible         =   0   'False
-         Begin VB.Menu Mnu_IdentificacionClienteAjustes 
-            Caption         =   "IDENTIFICACION DEL CLIENTE INSTALACION"
-         End
-         Begin VB.Menu Mnu_ProcesoAjustes 
-            Caption         =   "VENTA SERVICIO DE INSTALACION"
-         End
-      End
       Begin VB.Menu Mnu_AlmacenInsumos 
          Caption         =   "ALMACEN DE INSUMOS Y MATERIALES"
          Begin VB.Menu Mnu_solicitudInsumos 
@@ -964,7 +929,11 @@ Begin VB.MDIForm frmMain
             Visible         =   0   'False
          End
          Begin VB.Menu mnu_IngresosAlmacen 
-            Caption         =   "INGRESOS ALMACEN INSUMOS"
+            Caption         =   "INGRESOS ALMACEN INSUMOS (Pago Posterior)"
+         End
+         Begin VB.Menu mnu_IngresosAlmacen2 
+            Caption         =   "INGRESOS ALMACEN INSUMOS (Pago Anticipado)"
+            Visible         =   0   'False
          End
          Begin VB.Menu mnu_SalidaAlmacen 
             Caption         =   "SALIDA ALMACEN INSUMOS (MANTENIMIENTO)"
@@ -983,7 +952,11 @@ Begin VB.MDIForm frmMain
             Visible         =   0   'False
          End
          Begin VB.Menu mnu_IngresosAlmacenRep 
-            Caption         =   "INGRESOS ALMACEN REPUESTOS"
+            Caption         =   "INGRESOS ALMACEN REPUESTOS (Pago Posterior)"
+         End
+         Begin VB.Menu mnu_IngresosAlmacenRep2 
+            Caption         =   "INGRESOS ALMACEN REPUESTOS (Pago Anticipado)"
+            Visible         =   0   'False
          End
          Begin VB.Menu mnu_SalidaAlmacenRep 
             Caption         =   "SALIDA/TRANSFERENCIA ALMACEN REPUESTOS"
@@ -999,7 +972,11 @@ Begin VB.MDIForm frmMain
             Visible         =   0   'False
          End
          Begin VB.Menu mnu_IngresosAlmacenHerr 
-            Caption         =   "INGRESOS ALMACEN HERRAMIENTAS"
+            Caption         =   "INGRESOS ALMACEN HERRAMIENTAS (Pago Posterior)"
+         End
+         Begin VB.Menu mnu_IngresosAlmacenHerr2 
+            Caption         =   "INGRESOS ALMACEN HERRAMIENTAS (Pago Anticipado)"
+            Visible         =   0   'False
          End
          Begin VB.Menu mnu_SalidaAlmacenHerr 
             Caption         =   "SALIDA/TRANSFERENCIA ALMACEN HERRAMIENTAS"
@@ -1007,6 +984,9 @@ Begin VB.MDIForm frmMain
          Begin VB.Menu mnu_InventarioAlmacenHerr 
             Caption         =   "INVENTARIOS HERRAMIENTAS"
          End
+      End
+      Begin VB.Menu Mnu_RecibosOficialesEgresos2 
+         Caption         =   "ORDEN DE CANCELACION (EGRESOS)"
       End
       Begin VB.Menu Mnu_saldosinicialesalmacenes 
          Caption         =   "SALDOS INICIALES ALMACENES"
@@ -2032,6 +2012,15 @@ Private Sub mnu_IngresosAlmacen_Click()
 '    fw_compras_gral.Show
 End Sub
 
+Private Sub mnu_IngresosAlmacen2_Click()
+    Aux = "30"
+    Glaux = "UALMI"
+    fw_compras_fondos.lbl_titulo = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.FraNavega = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.lbl_titulo2 = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.Show
+End Sub
+
 Private Sub mnu_IngresosAlmacenHerr_Click()
     Aux = "UALMH"       'HERRAMIENTAS
     Glaux = "UALMH"
@@ -2041,6 +2030,15 @@ Private Sub mnu_IngresosAlmacenHerr_Click()
     fw_compras_gral.Show
 End Sub
 
+Private Sub mnu_IngresosAlmacenHerr2_Click()
+    Aux = "30"
+    Glaux = "UALMH"
+    fw_compras_fondos.lbl_titulo = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.FraNavega = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.lbl_titulo2 = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.Show
+End Sub
+
 Private Sub mnu_IngresosAlmacenRep_Click()
     Aux = "UALMR"       'REPUESTOS
     Glaux = "UALMR"
@@ -2048,6 +2046,15 @@ Private Sub mnu_IngresosAlmacenRep_Click()
     fw_compras_gral.FraNavega = mnu_IngresosAlmacenRep.Caption
     fw_compras_gral.lbl_titulo2 = mnu_IngresosAlmacenRep.Caption
     fw_compras_gral.Show
+End Sub
+
+Private Sub mnu_IngresosAlmacenRep2_Click()
+    Aux = "30"
+    Glaux = "UALMR"
+    fw_compras_fondos.lbl_titulo = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.FraNavega = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.lbl_titulo2 = Mnu_cargoCuenta.Caption
+    fw_compras_fondos.Show
 End Sub
 
 Private Sub mnu_InventarioAlmacen_Click()
@@ -2366,6 +2373,14 @@ Private Sub Mnu_RecibosOficialesEgresos_Click()
     fw_recibos_oficiales_egresos.Show
 End Sub
 
+Private Sub Mnu_RecibosOficialesEgresos2_Click()
+    Aux = "R-643"
+    Glaux = "UALM"
+    fw_recibos_oficiales_egresos.FraNavega = Mnu_RecibosOficialesEgresos.Caption + " - " + mnu_Tesoreria.Caption
+    fw_recibos_oficiales_egresos.lbl_titulo = Mnu_RecibosOficialesEgresos.Caption + " - " + mnu_Tesoreria.Caption
+    fw_recibos_oficiales_egresos.Show
+End Sub
+
 Private Sub Mnu_RegistroDiario_Click()
     fw_contab_diario.lbl_titulo = Mnu_RegistroDiario.Caption
     fw_contab_diario.FraNavega = Mnu_RegistroDiario.Caption
@@ -2597,6 +2612,7 @@ Private Sub Mnu_SolicitudHerramientas_Click()
     frm_ao_requerimiento_compra.lbl_titulo2 = Mnu_solicitudRepuestos.Caption
     frm_ao_requerimiento_compra.Show
 End Sub
+
 
 'Private Sub Mnu_solicitudInsumos_Click()
 '    Aux = "UALMI"

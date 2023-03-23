@@ -1,23 +1,23 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Begin VB.Form frm_ao_solicitud_cotiza_venta 
+Begin VB.Form mw_solicitud_cotiza_venta 
    BackColor       =   &H00C0C0C0&
    Caption         =   "Módulo Comercial - Cotización de Equipos"
    ClientHeight    =   10935
    ClientLeft      =   225
    ClientTop       =   555
    ClientWidth     =   11280
-   Icon            =   "frm_ao_solicitud_cotiza_venta.frx":0000
+   Icon            =   "mw_solicitud_cotiza_venta.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   11280
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet1 
@@ -30,7 +30,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       Top             =   7215
       Width           =   13065
       Begin MSDataGridLib.DataGrid dg_det1 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":0A02
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":0A02
          Height          =   2175
          Left            =   195
          TabIndex        =   8
@@ -398,7 +398,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos0 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":0A1D
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":0A1D
          Height          =   1710
          Left            =   135
          TabIndex        =   40
@@ -758,7 +758,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          BackColor       =   &H00404040&
          Height          =   600
          Left            =   120
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":0A36
+         Picture         =   "mw_solicitud_cotiza_venta.frx":0A36
          Style           =   1  'Graphical
          TabIndex        =   68
          ToolTipText     =   "Registra Datos Iniciales para Cotización"
@@ -769,7 +769,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          BackColor       =   &H00404040&
          Height          =   600
          Left            =   14280
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":15FF
+         Picture         =   "mw_solicitud_cotiza_venta.frx":15FF
          Style           =   1  'Graphical
          TabIndex        =   49
          ToolTipText     =   "Cerrar Ventana"
@@ -781,7 +781,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Caption         =   "Digitaliza"
          Height          =   600
          Left            =   3960
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":1DC1
+         Picture         =   "mw_solicitud_cotiza_venta.frx":1DC1
          Style           =   1  'Graphical
          TabIndex        =   3
          ToolTipText     =   "Guarda en Archivo Digital"
@@ -794,7 +794,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Caption         =   "Desapro."
          Height          =   600
          Left            =   4920
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":2203
+         Picture         =   "mw_solicitud_cotiza_venta.frx":2203
          Style           =   1  'Graphical
          TabIndex        =   2
          Top             =   30
@@ -805,7 +805,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          BackColor       =   &H00404040&
          Height          =   620
          Left            =   1600
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":240D
+         Picture         =   "mw_solicitud_cotiza_venta.frx":240D
          Style           =   1  'Graphical
          TabIndex        =   1
          ToolTipText     =   "Busca un Registro"
@@ -864,7 +864,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Width           =   270
       End
       Begin MSDataListLib.DataCombo txt_aux3 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2BC2
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":2BC2
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos0"
          Height          =   315
@@ -885,7 +885,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo txt_codigo3 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2BDC
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":2BDC
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos0"
          Height          =   315
@@ -993,13 +993,13 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   118882307
+         Format          =   110559235
          CurrentDate     =   44235
          MaxDate         =   55153
          MinDate         =   32874
       End
       Begin MSDataListLib.DataCombo Txt_campo12 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2BF6
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":2BF6
          DataField       =   "unidad_codigo"
          DataSource      =   "Ado_datos0"
          Height          =   315
@@ -1020,7 +1020,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo Txt_campo1 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2C10
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":2C10
          DataField       =   "unidad_codigo"
          DataSource      =   "Ado_datos0"
          Height          =   315
@@ -1038,7 +1038,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo txt_desc3 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2C2B
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":2C2B
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos0"
          Height          =   315
@@ -1292,7 +1292,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          AutoSize        =   -1  'True
          BackColor       =   &H8000000A&
          BackStyle       =   0  'Transparent
-         Caption         =   $"frm_ao_solicitud_cotiza_venta.frx":2C45
+         Caption         =   $"mw_solicitud_cotiza_venta.frx":2C45
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -1334,7 +1334,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          AutoSize        =   -1  'True
          BackColor       =   &H00C0C0C0&
          BackStyle       =   0  'Transparent
-         Caption         =   $"frm_ao_solicitud_cotiza_venta.frx":2CFF
+         Caption         =   $"mw_solicitud_cotiza_venta.frx":2CFF
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -1411,18 +1411,18 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       TabHeight       =   520
       BackColor       =   -2147483638
       TabCaption(0)   =   "Proveedor de AMERICA"
-      TabPicture(0)   =   "frm_ao_solicitud_cotiza_venta.frx":2DA0
+      TabPicture(0)   =   "mw_solicitud_cotiza_venta.frx":2DA0
       Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FraNavega"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Proveedor de ASIA"
-      TabPicture(1)   =   "frm_ao_solicitud_cotiza_venta.frx":2DBC
+      TabPicture(1)   =   "mw_solicitud_cotiza_venta.frx":2DBC
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FraNavegaA"
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Proveedor de EUROPA"
-      TabPicture(2)   =   "frm_ao_solicitud_cotiza_venta.frx":2DD8
+      TabPicture(2)   =   "mw_solicitud_cotiza_venta.frx":2DD8
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FraNavegaE"
       Tab(2).Control(0).Enabled=   0   'False
@@ -1437,7 +1437,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Top             =   345
          Width           =   15615
          Begin MSDataGridLib.DataGrid dg_datosE 
-            Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2DF4
+            Bindings        =   "mw_solicitud_cotiza_venta.frx":2DF4
             Height          =   1080
             Left            =   120
             TabIndex        =   64
@@ -1717,7 +1717,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-224"
                Height          =   650
                Left            =   3850
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":2E0D
+               Picture         =   "mw_solicitud_cotiza_venta.frx":2E0D
                Style           =   1  'Graphical
                TabIndex        =   66
                ToolTipText     =   "Imprime Formulario"
@@ -1729,7 +1729,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-222"
                Height          =   650
                Left            =   2610
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":33CA
+               Picture         =   "mw_solicitud_cotiza_venta.frx":33CA
                Style           =   1  'Graphical
                TabIndex        =   65
                ToolTipText     =   "Imprime Formulario"
@@ -1741,7 +1741,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Verificar"
                Height          =   650
                Left            =   1365
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":3987
+               Picture         =   "mw_solicitud_cotiza_venta.frx":3987
                Style           =   1  'Graphical
                TabIndex        =   54
                ToolTipText     =   "Ok, envía datos para Contrato de Venta"
@@ -1753,7 +1753,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Hoja.de.Costos"
                Height          =   650
                Left            =   120
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":3B91
+               Picture         =   "mw_solicitud_cotiza_venta.frx":3B91
                Style           =   1  'Graphical
                TabIndex        =   53
                ToolTipText     =   "Registra Hoja de Costos"
@@ -1765,7 +1765,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Datos.Iniciales"
                Height          =   680
                Left            =   4560
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":4171
+               Picture         =   "mw_solicitud_cotiza_venta.frx":4171
                Style           =   1  'Graphical
                TabIndex        =   34
                ToolTipText     =   "Registra Datos Iniciales para Cotización"
@@ -1853,7 +1853,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Top             =   345
          Width           =   15615
          Begin MSDataGridLib.DataGrid dg_datosA 
-            Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":4751
+            Bindings        =   "mw_solicitud_cotiza_venta.frx":4751
             Height          =   1080
             Left            =   120
             TabIndex        =   61
@@ -2133,7 +2133,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-224"
                Height          =   650
                Left            =   3850
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":476B
+               Picture         =   "mw_solicitud_cotiza_venta.frx":476B
                Style           =   1  'Graphical
                TabIndex        =   63
                ToolTipText     =   "Imprime Formulario"
@@ -2145,7 +2145,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-222"
                Height          =   650
                Left            =   2610
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":4D28
+               Picture         =   "mw_solicitud_cotiza_venta.frx":4D28
                Style           =   1  'Graphical
                TabIndex        =   62
                ToolTipText     =   "Imprime Formulario"
@@ -2157,7 +2157,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Verificar"
                Height          =   650
                Left            =   1365
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":52E5
+               Picture         =   "mw_solicitud_cotiza_venta.frx":52E5
                Style           =   1  'Graphical
                TabIndex        =   52
                ToolTipText     =   "Ok, envía datos para Contrato de Venta"
@@ -2169,7 +2169,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Hoja.de.Costos"
                Height          =   650
                Left            =   120
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":54EF
+               Picture         =   "mw_solicitud_cotiza_venta.frx":54EF
                Style           =   1  'Graphical
                TabIndex        =   51
                ToolTipText     =   "Registra Hoja de Costos"
@@ -2181,7 +2181,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Datos.Iniciales"
                Height          =   680
                Left            =   5160
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":5931
+               Picture         =   "mw_solicitud_cotiza_venta.frx":5931
                Style           =   1  'Graphical
                TabIndex        =   30
                ToolTipText     =   "Registra Datos Iniciales para Cotización"
@@ -2269,7 +2269,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Top             =   345
          Width           =   15615
          Begin MSDataGridLib.DataGrid dg_datos 
-            Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":5F11
+            Bindings        =   "mw_solicitud_cotiza_venta.frx":5F11
             Height          =   1080
             Left            =   120
             TabIndex        =   56
@@ -2549,7 +2549,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Verificar"
                Height          =   650
                Left            =   1365
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":5F29
+               Picture         =   "mw_solicitud_cotiza_venta.frx":5F29
                Style           =   1  'Graphical
                TabIndex        =   75
                ToolTipText     =   "Ok, envía datos para Contrato de Venta"
@@ -2561,7 +2561,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-224"
                Height          =   650
                Left            =   3850
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":6133
+               Picture         =   "mw_solicitud_cotiza_venta.frx":6133
                Style           =   1  'Graphical
                TabIndex        =   58
                ToolTipText     =   "Imprime Formulario"
@@ -2573,7 +2573,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-222"
                Height          =   650
                Left            =   2610
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":66F0
+               Picture         =   "mw_solicitud_cotiza_venta.frx":66F0
                Style           =   1  'Graphical
                TabIndex        =   57
                ToolTipText     =   "Imprime Formulario"
@@ -2585,7 +2585,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Datos Iniciales"
                Height          =   680
                Left            =   5160
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":6CAD
+               Picture         =   "mw_solicitud_cotiza_venta.frx":6CAD
                Style           =   1  'Graphical
                TabIndex        =   55
                ToolTipText     =   "Registra Datos Iniciales para Cotización"
@@ -2598,7 +2598,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Hoja de Costos"
                Height          =   650
                Left            =   120
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":728D
+               Picture         =   "mw_solicitud_cotiza_venta.frx":728D
                Style           =   1  'Graphical
                TabIndex        =   50
                ToolTipText     =   "Registra Hoja de Costos"
@@ -2610,7 +2610,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Copia"
                Height          =   720
                Left            =   360
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":76CF
+               Picture         =   "mw_solicitud_cotiza_venta.frx":76CF
                Style           =   1  'Graphical
                TabIndex        =   23
                ToolTipText     =   "Nuevo Registro"
@@ -2704,7 +2704,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Caption         =   "Nuevo.Item.Costo"
          Height          =   640
          Left            =   420
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":7CF3
+         Picture         =   "mw_solicitud_cotiza_venta.frx":7CF3
          Style           =   1  'Graphical
          TabIndex        =   31
          ToolTipText     =   "Crear Nuevo Item de Costo"
@@ -2716,7 +2716,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          Caption         =   "Borrar"
          Height          =   640
          Left            =   960
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":8135
+         Picture         =   "mw_solicitud_cotiza_venta.frx":8135
          Style           =   1  'Graphical
          TabIndex        =   14
          ToolTipText     =   "Elimina Detalle Elegido"
@@ -2728,7 +2728,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          BackColor       =   &H00C0FFC0&
          Height          =   640
          Left            =   465
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":8577
+         Picture         =   "mw_solicitud_cotiza_venta.frx":8577
          Style           =   1  'Graphical
          TabIndex        =   13
          ToolTipText     =   "Modifica Detalle Elegido"
@@ -2739,7 +2739,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          BackColor       =   &H80000015&
          Height          =   645
          Left            =   480
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":8E8C
+         Picture         =   "mw_solicitud_cotiza_venta.frx":8E8C
          Style           =   1  'Graphical
          TabIndex        =   12
          ToolTipText     =   "Adiciona Item Existente"
@@ -3385,7 +3385,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       Top             =   7320
       Width           =   13060
       Begin MSDataGridLib.DataGrid dg_det1E 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":964B
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":964B
          Height          =   2175
          Left            =   195
          TabIndex        =   36
@@ -3706,7 +3706,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       _Version        =   393216
    End
 End
-Attribute VB_Name = "frm_ao_solicitud_cotiza_venta"
+Attribute VB_Name = "mw_solicitud_cotiza_venta"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -7473,7 +7473,7 @@ Private Sub Form_Load()
 ''    End If
 '
 '    VAR_PRDA = IIf(dtc_desc10 = "", 0, dtc_desc10)
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral1_Click()

@@ -15,8 +15,8 @@ Begin VB.Form aw_bienes
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8355
-   ScaleWidth      =   11145
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc AdoProductoSin 
       Height          =   330
@@ -69,7 +69,7 @@ Begin VB.Form aw_bienes
       BackColor       =   &H00E0E0E0&
       FillColor       =   &H00FFFFFF&
       Height          =   1320
-      Left            =   15840
+      Left            =   6120
       ScaleHeight     =   1260
       ScaleWidth      =   9420
       TabIndex        =   115
@@ -162,7 +162,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   133562369
+         Format          =   109969409
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -901,11 +901,14 @@ Begin VB.Form aw_bienes
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
+               ColumnWidth     =   1440
             EndProperty
             BeginProperty Column01 
+               ColumnWidth     =   3165.166
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
+               ColumnWidth     =   629.858
             EndProperty
             BeginProperty Column03 
                Object.Visible         =   0   'False
@@ -1013,7 +1016,7 @@ Begin VB.Form aw_bienes
       Begin VB.TextBox TxtCodigo_pSIN 
          DataField       =   "codigo_pSIN"
          DataSource      =   "Ado_datos"
-         Height          =   495
+         Height          =   285
          Left            =   1440
          TabIndex        =   124
          Top             =   7080
@@ -1205,7 +1208,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   133562369
+         Format          =   109969409
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1337,13 +1340,13 @@ Begin VB.Form aw_bienes
          Bindings        =   "aw_bienes.frx":A182
          DataField       =   "subgrupo_codigo"
          DataSource      =   "Ado_datos"
-         Height          =   360
+         Height          =   315
          Left            =   1320
          TabIndex        =   2
          Top             =   1320
          Width           =   5775
          _ExtentX        =   10186
-         _ExtentY        =   635
+         _ExtentY        =   556
          _Version        =   393216
          BackColor       =   16777215
          ListField       =   "subgrupo_descripcion"
@@ -1351,7 +1354,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
-            Size            =   9.75
+            Size            =   8.25
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -1416,13 +1419,13 @@ Begin VB.Form aw_bienes
          Bindings        =   "aw_bienes.frx":A1E3
          DataField       =   "grupo_codigo"
          DataSource      =   "Ado_datos"
-         Height          =   360
+         Height          =   315
          Left            =   1080
          TabIndex        =   1
          Top             =   480
          Width           =   6015
          _ExtentX        =   10610
-         _ExtentY        =   635
+         _ExtentY        =   556
          _Version        =   393216
          BackColor       =   16777215
          ListField       =   "grupo_descripcion"
@@ -1430,7 +1433,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Grupo ..."
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
-            Size            =   9.75
+            Size            =   8.25
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -1449,7 +1452,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   133562369
+         Format          =   109969409
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -1530,13 +1533,13 @@ Begin VB.Form aw_bienes
          Bindings        =   "aw_bienes.frx":A257
          DataField       =   "par_codigo"
          DataSource      =   "Ado_datos"
-         Height          =   360
+         Height          =   315
          Left            =   1635
          TabIndex        =   3
          Top             =   2025
          Width           =   7620
          _ExtentX        =   13441
-         _ExtentY        =   635
+         _ExtentY        =   556
          _Version        =   393216
          BackColor       =   16777215
          ListField       =   "par_descripcion"
@@ -1544,7 +1547,7 @@ Begin VB.Form aw_bienes
          Text            =   "Elige Marca..."
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
-            Size            =   9.75
+            Size            =   8.25
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -2420,10 +2423,10 @@ Begin VB.Form aw_bienes
       Height          =   480
       Left            =   0
       ScaleHeight     =   480
-      ScaleWidth      =   11145
+      ScaleWidth      =   20160
       TabIndex        =   26
-      Top             =   7875
-      Width           =   11145
+      Top             =   10455
+      Width           =   20160
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -2953,12 +2956,12 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "TCRUZ" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                btnEliminar.Visible = True
+                BtnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                btnEliminar.Visible = False
+                BtnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         Else
@@ -2992,12 +2995,12 @@ Else
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                btnEliminar.Visible = True
+                BtnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                btnEliminar.Visible = False
+                BtnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         If Ado_datos.Recordset!bien_stock_minimo < Ado_datos.Recordset!bien_stock_actual Then
@@ -3412,7 +3415,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo Que_Error
-    If (Ado_datos.Recordset!estado_codigo = "REG") Or (glusuario = "CARIZACA") Then
+    If (Ado_datos.Recordset!estado_codigo = "REG") Or (glusuario = "CARIZACA" Or glusuario = "RCUELA" Or glusuario = "FVASQUEZ") Then
         swnuevo = False
         Screen.MousePointer = vbHourglass
         'BotonesEditar Me
@@ -3677,7 +3680,7 @@ On Error GoTo QError
             Ado_datos.Recordset!archivo_foto2 = Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
             Ado_datos.Recordset!estado_codigo = "REG"  'chkEstado
             Ado_datos.Recordset!usr_codigo = glusuario
-            Ado_datos.Recordset!fecha_registro = Date
+            Ado_datos.Recordset!Fecha_Registro = Date
             Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
             '*********************************
             Ado_datos.Recordset!codigo_pSIN = IIf(IsNull(TxtCodigo_pSIN.Text), "", TxtCodigo_pSIN.Text)
@@ -3916,12 +3919,12 @@ Private Sub Form_Load()
     If glusuario = "CARIZACA" Or glusuario = "RCUELA" Or glusuario = "AFLORES" Or glusuario = "ADMIN" Or glusuario = "JYMAMANI" Or glusuario = "AFLORES" Or glusuario = "CSALINAS" Then
         BtnAñadir.Visible = True
         BtnModificar.Visible = True
-        btnEliminar.Visible = True
+        BtnEliminar.Visible = True
         BtnAprobar.Visible = True
     Else
         BtnAñadir.Visible = False
         BtnModificar.Visible = False
-        btnEliminar.Visible = False
+        BtnEliminar.Visible = False
         BtnAprobar.Visible = False
     End If
             
@@ -4465,6 +4468,7 @@ Private Sub CARGA()
     If rsProductosSIN.State = 1 Then rsProductosSIN.Close
     rsProductosSIN.Open "SELECT [correlativo] AS correlativo_pSIN, CONCAT([CodProducto], ' ', [Producto], ' || ', [CodActividad], ' ', [ActividadEconomica]) AS descripcion FROM [dbo].[gc_productos_sin] WHERE [EsBien] = CAST(1 AS BIT)", db, adOpenStatic
     Set AdoProductoSin.Recordset = rsProductosSIN
+    Dtc_descripcionSIN.BoundText = Dtc_codigoSIN.BoundText
     
     Set rsMarcas = New ADODB.Recordset
     If rsMarcas.State = 1 Then rsMarcas.Close

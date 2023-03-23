@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -582,7 +582,7 @@ Begin VB.Form fw_orden_cobranza
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   119341057
+         Format          =   119537665
          CurrentDate     =   42873
       End
       Begin MSComCtl2.DTPicker DTPicker1 
@@ -606,7 +606,7 @@ Begin VB.Form fw_orden_cobranza
             Strikethrough   =   0   'False
          EndProperty
          CheckBox        =   -1  'True
-         Format          =   119341057
+         Format          =   119537665
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_codigo6 
@@ -3434,42 +3434,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'Ventas
-'INI QR
-'Enum TQRCodeEncoding
-'ceALPHA
-'ceBYTE
-'ceNUMERIC
-'ceKANJI
-'ceAUTO
-'End Enum
-'Enum TQRCodeECLevel
-'LEVEL_L
-'LEVEL_M
-'LEVEL_Q
-'LEVEL_H
-''End Enum
-'Private Declare Sub FullQRCode Lib "QRCodeLib.dll" _
-'(ByVal autoConfigurate As Boolean, _
-' ByVal AutoFit As Boolean, _
-' ByVal backColor As Long, _
-' ByVal barColor As Long, _
-' ByVal Texto As String, _
-' ByVal correctionLevel As TQRCodeECLevel, _
-' ByVal encoding As TQRCodeEncoding, _
-' ByVal marginpixels As Integer, _
-' ByVal moduleWidth As Integer, _
-' ByVal Height As Integer, _
-' ByVal Width As Integer, _
-' ByVal FileName As String)
-'Private Declare Sub FastQRCode Lib "QRCodeLib.dll" _
-'(ByVal Texto As String, _
-' ByVal FileName As String)
-'Private Declare Function QRCodeLibVer Lib "QRCodeLib.dll" () As String
-'Dim sFile As String
-'Dim CadenaQ As String
-'FIN QR
-Dim rs_datos As New ADODB.Recordset     'FACTURACION
+'Ventas ODEN DE COBRO
+Dim rs_datos As New ADODB.Recordset         'FACTURACION / ORDEN DE COBRO
 Dim rs_datos01 As New ADODB.Recordset     'INICIO COBRANZAS
 Dim rs_datos02 As New ADODB.Recordset     'REG. COBRANZAS
 Dim rs_datos1 As New ADODB.Recordset
@@ -4249,7 +4215,7 @@ Private Sub BtnGrabar_Click()
         Ado_datos.Recordset!cobranza_deuda_bs = "0"                                  'Monto Cobrado Bs.
         Ado_datos.Recordset!cobranza_deuda_dol = "0"        'Monto en Dolares
       Else
-        Ado_datos.Recordset!cobranza_tdc = IIf(IsNull(Txt_tdc = ""), 6.96, CDbl(Txt_tdc.Text))                               'Monto Cobrado Bs.
+        Ado_datos.Recordset!cobranza_tdc = IIf(IsNull(txt_tdc = ""), 6.96, CDbl(txt_tdc.Text))                               'Monto Cobrado Bs.
 '        Ado_datos.Recordset!cobranza_deuda_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto en Dolares
         Ado_datos.Recordset!cobranza_total_bs = Round(CDbl(TxtMonto.Text), 2)                                 'Monto Cobrado Bs.
         Ado_datos.Recordset!cobranza_total_dol = Round(CDbl(TxtMontoDol), 2)       'CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto en Dolares
@@ -4337,7 +4303,7 @@ Private Sub BtnGrabar_Click()
       Ado_datos.Recordset!cobranza_fecha_fac2 = ""        'VAR_ANIO & VAR_MES & VAR_DIA          'Fecha de Facturacion Texto
       Ado_datos.Recordset!estado_codigo_fac = "REG"
       Ado_datos.Recordset!usr_codigo = glusuario
-      Ado_datos.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+      Ado_datos.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
       Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
       Ado_datos.Recordset.Update
     db.CommitTrans
@@ -5639,7 +5605,7 @@ Private Sub BtnModificar_Click()
       FrmCobranza.Enabled = False
       'swgrabar = 0
       swnuevo = 2
-      Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+      txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
 '      SSTab1.Tab = 1
 '      SSTab1.TabEnabled(0) = False
 '      SSTab1.TabEnabled(1) = True
@@ -8561,11 +8527,14 @@ Private Sub OptFilGral1_Click()
         If rs_datos.State = 1 Then rs_datos.Close
         Select Case glusuario
             Case "OPLAZA", "RLAVAYEN", "GSOLIZ", "CPLATA", "DTERCEROS", "ADMIN", "VPAREDES", "CSALINAS"
-                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
+                'queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
+                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac <> 'R-101')) "
             Case "ULEDESMA", "MARTEAGA", "EVILLALOBOS", "CPAREDES", "RGIL", "GMORA", "LVEDIA", "JCASTRO", "LMORALES", "TCASTILLO"
-                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
+                'queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
+                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac <> 'R-101')) "
             Case "CORTEGA", "RROMERO", "CURDININEA", "AACOSTA", "FCABRERA", "KGARCIA", "JSOLIZ", "ASANTIVAÑEZ", "DGOMEZ", "PMAJLUF"
-                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
+                'queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-103')) "
+                queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'REG'  and (doc_codigo_fac <> 'R-101')) "
             Case Else
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'A' AND estado_codigo_fac = 'A') "      'ORDER BY cobranza_fecha_prog
         End Select
@@ -8585,6 +8554,7 @@ Private Sub OptFilGral2_Click()
     If rs_datos.State = 1 Then rs_datos.Close
         Select Case glusuario
             Case "OPLAZA", "RLAVAYEN", "GSOLIZ", "CPLATA", "DTERCEROS", "ADMIN", "VPAREDES", "CSALINAS"
+                'queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-100')) "
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-100')) "
             Case "ULEDESMA", "MARTEAGA", "EVILLALOBOS", "CPAREDES", "GMORA", "RGIL", "LVEDIA", "JCASTRO", "LMORALES", "TCASTILLO"
                 queryinicial1 = "select * From av_ventas_cobranza WHERE (estado_codigo_sol = 'APR' AND estado_codigo_fac = 'APR'  AND estado_codigo_bco = 'REG' and (doc_codigo_fac = 'R-103' OR doc_codigo_fac = 'R-393' OR doc_codigo_fac = 'R-100')) "
@@ -8925,7 +8895,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
     End If
 End Sub
 
@@ -9092,5 +9062,10 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
 End Sub
+
+'CONTROL DE ORDEN DE COBRO
+' estado_codigo_fac1       ESTADO ORDEN DE COBRO
+' cobranza_fecha_fac2      FECHA ORDEN DE COBRO
+' doc_numero               NUMERO DE  ORDEN DE COBRO

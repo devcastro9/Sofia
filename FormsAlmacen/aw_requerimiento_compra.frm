@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -1488,7 +1488,7 @@ Begin VB.Form aw_requerimiento_compra
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   114098177
+         Format          =   110231553
          CurrentDate     =   41678
       End
       Begin VB.TextBox Text1 
@@ -3502,7 +3502,7 @@ Private Sub BtnAprobar_Click()
                         rs_aux3!compra_cantidad_total = 1   'Ado_datos.Recordset!venta_cantidad_total
                         rs_aux3!compra_monto_bs = 0     'VAR_BS2
                         rs_aux3!tipo_moneda = "BOB"
-                        rs_aux3!compra_monto_dol = 0        'VAR_DOL2
+                        rs_aux3!compra_monto_DOL = 0        'VAR_DOL2
                         rs_aux3!proceso_codigo = "TEC"
                         rs_aux3!subproceso_codigo = "TEC-06"
                         rs_aux3!etapa_codigo = "TEC-06-01"
@@ -3512,7 +3512,7 @@ Private Sub BtnAprobar_Click()
                         rs_aux3!estado_codigo_eqp = "REG"
                         rs_aux3!estado_codigo = "REG"
                         rs_aux3!usr_codigo = glusuario
-                        rs_aux3!fecha_registro = Date
+                        rs_aux3!Fecha_Registro = Date
                         rs_aux3.Update
                         
                         'DETALLE Carga ao_ventas_detalle
@@ -3642,7 +3642,7 @@ FrmABMDet3.Enabled = True
 dg_det3.Enabled = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
   If Ado_datos.Recordset.RecordCount > 0 Then
      If rs_datos!estado_cotiza = "APR" Then
@@ -3650,7 +3650,7 @@ Private Sub BtnEliminar_Click()
        If sino = vbYes Then
      If ExisteReg(Ado_datos.Recordset!unidad_codigo_sol, Ado_datos.Recordset!solicitud_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado previamente ...", vbInformation + vbOKOnly, "Atención": Exit Sub
           rs_datos!estado_cotiza = "ANL"
-          rs_datos!fecha_registro = Date
+          rs_datos!Fecha_Registro = Date
           rs_datos!usr_codigo = glusuario
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -3672,7 +3672,7 @@ Private Sub BtnDesAprobar_Click()
    If rs_datos!estado_codigo = "APR" Then
       If sino = vbYes Then
          rs_datos!estado_codigo = "REG"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -3887,7 +3887,7 @@ Private Sub BtnGrabar_Click()
      'rs_datos!archivo_foto_cargado = "N"
      'hora_registro
      rs_datos!unidad_codigo = VAR_COD4
-     rs_datos!fecha_registro = Date     'no cambia
+     rs_datos!Fecha_Registro = Date     'no cambia
      rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
      rs_datos.Update 'Batch   adAffectAll
     
@@ -4702,7 +4702,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
     FraNavega.Caption = lbl_titulo.Caption
     lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

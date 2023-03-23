@@ -24,18 +24,9 @@ Begin VB.Form mw_ventas_cabecera
    Begin VB.Frame FraZona 
       BackColor       =   &H00404040&
       Caption         =   "Elija una Zona Piloto..."
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
-      Left            =   8760
+      Left            =   8880
       TabIndex        =   214
       Top             =   4800
       Visible         =   0   'False
@@ -117,38 +108,20 @@ Begin VB.Form mw_ventas_cabecera
       Begin VB.Label Label29 
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   120
          TabIndex        =   217
-         Top             =   1425
+         Top             =   0
          Width           =   2025
       End
    End
    Begin VB.Frame frm_benef 
       BackColor       =   &H00404040&
       Caption         =   "Registra Datos del Cliente"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
-      Left            =   8760
+      Left            =   8880
       TabIndex        =   207
       Top             =   4800
       Visible         =   0   'False
@@ -221,15 +194,6 @@ Begin VB.Form mw_ventas_cabecera
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
          Caption         =   "Telefono Celular:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   720
@@ -241,15 +205,6 @@ Begin VB.Form mw_ventas_cabecera
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
          Caption         =   "Correo Electrónico:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   720
@@ -605,6 +560,7 @@ Begin VB.Form mw_ventas_cabecera
       _ExtentY        =   8414
       _Version        =   393216
       Tabs            =   4
+      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -620,9 +576,8 @@ Begin VB.Form mw_ventas_cabecera
       EndProperty
       TabCaption(0)   =   "REGISTRO DE VENTAS"
       TabPicture(0)   =   "mw_ventas_cabecera.frx":C5A5
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FrmCabecera"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Equipos)"
       TabPicture(1)   =   "mw_ventas_cabecera.frx":C5C1
@@ -631,8 +586,9 @@ Begin VB.Form mw_ventas_cabecera
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "REGISTRO PLAN DE CUOTAS"
       TabPicture(2)   =   "mw_ventas_cabecera.frx":C5DD
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "FrmCobros"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
       TabPicture(3)   =   "mw_ventas_cabecera.frx":C5F9
@@ -729,15 +685,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "... Cuando termine -->"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00FFFFC0&
             Height          =   240
             Left            =   8040
@@ -750,15 +697,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Para Registrar: ""Fecha.Inicio y Fecha.Fin"", modifique las fechas ..."
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00FFFFC0&
             Height          =   240
             Left            =   960
@@ -972,7 +910,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   -74960
+         Left            =   40
          TabIndex        =   53
          Top             =   380
          Width           =   12015
@@ -980,7 +918,7 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000018&
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -1069,7 +1007,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   117571585
+            Format          =   118882305
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1377,7 +1315,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   117571587
+            Format          =   118882307
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -1432,15 +1370,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Fecha Estimada a Cobrar:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   240
             Left            =   2640
@@ -1475,15 +1404,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000010&
             BackStyle       =   0  'Transparent
             Caption         =   "Documento a Emitir:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   240
@@ -1520,15 +1440,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Concepto p/ Factura  o p/Orden de Cobro:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   480
             Left            =   240
@@ -1542,15 +1453,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "(USD) $us."
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000080&
             Height          =   240
             Left            =   10290
@@ -1594,15 +1496,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Factura u Orden de Cobro a nombres de:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   480
             Left            =   225
@@ -1618,7 +1511,7 @@ Begin VB.Form mw_ventas_cabecera
             Caption         =   "Nro.Cuota"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -1689,15 +1582,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Fecha Programada de la Cuota:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   240
             Left            =   6840
@@ -1711,15 +1595,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Encargao de Cobrar:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   240
             Left            =   225
@@ -1733,15 +1608,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000010&
             BackStyle       =   0  'Transparent
             Caption         =   "(BOB) Bs."
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000080&
             Height          =   240
             Left            =   8040
@@ -1755,15 +1621,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "IMPORTE DE LA CUOTA -->"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   240
             Left            =   5175
@@ -1776,15 +1633,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H80000005&
             BackStyle       =   0  'Transparent
             Caption         =   "Concepto de la Cuota:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H80000008&
             Height          =   240
             Left            =   225
@@ -1800,7 +1648,7 @@ Begin VB.Form mw_ventas_cabecera
             Caption         =   "Nro.Venta"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -1838,15 +1686,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00C0C0C0&
             Caption         =   "Cantidad --------------- Precio Unitario Usd ----------- Descuento ------------  Total Dolares (Usd)"
             Enabled         =   0   'False
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00C00000&
             Height          =   780
             Left            =   285
@@ -2258,7 +2097,7 @@ Begin VB.Form mw_ventas_cabecera
             Visible         =   0   'False
             Width           =   930
             _ExtentX        =   1640
-            _ExtentY        =   556
+            _ExtentY        =   741
             _Version        =   393216
             Appearance      =   0
             BackColor       =   -2147483629
@@ -2268,7 +2107,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "MS Sans Serif"
-               Size            =   8.25
+               Size            =   12
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -2287,7 +2126,7 @@ Begin VB.Form mw_ventas_cabecera
             Visible         =   0   'False
             Width           =   870
             _ExtentX        =   1535
-            _ExtentY        =   556
+            _ExtentY        =   741
             _Version        =   393216
             Locked          =   -1  'True
             Appearance      =   0
@@ -2298,7 +2137,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "MS Sans Serif"
-               Size            =   8.25
+               Size            =   12
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -2327,7 +2166,7 @@ Begin VB.Form mw_ventas_cabecera
             DataSource      =   "ado_datos14"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -2470,7 +2309,7 @@ Begin VB.Form mw_ventas_cabecera
             Visible         =   0   'False
             Width           =   1290
             _ExtentX        =   2275
-            _ExtentY        =   556
+            _ExtentY        =   741
             _Version        =   393216
             Locked          =   -1  'True
             Appearance      =   0
@@ -2481,7 +2320,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "MS Sans Serif"
-               Size            =   8.25
+               Size            =   12
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -2500,7 +2339,7 @@ Begin VB.Form mw_ventas_cabecera
             Visible         =   0   'False
             Width           =   1290
             _ExtentX        =   2275
-            _ExtentY        =   556
+            _ExtentY        =   741
             _Version        =   393216
             Locked          =   -1  'True
             Appearance      =   0
@@ -2511,7 +2350,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "MS Sans Serif"
-               Size            =   8.25
+               Size            =   12
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -2628,15 +2467,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Al ""Grabar"" este registro, se Genera un NUEVO código de Equipo..."
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000080&
             Height          =   240
             Left            =   3240
@@ -2657,15 +2487,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Si el equipo ya existe, entonces elige de ""Codigo del Equipo""..."
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00C00000&
             Height          =   240
             Left            =   3255
@@ -2678,15 +2499,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00808080&
             BackStyle       =   0  'Transparent
             Caption         =   "Stock Total Actual"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   600
             Left            =   10275
@@ -2700,15 +2512,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Unidad Medida"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   10155
@@ -2724,7 +2527,7 @@ Begin VB.Form mw_ventas_cabecera
             Caption         =   "Nro. Venta:"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -2743,15 +2546,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Descripción y Características Complementarias"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   240
@@ -2764,15 +2558,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00C0C0C0&
             BackStyle       =   0  'Transparent
             Caption         =   "Descripción del Equipo"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   360
@@ -2785,15 +2570,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00C0C0C0&
             BackStyle       =   0  'Transparent
             Caption         =   "Código del Equipo"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   6960
@@ -2806,15 +2582,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Modelo del Equipo"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   360
@@ -2827,15 +2594,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00E0E0E0&
             BackStyle       =   0  'Transparent
             Caption         =   "Stock Almacen Origen"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   315
             Left            =   10140
@@ -2859,7 +2617,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   40
+         Left            =   -74960
          TabIndex        =   23
          Top             =   380
          Width           =   12015
@@ -2962,15 +2720,6 @@ Begin VB.Form mw_ventas_cabecera
          Begin VB.Frame Fra_datos 
             BackColor       =   &H00C0C0C0&
             Caption         =   "-- Fecha de Venta --------- Tipo de Venta ------------------------------------------------ Ejecutivo de Ventas"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00C00000&
             Height          =   1365
             Left            =   120
@@ -3077,7 +2826,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   117571585
+               Format          =   118882305
                CurrentDate     =   44228
                MinDate         =   32874
             End
@@ -3120,15 +2869,6 @@ Begin VB.Form mw_ventas_cabecera
                BackColor       =   &H8000000A&
                BackStyle       =   0  'Transparent
                Caption         =   "Concepto de la Venta:"
-               BeginProperty Font 
-                  Name            =   "MS Sans Serif"
-                  Size            =   9.75
-                  Charset         =   0
-                  Weight          =   400
-                  Underline       =   0   'False
-                  Italic          =   0   'False
-                  Strikethrough   =   0   'False
-               EndProperty
                ForeColor       =   &H00400000&
                Height          =   360
                Left            =   240
@@ -3141,15 +2881,6 @@ Begin VB.Form mw_ventas_cabecera
          Begin VB.Frame Fra_Total 
             BackColor       =   &H00C0C0C0&
             Caption         =   $"mw_ventas_cabecera.frx":128BF
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00800000&
             Height          =   1215
             Left            =   120
@@ -3629,15 +3360,6 @@ Begin VB.Form mw_ventas_cabecera
                BackColor       =   &H00000000&
                BackStyle       =   0  'Transparent
                Caption         =   "BOB (Bs.) :"
-               BeginProperty Font 
-                  Name            =   "MS Sans Serif"
-                  Size            =   9.75
-                  Charset         =   0
-                  Weight          =   400
-                  Underline       =   0   'False
-                  Italic          =   0   'False
-                  Strikethrough   =   0   'False
-               EndProperty
                ForeColor       =   &H00000000&
                Height          =   285
                Left            =   1080
@@ -3656,15 +3378,6 @@ Begin VB.Form mw_ventas_cabecera
                BackColor       =   &H00000000&
                BackStyle       =   0  'Transparent
                Caption         =   "USD ($US):"
-               BeginProperty Font 
-                  Name            =   "MS Sans Serif"
-                  Size            =   9.75
-                  Charset         =   0
-                  Weight          =   400
-                  Underline       =   0   'False
-                  Italic          =   0   'False
-                  Strikethrough   =   0   'False
-               EndProperty
                ForeColor       =   &H00000000&
                Height          =   285
                Left            =   1080
@@ -3723,7 +3436,7 @@ Begin VB.Form mw_ventas_cabecera
             DataSource      =   "Ado_datos"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -3910,15 +3623,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "EMPRESA:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   5160
@@ -3956,7 +3660,7 @@ Begin VB.Form mw_ventas_cabecera
             Caption         =   "Cite de Contrato"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -3977,7 +3681,7 @@ Begin VB.Form mw_ventas_cabecera
             Caption         =   "TRAMITE CERRADO !!"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   13.5
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -4047,15 +3751,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Edificio:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   180
@@ -4092,15 +3787,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Tramite"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Index           =   0
@@ -4114,15 +3800,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Unidad Ejecutora"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   1545
@@ -4137,7 +3814,7 @@ Begin VB.Form mw_ventas_cabecera
             Caption         =   "Nro. Venta"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   9.75
+               Size            =   8.25
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -4156,15 +3833,6 @@ Begin VB.Form mw_ventas_cabecera
             BackColor       =   &H00000000&
             BackStyle       =   0  'Transparent
             Caption         =   "Cliente:"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   9.75
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   180
@@ -4363,10 +4031,10 @@ Begin VB.Form mw_ventas_cabecera
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   734.74
+               ColumnWidth     =   720
             EndProperty
             BeginProperty Column01 
-               ColumnWidth     =   2594.835
+               ColumnWidth     =   2505.26
             EndProperty
             BeginProperty Column02 
                Object.Visible         =   0   'False
@@ -4376,11 +4044,11 @@ Begin VB.Form mw_ventas_cabecera
                ColumnWidth     =   1080
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   780.095
+               ColumnWidth     =   840.189
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   585.071
+               ColumnWidth     =   599.811
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
@@ -4629,33 +4297,34 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             BeginProperty Column01 
                Locked          =   -1  'True
-               ColumnWidth     =   1154.835
+               ColumnWidth     =   1275.024
             EndProperty
             BeginProperty Column02 
                Locked          =   -1  'True
-               ColumnWidth     =   6524.788
+               ColumnWidth     =   6809.953
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
-               ColumnWidth     =   780.095
+               ColumnWidth     =   734.74
             EndProperty
             BeginProperty Column04 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1440
+               ColumnWidth     =   1365.165
             EndProperty
             BeginProperty Column05 
                Alignment       =   1
-               ColumnWidth     =   1379.906
+               ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1425.26
+               ColumnWidth     =   1395.213
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
                Locked          =   -1  'True
+               ColumnWidth     =   1695.118
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
@@ -4663,7 +4332,7 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             BeginProperty Column09 
                Alignment       =   2
-               ColumnWidth     =   689.953
+               ColumnWidth     =   780.095
             EndProperty
          EndProperty
       End
@@ -4882,7 +4551,7 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column00 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   794.835
+               ColumnWidth     =   780.095
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
@@ -4891,13 +4560,14 @@ Begin VB.Form mw_ventas_cabecera
             BeginProperty Column02 
                Alignment       =   1
                Locked          =   -1  'True
+               ColumnWidth     =   1379.906
             EndProperty
             BeginProperty Column03 
                Alignment       =   1
                Locked          =   -1  'True
             EndProperty
             BeginProperty Column04 
-               ColumnWidth     =   959.811
+               ColumnWidth     =   989.858
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
@@ -4905,22 +4575,21 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             BeginProperty Column06 
                Locked          =   -1  'True
-               ColumnWidth     =   3660.095
+               ColumnWidth     =   3855.118
             EndProperty
             BeginProperty Column07 
-               ColumnWidth     =   4155.024
+               ColumnWidth     =   3960
             EndProperty
             BeginProperty Column08 
                Alignment       =   2
-               ColumnWidth     =   585.071
+               ColumnWidth     =   659.906
             EndProperty
             BeginProperty Column09 
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   1140.095
             EndProperty
             BeginProperty Column10 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   929.764
             EndProperty
             BeginProperty Column11 
                Alignment       =   2
@@ -6320,6 +5989,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         End If
         
         Call ABRIR_TABLA_DET
+        Call ABRIR_TABLAS_AUX
 '        FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
         
@@ -6720,7 +6390,7 @@ Private Sub BtnAprobar_Click()
                         rs_aux3!estado_codigo_eqp = "REG"
                         rs_aux3!estado_codigo = "REG"
                         rs_aux3!usr_codigo = glusuario
-                        rs_aux3!fecha_registro = Date
+                        rs_aux3!Fecha_Registro = Date
                         rs_aux3.Update
                         'INI ACTUALIZA CORRELATIVO POR ALMACEN
                         Set rs_aux9 = New ADODB.Recordset
@@ -7201,8 +6871,9 @@ Private Sub BtnAprobar2_Click()
        db.Execute "update gc_documentos_respaldo set gc_documentos_respaldo.correl_doc = " & nroventa & " Where gc_documentos_respaldo.doc_codigo = '" & Ado_datos16.Recordset!doc_codigo & "' "
        VAR_COBR0 = IIf(IsNull(Ado_datos16.Recordset!beneficiario_codigo_resp), "3361040", Ado_datos16.Recordset!beneficiario_codigo_resp)
        VAR_COBR0 = IIf(Ado_datos16.Recordset!beneficiario_codigo_resp = "0", "3361040", Ado_datos16.Recordset!beneficiario_codigo_resp)
-
-       If (VAR_DOCFAC = "R-101" Or VAR_DOCFAC = "R-100") Then
+       
+        'ACTIVAR FACTURACION R-100 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+       If (VAR_DOCFAC = "R-101") Then           'Or VAR_DOCFAC = "R-100"
           sino = MsgBox("Realizarás la solicitud de VARIAS cuotas en UNA sola FACTURA ? ", vbYesNo, "Confirmando")
           If sino = vbYes Then             'VARIAS CUOTAS PARA UNA SOLA FACTURA
                 tw_ventas_cuotas_vs_fac.Show vbModal
@@ -7215,7 +6886,7 @@ Private Sub BtnAprobar2_Click()
                         " usr_codigo, fecha_registro, edif_codigo_corto, edif_codigo, codigo_empresa ) " & _
                 " VALUES ('" & glGestion & "',  " & nroventa & ", '" & VAR_DOCFAC & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_programada_bs & ",  " & Ado_datos16.Recordset!cobranza_programada_dol & ",  " & GlTipoCambioOficial & ",  " & _
                         " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
-                        " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
+                        " 'ADM',        'R-309',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
                         " '" & glusuario & "', '" & CDate(Date) & "', " & VAR_EDIFC & ", '" & GlEdificio & "', " & VAR_EMPRESA & "  ) "
                         
             Set rs_aux20 = New ADODB.Recordset
@@ -7239,12 +6910,12 @@ Private Sub BtnAprobar2_Click()
         'GRABA DETALLE DE FACTURACION NUEVA (ao_ventas_cobranza)
         db.Execute "INSERT INTO ao_ventas_cobranza (ges_gestion, cobranza_prog_codigo, venta_codigo,                                    beneficiario_codigo,                                    beneficiario_codigo_fac,                            beneficiario_codigo_resp,                               cobranza_programada_bs,                                 cobranza_programada_dol,                                cobranza_solicitado_bs,                                  cobranza_solicitado_dol,                 cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs,         cobranza_total_dol,                                     Literal,    cobranza_fecha_prog,                              cobranza_fecha_cobro, cobranza_observaciones, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, poa_codigo,  " & _
         " estado_codigo, usr_codigo, fecha_registro, cobranza_fecha_sol, estado_codigo_sol, estado_codigo_fac, venta_codigo_new) " & _
-        " VALUES ('" & glGestion & "', " & Ado_datos16.Recordset!cobranza_prog_codigo & ", " & nroventa & ", '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo_resp & "', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '0', '0', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '" & Ado_datos16.Recordset!Literal & "', '" & Ado_datos16.Recordset!cobranza_fecha_prog & "', '" & Ado_datos16.Recordset!cobranza_fecha_cobro & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', 'FIN', 'FIN-02', 'FIN-02-02', 'ADM', 'R-105', '0', '" & VAR_DOCFAC & "', '0', '0', '3.1.2',  " & _
+        " VALUES ('" & glGestion & "', " & Ado_datos16.Recordset!cobranza_prog_codigo & ", " & nroventa & ", '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo_resp & "', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '0', '0', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '" & Ado_datos16.Recordset!Literal & "', '" & Ado_datos16.Recordset!cobranza_fecha_prog & "', '" & Ado_datos16.Recordset!cobranza_fecha_cobro & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', 'FIN', 'FIN-02', 'FIN-02-02', 'ADM', 'R-309', '0', '" & VAR_DOCFAC & "', '0', '0', '3.1.2',  " & _
         " 'REG', '" & glusuario & "', '" & Date & "', '" & Date & "', 'APR', 'REG', " & VAR_IDFAC & " )"
 
         ' APRUEBA ao_ventas_cobranza_prog
         'db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
-        db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!fecha_registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+        db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!Fecha_Registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
         ' Actualiza CODIGO_COBRNAZA en el cronogrma
         db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_codigo = ao_ventas_cobranza.cobranza_codigo from ao_ventas_cobranza_prog INNER JOIN ao_ventas_cobranza " & _
         " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & nroventa & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & Ado_datos16.Recordset!cobranza_prog_codigo & " )"
@@ -9882,7 +9553,7 @@ Private Sub CmdGrabaCobro_Click()
       Ado_datos16.Recordset!trans_codigo = VAR_EMISION
       Ado_datos16.Recordset!estado_codigo = "REG"
       Ado_datos16.Recordset!usr_codigo = glusuario
-      Ado_datos16.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+      Ado_datos16.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
       Ado_datos16.Recordset!hora_registro = Format(Time, "hh:mm:ss")
       Ado_datos16.Recordset.Update
     db.CommitTrans
@@ -10199,7 +9870,7 @@ Private Sub CmdGrabaDet_Click()
          'FIN GUARDA BIENES
           Ado_datos14.Recordset!estado_codigo = "REG"
           Ado_datos14.Recordset!usr_codigo = glusuario
-          Ado_datos14.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+          Ado_datos14.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
           Ado_datos14.Recordset!hora_registro = Format(Time, "hh:mm:ss")
           Ado_datos14.Recordset.Update
         'db.CommitTrans

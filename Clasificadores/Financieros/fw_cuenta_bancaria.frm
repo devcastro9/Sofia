@@ -433,10 +433,10 @@ Begin VB.Form fw_cuenta_bancaria
    Begin VB.Frame Fra_ABM 
       BackColor       =   &H00000000&
       Height          =   6000
-      Left            =   6520
+      Left            =   6480
       TabIndex        =   17
       Top             =   720
-      Width           =   8200
+      Width           =   8085
       Begin MSDataListLib.DataCombo dtc_desc1 
          Bindings        =   "fw_cuenta_bancaria.frx":59BF
          DataField       =   "bco_codigo"
@@ -589,6 +589,100 @@ Begin VB.Form fw_cuenta_bancaria
          ListField       =   "bco_codigo"
          BoundColumn     =   "bco_codigo"
          Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo Dtc_EmpresaCodigo 
+         Bindings        =   "fw_cuenta_bancaria.frx":5B4E
+         DataField       =   "codigo_empresa"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   4800
+         TabIndex        =   47
+         Top             =   4800
+         Visible         =   0   'False
+         Width           =   855
+         _ExtentX        =   1508
+         _ExtentY        =   556
+         _Version        =   393216
+         ListField       =   "codigo_empresa"
+         BoundColumn     =   "codigo_empresa"
+         Text            =   "Codigo Empresa"
+      End
+      Begin MSDataListLib.DataCombo Dtc_EmpresaDescripcion 
+         Bindings        =   "fw_cuenta_bancaria.frx":5B67
+         DataField       =   "codigo_empresa"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   360
+         TabIndex        =   48
+         Top             =   5160
+         Width           =   5415
+         _ExtentX        =   9551
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "denominacion_empresa"
+         BoundColumn     =   "codigo_empresa"
+         Text            =   "Selecciona empresa..."
+      End
+      Begin VB.Label Label3 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Estado"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   255
+         Left            =   6360
+         TabIndex        =   51
+         Top             =   4800
+         Width           =   975
+      End
+      Begin VB.Label Label2 
+         Alignment       =   2  'Center
+         BackColor       =   &H00404040&
+         Caption         =   "REG"
+         DataField       =   "estado_codigo"
+         DataSource      =   "Ado_datos"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   255
+         Left            =   6240
+         TabIndex        =   50
+         Top             =   5160
+         Width           =   1335
+      End
+      Begin VB.Label Label1 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Empresa"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   255
+         Left            =   480
+         TabIndex        =   49
+         Top             =   4800
+         Width           =   975
       End
       Begin VB.Label lbl_parametro_mayor 
          AutoSize        =   -1  'True
@@ -807,7 +901,7 @@ Begin VB.Form fw_cuenta_bancaria
          EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   255
-         Left            =   360
+         Left            =   79440
          TabIndex        =   2
          Top             =   5280
          Width           =   1335
@@ -828,7 +922,7 @@ Begin VB.Form fw_cuenta_bancaria
          ForeColor       =   &H00FFFFC0&
          Height          =   240
          Index           =   2
-         Left            =   360
+         Left            =   79440
          TabIndex        =   18
          Top             =   4980
          Width           =   1455
@@ -954,6 +1048,53 @@ Begin VB.Form fw_cuenta_bancaria
       EndProperty
       _Version        =   393216
    End
+   Begin MSAdodcLib.Adodc AdoEmpresa 
+      Height          =   330
+      Left            =   120
+      Top             =   7080
+      Visible         =   0   'False
+      Width           =   2415
+      _ExtentX        =   4260
+      _ExtentY        =   582
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "AdoEmpresa"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
 End
 Attribute VB_Name = "fw_cuenta_bancaria"
 Attribute VB_GlobalNameSpace = False
@@ -965,6 +1106,7 @@ Dim rs_datos As New ADODB.Recordset
 Attribute rs_datos.VB_VarHelpID = -1
 Dim rs_datos1 As New ADODB.Recordset
 Dim rs_aux1 As New ADODB.Recordset
+Dim rs_empresa As New ADODB.Recordset
 'BUSCADOR
 Dim ClBuscaGrid As ClBuscaEnGridExterno
 'Dim queryinicial As String
@@ -982,7 +1124,7 @@ Private Sub BtnAprobar_Click()
       sino = MsgBox("Está Seguro de APROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
          rs_datos!estado_codigo = "APR"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -1027,14 +1169,14 @@ Private Sub BtnCancelar_Click()
     End If
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!subproceso_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
    If rs_datos!estado_codigo = "APR" Then
       sino = MsgBox("Está Seguro de ANULAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
          rs_datos!estado_codigo = "ERR"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -1052,7 +1194,7 @@ Private Sub BtnDesAprobar_Click()
    If rs_datos!estado_codigo = "APR" Then
       If sino = vbYes Then
          rs_datos!estado_codigo = "REG"
-         rs_datos!fecha_registro = Date
+         rs_datos!Fecha_Registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -1091,9 +1233,10 @@ Private Sub BtnGrabar_Click()
         'Guarda en el Padre, en el campo ctrl de correlativos para codigos que se generan
 '        db.Execute "Update gc_direccion_general Set correl_da = CAST('" & var_cod & "' AS INT) + 1 Where dgral_codigo= '" & dtc_codigo1.Text & "' "
      End If
-     rs_datos!subproceso_descripcion = Txt_descripcion.Text
-     rs_datos!fecha_registro = Date     ' no cambia
-     rs_datos!usr_codigo = glusuario    ' no cambia
+     rs_datos!cta_descripcion = Txt_descripcion.Text
+     rs_datos!codigo_empresa = Val(Dtc_EmpresaCodigo.Text)
+     rs_datos!Fecha_Registro = Date
+     rs_datos!usr_usuario = glusuario
      rs_datos.UpdateBatch adAffectAll
     
      Call ABRIR_TABLA
@@ -1133,14 +1276,14 @@ End Sub
 
 Private Sub BtnImprimir_Click()
   Dim iResult As Integer
-  CR01.WindowShowPrintSetupBtn = True
-  CR01.WindowShowRefreshBtn = True
-  CR01.ReportFileName = App.Path & "\REPORTES\CLASIFICADORES\fr_cuenta_bancaria.rpt"
-  iResult = CR01.PrintReport
+  cr01.WindowShowPrintSetupBtn = True
+  cr01.WindowShowRefreshBtn = True
+  cr01.ReportFileName = App.Path & "\REPORTES\CLASIFICADORES\fr_cuenta_bancaria.rpt"
+  iResult = cr01.PrintReport
   If iResult <> 0 Then
-      MsgBox CR01.LastErrorNumber & " : " & CR01.LastErrorString, vbExclamation + vbOKOnly, "Error"
+      MsgBox cr01.LastErrorNumber & " : " & cr01.LastErrorString, vbExclamation + vbOKOnly, "Error"
   End If
-  CR01.WindowState = crptMaximized
+  cr01.WindowState = crptMaximized
 '      MsgBox "No se puede Imprimir. Consulte con el Administrador ...", , "Atención"
 End Sub
 
@@ -1194,7 +1337,7 @@ Private Sub Form_Load()
     dg_datos.Enabled = True
 '    FraNavega.Caption = lbl_titulo.Caption
 '    lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
@@ -1214,6 +1357,12 @@ Private Sub ABRIR_TABLAS_AUX()
     rs_datos1.Open "Select * from fc_bancos ", db, adOpenStatic
     Set Ado_datos1.Recordset = rs_datos1
     dtc_desc1.BoundText = dtc_codigo1.BoundText
+    
+    Set rs_empresa = New ADODB.Recordset
+    If rs_empresa.State = 1 Then rs_empresa.Close
+    rs_empresa.Open "SELECT codigo_empresa, denominacion_empresa FROM gc_empresas", db, adOpenStatic
+    Set AdoEmpresa.Recordset = rs_empresa
+    Dtc_EmpresaDescripcion.BoundText = Dtc_EmpresaCodigo.BoundText
 End Sub
 
 'Private Sub Form_Resize()

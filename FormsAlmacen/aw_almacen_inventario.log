@@ -1,9 +1,1 @@
-Línea 7: no se pudo establecer la propiedad Icon de aw_almacen_inventario.
-Línea 42: no se pudo establecer la propiedad Picture de BtnCancelar3.
-Línea 57: no se pudo establecer la propiedad Picture de BtnImprimir2.
-Línea 72: no se pudo establecer la propiedad Picture de BtnImprimir1.
-Línea 174: no se pudo establecer la propiedad Picture de BtnSalir.
-Línea 189: no se pudo establecer la propiedad Picture de BtnVer.
-Línea 203: no se pudo establecer la propiedad Picture de BtnBuscar.
-Línea 219: no se pudo establecer la propiedad Picture de BtnImprimir.
-Línea 266: no se pudo establecer la propiedad Picture de CmdFiltrar.
+Línea 1118: la clase ComctlLib.ProgressBar del control ProgressBar1 no era una clase de control cargada.

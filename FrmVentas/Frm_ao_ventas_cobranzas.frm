@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -231,10 +231,10 @@ Begin VB.Form Frm_ao_ventas_cobranzas
       TabCaption(0)   =   " FACTURACION CGE"
       TabPicture(0)   =   "Frm_ao_ventas_cobranzas.frx":315D
       Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "FraNavega1"
-      Tab(0).Control(1)=   "FrmCobros1"
-      Tab(0).Control(2)=   "fraOpciones1"
-      Tab(0).Control(3)=   "FraGrabarCancelar1"
+      Tab(0).Control(0)=   "FraGrabarCancelar1"
+      Tab(0).Control(1)=   "fraOpciones1"
+      Tab(0).Control(2)=   "FrmCobros1"
+      Tab(0).Control(3)=   "FraNavega1"
       Tab(0).ControlCount=   4
       TabCaption(1)   =   " FACTURACION SOFIA"
       TabPicture(1)   =   "Frm_ao_ventas_cobranzas.frx":36F7
@@ -976,7 +976,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109707265
+            Format          =   109969409
             CurrentDate     =   2
          End
          Begin MSDataListLib.DataCombo dtc_desc08 
@@ -2371,7 +2371,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
             CalendarBackColor=   16777215
             CalendarForeColor=   0
             CheckBox        =   -1  'True
-            Format          =   109707265
+            Format          =   109969409
             CurrentDate     =   42873
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -2395,7 +2395,7 @@ Begin VB.Form Frm_ao_ventas_cobranzas
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   109707265
+            Format          =   109969409
             CurrentDate     =   41678
          End
          Begin VB.PictureBox Picture2 
@@ -5961,7 +5961,7 @@ Private Sub btnEliminar_Click()
             rs_datos12!correl_contab_anl = Ado_datos.Recordset!correl_contab
             rs_datos12!estado_codigo_anl = "APR"            'Ado_datos.Recordset!estado_codigo_anl
             rs_datos12!usr_codigo_anl = glusuario           'Ado_datos.Recordset!usr_codigo_anl
-            rs_datos12!fecha_registro = Ado_datos.Recordset!fecha_registro
+            rs_datos12!Fecha_Registro = Ado_datos.Recordset!Fecha_Registro
 
             rs_datos12!trans_codigo = Ado_datos.Recordset!trans_codigo
             rs_datos12!cmpbte_deposito = Ado_datos.Recordset!cmpbte_deposito
@@ -6132,7 +6132,7 @@ Private Sub BtnGrabar_Click()
       Ado_datos.Recordset!cobranza_fecha_fac2 = ""        'VAR_ANIO & VAR_MES & VAR_DIA          'Fecha de Facturacion Texto
       Ado_datos.Recordset!estado_codigo_fac = "REG"
       Ado_datos.Recordset!usr_codigo = glusuario
-      Ado_datos.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+      Ado_datos.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
       Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
       Ado_datos.Recordset.Update
     db.CommitTrans
@@ -6231,7 +6231,7 @@ Private Sub BtnGrabar1_Click()
       Ado_datos01.Recordset!estado_codigo_sol = "APR"
       Ado_datos01.Recordset!estado_codigo_fac = "APR"
       Ado_datos01.Recordset!usr_codigo = glusuario
-      Ado_datos01.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+      Ado_datos01.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
       Ado_datos01.Recordset!hora_registro = Format(Time, "hh:mm:ss")
       Ado_datos01.Recordset.Update
     db.CommitTrans
@@ -7771,7 +7771,6 @@ Private Sub BtnModificar1_Click()
   End If
 
 End Sub
-
 
 Private Sub BtnSalir_Click()
     sino = MsgBox("Esta Seguro deSalir?", vbQuestion + vbYesNo, "Confirmando...")
