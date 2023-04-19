@@ -340,7 +340,7 @@ Attribute VB_Exposed = False
 Option Explicit
 '*** Ventana Top Most
 Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, _
-       ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+       ByVal x As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 Const HWND_TOP = 0
 Const HWND_TOPMOST = -1
 Const HWND_NOTTOPMOST = -2
@@ -657,7 +657,7 @@ Private Sub Form_Load()
   flags = SWP_NOSIZE Or SWP_NOMOVE 'Or SWP_NOZORDER  'SWP_NOOWNERZORDER
 '
   Resultado = SetWindowPos(Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, flags)
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)

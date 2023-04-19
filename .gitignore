@@ -3,14 +3,8 @@
 *.rar
 *.xls
 *.xlsx
-*.ldb
 
-# Ignorar log (generados por el IDE Vb6)
-#*.log
-
-# Ignorar configuracion
-#.vscode/
-
+# Other
 .DS_Store
 .Trashes
 *.vbw
@@ -21,4 +15,3 @@
 *.dca
 *.scc
 *.tmp
-<name of built binary, exe, dll or ocx>

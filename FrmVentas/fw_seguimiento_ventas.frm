@@ -14,9 +14,9 @@ Begin VB.Form fw_seguimiento_ventas
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   2.47341e7
+   ScaleHeight     =   2.63379e7
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.34771e9
+   ScaleWidth      =   1.5993e9
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprime 
       BackColor       =   &H80000018&
@@ -32,7 +32,7 @@ Begin VB.Form fw_seguimiento_ventas
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   7455
-      Left            =   8280
+      Left            =   5400
       TabIndex        =   25
       Top             =   840
       Visible         =   0   'False
@@ -6851,7 +6851,7 @@ Private Sub cmd_moneda1_LostFocus()
     If rs_datos20.State = 1 Then rs_datos20.Close
     rs_datos20.Open "Select * from fc_cuenta_bancaria where tipo_moneda = '" & cmd_moneda1.Text & "' ", db, adOpenStatic
     Set Ado_datos20.Recordset = rs_datos20
-    dtc_ctaDes.BoundText = dtc_cta.BoundText
+    dtc_ctades.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub cmd_moneda2_LostFocus()
@@ -7038,11 +7038,11 @@ Private Sub dtc_codigo8_Click(Area As Integer)
 End Sub
 
 Private Sub dtc_cta_Click(Area As Integer)
-    dtc_ctaDes.BoundText = dtc_cta.BoundText
+    dtc_ctades.BoundText = dtc_cta.BoundText
 End Sub
 
 Private Sub dtc_ctades_Click(Area As Integer)
-    dtc_cta.BoundText = dtc_ctaDes.BoundText
+    dtc_cta.BoundText = dtc_ctades.BoundText
 End Sub
 
 Private Sub dtc_desc4A1_Click(Area As Integer)
@@ -7226,7 +7226,7 @@ Private Sub Form_Load()
     marca1 = 1
     deta2 = 0
     'db.Execute "fp_saldos"
-    If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Or glusuario = "PLOPEZ" Or glusuario = "VBELLIDO" Then
+    If glusuario = "ASANTIVAÑEZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RCUELA" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Then
         OptFilGral00.Visible = True
         'SSTab1.Tab = 0
         'SSTab1.TabEnabled(0) = True
@@ -7643,7 +7643,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioMercado ' GlTipoCambioOficial
   
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0

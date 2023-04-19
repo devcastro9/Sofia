@@ -31,9 +31,9 @@ Begin VB.Form aw_almacen_inventario
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   4575
-      Left            =   2040
+      Left            =   1920
       TabIndex        =   32
-      Top             =   2760
+      Top             =   2640
       Visible         =   0   'False
       Width           =   8775
       Begin VB.CommandButton btnSalirPanel 
@@ -57,7 +57,7 @@ Begin VB.Form aw_almacen_inventario
          Caption         =   "Contratos VIGENTES con detalle de BIENES"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   1080
+         Left            =   960
          TabIndex        =   39
          Top             =   3120
          Visible         =   0   'False
@@ -68,7 +68,7 @@ Begin VB.Form aw_almacen_inventario
          Caption         =   "Certificado de Cumplimiento de Contrato por Mantenimiento Integral"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   1080
+         Left            =   960
          TabIndex        =   38
          Top             =   3480
          Visible         =   0   'False
@@ -79,7 +79,7 @@ Begin VB.Form aw_almacen_inventario
          Caption         =   "Contratos VIGENTES con detalle de EQUIPOS (Zona Piloto) MIGRAR"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   1080
+         Left            =   960
          TabIndex        =   37
          Top             =   2760
          Visible         =   0   'False
@@ -333,7 +333,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110231553
+         Format          =   110624769
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -346,7 +346,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110231553
+         Format          =   110624769
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -1180,6 +1180,8 @@ Dim UNIT87_BS, TOT87_BS As Double
 'Dim cmm As ADODB.Command
 Dim VAR_ALM, VAR_CONTAR As Integer
 
+Dim FInicio, FFin As Date
+
 Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         'MsgBox "OK ..."
@@ -1292,9 +1294,12 @@ End Sub
 
 Private Sub BtnImprimir2_Click()
     If Ado_datos.Recordset.RecordCount > 0 Then
+        VAR_ALM = dtc_codigo1.Text
         Call ACTUALIZA_PPP_BIEN
         Dim iResult As Integer
         'Dim co As New ADODB.Command
+        FInicio = Format(DTP_Finicio.Value, "dd/mm/yyyy")
+        FFin = Format(DTP_Ffin.Value, "dd/mm/yyyy")
         'CryV02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_kardex_almacen_acumulado_valorado.rpt" '
         CryV02.ReportFileName = App.Path & "\Reportes\Almacenes\ar_kardex_almacen_acumulado_valorado_full.rpt" '
         CryV02.WindowShowPrintSetupBtn = True
@@ -1311,8 +1316,11 @@ Private Sub BtnImprimir2_Click()
 ''        CryV02.Formulas(0) = "titulo = '" & VAR_TITULO & "' "
 '        CryV02.Formulas(1) = "subtitulo = '" & lbl_titulo.Caption & "' "
 '        CryV02.Formulas(2) = "FechaAl = '" & DTPicker3.Value & "' "
-
-        CryV02.Formulas(1) = "almace = '" & dtc_desc1.Text & "' "
+'
+        CryV02.Formulas(0) = "almace = '" & dtc_desc1.Text & "' "
+        CryV02.Formulas(1) = "FInicio = '" & DTP_Finicio.Value & "' "
+        CryV02.Formulas(2) = "FFin = '" & DTP_Ffin.Value & "' "
+        CryV02.Formulas(3) = "CodAlm = '" & Trim(Str(VAR_ALM)) & "' "
         'CryV02.Formulas(2) = "DEL_AL = '' "
         'CryV02.Formulas(3) = "fechafin = '" & DTP_Ffin.Value & "' "
         
@@ -1859,8 +1867,8 @@ End Sub
 Private Sub tdbgInventario_DblClick()
     VAR_BIEN = Ado_datos.Recordset!bien_codigo
     VAR_ALM = Ado_datos.Recordset!almacen_codigo
-    db.Execute "UPDATE ao_almacen_totales SET stock_salida = (SELECT SUM(cantidad_salida) FROM ao_almacen_salidas WHERE bien_codigo = '" & VAR_BIEN & "' AND almacen_codigo = " & VAR_ALM & ") where almacen_codigo = " & VAR_ALM & " and bien_codigo = '" & VAR_BIEN & "' "
-    db.Execute "update ao_almacen_totales set stock_actual = stock_ingreso - stock_salida"
+    'db.Execute "UPDATE ao_almacen_totales SET stock_salida = (SELECT SUM(cantidad_salida) FROM ao_almacen_salidas WHERE bien_codigo = '" & VAR_BIEN & "' AND almacen_codigo = " & VAR_ALM & ") where almacen_codigo = " & VAR_ALM & " and bien_codigo = '" & VAR_BIEN & "' "
+    'db.Execute "update ao_almacen_totales set stock_actual = stock_ingreso - stock_salida"
     DTP_Finicio.Value = "01/01/" & glGestion
     DTP_Ffin.Value = ObtenerFechaServidor()
     Fra_reporte.Visible = True

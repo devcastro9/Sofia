@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -15,8 +15,8 @@ Begin VB.Form fw_compras_fondos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10260
+   ScaleWidth      =   11280
    WindowState     =   2  'Maximized
    Begin VB.PictureBox BtnSalir 
       Appearance      =   0  'Flat
@@ -38,7 +38,7 @@ Begin VB.Form fw_compras_fondos
       Height          =   5280
       Left            =   4440
       TabIndex        =   13
-      Top             =   6360
+      Top             =   3000
       Visible         =   0   'False
       Width           =   10335
       Begin VB.TextBox lbl_total_dol 
@@ -274,7 +274,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentY        =   529
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   110362625
+         Format          =   135200769
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2489,10 +2489,10 @@ Begin VB.Form fw_compras_fondos
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   21360
+      ScaleWidth      =   11280
       TabIndex        =   0
-      Top             =   12915
-      Width           =   21360
+      Top             =   10260
+      Width           =   11280
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3379,6 +3379,7 @@ Dim sino As String
 Dim VAR_PAIS, VAR_BENEF, VAR_DA, VAR_TIPO_ALM As String
 Public w_nuevo As String
 Dim VAR_FONDO, VAR_TIPO As String
+Dim VAR_UNI0 As String
 
 Dim COUNTER As Integer
 Dim VAR_CMPBTE, VAR_COMPRA As Integer
@@ -3862,7 +3863,7 @@ On Error GoTo UpdateErr
         
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_fondos.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_fondos.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_fondos.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_fondos.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_fondos.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -4992,7 +4993,7 @@ Private Sub BtnCancelar_Click()
 '    lbl_aux1.Visible = False
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If Ado_datos.Recordset.RecordCount > 0 Then
     Select Case Glaux
@@ -5147,7 +5148,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!estado_codigo = "REG"      'no cambia
         rs_datos!ges_gestion = glGestion    ' Year(Date)   'no cambia
         rs_datos!unidad_codigo = VAR_UNI
-        rs_datos!unidad_codigo_adm = VAR_UNI
+        rs_datos!unidad_codigo_adm = VAR_UNI0
         'Actualiza correaltivo ...
         'db.Execute "Update gc_unidad_ejecutora Set correl_solicitud = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "'   "
         rs_datos!archivo_respaldo = "sin_nombre"
@@ -5185,11 +5186,11 @@ Private Sub BtnGrabar_Click()
         If rs_aux2.RecordCount > 0 Then
             If dtc_codigo10.Text = "2" Then
                 rs_aux2!doc_nro_copias = rs_aux2!doc_nro_copias + 1
-                Txt_campo1.Caption = rs_aux2!doc_nro_copias
+                txt_campo1.Caption = rs_aux2!doc_nro_copias
                 VAR_CODF = rs_aux2!doc_nro_copias
             Else
                 rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-                Txt_campo1.Caption = rs_aux2!correl_doc
+                txt_campo1.Caption = rs_aux2!correl_doc
                 VAR_CODF = rs_aux2!correl_doc
             End If
             rs_aux2.Update
@@ -5555,12 +5556,12 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_aux1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-                frm_solicitud_bienes_gral.dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+                frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
                 frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -5684,7 +5685,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
             fw_adjudica_fondos.txtSW.Text = swnuevo                 'Me.Ado_datos.Recordset!venta_tipo
             fw_adjudica_fondos.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_fondos.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_fondos.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_fondos.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_fondos.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_fondos.Txt_estado.Caption = "REG"
@@ -5764,8 +5765,10 @@ On Error GoTo UpdateErr
         fraOpcionesDet.Visible = True
         FraNavega.Enabled = True
         FraDet2.Enabled = True
+        FraDet2.Visible = True
         FrmABMDet2.Visible = True
         BtnSalir.Visible = True
+        
      Else
         MsgBox "No se puede Modificar un registro inexistente, vuelva a intentar!! ", vbExclamation
         Exit Sub
@@ -6354,10 +6357,12 @@ On Error GoTo UpdateErr
         usuario2 = rs_aux3!beneficiario_codigo
         VAR_BENEF = rs_aux3!beneficiario_codigo
         VAR_DA = rs_aux3!da_codigo
+        VAR_UNI0 = rs_aux3!unidad_codigo
     Else
         usuario2 = "3361040"
         VAR_BENEF = "0"
         VAR_DA = "1.3"
+        VAR_UNI0 = "DCONT"
     End If
     VAR_FONDO = Aux
     Select Case VAR_DA

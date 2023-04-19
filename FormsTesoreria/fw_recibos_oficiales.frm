@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -17,9 +17,9 @@ Begin VB.Form fw_recibos_oficiales
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   95900.45
+   ScaleHeight     =   1.08741e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   6.16686e6
+   ScaleWidth      =   2.17485e7
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmDetalle2 
       BackColor       =   &H00C0C0C0&
@@ -1309,7 +1309,7 @@ Begin VB.Form fw_recibos_oficiales
             _ExtentX        =   2778
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   109314049
+            Format          =   110493697
             CurrentDate     =   44419
          End
          Begin VB.TextBox Text8 
@@ -4029,10 +4029,20 @@ End Sub
 
 Private Sub BtnAddDetalle_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then       '
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then        '
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+            'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
+             If (ado_datos14.Recordset!trans_codigo = "F" Or ado_datos14.Recordset!trans_codigo = "T" Or ado_datos14.Recordset!trans_codigo = "O") Then
+                If CDate(ado_datos14.Recordset!cmpbte_fecha) <= CDate("31/12/2022") Then
+                    If glusuario = "ADMIN" Or glusuario = "PLOPEZ" Then
+                    Else
+                        MsgBox "No se puede ACEPTAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                        Exit Sub
+                    End If
+                End If
+            End If
             If (ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(ado_datos14.Recordset!cmpbte_fecha) Or (ado_datos14.Recordset!cmpbte_fecha = "01/01/1900")) Then
                 MsgBox "No se puede ACEPTAR, verifique la fecha de Cheque, Transferencia o Comprobante y vuelva a intentar ...", , "Atención"
                 Exit Sub
@@ -4076,7 +4086,7 @@ Private Sub BtnAñadir_Click()
 accion = "NEW"
     
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -4114,7 +4124,9 @@ End Sub
 Private Sub BtnAprobar_Click()
  On Error GoTo UpdateErr
   If Ado_datos.Recordset!estado_codigo = "REG" Then
-    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Then
+    'Or glusuario = "SPAREDES" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS"
+    
       VAR_RECIBO = Ado_datos.Recordset!IdRecibo
       'Actualiza Totales
       'db.Execute "update fo_recibos_oficiales set fo_recibos_oficiales.total_bs = fv_recibos_detalle_acumulado.totalCobro_Bs,  -.total_dol = fv_recibos_detalle_acumulado.totalCobro_dol from fo_recibos_oficiales inner join fv_recibos_detalle_acumulado on fo_recibos_oficiales.IdRecibo = fv_recibos_detalle_acumulado.IdRecibo WHERE fo_recibos_oficiales.IdRecibo =  " & VAR_RECIBO & "  "
@@ -4555,7 +4567,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
         accion = "MOD"
@@ -7199,7 +7211,7 @@ Private Sub OptFilGral1_Click()
     Select Case glusuario
         Case "ADMIN", "VPAREDES", "SQUISPE", "CSALINAS"
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG') "
-        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA"
+        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA", "MCOARITY"
             'queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo ='6962804')) "
             queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG') "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
@@ -7237,7 +7249,7 @@ Private Sub OptFilGral2_Click()
     Select Case glusuario
         Case "ADMIN", "VPAREDES", "SQUISPE", "CSALINAS"
             queryinicial = "select * From fo_recibos_oficiales  "
-        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA"
+        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA", "MCOARITY"
             'queryinicial = "select * From fo_recibos_oficiales WHERE (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo ='6962804') "
             queryinicial = "select * From fo_recibos_oficiales  "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
@@ -7396,7 +7408,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioOficial
 
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0

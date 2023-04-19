@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -184,11 +184,22 @@ Begin VB.Form fw_facturacion
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   5700
+      Height          =   6180
       Left            =   2640
       TabIndex        =   13
-      Top             =   3720
+      Top             =   2880
       Width           =   12015
+      Begin VB.ComboBox CboTipoFactura 
+         Appearance      =   0  'Flat
+         Height          =   315
+         ItemData        =   "fw_facturacion.frx":1B27
+         Left            =   3120
+         List            =   "fw_facturacion.frx":1B31
+         Style           =   2  'Dropdown List
+         TabIndex        =   81
+         Top             =   4560
+         Width           =   3735
+      End
       Begin VB.TextBox TxtAutorizacion 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -216,18 +227,18 @@ Begin VB.Form fw_facturacion
          BackColor       =   &H00404040&
          FillColor       =   &H00FFFFFF&
          Height          =   900
-         Left            =   40
+         Left            =   0
          ScaleHeight     =   840
          ScaleWidth      =   11880
          TabIndex        =   59
-         Top             =   4680
+         Top             =   5040
          Width           =   11940
          Begin VB.CommandButton BtnImprimir3 
             BackColor       =   &H80000018&
             Caption         =   "Emitir.Factura"
             Height          =   635
             Left            =   4320
-            Picture         =   "fw_facturacion.frx":1B27
+            Picture         =   "fw_facturacion.frx":1B48
             Style           =   1  'Graphical
             TabIndex        =   74
             ToolTipText     =   "Emite e Imprime Factura"
@@ -239,7 +250,7 @@ Begin VB.Form fw_facturacion
             Height          =   635
             Left            =   6120
             MaskColor       =   &H00000000&
-            Picture         =   "fw_facturacion.frx":2529
+            Picture         =   "fw_facturacion.frx":254A
             Style           =   1  'Graphical
             TabIndex        =   61
             Top             =   120
@@ -249,7 +260,7 @@ Begin VB.Form fw_facturacion
             BackColor       =   &H00E0E0E0&
             Height          =   635
             Left            =   4320
-            Picture         =   "fw_facturacion.frx":2F03
+            Picture         =   "fw_facturacion.frx":2F24
             Style           =   1  'Graphical
             TabIndex        =   60
             Top             =   120
@@ -274,7 +285,7 @@ Begin VB.Form fw_facturacion
          BackColor       =   &H00E0E0E0&
          Height          =   555
          Left            =   10840
-         Picture         =   "fw_facturacion.frx":37C3
+         Picture         =   "fw_facturacion.frx":37E4
          Style           =   1  'Graphical
          TabIndex        =   22
          ToolTipText     =   "Buscar Beneficiario"
@@ -427,7 +438,7 @@ Begin VB.Form fw_facturacion
          Width           =   1455
       End
       Begin MSDataListLib.DataCombo dtc_codigo4A 
-         Bindings        =   "fw_facturacion.frx":3C05
+         Bindings        =   "fw_facturacion.frx":3C26
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -449,7 +460,7 @@ Begin VB.Form fw_facturacion
          Text            =   "12345678901234"
       End
       Begin MSDataListLib.DataCombo dtc_desc5xx 
-         Bindings        =   "fw_facturacion.frx":3C1E
+         Bindings        =   "fw_facturacion.frx":3C3F
          DataField       =   "beneficiario_codigo_fac"
          DataSource      =   "Ado_datos1"
          Height          =   315
@@ -469,7 +480,7 @@ Begin VB.Form fw_facturacion
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_aux5 
-         Bindings        =   "fw_facturacion.frx":3C37
+         Bindings        =   "fw_facturacion.frx":3C58
          DataField       =   "beneficiario_codigo_fac"
          DataSource      =   "Ado_datos1"
          Height          =   315
@@ -490,7 +501,7 @@ Begin VB.Form fw_facturacion
          Text            =   "00000000000004"
       End
       Begin MSDataListLib.DataCombo dtc_desc4A 
-         Bindings        =   "fw_facturacion.frx":3C50
+         Bindings        =   "fw_facturacion.frx":3C71
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -511,7 +522,7 @@ Begin VB.Form fw_facturacion
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo lbl_nit 
-         Bindings        =   "fw_facturacion.frx":3C69
+         Bindings        =   "fw_facturacion.frx":3C8A
          DataField       =   "beneficiario_codigo_fac"
          DataSource      =   "Ado_datos1"
          Height          =   315
@@ -554,8 +565,28 @@ Begin VB.Form fw_facturacion
          CalendarBackColor=   16777215
          CalendarForeColor=   0
          CheckBox        =   -1  'True
-         Format          =   119144449
+         Format          =   137756673
          CurrentDate     =   44699
+      End
+      Begin VB.Label Label5 
+         BackColor       =   &H80000010&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tipo de factura:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   240
+         Left            =   1080
+         TabIndex        =   82
+         Top             =   4560
+         Width           =   1560
       End
       Begin VB.Label dtc_desc5 
          Appearance      =   0  'Flat
@@ -629,7 +660,7 @@ Begin VB.Form fw_facturacion
          AutoSize        =   -1  'True
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
-         Caption         =   $"fw_facturacion.frx":3C82
+         Caption         =   $"fw_facturacion.frx":3CA3
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -923,7 +954,7 @@ Begin VB.Form fw_facturacion
          AutoSize        =   -1  'True
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
-         Caption         =   $"fw_facturacion.frx":3D23
+         Caption         =   $"fw_facturacion.frx":3D44
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -944,7 +975,7 @@ Begin VB.Form fw_facturacion
          AutoSize        =   -1  'True
          BackColor       =   &H80000010&
          BackStyle       =   0  'Transparent
-         Caption         =   $"fw_facturacion.frx":3DAC
+         Caption         =   $"fw_facturacion.frx":3DCD
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -1042,7 +1073,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Devolver."
             Height          =   720
             Left            =   2760
-            Picture         =   "fw_facturacion.frx":3E57
+            Picture         =   "fw_facturacion.frx":3E78
             Style           =   1  'Graphical
             TabIndex        =   80
             ToolTipText     =   "Devuelve a Cobradores (Solicitud de Facturación)"
@@ -1068,7 +1099,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Iniciar Facturación"
             Height          =   720
             Left            =   1440
-            Picture         =   "fw_facturacion.frx":4299
+            Picture         =   "fw_facturacion.frx":42BA
             Style           =   1  'Graphical
             TabIndex        =   78
             ToolTipText     =   "Emitir Factura con los Registros Elegidos..."
@@ -1080,7 +1111,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Buscar"
             Height          =   720
             Left            =   120
-            Picture         =   "fw_facturacion.frx":4823
+            Picture         =   "fw_facturacion.frx":4844
             Style           =   1  'Graphical
             TabIndex        =   77
             ToolTipText     =   "Busca Registro para Facturar"
@@ -1104,7 +1135,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Cerrar"
             Height          =   720
             Left            =   15000
-            Picture         =   "fw_facturacion.frx":4B2D
+            Picture         =   "fw_facturacion.frx":4B4E
             Style           =   1  'Graphical
             TabIndex        =   71
             ToolTipText     =   "Cerrar Ventana"
@@ -1117,7 +1148,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Anular"
             Height          =   720
             Left            =   7545
-            Picture         =   "fw_facturacion.frx":2E73F
+            Picture         =   "fw_facturacion.frx":2E760
             Style           =   1  'Graphical
             TabIndex        =   70
             ToolTipText     =   "Anula Factura Emitida"
@@ -1129,7 +1160,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Re-Imprimir"
             Height          =   720
             Left            =   4080
-            Picture         =   "fw_facturacion.frx":2F141
+            Picture         =   "fw_facturacion.frx":2F162
             Style           =   1  'Graphical
             TabIndex        =   69
             ToolTipText     =   "Re-Imprime Factura"
@@ -1150,7 +1181,7 @@ Begin VB.Form fw_facturacion
             EndProperty
             Height          =   720
             Left            =   5160
-            Picture         =   "fw_facturacion.frx":2F6CB
+            Picture         =   "fw_facturacion.frx":2F6EC
             Style           =   1  'Graphical
             TabIndex        =   68
             ToolTipText     =   "Re-Imprime Factura"
@@ -1162,7 +1193,7 @@ Begin VB.Form fw_facturacion
             Caption         =   "Facturas Emitidas"
             Height          =   720
             Left            =   6255
-            Picture         =   "fw_facturacion.frx":31193
+            Picture         =   "fw_facturacion.frx":311B4
             Style           =   1  'Graphical
             TabIndex        =   67
             ToolTipText     =   "Ver Detalle del Bien ..."
@@ -1193,7 +1224,7 @@ Begin VB.Form fw_facturacion
          End
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "fw_facturacion.frx":315D5
+         Bindings        =   "fw_facturacion.frx":315F6
          Height          =   1380
          Left            =   120
          TabIndex        =   65
@@ -1522,7 +1553,7 @@ Begin VB.Form fw_facturacion
          EndProperty
       End
       Begin MSDataGridLib.DataGrid dg_datos1 
-         Bindings        =   "fw_facturacion.frx":315ED
+         Bindings        =   "fw_facturacion.frx":3160E
          Height          =   2700
          Left            =   120
          TabIndex        =   58
@@ -1949,7 +1980,7 @@ Begin VB.Form fw_facturacion
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos2 
-         Bindings        =   "fw_facturacion.frx":31606
+         Bindings        =   "fw_facturacion.frx":31627
          Height          =   1380
          Left            =   1440
          TabIndex        =   64
@@ -2331,7 +2362,7 @@ Begin VB.Form fw_facturacion
          Caption         =   "Kardex.Dol."
          Height          =   750
          Left            =   480
-         Picture         =   "fw_facturacion.frx":3161F
+         Picture         =   "fw_facturacion.frx":31640
          Style           =   1  'Graphical
          TabIndex        =   12
          ToolTipText     =   "Imprime Nota de Venta"
@@ -2344,7 +2375,7 @@ Begin VB.Form fw_facturacion
          Caption         =   "Cronograma"
          Height          =   750
          Left            =   480
-         Picture         =   "fw_facturacion.frx":31BA9
+         Picture         =   "fw_facturacion.frx":31BCA
          Style           =   1  'Graphical
          TabIndex        =   0
          ToolTipText     =   "Imprime Cronograma de Cobranzas ..."
@@ -2357,7 +2388,7 @@ Begin VB.Form fw_facturacion
          Caption         =   "Kardex Bs."
          Height          =   750
          Left            =   480
-         Picture         =   "fw_facturacion.frx":32133
+         Picture         =   "fw_facturacion.frx":32154
          Style           =   1  'Graphical
          TabIndex        =   1
          ToolTipText     =   "Imprime Nota de Venta"
@@ -2388,15 +2419,15 @@ Begin VB.Form fw_facturacion
          Strikethrough   =   0   'False
       EndProperty
       TabCaption(0)   =   "FACTURACION CGI SOFIA"
-      TabPicture(0)   =   "fw_facturacion.frx":326BD
+      TabPicture(0)   =   "fw_facturacion.frx":326DE
       Tab(0).ControlEnabled=   -1  'True
       Tab(0).ControlCount=   0
       TabCaption(1)   =   "FACTURACION ON LINE CGE"
-      TabPicture(1)   =   "fw_facturacion.frx":326D9
+      TabPicture(1)   =   "fw_facturacion.frx":326FA
       Tab(1).ControlEnabled=   0   'False
       Tab(1).ControlCount=   0
       TabCaption(2)   =   "FACTURACION ONLINE CGI"
-      TabPicture(2)   =   "fw_facturacion.frx":326F5
+      TabPicture(2)   =   "fw_facturacion.frx":32716
       Tab(2).ControlEnabled=   0   'False
       Tab(2).ControlCount=   0
    End
@@ -2419,7 +2450,7 @@ Begin VB.Form fw_facturacion
       Top             =   6345
       Width           =   14535
       Begin MSDataGridLib.DataGrid dg_datos16 
-         Bindings        =   "fw_facturacion.frx":32711
+         Bindings        =   "fw_facturacion.frx":32732
          Height          =   930
          Left            =   120
          TabIndex        =   7
@@ -2784,7 +2815,7 @@ Begin VB.Form fw_facturacion
       Top             =   7725
       Width           =   14535
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "fw_facturacion.frx":3272B
+         Bindings        =   "fw_facturacion.frx":3274C
          Height          =   1380
          Left            =   120
          TabIndex        =   8
@@ -4261,9 +4292,9 @@ Private Sub Ado_datos1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos1.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos.Recordset!venta_codigo & " and correl_venta = " & Ado_datos.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
         Else
             deta2 = 0
@@ -4802,7 +4833,7 @@ Private Sub BtnGrabar_Click()
             VARFACIMPR = "S"
             VARFECHA = Format(DTPFechaCobro.Value, "dd/mm/yyyy")        '"08/04/2021"
     End Select
-    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & Txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
+    db.Execute "update ao_ventas_cobranza set beneficiario_codigo_resp='" & dtc_codigo4A.Text & "', beneficiario_codigo_fac='" & dtc_codigo5 & "', cobranza_tdc=" & txt_tdc.Text & ", cobranza_total_bs=" & TxtMonto.Text & ", cobranza_total_dol=" & TxtMontoDol.Text & ", cobranza_observaciones = '" & VAR_GLOSA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo2 = '" & TIPOPROC & "', trans_codigo = '" & TIPOTRAM & "', proceso_codigo='" & VARPROC & "', subproceso_codigo = '" & VARSUB & "', etapa_codigo = '" & VARETAPA & "', Literal = '" & var_literal & "', cobranza_nro_factura = '" & VARFactura & "', cobranza_fecha_fac = '" & VARFECHA & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
     db.Execute "update ao_ventas_cobranza set cta_codigo = 'NN', cobranza_deuda_bs = '0', cobranza_deuda_dol = '0', cobranza_descuento_bs = " & VAR_13 & ", cobranza_descuento_dol = " & VAR_87 & ", cmpbte_deposito = '0', factura_impresa = '" & VARFACIMPR & "', poa_codigo = '3.1.2', estado_codigo_fac = '" & VARESTADO & "', cobranza_fecha_fac2 ='', usr_codigo = '" & glusuario & "', Fecha_Registro = '" & Format(Date, "dd/mm/yyyy") & "' Where venta_codigo = " & nroventa & "  And cobranza_codigo = " & NRO_COBR & " "
 
@@ -5179,7 +5210,18 @@ If Ado_datos1.Recordset.RecordCount > 0 And (dtc_aux5.Text <> "") Then
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET dosifica_autorizacion = '" & VAR_COD2 & "', nro_factura = " & CDbl(VARFactura2) & ", fecha_fac = '" & VAR_FFAC & "', glosa_Descripcion =  '" & Left(VAR_GLOSA, 249) & "', codigo_control = '" & CodigoContro & "', literal = '" & var_literal & "' WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
                 'TIPOTRANS
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET trans_codigo = " & TIPOTRANS & " WHERE IdFactura = " & Ado_datos1.Recordset!IdFactura & " "
-
+                'COMBOBOX TEMPORAL
+                'Tipo de factura: Servicios - Bienes
+                Dim tipo_bien_servicio As Integer
+                Select Case CboTipoFactura.ListIndex
+                    Case 0 'Servicios
+                        tipo_bien_servicio = 2
+                    Case 1 'Bienes
+                        tipo_bien_servicio = 1
+                    Case Else 'No determinado
+                        tipo_bien_servicio = 0
+                End Select
+                db.Execute ("UPDATE [dbo].[ao_ventas_cobranza_fac] SET [tipo_bien_servicio] = " & tipo_bien_servicio & " WHERE [IdFactura] = " & Ado_datos1.Recordset!IdFactura)
 '                db.Execute "INSERT INTO ao_ventas_cobranza_fac (ges_gestion, dosifica_autorizacion, nro_factura, doc_codigo_fac, fecha_fac, venta_codigo, beneficiario_codigo_fac, beneficiario_nit, glosa_Descripcion, beneficiario_RazonSocial, nro_dui, total_bs, total_dol, cambio_oficial, " & _
 '                        " Importe_ICE, Exportaciones_Exentas, Ventas_tasa_0, Subtotal_ICE, Descuentos_Bonos, Importe_Base_Debito_Fiscal, factura_87_bs, factura_87_dol, debito_fiscal_13_bs, debito_fiscal_13_dol, codigo_control, literal, " & _
 '                        " clasif_codigo, doc_codigo, doc_numero, factura_impresa, tipo_moneda, cta_codigo, cta_codigo2, archivo_foto, archivo_foto_cargado, correl_contab, estado_fac, estado_codigo_fac, estado_codigo, depto_codigo, Gestion, " & _
@@ -6126,7 +6168,7 @@ Private Sub BtnModificar_Click()
 '            TxtObs.Text = Ado_datos2.Recordset!cobranza_observaciones
 '        End If
         TxtObs.Text = Ado_datos1.Recordset!glosa_Descripcion
-        Txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
+        txt_tdc.Text = GlTipoCambioMercado    'GlTipoCambioOficial
 '      SSTab1.Tab = 0
 '      SSTab1.TabEnabled(0) = False
 '      SSTab1.TabEnabled(1) = True
@@ -8358,7 +8400,8 @@ Private Sub Form_Load()
     'db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.edif_codigo_corto  = ao_ventas_cabecera.edif_codigo_corto FROM ao_ventas_cobranza_fac INNER JOIN ao_ventas_cabecera ON ao_ventas_cobranza_fac.venta_codigo = ao_ventas_cabecera.venta_codigo WHERE ao_ventas_cobranza_fac.edif_codigo_corto IS NULL "
     
     'db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
-    
+    'COMBOBOX TEMPORAL
+    CboTipoFactura.ListIndex = 0
 'QError2:
 '    ' Manejo de errores
 '    MsgBox Err.Number & " : " & Err.Description, vbExclamation + vbOKOnly, "Atención"
@@ -9036,7 +9079,7 @@ Private Sub TxtMonto_LostFocus()
         TxtMontoDol = "0"
     Else
         'TxtMontoDol = Round(CDbl(TxtMonto.Text) / GlTipoCambioMercado, 2)
-        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(Txt_tdc), 2)
+        TxtMontoDol = Round(CDbl(TxtMonto.Text) / CDbl(txt_tdc), 2)
     End If
 End Sub
 
@@ -9203,7 +9246,7 @@ Private Sub TxtMontoDol_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtMontoDol_LostFocus()
-    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(Txt_tdc.Text)
+    TxtMonto.Text = CDbl(TxtMontoDol.Text) * CDbl(txt_tdc.Text)
 End Sub
 
 

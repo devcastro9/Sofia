@@ -17,7 +17,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleWidth      =   13950
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmDetalle 
       BackColor       =   &H00E0E0E0&
@@ -826,7 +826,7 @@ Begin VB.Form mw_solicitud_calculo_trafico_mod
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   117178371
+         Format          =   118423555
          CurrentDate     =   44914
          MaxDate         =   55153
          MinDate         =   32874
@@ -6465,8 +6465,8 @@ On Error GoTo UpdateErr
                 Case Else
                     VAR_CONTI = "AMERICA"
              End Select
-             db.Execute "DELETE ao_solicitud_cotiza_modelo where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_campo1) & "   "
-             db.Execute "DELETE ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_campo1) & "   "
+             db.Execute "DELETE ao_solicitud_cotiza_modelo where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(txt_campo1) & "   "
+             db.Execute "DELETE ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(txt_campo1) & "   "
               'corrprog = 0
              'Call GRABA_ARREGLO1
              Call GRABA_ARREGLO_1
@@ -8209,7 +8209,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!etapa_codigo = "TEC-05-03"
         rs_datos!clasif_codigo = "TEC"
         rs_datos!doc_codigo = "R-313"
-        rs_datos!doc_numero = Txt_campo1.Text
+        rs_datos!doc_numero = txt_campo1.Text
         rs_datos!poa_codigo = "3.2.7"
         'REVISAR !!! JQA 2014_07_08
         rs_datos!archivo_respaldo = "TEC_R313-" + Trim(Ado_datos.Recordset!trafico_codigo) + ".PDF"
@@ -8219,7 +8219,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!etapa_codigo = "COM-01-03"
         rs_datos!clasif_codigo = "COM"
         rs_datos!doc_codigo = "R-221"
-        rs_datos!doc_numero = Txt_campo1.Text
+        rs_datos!doc_numero = txt_campo1.Text
         rs_datos!poa_codigo = "3.1.1"
         'REVISAR !!! JQA 2014_07_08
         rs_datos!archivo_respaldo = "COM_R221-" + Trim(Ado_datos.Recordset!trafico_codigo) + ".PDF"
@@ -8842,7 +8842,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos23 = New ADODB.Recordset
     If rs_datos23.State = 1 Then rs_datos23.Close
     rs_datos23.Open "Select * from ac_bienes_equipo_recorrido ", db, adOpenStatic
-    Set ado_datos23.Recordset = rs_datos23
+    Set Ado_datos23.Recordset = rs_datos23
     'dtc_desc23.BoundText = dtc_codigo23.BoundText
     
     Set rs_datos24 = New ADODB.Recordset
@@ -9075,7 +9075,7 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "Select * from ac_bienes_equipo_ctrl_maquina ", db, adOpenStatic
     'rs_datos8.Open "gp_listar_apr_gc_documentos_clasificacion", db, adOpenStatic
-    Set Ado_datos12.Recordset = rs_datos12
+    Set Ado_Datos12.Recordset = rs_datos12
     dtc_desc12.BoundText = dtc_codigo12.BoundText
     
     Set rs_datos13 = New ADODB.Recordset

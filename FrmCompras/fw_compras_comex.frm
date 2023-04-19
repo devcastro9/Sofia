@@ -16,17 +16,134 @@ Begin VB.Form fw_compras_comex
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
+   Begin VB.PictureBox Picture1 
+      BackColor       =   &H00808080&
+      FillColor       =   &H00FFFFFF&
+      Height          =   1300
+      Left            =   11640
+      ScaleHeight     =   1245
+      ScaleWidth      =   6195
+      TabIndex        =   105
+      Top             =   6120
+      Visible         =   0   'False
+      Width           =   6255
+      Begin VB.PictureBox BtnCancelar1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   4800
+         Picture         =   "fw_compras_comex.frx":0A02
+         ScaleHeight     =   615
+         ScaleWidth      =   1395
+         TabIndex        =   107
+         Top             =   600
+         Width           =   1400
+      End
+      Begin VB.PictureBox BtnGrabar1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   4800
+         Picture         =   "fw_compras_comex.frx":12EE
+         ScaleHeight     =   615
+         ScaleWidth      =   1395
+         TabIndex        =   106
+         Top             =   0
+         Width           =   1395
+      End
+      Begin MSComCtl2.DTPicker DTPicker1 
+         DataField       =   "compra_fecha"
+         Height          =   300
+         Left            =   3000
+         TabIndex        =   110
+         Top             =   360
+         Width           =   1455
+         _ExtentX        =   2566
+         _ExtentY        =   529
+         _Version        =   393216
+         Format          =   111411201
+         CurrentDate     =   41678
+      End
+      Begin VB.Label Label4 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   240
+         Left            =   1800
+         TabIndex        =   109
+         Top             =   120
+         Width           =   45
+      End
+      Begin VB.Label Label3 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha de Ingreso a Almacen"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   108
+         Top             =   360
+         Width           =   2580
+      End
+   End
+   Begin VB.CommandButton BtnAprobar3 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000018&
+      Caption         =   "Envia a Almacen"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   920
+      Left            =   9360
+      MaskColor       =   &H80000014&
+      Picture         =   "fw_compras_comex.frx":1ADC
+      Style           =   1  'Graphical
+      TabIndex        =   104
+      ToolTipText     =   "Envia Bien a Almacen"
+      Top             =   6000
+      Width           =   1125
+   End
    Begin VB.PictureBox Fra_aux1 
       BackColor       =   &H00808080&
       FillColor       =   &H00FFFFFF&
       Height          =   1300
-      Left            =   10440
+      Left            =   10320
       ScaleHeight     =   1245
       ScaleWidth      =   8355
-      TabIndex        =   95
-      Top             =   1920
+      TabIndex        =   94
+      Top             =   2040
       Visible         =   0   'False
       Width           =   8410
       Begin VB.PictureBox CmdGrabaDet 
@@ -36,10 +153,10 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6960
-         Picture         =   "fw_compras_comex.frx":0A02
+         Picture         =   "fw_compras_comex.frx":1F1E
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   97
+         TabIndex        =   96
          Top             =   0
          Width           =   1395
       End
@@ -50,20 +167,20 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6960
-         Picture         =   "fw_compras_comex.frx":11F0
+         Picture         =   "fw_compras_comex.frx":270C
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   96
+         TabIndex        =   95
          Top             =   600
          Width           =   1400
       End
       Begin MSDataListLib.DataCombo dtc_desc4A 
-         Bindings        =   "fw_compras_comex.frx":1ADC
+         Bindings        =   "fw_compras_comex.frx":2FF8
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   1560
-         TabIndex        =   98
+         TabIndex        =   97
          Top             =   480
          Width           =   5280
          _ExtentX        =   9313
@@ -78,12 +195,12 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo4A 
-         Bindings        =   "fw_compras_comex.frx":1AF6
+         Bindings        =   "fw_compras_comex.frx":3012
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_detalle2"
          Height          =   315
          Left            =   120
-         TabIndex        =   99
+         TabIndex        =   98
          Top             =   480
          Width           =   1710
          _ExtentX        =   3016
@@ -115,7 +232,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00FFFFFF&
          Height          =   240
          Left            =   120
-         TabIndex        =   101
+         TabIndex        =   100
          Top             =   120
          Width           =   1260
       End
@@ -135,8 +252,8 @@ Begin VB.Form fw_compras_comex
          EndProperty
          ForeColor       =   &H00FFFFFF&
          Height          =   240
-         Left            =   1680
-         TabIndex        =   100
+         Left            =   1800
+         TabIndex        =   99
          Top             =   120
          Width           =   2370
       End
@@ -148,10 +265,10 @@ Begin VB.Form fw_compras_comex
       ForeColor       =   &H80000008&
       Height          =   615
       Left            =   18360
-      Picture         =   "fw_compras_comex.frx":1B10
+      Picture         =   "fw_compras_comex.frx":302C
       ScaleHeight     =   615
       ScaleWidth      =   1245
-      TabIndex        =   87
+      TabIndex        =   86
       ToolTipText     =   "Cierra la Ventana Activa"
       Top             =   360
       Width           =   1245
@@ -163,9 +280,9 @@ Begin VB.Form fw_compras_comex
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       Height          =   5280
-      Left            =   4560
+      Left            =   4320
       TabIndex        =   13
-      Top             =   2880
+      Top             =   2760
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -179,7 +296,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   435
          ScaleWidth      =   10080
-         TabIndex        =   88
+         TabIndex        =   87
          Top             =   160
          Visible         =   0   'False
          Width           =   10080
@@ -200,7 +317,7 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   2760
-            TabIndex        =   89
+            TabIndex        =   88
             Top             =   100
             Width           =   4575
          End
@@ -216,7 +333,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   675
          ScaleWidth      =   10080
-         TabIndex        =   63
+         TabIndex        =   62
          Top             =   4440
          Visible         =   0   'False
          Width           =   10080
@@ -227,10 +344,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3600
-            Picture         =   "fw_compras_comex.frx":24CF
+            Picture         =   "fw_compras_comex.frx":39EB
             ScaleHeight     =   615
             ScaleWidth      =   1335
-            TabIndex        =   65
+            TabIndex        =   64
             Top             =   0
             Width           =   1335
          End
@@ -241,10 +358,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5235
-            Picture         =   "fw_compras_comex.frx":2CA5
+            Picture         =   "fw_compras_comex.frx":41C1
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   64
+            TabIndex        =   63
             Top             =   0
             Width           =   1455
          End
@@ -255,7 +372,7 @@ Begin VB.Form fw_compras_comex
          Enabled         =   0   'False
          Height          =   285
          Left            =   9810
-         TabIndex        =   56
+         TabIndex        =   55
          Top             =   1650
          Visible         =   0   'False
          Width           =   270
@@ -317,7 +434,7 @@ Begin VB.Form fw_compras_comex
          Width           =   270
       End
       Begin MSDataListLib.DataCombo dtc_codigo11 
-         Bindings        =   "fw_compras_comex.frx":3591
+         Bindings        =   "fw_compras_comex.frx":4AAD
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -335,7 +452,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux1 
-         Bindings        =   "fw_compras_comex.frx":35AB
+         Bindings        =   "fw_compras_comex.frx":4AC7
          DataField       =   "unidad_codigo_adm"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -353,7 +470,7 @@ Begin VB.Form fw_compras_comex
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo2 
-         Bindings        =   "fw_compras_comex.frx":35C4
+         Bindings        =   "fw_compras_comex.frx":4AE0
          DataField       =   "venta_tipo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -379,11 +496,11 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   119275521
+         Format          =   111411201
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
-         Bindings        =   "fw_compras_comex.frx":35DD
+         Bindings        =   "fw_compras_comex.frx":4AF9
          DataField       =   "poa_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -404,7 +521,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc4 
-         Bindings        =   "fw_compras_comex.frx":35F7
+         Bindings        =   "fw_compras_comex.frx":4B13
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -422,7 +539,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo4 
-         Bindings        =   "fw_compras_comex.frx":3610
+         Bindings        =   "fw_compras_comex.frx":4B2C
          DataField       =   "beneficiario_codigo_alm"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -441,7 +558,7 @@ Begin VB.Form fw_compras_comex
          Object.DataMember      =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo3 
-         Bindings        =   "fw_compras_comex.frx":3629
+         Bindings        =   "fw_compras_comex.frx":4B45
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -459,7 +576,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc3 
-         Bindings        =   "fw_compras_comex.frx":3642
+         Bindings        =   "fw_compras_comex.frx":4B5E
          DataField       =   "edif_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -478,7 +595,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc_ben 
-         Bindings        =   "fw_compras_comex.frx":365B
+         Bindings        =   "fw_compras_comex.frx":4B77
          DataField       =   "beneficiario_codigo_alm"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -498,7 +615,7 @@ Begin VB.Form fw_compras_comex
          Object.DataMember      =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "fw_compras_comex.frx":3674
+         Bindings        =   "fw_compras_comex.frx":4B90
          DataField       =   "unidad_codigo_adm"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -516,7 +633,7 @@ Begin VB.Form fw_compras_comex
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc2 
-         Bindings        =   "fw_compras_comex.frx":368D
+         Bindings        =   "fw_compras_comex.frx":4BA9
          DataField       =   "venta_tipo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -544,7 +661,7 @@ Begin VB.Form fw_compras_comex
          EndProperty
       End
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "fw_compras_comex.frx":36A6
+         Bindings        =   "fw_compras_comex.frx":4BC2
          DataField       =   "unidad_codigo_adm"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -565,7 +682,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_codigo10 
-         Bindings        =   "fw_compras_comex.frx":36BF
+         Bindings        =   "fw_compras_comex.frx":4BDB
          DataField       =   "poa_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -587,7 +704,7 @@ Begin VB.Form fw_compras_comex
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_desc11 
-         Bindings        =   "fw_compras_comex.frx":36D9
+         Bindings        =   "fw_compras_comex.frx":4BF5
          DataField       =   "beneficiario_codigo_resp"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -625,7 +742,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   180
-         TabIndex        =   94
+         TabIndex        =   93
          Top             =   960
          Width           =   1095
       End
@@ -636,7 +753,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00000000&
          Height          =   195
          Left            =   240
-         TabIndex        =   93
+         TabIndex        =   92
          Top             =   720
          Width           =   645
       End
@@ -667,7 +784,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   7560
-         TabIndex        =   59
+         TabIndex        =   58
          Top             =   3990
          Width           =   1365
       End
@@ -698,7 +815,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   5235
-         TabIndex        =   58
+         TabIndex        =   57
          Top             =   3990
          Width           =   1365
       End
@@ -710,7 +827,7 @@ Begin VB.Form fw_compras_comex
          Height          =   195
          Index           =   5
          Left            =   7695
-         TabIndex        =   57
+         TabIndex        =   56
          Top             =   3675
          Width           =   645
       End
@@ -1040,10 +1157,10 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   9360
-         Picture         =   "fw_compras_comex.frx":36F3
+         Picture         =   "fw_compras_comex.frx":4C0F
          ScaleHeight     =   735
          ScaleWidth      =   1080
-         TabIndex        =   86
+         TabIndex        =   85
          Top             =   240
          Visible         =   0   'False
          Width           =   1080
@@ -1055,7 +1172,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   9120
-         TabIndex        =   76
+         TabIndex        =   75
          Top             =   240
          Width           =   9120
          Begin VB.PictureBox BtnImprimir2 
@@ -1065,10 +1182,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3960
-            Picture         =   "fw_compras_comex.frx":42B2
+            Picture         =   "fw_compras_comex.frx":57CE
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   80
+            TabIndex        =   79
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -1080,10 +1197,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2760
-            Picture         =   "fw_compras_comex.frx":4B7F
+            Picture         =   "fw_compras_comex.frx":609B
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   79
+            TabIndex        =   78
             Top             =   0
             Width           =   1215
          End
@@ -1094,10 +1211,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1305
-            Picture         =   "fw_compras_comex.frx":52CB
+            Picture         =   "fw_compras_comex.frx":67E7
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   78
+            TabIndex        =   77
             Top             =   0
             Width           =   1430
          End
@@ -1108,10 +1225,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "fw_compras_comex.frx":5BE0
+            Picture         =   "fw_compras_comex.frx":70FC
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   77
+            TabIndex        =   76
             Top             =   0
             Width           =   1200
          End
@@ -1131,10 +1248,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   7080
-            Picture         =   "fw_compras_comex.frx":639F
+            Picture         =   "fw_compras_comex.frx":78BB
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   102
+            TabIndex        =   101
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
@@ -1145,17 +1262,17 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3720
-            Picture         =   "fw_compras_comex.frx":6CCD
+            Picture         =   "fw_compras_comex.frx":81E9
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   91
+            TabIndex        =   90
             Top             =   0
             Visible         =   0   'False
             Width           =   1400
          End
       End
       Begin MSDataGridLib.DataGrid dg_det1 
-         Bindings        =   "fw_compras_comex.frx":75FB
+         Bindings        =   "fw_compras_comex.frx":8B17
          Height          =   2220
          Left            =   120
          TabIndex        =   50
@@ -1414,7 +1531,7 @@ Begin VB.Form fw_compras_comex
          EndProperty
       End
       Begin MSDataGridLib.DataGrid dg_det1A 
-         Bindings        =   "fw_compras_comex.frx":7616
+         Bindings        =   "fw_compras_comex.frx":8B32
          Height          =   2580
          Left            =   10560
          TabIndex        =   53
@@ -1656,30 +1773,6 @@ Begin VB.Form fw_compras_comex
             EndProperty
          EndProperty
       End
-      Begin VB.CommandButton BtnAprobar3 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000018&
-         Caption         =   "Envia a Almacen"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   920
-         Left            =   9360
-         MaskColor       =   &H80000014&
-         Picture         =   "fw_compras_comex.frx":7632
-         Style           =   1  'Graphical
-         TabIndex        =   54
-         ToolTipText     =   "Envia Bien a Almacen"
-         Top             =   1080
-         Visible         =   0   'False
-         Width           =   1125
-      End
       Begin VB.CommandButton BtnDesAprobar3 
          BackColor       =   &H80000018&
          Caption         =   "Retorna Item"
@@ -1694,11 +1787,11 @@ Begin VB.Form fw_compras_comex
          EndProperty
          Height          =   885
          Left            =   9360
-         Picture         =   "fw_compras_comex.frx":7A74
+         Picture         =   "fw_compras_comex.frx":8B4E
          Style           =   1  'Graphical
-         TabIndex        =   55
+         TabIndex        =   54
          ToolTipText     =   "Quitar de Proveedor"
-         Top             =   2040
+         Top             =   2520
          Visible         =   0   'False
          Width           =   1125
       End
@@ -1773,7 +1866,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   9960
-         TabIndex        =   81
+         TabIndex        =   80
          Top             =   240
          Width           =   9960
          Begin VB.PictureBox BtnAprobar4 
@@ -1782,10 +1875,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4080
-            Picture         =   "fw_compras_comex.frx":7EB6
+            Picture         =   "fw_compras_comex.frx":8F90
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   92
+            TabIndex        =   91
             Top             =   0
             Width           =   1320
          End
@@ -1793,9 +1886,9 @@ Begin VB.Form fw_compras_comex
             BackColor       =   &H00FFFFFF&
             Height          =   615
             Left            =   6720
-            Picture         =   "fw_compras_comex.frx":87A7
+            Picture         =   "fw_compras_comex.frx":9881
             Style           =   1  'Graphical
-            TabIndex        =   90
+            TabIndex        =   89
             ToolTipText     =   "Imprime Planilla de Costos"
             Top             =   0
             Width           =   1365
@@ -1806,10 +1899,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5400
-            Picture         =   "fw_compras_comex.frx":90D5
+            Picture         =   "fw_compras_comex.frx":A1AF
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   85
+            TabIndex        =   84
             ToolTipText     =   "Contabiliza COMEX"
             Top             =   0
             Visible         =   0   'False
@@ -1821,10 +1914,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2760
-            Picture         =   "fw_compras_comex.frx":99EC
+            Picture         =   "fw_compras_comex.frx":AAC6
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   84
+            TabIndex        =   83
             Top             =   0
             Width           =   1215
          End
@@ -1834,10 +1927,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1305
-            Picture         =   "fw_compras_comex.frx":A1E4
+            Picture         =   "fw_compras_comex.frx":B2BE
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   83
+            TabIndex        =   82
             Top             =   0
             Width           =   1430
          End
@@ -1847,16 +1940,16 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "fw_compras_comex.frx":ABF9
+            Picture         =   "fw_compras_comex.frx":BCD3
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   82
+            TabIndex        =   81
             Top             =   0
             Width           =   1200
          End
       End
       Begin MSDataGridLib.DataGrid dg_det2 
-         Bindings        =   "fw_compras_comex.frx":B4A9
+         Bindings        =   "fw_compras_comex.frx":C583
          Height          =   2760
          Left            =   120
          TabIndex        =   8
@@ -2200,7 +2293,7 @@ Begin VB.Form fw_compras_comex
          Left            =   120
          ScaleHeight     =   660
          ScaleWidth      =   9240
-         TabIndex        =   66
+         TabIndex        =   65
          Top             =   240
          Width           =   9240
          Begin VB.CommandButton BtnVer 
@@ -2208,9 +2301,9 @@ Begin VB.Form fw_compras_comex
             Caption         =   "Digitaliza"
             Height          =   600
             Left            =   10800
-            Picture         =   "fw_compras_comex.frx":B4C4
+            Picture         =   "fw_compras_comex.frx":C59E
             Style           =   1  'Graphical
-            TabIndex        =   74
+            TabIndex        =   73
             ToolTipText     =   "Guarda en Archivo Digital"
             Top             =   0
             Visible         =   0   'False
@@ -2220,9 +2313,9 @@ Begin VB.Form fw_compras_comex
             BackColor       =   &H00808080&
             Height          =   600
             Left            =   11760
-            Picture         =   "fw_compras_comex.frx":B906
+            Picture         =   "fw_compras_comex.frx":C9E0
             Style           =   1  'Graphical
-            TabIndex        =   73
+            TabIndex        =   72
             Top             =   0
             Visible         =   0   'False
             Width           =   1125
@@ -2234,10 +2327,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "fw_compras_comex.frx":BB10
+            Picture         =   "fw_compras_comex.frx":CBEA
             ScaleHeight     =   615
             ScaleWidth      =   1200
-            TabIndex        =   72
+            TabIndex        =   71
             Top             =   0
             Width           =   1200
          End
@@ -2248,10 +2341,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1305
-            Picture         =   "fw_compras_comex.frx":C2CF
+            Picture         =   "fw_compras_comex.frx":D3A9
             ScaleHeight     =   615
             ScaleWidth      =   1425
-            TabIndex        =   71
+            TabIndex        =   70
             Top             =   0
             Width           =   1430
          End
@@ -2262,10 +2355,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   2760
-            Picture         =   "fw_compras_comex.frx":CBE4
+            Picture         =   "fw_compras_comex.frx":DCBE
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   70
+            TabIndex        =   69
             Top             =   0
             Width           =   1215
          End
@@ -2276,10 +2369,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   7320
-            Picture         =   "fw_compras_comex.frx":D330
+            Picture         =   "fw_compras_comex.frx":E40A
             ScaleHeight     =   615
             ScaleWidth      =   1320
-            TabIndex        =   69
+            TabIndex        =   68
             Top             =   480
             Visible         =   0   'False
             Width           =   1320
@@ -2291,10 +2384,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4080
-            Picture         =   "fw_compras_comex.frx":DB63
+            Picture         =   "fw_compras_comex.frx":EC3D
             ScaleHeight     =   615
             ScaleWidth      =   1215
-            TabIndex        =   68
+            TabIndex        =   67
             Top             =   0
             Width           =   1215
          End
@@ -2305,10 +2398,10 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5400
-            Picture         =   "fw_compras_comex.frx":E318
+            Picture         =   "fw_compras_comex.frx":F3F2
             ScaleHeight     =   615
             ScaleWidth      =   1395
-            TabIndex        =   67
+            TabIndex        =   66
             ToolTipText     =   "Seguimiento de Compras (COMEX)"
             Top             =   0
             Width           =   1400
@@ -2331,7 +2424,7 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H00C0FFFF&
             Height          =   195
             Left            =   7200
-            TabIndex        =   104
+            TabIndex        =   103
             Top             =   360
             Width           =   1935
          End
@@ -2353,7 +2446,7 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H00C0FFFF&
             Height          =   360
             Left            =   7830
-            TabIndex        =   103
+            TabIndex        =   102
             Top             =   0
             Width           =   555
          End
@@ -2374,7 +2467,7 @@ Begin VB.Form fw_compras_comex
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   12855
-            TabIndex        =   75
+            TabIndex        =   74
             Top             =   195
             Width           =   1815
          End
@@ -2394,7 +2487,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   2160
-         TabIndex        =   62
+         TabIndex        =   61
          Top             =   3960
          Visible         =   0   'False
          Width           =   675
@@ -2414,7 +2507,7 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00C00000&
          Height          =   210
          Left            =   6960
-         TabIndex        =   61
+         TabIndex        =   60
          Top             =   3840
          Width           =   1635
       End
@@ -2433,13 +2526,13 @@ Begin VB.Form fw_compras_comex
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   2640
-         TabIndex        =   60
+         TabIndex        =   59
          Top             =   3840
          Width           =   1635
       End
       Begin MSDataGridLib.DataGrid dg_datos 
          Height          =   2760
-         Left            =   105
+         Left            =   120
          TabIndex        =   9
          Top             =   960
          Width           =   9240
@@ -2804,10 +2897,10 @@ Begin VB.Form fw_compras_comex
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20160
+      ScaleWidth      =   20250
       TabIndex        =   0
       Top             =   10935
-      Width           =   20160
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -3893,21 +3986,20 @@ End Function
 
 Private Sub BIENES()
     VAR_COMPRA = Ado_datos.Recordset!compra_codigo
-    db.Execute "UPDATE ao_compra_adjudica SET importe_almacen_bs = importe_planilla_bs WHERE importe_almacen_bs IS NULL AND compra_codigo = " & VAR_COMPRA & " "
-    Set rs_datos9 = New Recordset
-    If rs_datos9.State = 1 Then rs_datos9.Close
-    rs_datos9.Open "Select sum(importe_almacen_bs) as total_almacen_bs, max(tipo_cambio) as tipo_cambio2 from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic
-    If rs_datos9.RecordCount > 0 Then
-        VARTOTBS = rs_datos9!total_almacen_bs
-        VARTOTDOL = Round(rs_datos9!total_almacen_bs / rs_datos9!tipo_cambio2, 2)
-    End If
+'    db.Execute "UPDATE ao_compra_adjudica SET importe_almacen_bs = importe_planilla_bs WHERE importe_almacen_bs IS NULL AND compra_codigo = " & VAR_COMPRA & " "
+'    Set rs_datos9 = New Recordset
+'    If rs_datos9.State = 1 Then rs_datos9.Close
+'    rs_datos9.Open "Select sum(importe_almacen_bs) as total_almacen_bs, max(tipo_cambio) as tipo_cambio2 from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic
+'    If rs_datos9.RecordCount > 0 Then
+'        VARTOTBS = rs_datos9!total_almacen_bs
+'        VARTOTDOL = Round(rs_datos9!total_almacen_bs / rs_datos9!tipo_cambio2, 2)
+'    End If
     DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
     'CodBien = Ado_detalle1.Recordset!bien_codigo
-    
     Set rs_det1 = New ADODB.Recordset
     If rs_det1.State = 1 Then rs_det1.Close
     'rs_det1.Open "select * from av_compra_detalle_tipo where compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & CodBien & "' ", db, adOpenKeyset, adLockOptimistic, adCmdText
-    rs_det1.Open "select * from av_compra_detalle_tipo where compra_codigo = " & VAR_COMPRA & " AND par_codigo = '39810' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    rs_det1.Open "select * from av_compra_detalle_tipo where compra_codigo = " & VAR_COMPRA & " AND par_codigo = '39810' AND estado_codigo = 'REG' ", db, adOpenKeyset, adLockOptimistic, adCmdText
     If rs_det1.RecordCount > 0 Then
         VAR_CANT2 = rs_det1.RecordCount
         rs_det1.MoveFirst
@@ -3915,8 +4007,7 @@ Private Sub BIENES()
             CodBien = rs_det1!bien_codigo
             VARBS = Round(VARTOTBS / VAR_CANT2, 2)
             VARDOL = Round(VARTOTDOL / VAR_CANT2, 2)
-            ' Eige almacen
-            
+            ' Elige almacen
 '            If Glaux <> "ADUAN" Then
 '                VARTOTBS = Ado_detalle2.Recordset!adjudica_monto_bs
 '                VARTOTDOL = Ado_detalle2.Recordset!adjudica_monto_dol
@@ -3949,7 +4040,7 @@ Private Sub BIENES()
             Set rs_compra_det = New Recordset
             If rs_compra_det.State = 1 Then rs_compra_det.Close
             'rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & VAR_COMPRA & " AND adjudica_codigo = " & DETALLE2 & " AND bien_codigo = '" & rs_det1!bien_codigo & "'", db, adOpenKeyset, adLockOptimistic
-            rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & rs_det1!bien_codigo & "' ", db, adOpenKeyset, adLockOptimistic
+            rs_compra_det.Open "Select * from ao_compra_adjudica_bienes WHERE compra_codigo = " & VAR_COMPRA & " AND bien_codigo = '" & CodBien & "' ", db, adOpenKeyset, adLockOptimistic
             If rs_compra_det.RecordCount = 0 Then
                 '" & Ado_detalle2.Recordset!tipo_moneda & "
                 db.Execute "INSERT INTO ao_compra_adjudica_bienes (ges_gestion, compra_codigo, adjudica_codigo, bien_codigo, compra_codigo_det,                   grupo_codigo,                   subgrupo_codigo,                    par_codigo,               adjudica_cantidad,              bien_cantidad_adjudica,         bien_precio_adjudica_bs,                bien_total_adjudica_bs, tipo_moneda,                    unimed_codigo,                                                      unimed_codigo_empaque,                                          bien_cantidad_por_empaque, " & _
@@ -3988,7 +4079,10 @@ Private Sub BIENES()
 '        rs_det2.MoveLast
 '     End If
 '
-      End If
+    Else
+        MsgBox "No existen Repuestos Importados para procesar... Revise y vuelva a intentar ...", vbExclamation, "SOFIA"
+        Exit Sub
+    End If
 End Sub
 
 Private Sub Ado_detalle1_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
@@ -4018,7 +4112,7 @@ End Sub
 Private Sub Ado_detalle1A_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     If Ado_detalle1A.Recordset.RecordCount > 0 Then
         If Ado_detalle1A.Recordset!estado_codigo = "REG" Then
-            BtnDesAprobar3.Visible = True
+            'BtnDesAprobar3.Visible = True
         Else
             BtnDesAprobar3.Visible = False
         End If
@@ -4036,7 +4130,7 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         Else
             BtnAprobar1.Visible = False
         End If
-        If (glusuario = "CARIZACA" Or glusuario = "LVASQUEZ" Or glusuario = "ADMIN") And (Ado_detalle2.Recordset!estado_codigo_tes = "APR") Then
+        If (glusuario = "CARIZACA" Or glusuario = "LVASQUEZ" Or glusuario = "ADMIN") Then 'And (Ado_detalle2.Recordset!estado_codigo_tes = "APR") Then
             BtnAprobar3.Visible = True
         Else
             BtnAprobar3.Visible = False
@@ -4176,7 +4270,7 @@ On Error GoTo UpdateErr
             'Ado_detalle1.Recordset.AddNew
             GlCotiza = 2
             fw_solicitud_bienes_comex.txt_codigo.Caption = Me.txt_codigo.Caption
-            fw_solicitud_bienes_comex.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            fw_solicitud_bienes_comex.txt_campo1.Caption = Me.dtc_codigo1.Text
             fw_solicitud_bienes_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_solicitud_bienes_comex.lbl_edif.Caption = Label1.Caption
             fw_solicitud_bienes_comex.lbl_det.Caption = Glaux
@@ -4322,7 +4416,7 @@ On Error GoTo UpdateErr
 '        rs_aux4.Open "select max(adjudica_codigo) as correla from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_comex.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA           ' Me.Ado_datos.Recordset!compra_codigo
 '        If rs_aux4!correla > 0 Then
@@ -4802,7 +4896,7 @@ Private Sub BtnAprobar1_Click()
         Set rs_datos4A = New ADODB.Recordset
         If rs_datos4A.State = 1 Then rs_datos4A.Close
         rs_datos4A.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
-        Set ado_datos4A.Recordset = rs_datos4A
+        Set Ado_datos4A.Recordset = rs_datos4A
         dtc_desc4A.BoundText = dtc_codigo4A.BoundText
         Fra_aux1.Visible = True
         'Contabilizacion
@@ -4943,96 +5037,29 @@ End Sub
 
 Private Sub BtnAprobar3_Click()
 On Error GoTo AddErr
+    If glusuario = "LVASQUEZ" Or glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Then
+    Else
+        MsgBox "El Usuario No tiene Acceso, consulte son el Administrador del Sistema ...", vbExclamation, "SOFIA"
+        Exit Sub
+    End If
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_detalle2.Recordset.RecordCount = 0 Then
         MsgBox "No se puede ENVIAR, debe registrar al menos una Factura del Proveedor ...", vbExclamation, "SOFIA"
         Exit Sub
     End If
-    If Ado_detalle1A.Recordset.RecordCount > 0 Then
+   If Ado_detalle1A.Recordset.RecordCount > 0 Then
         If Ado_detalle1.Recordset!compra_codigo = Ado_detalle1A.Recordset!compra_codigo And Ado_detalle1.Recordset!bien_codigo = Ado_detalle1A.Recordset!bien_codigo And Ado_detalle2.Recordset!adjudica_codigo = Ado_detalle1A.Recordset!adjudica_codigo Then
             MsgBox "No se puede ENVIAR, el Bien Ya fue enviado, revise y vuelva a intentar... ", vbExclamation
             Exit Sub
         End If
-    End If
+   End If
+   If Ado_detalle1.Recordset!estado_codigo <> "REG" Then
+        sino = MsgBox("El registro ya fue ENVIADO o fue ANULADO ... Elija otro registro y vuelva a intentar....", vbCritical, "SOFIA")
+        Exit Sub
+   End If
    If parametro = "COMEX" Then
-     sino = MsgBox("Desea ENVIAR el(los) Bien(es), a Almacenes ? (Verifique la Planilla de Costos previamente)", vbYesNo + vbInformation, "Atención")
+     sino = MsgBox("Desea ENVIAR Todos los Bienes, a Almacenes ? (Verifique la Planilla de Costos previamente)", vbYesNo + vbInformation, "Atención")
      If sino = vbYes Then
-        Select Case Glaux
-             Case "PROVI"
-                If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-                    'Ado_datos.Recordset!estado_codigo_eqp = "APR"
-                    'Ado_datos.Recordset!estado_codigo_tra = "REG"
-                    'Ado_datos.Recordset.Update
-                End If
-             Case "TRANS"
-                If Ado_datos.Recordset!estado_codigo_tra <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-                    'Ado_datos.Recordset!estado_codigo_tra = "APR"
-                    'Ado_datos.Recordset!estado_codigo_nac = "REG"
-                    'Ado_datos.Recordset.Update
-                End If
-             Case "ADUAN"
-                If Ado_datos.Recordset!estado_codigo_nac <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-'                    Ado_datos.Recordset!estado_codigo_nac = "APR"
-'                    Ado_datos.Recordset!estado_codigo_des = "REG"
-'                    Ado_datos.Recordset.Update
-                End If
-             Case "DESCA"
-                If Ado_datos.Recordset!estado_codigo_des <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-                    'Ado_datos.Recordset!estado_codigo_des = "APR"
-                    'Ado_datos.Recordset!estado_codigo = "REG"
-                    'Ado_datos.Recordset.Update
-                End If
-             Case "CONTR"
-                If Ado_datos.Recordset!estado_codigo <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-                    'Ado_datos.Recordset!estado_codigo = "APR"
-                    'Ado_datos.Recordset.Update
-                End If
-             Case "GADM"    'RESERVADO PARA REPUESTOS       '"DNREP", "DREPS", "DREPB", "DREPC"
-'                If Ado_datos.Recordset!estado_codigo <> "REG" Then
-'                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-'                    Exit Sub
-'                Else
-'                    Ado_datos.Recordset!estado_codigo = "APR"
-'                    Ado_datos.Recordset.Update
-'                End If
-             Case Else
-                If Ado_datos.Recordset!estado_codigo_eqp <> "REG" Then
-                    MsgBox "No se puede modificar este registro, porque este ya está Aprobado (APR) o Anulado (ANL)!! ", vbExclamation
-                    Exit Sub
-                Else
-                End If
-        End Select
-        'Ado_detalle2.Recordset("estado_codigo") = "APR"
-        'Ado_detalle2.Recordset("usr_codigo_aprueba") = glusuario
-        'Ado_detalle2.Recordset("fecha_aprueba") = Date
-        'Ado_detalle2.Recordset("fecha_recibe_almacen") = Date
-        'Ado_detalle2.Recordset.Update
-    End If
-  Else
-  
-       'Ado_detalle2.Recordset("estado_codigo") = "APR"
-       'Ado_detalle2.Recordset("usr_codigo_aprueba") = glusuario
-       'Ado_detalle2.Recordset("fecha_aprueba") = Date
-       'Ado_detalle2.Recordset("fecha_recibe_almacen") = Date
-       'Ado_detalle2.Recordset.Update
-    
-  End If
-End If
 
 'If parametro <> "COMEX" Then
 '    If Ado_detalle2.Recordset.RecordCount = 0 Then
@@ -5056,10 +5083,10 @@ End If
     '    Exit Sub
     'End If
     If Ado_detalle1.Recordset.RecordCount > 0 Then
-        If Ado_detalle1.Recordset!estado_codigo <> "REG" Then
-            sino = MsgBox("El registro ya fue ENVIADO o fue ANULADO ... Elija otro registro y vuelva a intentar....", vbCritical, "SOFIA")
-            Exit Sub
-        End If
+'        If Ado_detalle1.Recordset!estado_codigo <> "REG" Then
+'            sino = MsgBox("El registro ya fue ENVIADO o fue ANULADO ... Elija otro registro y vuelva a intentar....", vbCritical, "SOFIA")
+'            Exit Sub
+'        End If
         'sino = MsgBox("Desea Envia como parte de la Factura Elegida... ? (Ya no podrá modificarlo)", vbYesNo + vbInformation, "Atención")
         'If sino = vbYes Then
             DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
@@ -5072,11 +5099,18 @@ End If
                 End If
                 VAR_ALMACEN = 1
             Else
-                If OptFilGral2.Value = True Or opt_directa.Value = True Then
-                    VAR_TIPO_ALM = "R"
-                Else
-                    VAR_TIPO_ALM = "Q"
-                End If
+'                If Ado_detalle1.Recordset!par_codigo = "39810" Then
+'                    ' 1Bienes que no son Repuestos Importados ...
+'                Else
+'                    MsgBox "No se puede ENVIAR, debe elegir un repuesto IMPORTADO, vuelva a intentar ...", vbExclamation, "SOFIA"
+'                    Exit Sub
+'                End If
+'                If OptFilGral2.Value = True Or opt_directa.Value = True Then
+'                    VAR_TIPO_ALM = "R"
+'                Else
+'                    VAR_TIPO_ALM = "Q"
+'                End If
+                'db.Execute "UPDATE AO_compra_cabecera set depto_codigo = '2' where unidad_codigo = 'DNREP' "
                 Select Case Ado_datos.Recordset!depto_codigo
                     Case "1"
                         VAR_ALMACEN = 27
@@ -5099,8 +5133,44 @@ End If
                     Case Else
                         VAR_ALMACEN = 9
                 End Select
+                If OptFilGral2.Value = True Or opt_directa.Value = True Then
+                    VAR_TIPO_ALM = "R"
+                    'SOLO A ALMACEN REPUESTOS LA PAZ
+                    VAR_ALMACEN = 9
+                Else
+                    VAR_TIPO_ALM = "Q"
+                End If
             End If
-
+'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+            If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
+              db.Execute " update ao_compra_cabecera set ao_compra_cabecera.codigo_empresa = ao_ventas_cabecera.codigo_empresa FROM ao_compra_cabecera INNER JOIN ao_ventas_cabecera ON  ao_compra_cabecera.unidad_codigo = ao_ventas_cabecera.unidad_codigo AND ao_compra_cabecera.solicitud_codigo = ao_ventas_cabecera.solicitud_codigo AND ao_compra_cabecera.codigo_empresa  <> ao_ventas_cabecera.codigo_empresa where ao_compra_cabecera.codigo_empresa = 0 "
+              
+              db.Execute " update ao_compra_adjudica set ao_compra_adjudica.codigo_empresa  = ao_compra_cabecera.codigo_empresa FROM ao_compra_adjudica INNER JOIN  ao_compra_cabecera ON  ao_compra_cabecera.compra_codigo  = ao_compra_adjudica.compra_codigo where ao_compra_adjudica.codigo_empresa = 0 "
+              'INI correlativo ALMACEN
+              Set rs_aux7 = New ADODB.Recordset
+              If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
+              If Ado_detalle2.Recordset!codigo_empresa = 2 Then
+                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE tipo_tramite= 'R-114R2' ", db, adOpenKeyset, adLockOptimistic
+                '(cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+              Else
+                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE tipo_tramite= 'R-114R2' ", db, adOpenKeyset, adLockOptimistic
+                '(cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+              End If
+              If rs_aux7.RecordCount > 0 Then
+                 CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
+              Else
+                 MsgBox "No se puede generar el Correlativo, consulte con el Administrador del Sistema ...", vbCritical, "sofia"
+                 Exit Sub
+              End If
+              rs_aux7!numero_correlativo = CORRELARTIVO1
+              rs_aux7.Update
+              'CORRELARTIVO1 = "177"
+            Else
+              CORRELARTIVO1 = Ado_detalle2.Recordset!doc_numero_alm
+            End If
+           db.Execute "update ao_compra_cabecera set doc_numero_alm = " & CORRELARTIVO1 & ", doc_numero = " & CORRELARTIVO1 & " where compra_codigo = " & VAR_COD2 & " "
+           db.Execute "update ao_compra_adjudica set doc_numero_alm = " & CORRELARTIVO1 & ", doc_numero = " & CORRELARTIVO1 & " where compra_codigo = " & VAR_COD2 & " "
+'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 '            'INI correlativo ALMACEN
 '          Set rs_aux7 = New ADODB.Recordset
 '          If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM
@@ -5128,27 +5198,74 @@ End If
 '          End If
         ' envia BIENES A LA FACTURA
         Call BIENES
-        If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
-           CORRELARIVO1 = "0"  'CORRELATIVO PARA SALDOS INICIALES
+        'If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
+           'CORRELARIVO1 = "0"  'CORRELATIVO PARA COMPROBANTE DE SALIDA ALMACEN
            Set rs_det1A = New ADODB.Recordset
            If rs_det1A.State = 1 Then rs_det1A.Close
            'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
            rs_det1A.Open "select * from ao_compra_adjudica_bienes where compra_codigo = " & VAR_COMPRA & " AND adjudica_codigo = " & Ado_detalle2.Recordset!adjudica_codigo & "", db, adOpenKeyset, adLockOptimistic, adCmdText
+'           If rs_det1A.RecordCount > 0 Then
+           'Else
+'            If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
+'             'INI correlativo ALMACEN
+'              Set rs_aux7 = New ADODB.Recordset
+'              If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
+'              If Ado_detalle2.Recordset!codigo_empresa = 2 Then
+'                  rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+'              Else
+'                  rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+'              End If
+'              If rs_aux7.RecordCount > 0 Then
+'                   CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
+'                Else
+'                   MsgBox "No se puede generar el Correlativo, consulte con el Administrador del Sistema ...", vbCritical, "sofia"
+'                   Exit Sub
+'                End If
+'                rs_aux7!numero_correlativo = CORRELARTIVO1
+'                rs_aux7.Update
+'                'CORRELARTIVO1 = "177"
+'             Else
+'                CORRELARTIVO1 = Ado_detalle2.Recordset!doc_numero_alm
+'             End If
            rs_det1A.MoveFirst
            sino = rs_det1A.RecordCount
             While Not rs_det1A.EOF
+                CodBien = rs_det1A!bien_codigo
+'                If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
+'                   'INI correlativo ALMACEN
+'                   Set rs_aux7 = New ADODB.Recordset
+'                   If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
+'                   If Ado_detalle2.Recordset!codigo_empresa = 2 Then
+'                     rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+'                   Else
+'                     rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+'                   End If
+'                   If rs_aux7.RecordCount > 0 Then
+'                      CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
+'                   Else
+'                      MsgBox "No se puede generar el Correlativo, consulte con el Administrador del Sistema ...", vbCritical, "sofia"
+'                      Exit Sub
+'                   End If
+'                   rs_aux7!numero_correlativo = CORRELARTIVO1
+'                   rs_aux7.Update
+'                   'CORRELARTIVO1 = "177"
+'                Else
+'                   CORRELARTIVO1 = Ado_detalle2.Recordset!doc_numero_alm
+'                End If
                 'ac_tipo_compra_venta
                 Set rs_aux12 = New ADODB.Recordset
                 If rs_aux12.State = 1 Then rs_aux12.Close
-                rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='" & Ado_datos.Recordset!doc_codigo_alm & "' AND doc_numero=" & CORRELARIVO1 & " AND bien_codigo='" & rs_det1A!bien_codigo & "' ", db, adOpenStatic
+                'rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='" & Ado_datos.Recordset!doc_codigo_alm & "' AND doc_numero=" & CORRELARIVO1 & " AND bien_codigo='" & rs_det1A!bien_codigo & "' ", db, adOpenStatic
+                rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='R-114' AND doc_numero=" & CORRELARTIVO1 & " AND bien_codigo='" & CodBien & "' ", db, adOpenStatic
                 If rs_aux12.RecordCount > 0 Then
                 Else
-                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                    'db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", 'R-114' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
                 End If
 
                 Set rs_aux6 = New ADODB.Recordset
                 If rs_aux6.State = 1 Then rs_aux6.Close
-                rs_aux6.Open "SELECT * FROM ao_almacen_totales WHERE almacen_codigo =" & rs_det1A!almacen_codigo & " AND bien_codigo = '" & rs_det1A!bien_codigo & "'", db, adOpenStatic
+                rs_aux6.Open "SELECT * FROM ao_almacen_totales WHERE almacen_codigo =" & rs_det1A!almacen_codigo & " AND bien_codigo = '" & CodBien & "'", db, adOpenStatic
                 If rs_aux6.RecordCount > 0 Then
                     db.Execute "ap_almacen_totales 2," & rs_det1A!almacen_codigo & ", '" & rs_det1A!bien_codigo & "', " & rs_det1A!adjudica_cantidad & ", '0', " & rs_det1A!adjudica_cantidad & ", " & rs_det1A!bien_total_adjudica_bs & ", 0, 0, " & rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial & ", 0, 0, 'REG','" & glusuario & "'"
                 Else
@@ -5198,8 +5315,18 @@ End If
 '
 '     rs_aux7.Update
 '     rs_datos.Update
-     Call OptFilGral1_Click
-    
+    If OptFilGral1.Value = True Then
+        Call OptFilGral1_Click
+    End If
+    If OptFilGral2.Value = True Then
+        Call OptFilGral2_Click
+    End If
+    If opt_directa.Value = True Then
+        Call opt_directa_Click
+    End If
+    If opt_local.Value = True Then
+        Call opt_local_Click
+    End If
      If (dg_datos.SelBookmarks.Count <> 0) Then
         dg_datos.SelBookmarks.Remove 0
      End If
@@ -5222,9 +5349,10 @@ End If
      Else
         rs_det2.MoveLast
      End If
-'End If
-Else
+    End If
+  Else
     'sino = MsgBox("El proveedor no tiene ningun bien", vbCritical, "SOFIA")
+  End If
 End If
 End If
   Exit Sub
@@ -6132,12 +6260,12 @@ Private Sub BtnModDetalle1_Click()
                 If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                     fw_solicitud_bienes_comex.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
                 End If
-                fw_solicitud_bienes_comex.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+                fw_solicitud_bienes_comex.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
                 
                 fw_solicitud_bienes_comex.dtc_desc1.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.dtc_aux1.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
-                fw_solicitud_bienes_comex.dtc_aux2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
+                fw_solicitud_bienes_comex.Dtc_aux2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.dtc_aux3.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.Txt_campo2.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
                 fw_solicitud_bienes_comex.Txt_campo3.BoundText = fw_solicitud_bienes_comex.dtc_codigo1.BoundText
@@ -6294,7 +6422,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
         fw_adjudica_comex.txt_codigo.Caption = VAR_SOL2                 'Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-        fw_adjudica_comex.Txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_comex.txt_campo1.Text = Me.Ado_detalle2.Recordset!unidad_codigo  'Unidad
         fw_adjudica_comex.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_comex.txtCodigo1.Caption = VAR_COMPRA               'Me.Ado_detalle2.Recordset("compra_codigo")
         'fw_adjudica_comex.Txt_estado.Caption = "REG"
@@ -6508,7 +6636,7 @@ End If
     '    BtnVer.Visible = True
 '        dtc_codigo9.Enabled = False
         FraGrabarCancelar.Visible = True
-        btnCancelar.Visible = True
+        BtnCancelar.Visible = True
     'Else
      ' MsgBox "No se puede MODIFICAR un registro ya APROBADO ...", vbExclamation, "Validación de Registro"
     'End If
@@ -7711,7 +7839,7 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
     'db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'APR'  WHERE adjudica_codigo = " & rs_aux10!adjudica_codigo & " and compra_codigo = " & rs_aux10!compra_codigo & " "
 'End If
   'Esto mostrará la posición de registro actual para este Recordset
-  If Ado_datos.Recordset.BOF = False Then
+  If Ado_datos.Recordset.BOF = False And Ado_datos.Recordset.EOF = False Then
     If Ado_datos.Recordset.RecordCount > 0 Then
        If Ado_datos.Recordset!codigo_empresa = 2 Then
             LblEmpresa.Caption = "CGE"
@@ -7731,6 +7859,11 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
        If IsNull(DTPfecha1.Value) = True Then
           DTPfecha1.Value = Ado_datos.Recordset!compra_fecha
        End If
+       If OptFilGral2.Value = True Then
+            BtnAprobar3.Visible = True
+        Else
+            BtnAprobar3.Visible = False
+        End If
     End If
     
     'dtc_codigo11.Text = rs_datos!beneficiario_codigo_resp
@@ -8079,6 +8212,11 @@ Private Sub OptFilGral1_Click()
 End Sub
 
 Private Sub OptFilGral2_Click()
+    If OptFilGral2.Value = True Then
+        BtnAprobar3.Visible = True
+    Else
+        BtnAprobar3.Visible = False
+    End If
     ' REPARACIONES O INSTALACIONES
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close

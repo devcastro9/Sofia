@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -120,7 +120,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109314049
+         Format          =   114622465
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +266,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109314049
+         Format          =   114622465
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +280,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109314049
+         Format          =   114622465
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -367,14 +367,14 @@ Begin VB.Form fw_conciliacion_bancaria
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "FrmABMDet"
-      Tab(1).Control(1)=   "FrmDetalle2"
-      Tab(1).Control(2)=   "Frame2"
-      Tab(1).Control(3)=   "FrmDetalle"
-      Tab(1).Control(4)=   "Frame3"
-      Tab(1).Control(5)=   "BtnBuscar3"
-      Tab(1).Control(6)=   "BtnBuscar2"
-      Tab(1).Control(7)=   "BtnImprimir2"
+      Tab(1).Control(0)=   "BtnImprimir2"
+      Tab(1).Control(1)=   "BtnBuscar2"
+      Tab(1).Control(2)=   "BtnBuscar3"
+      Tab(1).Control(3)=   "Frame3"
+      Tab(1).Control(4)=   "FrmDetalle"
+      Tab(1).Control(5)=   "Frame2"
+      Tab(1).Control(6)=   "FrmDetalle2"
+      Tab(1).Control(7)=   "FrmABMDet"
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
@@ -2598,7 +2598,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   109314049
+            Format          =   114622465
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -3452,7 +3452,7 @@ Private Sub BtnAñadir_Click()
 '    Image2.Visible = False
 '    cmb_gestion_rep.Text = Year(Date)
 
-    If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "PLOPEZ" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then         'Or glusuario = "MVALDIVIA"
+    If glusuario = "VPAREDES" Or glusuario = "ADMIN" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then          'Or glusuario = "MVALDIVIA"
         Dim e As Long
         Dim ruta As String
         ruta = App.Path & "\Extractos\SofiaNetCore.exe"

@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -416,7 +416,7 @@ Begin VB.Form aw_p_ao_solicitud_calculo_trafico
          EndProperty
          CalendarBackColor=   16777215
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   118358019
+         Format          =   110428163
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   32874
@@ -5779,8 +5779,8 @@ On Error GoTo UpdateErr
                 Case Else
                     VAR_CONTI = "AMERICA"
              End Select
-             db.Execute "DELETE ao_solicitud_cotiza_modelo where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_campo1) & "   "
-             db.Execute "DELETE ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(Txt_campo1) & "   "
+             db.Execute "DELETE ao_solicitud_cotiza_modelo where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(txt_campo1) & "   "
+             db.Execute "DELETE ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND trafico_codigo = " & CDbl(txt_campo1) & "   "
               'corrprog = 0
              'Call GRABA_ARREGLO1
              Call GRABA_ARREGLO_1
@@ -6019,8 +6019,8 @@ On Error GoTo UpdateErr
     '        db.Execute "Update ao_negociacion_cabecera Set unidad_codigo_ant = '" & rs_datos!unidad_codigo_ant & "' Where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' and negocia_codigo = " & Ado_datos.Recordset!solicitud_codigo & "  and edif_codigo = '" & Ado_datos.Recordset!edif_codigo & "'  "
         
             rs_datos!estado_codigo_verif = "APR"
-            rs_datos!fecha_registro = Date
-            rs_datos!usr_codigo = glusuario
+            rs_datos!fecha_aprueba = Date
+            rs_datos!usr_aprueba = glusuario
             rs_datos.UpdateBatch adAffectAll
        End If
        '3 end
@@ -7523,7 +7523,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!etapa_codigo = "TEC-05-03"
         rs_datos!clasif_codigo = "TEC"
         rs_datos!doc_codigo = "R-313"
-        rs_datos!doc_numero = Txt_campo1.Text
+        rs_datos!doc_numero = txt_campo1.Text
         rs_datos!poa_codigo = "3.2.7"
         'REVISAR !!! JQA 2014_07_08
         rs_datos!archivo_respaldo = "TEC_R313-" + Trim(Ado_datos.Recordset!trafico_codigo) + ".PDF"
@@ -7533,7 +7533,7 @@ Private Sub BtnGrabar_Click()
         rs_datos!etapa_codigo = "COM-01-03"
         rs_datos!clasif_codigo = "COM"
         rs_datos!doc_codigo = "R-221"
-        rs_datos!doc_numero = Txt_campo1.Text
+        rs_datos!doc_numero = txt_campo1.Text
         rs_datos!poa_codigo = "3.1.1"
         'REVISAR !!! JQA 2014_07_08
         rs_datos!archivo_respaldo = "COM_R221-" + Trim(Ado_datos.Recordset!trafico_codigo) + ".PDF"
@@ -7576,8 +7576,8 @@ End Sub
 
 Private Sub valida_campos()
   'A.
-  If (Txt_campo21.Text = "") Then
-    MsgBox "Debe registrar ... " + lbl_campo1.Caption, vbCritical + vbExclamation, "Validación de datos"
+  If (Txt_campo21.Text = "") Or (Txt_campo21.Text = "1") Then
+    MsgBox "El Nro.de Paradas debe ser mayor a 1 o no Registró ... " + lbl_campo1.Caption, vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
   End If
@@ -8143,7 +8143,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos23 = New ADODB.Recordset
     If rs_datos23.State = 1 Then rs_datos23.Close
     rs_datos23.Open "Select * from ac_bienes_equipo_recorrido ", db, adOpenStatic
-    Set ado_datos23.Recordset = rs_datos23
+    Set Ado_datos23.Recordset = rs_datos23
     'dtc_desc23.BoundText = dtc_codigo23.BoundText
     
     Set rs_datos24 = New ADODB.Recordset
@@ -8376,7 +8376,7 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos12.State = 1 Then rs_datos12.Close
     rs_datos12.Open "Select * from ac_bienes_equipo_ctrl_maquina ", db, adOpenStatic
     'rs_datos8.Open "gp_listar_apr_gc_documentos_clasificacion", db, adOpenStatic
-    Set Ado_datos12.Recordset = rs_datos12
+    Set Ado_Datos12.Recordset = rs_datos12
     dtc_desc12.BoundText = dtc_codigo12.BoundText
     
     Set rs_datos13 = New ADODB.Recordset

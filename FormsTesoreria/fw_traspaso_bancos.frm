@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -17,9 +17,9 @@ Begin VB.Form fw_traspaso_bancos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   8.99898e5
+   ScaleHeight     =   1.08654e6
    ScaleMode       =   0  'User
-   ScaleWidth      =   6.93224e9
+   ScaleWidth      =   38310.12
    WindowState     =   2  'Maximized
    Begin VB.Frame FraDet3 
       BackColor       =   &H00E0E0E0&
@@ -37,7 +37,7 @@ Begin VB.Form fw_traspaso_bancos
       Height          =   2400
       Left            =   6720
       TabIndex        =   79
-      Top             =   4680
+      Top             =   4920
       Visible         =   0   'False
       Width           =   11820
       Begin VB.CommandButton BtnCancelar2 
@@ -407,7 +407,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentY        =   556
          _Version        =   393216
          Enabled         =   0   'False
-         Format          =   118685697
+         Format          =   112459777
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -421,7 +421,7 @@ Begin VB.Form fw_traspaso_bancos
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   118685697
+         Format          =   112459777
          CurrentDate     =   42880
       End
       Begin MSDataListLib.DataCombo DctMonto18 
@@ -1820,7 +1820,7 @@ Begin VB.Form fw_traspaso_bancos
             _ExtentX        =   2619
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   118685697
+            Format          =   112459777
             CurrentDate     =   44126
             MaxDate         =   55153
             MinDate         =   2
@@ -4215,7 +4215,7 @@ Private Sub AbreOrigen()
 '        Case Else
 '            rs_datos6.Open "select * from fv_recibos_pendientes_agrupados WHERE (IdTraspasoBancos is NULL or IdTraspasoBancos ='0')  ", db, adOpenKeyset, adLockOptimistic
 '    End Select
-    Set ado_datos6.Recordset = rs_datos6
+    Set Ado_datos6.Recordset = rs_datos6
     dtc_desc6.BoundText = dtc_codigo6.BoundText
 
 End Sub
@@ -4233,7 +4233,7 @@ Private Sub BtnAddDetalle_Click()
 '  Else
 '        MsgBox "El USUARIO no tiene Acceso !!. Consulte con el Administrador del Sistema. ", vbExclamation, "Atención!"
 '  End If
- If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
+ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
     FraDet3.Visible = True
     
     FraNavega.Enabled = False
@@ -4249,7 +4249,7 @@ End Sub
 Private Sub BtnAñadir_Click()
 accion = "NEW"
 On Error GoTo UpdateErr
-  If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
+  If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -4449,7 +4449,7 @@ Private Sub BtnAprobar1_Click()
 ' VERIFICAR: CUANDO ES ANULADO DEBE GURADAR USUARIO_MODIFICA Y FECHA_MODIFICA
 ' WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
-  If (Ado_datos.Recordset!estado_verificado = "REG") And (glusuario = "ADMIN" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS") Then
+  If (Ado_datos.Recordset!estado_verificado = "REG") And (glusuario = "ADMIN" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS") Then
     VAR_RECIBO = Ado_datos.Recordset!IdTraspasoBancos
     'Actualiza Totales
     db.Execute "UPDATE fo_traspaso_bancos set fo_traspaso_bancos.total_bs  = fv_recibos_detalle_sum.cobranza_bs, fo_traspaso_bancos.total_dol   = fv_recibos_detalle_sum.cobranza_dol from fo_traspaso_bancos inner join fv_recibos_detalle_sum " & _
@@ -4641,7 +4641,7 @@ End Sub
 
 Private Sub BtnCancelar2_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -4660,18 +4660,42 @@ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES
                         fraOpciones.Enabled = True
                         Exit Sub
                     End If
-                    'GRABA RECIBO DETALLE
-                    If rs_datos7!trans_codigo = "T" Or rs_datos7!trans_codigo = "O" Then
-                        db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & rs_datos7!cmpbte_deposito & "', fecha_registro_bco= '" & rs_datos7!cmpbte_fecha & "', trans_codigo= '" & rs_datos7!trans_codigo & "'  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                    'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
+                    If (rs_datos7!trans_codigo = "F" Or rs_datos7!trans_codigo = "T" Or rs_datos7!trans_codigo = "O") Then
+                        If CDate(rs_datos7!cmpbte_fecha) <= CDate("31/12/2022") Then
+                            If glusuario = "ADMIN" Or glusuario = "PLOPEZ" Then
+                            Else
+                                MsgBox "No se puede ACEPTAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                                Exit Sub
+                            End If
+                        Else
+                            'GRABA RECIBO DETALLE
+                            If rs_datos7!trans_codigo = "T" Or rs_datos7!trans_codigo = "O" Then
+                                db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & rs_datos7!cmpbte_deposito & "', fecha_registro_bco= '" & rs_datos7!cmpbte_fecha & "', trans_codigo= '" & rs_datos7!trans_codigo & "'  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                            End If
+                            db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                            db.Execute "update fo_recibos_detalle set estado_destino = 'APR'  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                            'ACTUALIZA APRUEBA ao_ventas_cobranza_det
+                            db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & rs_datos7!correl_cobro & " "
+                    
+                            ' ACTUALIZA TOTALES fo_traspaso_bancos
+                            db.Execute "update fo_traspaso_bancos set total_bs = (select sum(fo_recibos_detalle.cobranza_bs) from fo_recibos_detalle where fo_recibos_detalle.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & ")   " & _
+                            " from fo_traspaso_bancos inner join fo_recibos_detalle on  fo_traspaso_bancos.IdTraspasoBancos = fo_recibos_detalle.IdTraspasoBancos where fo_traspaso_bancos.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & " "
+                        End If
+                    Else
+                        'GRABA RECIBO DETALLE
+                        If rs_datos7!trans_codigo = "T" Or rs_datos7!trans_codigo = "O" Then
+                            db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & rs_datos7!cmpbte_deposito & "', fecha_registro_bco= '" & rs_datos7!cmpbte_fecha & "', trans_codigo= '" & rs_datos7!trans_codigo & "'  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                        End If
+                        db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                        db.Execute "update fo_recibos_detalle set estado_destino = 'APR'  where correl_cobro = " & rs_datos7!correl_cobro & " "
+                        'ACTUALIZA APRUEBA ao_ventas_cobranza_det
+                        db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & rs_datos7!correl_cobro & " "
+                
+                        ' ACTUALIZA TOTALES fo_traspaso_bancos
+                        db.Execute "update fo_traspaso_bancos set total_bs = (select sum(fo_recibos_detalle.cobranza_bs) from fo_recibos_detalle where fo_recibos_detalle.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & ")   " & _
+                        " from fo_traspaso_bancos inner join fo_recibos_detalle on  fo_traspaso_bancos.IdTraspasoBancos = fo_recibos_detalle.IdTraspasoBancos where fo_traspaso_bancos.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & " "
                     End If
-                    db.Execute "update fo_recibos_detalle set IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & "  where correl_cobro = " & rs_datos7!correl_cobro & " "
-                    db.Execute "update fo_recibos_detalle set estado_destino = 'APR'  where correl_cobro = " & rs_datos7!correl_cobro & " "
-                    'ACTUALIZA APRUEBA ao_ventas_cobranza_det
-                    db.Execute "UPDATE ao_ventas_cobranza_det SET estado_codigo_cont = 'APR'  WHERE correl_cobro = " & rs_datos7!correl_cobro & " "
-            
-                    ' ACTUALIZA TOTALES fo_traspaso_bancos
-                    db.Execute "update fo_traspaso_bancos set total_bs = (select sum(fo_recibos_detalle.cobranza_bs) from fo_recibos_detalle where fo_recibos_detalle.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & ")   " & _
-                    " from fo_traspaso_bancos inner join fo_recibos_detalle on  fo_traspaso_bancos.IdTraspasoBancos = fo_recibos_detalle.IdTraspasoBancos where fo_traspaso_bancos.IdTraspasoBancos = " & Ado_datos.Recordset!IdTraspasoBancos & " "
 
                     rs_datos7.MoveNext
                 Wend
@@ -4896,19 +4920,25 @@ Private Sub valida_campos()
 End Sub
 
 Private Sub BtnGrabar2_Click()
-On Error GoTo UpdateErr
-' If CDate(ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(ado_datos14.Recordset!cobranza_fecha) <= CDate("30/06/2022") Then
-'    MsgBox "No se puede Procesar una Fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-'    Exit Sub
-' End If
- If glusuario = "PLOPEZ" Then
- Else
-    If CDate(ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(ado_datos14.Recordset!cobranza_fecha) <= CDate("31/12/2022") Then
-       MsgBox "No se puede Procesar una Fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-       Exit Sub
+    'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
+    If (ado_datos14.Recordset!trans_codigo = "F" Or ado_datos14.Recordset!trans_codigo = "T" Or ado_datos14.Recordset!trans_codigo = "O") Then
+        If CDate(ado_datos14.Recordset!cmpbte_fecha) <= CDate("31/12/2022") Then
+            If glusuario = "ADMIN" Or glusuario = "PLOPEZ" Then
+            Else
+                MsgBox "No se puede ACEPTAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                Exit Sub
+            End If
+        End If
     End If
- End If
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
+On Error GoTo UpdateErr
+' If glusuario = "PLOPEZ" Then
+' Else
+'    If CDate(ado_datos14.Recordset!cobranza_fecha) >= CDate("01/01/2021") And CDate(ado_datos14.Recordset!cobranza_fecha) <= CDate("31/12/2022") Then
+'       MsgBox "No se puede Procesar una Fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+'       Exit Sub
+'    End If
+' End If
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "CSALINAS" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
         If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -5044,7 +5074,7 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
+If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
         accion = "MOD"
@@ -6757,7 +6787,7 @@ End Sub
 
 Private Sub BtnAnlDetalle_Click()
 On Error GoTo UpdateErr
-If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then            '
+If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then             '
  If Ado_datos11.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
           sino = MsgBox("Está Seguro de ANULAR el Registro Activo --> ", vbYesNo + vbQuestion, "Atención")
@@ -6828,7 +6858,7 @@ Private Sub Extracto()
 End Sub
 
 Private Sub BtnModDetalle_Click()
-If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then            '
+If glusuario = "TCASTILLO" Or glusuario = "LMORALES" Or glusuario = "RGIL" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "MVALDIVIA" Or glusuario = "EVILLALOBOS" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then             '
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" And Ado_datos.Recordset!estado_verificado = "REG" Then
         If Ado_datos11.Recordset.RecordCount > 0 Then         '<> "" Then
@@ -6890,6 +6920,14 @@ Private Sub DctCliente18_Click(Area As Integer)
     DctOrigina18.BoundText = DctCliente18.BoundText
     DctMontoDol18.BoundText = DctCliente18.BoundText
     DctCuenta18.BoundText = DctCliente18.BoundText
+End Sub
+
+Private Sub DctCod18_Change()
+    If DctFecha18.Text <> "" Then
+        Text11.Text = DctCod18.Text
+        DTP_Finicio.Value = Format(CDate(DctFecha18.Text), "DD/MM/YYYY")
+        Text12.Text = Trim(DctDeposita18.Text) + " " + Trim(DctOrigina18.Text)
+    End If
 End Sub
 
 Private Sub DctCod18_Click(Area As Integer)
@@ -7322,7 +7360,7 @@ Private Sub dtc_reciboCobr6_Click(Area As Integer)
 End Sub
 
 Private Sub Form_Load()
-    frmMain.ProgressBar1.Visible = False
+'    frmMain.ProgressBar1.Visible = False
     buscados = 0
     swnuevo = 0
     accion = ""
@@ -7503,7 +7541,7 @@ Private Sub OptFilGral1_Click()
     Select Case glusuario
         Case "ADMIN", "NPAREDES", "RCUELA", "CSALINAS", "DBRAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG')  "
-        Case "VPAREDES", "PLOPEZ", "MVALDIVIA"
+        Case "VPAREDES", "PLOPEZ", "MVALDIVIA", "MCOARITY"
             'queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG' AND (beneficiario_codigo_resp ='" & VAR_BENI & "' OR beneficiario_codigo_resp ='6962804')) "
             queryinicial = "select * From fo_traspaso_bancos WHERE (estado_codigo = 'REG')  "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
@@ -7537,7 +7575,7 @@ Private Sub OptFilGral2_Click()
     Select Case glusuario
         Case "ADMIN", "NPAREDES", "RCUELA", "CSALINAS", "DBRAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos   "
-        Case "VPAREDES", "PLOPEZ", "MVALDIVIA"
+        Case "VPAREDES", "PLOPEZ", "MVALDIVIA", "MCOARITY"
             queryinicial = "select * From fo_traspaso_bancos   "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_traspaso_bancos WHERE (beneficiario_codigo_resp ='" & VAR_BENI & "') "
@@ -7691,7 +7729,7 @@ Private Sub cerea()
   TxtConcepto = ""
   dtc_codigo2 = ""
   dtc_desc2 = ""
-  TxtTDC.Text = GlTipoCambioOficial
+  txtTDC.Text = GlTipoCambioOficial
 
 '  DtCDenominacion_moneda = ""
 '  TxtMonto_bolivianos = 0
@@ -7862,19 +7900,23 @@ Private Sub Picture2_Click()
     Text11.Text = DctCod18.Text
     DTP_Finicio.Value = Format(CDate(DctFecha18.Text), "DD/MM/YYYY")
     Text12.Text = Trim(DctDeposita18.Text) + " " + Trim(DctOrigina18.Text)
-'    ' CIERRE TEMPORAL DE COBRANZAS GESTION 2021
-    If glusuario = "PLOPEZ" Then
-    Else
-        'If CDate(DTP_Finicio.Value) >= CDate("01/01/2021") And CDate(DTP_Finicio.Value) <= CDate("30/06/2022") Then
-        If CDate(DTP_Finicio.Value) >= CDate("01/01/2021") And CDate(DTP_Finicio.Value) <= CDate("31/12/2022") Then
-            'If Ado_datos11.Recordset!unidad_codigo = "DVTA" Or Ado_datos11.Recordset!unidad_codigo = "DCOMS" Or Ado_datos11.Recordset!unidad_codigo = "DCOMB" Or Ado_datos11.Recordset!unidad_codigo = "DCOMC" Then
-            '    MsgBox "El registro para la Gestión 2021, será CERRADO el 31-mar-2022, consulte con Contabilidad ... ", , "Atención"
-            'Else
-                MsgBox "No se puede Registrar una Transacción con fecha de menor al 31-DICIEMBRE-2022, porque esta se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+    
+    'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
+        If CDate(DTP_Finicio.Value) <= CDate("31/12/2022") Then
+            If glusuario = "ADMIN" Or glusuario = "PLOPEZ" Then
+            Else
+                MsgBox "No se puede ACEPTAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
                 Exit Sub
-            'End If
+            End If
         End If
-    End If
+'    ' CIERRE TEMPORAL DE COBRANZAS GESTION 2021
+'    If glusuario = "PLOPEZ" Then
+'    Else
+'        If CDate(DTP_Finicio.Value) >= CDate("01/01/2021") And CDate(DTP_Finicio.Value) <= CDate("31/12/2022") Then
+'                MsgBox "No se puede Registrar una Transacción con fecha de menor al 31-DICIEMBRE-2022, porque esta se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+'                Exit Sub
+'        End If
+'    End If
     db.Execute "update fo_recibos_detalle set CMPBTE_DEPOSITO_BCO = '" & Text11.Text & "', fecha_registro_bco= '" & DTP_Finicio & "', fecha_destino = '" & Date & "', observaciones = '" & Text12.Text & "'  where correl_cobro = " & Ado_datos11.Recordset!correl_cobro & " "
     Fra_reporte.Visible = False
     fraOpciones.Visible = True

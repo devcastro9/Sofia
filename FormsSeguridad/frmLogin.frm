@@ -343,14 +343,14 @@ On Error Resume Next
         rs_aux12.Open "Select * from ao_ventas_cabecera WHERE ((unidad_codigo = 'DVTA') OR (unidad_codigo = 'DCOMS') OR (unidad_codigo = 'DCOMB') OR (unidad_codigo = 'DCOMC')) AND (estado_codigo = 'APR') AND (unidad_destino IS NULL) ", db, adOpenStatic
         If rs_aux12.RecordCount > 0 Then
             rs_aux12.MoveFirst
-             frmMain.ProgressBar1.Visible = True
-             With frmMain.ProgressBar1
-                .Max = rs_aux12.RecordCount
-                .Min = 0
-                .Value = 0
-             End With
+'             frmMain.ProgressBar1.Visible = True
+'             With frmMain.ProgressBar1
+'                .Max = rs_aux12.RecordCount
+'                .Min = 0
+'                .Value = 0
+'             End With
             While Not rs_aux12.EOF
-                frmMain.ProgressBar1.Value = frmMain.ProgressBar1.Value + 1
+'                frmMain.ProgressBar1.Value = frmMain.ProgressBar1.Value + 1
                 Set rs_aux13 = New ADODB.Recordset
                 If rs_aux13.State = 1 Then rs_aux13.Close
                 rs_aux13.Open "Select * from ao_ventas_cabecera WHERE ((unidad_codigo = 'DNMAN') OR (unidad_codigo = 'DMANS') OR (unidad_codigo = 'DMANB') OR (unidad_codigo = 'DMANC')) AND (estado_codigo = 'APR') AND (edif_codigo = '" & rs_aux12!edif_codigo & "') ", db, adOpenStatic
@@ -361,9 +361,9 @@ On Error Resume Next
                 End If
                 rs_aux12.MoveNext
             Wend
-            frmMain.ProgressBar1.Visible = False
+'            frmMain.ProgressBar1.Visible = False
         Else
-            frmMain.ProgressBar1.Visible = False
+'            frmMain.ProgressBar1.Visible = False
         End If
 
         Dim iResult As Integer
@@ -375,7 +375,7 @@ On Error Resume Next
         CR07.WindowState = crptMaximized
         ' FIN - ALERTAS VENTAS NUEVAS
       End If
-      frmMain.ProgressBar1.Visible = False
+'      frmMain.ProgressBar1.Visible = False
    Else
       MsgBox "Nombre de usuario o contraseña no válida; vuelva a intentarlo", vbExclamation + vbOKOnly, "Atención"
       txtPassword.SetFocus

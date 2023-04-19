@@ -16,9 +16,9 @@ Begin VB.Form fw_recibos_oficiales_egresos
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   4.86489e5
+   ScaleHeight     =   7.09223e5
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.59791e5
+   ScaleWidth      =   7.04003e6
    WindowState     =   2  'Maximized
    Begin VB.Frame FrmCabecera 
       BackColor       =   &H00E0E0E0&
@@ -48,7 +48,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Left            =   0
          ScaleHeight     =   675
          ScaleWidth      =   11880
-         TabIndex        =   64
+         TabIndex        =   62
          Top             =   3600
          Visible         =   0   'False
          Width           =   11880
@@ -58,11 +58,11 @@ Begin VB.Form fw_recibos_oficiales_egresos
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   5115
+            Left            =   6195
             Picture         =   "fw_recibos_oficiales_egresos.frx":0A02
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   66
+            TabIndex        =   64
             Top             =   0
             Width           =   1455
          End
@@ -72,11 +72,11 @@ Begin VB.Form fw_recibos_oficiales_egresos
             BorderStyle     =   0  'None
             ForeColor       =   &H80000008&
             Height          =   615
-            Left            =   3840
+            Left            =   4200
             Picture         =   "fw_recibos_oficiales_egresos.frx":12EE
             ScaleHeight     =   615
             ScaleWidth      =   1275
-            TabIndex        =   65
+            TabIndex        =   63
             Top             =   0
             Width           =   1280
          End
@@ -97,7 +97,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             ForeColor       =   &H00FFFF80&
             Height          =   255
             Left            =   240
-            TabIndex        =   72
+            TabIndex        =   70
             Top             =   240
             Visible         =   0   'False
             Width           =   1485
@@ -108,8 +108,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          BorderStyle     =   0  'None
          Enabled         =   0   'False
          Height          =   290
-         Left            =   8265
-         TabIndex        =   51
+         Left            =   8385
+         TabIndex        =   49
          Top             =   510
          Width           =   270
       End
@@ -126,10 +126,10 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00C00000&
-         Height          =   1845
+         Height          =   1605
          Left            =   40
          TabIndex        =   44
-         Top             =   1635
+         Top             =   1395
          Width           =   5895
          Begin VB.TextBox Text1 
             BackColor       =   &H00E0E0E0&
@@ -137,8 +137,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Enabled         =   0   'False
             Height          =   290
             Left            =   5490
-            TabIndex        =   77
-            Top             =   1455
+            TabIndex        =   75
+            Top             =   1215
             Width           =   270
          End
          Begin VB.ComboBox cmd_unimed2 
@@ -154,12 +154,12 @@ Begin VB.Form fw_recibos_oficiales_egresos
          End
          Begin MSDataListLib.DataCombo dtc_desc4 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1AC4
-            DataField       =   "beneficiario_codigo_resp"
+            DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1440
             TabIndex        =   46
-            Top             =   780
+            Top             =   660
             Width           =   4335
             _ExtentX        =   7646
             _ExtentY        =   556
@@ -170,12 +170,12 @@ Begin VB.Form fw_recibos_oficiales_egresos
          End
          Begin MSDataListLib.DataCombo dtc_codigo4 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1ADD
-            DataField       =   "beneficiario_codigo_resp"
+            DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   120
             TabIndex        =   47
-            Top             =   780
+            Top             =   660
             Width           =   1695
             _ExtentX        =   2990
             _ExtentY        =   556
@@ -187,47 +187,14 @@ Begin VB.Form fw_recibos_oficiales_egresos
             BoundColumn     =   "beneficiario_codigo"
             Text            =   "0"
          End
-         Begin MSDataListLib.DataCombo dtc_desc21 
-            DataField       =   "depto_codigo"
-            DataSource      =   "Ado_datos"
-            Height          =   315
-            Left            =   1440
-            TabIndex        =   48
-            Top             =   1560
-            Visible         =   0   'False
-            Width           =   4335
-            _ExtentX        =   7646
-            _ExtentY        =   556
-            _Version        =   393216
-            Enabled         =   0   'False
-            ListField       =   "depto_descripcion"
-            BoundColumn     =   "depto_codigo"
-            Text            =   ""
-         End
-         Begin MSDataListLib.DataCombo dtc_codigo21 
-            DataField       =   "depto_codigo"
-            DataSource      =   "Ado_datos"
-            Height          =   315
-            Left            =   4320
-            TabIndex        =   49
-            Top             =   1560
-            Visible         =   0   'False
-            Width           =   1410
-            _ExtentX        =   2487
-            _ExtentY        =   556
-            _Version        =   393216
-            ListField       =   "depto_codigo"
-            BoundColumn     =   "depto_codigo"
-            Text            =   ""
-         End
          Begin MSDataListLib.DataCombo dtc_aux4 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1AF6
-            DataField       =   "beneficiario_codigo_resp"
+            DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1440
-            TabIndex        =   69
-            Top             =   1440
+            TabIndex        =   67
+            Top             =   1200
             Width           =   4335
             _ExtentX        =   7646
             _ExtentY        =   556
@@ -241,12 +208,12 @@ Begin VB.Form fw_recibos_oficiales_egresos
          End
          Begin MSDataListLib.DataCombo dtc_unidad4 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1B0F
-            DataField       =   "beneficiario_codigo_resp"
+            DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   120
-            TabIndex        =   76
-            Top             =   1560
+            TabIndex        =   74
+            Top             =   1440
             Visible         =   0   'False
             Width           =   1695
             _ExtentX        =   2990
@@ -274,8 +241,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   1560
-            TabIndex        =   79
-            Top             =   480
+            TabIndex        =   77
+            Top             =   360
             Width           =   1890
          End
          Begin VB.Label Label8 
@@ -295,8 +262,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   120
-            TabIndex        =   68
-            Top             =   1455
+            TabIndex        =   66
+            Top             =   1215
             Width           =   1305
          End
          Begin VB.Label Label5 
@@ -316,8 +283,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   120
-            TabIndex        =   50
-            Top             =   480
+            TabIndex        =   48
+            Top             =   360
             Width           =   270
          End
       End
@@ -334,10 +301,10 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00C00000&
-         Height          =   1845
+         Height          =   1605
          Left            =   5960
          TabIndex        =   37
-         Top             =   1635
+         Top             =   1395
          Width           =   5895
          Begin VB.TextBox Text2 
             BackColor       =   &H00E0E0E0&
@@ -345,18 +312,18 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Enabled         =   0   'False
             Height          =   290
             Left            =   5490
-            TabIndex        =   78
-            Top             =   1455
+            TabIndex        =   76
+            Top             =   1215
             Width           =   270
          End
          Begin MSDataListLib.DataCombo dtc_desc5 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1B28
-            DataField       =   "beneficiario_codigo"
+            DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1440
             TabIndex        =   38
-            Top             =   780
+            Top             =   660
             Width           =   4335
             _ExtentX        =   7646
             _ExtentY        =   556
@@ -367,12 +334,12 @@ Begin VB.Form fw_recibos_oficiales_egresos
          End
          Begin MSDataListLib.DataCombo dtc_codigo5 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1B41
-            DataField       =   "beneficiario_codigo"
+            DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   120
             TabIndex        =   39
-            Top             =   780
+            Top             =   660
             Width           =   1695
             _ExtentX        =   2990
             _ExtentY        =   556
@@ -390,7 +357,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Height          =   315
             Left            =   1440
             TabIndex        =   40
-            Top             =   1680
+            Top             =   1440
             Visible         =   0   'False
             Width           =   4335
             _ExtentX        =   7646
@@ -405,9 +372,9 @@ Begin VB.Form fw_recibos_oficiales_egresos
             DataField       =   "depto_codigo_dR"
             DataSource      =   "Ado_datos"
             Height          =   315
-            Left            =   4755
+            Left            =   120
             TabIndex        =   41
-            Top             =   1680
+            Top             =   960
             Visible         =   0   'False
             Width           =   1050
             _ExtentX        =   1852
@@ -419,12 +386,12 @@ Begin VB.Form fw_recibos_oficiales_egresos
          End
          Begin MSDataListLib.DataCombo dtc_aux5 
             Bindings        =   "fw_recibos_oficiales_egresos.frx":1B5A
-            DataField       =   "beneficiario_codigo"
+            DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   1440
-            TabIndex        =   70
-            Top             =   1440
+            TabIndex        =   68
+            Top             =   1200
             Width           =   4335
             _ExtentX        =   7646
             _ExtentY        =   556
@@ -453,8 +420,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   1440
-            TabIndex        =   80
-            Top             =   480
+            TabIndex        =   78
+            Top             =   360
             Width           =   1890
          End
          Begin VB.Label Label9 
@@ -476,7 +443,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Height          =   240
             Left            =   15
             TabIndex        =   43
-            Top             =   1455
+            Top             =   1215
             Width           =   1395
          End
          Begin VB.Label lbl_Rdestino 
@@ -498,7 +465,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Height          =   240
             Left            =   120
             TabIndex        =   42
-            Top             =   480
+            Top             =   360
             Visible         =   0   'False
             Width           =   270
          End
@@ -508,7 +475,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          BorderStyle     =   0  'None
          Enabled         =   0   'False
          Height          =   290
-         Left            =   6675
+         Left            =   6795
          TabIndex        =   36
          Top             =   510
          Width           =   270
@@ -519,12 +486,12 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Height          =   300
          Left            =   1920
          TabIndex        =   35
-         Top             =   1080
+         Top             =   960
          Width           =   1575
          _ExtentX        =   2778
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110231553
+         Format          =   117768193
          CurrentDate     =   44562
          MinDate         =   2
       End
@@ -533,8 +500,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          DataField       =   "doc_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
-         Left            =   6945
-         TabIndex        =   52
+         Left            =   7065
+         TabIndex        =   50
          Top             =   495
          Width           =   1605
          _ExtentX        =   2831
@@ -564,8 +531,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          DataField       =   "doc_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
-         Left            =   1725
-         TabIndex        =   53
+         Left            =   1920
+         TabIndex        =   51
          Top             =   495
          Width           =   5235
          _ExtentX        =   9234
@@ -595,7 +562,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   7440
-         TabIndex        =   54
+         TabIndex        =   52
          Top             =   240
          Visible         =   0   'False
          Width           =   1245
@@ -606,6 +573,62 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ListField       =   "clasif_codigo"
          BoundColumn     =   "doc_codigo"
          Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo dtc_desc21 
+         Bindings        =   "fw_recibos_oficiales_egresos.frx":1BBE
+         DataField       =   "beneficiario_codigo_Prov"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   5040
+         TabIndex        =   81
+         Top             =   3120
+         Width           =   6735
+         _ExtentX        =   11880
+         _ExtentY        =   556
+         _Version        =   393216
+         ListField       =   "beneficiario_denominacion"
+         BoundColumn     =   "beneficiario_codigo"
+         Text            =   ""
+      End
+      Begin MSDataListLib.DataCombo dtc_codigo21 
+         Bindings        =   "fw_recibos_oficiales_egresos.frx":1BD8
+         DataField       =   "beneficiario_codigo_Prov"
+         DataSource      =   "Ado_datos"
+         Height          =   315
+         Left            =   3600
+         TabIndex        =   82
+         Top             =   3120
+         Width           =   1770
+         _ExtentX        =   3122
+         _ExtentY        =   556
+         _Version        =   393216
+         Locked          =   -1  'True
+         Appearance      =   0
+         BackColor       =   14737632
+         ListField       =   "beneficiario_codigo"
+         BoundColumn     =   "beneficiario_codigo"
+         Text            =   ""
+      End
+      Begin VB.Label Label4 
+         AutoSize        =   -1  'True
+         BackColor       =   &H8000000A&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Orden de Cancelación a Nombre de:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   180
+         TabIndex        =   80
+         Top             =   3120
+         Width           =   3285
       End
       Begin VB.Label Label15 
          BackColor       =   &H00000000&
@@ -623,8 +646,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H00000000&
          Height          =   285
          Left            =   8580
-         TabIndex        =   63
-         Top             =   1080
+         TabIndex        =   61
+         Top             =   960
          Width           =   1845
       End
       Begin VB.Label lblLabels 
@@ -645,8 +668,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Height          =   240
          Index           =   0
          Left            =   4560
-         TabIndex        =   62
-         Top             =   1080
+         TabIndex        =   60
+         Top             =   960
          Width           =   1395
       End
       Begin VB.Label txt_codigo 
@@ -669,8 +692,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   6120
-         TabIndex        =   61
-         Top             =   1080
+         TabIndex        =   59
+         Top             =   960
          Width           =   1245
       End
       Begin VB.Label Label2 
@@ -690,7 +713,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   180
-         TabIndex        =   60
+         TabIndex        =   58
          Top             =   495
          Width           =   1650
       End
@@ -714,7 +737,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H000000C0&
          Height          =   300
          Left            =   10395
-         TabIndex        =   59
+         TabIndex        =   57
          Top             =   495
          Width           =   1365
       End
@@ -736,7 +759,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Height          =   240
          Index           =   13
          Left            =   9120
-         TabIndex        =   58
+         TabIndex        =   56
          Top             =   495
          Width           =   1260
       End
@@ -760,8 +783,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   300
          Left            =   10500
-         TabIndex        =   57
-         Top             =   1080
+         TabIndex        =   55
+         Top             =   960
          Width           =   1245
       End
       Begin VB.Label lbl_cerrado 
@@ -781,7 +804,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H000000FF&
          Height          =   480
          Left            =   -120
-         TabIndex        =   56
+         TabIndex        =   54
          Top             =   90
          Width           =   4875
       End
@@ -801,8 +824,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H00000000&
          Height          =   240
          Left            =   180
-         TabIndex        =   55
-         Top             =   1080
+         TabIndex        =   53
+         Top             =   960
          Width           =   1710
       End
    End
@@ -825,7 +848,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
       Top             =   7440
       Width           =   16935
       Begin MSDataGridLib.DataGrid DtGLista11 
-         Bindings        =   "fw_recibos_oficiales_egresos.frx":1BBE
+         Bindings        =   "fw_recibos_oficiales_egresos.frx":1BF2
          Height          =   1740
          Left            =   120
          TabIndex        =   21
@@ -925,8 +948,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             EndProperty
          EndProperty
          BeginProperty Column05 
-            DataField       =   "nro_dui"
-            Caption         =   "DUI/DIM"
+            DataField       =   "Empresa"
+            Caption         =   "Empresa"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1095,7 +1118,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             BeginProperty Column05 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1110.047
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column06 
                Alignment       =   2
@@ -1167,10 +1190,10 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   975
          Left            =   120
-         Picture         =   "fw_recibos_oficiales_egresos.frx":1BD8
+         Picture         =   "fw_recibos_oficiales_egresos.frx":1C0C
          ScaleHeight     =   975
          ScaleWidth      =   1215
-         TabIndex        =   75
+         TabIndex        =   73
          ToolTipText     =   "Busca Registros "
          Top             =   3000
          Width           =   1215
@@ -1182,10 +1205,10 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   975
          Left            =   120
-         Picture         =   "fw_recibos_oficiales_egresos.frx":2826
+         Picture         =   "fw_recibos_oficiales_egresos.frx":285A
          ScaleHeight     =   975
          ScaleWidth      =   1215
-         TabIndex        =   74
+         TabIndex        =   72
          ToolTipText     =   "Busca Registros "
          Top             =   720
          Width           =   1215
@@ -1197,12 +1220,13 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "fw_recibos_oficiales_egresos.frx":336D
+         Picture         =   "fw_recibos_oficiales_egresos.frx":33A1
          ScaleHeight     =   615
          ScaleWidth      =   1425
-         TabIndex        =   73
+         TabIndex        =   71
          ToolTipText     =   "Modifica Detalle Elegido"
          Top             =   2400
+         Visible         =   0   'False
          Width           =   1430
       End
       Begin VB.PictureBox BtnBuscar2 
@@ -1212,10 +1236,10 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "fw_recibos_oficiales_egresos.frx":3C82
+         Picture         =   "fw_recibos_oficiales_egresos.frx":3CB6
          ScaleHeight     =   615
          ScaleWidth      =   1215
-         TabIndex        =   71
+         TabIndex        =   69
          ToolTipText     =   "Busca Registros "
          Top             =   0
          Width           =   1215
@@ -1224,7 +1248,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          BackColor       =   &H80000018&
          Height          =   525
          Left            =   0
-         Picture         =   "fw_recibos_oficiales_egresos.frx":4437
+         Picture         =   "fw_recibos_oficiales_egresos.frx":446B
          Style           =   1  'Graphical
          TabIndex        =   5
          ToolTipText     =   "Imprime Kardex del Bien"
@@ -1243,6 +1267,21 @@ Begin VB.Form fw_recibos_oficiales_egresos
       TabIndex        =   15
       Top             =   0
       Width           =   20280
+      Begin VB.PictureBox BtnAprobar1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   735
+         Left            =   3720
+         Picture         =   "fw_recibos_oficiales_egresos.frx":4D38
+         ScaleHeight     =   735
+         ScaleWidth      =   1320
+         TabIndex        =   79
+         ToolTipText     =   "Verifica Comprobante de Traspaso"
+         Top             =   0
+         Width           =   1320
+      End
       Begin VB.PictureBox BtnSalir 
          Appearance      =   0  'Flat
          BackColor       =   &H80000006&
@@ -1250,10 +1289,10 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17160
-         Picture         =   "fw_recibos_oficiales_egresos.frx":4D04
+         Picture         =   "fw_recibos_oficiales_egresos.frx":5570
          ScaleHeight     =   615
          ScaleWidth      =   1245
-         TabIndex        =   67
+         TabIndex        =   65
          ToolTipText     =   "Cierra la Ventana Activa"
          Top             =   0
          Width           =   1245
@@ -1264,8 +1303,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   735
-         Left            =   3720
-         Picture         =   "fw_recibos_oficiales_egresos.frx":54C6
+         Left            =   5040
+         Picture         =   "fw_recibos_oficiales_egresos.frx":5D32
          ScaleHeight     =   735
          ScaleWidth      =   1320
          TabIndex        =   3
@@ -1280,7 +1319,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   3720
-         Picture         =   "fw_recibos_oficiales_egresos.frx":5CF9
+         Picture         =   "fw_recibos_oficiales_egresos.frx":6565
          ScaleHeight     =   735
          ScaleWidth      =   1320
          TabIndex        =   33
@@ -1294,8 +1333,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   615
-         Left            =   5040
-         Picture         =   "fw_recibos_oficiales_egresos.frx":66F0
+         Left            =   6360
+         Picture         =   "fw_recibos_oficiales_egresos.frx":6F5C
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   4
@@ -1310,7 +1349,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   2520
-         Picture         =   "fw_recibos_oficiales_egresos.frx":6EA5
+         Picture         =   "fw_recibos_oficiales_egresos.frx":7711
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   2
@@ -1326,7 +1365,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1185
-         Picture         =   "fw_recibos_oficiales_egresos.frx":75F1
+         Picture         =   "fw_recibos_oficiales_egresos.frx":7E5D
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   1
@@ -1340,7 +1379,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Caption         =   "Digitaliza"
          Height          =   710
          Left            =   9000
-         Picture         =   "fw_recibos_oficiales_egresos.frx":7F06
+         Picture         =   "fw_recibos_oficiales_egresos.frx":8772
          Style           =   1  'Graphical
          TabIndex        =   16
          ToolTipText     =   "Guarda en Archivo Digital"
@@ -1355,7 +1394,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "fw_recibos_oficiales_egresos.frx":8348
+         Picture         =   "fw_recibos_oficiales_egresos.frx":8BB4
          ScaleHeight     =   615
          ScaleWidth      =   1200
          TabIndex        =   0
@@ -1368,8 +1407,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   735
-         Left            =   6360
-         Picture         =   "fw_recibos_oficiales_egresos.frx":8B07
+         Left            =   7680
+         Picture         =   "fw_recibos_oficiales_egresos.frx":9373
          ScaleHeight     =   735
          ScaleWidth      =   1395
          TabIndex        =   6
@@ -1448,7 +1487,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
          Width           =   1335
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "fw_recibos_oficiales_egresos.frx":93D4
+         Bindings        =   "fw_recibos_oficiales_egresos.frx":9C40
          Height          =   3570
          Left            =   75
          TabIndex        =   12
@@ -1480,7 +1519,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   11
+         ColumnCount     =   12
          BeginProperty Column00 
             DataField       =   "clasif_codigo"
             Caption         =   "Clasificacion"
@@ -1547,8 +1586,21 @@ Begin VB.Form fw_recibos_oficiales_egresos
             EndProperty
          EndProperty
          BeginProperty Column05 
+            DataField       =   "estado_verificado"
+            Caption         =   "Verificado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column06 
             DataField       =   "estado_codigo"
-            Caption         =   "Estado"
+            Caption         =   "Tesoreria"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1559,7 +1611,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column06 
+         BeginProperty Column07 
             DataField       =   "beneficiario_codigo"
             Caption         =   "CI_Entrega"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1572,7 +1624,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
+         BeginProperty Column08 
             DataField       =   "beneficiario_codigo_resp"
             Caption         =   "CI_Recibe"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1585,7 +1637,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column09 
             DataField       =   "total_dol"
             Caption         =   "Total.Dolares"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1598,7 +1650,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column09 
+         BeginProperty Column10 
             DataField       =   "fecha_registro"
             Caption         =   "Fecha.Registro"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1611,7 +1663,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column10 
+         BeginProperty Column11 
             DataField       =   "usr_codigo"
             Caption         =   "Usuario"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1648,23 +1700,26 @@ Begin VB.Form fw_recibos_oficiales_egresos
                ColumnWidth     =   900.284
             EndProperty
             BeginProperty Column05 
-               Alignment       =   2
-               ColumnWidth     =   585.071
+               ColumnWidth     =   840.189
             EndProperty
             BeginProperty Column06 
+               Alignment       =   2
+               ColumnWidth     =   794.835
+            EndProperty
+            BeginProperty Column07 
                Object.Visible         =   -1  'True
                ColumnWidth     =   945.071
             EndProperty
-            BeginProperty Column07 
-            EndProperty
             BeginProperty Column08 
+            EndProperty
+            BeginProperty Column09 
                Alignment       =   1
                ColumnWidth     =   1260.284
             EndProperty
-            BeginProperty Column09 
+            BeginProperty Column10 
                Object.Visible         =   0   'False
             EndProperty
-            BeginProperty Column10 
+            BeginProperty Column11 
                Object.Visible         =   0   'False
             EndProperty
          EndProperty
@@ -1735,7 +1790,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
       Top             =   5100
       Width           =   16935
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "fw_recibos_oficiales_egresos.frx":93EC
+         Bindings        =   "fw_recibos_oficiales_egresos.frx":9C58
          Height          =   1980
          Left            =   120
          TabIndex        =   19
@@ -1848,8 +1903,8 @@ Begin VB.Form fw_recibos_oficiales_egresos
             EndProperty
          EndProperty
          BeginProperty Column06 
-            DataField       =   "nro_dui"
-            Caption         =   "DUI/DIM"
+            DataField       =   "Empresa"
+            Caption         =   "Empresa"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -2011,7 +2066,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             BeginProperty Column06 
                Alignment       =   2
                Locked          =   -1  'True
-               ColumnWidth     =   1124.787
+               ColumnWidth     =   764.787
             EndProperty
             BeginProperty Column07 
                Alignment       =   2
@@ -2117,7 +2172,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Width           =   405
          End
          Begin MSDataListLib.DataCombo dtc_codigo7 
-            Bindings        =   "fw_recibos_oficiales_egresos.frx":9406
+            Bindings        =   "fw_recibos_oficiales_egresos.frx":9C72
             DataField       =   "correl_cobro"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2135,7 +2190,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Text            =   "0"
          End
          Begin MSDataListLib.DataCombo dtc_fecha7 
-            Bindings        =   "fw_recibos_oficiales_egresos.frx":941F
+            Bindings        =   "fw_recibos_oficiales_egresos.frx":9C8B
             DataField       =   "correl_cobro"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2152,7 +2207,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Text            =   "0"
          End
          Begin MSDataListLib.DataCombo dtc_recibo7 
-            Bindings        =   "fw_recibos_oficiales_egresos.frx":9438
+            Bindings        =   "fw_recibos_oficiales_egresos.frx":9CA4
             DataField       =   "correl_cobro"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2169,7 +2224,7 @@ Begin VB.Form fw_recibos_oficiales_egresos
             Text            =   "0"
          End
          Begin MSDataListLib.DataCombo dtc_edificio7 
-            Bindings        =   "fw_recibos_oficiales_egresos.frx":9451
+            Bindings        =   "fw_recibos_oficiales_egresos.frx":9CBD
             DataField       =   "correl_cobro"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -3164,7 +3219,7 @@ Dim rs_datos2 As New ADODB.Recordset    'Beneficiario Personas Nat. y Juridicas 
 Dim rs_datos3 As New ADODB.Recordset    'Proyecto de Edificacion
 Dim rs_datos4 As New ADODB.Recordset    'Beneficiario Funcionario de CGI (Vendedor, Cobrador, Admin, etc.)
 Dim rs_datos5 As New ADODB.Recordset    'rv_unidad_vs_responsable
-Dim rs_datos6 As New ADODB.Recordset
+Dim rs_datos6 As New ADODB.Recordset    'gc_usuarios
 Dim rs_datos7 As New ADODB.Recordset    'Auxiliar Origen Cobranzas por Cobrador
 Dim rs_datos8 As New ADODB.Recordset
 Dim rs_datos11 As New ADODB.Recordset
@@ -3177,7 +3232,7 @@ Dim rs_datos18 As New ADODB.Recordset
 
 Dim rs_datos19 As New ADODB.Recordset   'Acumula Cobranzas
 Dim rs_datos20 As New ADODB.Recordset
-Dim rs_datos21 As New ADODB.Recordset
+Dim rs_datos21 As New ADODB.Recordset   'Proveedor a nombre de quien se realiza la Solicitud
 Dim rs_datos22 As New ADODB.Recordset
 
 'AUXILIARES
@@ -3313,11 +3368,11 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
            OptFilGral2.Visible = False
         End If
         BtnBuscar2.Visible = True
-        If (Ado_datos.Recordset!estado_codigo = "REG") Then
-            BtnAprobar.Visible = True
+        If (Ado_datos.Recordset!estado_verificado = "REG") Then
+            BtnAprobar.Visible = False
             BtnDesAprobar.Visible = False
             BtnModificar.Visible = True
-'            BtnEliminar.Visible = True
+            BtnAprobar1.Visible = True
             lbl_cerrado.Caption = ""
             FrmABMDet.Visible = True
             'DtGLista.Enabled = False
@@ -3326,10 +3381,15 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             FraBuscaDet.Visible = False
             BtnBuscar2.Visible = True
         Else
-            BtnAprobar.Visible = False
-            BtnDesAprobar.Visible = True
+            If (Ado_datos.Recordset!estado_codigo = "REG") Then
+                BtnAprobar.Visible = True
+                BtnDesAprobar.Visible = True
+            Else
+                BtnAprobar.Visible = False
+                BtnDesAprobar.Visible = False
+            End If
             BtnModificar.Visible = False
-'            BtnEliminar.Visible = False
+            BtnAprobar1.Visible = False
             FrmABMDet.Visible = False
             BtnAddDetalle.Visible = False
             BtnAnlDetalle.Visible = False
@@ -3364,7 +3424,14 @@ End Sub
 
 Private Sub AbrirDetalle()
     'ORIGEN - DETALLE DE COBRANZAS
-    If Ado_datos.Recordset!estado_codigo = "REG" Or IsNull(Ado_datos.Recordset!estado_codigo) Then
+    If Ado_datos.Recordset!estado_verificado = "REG" Or IsNull(Ado_datos.Recordset!estado_verificado) Then
+        Set rs_datos6 = New ADODB.Recordset
+        If rs_datos6.State = 1 Then rs_datos6.Close
+        rs_datos6.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
+        If rs_datos6.RecordCount > 0 Then
+            VAR_BENI = rs_datos6!beneficiario_codigo
+            VAR_UNID = rs_datos6!unidad_codigo
+        End If
         deta2 = 1
         DtGLista.Visible = True
 '        FraBuscaDet.Visible = True
@@ -3374,38 +3441,28 @@ Private Sub AbrirDetalle()
             Case "0"
                 If VAR_BUSCA = 0 Then
                     'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "  'unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo_adm & "'   "    '
-                    queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!UNIDAD_codigo & "' )  "            'beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' )  "  '
+                    'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo & "' )  "            'beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' )  "  '
+                    queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & VAR_UNID & "' )  "
                 Else
                     queryinicial2 = queryinicial0
                 End If
-                'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "
-'            Case "1"
-'                'rs_datos14.Open "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND  cobranza_fecha = '" & VAR_FECHA & "' order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic
-'                queryinicial2 = "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND  cobranza_fecha = '" & VAR_FECHA & "'   "
-'            Case "2"
-'                'rs_datos14.Open "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND doc_numero = " & VAR_RECIBOS & "  order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic
-'                queryinicial2 = "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND doc_numero = " & VAR_RECIBOS & "  "
-'            Case "3"
-'                'rs_datos14.Open "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND edif_codigo_corto= '" & VAR_EDIF & "'  order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic
-'                queryinicial2 = "select * from fv_ventas_cobranza_det_recibos WHERE estado_codigo = 'APR' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND edif_codigo_corto= '" & VAR_EDIF & "'   "
             Case Else
-                ''queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "
-                'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo_adm & "'   "
                 If VAR_BUSCA = 0 Then
-                    queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo_adm & "' )  "
+                    'queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo_adm & "' )  "
+                    queryinicial2 = "select * from fv_compra_adjudica_tes WHERE (estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & VAR_UNID & "' )  "
                 Else
                     queryinicial2 = queryinicial0
                 End If
         End Select
         rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
         rs_datos14.Sort = "adjudica_fecha desc"
-        Set Ado_datos14.Recordset = rs_datos14.DataSource
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14.DataSource
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             DtGLista.Visible = True
 '            FraBuscaDet.Visible = True
-            Set DtGLista.DataSource = Ado_datos14.Recordset
+            Set DtGLista.DataSource = ado_datos14.Recordset
 '            If VAR_OPCION = 0 Then
 '                Call AbreOrigen
 '            End If
@@ -3424,7 +3481,7 @@ Private Sub AbrirDetalle()
     'DESTINO - DETALLE DEL RECIBO
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
-    If Ado_datos.Recordset!estado_codigo = "REG" Or IsNull(Ado_datos.Recordset!estado_codigo) Then
+    If Ado_datos.Recordset!estado_verificado = "REG" Or IsNull(Ado_datos.Recordset!estado_verificado) Then
         rs_datos11.Open "select * from fv_tes_adjudica_recibos where idRecibo = " & Ado_datos.Recordset!IdRecibo & " order by doc_numero ", db, adOpenKeyset, adLockOptimistic
         'beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND
     Else
@@ -3475,8 +3532,8 @@ Private Sub Ado_datos11_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
 End Sub
 
 Private Sub Ado_datos14_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
- If (Not Ado_datos14.Recordset.BOF) And (Not Ado_datos14.Recordset.EOF) Then
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+ If (Not ado_datos14.Recordset.BOF) And (Not ado_datos14.Recordset.EOF) Then
+    If ado_datos14.Recordset.RecordCount > 0 Then
         'BtnModDetalle2.Visible = False
     Else
     
@@ -3488,16 +3545,16 @@ End Sub
 
 Private Sub BtnAddDetalle_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CARIZACA" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
  If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo = "REG" Then
-        If Ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
+        If ado_datos14.Recordset.RecordCount > 0 Then         '<> "" Then
             VAR_BUSCA = 1
-            If (Ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(Ado_datos14.Recordset!adjudica_fecha) Or (Ado_datos14.Recordset!adjudica_fecha = "01/01/1900")) Then
+            If (ado_datos14.Recordset!trans_codigo <> "E") And (IsNull(ado_datos14.Recordset!adjudica_fecha) Or (ado_datos14.Recordset!adjudica_fecha = "01/01/1900")) Then
                 MsgBox "No se puede ACEPTAR, verifique la fecha de Factura, Recibo o Comprobante y vuelva a intentar ...", , "Atención"
                 Exit Sub
             End If
-            If (Ado_datos14.Recordset!estado_codigo_tes = "REG") Or (IsNull(Ado_datos14.Recordset!estado_codigo_tes)) Then
+            If (ado_datos14.Recordset!estado_codigo_tes = "REG") Or (IsNull(ado_datos14.Recordset!estado_codigo_tes)) Then
                 'GRABA RECIBO DETALLE EGRESO
                 '----------------------------------------------------- ENVIA A TESORERIA
                 ' IdRecibo, adjudica_codigo, IdTraspasoBancos, compra_codigo, cta_codigo, cmpbte_deposito, doc_numero, cmpbte_deposito_bco, fecha_registro_bco, adjudica_bs, adjudica_dol, trans_codigo, cta_codigo_origen,
@@ -3553,11 +3610,11 @@ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA
                     'db.Execute "UPDATE fo_recibos_detalle_egresos_aux SET "
                 Else
                     db.Execute "INSERT INTO fo_recibos_detalle_egresos (IdRecibo, adjudica_codigo, doc_numero, adjudica_bs, adjudica_dol, trans_codigo, observaciones, estado_codigo, estado_destino, estado_aprueba, estado_conciliado, usr_codigo, fecha_registro, hora_registro, edif_codigo_corto, compra_codigo, unidad_codigo_ant) " & _
-                    " values (" & Ado_datos.Recordset!IdRecibo & ", " & Ado_datos14.Recordset!adjudica_codigo & ", " & IIf(IsNull(Ado_datos14.Recordset!doc_numero), 0, Ado_datos14.Recordset!doc_numero) & ", " & Ado_datos14.Recordset!adjudica_monto_bs & ", " & Ado_datos14.Recordset!adjudica_monto_dol & ", '" & Ado_datos14.Recordset!trans_codigo & "',  " & _
-                    " '" & Ado_datos14.Recordset!adjudica_descripcion & "', 'REG', 'REG', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & Ado_datos14.Recordset!edif_codigo_corto & "', " & Ado_datos14.Recordset!compra_codigo & ", '" & Ado_datos14.Recordset!unidad_codigo_ant & "'  ) "
+                    " values (" & Ado_datos.Recordset!IdRecibo & ", " & ado_datos14.Recordset!adjudica_codigo & ", " & IIf(IsNull(ado_datos14.Recordset!doc_numero), 0, ado_datos14.Recordset!doc_numero) & ", " & ado_datos14.Recordset!adjudica_monto_bs & ", " & ado_datos14.Recordset!adjudica_monto_dol & ", '" & ado_datos14.Recordset!trans_codigo & "',  " & _
+                    " '" & ado_datos14.Recordset!adjudica_descripcion & "', 'REG', 'REG', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & ado_datos14.Recordset!edif_codigo_corto & "', " & ado_datos14.Recordset!compra_codigo & ", '" & ado_datos14.Recordset!unidad_codigo_ant & "'  ) "
     
                     'ACTUALIZA APRUEBA ao_compra_adjudica
-                    db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'APR'  WHERE adjudica_codigo = " & Ado_datos14.Recordset!adjudica_codigo & " and compra_codigo = " & Ado_datos14.Recordset!compra_codigo & " "
+                    db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'APR'  WHERE adjudica_codigo = " & ado_datos14.Recordset!adjudica_codigo & " and compra_codigo = " & ado_datos14.Recordset!compra_codigo & " "
                     
                     ' ACTUALIZA TOTALES fo_recibos_oficiales_egresos
                     db.Execute "update fo_recibos_oficiales_egresos set total_bs = (select sum(fo_recibos_detalle_egresos.adjudica_bs) from fo_recibos_detalle_egresos where fo_recibos_detalle_egresos.IdRecibo = " & Ado_datos.Recordset!IdRecibo & ")   " & _
@@ -3595,7 +3652,7 @@ Private Sub BtnAñadir_Click()
 accion = "NEW"
     
 On Error GoTo UpdateErr
-If glusuario = "FVASQUEZ" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "SQUISPE" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
+If glusuario = "FVASQUEZ" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "RCUELA" Or glusuario = "MVALDIVIA" Or glusuario = "SQUISPE" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
     'Ado_datos.Recordset.AddNew
     dtc_codigo3.Text = VAR_R
     dtc_desc3.BoundText = dtc_codigo3.BoundText
@@ -3633,21 +3690,22 @@ End Sub
 
 Private Sub BtnAprobar_Click()
  On Error GoTo UpdateErr
-  If Ado_datos.Recordset!estado_codigo = "REG" Then
-    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CSALINAS" Then
+  If Ado_datos.Recordset!estado_verificado = "APR" And Ado_datos.Recordset!estado_codigo = "REG" Then
+    'If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CARIZACA" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
+    If glusuario = "ADMIN" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Then
       VAR_RECIBO = Ado_datos.Recordset!IdRecibo
       ' ACTUALIZA TOTALES fo_recibos_oficiales_egresos
       db.Execute "update fo_recibos_oficiales_egresos set fo_recibos_oficiales_egresos.total_bs = fv_recibos_det_egreso_acumulado.TotalAdjudica_bs, fo_recibos_oficiales_egresos.total_dol = fv_recibos_det_egreso_acumulado.TotalAdjudica_dol from fo_recibos_oficiales_egresos inner join fv_recibos_det_egreso_acumulado on fo_recibos_oficiales_egresos.IdRecibo = fv_recibos_det_egreso_acumulado.IdRecibo WHERE fo_recibos_oficiales_egresos.IdRecibo =  " & VAR_RECIBO & ""
       'Actualiza Detalle
       db.Execute "update fo_recibos_detalle_egresos set estado_codigo = 'APR', estado_destino = 'REG', estado_aprueba='REG'  WHERE fo_recibos_detalle_egresos.IdRecibo =  " & VAR_RECIBO & "  "
       'APRUEBA ao_compra_adjudica
-      db.Execute "update ao_compra_adjudica set ao_compra_adjudica.estado_codigo = 'APR', ao_compra_adjudica.estado_codigo_tes = 'APR', ao_compra_adjudica.estado_pagado = 'REG' from ao_compra_adjudica inner join fo_recibos_detalle_egresos on ao_compra_adjudica.adjudica_codigo = fo_recibos_detalle_egresos.adjudica_codigo and ao_compra_adjudica.compra_codigo = fo_recibos_detalle_egresos.compra_codigo WHERE fo_recibos_detalle_egresos.IdRecibo =  " & VAR_RECIBO & "  "
+      'db.Execute "update ao_compra_adjudica set ao_compra_adjudica.estado_codigo = 'APR', ao_compra_adjudica.estado_codigo_tes = 'APR', ao_compra_adjudica.estado_pagado = 'REG' from ao_compra_adjudica inner join fo_recibos_detalle_egresos on ao_compra_adjudica.adjudica_codigo = fo_recibos_detalle_egresos.adjudica_codigo and ao_compra_adjudica.compra_codigo = fo_recibos_detalle_egresos.compra_codigo WHERE fo_recibos_detalle_egresos.IdRecibo =  " & VAR_RECIBO & "  "
       'APRUEBA fo_recibos_oficiales
       db.Execute "update fo_recibos_oficiales_egresos set correl_doc = IdRecibo, estado_codigo = 'APR' where IdRecibo = " & VAR_RECIBO & " "
-      
-      db.Execute "update fo_recibos_detalle_egresos SET doc_numero = IdRecibo WHERE doc_numero ='0'"
+      db.Execute "update fo_recibos_oficiales_egresos set fecha_aprueba = '" & Date & "', usr_aprueba = '" & glusuario & "' where IdRecibo = " & VAR_RECIBO & " "
+      'db.Execute "update fo_recibos_detalle_egresos SET doc_numero = IdRecibo WHERE doc_numero ='0'"
 
-      db.Execute "UPDATE ao_compra_adjudica SET ao_compra_adjudica.doc_numero = fo_recibos_detalle_egresos.doc_numero FROM ao_compra_adjudica INNER JOIN fo_recibos_detalle_egresos ON ao_compra_adjudica.compra_codigo =fo_recibos_detalle_egresos.compra_codigo AND ao_compra_adjudica.adjudica_codigo  =fo_recibos_detalle_egresos.adjudica_codigo WHERE ao_compra_adjudica.doc_numero ='0' "
+      'db.Execute "UPDATE ao_compra_adjudica SET ao_compra_adjudica.doc_numero = fo_recibos_detalle_egresos.doc_numero FROM ao_compra_adjudica INNER JOIN fo_recibos_detalle_egresos ON ao_compra_adjudica.compra_codigo =fo_recibos_detalle_egresos.compra_codigo AND ao_compra_adjudica.adjudica_codigo  =fo_recibos_detalle_egresos.adjudica_codigo WHERE ao_compra_adjudica.doc_numero ='0' "
       
       OptFilGral2_Click
       
@@ -3667,7 +3725,7 @@ Private Sub BtnAprobar_Click()
         MsgBox "El USUARIO no tiene Acceso !!. Consulte con el Administrador del Sistema. ", vbExclamation, "Atención!"
     End If
   Else
-      MsgBox "No se puede aprobar el registro actual, este debe estar ANULADO o APROBADO..."
+      MsgBox "No se puede aprobar el registro actual, este debe estar ANULADO o VERIFICADO ..."
   End If
 
 Exit Sub
@@ -3786,6 +3844,53 @@ End Sub
 
 
 
+Private Sub BtnAprobar1_Click()
+ On Error GoTo UpdateErr
+  If Ado_datos.Recordset!estado_codigo = "REG" And Ado_datos.Recordset!estado_verificado = "REG" Then
+    If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CARIZACA" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
+      VAR_RECIBO = Ado_datos.Recordset!IdRecibo
+      ' ACTUALIZA TOTALES fo_recibos_oficiales_egresos
+      db.Execute "update fo_recibos_oficiales_egresos set fo_recibos_oficiales_egresos.total_bs = fv_recibos_det_egreso_acumulado.TotalAdjudica_bs, fo_recibos_oficiales_egresos.total_dol = fv_recibos_det_egreso_acumulado.TotalAdjudica_dol from fo_recibos_oficiales_egresos inner join fv_recibos_det_egreso_acumulado on fo_recibos_oficiales_egresos.IdRecibo = fv_recibos_det_egreso_acumulado.IdRecibo WHERE fo_recibos_oficiales_egresos.IdRecibo =  " & VAR_RECIBO & ""
+      'Actualiza Detalle
+      db.Execute "update fo_recibos_detalle_egresos set estado_codigo = 'APR', estado_destino = 'REG', estado_aprueba='REG'  WHERE fo_recibos_detalle_egresos.IdRecibo =  " & VAR_RECIBO & "  "
+      'APRUEBA ao_compra_adjudica
+      db.Execute "update ao_compra_adjudica set ao_compra_adjudica.estado_codigo = 'APR', ao_compra_adjudica.estado_codigo_tes = 'APR', ao_compra_adjudica.estado_pagado = 'REG' from ao_compra_adjudica inner join fo_recibos_detalle_egresos on ao_compra_adjudica.adjudica_codigo = fo_recibos_detalle_egresos.adjudica_codigo and ao_compra_adjudica.compra_codigo = fo_recibos_detalle_egresos.compra_codigo WHERE fo_recibos_detalle_egresos.IdRecibo =  " & VAR_RECIBO & "  "
+      'APRUEBA fo_recibos_oficiales
+      db.Execute "update fo_recibos_oficiales_egresos set correl_doc = IdRecibo, estado_verificado = 'APR' where IdRecibo = " & VAR_RECIBO & " "
+      db.Execute "update fo_recibos_oficiales_egresos set fecha_verificado = '" & Date & "', usr_verificado = '" & glusuario & "' where IdRecibo = " & VAR_RECIBO & " "
+      
+      db.Execute "update fo_recibos_detalle_egresos SET doc_numero = IdRecibo WHERE IdRecibo = " & VAR_RECIBO & " "     'doc_numero ='0' AND
+
+      db.Execute "UPDATE ao_compra_adjudica SET ao_compra_adjudica.doc_numero = fo_recibos_detalle_egresos.doc_numero FROM ao_compra_adjudica INNER JOIN fo_recibos_detalle_egresos ON ao_compra_adjudica.compra_codigo =fo_recibos_detalle_egresos.compra_codigo AND ao_compra_adjudica.adjudica_codigo  =fo_recibos_detalle_egresos.adjudica_codigo WHERE ao_compra_adjudica.doc_numero ='0' "
+      
+      
+      OptFilGral2_Click
+      
+      If (dg_datos.SelBookmarks.Count <> 0) Then
+          dg_datos.SelBookmarks.Remove 0
+      End If
+      If Ado_datos.Recordset.RecordCount > 0 Then
+          rs_datos.Find "IdRecibo = " & VAR_RECIBO & "   ", , , 1
+          dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
+          ' If rs_det1.RecordCount > 0 Then
+          ' rs_det1.MoveLast
+          'End If
+      Else
+          rs_datos.MoveLast
+      End If
+    Else
+        MsgBox "El USUARIO no tiene Acceso !!. Consulte con el Administrador del Sistema. ", vbExclamation, "Atención!"
+    End If
+  Else
+      MsgBox "No se puede VERIFICAR el registro actual, este debe estar ANULADO o VERIFICADO o ya APROBADO ..."
+  End If
+
+Exit Sub
+UpdateErr:
+MsgBox Err.Description
+
+End Sub
+
 Private Sub BtnBuscar_Click()
   If Ado_datos.Recordset.RecordCount > 0 Then
     'JQA
@@ -3812,7 +3917,7 @@ Private Sub BtnBuscar_Click()
 End Sub
 
 Private Sub BtnBuscar2_Click()
- If Ado_datos14.Recordset.RecordCount > 0 Then
+ If ado_datos14.Recordset.RecordCount > 0 Then
     'JQA
     '  Dim ClVBusca As  ClBuscaEnGridPropio 'Componente de busquedas
     '  Dim ClBuscaSec As ClBuscaSecuencialEnRS
@@ -3829,7 +3934,7 @@ Private Sub BtnBuscar2_Click()
       ClBuscaGrid.EsTdbGrid = False
       Set ClBuscaGrid.GridTrabajo = DtGLista
       ClBuscaGrid.QueryUtilizado = queryinicial2
-      Set ClBuscaGrid.RecordsetTrabajo = Ado_datos14.Recordset
+      Set ClBuscaGrid.RecordsetTrabajo = ado_datos14.Recordset
       ClBuscaGrid.CamposVisibles = "110"
       ClBuscaGrid.Ejecutar
       PosibleApliqueFiltro = True
@@ -3858,8 +3963,8 @@ On Error GoTo UpdateErr
 '  Fra_Total.Visible = True
   dg_datos.Visible = True
   FrmABMDet.Visible = True
-  dtc_desc3.backColor = &H80000008
-  dtc_desc3.ForeColor = &H80000005
+'  dtc_desc3.backColor = &H80000008
+'  dtc_desc3.ForeColor = &H80000005
   
   'Refrescar Grid
   If OptFilGral1.Value = True Then
@@ -3926,7 +4031,7 @@ On Error GoTo UpdateErr
 '          rs_datos!usr_codigo = glusuario
 '           Ado_datos.Recordset.Requery
 '           Ado_datos.Refresh
-           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & Ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & Ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(Ado_datos14.Recordset!venta_precio_total_dol), 0, Ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
+           db.Execute "ap_ventas_grla 1 ,'" & glGestion & "', " & Ado_datos.Recordset!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "', " & Ado_datos.Recordset!doc_numero_alm & ", '" & ado_datos14.Recordset!bien_codigo & "', '" & Ado_datos.Recordset!edif_codigo & "'," & Ado_datos.Recordset!venta_codigo & ",'" & Ado_datos.Recordset!beneficiario_codigo_alm & "','" & Ado_datos.Recordset!fecha_verif & "'," & ado_datos14.Recordset!bien_cantidad_por_empaque & "," & precio_tot & ", " & IIf(IsNull(ado_datos14.Recordset!venta_precio_total_dol), 0, ado_datos14.Recordset!venta_precio_total_dol) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!venta_descripcion & "'," & precio_uni & ""
            Call AbrirDetalle
           rs_datos.UpdateBatch adAffectAll
        End If
@@ -3972,8 +4077,8 @@ On Error GoTo UpdateErr
     Fra_datos.Enabled = True
     dg_datos.Visible = True
     FrmDetalle.Visible = True
-    dtc_desc3.backColor = &H80000008
-    dtc_desc3.ForeColor = &H80000005
+'    dtc_desc3.backColor = &H80000008
+'    dtc_desc3.ForeColor = &H80000005
 '    Fra_Total.Visible = True
     FrmABMDet.Visible = True
     'Refrescar Grid
@@ -4046,23 +4151,22 @@ Private Sub BtnImprimir_Click()
         CryV01.WindowShowSearchBtn = True
         CryV01.WindowShowRefreshBtn = True
         CryV01.WindowShowPrintSetupBtn = True
-        
         Dim iResult As Integer
         If GlBaseDatos = "ADMIN_EMPRESA" Then
             If Ado_datos11.Recordset.RecordCount > 10 Then
-                CryV01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_recibos_oficiales_tesoreria_pag1.rpt"
+                CryV01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_recibos_oficiales_tesoreria_egresos_pag1.rpt"
             Else
                 CryV01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_recibos_oficiales_tesoreria_egresos.rpt"
             End If
         Else
             If Ado_datos11.Recordset.RecordCount > 10 Then
-                CryV01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_recibos_oficiales_tesoreria_pag1.rpt"
+                CryV01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_recibos_oficiales_tesoreria_pag1Prueba.rpt"
             Else
                 CryV01.ReportFileName = App.Path & "\Reportes\Tesoreria\fr_recibos_oficiales_tesoreria_egresosPrueba.rpt"
             End If
         End If
-            'var_titulo = "RECIBO OFICIAL TESORERIA"
-            var_titulo = "ORDEN DE CANCELACION"
+        'var_titulo = "RECIBO OFICIAL TESORERIA"
+        var_titulo = "ORDEN DE CANCELACION"
         CryV01.WindowShowPrintSetupBtn = True
         CryV01.WindowShowRefreshBtn = True
         CryV01.StoredProcParam(0) = Ado_datos.Recordset!IdRecibo
@@ -4104,9 +4208,9 @@ End Sub
 
 Private Sub BtnModificar_Click()
 On Error GoTo UpdateErr
-If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CARIZACA" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
+If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "PLOPEZ" Or glusuario = "MCOARITY" Or glusuario = "VPAREDES" Or glusuario = "EVILLALOBOS" Or glusuario = "MVALDIVIA" Or glusuario = "CARIZACA" Or glusuario = "AFLORES" Or glusuario = "FMOREIRA" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
-    If Ado_datos.Recordset("estado_codigo") = "REG" Then
+    If Ado_datos.Recordset("estado_verificado") = "REG" Then
         accion = "MOD"
         FrmCabecera.Enabled = True
         FrmDetalle.Visible = False
@@ -4127,7 +4231,7 @@ If glusuario = "ASANTIVAÑEZ" Or glusuario = "TCASTILLO" Or glusuario = "FCABRERA
         dtc_desc4.SetFocus
         
     Else
-      MsgBox "NO se puede MODIFICAR, porque el registro ya fue Aprobado, Anulado o Cerrado.", , "Atencion"
+      MsgBox "NO se puede MODIFICAR, porque el registro ya fue Verificado, Aprobado o Anulado ...", , "Atencion"
     End If
   Else
         MsgBox "NO se puede MODIFICAR !!. Verifique si existe el registro. ", vbExclamation, "Atención!"
@@ -4182,8 +4286,14 @@ Private Sub CmdCancelaCobro_Click()
 End Sub
 
 Private Sub BtnDesAprobar_Click()
+    If glusuario = "ADMIN" Or glusuario = "PLOPEZ" Or glusuario = "VPAREDES" Then
+    Else
+        MsgBox "El Usuario NO tiene acceso, consulte con el Administrador del Sistema", vbCritical, "ACCESO DENEGADO"
+        Exit Sub
+    End If
  On Error GoTo UpdateErr
-  If Ado_datos.Recordset!estado_codigo = "APR" Then
+  If Ado_datos.Recordset!estado_verificado = "APR" And Ado_datos.Recordset!estado_codigo = "REG" Then
+    
     sino = MsgBox("Está Seguro de DESAPROBAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
       If sino = vbYes Then
         VAR_RECIBO = Ado_datos.Recordset!IdRecibo
@@ -4207,7 +4317,7 @@ Private Sub BtnDesAprobar_Click()
             'db.Execute "update ao_ventas_cobranza_det set ao_ventas_cobranza_det.estado_codigo = 'REG', ao_ventas_cobranza_det.estado_codigo_tes = 'REG' from ao_ventas_cobranza_det inner join fo_recibos_detalle on ao_ventas_cobranza_det.correl_cobro = fo_recibos_detalle.correl_cobro WHERE fo_recibos_detalle.IdRecibo =  " & VAR_RECIBO & "  "
             'APRUEBA fo_recibos_oficiales
             'db.Execute "update fo_recibos_oficiales set estado_codigo = 'APR' where IdRecibo = " & VAR_RECIBO & " "
-            db.Execute "update fo_recibos_oficiales_egresos set estado_codigo = 'REG' where IdRecibo = " & VAR_RECIBO & " "
+            db.Execute "update fo_recibos_oficiales_egresos set estado_verificado = 'REG' where IdRecibo = " & VAR_RECIBO & " "
             
             OptFilGral2_Click
             
@@ -4294,12 +4404,12 @@ End Sub
 Private Sub BtnAnlDetalle_Click()
 On Error GoTo UpdateErr
  If Ado_datos11.Recordset.RecordCount > 0 Then
-    If Ado_datos.Recordset!estado_codigo = "REG" Then
+    If Ado_datos.Recordset!estado_verificado = "REG" Then
           'sino = MsgBox("Está Seguro de BORRAR el Registro Activo --> " + ado_datos14.Recordset!cobranza_codigo, vbYesNo + vbQuestion, "Atención")
-          sino = MsgBox("Está Seguro de ANULAR (devolder a ORIGEN) el Registro Activo --> ", vbYesNo + vbQuestion, "Atención")
+          sino = MsgBox("Está Seguro de Devolver (Retornar a ORIGEN) el Registro Activo --> ", vbYesNo + vbQuestion, "Atención")
           If sino = vbYes Then
             'ACTUALIZA APRUEBA ao_compra_adjudica
-            db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'REG'  WHERE adjudica_codigo = " & Ado_datos11.Recordset!adjudica_codigo & "  and compra_codigo = " & Ado_datos11.Recordset!compra_codigo & "  "
+            db.Execute "UPDATE ao_compra_adjudica SET estado_codigo_tes = 'REG', doc_numero='0'  WHERE adjudica_codigo = " & Ado_datos11.Recordset!adjudica_codigo & "  and compra_codigo = " & Ado_datos11.Recordset!compra_codigo & "  "
             
             'BORRA RECIBO DETALLE_EGRESOS
             db.Execute "delete fo_recibos_detalle_egresos Where IdRecibo = " & Ado_datos.Recordset!IdRecibo & " and adjudica_codigo = " & Ado_datos11.Recordset!adjudica_codigo & "  "
@@ -4424,7 +4534,6 @@ Private Sub CmdOK3_Click()
     BtnAddDetalle.Visible = True
     DtGLista.Enabled = True
 End Sub
-
 
 Private Sub dtc_aux3_Click(Area As Integer)
     dtc_codigo3.BoundText = dtc_aux3.BoundText
@@ -4745,7 +4854,7 @@ Private Sub Form_Load()
         usuario2 = rs_aux3!beneficiario_codigo
         VAR_BENEF = rs_aux3!beneficiario_codigo
         VAR_DA = rs_aux3!da_codigo
-        VAR_UNID = rs_aux3!UNIDAD_codigo
+        VAR_UNID = rs_aux3!unidad_codigo
     Else
         usuario2 = "3361040"
         VAR_BENEF = "0"
@@ -4756,16 +4865,16 @@ Private Sub Form_Load()
     Select Case VAR_DA
         Case "1.8"    'Cochabamba
             VAR_DPTO = "3"
-            parametro = "DPAGB"
+            parametro = "DTESB"
         Case "1.7"    'Santa Cruz
             VAR_DPTO = "7"
-            parametro = "DPAGS"
+            parametro = "DTESS"
         Case "1.3", "1.4", "1.5"    'La Paz
             VAR_DPTO = "2"
             parametro = "DTESO"
         Case "1.9"    ' Chuquisaca
             VAR_DPTO = "1"
-            parametro = "DPAGC"
+            parametro = "DTESC"
         Case Else    ' OTRO
             VAR_DPTO = "2"
             parametro = "DTESO"
@@ -4777,13 +4886,15 @@ Private Sub Form_Load()
     
     Call ABRIR_TABLAS_AUX
     Call OptFilGral1_Click
-    If Ado_datos.Recordset.RecordCount = 0 Then
+    'queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & VAR_UNID & "'   "
+    'If Ado_datos.Recordset.RecordCount = 0 Then
+    If glusuario <> "ADMIN" Then
         'queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & VAR_BENEF & "'   "
         queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & VAR_UNID & "'   "
         '
     Else
         'queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "'   "
-        queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' AND unidad_codigo_adm = '" & Ado_datos.Recordset!UNIDAD_codigo & "'   "
+        queryinicial0 = "select * from fv_compra_adjudica_tes WHERE estado_codigo <> 'ANL' and estado_codigo_tes = 'REG' "      'AND unidad_codigo_adm = '" & Ado_datos.Recordset!unidad_codigo & "'   "
         '
     End If
     'Call CARGAPARAM
@@ -4824,10 +4935,10 @@ Private Sub ABRIR_TABLAS_AUX()
 '    dtc_desc1.BoundText = dtc_codigo1.BoundText
 
 '    'Beneficiario Personas Nat. y Juridicas
-'     Set rs_datos2 = New ADODB.Recordset
-'    If rs_datos2.State = 1 Then rs_datos2.Close
-'    rs_datos2.Open "select * from gc_unidad_ejecutora where estado_codigo = 'APR' AND da_codigo = '" & VAR_DA & "'", db, adOpenStatic
-'    Set Ado_datos2.Recordset = rs_datos2
+'     Set rs_datos8 = New ADODB.Recordset
+'    If rs_datos8.State = 1 Then rs_datos8.Close
+'    rs_datos8.Open "select * from gc_unidad_ejecutora where estado_codigo = 'APR' AND da_codigo = '" & VAR_DA & "'", db, adOpenStatic
+'    Set Ado_datos2.Recordset = rs_datos8
 '    dtc_desc2.BoundText = dtc_codigo2.BoundText
     
     
@@ -4856,13 +4967,12 @@ Private Sub ABRIR_TABLAS_AUX()
     Set Ado_datos5.Recordset = rs_datos5
     dtc_desc5.BoundText = dtc_codigo5.BoundText
 
-'    'gc_departamento - Origen
-'    Set rs_datos21 = New ADODB.Recordset
-'    If rs_datos21.State = 1 Then rs_datos21.Close
-'    rs_datos21.Open "select * from gc_departamento   ", db, adOpenStatic
-'    'rs_datos21.Open "select * from gc_departamento where depto_codigo = '" & VAR_DPTO & "'  ", db, adOpenStatic      ''4273257'    'beneficiario_codigo= '" & dtc_codigo4.Text & "'
-'    Set Ado_datos21.Recordset = rs_datos21
-''    dtc_desc21.BoundText = dtc_codigo21.BoundText
+    'Proveedor a O.C. a Nombre de
+    Set rs_datos21 = New ADODB.Recordset
+    If rs_datos21.State = 1 Then rs_datos21.Close
+    rs_datos21.Open "select * from gc_beneficiario WHERE estado_codigo = 'APR' order by beneficiario_denominacion ", db, adOpenStatic
+    Set Ado_datos21.Recordset = rs_datos21
+    dtc_desc21.BoundText = dtc_codigo21.BoundText
     
 '    'gc_departamento - Destino
 '    Set rs_datos22 = New ADODB.Recordset
@@ -4883,16 +4993,17 @@ Private Sub grabar()
        'IdRecibo, correl_doc, beneficiario_codigo_resp, beneficiario_codigo, unidad_codigo_resp, unidad_codigo, total_bs, total_dol,
        'fecha_recibo, estado_conciliado, estado_codigo, usr_codigo, fecha_registro , hora_registro
 
-        db.Execute "INSERT INTO fo_recibos_oficiales_egresos (clasif_codigo, doc_codigo, correl_doc, beneficiario_codigo_resp, beneficiario_codigo, unidad_codigo, unidad_codigo_resp, total_bs, total_dol, " & _
-            " fecha_recibo , estado_conciliado, estado_codigo, usr_codigo, fecha_registro, hora_registro) " & _
+        db.Execute "INSERT INTO fo_recibos_oficiales_egresos (clasif_codigo, doc_codigo, correl_doc,  beneficiario_codigo, beneficiario_codigo_resp, unidad_codigo, unidad_codigo_resp, total_bs, total_dol, " & _
+            " fecha_recibo , estado_conciliado, estado_codigo, usr_codigo, fecha_registro, hora_registro, beneficiario_codigo_Prov) " & _
             " values ('" & dtc_aux3 & "', '" & dtc_codigo3 & "', " & var_cod & ", '" & dtc_codigo4 & "', '" & dtc_codigo5 & "', '" & dtc_unidad4.Text & "', '" & parametro & "', '0', '0',  " & _
-            " '" & DTPfechasol & "', 'REG', 'REG', '" & glusuario & "', '" & Date & "', ''  ) "
+            " '" & DTPfechasol & "', 'REG', 'REG', '" & glusuario & "', '" & Date & "', '', '" & dtc_codigo21.Text & "' ) "
     End If
     If swgrabar = 2 Then
         If Ado_datos.Recordset.RecordCount > 0 Then
             'INI ACTUALIZA
             db.Execute "UPDATE fo_recibos_oficiales_egresos SET beneficiario_codigo_resp = '" & dtc_codigo4.Text & "', usr_codigo = '" & glusuario & "', fecha_recibo = '" & DTPfechasol & "', beneficiario_codigo = '" & dtc_codigo5.Text & "'  WHERE IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
             db.Execute "UPDATE fo_recibos_oficiales_egresos SET unidad_codigo_resp = '" & dtc_unidad4.Text & "', unidad_codigo = '" & parametro & "'  WHERE IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
+            db.Execute "UPDATE fo_recibos_oficiales_egresos SET beneficiario_codigo_Prov = '" & dtc_codigo21.Text & "' WHERE IdRecibo = " & Ado_datos.Recordset!IdRecibo & " "
         End If
 
     End If
@@ -4908,7 +5019,6 @@ Private Sub Form_Unload(Cancel As Integer)
 '    frmmo_formulario_M1.Dtc_Pers_Cargo = rs_Personal!cargo_codigo
 '  End If
 '  glPersNew = "N"
-
 End Sub
 
 Private Sub OptFilGral1_Click()
@@ -4918,16 +5028,16 @@ Private Sub OptFilGral1_Click()
     rs_datos6.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
     If rs_datos6.RecordCount > 0 Then
         VAR_BENI = rs_datos6!beneficiario_codigo
-        VAR_BENR = rs_datos6!UNIDAD_codigo
+        VAR_UNID = rs_datos6!unidad_codigo
     End If
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case glusuario
-        Case "ADMIN", "VPAREDES", "RCUELA", "DBRAÑEZ", "FCHAVEZ", "CSALINAS"
-            queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG') "
-        Case "PLOPEZ", "MVALDIVIA", "CARIZACA", "FMOREIRA", "AFLORES"
+        Case "ADMIN", "VPAREDES", "RCUELA", "FVASQUEZ", "CSALINAS", "PLOPEZ", "MCOARITY"
+            queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG'  ) "
+        Case "MVALDIVIA", "CARIZACA", "FMOREIRA", "AFLORES", "SPAREDES"
             'queryinicial = "select * From fo_recibos_oficiales WHERE (estado_codigo = 'REG' AND  (beneficiario_codigo ='" & VAR_BENI & "' OR beneficiario_codigo ='6962804')) "
-            queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG') "
+            queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG' AND unidad_codigo = '" & VAR_UNID & "' ) "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (estado_codigo = 'REG' AND  beneficiario_codigo_resp ='" & VAR_BENI & "') "
         Case "TCASTILLO"
@@ -4957,14 +5067,15 @@ Private Sub OptFilGral2_Click()
     rs_datos6.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
     If rs_datos6.RecordCount > 0 Then
         VAR_BENI = rs_datos6!beneficiario_codigo
+        VAR_UNID = rs_datos6!unidad_codigo
     End If
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case glusuario
-        Case "ADMIN", "VPAREDES", "SQUISPE", "FVASQUEZ", "RCUELA", "CSALINAS"
+        Case "ADMIN", "VPAREDES", "SQUISPE", "FVASQUEZ", "RCUELA", "CSALINAS", "PLOPEZ", "MCOARITY"
             queryinicial = "select * From fo_recibos_oficiales_egresos  "
-        Case "MPEÑARANDA", "SPAREDES", "PLOPEZ", "MVALDIVIA"
-            queryinicial = "select * From fo_recibos_oficiales_egresos  "
+        Case "MPEÑARANDA", "SPAREDES", "MVALDIVIA", "CARIZACA", "FMOREIRA", "AFLORES"
+            queryinicial = "select * From fo_recibos_oficiales_egresos  WHERE (unidad_codigo = '" & VAR_UNID & "' ) "
         Case "FCABRERA", "FDELGADILLO", "ASANTIVAÑEZ"
             queryinicial = "select * From fo_recibos_oficiales_egresos WHERE (beneficiario_codigo_resp ='" & VAR_BENI & "') "
         Case "TCASTILLO", "RVALDIVIEZO"
@@ -5296,13 +5407,13 @@ Private Sub Option1_Click()
         rs_datos14.Open "select * from fv_ventas_cobranza_det_recibos where  idRecibo = " & Ado_datos.Recordset!IdRecibo & " order by  cobranza_fecha DESC ", db, adOpenKeyset, adLockOptimistic   ' beneficiario_codigo_resp = '" & Ado_datos.Recordset!beneficiario_codigo_resp & "' AND
     End If
     rs_datos14.Sort = "cobranza_fecha desc"
-    Set Ado_datos14.Recordset = rs_datos14.DataSource
-    Ado_datos14.Recordset.Requery
-    If Ado_datos14.Recordset.RecordCount > 0 Then
+    Set ado_datos14.Recordset = rs_datos14.DataSource
+    ado_datos14.Recordset.Requery
+    If ado_datos14.Recordset.RecordCount > 0 Then
         deta2 = 1
         DtGLista.Visible = True
         FraBuscaDet.Visible = True
-        Set DtGLista.DataSource = Ado_datos14.Recordset
+        Set DtGLista.DataSource = ado_datos14.Recordset
         'Call AbreAlmacen
     Else
         deta2 = 0

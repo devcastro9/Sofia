@@ -1,9 +1,9 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
-Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "todg6.ocx"
+Object = "{0D6234D1-DBA2-11D1-B5DF-0060976089D0}#6.0#0"; "TODG6.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
 Begin VB.Form tw_tareas_crono_instalacion 
    BackColor       =   &H00C0C0C0&
@@ -150,7 +150,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   119209985
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker2 
@@ -164,7 +164,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   119209985
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker3 
@@ -178,7 +178,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   119209985
          CurrentDate     =   44885
       End
       Begin MSComCtl2.DTPicker DTPicker4 
@@ -192,7 +192,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _ExtentX        =   2990
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109641729
+         Format          =   119209985
          CurrentDate     =   44885
       End
       Begin VB.Label Label4 
@@ -908,7 +908,7 @@ Begin VB.Form tw_tareas_crono_instalacion
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   4560
-            Picture         =   "tw_tareas_crono_instalacion.frx":E004
+            Picture         =   "tw_tareas_crono_instalacion.frx":E48E
             ScaleHeight     =   615
             ScaleWidth      =   1245
             TabIndex        =   28
@@ -923,7 +923,7 @@ Begin VB.Form tw_tareas_crono_instalacion
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "tw_tareas_crono_instalacion.frx":E7C6
+            Picture         =   "tw_tareas_crono_instalacion.frx":EC50
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   27
@@ -939,7 +939,7 @@ Begin VB.Form tw_tareas_crono_instalacion
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1440
-            Picture         =   "tw_tareas_crono_instalacion.frx":F093
+            Picture         =   "tw_tareas_crono_instalacion.frx":F51D
             ScaleHeight     =   615
             ScaleWidth      =   1395
             TabIndex        =   26
@@ -1057,7 +1057,7 @@ Begin VB.Form tw_tareas_crono_instalacion
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "tw_tareas_crono_instalacion.frx":F960
+         Bindings        =   "tw_tareas_crono_instalacion.frx":FDEA
          Height          =   5370
          Left            =   120
          TabIndex        =   5

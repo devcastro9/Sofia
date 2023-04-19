@@ -2200,7 +2200,7 @@ Begin VB.Form frm_to_cronograma_mensual
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110624769
+         Format          =   109182977
          CurrentDate     =   44600
          MaxDate         =   55153
          MinDate         =   2

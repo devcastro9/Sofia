@@ -28,7 +28,7 @@ Begin VB.Form fw_ventas_cobranzas
       ScaleHeight     =   2085
       ScaleWidth      =   12435
       TabIndex        =   88
-      Top             =   6120
+      Top             =   2520
       Visible         =   0   'False
       Width           =   12495
       Begin MSDataListLib.DataCombo DctOrigina18 
@@ -105,7 +105,7 @@ Begin VB.Form fw_ventas_cobranzas
          Appearance      =   0
          BackColor       =   16777215
          ForeColor       =   0
-         ListField       =   "credito"
+         ListField       =   "monto_bs"
          BoundColumn     =   "cod_bancarizacion"
          Text            =   "Todos"
       End
@@ -433,7 +433,7 @@ Begin VB.Form fw_ventas_cobranzas
       Height          =   6105
       Left            =   4200
       TabIndex        =   25
-      Top             =   120
+      Top             =   0
       Visible         =   0   'False
       Width           =   11055
       Begin VB.TextBox Text1 
@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   129302529
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   110166017
+            Format          =   129302529
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   110166017
+            Format          =   129302529
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -4566,9 +4566,9 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos01.Recordset!venta_codigo & "'  ", db, adOpenKeyset, adLockOptimistic
         'queryinicial2 = "select * from ao_ventas_detalle where venta_codigo = " & Ado_datos01.Recordset!venta_codigo & " and correl_venta = " & Ado_datos01.Recordset!correl_venta & " "
         'rs_datos14.Open queryinicial2, db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'TxtMontoBs.Text = Ado_datos01.Recordset!monto_total_bS
             'TxtMontoUs.Text = Ado_datos01.Recordset!deuda_cobrada
@@ -5031,19 +5031,22 @@ Private Sub BtnAprobar1_Click()
             MsgBox "No se puede APROBAR debe registrar al Cobrador, verifique los datos y vuelva a intentar ...", , "Atención"
             Exit Sub
          End If
-         'LIQ_VTA_CBB
-         'LIQ_VTA_CBB_DOL
-        'LIQ_VTA_LPZ
-        'LIQ_VTA_LPZ_DOL
-        'LIQ_VTA_SCZ
-        'LIQ_VTA_SCZ_DOL
-        'TRF_DIRECTA_CBB
-        'TRF_DIRECTA_LPZ
-        'TRF_DIRECTA_SCZ
-         If (Ado_datos02.Recordset!doc_numero = "0" Or IsNull(Ado_datos02.Recordset!doc_numero)) And (dtc_cta2.Text <> "LIQ_VTA_LPZ") Then
+         'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
+         If (Ado_datos02.Recordset!trans_codigo = "F" Or Ado_datos02.Recordset!trans_codigo = "T" Or Ado_datos02.Recordset!trans_codigo = "O") Then
+            If CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
+                If glusuario = "GSOLIZ" Or glusuario = "ADMIN" Then
+                    MsgBox "La cobranza tiene una fecha de Comprobante menor al 31-DICIEMBRE-2022, Usted tiene autorización para este registro ... ", , "Atención"
+                Else
+                    MsgBox "No se puede VERIFICAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+                    Exit Sub
+                End If
+            End If
+        End If
+        If (Ado_datos02.Recordset!doc_numero = "0" Or IsNull(Ado_datos02.Recordset!doc_numero)) And (dtc_cta2.Text <> "LIQ_VTA_LPZ") Then
             MsgBox "No se puede APROBAR debe registrar el Numero de RECIBO, verifique los datos y vuelva a intentar ...", , "Atención"
             Exit Sub
          End If
+                  
          If (Ado_datos02.Recordset!trans_codigo <> "E") And (IsNull(Ado_datos02.Recordset!cmpbte_fecha) Or (Ado_datos02.Recordset!cmpbte_fecha = "01/01/1900")) Then
             MsgBox "No se puede APROBAR, verifique la fecha de Cheque o Transferencia y vuelva a intentar ...", , "Atención"
             Exit Sub
@@ -5558,24 +5561,37 @@ Private Sub valida_campos()
         Exit Sub
     End If
     'INI POR CIERRE WWWWWWWWWWWWWWW
-    If glusuario = "APALACIOS" Then
-    Else
-        If DataCombo9.Text = "O" Or DataCombo9.Text = "T" Then
-        '        C E F I O T X
-            'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
-            If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
-                'MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-                MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-                VAR_VAL = "ERR"
-                Exit Sub
-            End If
-            If CDate(DTPFechaCmpbte.Value) >= CDate("01/01/2021") And CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
-                MsgBox "No se puede Registrar una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+    'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
+     If (DataCombo9.Text = "F" Or DataCombo9.Text = "T" Or DataCombo9.Text = "O") Then
+        If CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
+            If glusuario = "APALACIOS" Or glusuario = "ADMIN" Or glusuario = "GSOLIZ" Then
+                MsgBox "La fecha de Comprobante es menor al 31-DICIEMBRE-2022, solo se realiza con Autorizacion, consulte con Contabilidad ... ", , "Atención"
+            Else
+                MsgBox "No se puede GRABAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
                 VAR_VAL = "ERR"
                 Exit Sub
             End If
         End If
     End If
+        
+'    If glusuario = "APALACIOS" Then
+'    Else
+'        If DataCombo9.Text = "O" Or DataCombo9.Text = "T" Then
+'        '        C E F I O T X
+'            'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
+'            If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
+'                'MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 30-junio-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+'                MsgBox "No se puede Registrar una cobranza con fecha de Recibo menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+'                VAR_VAL = "ERR"
+'                Exit Sub
+'            End If
+'            If CDate(DTPFechaCmpbte.Value) >= CDate("01/01/2021") And CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
+'                MsgBox "No se puede Registrar una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+'                VAR_VAL = "ERR"
+'                Exit Sub
+'            End If
+'        End If
+'    End If
     'FIN POR CIERRE WWWWWWWWWWWWWWW
     If (TxtMonto02.Text = "" Or TxtMonto02 = "0" Or TxtMonto02 = "0.00") Then
       'MsgBox "Debe Registrar el " + lbl_monto1.Caption + ", !! Vuelva a Intentar ...", vbExclamation, "Atención"
@@ -9616,18 +9632,18 @@ End Sub
 Private Sub DTPicker1_LostFocus()
     ' CIERRE TEMPORAL DE COBRANZAS GESTION 2021 Y hasta Abril 2022
     
-    If glusuario = "APALACIOS" Then
-    Else
-        'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
-        If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
-            'If Ado_datos01.Recordset!unidad_codigo = "DVTA" Or Ado_datos01.Recordset!unidad_codigo = "DCOMS" Or Ado_datos01.Recordset!unidad_codigo = "DCOMB" Or Ado_datos01.Recordset!unidad_codigo = "DCOMC" Then
-            '    MsgBox "El registro para la Gestión 2021, será CERRADO el 31-mar-2022, consulte con Contabilidad ... ", , "Atención"
-            'Else
-                MsgBox "No se puede Registrar una cobranza con fecha menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
-                Exit Sub
-            'End If
-        End If
-    End If
+'    If glusuario = "APALACIOS" Then
+'    Else
+'        'If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("30/06/2022") Then
+'        If CDate(DTPicker1.Value) >= CDate("01/01/2021") And CDate(DTPicker1.Value) <= CDate("31/12/2022") Then
+'            'If Ado_datos01.Recordset!unidad_codigo = "DVTA" Or Ado_datos01.Recordset!unidad_codigo = "DCOMS" Or Ado_datos01.Recordset!unidad_codigo = "DCOMB" Or Ado_datos01.Recordset!unidad_codigo = "DCOMC" Then
+'            '    MsgBox "El registro para la Gestión 2021, será CERRADO el 31-mar-2022, consulte con Contabilidad ... ", , "Atención"
+'            'Else
+'                MsgBox "No se puede Registrar una cobranza con fecha menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
+'                Exit Sub
+'            'End If
+'        End If
+'    End If
     'Para CONTROL de Recibos    HASTA QUE SE HABILITE LA DOSIFICACION
     Set rs_aux8 = New ADODB.Recordset
     If rs_aux8.State = 1 Then rs_aux8.Close
@@ -9972,7 +9988,7 @@ Private Sub OptFilGral01_Click()
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100') "
-        Case "JCASTRO", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO"
+        Case "JCASTRO", "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO", "RROMERO"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_fac where (doc_codigo_fac = 'R-101' OR doc_codigo_fac = 'R-100') "

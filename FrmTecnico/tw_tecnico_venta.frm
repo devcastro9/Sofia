@@ -18,18 +18,18 @@ Begin VB.Form tw_tecnico_venta
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   15274.24
+   ScaleHeight     =   15171.32
    ScaleMode       =   0  'User
-   ScaleWidth      =   2.39205e6
+   ScaleWidth      =   9.29963e6
    WindowState     =   2  'Maximized
    Begin VB.Frame FraAnula 
       BackColor       =   &H00404040&
       Caption         =   "Registra Justificacion para Anulación de Factura"
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
-      Left            =   8640
+      Left            =   8400
       TabIndex        =   200
-      Top             =   4920
+      Top             =   5040
       Visible         =   0   'False
       Width           =   7575
       Begin VB.CommandButton BtnGrabar2 
@@ -93,9 +93,9 @@ Begin VB.Form tw_tecnico_venta
       Caption         =   "Registra Datos del Cliente"
       ForeColor       =   &H00FFFFC0&
       Height          =   2535
-      Left            =   8640
+      Left            =   8400
       TabIndex        =   193
-      Top             =   4920
+      Top             =   5040
       Visible         =   0   'False
       Width           =   7575
       Begin VB.TextBox TxtCelular 
@@ -705,14 +705,13 @@ Begin VB.Form tw_tecnico_venta
       TabPicture(2)   =   "tw_tecnico_venta.frx":CE0F
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "Registro ALCANCE CONTRATO"
       TabPicture(3)   =   "tw_tecnico_venta.frx":CE2B
       Tab(3).ControlEnabled=   0   'False
-      Tab(3).Control(0)=   "FrmABMDet1"
+      Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
-      Tab(3).Control(2)=   "FrmAlcance"
+      Tab(3).Control(2)=   "FrmABMDet1"
       Tab(3).ControlCount=   3
       Begin VB.PictureBox FrmABMDet1 
          BackColor       =   &H80000015&
@@ -1248,7 +1247,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   35913729
+            Format          =   129302529
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -1505,14 +1504,14 @@ Begin VB.Form tw_tecnico_venta
                Name            =   "MS Sans Serif"
                Size            =   8.25
                Charset         =   0
-               Weight          =   700
+               Weight          =   400
                Underline       =   0   'False
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
             CheckBox        =   -1  'True
-            Format          =   35913729
+            Format          =   129302529
             CurrentDate     =   44600
             MaxDate         =   47848
             MinDate         =   36526
@@ -1540,7 +1539,7 @@ Begin VB.Form tw_tecnico_venta
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   35913729
+            Format          =   129302529
             CurrentDate     =   44621
             MinDate         =   36526
          End
@@ -2038,7 +2037,7 @@ Begin VB.Form tw_tecnico_venta
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   35913729
+               Format          =   129302529
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2063,7 +2062,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   35913729
+               Format          =   129302529
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -2415,6 +2414,15 @@ Begin VB.Form tw_tecnico_venta
          Begin VB.Frame Fra_datos 
             BackColor       =   &H00C0C0C0&
             Caption         =   "- EMPRESA ------------------------------------------------------------------------------------------ Cobrador "
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             ForeColor       =   &H00800000&
             Height          =   1965
             Left            =   60
@@ -2480,7 +2488,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   35913729
+               Format          =   129302529
                CurrentDate     =   44348
                MaxDate         =   401768
                MinDate         =   2
@@ -2563,7 +2571,7 @@ Begin VB.Form tw_tecnico_venta
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   35913729
+               Format          =   129302529
                CurrentDate     =   44348
                MinDate         =   36526
             End
@@ -2724,6 +2732,15 @@ Begin VB.Form tw_tecnico_venta
          Begin VB.Frame Fra_Total 
             BackColor       =   &H00C0C0C0&
             Caption         =   $"tw_tecnico_venta.frx":11EC4
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             ForeColor       =   &H00C00000&
             Height          =   1215
             Left            =   60
@@ -3271,7 +3288,7 @@ Begin VB.Form tw_tecnico_venta
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   35913729
+            Format          =   129302529
             CurrentDate     =   44348
             MinDate         =   2
          End
@@ -3324,7 +3341,7 @@ Begin VB.Form tw_tecnico_venta
             DataSource      =   "Ado_datos"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
-               Size            =   8.25
+               Size            =   12
                Charset         =   0
                Weight          =   700
                Underline       =   0   'False
@@ -5531,6 +5548,7 @@ Dim rs_aux19 As New ADODB.Recordset
 Dim rs_aux20 As New ADODB.Recordset
 Dim rs_aux21 As New ADODB.Recordset
 Dim rs_aux22 As New ADODB.Recordset
+Dim rs_idfactura As New ADODB.Recordset
 
 Dim rstdestino As New ADODB.Recordset
 Dim rstcorrel_ing As New ADODB.Recordset
@@ -5592,6 +5610,8 @@ Dim VAR_EXPOR, VAR_VALD As String
 Dim VAR_NEWZ, VAR_ESTADO As String
 Dim VAR_PRO, VAR_SUB, VAR_ETAPA, VAR_CLASIF, VAR_DOCS As String
 Dim VAR_FACTURA As String
+Dim VAR_UNI0 As String
+Dim VAR_UNIDAD0 As String
 
 Dim FInicio, FFin, FControl As Date
 
@@ -5827,10 +5847,10 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         Else
             LblEmpresa.Caption = "CGI"
         End If
-        If glusuario = "CARIZACA" Or glusuario = "KBETANCOURTH" Or glusuario = "DTORRICO" Or glusuario = "VBELLIDO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Or glusuario = "LNAVA" Then
-            btnEliminar.Visible = True
+        If glusuario = "CARIZACA" Or glusuario = "DTORRICO" Or glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Or glusuario = "ADMIN" Or glusuario = "LNAVA" Then
+            BtnEliminar.Visible = True
         Else
-            btnEliminar.Visible = False
+            BtnEliminar.Visible = False
         End If
         If buscados = 0 Then
            OptFilGral1.Visible = True
@@ -5892,7 +5912,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                     BtnVer.Visible = False
                 Case "P"
                     lbl_cerrado.Caption = "TRAMITE PROVISIONAL !!"
-                    If glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JAVIER" Or glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+                    If glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "APALACIOS" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "ARODRIGUEZ" Then
                         BtnModificar.Visible = True
                         BtnVer2.Visible = True
                         FrmABMDet.Visible = True
@@ -5914,7 +5934,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                     BtnVer.Visible = True
                 Case Else
                     BtnAñadir.Visible = True   'Cerrar Tramite
-                    If glusuario = "MARTEAGA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "VBELLIDO" Or glusuario = "TCASTILLO" Or glusuario = "RVALDIVIEZO" Or glusuario = "SQUISPE" Or glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Then
+                    If glusuario = "MARTEAGA" Or glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Or glusuario = "CARIZACA" Or glusuario = "FDELGADILLO" Or glusuario = "TCASTILLO" Or glusuario = "SQUISPE" Or glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "ARODRIGUEZ" Then
                         BtnDesAprobar.Visible = True     'Provisional
                     Else
                         BtnDesAprobar.Visible = False     'Provisional
@@ -5995,9 +6015,9 @@ Private Sub ABRIR_DETALLE()
         Set rs_datos14 = New ADODB.Recordset
         If rs_datos14.State = 1 Then rs_datos14.Close
         rs_datos14.Open "select * from ao_ventas_detalle where venta_codigo = '" & Ado_datos.Recordset!venta_codigo & "' order by  par_codigo, bien_codigo ", db, adOpenKeyset, adLockOptimistic
-        Set Ado_datos14.Recordset = rs_datos14
-        Ado_datos14.Recordset.Requery
-        If Ado_datos14.Recordset.RecordCount > 0 Then
+        Set ado_datos14.Recordset = rs_datos14
+        ado_datos14.Recordset.Requery
+        If ado_datos14.Recordset.RecordCount > 0 Then
             deta2 = 1
             'Call AbreAlmacen
         Else
@@ -6129,7 +6149,7 @@ End Sub
 
 Private Sub BtnAñadir_Click()
 'CERRAR UN TRAMITE = S
-If glusuario = "CARIZACA" Or glusuario = "VBELLIDO" Or glusuario = "JAVIER" Or glusuario = "JSAAVEDRA" Or glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "ULEDEZMA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Then
+If glusuario = "CARIZACA" Or glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Or glusuario = "JSAAVEDRA" Or glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "JCASTRO" Or glusuario = "MARTEAGA" Or glusuario = "ULEDEZMA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "ASANTIVAÑEZ" Then
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_cancelado = "N" And Ado_datos.Recordset!estado_codigo = "APR" Then
       sino = MsgBox("Esta seguro de CERRAR EL TRAMITE, ya no podrá realizar modificaciones... ", vbYesNo, "Confirmando")
@@ -6528,34 +6548,6 @@ Private Sub BtnAñadir2_Click()
 End Sub
 
 Private Sub CRONO_MTTO()
-'    Set rs_aux99 = New ADODB.Recordset
-'    If rs_aux99.State = 1 Then rs_aux99.Close
-'    rs_aux99.Open "Select * from AV_VENTAS_MTTO_2023", db, adOpenStatic
-'    If rs_aux99.RecordCount > 0 Then
-'        rs_aux99.MoveFirst
-'        While Not rs_aux99.EOF
-'               VAR_COD4 = rs_aux99!unidad_codigo
-'               VAR_GLOSA = rs_aux99!venta_descripcion
-'               VAR_DOL2 = Round(rs_aux99("venta_monto_total_dol"), 2)
-'               VAR_BS2 = Round(rs_aux99("venta_monto_total_bs"), 2)
-'               VAR_UNIMED = rs_aux99!unimed_codigo_tec
-'               'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-'
-'               VAR_SOL = rs_aux99!solicitud_codigo
-'               VAR_MED = rs_aux99!unimed_codigo_tec
-'               VAR_MED2 = rs_aux99!unimed_codigo_cobr
-'               FInicio = rs_aux99!venta_fecha_inicio
-'               FFin = rs_aux99!venta_fecha_fin
-'               TimeD = rs_aux99!venta_plazo_dias_calendario
-'               CANTOT = rs_aux99!venta_cantidad_total
-'               VAR_GLOSA2 = rs_aux99!venta_descripcion
-'               VAR_PROY2 = rs_aux99!edif_codigo
-'               VAR_CITE = rs_aux99!unidad_codigo_ant         'OS - 36AO - 36NB - 36NO...
-'               VAR_BENEF = rs_aux99!beneficiario_codigo
-'               VAR_BEND = "0" 'dtc_desc2.Text
-'               VAR_EDIFD = "0" 'dtc_desc3.Text
-'               VAR_UNID = "0" 'dtc_desc1.Text
-'               NumComp = rs_aux99!venta_codigo
 
     Set rs_aux0 = New ADODB.Recordset
     If rs_aux0.State = 1 Then rs_aux0.Close
@@ -6671,7 +6663,10 @@ Private Sub BtnAprobar_Click()
             End If
         End If
     End If
-
+    If IsNull(Ado_datos.Recordset("venta_tipo")) Then        'Or (Ado_datos.Recordset("venta_monto_total_bs") = 0)       ' JQA ENE-2016
+        MsgBox "No se puede APROBAR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
+        Exit Sub
+    End If
   On Error GoTo UpdateErr
   VAR_VAL = "OK"
   Call valida_campos
@@ -6691,10 +6686,10 @@ Private Sub BtnAprobar_Click()
         db.Execute "UPDATE ao_ventas_cabecera SET solicitud_tipo = 10 WHERE (unidad_codigo LIKE '%MAN%' AND solicitud_tipo <> 10) "
         db.Execute "UPDATE ao_ventas_cabecera SET solicitud_tipo = 4 WHERE (unidad_codigo LIKE '%INS%' AND solicitud_tipo <> 4) "
         'INI VALIDACIONES
-        If IsNull(Ado_datos.Recordset("venta_tipo")) Then        'Or (Ado_datos.Recordset("venta_monto_total_bs") = 0)       ' JQA ENE-2016
-            MsgBox "No se puede APROBAR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
-            Exit Sub
-        End If
+        'If IsNull(Ado_datos.Recordset("venta_tipo")) Then        'Or (Ado_datos.Recordset("venta_monto_total_bs") = 0)       ' JQA ENE-2016
+        '    MsgBox "No se puede APROBAR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
+        '    Exit Sub
+        'End If
         'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 '        Call CRONO_MTTO
         'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -6905,7 +6900,7 @@ Private Sub BtnAprobar_Click()
                             If Left(VAR_CITE, 3) = "36A" Then
                                 VAR_CITE = VAR_CITE
                             Else
-                                VAR_CITE = "36AO" + Trim(Str(VAR_CORREL))
+                                VAR_CITE = "36A" + Trim(Str(VAR_CORREL))
                             End If
                         Else
                             VAR_CITE = "OS-" + Trim(Str(VAR_CORREL))
@@ -7057,7 +7052,8 @@ Private Sub PARA_COMEX()
         Set rs_aux11 = New ADODB.Recordset
         If rs_aux11.State = 1 Then rs_aux11.Close
         'rs_aux1.Open "select * from ao_ventas_alcance where venta_codigo= " & NumComp & "  ", db, adOpenKeyset, adLockBatchOptimistic
-        rs_aux11.Open "select * from ac_bienes where kit = '90' AND observaciones = '" & Trim(VAR_SOLTIPO2) & "' ", db, adOpenKeyset, adLockBatchOptimistic
+        'rs_aux11.Open "select * from ac_bienes where kit = '90' AND observaciones = '" & Trim(VAR_SOLTIPO2) & "' ", db, adOpenKeyset, adLockBatchOptimistic
+        rs_aux11.Open "select * from ac_bienes where kit = '90'  ", db, adOpenKeyset, adLockBatchOptimistic
         If rs_aux11.RecordCount > 0 Then
           rs_aux11.MoveFirst
           While Not rs_aux11.EOF
@@ -7116,13 +7112,13 @@ Private Sub PARA_COMEX()
                    rs_aux3!doc_codigo = "R-207"
                    rs_aux3!poa_codigo = "4.1.1"
                    rs_aux3!doc_codigo_alm = "R-114"
-                   rs_aux3!beneficiario_codigo_resp = "4828818"                ' OJO ---- (PARAMETRIZAR)
+                   rs_aux3!beneficiario_codigo_resp = "4908774"    '"4828818"    'usuario2              ' OJO ---- (PARAMETRIZAR)
                    'doc_numero_alm
                    'GENERAR CORRELATIVO
                    rs_aux3!estado_codigo_eqp = "REG"
                    rs_aux3!estado_codigo = "REG"
                    rs_aux3!usr_codigo = glusuario
-                   rs_aux3!Fecha_Registro = Date
+                   rs_aux3!fecha_registro = Date
                    rs_aux3.Update
                    
                    'db.Execute "INSERT INTO ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto, grupo_codigo, subgrupo_codigo, par_codigo, tipo_descuento, almacen_codigo , usr_usuario, fecha_registro) " &
@@ -7155,7 +7151,7 @@ Private Sub PARA_COMEX()
                            'REPUESTOS
                            Set rs_aux19 = New ADODB.Recordset
                            If rs_aux19.State = 1 Then rs_aux19.Close
-                           rs_aux19.Open "select * from ao_ventas_detalle where venta_codigo= " & NumComp & " AND almacen_tipo = 'R' ", db, adOpenKeyset, adLockBatchOptimistic
+                           rs_aux19.Open "select * from ao_ventas_detalle where venta_codigo= " & NumComp & " AND almacen_tipo = 'R' AND par_codigo = '39810' ", db, adOpenKeyset, adLockBatchOptimistic
                            If rs_aux19.RecordCount > 0 Then
                               rs_aux19.MoveFirst
                               While Not rs_aux19.EOF
@@ -7505,53 +7501,59 @@ Private Sub BtnAprobar2_Click()
                 'SI ES CGI o CGE (Falta)
                 ', edif_codigo_corto
                 ', " & Ado_datos.Recordset!edif_codigo_corto & "
-                nroventa = Ado_datos16.Recordset!venta_codigo
-                db.Execute "update gc_documentos_respaldo set gc_documentos_respaldo.correl_doc = " & nroventa & " Where gc_documentos_respaldo.doc_codigo = '" & Ado_datos16.Recordset!doc_codigo & "' "
+                'nroventa = Ado_datos16.Recordset!venta_codigo
+                NumComp = Ado_datos16.Recordset!venta_codigo
+                db.Execute "update gc_documentos_respaldo set gc_documentos_respaldo.correl_doc = " & NumComp & " Where gc_documentos_respaldo.doc_codigo = '" & Ado_datos16.Recordset!doc_codigo & "' "
                 'GRABA CABECERA DE FACTURACION NUEVA (ao_ventas_cobranza_fac)   'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
                 'SE GENERAN CON LA FACTURA (dosifica_autorizacion, nro_factura, fecha_fac, codigo_control, archivo_foto, depto_codigo, Gestion, mes, edif_codigo_corto)
-                db.Execute "INSERT INTO ao_ventas_cobranza_fac (ges_gestion, venta_codigo, doc_codigo_fac,              beneficiario_codigo_fac,                                beneficiario_nit,           glosa_Descripcion,                                  beneficiario_RazonSocial, nro_dui,      total_bs,                                       total_dol,                                      cambio_oficial, " & _
+                Set rs_idfactura = New ADODB.Recordset
+                If rs_idfactura.State = 1 Then rs_idfactura.Close
+                Set rs_idfactura = db.Execute("INSERT INTO ao_ventas_cobranza_fac (ges_gestion, venta_codigo, doc_codigo_fac,              beneficiario_codigo_fac,                                beneficiario_nit,           glosa_Descripcion,                                  beneficiario_RazonSocial, nro_dui,      total_bs,                                       total_dol,                                      cambio_oficial, " & _
                             " Importe_ICE, Exportaciones_Exentas, Ventas_tasa_0, Subtotal_ICE, Descuentos_Bonos, Importe_Base_Debito_Fiscal,                    factura_87_bs,                                                      factura_87_dol,                                                 debito_fiscal_13_bs,                                                debito_fiscal_13_dol,                                               literal, " & _
                             " clasif_codigo, doc_codigo, doc_numero, factura_impresa, tipo_moneda, cta_codigo, cta_codigo2, correl_contab, estado_fac, estado_codigo_fac, estado_codigo,  " & _
                             " usr_codigo, fecha_registro, edif_codigo_corto, edif_codigo, codigo_empresa ) " & _
-                    " VALUES ('" & glGestion & "',  " & nroventa & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
+                            " OUTPUT inserted.IdFactura " & _
+                    " VALUES ('" & glGestion & "',  " & NumComp & ", '" & Ado_datos16.Recordset!doc_codigo_fac & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & dtc_codigo2A.Text & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', '" & dtc_desc2A.Text & "',  '0', " & Ado_datos16.Recordset!cobranza_total_bs & ",  " & Ado_datos16.Recordset!cobranza_total_dol & ",  " & GlTipoCambioOficial & ",  " & _
                             " '0',          '0',                    '0',            '0',            '0',    " & Ado_datos16.Recordset!cobranza_total_bs & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.87, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_bs * 0.13, 2) & ", " & Round(Ado_datos16.Recordset!cobranza_total_dol * 0.13, 2) & ", '" & Ado_datos16.Recordset!Literal & "',  " & _
                             " 'ADM',        'R-103',        '0',        'N',            'BOB',      'NN',           'NN',        '0',            'REG',      'REG',          'REG',  " & _
-                            " '" & glusuario & "', '" & CDate(Date) & "', " & VAR_EDIFC & ", '" & VAR_PROY2 & "', " & VAR_EMPRESA & "  ) "
-                            
+                            " '" & glusuario & "', '" & CDate(Date) & "', " & VAR_EDIFC & ", '" & VAR_PROY2 & "', " & VAR_EMPRESA & "  ) ")
+                 VAR_IDFAC = rs_idfactura.Fields("IdFactura")
+                 rs_idfactura.Close
                 'Actualiza CORREO ELECTRONICO
                 db.Execute "UPDATE ao_ventas_cobranza_fac SET ao_ventas_cobranza_fac.beneficiario_email  = gc_beneficiario.beneficiario_email FROM ao_ventas_cobranza_fac INNER JOIN gc_beneficiario ON ao_ventas_cobranza_fac.beneficiario_codigo_fac = gc_beneficiario.beneficiario_codigo where ao_ventas_cobranza_fac.beneficiario_email Is Null "
     
-                Set rs_aux20 = New ADODB.Recordset
-                If rs_aux20.State = 1 Then rs_aux20.Close
-                rs_aux20.Open "Select max(IdFactura) as Codigo3 from ao_ventas_cobranza_fac  ", db, adOpenKeyset, adLockOptimistic
-                If IsNull(rs_aux20!codigo3) Then
-                   VAR_IDFAC = 1
-                Else
-                   VAR_IDFAC = rs_aux20!codigo3
-                End If
-                'GRABA CABECERA DE LA FACTURA (QR)
+'                Set rs_aux20 = New ADODB.Recordset
+'                If rs_aux20.State = 1 Then rs_aux20.Close
+'                rs_aux20.Open "Select max(IdFactura) as Codigo3 from ao_ventas_cobranza_fac  ", db, adOpenKeyset, adLockOptimistic
+'                If IsNull(rs_aux20!codigo3) Then
+'                   VAR_IDFAC = 1
+'                Else
+'                   VAR_IDFAC = rs_aux20!codigo3
+'                End If
+                'GRABA CABECERA DE LA FACTURA (QR)  '" & VAR_IDFAC & "
                 db.Execute "INSERT INTO ao_ventas_cobranza_fac_QR (IdFactura, archivo_foto_cargado, estado_codigo, usr_codigo, fecha_registro ) " & _
                     " VALUES ('" & VAR_IDFAC & "',  'N',            'REG',   '" & glusuario & "', '" & CDate(Date) & "' ) "
             End If
        Else
             VAR_IDFAC = 0
        End If
-            'GRABA DETALLE DE FACTURACION NUEVA (ao_ventas_cobranza)
+            'GRABA DETALLE DE FACTURACION NUEVA (ao_ventas_cobranza) " & VAR_IDFAC & "
             db.Execute "INSERT INTO ao_ventas_cobranza (ges_gestion, cobranza_prog_codigo, venta_codigo,                                    beneficiario_codigo,                                    beneficiario_codigo_fac,                            beneficiario_codigo_resp,                               cobranza_programada_bs,                                 cobranza_programada_dol,                                cobranza_solicitado_bs,                                  cobranza_solicitado_dol,                 cobranza_descuento_bs, cobranza_descuento_dol, cobranza_total_bs,         cobranza_total_dol,                                     Literal,    cobranza_fecha_prog,                              cobranza_fecha_cobro, cobranza_observaciones, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_fac, cobranza_nro_factura, cobranza_nro_autorizacion, poa_codigo,  " & _
             " estado_codigo, usr_codigo, fecha_registro, cobranza_fecha_sol, estado_codigo_sol, estado_codigo_fac, venta_codigo_new) " & _
-            " VALUES ('" & glGestion & "', " & Ado_datos16.Recordset!cobranza_prog_codigo & ", " & nroventa & ", '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo_resp & "', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '0', '0', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '" & Ado_datos16.Recordset!Literal & "', '" & Ado_datos16.Recordset!cobranza_fecha_prog & "', '" & Ado_datos16.Recordset!cobranza_fecha_cobro & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', 'FIN', 'FIN-02', 'FIN-02-02', 'ADM', 'R-105', '0', 'R-101', '0', '0', '3.1.2',  " & _
+            " VALUES ('" & glGestion & "', " & Ado_datos16.Recordset!cobranza_prog_codigo & ", " & NumComp & ", '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo & "', '" & Ado_datos16.Recordset!beneficiario_codigo_resp & "', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '0', '0', " & Ado_datos16.Recordset!cobranza_programada_bs & ", " & Ado_datos16.Recordset!cobranza_programada_dol & ", '" & Ado_datos16.Recordset!Literal & "', '" & Ado_datos16.Recordset!cobranza_fecha_prog & "', '" & Ado_datos16.Recordset!cobranza_fecha_cobro & "', '" & Ado_datos16.Recordset!cobranza_concepto_plazo & "', 'FIN', 'FIN-02', 'FIN-02-02', 'ADM', 'R-105', '0', '" & VAR_FACTURA & "', '0', '0', '3.1.2',  " & _
             " 'REG', '" & glusuario & "', '" & Date & "', '" & Date & "', 'APR', 'REG', " & VAR_IDFAC & " )"
 
             ' APRUEBA ao_ventas_cobranza_prog
-            'db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
-            db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!Fecha_Registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+            db.Execute "update ao_ventas_cobranza_prog set usr_aprueba = '" & glusuario & "', fecha_aprueba = '" & Date & "' Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+            db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR'  Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+            'fecha_registro= '" & Ado_datos16.Recordset!fecha_registro & "'
             ' Actualiza CODIGO_COBRNAZA en el cronogrma
             db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_codigo = ao_ventas_cobranza.cobranza_codigo from ao_ventas_cobranza_prog INNER JOIN ao_ventas_cobranza " & _
-            " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & nroventa & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & Ado_datos16.Recordset!cobranza_prog_codigo & " )"
+            " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & NumComp & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & Ado_datos16.Recordset!cobranza_prog_codigo & " )"
 
-            db.Execute "update ao_ventas_cobranza_prog SET Gestion = YEAR(cobranza_fecha_prog) Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+            db.Execute "update ao_ventas_cobranza_prog SET Gestion = YEAR(cobranza_fecha_prog) Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
 
-            db.Execute "update ao_ventas_cobranza_prog SET cobranza_mes = MONTH(cobranza_fecha_prog) Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+            db.Execute "update ao_ventas_cobranza_prog SET cobranza_mes = MONTH(cobranza_fecha_prog) Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
             'Call ABRIR_TABLAS_AUX
             sino = MsgBox("Deseas IMPRIMIR la Solicitud de FACTURA de la CUOTA elegida ? ", vbYesNo, "Confirmando")
             If sino = vbYes Then             'IMPRIME FACTURA
@@ -8192,9 +8194,10 @@ Private Sub CRONO2()
             'FControl = Str(fdia) + "/" + Str(fmes) + "/" + Str(fanio)
             'rs_aux2!cobranza_fecha_prog = FInicio + (30 * CONT2)
             'rs_aux2!cobranza_fecha_prog = FControl
-            If rs_aux2!cobranza_fecha_prog = Null Then
-                rs_aux2!cobranza_fecha_prog = Date
-            End If
+            'If rs_aux2!cobranza_fecha_prog = Null Then
+            '    rs_aux2!cobranza_fecha_prog = Date
+            'End If
+            rs_aux2!cobranza_fecha_prog = IIf(IsNull(rs_aux2!cobranza_fecha_prog), Date, rs_aux2!cobranza_fecha_prog)
             rs_aux2!gestion = Year(rs_aux2!cobranza_fecha_prog)
             rs_aux2!cobranza_mes = Month(rs_aux2!cobranza_fecha_prog)
             
@@ -8238,7 +8241,7 @@ Private Sub CRONO2()
             rs_aux2!poa_codigo = "3.2.3"
             rs_aux2!estado_codigo = "REG"
             rs_aux2!usr_codigo = glusuario
-            rs_aux2!Fecha_Registro = Format(Date, "dd/mm/yyyy")
+            rs_aux2!fecha_registro = Format(Date, "dd/mm/yyyy")
             rs_aux2!hora_registro = Format(Time, "hh:mm:ss")
             rs_aux2!correl_ac = 0
             rs_aux2!estado_ac = "REG"
@@ -8407,7 +8410,7 @@ End Sub
 
 Private Sub BtnImprimir1_Click()
    If Ado_datos.Recordset.RecordCount > 0 Then
-      If Ado_datos14.Recordset.RecordCount > 0 Then
+      If ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
 '        If GlBaseDatos = "ADMIN_EMPRESA" Then
@@ -8512,7 +8515,7 @@ Private Sub BtnModificar_Click()
         dtc_desc2.backColor = &H80000018
         Text11.Visible = False
     Else
-        If (Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_cancelado = "P") And (glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "VMEJIA" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "FDELGADILLO" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ") Then
+        If (Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_cancelado = "P") And (glusuario = "APALACIOS" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "VMEJIA" Or glusuario = "TCASTILLO" Or glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Or glusuario = "FDELGADILLO" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "MARTEAGA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "ARODRIGUEZ") Then
             FrmCabecera.Enabled = True
             FrmDetalle.Visible = False
             FrmCobranza.Visible = False
@@ -8659,6 +8662,7 @@ Private Sub Chk_plazo_Click()
     End If
 End Sub
 
+
 'Private Sub Cmd_Cliente_Click()
 '    glPersNew = "P"
 '    frmBeneficiario.Show 'vbModal
@@ -8669,11 +8673,11 @@ Private Sub CmdCancelaCobro_Click()
   'swgrabar = 0
   'Call cerea
   swnuevo = 0
-  If Ado_datos.Recordset("estado_codigo") = "REG" Then
-    Call OptFilGral1_Click
-  Else
-    Call OptFilGral2_Click
-  End If
+'  If Ado_datos.Recordset("estado_codigo") = "REG" Then
+'    Call OptFilGral1_Click
+'  Else
+'    Call OptFilGral2_Click
+'  End If
     SSTab1.Tab = 0
     SSTab1.TabEnabled(0) = True
     SSTab1.TabEnabled(1) = False
@@ -8729,10 +8733,20 @@ Private Sub BtnModDetalle2_Click()
     FrmDetalle.Visible = False
     FrmCobranza.Visible = False
     VAR_COBR1 = Ado_datos16.Recordset!cobranza_prog_codigo
+    Select Case Ado_datos16.Recordset!trans_codigo
+      Case "28"
+          CmbEmision.Text = "FACTURA FISICA"
+      Case "29"
+          CmbEmision.Text = "CORREO ELECTRONICO"
+      Case "30"
+          CmbEmision.Text = "WHATSAPP"
+      Case Else
+          CmbEmision.Text = "FACTURA FISICA"
+    End Select
     'swgrabar = 0
     swnuevo = 2
     TxtCobrador.Visible = False
-    If glusuario = "VBELLIDO" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "JCASTRO" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Then
+    If glusuario = "VBELLIDO" Or glusuario = "JCHIPANA" Or glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "JCASTRO" Or glusuario = "FFLORES" Or glusuario = "CARIZACA" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "MARTEAGA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CARIZACA" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RLAVAYEN" Then
         TxtMonto.Enabled = True
         TxtMonto.Locked = False
         TxtDsctoTot.Enabled = False
@@ -8786,19 +8800,6 @@ Private Sub BtnModDetalle2_Click()
         'dtc_desc2A.BackColor = &H80000005
     'End If
     VAR_MBS2 = Ado_datos16.Recordset!cobranza_programada_bs
-    'TxtMonto.SetFocus
-'    Call ABRIR_TABLA_DET
-'    Ado_datos16.Recordset.Move marca1 - 1
-'    If Aux = "DNMAN" Then
-'        If (glusuario = "VBELLIDO" Or glusuario = "GPALLY" Or glusuario = "ADMIN" Or glusuario = "VPAREDES") Then
-'            TxtMonto.Enabled = True
-'            TxtDsctoTot.Enabled = True
-'        Else
-'            TxtMonto.Enabled = False
-'            TxtDsctoTot.Enabled = False
-'        End If
-'    End If
-
   Else
     MsgBox "El Registro ya fue Aprobado o Anulado !! ", vbExclamation, "Atención!"
   End If
@@ -9178,6 +9179,7 @@ Private Sub CmdEmail_Click()
 End Sub
 
 Private Sub CmdGrabaCobro_Click()
+On Error GoTo UpdateErr
     Dim nitespacio, nitPunto As Integer
     nitespacio = InStr(1, dtc_codigo2A.Text, " ", 1)
     nitPunto = InStr(1, dtc_codigo2A.Text, ".", 1)
@@ -9186,9 +9188,10 @@ Private Sub CmdGrabaCobro_Click()
         MsgBox "El NIT del cliente a Facturar NO debe ser CERO ni tener caracteres especiales(espacios, puntos, etc) y debe tener CINCO o mas digitos", vbCritical, "Atención"
         Exit Sub
     End If
-    
+  'nroventa = Ado_datos.Recordset!venta_codigo
   NumComp = Ado_datos.Recordset!venta_codigo
   VAR_COBRANZA = Ado_datos16.Recordset!cobranza_prog_codigo
+  VAR_COMPM = Ado_datos16.Recordset!correl_prog
     If TxtMonto.Text >= 1000 And dtc_codigo2A.Text = "0" Then
         MsgBox "No se puede Solicitar una Factura >= Bs.1000, sin NIT, debe registrar el NIT del Beneficiario... ", , "Atención"
         Exit Sub
@@ -9203,7 +9206,7 @@ Private Sub CmdGrabaCobro_Click()
         MsgBox "El NIT del Cliente a Facturar es Incorrecto, debe corregir y luego vuelva a Intentar ...", vbExclamation, "Atención"
         Exit Sub
     End If
-    If (glusuario <> "VBELLIDO") Then
+    If (glusuario <> "VBELLIDO" And glusuario <> "JCHIPANA") Then
         MyPos = 0
         MyPos2 = 0
         ARROBA = "@"
@@ -9301,7 +9304,7 @@ Private Sub CmdGrabaCobro_Click()
   'If valida = 1 And dtc_codigo4A <> "" Then
 '    Set rstdestino = New ADODB.Recordset
 '    If rstdestino.State = 1 Then rstdestino.Close
-    db.BeginTrans
+'    db.BeginTrans
     If swnuevo = 1 Then
       Set rs_aux1 = New ADODB.Recordset
       If rs_aux1.State = 1 Then rs_aux1.Close
@@ -9326,11 +9329,24 @@ Private Sub CmdGrabaCobro_Click()
          rs_aux1!correl_cobro_prog = rs_aux1!correl_cobro_prog + 1
          rs_aux1.Update
       End If
-      'Ado_datos16.Recordset.AddNew
-      Ado_datos16.Recordset!cobranza_prog_codigo = correldet2
-      Ado_datos16.Recordset!venta_codigo = Ado_datos.Recordset("venta_codigo")
-      Ado_datos16.Recordset!ges_gestion = glGestion      'Ado_datos.Recordset("ges_gestion")
+      var_literal = Literal(CStr(Ado_datos16.Recordset!cobranza_programada_bs)) + " BOLIVIANOS"
+      txt_fojas.Text = IIf(txt_fojas.Text = "", "1", txt_fojas.Text)
+    
+      db.Execute "INSERT INTO ao_ventas_cobranza_prog (ges_gestion, venta_codigo, cobranza_prog_codigo, venta_codigo_new, beneficiario_codigo, beneficiario_codigo_resp, cobranza_programada_bs, cobranza_programada_dol, cobranza_descuento_bs, " & _
+           " cobranza_descuento_dol, cobranza_total_bs, cobranza_total_dol,     cobranza_fecha_prog,        cobranza_fecha_cobro,       cobranza_observaciones, cobranza_requisito_plazo, cobranza_concepto_plazo,  " & _
+           " nro_fojas, Gestion,                    cobranza_mes,                   fmes_plan, literal, doc_codigo_fac,         proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, doc_codigo_crono, doc_numero_crono, poa_codigo, edif_cod, " & _
+           " zpiloto_codigo,                        correl_ac, estado_ac, cobranza_codigo, trans_codigo, es_liquidacion, es_grupo_fac, IdFactura, estado_codigo, usr_codigo, fecha_registro, hora_registro)  " & _
+           " VALUES ('" & glGestion & "',                       " & NumComp & ", " & correldet2 & ", '0',     '" & dtc_benef2A.Text & "', '" & dtc_codigo4A.Text & "', " & CDbl(TxtMonto.Text) & ", " & CDbl(TxtDsctoTot.Text) & ", '0', " & _
+           " '0', " & CDbl(TxtMonto.Text) & ", " & CDbl(TxtDsctoTot.Text) & ",  '" & DTPFechaProg.Value & "', '" & DTPFechaCobro.Value & "', '" & TxtObs.Text & "', 'N',                '" & txt_plazo.Text & "', " & _
+           " '0', '" & Year(DTPFechaProg.Value) & "', " & Month(DTPFechaProg.Value) & ", '0', '" & var_literal & "', '" & VAR_FACTURA & "', 'TEC',  'TEC-02',       'TEC-02-02',    'TEC', 'R-103', '0', 'R-110', '0',      'R-360',            '0',            '3.1.2', '" & Ado_datos.Recordset!edif_codigo & "', " & _
+           " " & Ado_datos.Recordset!zpiloto_codigo & ", '0',       'REG',      '0', '" & VAR_EMISION & "',     'N',            'NO',       '0',        'REG', '" & glusuario & "', '" & Date & "', '09:00' )"
+
+'           '  cobranza_fecha_conformidad, fecha_ac, correl_prog, usr_aprueba, fecha_aprueba
     End If
+      'Ado_datos16.Recordset.AddNew
+'      Ado_datos16.Recordset!cobranza_prog_codigo = correldet2
+'      Ado_datos16.Recordset!venta_codigo = Ado_datos.Recordset("venta_codigo")
+'      Ado_datos16.Recordset!ges_gestion = glGestion      'Ado_datos.Recordset("ges_gestion")
     If swnuevo = 2 Then
       If Ado_datos16.Recordset!cobranza_prog_codigo > 1 Then
         correldet2 = Ado_datos16.Recordset!cobranza_prog_codigo - 1
@@ -9342,33 +9358,53 @@ Private Sub CmdGrabaCobro_Click()
           'If DTPFechaProg.Value <= rs_aux2!cobranza_fecha_prog Then
               MsgBox "No puede registrar una " + lbl_fechas.Caption + " menor o igual a la anterior. !! Vuelva a Intentar ...", vbExclamation, "Atención"
               If rs_aux2.State = 1 Then rs_aux2.Close
-              db.CommitTrans
+              'db.CommitTrans
               Exit Sub
           End If
         End If
       End If
+      ' Update ao_ventas_cobranza_prog
+        db.Execute "update ao_ventas_cobranza_prog set cobranza_programada_bs = " & CDbl(TxtMonto.Text) & ", cobranza_programada_dol = " & CDbl(TxtDsctoTot) & ", beneficiario_codigo_resp = '" & dtc_codigo4A.Text & "', cobranza_fecha_cobro = '" & Format(DTPFechaCobro, "DD/MM/YYYY") & "',  " & _
+        " beneficiario_codigo = '" & dtc_benef2A & "', doc_codigo_fac = '" & VAR_FACTURA & "', trans_codigo = '" & VAR_EMISION & "', cobranza_concepto_plazo = '" & txt_plazo.Text & "' " & _
+        " Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & VAR_COBRANZA & " "
+        
+'        ' Actualiza CODIGO_COBRANZA en el cronograma
+'        db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_codigo = ao_ventas_cobranza.cobranza_codigo from ao_ventas_cobranza_prog INNER JOIN ao_ventas_cobranza " & _
+'            " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & nroventa & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & rs_aux2!cobranza_prog_codigo & " )"
+'        db.Execute "update ao_ventas_cobranza_prog SET fecha_registro = '" & Date & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & rs_aux2!cobranza_prog_codigo & " "
+'        db.Execute "update ao_ventas_cobranza_prog SET Gestion = YEAR(cobranza_fecha_prog) Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & rs_aux2!cobranza_prog_codigo & " "
+'        db.Execute "update ao_ventas_cobranza_prog SET cobranza_mes = MONTH(cobranza_fecha_prog) Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & rs_aux2!cobranza_prog_codigo & " "
+'        db.Execute "update ao_ventas_cobranza_prog set usr_aprueba = '" & glusuario & "', fecha_aprueba = '" & Date & "' Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+'        db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!fecha_registro & "' Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+'        ' Actualiza CODIGO_COBRNAZA en el cronogrma
+'        db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_codigo = ao_ventas_cobranza.cobranza_codigo from ao_ventas_cobranza_prog INNER JOIN ao_ventas_cobranza " & _
+'        " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & NumComp & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & Ado_datos16.Recordset!cobranza_prog_codigo & " )"
+'        db.Execute "update ao_ventas_cobranza_prog SET Gestion = YEAR(cobranza_fecha_prog) Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+'        db.Execute "update ao_ventas_cobranza_prog SET cobranza_mes = MONTH(cobranza_fecha_prog) Where venta_codigo = " & NumComp & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
     End If
-      Ado_datos16.Recordset!beneficiario_codigo = dtc_benef2A.Text                                 'Codigo Beneficiario/Cliente
-      Ado_datos16.Recordset!beneficiario_codigo_resp = dtc_codigo4A.Text                                                     'Codigo Cobrador
-      'Ado_datos16.Recordset!nombre_cobrador = dtc_desc4A.Text   '+ " " + DtcMaterno.Text + " " + DtcNombre.Text    'Nombre Cobrador
-      Ado_datos16.Recordset!cobranza_programada_bs = CDbl(TxtMonto.Text)                                  'Monto Programado Bs
-      Ado_datos16.Recordset!cobranza_programada_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto Programado en Dolares
-      'ini PARA COBRANZA WWWWWWWWWWWWWWWWWWW
-      Ado_datos16.Recordset!cobranza_descuento_bs = 0                                 'Descuento Bs
-      Ado_datos16.Recordset!cobranza_descuento_dol = 0                                    'Descuento Dol
-      Ado_datos16.Recordset!cobranza_total_bs = CDbl(TxtMonto.Text)   'Ado_datos16.Recordset!cobranza_deuda_bs - Ado_datos16.Recordset!cobranza_descuento_bs               'Monto Total Bs
-      Ado_datos16.Recordset!cobranza_total_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado  'Ado_datos16.Recordset!cobranza_deuda_dol - Ado_datos16.Recordset!cobranza_descuento_dol               'Monto Total Dol
-      'ini PARA COBRANZA WWWWWWWWWWWWWWWWWWW
-      If Ado_datos16.Recordset!cobranza_programada_bs <> 0 Then
-            Ado_datos16.Recordset!Literal = Literal(CStr(Ado_datos16.Recordset!cobranza_programada_bs)) + " BOLIVIANOS"
-            'Ado_datos16.Recordset!Literal = Literal(CStr(Ado_datos.Recordset!venta_monto_total_bs)) + " BOLIVIANOS"
-      End If
-      Ado_datos16.Recordset!cobranza_fecha_cobro = DTPFechaCobro.Value                                'Fecha de Cobranza cobranza_fecha_conformidad
+
+'      Ado_datos16.Recordset!beneficiario_codigo = dtc_benef2A.Text                                 'Codigo Beneficiario/Cliente
+'      Ado_datos16.Recordset!beneficiario_codigo_resp = dtc_codigo4A.Text                                                     'Codigo Cobrador
+'      'Ado_datos16.Recordset!nombre_cobrador = dtc_desc4A.Text   '+ " " + DtcMaterno.Text + " " + DtcNombre.Text    'Nombre Cobrador
+'      Ado_datos16.Recordset!cobranza_programada_bs = CDbl(TxtMonto.Text)                                  'Monto Programado Bs
+'      Ado_datos16.Recordset!cobranza_programada_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado        'Monto Programado en Dolares
+'      'ini PARA COBRANZA WWWWWWWWWWWWWWWWWWW
+'      Ado_datos16.Recordset!cobranza_descuento_bs = 0                                 'Descuento Bs
+'      Ado_datos16.Recordset!cobranza_descuento_dol = 0                                    'Descuento Dol
+'      Ado_datos16.Recordset!cobranza_total_bs = CDbl(TxtMonto.Text)   'Ado_datos16.Recordset!cobranza_deuda_bs - Ado_datos16.Recordset!cobranza_descuento_bs               'Monto Total Bs
+'      Ado_datos16.Recordset!cobranza_total_dol = CDbl(TxtMonto.Text) / GlTipoCambioMercado  'Ado_datos16.Recordset!cobranza_deuda_dol - Ado_datos16.Recordset!cobranza_descuento_dol               'Monto Total Dol
+'      'ini PARA COBRANZA WWWWWWWWWWWWWWWWWWW
+'      If Ado_datos16.Recordset!cobranza_programada_bs <> 0 Then
+'            Ado_datos16.Recordset!Literal = Literal(CStr(Ado_datos16.Recordset!cobranza_programada_bs)) + " BOLIVIANOS"
+'            'Ado_datos16.Recordset!Literal = Literal(CStr(Ado_datos.Recordset!venta_monto_total_bs)) + " BOLIVIANOS"
+'
+'      End If
+'      Ado_datos16.Recordset!cobranza_fecha_cobro = DTPFechaCobro.Value                                'Fecha de Cobranza cobranza_fecha_conformidad
       'Ado_datos16.Recordset!cobranza_fecha_conformidad = DTPFechaConf.Value                                'Fecha de Cobranza
 '      Call acumulaMont(Ado_datos16.Recordset("ges_gestion"), Ado_datos16.Recordset("venta_codigo"))
 
-      Ado_datos16.Recordset!cobranza_requisito_plazo = "S"
-      Ado_datos16.Recordset!cobranza_concepto_plazo = txt_plazo.Text
+'      Ado_datos16.Recordset!cobranza_requisito_plazo = "S"
+'      Ado_datos16.Recordset!cobranza_concepto_plazo = txt_plazo.Text
       
 '      If Chk_plazo.Value = 1 Then
 '        lbl_plazo.Visible = True
@@ -9382,48 +9418,45 @@ Private Sub CmdGrabaCobro_Click()
 '        Ado_datos16.Recordset!cobranza_concepto_plazo = txt_plazo.Text
 '      End If
         
-      Ado_datos16.Recordset!nro_fojas = IIf(txt_fojas.Text = "", "1", txt_fojas.Text)
-      Ado_datos16.Recordset!cobranza_observaciones = TxtObs.Text
-      Ado_datos16.Recordset!proceso_codigo = "TEC"
-      Ado_datos16.Recordset!subproceso_codigo = "TEC-02"
-      Ado_datos16.Recordset!etapa_codigo = "TEC-02-02"
-      Ado_datos16.Recordset!clasif_codigo = "TEC"
-      Ado_datos16.Recordset!doc_codigo = "R-110"        '"R-307"
-      Ado_datos16.Recordset!doc_codigo_fac = VAR_FACTURA
-      If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DREPS" Or Ado_datos.Recordset!unidad_codigo = "DREPB" Or Ado_datos.Recordset!unidad_codigo = "DREPC" Then
-        Ado_datos16.Recordset!doc_numero = IIf(Ado_datos.Recordset!doc_numero = "", "0", Ado_datos.Recordset!doc_numero)
-      Else
-        If Ado_datos.Recordset!unidad_codigo = "DNINS" Or Ado_datos.Recordset!unidad_codigo = "DINSS" Or Ado_datos.Recordset!unidad_codigo = "DINSB" Or Ado_datos.Recordset!unidad_codigo = "DINSC" Then
-            Ado_datos16.Recordset!doc_numero = IIf(Ado_datos.Recordset!doc_numero = "", "0", Ado_datos.Recordset!doc_numero)
-        Else
-            Ado_datos16.Recordset!doc_numero = IIf(txtDoc = "", "0", txtDoc)
-        End If
-      End If
-      Ado_datos16.Recordset!doc_codigo_crono = "R-360"
-      Ado_datos16.Recordset!doc_numero_crono = IIf(txtDoc = "", "0", txtDoc)    'Ado_datos.Recordset("venta_codigo")
-      Ado_datos16.Recordset!poa_codigo = "3.1.2"
-      Ado_datos16.Recordset!cobranza_fecha_prog = DTPFechaProg.Value           'Fecha Programada de Cobranza
-      Ado_datos16.Recordset!trans_codigo = VAR_EMISION
-      Ado_datos16.Recordset!estado_codigo = "REG"
-      Ado_datos16.Recordset!usr_codigo = glusuario
-      Ado_datos16.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
-      Ado_datos16.Recordset!hora_registro = Format(Time, "hh:mm:ss")
-      Ado_datos16.Recordset.Update
-    db.CommitTrans
-  If swnuevo = 1 Then
-    'Call abre_solicitud_lista
-    'rc_Cobranza.Requery
-    'Ado_datos16.Refresh
-    'Ado_datos16.Recordset.MoveLast
-  End If
+'      Ado_datos16.Recordset!nro_fojas = IIf(txt_fojas.Text = "", "1", txt_fojas.Text)
+'      Ado_datos16.Recordset!cobranza_observaciones = TxtObs.Text
+'      Ado_datos16.Recordset!proceso_codigo = "TEC"
+'      Ado_datos16.Recordset!subproceso_codigo = "TEC-02"
+'      Ado_datos16.Recordset!etapa_codigo = "TEC-02-02"
+'      Ado_datos16.Recordset!clasif_codigo = "TEC"
+'      Ado_datos16.Recordset!doc_codigo = "R-110"        '"R-307"
+'      Ado_datos16.Recordset!doc_codigo_fac = VAR_FACTURA
+'      If Ado_datos.Recordset!unidad_codigo = "DNREP" Or Ado_datos.Recordset!unidad_codigo = "DREPS" Or Ado_datos.Recordset!unidad_codigo = "DREPB" Or Ado_datos.Recordset!unidad_codigo = "DREPC" Then
+'        Ado_datos16.Recordset!doc_numero = IIf(Ado_datos.Recordset!doc_numero = "", "0", Ado_datos.Recordset!doc_numero)
+'      Else
+'        If Ado_datos.Recordset!unidad_codigo = "DNINS" Or Ado_datos.Recordset!unidad_codigo = "DINSS" Or Ado_datos.Recordset!unidad_codigo = "DINSB" Or Ado_datos.Recordset!unidad_codigo = "DINSC" Then
+'            Ado_datos16.Recordset!doc_numero = IIf(Ado_datos.Recordset!doc_numero = "", "0", Ado_datos.Recordset!doc_numero)
+'        Else
+'            Ado_datos16.Recordset!doc_numero = IIf(txtDoc = "", "0", txtDoc)
+'        End If
+'      End If
+'      Ado_datos16.Recordset!doc_codigo_crono = "R-360"
+'      Ado_datos16.Recordset!doc_numero_crono = IIf(txtDoc = "", "0", txtDoc)    'Ado_datos.Recordset("venta_codigo")
+'      Ado_datos16.Recordset!poa_codigo = "3.1.2"
+'      Ado_datos16.Recordset!cobranza_fecha_prog = DTPFechaProg.Value           'Fecha Programada de Cobranza
+'      Ado_datos16.Recordset!trans_codigo = VAR_EMISION
+'      Ado_datos16.Recordset!estado_codigo = "REG"
+'      Ado_datos16.Recordset!usr_codigo = glusuario
+'      Ado_datos16.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
+'      Ado_datos16.Recordset!hora_registro = Format(Time, "hh:mm:ss")
+'      Ado_datos16.Recordset.Update
+'    db.CommitTrans
+    
 ' db.Execute "update ao_ventas_cabecera set ao_ventas_cabecera.unimed_codigo = ao_ventas_cabecera.unimed_codigo_cobr,ao_ventas_cabecera.venta_monto_total_bs = aa_datos_venta_cabecera.tot_bs,ao_ventas_cabecera.venta_monto_total_dol = aa_datos_venta_cabecera.tot_dol,ao_ventas_cabecera.venta_cantidad_total = aa_datos_venta_cabecera.COBRANZA,ao_ventas_cabecera.venta_saldo_p_cobrar_bs = aa_datos_venta_cabecera.tot_bs - ao_ventas_cabecera.venta_monto_cobrado_bs From aa_datos_venta_cabecera WHERE aa_datos_venta_cabecera.venta_codigo = ao_ventas_cabecera.venta_codigo and ao_ventas_cabecera.venta_codigo = " & NumComp & ""
 ' db.Execute "update aa_datos_venta_detalle set aa_datos_venta_detalle.venta_precio_unitario_bs = (aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA) / aa_datos_venta_detalle_equipos_cant.eqp, aa_datos_venta_detalle.venta_precio_total_bs = aa_datos_venta_cabecera.tot_bs / aa_datos_venta_detalle_equipos_cant.eqp, aa_datos_venta_detalle.venta_precio_total_dol = aa_datos_venta_cabecera.tot_dol / aa_datos_venta_detalle_equipos_cant.eqp, aa_datos_venta_detalle.venta_precio_unitario_dol = ((aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA) * " & GlTipoCambioOficial & ") / aa_datos_venta_detalle_equipos_cant.eqp From aa_datos_venta_cabecera, aa_datos_venta_detalle_equipos_cant where aa_datos_venta_detalle.venta_codigo = aa_datos_venta_cabecera.venta_codigo and aa_datos_venta_detalle.venta_codigo = aa_datos_venta_detalle_equipos_cant.venta_codigo and aa_datos_venta_cabecera.venta_codigo =  " & NumComp & ""
 ' db.Execute "update ao_ventas_cabecera set venta_cantidad_total = " & txtCantCobr.Text & " where venta_codigo = " & NumComp & ""
  
     'Momentaneamente SUSPENDIDO
 '    db.Execute "tp_actualiza_datos_venta " & NumComp
-    Call ABRIR_TABLAS_AUX
-    Call ABRIR_DETALLE
+    'NumComp = Ado_datos.Recordset!venta_codigo
+    'VAR_COBRANZA = Ado_datos16.Recordset!correl_prog
+    'Call ABRIR_TABLAS_AUX
+    'Call ABRIR_DETALLE
     ' db.Execute "update aa_datos_venta_detalle set aa_datos_venta_detalle.venta_precio_unitario_bs = aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA ,aa_datos_venta_detalle.venta_precio_total_bs = aa_datos_venta_cabecera.tot_bs,aa_datos_venta_detalle.venta_precio_total_dol = aa_datos_venta_cabecera.tot_dol,aa_datos_venta_detalle.venta_precio_unitario_bs = (aa_datos_venta_cabecera.tot_bs / aa_datos_venta_cabecera.COBRANZA) * " & GlTipoCambioOficial & "From aa_datos_venta_cabecera where aa_datos_venta_detalle.venta_codigo = aa_datos_venta_cabecera.venta_codigo and aa_datos_venta_cabecera.venta_codigo =  " & NumComp & ""
     SSTab1.Tab = 0
     SSTab1.TabEnabled(0) = True
@@ -9444,8 +9477,7 @@ Private Sub CmdGrabaCobro_Click()
     gestion0 = glGestion
     'gestion0 = Ado_datos.Recordset("ges_gestion")
     'NumComp = Ado_datos.Recordset("correl_venta")
-    nroventa = Ado_datos.Recordset("venta_codigo")
-
+    'NumComp = Ado_datos.Recordset("venta_codigo")
 '        DTPFechaProg.Visible = True
 '        DTPFechaCobro.Visible = False
 '        DTPFechaConf.Visible = True
@@ -9454,18 +9486,18 @@ Private Sub CmdGrabaCobro_Click()
     TxtDsctoTot.Enabled = True
     TxtObs.Enabled = True
 
-     If OptFilGral1.Value = True And Ado_datos.Recordset!estado_cancelado = "N" Then
-        'Call OptFilGral2_Click
+     If OptFilGral1.Value = True Then       'And Ado_datos.Recordset!estado_cancelado = "N" Then
         Call OptFilGral1_Click        'Pendientes
      Else
-        'Call OptFilGral1_Click
         Call OptFilGral2_Click        'TODOS
      End If
      If (dg_datos.SelBookmarks.Count <> 0) Then
         dg_datos.SelBookmarks.Remove 0
      End If
-     If Ado_datos.Recordset.RecordCount > 0 Then
+     'If Ado_datos.Recordset.RecordCount > 0 Then
+     If rs_datos.RecordCount > 0 Then
      'VAR_SW = ""
+        'rs_datos.Find "venta_codigo = " & nroventa & "   ", , , 1
         rs_datos.Find "venta_codigo = " & NumComp & "   ", , , 1
         dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
      Else
@@ -9477,13 +9509,16 @@ Private Sub CmdGrabaCobro_Click()
      End If
      If Ado_datos16.Recordset.RecordCount > 0 Then
      'VAR_SW = ""
-        rs_datos16.Find "cobranza_prog_codigo = " & VAR_COBRANZA & "   ", , , 1
+        rs_datos16.Find "correl_prog = " & VAR_COMPM & "   ", , , 1
         DtgCobro.SelBookmarks.Add (rs_datos16.Bookmark)
      Else
      'VAR_SW = ""
         rs_datos16.MoveLast
      End If
-
+     
+Exit Sub
+UpdateErr:
+  MsgBox Err.Description
 End Sub
 
 Private Sub BtnImprimir2_Click()
@@ -9630,7 +9665,7 @@ Private Sub BtnAnlDetalle_Click()
 '     'cerea
 '     ado_datos14.Refresh
       'db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
-      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & Ado_datos14.Recordset("venta_codigo_det") & " "
+      db.Execute "update ao_ventas_detalle set ao_ventas_detalle.estado_codigo = 'ANL' Where ao_ventas_detalle.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_detalle.venta_codigo_det = " & ado_datos14.Recordset("venta_codigo_det") & " "
    End If
   Else
     MsgBox "Los Bienes del registro Aprobado o Anulado, NO pueden ser ANULADOS !! ", vbExclamation, "Atención!"
@@ -10096,7 +10131,7 @@ End Sub
 
 Private Sub BtnImprimir4_Click()
  If Ado_datos.Recordset.RecordCount > 0 Then
-      If Ado_datos14.Recordset.RecordCount > 0 Then
+      If ado_datos14.Recordset.RecordCount > 0 Then
         Dim iResult As Variant, i%, Y%
         Dim co As New ADODB.Command
 
@@ -10130,9 +10165,9 @@ End Sub
 'End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
-    dtc_codigo2.BoundText = dtc_aux2.BoundText
-    dtc_desc2.BoundText = dtc_aux2.BoundText
-    Dtc_deudor2.BoundText = dtc_aux2.BoundText
+    dtc_codigo2.BoundText = Dtc_aux2.BoundText
+    dtc_desc2.BoundText = Dtc_aux2.BoundText
+    Dtc_deudor2.BoundText = Dtc_aux2.BoundText
 End Sub
 
 Private Sub dtc_aux3_Click(Area As Integer)
@@ -10162,7 +10197,7 @@ End Sub
 
 Private Sub dtc_codigo2_Click(Area As Integer)
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    dtc_aux2.BoundText = dtc_codigo2.BoundText
+    Dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 End Sub
 
@@ -10195,7 +10230,7 @@ End Sub
 
 Private Sub dtc_desc2_Click(Area As Integer)
     dtc_codigo2.BoundText = dtc_desc2.BoundText
-    dtc_aux2.BoundText = dtc_desc2.BoundText
+    Dtc_aux2.BoundText = dtc_desc2.BoundText
     Dtc_deudor2.BoundText = dtc_desc2.BoundText
 End Sub
 
@@ -10312,7 +10347,7 @@ End Sub
 
 Private Sub Dtc_deudor2_Click(Area As Integer)
     dtc_codigo2.BoundText = Dtc_deudor2.BoundText
-    dtc_aux2.BoundText = Dtc_deudor2.BoundText
+    Dtc_aux2.BoundText = Dtc_deudor2.BoundText
     dtc_desc2.BoundText = Dtc_deudor2.BoundText
 End Sub
 
@@ -10552,6 +10587,7 @@ Private Sub Form_Load()
     End If
     VAR_UORIGEN = Aux
     If Aux = "DNMAN" Then
+        VAR_UNIDAD0 = "MAN"
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
                 Aux = "DMANB"
@@ -10571,6 +10607,7 @@ Private Sub Form_Load()
          End Select
      End If
      If Aux = "DNREP" Then
+        VAR_UNIDAD0 = "REP"
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
                 Aux = "DREPB"
@@ -10590,6 +10627,7 @@ Private Sub Form_Load()
          End Select
      End If
      If Aux = "DNINS" Then
+        VAR_UNIDAD0 = "INS"
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
                 Aux = "DINSB"
@@ -10608,6 +10646,7 @@ Private Sub Form_Load()
                 VAR_ALMACEN = 9
          End Select
      End If
+     VAR_UNI0 = Aux
      'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     db.Execute "UPDATE ao_ventas_cabecera SET venta_monto_origen_bs = venta_monto_total_bs WHERE venta_monto_origen_bs ='0' OR venta_monto_origen_bs IS NULL "
     db.Execute "UPDATE ao_ventas_cabecera SET codigo_empresa = '2' WHERE venta_tipo = 'G' AND codigo_empresa IS NULL "
@@ -10665,7 +10704,7 @@ Private Sub ABRIR_TABLAS_AUX()
     'rs_datos2.Open "gp_listar_gc_beneficiario_personas", db, adOpenStatic
     Set Ado_datos2.Recordset = rs_datos2
     dtc_desc2.BoundText = dtc_codigo2.BoundText
-    dtc_aux2.BoundText = dtc_codigo2.BoundText
+    Dtc_aux2.BoundText = dtc_codigo2.BoundText
     Dtc_deudor2.BoundText = dtc_codigo2.BoundText
 
 
@@ -10887,7 +10926,7 @@ Private Sub grabar()
         " beneficiario_codigo = '" & dtc_codigo2.Text & "', beneficiario_codigo_RESP = '" & usuario2 & "', beneficiario_codigo_cobr = '" & dtc_codigo5.Text & "', venta_descripcion = '" & Trim(TxtConcepto.Text) & "', edif_codigo_corto ='" & dtc_aux3.Text & "'  " & _
         " WHERE venta_codigo = " & NumComp & " "
     
-        db.Execute "UPDATE ao_ventas_cabecera SET venta_tipo_cambio = " & GlTipoCambioMercado & ", tipoben_codigo = " & IIf(dtc_aux2.Text = "", 2, Val(dtc_aux2.Text)) & ", codigo_empresa = " & dtc_codigo8.Text & ", venta_tipo = '" & dtc_codigo11.Text & "', " & _
+        db.Execute "UPDATE ao_ventas_cabecera SET venta_tipo_cambio = " & GlTipoCambioMercado & ", tipoben_codigo = " & IIf(Dtc_aux2.Text = "", 2, Val(Dtc_aux2.Text)) & ", codigo_empresa = " & dtc_codigo8.Text & ", venta_tipo = '" & dtc_codigo11.Text & "', " & _
         " mes_inicio_crono = '" & MControl & "', venta_cantidad_cobr = " & VAR_COBR2 & ", unimed_codigo_cobr = '" & VAR_MED2 & "', venta_cantidad_total = " & VAR_COBR2 & ", doc_codigo = '" & VAR_CODDOC & "', depto_codigo = '" & VAR_DPTO & "'  " & _
         " WHERE venta_codigo = " & NumComp & " "
         
@@ -11007,96 +11046,113 @@ Private Sub OptFilGral1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
   
     Select Case VAR_DPTO
-        Case "2"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Then
-                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%MAN%')) "
-                    Else
-                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%MAN%')) "
-                    End If
-                Case "DNREP"
-                    If glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Then
-                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%REP%')) "
-                    Else
-                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%REP%')) "
-                    End If
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS')) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME')) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN')) "
-            End Select
-        Case "7"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-            End Select
-        Case "3"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-            End Select
         Case "1"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-            End Select
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '1' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+            'queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%MAN%')) "
+        Case "2"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '2' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '6' OR   Left(edif_codigo, 1) = '5' )) "
+        Case "3"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '3' OR  Left(edif_codigo, 1) = '4' )) "
         Case "4"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-            End Select
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '4' ) "
         Case "6"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
-            End Select
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '6' ) "
+        Case "7"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '7' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
         Case Else
-            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "')) "
-            queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or (unidad_codigo LIKE  '%MAN%'))) "
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' ) "
     End Select
+'    Select Case VAR_DPTOC
+'        Case "2"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JCHIPANA" Then
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%MAN%')) "
+'                    Else
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%MAN%')) "
+'                    End If
+'                Case "DNREP"
+'                    If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Then
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%REP%')) "
+'                    Else
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo LIKE  '%REP%')) "
+'                    End If
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS')) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME')) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN')) "
+'            End Select
+'        Case "7"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'            End Select
+'        Case "3"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'            End Select
+'        Case "1"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'            End Select
+'        Case "4"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'            End Select
+'        Case "6"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
+'            End Select
+'        Case Else
+'            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "')) "
+'            queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UNI0 & "' or (unidad_codigo LIKE  '%MAN%'))) "
+'    End Select
   'End If
 '    If VAR_DPTO = "2" Then
 '        queryinicial = "select * From av_ventas_cabecera WHERE (estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') "
@@ -11118,108 +11174,126 @@ Private Sub OptFilGral2_Click()
   '===== Proceso para filtrado general de datos (todos los registros )
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-  'If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Then
-  '      queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') "
-  'Else
+  If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "RCUELA" Or glusuario = "APALACIOS" Or glusuario = "CCRUZ" Then
+        'queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') "
+        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE '%" + VAR_UNIDAD0 + "%') "
+  Else
     Select Case VAR_DPTO
-        Case "2"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Then
-                        'queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = 'DMANS' or unidad_codigo = 'DNMAN' or unidad_codigo = 'DMANB' or unidad_codigo = 'DMANC') "
-                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
-                    Else
-                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
-                    End If
-                Case "DNREP"
-                    If glusuario = "ADMIN" Or glusuario = "KBETANCOURTH" Or glusuario = "LNAVA" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
-                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%REP%') "
-                    Else
-                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%REP%') "
-                    End If
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%INS%') "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%EME%') "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
-            End Select
-        Case "7"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
-            End Select
-        Case "3"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-            End Select
-            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "' AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '4' )) "
         Case "1"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNREP"
-                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNINS"
-                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNEME"
-                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                Case Else
-                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
-            End Select
-            'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DMMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ))"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '1' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+        Case "2"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '2' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '6' OR   Left(edif_codigo, 1) = '5' )) "
+        Case "3"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '3' OR  Left(edif_codigo, 1) = '4' )) "
         Case "4"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
-            End Select
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '4' ) "
         Case "6"
-            Select Case VAR_UORIGEN
-                Case "DNMAN"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNREP"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
-                Case "DNINS"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
-                Case "DNEME"
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
-                Case Else
-                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
-            End Select
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '6' ) "
+        Case "7"
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '7' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
         Case Else
-            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "')) "
-            queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = '" & parametro & "' or (unidad_codigo LIKE '%MAN%')) "
+            queryinicial = "Select * from av_ventas_cabecera where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' ) "
     End Select
+  End If
+'    Select Case VAR_DPTO
+'        Case "2"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "SQUISPE" Or glusuario = "JCHIPANA" Then
+'                        'queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = 'DMANS' or unidad_codigo = 'DNMAN' or unidad_codigo = 'DMANB' or unidad_codigo = 'DMANC') "
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
+'                    Else
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
+'                    End If
+'                Case "DNREP"
+'                    If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "FFLORES" Or glusuario = "PMAJLUF" Or glusuario = "CARIZACA" Or glusuario = "SQUISPE" Or glusuario = "CSALINAS" Or glusuario = "ARODRIGUEZ" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Then
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%REP%') "
+'                    Else
+'                        queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%REP%') "
+'                    End If
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%INS%') "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%EME%') "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo LIKE  '%MAN%') "
+'            End Select
+'        Case "7"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '8' OR  Left(edif_codigo, 1) = '9' OR Left(edif_codigo, 1) = '1' ) ) "
+'            End Select
+'        Case "3"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'            End Select
+'            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "' AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '4' )) "
+'        Case "1"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNREP"
+'                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNREP') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNINS"
+'                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNINS') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNEME"
+'                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNEME') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                Case Else
+'                    'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DNMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ) ) "
+'            End Select
+'            'queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo = '" & parametro & "' or unidad_codigo = 'DMMAN') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' ))"
+'        Case "4"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '4'  ) ) "
+'            End Select
+'        Case "6"
+'            Select Case VAR_UNI0
+'                Case "DNMAN"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNREP"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%REP%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
+'                Case "DNINS"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%INS%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6' ) ) "
+'                Case "DNEME"
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%EME%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
+'                Case Else
+'                    queryinicial = "select * From av_ventas_cabecera WHERE ((unidad_codigo LIKE  '%MAN%') AND (Left(edif_codigo, 1) = '" & VAR_DPTO & "' OR   Left(edif_codigo, 1) = '6'  ) ) "
+'            End Select
+'        Case Else
+'            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "')) "
+'            queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = '" & VAR_UNI0 & "' or (unidad_codigo LIKE '%MAN%')) "
+'    End Select
   'End If
     'queryinicial = "select * From av_ventas_cabecera WHERE (unidad_codigo = '" & parametro & "') "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic

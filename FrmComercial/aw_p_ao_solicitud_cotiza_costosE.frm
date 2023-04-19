@@ -128,6 +128,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
          TabIndex        =   3
          Text            =   "0"
          Top             =   1200
+         Visible         =   0   'False
          Width           =   885
       End
       Begin VB.ComboBox cmd_moneda 
@@ -258,7 +259,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                SubFormatType   =   0
             EndProperty
             DataSource      =   "mw_solicitud_cotiza_venta.Ado_datosE"
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5280
             Locked          =   -1  'True
@@ -1016,7 +1017,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                SubFormatType   =   0
             EndProperty
             DataSource      =   "mw_solicitud_cotiza_venta.Ado_datosE"
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5265
             TabIndex        =   55
@@ -1038,7 +1039,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                SubFormatType   =   0
             EndProperty
             DataSource      =   "mw_solicitud_cotiza_venta.Ado_datosE"
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5265
             TabIndex        =   54
@@ -1069,7 +1070,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5265
             TabIndex        =   53
@@ -1209,7 +1210,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                SubFormatType   =   0
             EndProperty
             DataSource      =   "mw_solicitud_cotiza_venta.Ado_datosE"
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5265
             TabIndex        =   48
@@ -1513,7 +1514,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                SubFormatType   =   0
             EndProperty
             DataSource      =   "mw_solicitud_cotiza_venta.Ado_datosE"
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5265
             TabIndex        =   37
@@ -1535,7 +1536,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
                SubFormatType   =   0
             EndProperty
             DataSource      =   "mw_solicitud_cotiza_venta.Ado_datosE"
-            ForeColor       =   &H00FFFFFF&
+            ForeColor       =   &H00000000&
             Height          =   315
             Left            =   5265
             TabIndex        =   36
@@ -2025,6 +2026,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costosE
          Left            =   7080
          TabIndex        =   94
          Top             =   1200
+         Visible         =   0   'False
          Width           =   720
       End
       Begin VB.Line Line2 
@@ -2910,48 +2912,49 @@ Private Sub BtnGrabar_Click()
              End If
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_tdc_me = txt_tdc_me.Text
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_tdc_bol = GlTipoCambioOficial
+            
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!costo_monto = txt_montobase.Text
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_fob_me = IIf(txt_fob_eu = "", "0", Round(CDbl(txt_fob_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_fob_bs = Round(CDbl(txt_fob_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_fob_dol = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_fob_bs = IIf(txt_fob_bs = "", "0", Round(CDbl(txt_fob_bs), Val(cmd_dec)))      'Round(CDbl(txt_fob_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_fob_dol = IIf(txt_fob_me = "", "0", Round(CDbl(txt_fob_me), Val(cmd_dec)))     'Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
             
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_dcto_me = IIf(txt_dcto_eu = "", "0", Round(CDbl(txt_dcto_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_dcto_bs = Round(CDbl(txt_dcto_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_dcto_dol = Round(CDbl(txt_dcto_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_dcto_bs = IIf(txt_dcto_bs = "", "0", Round(CDbl(txt_dcto_bs), Val(cmd_dec)))       'Round(CDbl(txt_dcto_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_dcto_dol = IIf(txt_dcto_me = "", "0", Round(CDbl(txt_dcto_me), Val(cmd_dec)))      'Round(CDbl(txt_dcto_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
              
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_tacb_me = IIf(txt_tacb_eu = "", "0", Round(CDbl(txt_tacb_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_tacb_bs = Round(CDbl(txt_tacb_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_tacb_dol = Round(CDbl(txt_tacb_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_tacb_bs = IIf(txt_tacb_bs = "", "0", Round(CDbl(txt_tacb_bs), Val(cmd_dec)))       'Round(CDbl(txt_tacb_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_tacb_dol = IIf(txt_tacb_me = "", "0", Round(CDbl(txt_tacb_me), Val(cmd_dec)))      'Round(CDbl(txt_tacb_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
              
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_spread_me = IIf(txt_spread_eu = "", "0", Round(CDbl(txt_spread_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_spread_bs = Round(CDbl(txt_spread_me) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_spread_dol = Round(CDbl(txt_spread_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_spread_bs = IIf(txt_spread_bs = "", "0", Round(CDbl(txt_spread_bs), Val(cmd_dec)))     'Round(CDbl(txt_spread_me) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_spread_dol = IIf(txt_spread_me = "", "0", Round(CDbl(txt_spread_me), Val(cmd_dec)))    'Round(CDbl(txt_spread_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_seg_me = IIf(txt_seguro_eu = "", "0", Round(CDbl(txt_seguro_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_seg_bs = Round(CDbl(txt_seguro_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_seg_dol = Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_seg_bs = IIf(txt_seguro_bs = "", "0", Round(CDbl(txt_seguro_bs), Val(cmd_dec)))        'Round(CDbl(txt_seguro_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_seg_dol = IIf(txt_seguro_me = "", "0", Round(CDbl(txt_seguro_me), Val(cmd_dec)))       'Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_fob_seg_me = IIf(txt_fob_me = "", "0", Round(CDbl(txt_fob_me), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_fob_seg_bs = Round(CDbl(txt_fob_me) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_fob_seg_dol = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_fob_seg_me = IIf(txt_fob_seg_eu = "", "0", Round(CDbl(txt_fob_seg_eu), Val(cmd_dec)))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_fob_seg_bs = IIf(txt_fob_seg_bs = "", "0", Round(CDbl(txt_fob_seg_bs), Val(cmd_dec)))     'Round(CDbl(txt_fob_me) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_fob_seg_dol = IIf(txt_fob_seg_dol = "", "0", Round(CDbl(txt_fob_seg_dol), Val(cmd_dec)))    'Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_flete_me = IIf(txt_fletefrontera_eu = "", "0", Round(CDbl(txt_fletefrontera_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_flete_bs = Round(CDbl(txt_fletefrontera_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_flete_dol = Round(CDbl(txt_fletefrontera_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_flete_bs = IIf(txt_fletefrontera_bs = "", "0", Round(CDbl(txt_fletefrontera_bs), Val(cmd_dec)))        'Round(CDbl(txt_fletefrontera_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_flete_dol = IIf(txt_fletefrontera_me = "", "0", Round(CDbl(txt_fletefrontera_me), Val(cmd_dec)))       'Round(CDbl(txt_fletefrontera_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_cif_me = IIf(txt_cif_eu = "", "0", Round(CDbl(txt_cif_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_cif_bs = Round(CDbl(txt_cif_eu) * CDbl(txt_tdc_me), Val(cmd_dec)) '
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_cif_dol = Round(CDbl(txt_cif_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_cif_bs = IIf(txt_cif_bs = "", "0", Round(CDbl(txt_cif_bs), Val(cmd_dec)))      'Round(CDbl(txt_cif_eu) * CDbl(txt_tdc_me), Val(cmd_dec)) '
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_cif_dol = IIf(txt_cif_me = "", "0", Round(CDbl(txt_cif_me), Val(cmd_dec)))     'Round(CDbl(txt_cif_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_GAC_me = IIf(txt_gac_eu = "", "0", Round(CDbl(txt_gac_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_GAC_bs = Round(CDbl(txt_gac_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_GAC_dol = Round(CDbl(txt_GAC_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_GAC_bs = IIf(txt_gac_bs = "", "0", Round(CDbl(txt_gac_bs), Val(cmd_dec)))      'Round(CDbl(txt_gac_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_GAC_dol = IIf(txt_gac_me = "", "0", Round(CDbl(txt_gac_me), Val(cmd_dec)))     'Round(CDbl(txt_gac_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_base_me = IIf(txt_base_imp_eu = "", "0", Round(CDbl(txt_base_imp_eu), Val(cmd_dec)))
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_base_bs = Round(CDbl(txt_base_imp_eu) * CDbl(txt_tdc_me), Val(cmd_dec)) '
-            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_base_dol = Round(CDbl(txt_base_imp_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_base_bs = IIf(txt_base_imp_bs = "", "0", Round(CDbl(txt_base_imp_bs), Val(cmd_dec)))       'Round(CDbl(txt_base_imp_eu) * CDbl(txt_tdc_me), Val(cmd_dec)) '
+            mw_solicitud_cotiza_venta.Ado_datosE.Recordset!cotiza_precio_base_dol = IIf(txt_base_imp_me = "", "0", Round(CDbl(txt_base_imp_me), Val(cmd_dec)))      'Round(CDbl(txt_base_imp_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
-             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!Fecha_Registro = Date     'no cambia
+             mw_solicitud_cotiza_venta.Ado_datosE.Recordset!fecha_registro = Date     'no cambia
              mw_solicitud_cotiza_venta.Ado_datosE.Recordset!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
              mw_solicitud_cotiza_venta.Ado_datosE.Recordset.Update    'Batch 'adAffectAll
              db.Execute "update ao_solicitud_cotiza_venta set agrupado = 'NO' where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & Txt_Correl.Caption & "  "
@@ -3241,7 +3244,7 @@ Private Sub GRABA_COSTOS()
                 End If
                 rs_aux5!costo_observaciones = Trim(Ado_datos3.Recordset!costo_descripcion)
 
-                rs_aux5!Fecha_Registro = Date
+                rs_aux5!fecha_registro = Date
                 'aw_p_ao_negociacion_cabecera.Ado_detalle1.Recordset("hora_registro").Value = Date
                 rs_aux5!usr_codigo = glusuario
                 rs_aux5.Update
@@ -3360,7 +3363,7 @@ Private Sub dtc_desc1_LostFocus()
     
     Set rs_aux1 = New ADODB.Recordset
     If rs_aux1.State = 1 Then rs_aux1.Close
-    rs_aux1.Open "select sum(costo_monto) as totbs, sum(costo_monto_usd) as totdl, sum(costo_monto2) as toteu, sum(costo_monto2) as totbs2, sum(costo_monto_usd2) as totdl2, sum(costo_monto3) as totbs3, sum(costo_monto_usd3) as totdl3 from ao_solicitud_costos where ges_gestion = '" & Year(Date) & "' and unidad_codigo = '" & Txt_campo1 & "' and solicitud_codigo = '" & txt_codigo & "' and edif_codigo = '" & Txt_campo2 & "' and cotiza_codigo = " & Txt_Correl & "  ", db, adOpenKeyset, adLockOptimistic
+    rs_aux1.Open "select sum(costo_monto) as totbs, sum(costo_monto_usd) as totdl, sum(costo_monto2) as toteu, sum(costo_monto2) as totbs2, sum(costo_monto_usd2) as totdl2, sum(costo_monto3) as totbs3, sum(costo_monto_usd3) as totdl3 from ao_solicitud_costos where ges_gestion = '" & Year(Date) & "' and unidad_codigo = '" & txt_campo1 & "' and solicitud_codigo = '" & txt_codigo & "' and edif_codigo = '" & Txt_campo2 & "' and cotiza_codigo = " & Txt_Correl & "  ", db, adOpenKeyset, adLockOptimistic
     
     Select Case dtc_codigo1.Text
         Case 1
@@ -3371,9 +3374,9 @@ Private Sub dtc_desc1_LostFocus()
             
         Case 2
             'FLETE FRONTERA
-            Txt_monto1.Text = dtc_aux2.Text
-            txt_monto3.Text = dtc_aux2.Text
-            Txt_monto5.Text = dtc_aux2.Text
+            Txt_monto1.Text = Dtc_aux2.Text
+            txt_monto3.Text = Dtc_aux2.Text
+            Txt_monto5.Text = Dtc_aux2.Text
             
         Case 3
             'NACIONALIZACION 0.1498
@@ -3450,8 +3453,52 @@ End Sub
 Private Sub cmd_moneda_LostFocus()
     If cmd_moneda.Text = "EUR" Then
         txt_tdc_me.Text = GlTipoCambioEuro
+        'CAMBIA DE FONDO
+        txt_fob_me.backColor = &HC0C0C0
+        txt_dcto_me.backColor = &HC0C0C0
+        txt_tacb_me.backColor = &HC0C0C0
+        txt_spread_me.backColor = &HC0C0C0
+        txt_seguro_me.backColor = &HC0C0C0
+        'txt_fob_seg_dol.backColor = &HC0C0C0
+        txt_fletefrontera_me.backColor = &HC0C0C0
+        'txt_cif_me.backColor = &HC0C0C0
+        txt_gac_me.backColor = &HC0C0C0
+        'txt_base_imp_me.backColor = &HC0C0C0
+        
+        txt_fob_eu.backColor = &HFFFFFF
+        txt_dcto_eu.backColor = &HFFFFFF
+        txt_tacb_eu.backColor = &HFFFFFF
+        txt_spread_eu.backColor = &HFFFFFF
+        txt_seguro_eu.backColor = &HFFFFFF
+        'txt_fob_seg_eu.backColor = &HFFFFFF
+        txt_fletefrontera_eu.backColor = &HFFFFFF
+        'txt_cif_eu.backColor = &HFFFFFF
+        txt_gac_eu.backColor = &HFFFFFF
+        'txt_base_imp_eu.backColor = &HFFFFFF
     Else
         txt_tdc_me.Text = GlTipoCambioOficial
+        'CAMBIA DE FONDO
+        txt_fob_me.backColor = &HFFFFFF
+        txt_dcto_me.backColor = &HFFFFFF
+        txt_tacb_me.backColor = &HFFFFFF
+        txt_spread_me.backColor = &HFFFFFF
+        txt_seguro_me.backColor = &HFFFFFF
+        'txt_fob_seg_dol.backColor = &HFFFFFF
+        txt_fletefrontera_me.backColor = &HFFFFFF
+        'txt_cif_me.backColor = &HFFFFFF
+        txt_gac_me.backColor = &HFFFFFF
+        'txt_base_imp_me.backColor = &HFFFFFF
+        
+        txt_fob_eu.backColor = &HC0C0C0
+        txt_dcto_eu.backColor = &HC0C0C0
+        txt_tacb_eu.backColor = &HC0C0C0
+        txt_spread_eu.backColor = &HC0C0C0
+        txt_seguro_eu.backColor = &HC0C0C0
+        'txt_fob_seg_eu.backColor = &HC0C0C0
+        txt_fletefrontera_eu.backColor = &HC0C0C0
+        'txt_cif_eu.backColor = &HC0C0C0
+        txt_gac_eu.backColor = &HC0C0C0
+        'txt_base_imp_eu.backColor = &HC0C0C0
     End If
 End Sub
 
@@ -3482,8 +3529,8 @@ Private Sub Form_Activate()
     If txt_tac_billing_bs.Text = "" Or txt_tac_billing_bs.Text = "0" Then
        txt_tac_billing_bs = "0.035"
     End If
-    If txt_GAC_bs = "" Or txt_GAC_bs = "0" Then
-       txt_GAC_bs = "0.05"
+    If txt_gac_bs = "" Or txt_gac_bs = "0" Then
+       txt_gac_bs = "0.05"
     End If
     'db.Execute "update ao_solicitud_cotiza_venta set cotiza_gasto_local_me = " & rs_aux4!toteu & " - " &
     VAR_NAC = "0"
@@ -3499,7 +3546,7 @@ Private Sub Form_Load()
 '        dtc_desc2.BoundText = dtc_codigo2.BoundText
 '        dtc_desc3.BoundText = dtc_codigo3.BoundText
 '    End If
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
@@ -3561,18 +3608,41 @@ Private Sub txt_dcto_eu_LostFocus()
 End Sub
 
 Private Sub txt_dcto_me_LostFocus()
+'    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
+'        Txt_tdc.Text = GlTipoCambioOficial
+'     End If
+'     If txt_dcto_me = "" Then
+'        txt_dcto_bs.Text = "0"
+'     Else
+'        txt_dcto_bs.Text = CDbl(txt_dcto_me) * CDbl(GlTipoCambioOficial)
+'        txt_seguro_bs.Text = Round((CDbl(txt_fob_bs1A) - CDbl(txt_dcto_bs.Text)) * 0.0078, Val(cmd_dec)) '+ 1
+'        txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text)) * 0.0078, Val(cmd_dec)) '+ 1
+'        txt_tacb_me = Round(CDbl(txt_fob_me) * CDbl(txt_tacb_bs), Val(cmd_dec))
+'        txt_spread_me = Round(CDbl(txt_fob_me) * CDbl(txt_spread_bs), Val(cmd_dec))
+'     End If
     If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
         Txt_tdc.Text = GlTipoCambioOficial
      End If
-     If txt_dcto_me = "" Then
+    If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
+        txt_tdc_me = GlTipoCambioEuro
+    End If
+    If txt_dcto_me = "" Then
         txt_dcto_bs.Text = "0"
-     Else
-        txt_dcto_bs.Text = CDbl(txt_dcto_me) * CDbl(GlTipoCambioOficial)
-        txt_seguro_bs.Text = Round((CDbl(txt_fob_bs1A) - CDbl(txt_dcto_bs.Text)) * 0.0078, Val(cmd_dec)) '+ 1
-        txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text)) * 0.0078, Val(cmd_dec)) '+ 1
-        txt_tacb_me = Round(CDbl(txt_fob_me) * CDbl(txt_tacb_bs), Val(cmd_dec))
-        txt_spread_me = Round(CDbl(txt_fob_me) * CDbl(txt_spread_bs), Val(cmd_dec))
-     End If
+        txt_dcto_me.Text = "0"
+        txt_dcto_eu.Text = "0"
+    Else
+        txt_dcto_bs.Text = Round(CDbl(txt_dcto_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+        txt_dcto_eu.Text = Round(CDbl(txt_dcto_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+        
+    End If
+    txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_tacb_me) + CDbl(txt_spread_me)) * 0.0078, Val(cmd_dec)) '
+    txt_seguro_bs.Text = Round(CDbl(txt_seguro_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_seguro_eu.Text = Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    
+    txt_fob_seg_dol = Round(CDbl(txt_seguro_me) + CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+    txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_fob_seg_eu = Round(CDbl(txt_fob_seg_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+
 End Sub
 
 Private Sub txt_fletefrontera_eu_LostFocus()
@@ -3589,8 +3659,8 @@ Private Sub txt_fletefrontera_eu_LostFocus()
     txt_cif_me.Text = Round(CDbl(txt_cif_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
 
     txt_gac_eu.Text = Round(CDbl(txt_cif_eu) * 0.05, Val(cmd_dec))  '+ 1
-    txt_GAC_bs.Text = Round(CDbl(txt_gac_eu) * CDbl(txt_tdc_me), Val(cmd_dec))  '+ 1
-    txt_gac_me.Text = Round(CDbl(txt_GAC_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_gac_bs.Text = Round(CDbl(txt_gac_eu) * CDbl(txt_tdc_me), Val(cmd_dec))  '+ 1
+    txt_gac_me.Text = Round(CDbl(txt_gac_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
     
     txt_base_imp_eu.Text = Round(CDbl(txt_cif_eu) + CDbl(txt_gac_eu), Val(cmd_dec))
     txt_base_imp_bs.Text = Round(CDbl(txt_base_imp_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
@@ -3598,17 +3668,36 @@ Private Sub txt_fletefrontera_eu_LostFocus()
 End Sub
 
 Private Sub txt_fletefrontera_me_LostFocus()
+'    If txt_fletefrontera_me.Text = "" Then
+'        txt_fletefrontera_bs.Text = "0"  'GlTipoCambioOficial
+'    End If
+'    txt_fletefrontera_bs.Text = Round(CDbl(txt_fletefrontera_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec)) 'GlTipoCambioOficial
+'    'txt_cif_me.Text = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_seguro_me.Text) + CDbl(txt_fletefrontera_me.Text) + CDbl(txt_tacb_me.Text) + CDbl(txt_spread_me.Text), Val(cmd_dec))   '+ 1
+'    'txt_cif_bs.Text = Round(CDbl(txt_cif_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))   '+ 1
+'    txt_cif_me.Text = Round(CDbl(txt_fob_seg_dol) + CDbl(txt_fletefrontera_me.Text), Val(cmd_dec))   '+ 1
+'    txt_cif_bs.Text = Round(CDbl(txt_cif_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))   '+ 1
+'    txt_GAC_dol.Text = Round(CDbl(txt_cif_me) * CDbl(txt_gac_bs), Val(cmd_dec))  '+ 1
+'    txt_base_imp_dol.Text = Round(CDbl(txt_cif_me) + CDbl(txt_GAC_dol), Val(cmd_dec))
+'    txt_base_imp_bs.Text = Round(CDbl(txt_base_imp_dol) * CDbl(GlTipoCambioOficial))
     If txt_fletefrontera_me.Text = "" Then
         txt_fletefrontera_bs.Text = "0"  'GlTipoCambioOficial
+        txt_fletefrontera_me.Text = "0"
+        txt_fletefrontera_eu.Text = "0"
+    Else
+        txt_fletefrontera_bs.Text = Round(CDbl(txt_fletefrontera_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec)) '
+        txt_fletefrontera_eu.Text = Round(CDbl(txt_fletefrontera_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec)) '
     End If
-    txt_fletefrontera_bs.Text = Round(CDbl(txt_fletefrontera_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec)) 'GlTipoCambioOficial
-    'txt_cif_me.Text = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_seguro_me.Text) + CDbl(txt_fletefrontera_me.Text) + CDbl(txt_tacb_me.Text) + CDbl(txt_spread_me.Text), Val(cmd_dec))   '+ 1
-    'txt_cif_bs.Text = Round(CDbl(txt_cif_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))   '+ 1
-    txt_cif_me.Text = Round(CDbl(txt_fob_seg_dol) + CDbl(txt_fletefrontera_me.Text), Val(cmd_dec))   '+ 1
-    txt_cif_bs.Text = Round(CDbl(txt_cif_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))   '+ 1
-    txt_GAC_dol.Text = Round(CDbl(txt_cif_me) * CDbl(txt_GAC_bs), Val(cmd_dec))  '+ 1
-    txt_base_imp_dol.Text = Round(CDbl(txt_cif_me) + CDbl(txt_GAC_dol), Val(cmd_dec))
-    txt_base_imp_bs.Text = Round(CDbl(txt_base_imp_dol) * CDbl(GlTipoCambioOficial))
+    txt_cif_me.Text = Round(CDbl(txt_fob_seg_dol) + CDbl(txt_fletefrontera_me.Text), Val(cmd_dec))
+    txt_cif_bs.Text = Round(CDbl(txt_cif_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))   '
+    txt_cif_eu.Text = Round(CDbl(txt_cif_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+
+    txt_gac_me.Text = Round(CDbl(txt_cif_me) * 0.05, Val(cmd_dec))  '+ 1
+    txt_gac_bs.Text = Round(CDbl(txt_gac_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))  '+ 1
+    txt_gac_eu.Text = Round(CDbl(txt_gac_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    
+    txt_base_imp_me.Text = Round(CDbl(txt_cif_me) + CDbl(txt_gac_me), Val(cmd_dec))
+    txt_base_imp_bs.Text = Round(CDbl(txt_base_imp_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_base_imp_eu.Text = Round(CDbl(txt_base_imp_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
 End Sub
 
 Private Sub txt_fob_eu_LostFocus()
@@ -3653,45 +3742,92 @@ Private Sub txt_fob_eu_LostFocus()
 End Sub
 
 Private Sub txt_fob_me_LostFocus()
+'    If txt_fob_bs = "" Then
+'        txt_fob_bs.Text = "0"
+'        txt_fob_me.Text = "0"
+'    Else
+'        txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'        txt_dcto_me.Text = Round(CDbl(txt_fob_me) * 0.1, Val(cmd_dec))
+'        txt_dcto_bs.Text = Round(CDbl(txt_dcto_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'
+'        txt_seguro_bs.Text = Round((CDbl(txt_fob_bs) - CDbl(txt_dcto_bs.Text)) * 0.0078, Val(cmd_dec)) '
+'        txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text)) * 0.0078, Val(cmd_dec)) '
+'    End If
+'    'wwwwwwwwwwwwwwwwwwww JQA-2015
+'    If txt_tacb_bs.Text = "" Then
+'            txt_tacb_bs.Text = "0.02"
+'            txt_spread_bs.Text = "0.02"
+'    End If
+'    txt_tacb_me = Round(CDbl(txt_fob_me) * CDbl(txt_tacb_bs), Val(cmd_dec))
+'    txt_spread_me = Round(CDbl(txt_fob_me) * CDbl(txt_spread_bs), Val(cmd_dec))
+    'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
         Txt_tdc.Text = GlTipoCambioOficial
     End If
-    If txt_fob_bs = "" Then
+    If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
+        txt_tdc_me = GlTipoCambioEuro
+    End If
+    If txt_tacb_eu = "" Then
+        txt_tacb_eu = "0"
+    End If
+    If txt_spread_eu = "" Then
+        txt_tacb_eu = "0"
+    End If
+    If txt_fob_me = "" Then
         txt_fob_bs.Text = "0"
         txt_fob_me.Text = "0"
+        txt_fob_eu.Text = "0"
     Else
-        txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
-        txt_dcto_me.Text = Round(CDbl(txt_fob_me) * 0.1, Val(cmd_dec))
-        txt_dcto_bs.Text = Round(CDbl(txt_dcto_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-
-        txt_seguro_bs.Text = Round((CDbl(txt_fob_bs) - CDbl(txt_dcto_bs.Text)) * 0.0078, Val(cmd_dec)) '
-        txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text)) * 0.0078, Val(cmd_dec)) '
+        txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+        txt_fob_eu.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
     End If
-    'wwwwwwwwwwwwwwwwwwww JQA-2015
-    If txt_tacb_bs.Text = "" Then
-            txt_tacb_bs.Text = "0.02"
-            txt_spread_bs.Text = "0.02"
-    End If
-    txt_tacb_me = Round(CDbl(txt_fob_me) * CDbl(txt_tacb_bs), Val(cmd_dec))
-    txt_spread_me = Round(CDbl(txt_fob_me) * CDbl(txt_spread_bs), Val(cmd_dec))
+    txt_dcto_me.Text = Round(CDbl(txt_fob_me) * 0.1, Val(cmd_dec))
+    txt_dcto_bs.Text = Round(CDbl(txt_dcto_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_dcto_eu.Text = Round(CDbl(txt_dcto_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    
+    txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_tacb_me) + CDbl(txt_spread_me)) * 0.0078, Val(cmd_dec)) '
+    txt_seguro_bs.Text = Round(CDbl(txt_seguro_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_seguro_eu.Text = Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+        
+    txt_fob_seg_dol = Round(CDbl(txt_seguro_me) + CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+    txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_fob_seg_eu = Round(CDbl(txt_fob_seg_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
 End Sub
 
 Private Sub txt_gac_eu_LostFocus()
-If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
+    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
         Txt_tdc.Text = GlTipoCambioOficial
     End If
      
     If txt_gac_eu.Text = "" Then
-        txt_GAC_bs.Text = "0"
+        txt_gac_bs.Text = "0"
         txt_gac_me.Text = "0"
         txt_gac_eu.Text = "0"
     Else
-        txt_GAC_bs.Text = Round(CDbl(txt_gac_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-        txt_gac_me.Text = Round(CDbl(txt_GAC_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec)) '
+        txt_gac_bs.Text = Round(CDbl(txt_gac_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+        txt_gac_me.Text = Round(CDbl(txt_gac_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec)) '
     End If
     txt_base_imp_eu.Text = Round(CDbl(txt_cif_eu) + CDbl(txt_gac_eu), Val(cmd_dec))
     txt_base_imp_bs.Text = Round(CDbl(txt_base_imp_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
     txt_base_imp_me.Text = Round(CDbl(txt_base_imp_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+End Sub
+
+Private Sub txt_gac_me_Change()
+    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
+        Txt_tdc.Text = GlTipoCambioOficial
+    End If
+     
+    If txt_gac_me.Text = "" Then
+        txt_gac_bs.Text = "0"
+        txt_gac_me.Text = "0"
+        txt_gac_eu.Text = "0"
+    Else
+        txt_gac_bs.Text = Round(CDbl(txt_gac_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+        txt_gac_eu.Text = Round(CDbl(txt_gac_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec)) '
+    End If
+    txt_base_imp_me.Text = Round(CDbl(txt_cif_me) + CDbl(txt_gac_me), Val(cmd_dec))
+    txt_base_imp_bs.Text = Round(CDbl(txt_base_imp_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_base_imp_eu.Text = Round(CDbl(txt_base_imp_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
 End Sub
 
 'Private Sub Txt_campo4_KeyPress(KeyAscii As Integer)
@@ -3699,23 +3835,114 @@ End Sub
 'End Sub
 
 Private Sub txt_montobase_LostFocus()
+'    If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+'        txt_tdc.Text = GlTipoCambioOficial
+'    End If
+'    If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
+'        txt_tdc_me = GlTipoCambioEuro
+'    End If
+'    If txt_montobase.Text = "" Then
+'        txt_montobase.Text = "0"
+'    Else
+'        txt_fob_eu.Text = Round(CDbl(txt_montobase) * CDbl(txt_tdc), Val(cmd_dec))
+'        txt_fob_bs.Text = Round(CDbl(txt_fob_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
+'        If CDbl(txt_fob_bs.Text) > 0 Then
+'            txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial))
+'        Else
+'            txt_fob_me.Text = "0"
+'        End If
+'    End If
     If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-        Txt_tdc.Text = GlTipoCambioOficial
-    End If
-    If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
-        txt_tdc_me = GlTipoCambioEuro
-    End If
+        Select Case cmd_moneda
+            Case "BRL"
+                Txt_tdc.Text = GlTipoCambioBrl
+            Case "BOB"
+                Txt_tdc.Text = GlTipoCambioOficial      'GlTipoCambioBrl
+            Case "USD"
+                Txt_tdc.Text = GlTipoCambioOficial      'GlTipoCambioMercado
+            Case "UFV"
+                Txt_tdc.Text = GlTipoCambioUfv
+            Case "RMB", "CNY"
+                Txt_tdc.Text = GlTipoCambioRmb
+            Case "EUR"
+                Txt_tdc.Text = GlTipoCambioEuro
+            Case Else
+                Txt_tdc.Text = GlTipoCambioOficial
+        End Select
+     End If
     If txt_montobase.Text = "" Then
         txt_montobase.Text = "0"
+        'txt_montobase.Text = "0"
     Else
-        txt_fob_eu.Text = Round(CDbl(txt_montobase) * CDbl(Txt_tdc), Val(cmd_dec))
-        txt_fob_bs.Text = Round(CDbl(txt_fob_eu) * CDbl(txt_tdc_me), Val(cmd_dec))
-        If CDbl(txt_fob_bs.Text) > 0 Then
-            txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial))
-        Else
-            txt_fob_me.Text = "0"
-        End If
+        Select Case cmd_moneda
+            Case "BRL", "UFV", "RMB", "CNY"
+                txt_fob_bs.Text = Round(CDbl(txt_montobase) * CDbl(Txt_tdc), Val(cmd_dec))
+                txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+                txt_fob_eu.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+            Case "BOB"
+                txt_fob_bs.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+                txt_fob_eu.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+            Case "USD"
+                txt_fob_me.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(Txt_tdc), Val(cmd_dec))
+                txt_fob_eu.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+            Case "EUR"
+                txt_fob_eu.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_bs.Text = Round(CDbl(txt_fob_eu) * CDbl(GlTipoCambioEuro), Val(cmd_dec))
+                txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            Case Else
+                txt_fob_me.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(Txt_tdc), Val(cmd_dec))
+                txt_fob_eu.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+        End Select
     End If
+    If cmd_moneda = "EUR" Then
+        txt_fob_me.Locked = True
+        txt_dcto_me.Locked = True
+        txt_tacb_me.Locked = True
+        txt_spread_me.Locked = True
+        txt_seguro_me.Locked = True
+        txt_fob_seg_dol.Locked = True
+        txt_fletefrontera_me.Locked = True
+        txt_cif_me.Locked = True
+        txt_gac_me.Locked = True
+        txt_base_imp_me.Locked = True
+        
+        txt_fob_eu.Locked = False
+        txt_dcto_eu.Locked = False
+        txt_tacb_eu.Locked = False
+        txt_spread_eu.Locked = False
+        txt_seguro_eu.Locked = False
+        txt_fob_seg_eu.Locked = False
+        txt_fletefrontera_eu.Locked = False
+        txt_cif_eu.Locked = False
+        txt_gac_eu.Locked = False
+        txt_base_imp_eu.Locked = False
+    Else
+        txt_fob_me.Locked = False
+        txt_dcto_me.Locked = False
+        txt_tacb_me.Locked = False
+        txt_spread_me.Locked = False
+        txt_seguro_me.Locked = False
+        txt_fob_seg_dol.Locked = False
+        txt_fletefrontera_me.Locked = False
+        txt_cif_me.Locked = False
+        txt_gac_me.Locked = False
+        txt_base_imp_me.Locked = False
+                
+        txt_fob_eu.Locked = True
+        txt_dcto_eu.Locked = True
+        txt_tacb_eu.Locked = True
+        txt_spread_eu.Locked = True
+        txt_seguro_eu.Locked = True
+        txt_fob_seg_eu.Locked = True
+        txt_fletefrontera_eu.Locked = True
+        txt_cif_eu.Locked = True
+        txt_gac_eu.Locked = True
+        txt_base_imp_eu.Locked = True
+    End If
+    
 End Sub
 
 Private Sub txt_seguro_eu_LostFocus()
@@ -3739,16 +3966,34 @@ Private Sub txt_seguro_eu_LostFocus()
 End Sub
 
 Private Sub txt_seguro_me_LostFocus()
+'    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
+'        Txt_tdc.Text = GlTipoCambioOficial
+'     End If
+'     If txt_seguro_me = "" Then
+'        txt_seguro_bs.Text = "0"
+'     Else
+'        txt_seguro_bs = Round(CDbl(txt_seguro_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'        txt_fob_seg_dol = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_seguro_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+'        txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'     End If
     If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
         Txt_tdc.Text = GlTipoCambioOficial
      End If
-     If txt_seguro_me = "" Then
+     If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
+        txt_tdc_me = GlTipoCambioEuro
+    End If
+    If txt_seguro_me = "" Then
         txt_seguro_bs.Text = "0"
-     Else
+        txt_seguro_me.Text = "0"
+        txt_seguro_eu.Text = "0"
+    Else
         txt_seguro_bs = Round(CDbl(txt_seguro_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-        txt_fob_seg_dol = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_seguro_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
-        txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-     End If
+        txt_seguro_eu = Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    End If
+    txt_fob_seg_dol = Round(CDbl(txt_seguro_me) + CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+    txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_fob_seg_eu = Round(CDbl(txt_fob_seg_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+
 End Sub
 
 Private Sub txt_spread_eu_LostFocus()
@@ -3776,18 +4021,38 @@ Private Sub txt_spread_eu_LostFocus()
 End Sub
 
 Private Sub txt_spread_me_LostFocus()
+'    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
+'        Txt_tdc.Text = GlTipoCambioOficial
+'     End If
+'     If txt_spread_me = "" Then
+'        txt_spread_me.Text = "0"
+'     Else
+'        'txt_spread_me = Round(CDbl(txt_fob_me) * CDbl(txt_spread_bs), Val(cmd_dec))
+'        txt_spread_bs = Round(CDbl(txt_spread_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'        txt_fob_seg_dol = Round(CDbl(txt_seguro_bs) + CDbl(txt_fob_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+'        txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'     End If
     If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
         Txt_tdc.Text = GlTipoCambioOficial
-     End If
-     If txt_spread_me = "" Then
+    End If
+    If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
+        txt_tdc_me = GlTipoCambioEuro
+    End If
+    If txt_spread_me = "" Then
+        txt_spread_bs.Text = "0"
         txt_spread_me.Text = "0"
-     Else
-        'txt_spread_me = Round(CDbl(txt_fob_me) * CDbl(txt_spread_bs), Val(cmd_dec))
+        txt_spread_eu.Text = "0"
+    Else
         txt_spread_bs = Round(CDbl(txt_spread_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-        txt_fob_seg_dol = Round(CDbl(txt_seguro_bs) + CDbl(txt_fob_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
-        txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-     End If
-
+        txt_spread_eu = Round(CDbl(txt_spread_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    End If
+    txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_tacb_me) + CDbl(txt_spread_me)) * 0.0078, Val(cmd_dec)) '
+    txt_seguro_bs.Text = Round(CDbl(txt_seguro_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_seguro_eu.Text = Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    
+    txt_fob_seg_dol = Round(CDbl(txt_seguro_me) + CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+    txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_fob_seg_eu = Round(CDbl(txt_fob_seg_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
 End Sub
 
 Private Sub txt_tacb_eu_LostFocus()
@@ -3815,15 +4080,37 @@ Private Sub txt_tacb_eu_LostFocus()
 End Sub
 
 Private Sub txt_tacb_me_LostFocus()
+'    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
+'        Txt_tdc.Text = GlTipoCambioOficial
+'     End If
+'     If txt_tacb_me = "" Then
+'        txt_tacb_me.Text = "0"
+'     Else
+'        'txt_tacb_me = Round(CDbl(txt_fob_me) * CDbl(txt_tacb_bs), Val(cmd_dec))
+'        txt_tacb_bs = Round(CDbl(txt_tacb_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'        txt_fob_seg_dol = Round(CDbl(txt_seguro_bs) + CDbl(txt_fob_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+'        txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+'     End If
     If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
         Txt_tdc.Text = GlTipoCambioOficial
-     End If
-     If txt_tacb_me = "" Then
+    End If
+    If txt_tdc_me.Text = 0 Or txt_tdc_me = "" Then
+        txt_tdc_me = GlTipoCambioEuro
+    End If
+    If txt_tacb_me = "" Then
+        txt_tacb_bs.Text = "0"
         txt_tacb_me.Text = "0"
-     Else
-        'txt_tacb_me = Round(CDbl(txt_fob_me) * CDbl(txt_tacb_bs), Val(cmd_dec))
+        txt_tacb_eu.Text = "0"
+    Else
         txt_tacb_bs = Round(CDbl(txt_tacb_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-        txt_fob_seg_dol = Round(CDbl(txt_seguro_bs) + CDbl(txt_fob_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
-        txt_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
-     End If
+        txt_tacb_eu = Round(CDbl(txt_tacb_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    End If
+    txt_seguro_me.Text = Round((CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_tacb_me) + CDbl(txt_spread_me)) * 0.0078, Val(cmd_dec)) '
+    txt_seguro_bs.Text = Round(CDbl(txt_seguro_me) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_seguro_eu.Text = Round(CDbl(txt_seguro_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
+    
+    txt_fob_seg_dol = Round(CDbl(txt_seguro_me) + CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_tacb_me) + CDbl(txt_spread_me), Val(cmd_dec))
+    txt_fob_seg_bs = Round(CDbl(txt_fob_seg_ME) * CDbl(GlTipoCambioOficial), Val(cmd_dec))
+    txt_fob_seg_eu = Round(CDbl(txt_fob_seg_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
 End Sub
+

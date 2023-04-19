@@ -1,46 +1,629 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Begin VB.Form frm_ao_solicitud_cotiza_venta 
+Begin VB.Form mw_solicitud_cotiza_venta 
    BackColor       =   &H00C0C0C0&
    Caption         =   "Módulo Comercial - Cotización de Equipos"
    ClientHeight    =   10935
    ClientLeft      =   225
    ClientTop       =   555
    ClientWidth     =   11280
-   Icon            =   "frm_ao_solicitud_cotiza_venta.frx":0000
+   Icon            =   "mw_solicitud_cotiza_venta.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   20160
    Visible         =   0   'False
    WindowState     =   2  'Maximized
+   Begin VB.Frame Fra_datos2 
+      BackColor       =   &H00E0E0E0&
+      ForeColor       =   &H00000040&
+      Height          =   2580
+      Left            =   240
+      TabIndex        =   3
+      Top             =   840
+      Visible         =   0   'False
+      Width           =   15465
+      Begin VB.PictureBox BtnSalir2 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   7320
+         Picture         =   "mw_solicitud_cotiza_venta.frx":0A02
+         ScaleHeight     =   615
+         ScaleWidth      =   1335
+         TabIndex        =   77
+         ToolTipText     =   "Buscar Registros"
+         Top             =   1800
+         Width           =   1335
+      End
+      Begin VB.TextBox Text3 
+         BackColor       =   &H00404040&
+         BorderStyle     =   0  'None
+         Enabled         =   0   'False
+         Height          =   290
+         Left            =   7260
+         TabIndex        =   42
+         Top             =   735
+         Visible         =   0   'False
+         Width           =   270
+      End
+      Begin VB.TextBox Text2 
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   0  'None
+         Enabled         =   0   'False
+         Height          =   290
+         Left            =   14520
+         TabIndex        =   41
+         Top             =   435
+         Width           =   270
+      End
+      Begin MSDataListLib.DataCombo txt_aux3 
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":11C4
+         DataField       =   "edif_codigo"
+         DataSource      =   "Ado_datos0"
+         Height          =   315
+         Left            =   13680
+         TabIndex        =   40
+         Top             =   420
+         Width           =   1125
+         _ExtentX        =   1984
+         _ExtentY        =   556
+         _Version        =   393216
+         Locked          =   -1  'True
+         Appearance      =   0
+         Style           =   2
+         BackColor       =   12632256
+         ForeColor       =   0
+         ListField       =   "edif_tipo"
+         BoundColumn     =   "edif_codigo"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo txt_codigo3 
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":11DE
+         DataField       =   "edif_codigo"
+         DataSource      =   "Ado_datos0"
+         Height          =   315
+         Left            =   12360
+         TabIndex        =   39
+         Top             =   420
+         Width           =   1605
+         _ExtentX        =   2831
+         _ExtentY        =   556
+         _Version        =   393216
+         Locked          =   -1  'True
+         Appearance      =   0
+         Style           =   2
+         BackColor       =   12632256
+         ForeColor       =   0
+         ListField       =   "edif_codigo"
+         BoundColumn     =   "edif_codigo"
+         Text            =   "Todos"
+      End
+      Begin VB.TextBox Text7 
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   0  'None
+         Enabled         =   0   'False
+         Height          =   290
+         Left            =   5880
+         TabIndex        =   37
+         Top             =   435
+         Width           =   270
+      End
+      Begin VB.TextBox Txt_estado 
+         Alignment       =   2  'Center
+         BackColor       =   &H00404040&
+         BorderStyle     =   0  'None
+         DataField       =   "estado_codigo"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Left            =   240
+         Locked          =   -1  'True
+         TabIndex        =   14
+         Top             =   1440
+         Visible         =   0   'False
+         Width           =   495
+      End
+      Begin VB.TextBox Txt_campo11 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         DataField       =   "unidad_codigo_ant"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   300
+         Left            =   11160
+         Locked          =   -1  'True
+         TabIndex        =   4
+         Top             =   1080
+         Width           =   1815
+      End
+      Begin MSComCtl2.DTPicker DTPfecha1 
+         DataField       =   "cotiza_fecha"
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "dd-MMM-yyyy"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   3082
+            SubFormatType   =   3
+         EndProperty
+         DataSource      =   "Ado_datos0"
+         Height          =   315
+         Left            =   13140
+         TabIndex        =   13
+         Top             =   1080
+         Width           =   1665
+         _ExtentX        =   2937
+         _ExtentY        =   556
+         _Version        =   393216
+         Enabled         =   0   'False
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         CalendarBackColor=   12632256
+         CalendarTitleBackColor=   -2147483638
+         CustomFormat    =   "dd-MMM-yyyy"
+         Format          =   133562371
+         CurrentDate     =   44235
+         MaxDate         =   55153
+         MinDate         =   32874
+      End
+      Begin MSDataListLib.DataCombo Txt_campo12 
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":11F8
+         DataField       =   "unidad_codigo"
+         DataSource      =   "Ado_datos0"
+         Height          =   315
+         Left            =   1560
+         TabIndex        =   35
+         Top             =   420
+         Width           =   4605
+         _ExtentX        =   8123
+         _ExtentY        =   556
+         _Version        =   393216
+         Locked          =   -1  'True
+         Appearance      =   0
+         Style           =   2
+         BackColor       =   12632256
+         ForeColor       =   0
+         ListField       =   "unidad_descripcion"
+         BoundColumn     =   "unidad_codigo"
+         Text            =   "Todos"
+      End
+      Begin MSDataListLib.DataCombo Txt_campo1 
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":1212
+         DataField       =   "unidad_codigo"
+         DataSource      =   "Ado_datos0"
+         Height          =   315
+         Left            =   5040
+         TabIndex        =   36
+         Top             =   120
+         Visible         =   0   'False
+         Width           =   1095
+         _ExtentX        =   1931
+         _ExtentY        =   556
+         _Version        =   393216
+         Style           =   2
+         ListField       =   "unidad_codigo"
+         BoundColumn     =   "unidad_codigo"
+         Text            =   ""
+      End
+      Begin MSDataListLib.DataCombo txt_desc3 
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":122D
+         DataField       =   "edif_codigo"
+         DataSource      =   "Ado_datos0"
+         Height          =   315
+         Left            =   6480
+         TabIndex        =   38
+         Top             =   420
+         Width           =   6165
+         _ExtentX        =   10874
+         _ExtentY        =   556
+         _Version        =   393216
+         Locked          =   -1  'True
+         Appearance      =   0
+         Style           =   2
+         BackColor       =   12632256
+         ForeColor       =   0
+         ListField       =   "edif_descripcion"
+         BoundColumn     =   "edif_codigo"
+         Text            =   "Todos"
+      End
+      Begin VB.Label dtc_codigo11 
+         Alignment       =   2  'Center
+         BackColor       =   &H00404040&
+         Caption         =   "0"
+         DataField       =   "h_nro_total_equipos"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   300
+         Left            =   1200
+         TabIndex        =   66
+         Top             =   1440
+         Visible         =   0   'False
+         Width           =   1095
+      End
+      Begin VB.Label dtc_desc10 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   4800
+         TabIndex        =   65
+         Top             =   1080
+         Width           =   1095
+      End
+      Begin VB.Label dtc_desc11 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         DataField       =   "h_nro_total_equipos"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   6120
+         TabIndex        =   64
+         Top             =   1080
+         Width           =   1095
+      End
+      Begin VB.Label dtc_desc14 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         DataField       =   "h_capacidad_trafico"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   3360
+         TabIndex        =   63
+         Top             =   1080
+         Width           =   1215
+      End
+      Begin VB.Label dtc_desc13 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         DataField       =   "h_intervalo_trafico"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   1800
+         TabIndex        =   62
+         Top             =   1080
+         Width           =   1215
+      End
+      Begin VB.Label dtc_desc12 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         DataField       =   "h_partidas_por_hora"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   240
+         TabIndex        =   61
+         Top             =   1080
+         Width           =   1215
+      End
+      Begin VB.Label Label29 
+         Appearance      =   0  'Flat
+         AutoSize        =   -1  'True
+         BackColor       =   &H80000005&
+         BackStyle       =   0  'Transparent
+         Caption         =   "De                      ="
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   240
+         Left            =   7230
+         TabIndex        =   22
+         Top             =   1080
+         Width           =   1755
+      End
+      Begin VB.Label dtc_desc15 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   7560
+         TabIndex        =   21
+         Top             =   1080
+         Width           =   1095
+      End
+      Begin VB.Label dtc_desc16 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   9135
+         TabIndex        =   20
+         Top             =   1080
+         Width           =   495
+      End
+      Begin VB.Label dtc_desc17 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   14280
+         TabIndex        =   19
+         Top             =   1440
+         Visible         =   0   'False
+         Width           =   495
+      End
+      Begin VB.Label lbl_campo1 
+         AutoSize        =   -1  'True
+         BackColor       =   &H8000000A&
+         BackStyle       =   0  'Transparent
+         Caption         =   $"mw_solicitud_cotiza_venta.frx":1247
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   16
+         Top             =   825
+         Width           =   14430
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00000000&
+         BackStyle       =   0  'Transparent
+         Caption         =   "No.Trámite         Unidad Ejecutora"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   15
+         Top             =   180
+         Width           =   2970
+      End
+      Begin VB.Label lblLabels 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00C0C0C0&
+         BackStyle       =   0  'Transparent
+         Caption         =   $"mw_solicitud_cotiza_venta.frx":1303
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Index           =   0
+         Left            =   6480
+         TabIndex        =   12
+         Top             =   180
+         Width           =   8295
+      End
+      Begin VB.Label txt_codigo1 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   9840
+         TabIndex        =   8
+         Top             =   1080
+         Width           =   1095
+      End
+      Begin VB.Label txt_codigo 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0C0&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "0"
+         DataField       =   "solicitud_codigo"
+         DataSource      =   "Ado_datos0"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   300
+         Left            =   240
+         TabIndex        =   7
+         Top             =   420
+         Width           =   1095
+      End
+   End
    Begin VB.Frame FraDet1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "DETALLE DE COSTOS POR EQUIPO"
       ForeColor       =   &H00C00000&
-      Height          =   2535
-      Left            =   2760
-      TabIndex        =   7
-      Top             =   7215
-      Width           =   13065
+      Height          =   3255
+      Left            =   2040
+      TabIndex        =   5
+      Top             =   6495
+      Width           =   13785
       Begin MSDataGridLib.DataGrid dg_det1 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":0A02
-         Height          =   2175
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":13A4
+         Height          =   2895
          Left            =   195
-         TabIndex        =   8
+         TabIndex        =   6
          Top             =   240
-         Width           =   12735
-         _ExtentX        =   22463
-         _ExtentY        =   3836
+         Width           =   13455
+         _ExtentX        =   23733
+         _ExtentY        =   5106
          _Version        =   393216
          AllowUpdate     =   0   'False
-         BackColor       =   12648384
+         BackColor       =   -2147483624
          Enabled         =   -1  'True
          ForeColor       =   0
          HeadLines       =   1
@@ -261,6 +844,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                ColumnWidth     =   1065.26
             EndProperty
             BeginProperty Column05 
+               DividerStyle    =   1
                ColumnWidth     =   929.764
             EndProperty
             BeginProperty Column06 
@@ -270,7 +854,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
             EndProperty
             BeginProperty Column07 
                Alignment       =   1
-               Locked          =   -1  'True
+               DividerStyle    =   1
                ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column08 
@@ -288,17 +872,18 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
             BeginProperty Column10 
                Alignment       =   1
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               Object.Visible         =   0   'False
                ColumnWidth     =   1200.189
             EndProperty
             BeginProperty Column11 
                Alignment       =   1
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               Object.Visible         =   0   'False
                ColumnWidth     =   1275.024
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   5084.788
+               Locked          =   -1  'True
+               ColumnWidth     =   6480
             EndProperty
          EndProperty
       End
@@ -307,9 +892,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       BackColor       =   &H00C0C0C0&
       Caption         =   "REGISTRO "
       ForeColor       =   &H00FF0000&
-      Height          =   2295
+      Height          =   2655
       Left            =   120
-      TabIndex        =   37
+      TabIndex        =   31
       Top             =   840
       Width           =   15690
       Begin VB.OptionButton OptFilGral1 
@@ -327,8 +912,8 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   5280
-         TabIndex        =   39
-         Top             =   1995
+         TabIndex        =   33
+         Top             =   2355
          Value           =   -1  'True
          Width           =   1455
       End
@@ -347,14 +932,14 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          ForeColor       =   &H00000040&
          Height          =   210
          Left            =   9000
-         TabIndex        =   38
-         Top             =   1995
+         TabIndex        =   32
+         Top             =   2355
          Width           =   915
       End
       Begin MSAdodcLib.Adodc Ado_datos0 
          Height          =   330
          Left            =   120
-         Top             =   1920
+         Top             =   2280
          Width           =   15405
          _ExtentX        =   27173
          _ExtentY        =   582
@@ -398,14 +983,14 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          _Version        =   393216
       End
       Begin MSDataGridLib.DataGrid dg_datos0 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":0A1D
-         Height          =   1710
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":13BF
+         Height          =   2070
          Left            =   135
-         TabIndex        =   40
+         TabIndex        =   34
          Top             =   195
          Width           =   15405
          _ExtentX        =   27173
-         _ExtentY        =   3016
+         _ExtentY        =   3651
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   -2147483628
@@ -754,63 +1339,77 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       TabIndex        =   0
       Top             =   45
       Width           =   15705
-      Begin VB.CommandButton BtnModificar0 
-         BackColor       =   &H00404040&
-         Height          =   600
-         Left            =   120
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":0A36
-         Style           =   1  'Graphical
+      Begin VB.PictureBox BtnVer 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   3600
+         Picture         =   "mw_solicitud_cotiza_venta.frx":13D8
+         ScaleHeight     =   615
+         ScaleWidth      =   1215
+         TabIndex        =   71
+         ToolTipText     =   "Buscar Registros"
+         Top             =   40
+         Width           =   1215
+      End
+      Begin VB.PictureBox BtnSalir 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   14040
+         Picture         =   "mw_solicitud_cotiza_venta.frx":1F96
+         ScaleHeight     =   615
+         ScaleWidth      =   1215
+         TabIndex        =   70
+         ToolTipText     =   "Buscar Registros"
+         Top             =   120
+         Width           =   1215
+      End
+      Begin VB.PictureBox BtnModificar0 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   240
+         Picture         =   "mw_solicitud_cotiza_venta.frx":2758
+         ScaleHeight     =   615
+         ScaleWidth      =   1455
+         TabIndex        =   69
+         ToolTipText     =   "Buscar Registros"
+         Top             =   40
+         Width           =   1455
+      End
+      Begin VB.PictureBox BtnBuscar 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   615
+         Left            =   1800
+         Picture         =   "mw_solicitud_cotiza_venta.frx":3321
+         ScaleHeight     =   615
+         ScaleWidth      =   1215
          TabIndex        =   68
-         ToolTipText     =   "Registra Datos Iniciales para Cotización"
-         Top             =   30
-         Width           =   1500
-      End
-      Begin VB.CommandButton BtnSalir 
-         BackColor       =   &H00404040&
-         Height          =   600
-         Left            =   14280
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":15FF
-         Style           =   1  'Graphical
-         TabIndex        =   49
-         ToolTipText     =   "Cerrar Ventana"
-         Top             =   30
-         Width           =   1365
-      End
-      Begin VB.CommandButton BtnVer 
-         BackColor       =   &H00808000&
-         Caption         =   "Digitaliza"
-         Height          =   600
-         Left            =   3960
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":1DC1
-         Style           =   1  'Graphical
-         TabIndex        =   3
-         ToolTipText     =   "Guarda en Archivo Digital"
-         Top             =   30
-         Visible         =   0   'False
-         Width           =   765
+         ToolTipText     =   "Buscar Registros"
+         Top             =   40
+         Width           =   1215
       End
       Begin VB.CommandButton BtnDesAprobar 
          BackColor       =   &H00808000&
          Caption         =   "Desapro."
          Height          =   600
-         Left            =   4920
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":2203
+         Left            =   5400
+         Picture         =   "mw_solicitud_cotiza_venta.frx":3AD6
          Style           =   1  'Graphical
-         TabIndex        =   2
+         TabIndex        =   1
          Top             =   30
          Visible         =   0   'False
          Width           =   765
-      End
-      Begin VB.CommandButton BtnBuscar 
-         BackColor       =   &H00404040&
-         Height          =   620
-         Left            =   1600
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":240D
-         Style           =   1  'Graphical
-         TabIndex        =   1
-         ToolTipText     =   "Busca un Registro"
-         Top             =   30
-         Width           =   1350
       End
       Begin VB.Label lbl_titulo 
          Alignment       =   2  'Center
@@ -828,604 +1427,38 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          EndProperty
          ForeColor       =   &H00FFFF80&
          Height          =   360
-         Left            =   7875
-         TabIndex        =   4
+         Left            =   8595
+         TabIndex        =   2
          Top             =   180
          Width           =   1155
       End
    End
-   Begin VB.Frame Fra_datos2 
-      BackColor       =   &H00C0C0C0&
-      ForeColor       =   &H00000040&
-      Height          =   1495
-      Left            =   120
-      TabIndex        =   5
-      Top             =   3075
-      Width           =   15705
-      Begin VB.TextBox Text3 
-         BackColor       =   &H00404040&
-         BorderStyle     =   0  'None
-         Enabled         =   0   'False
-         Height          =   290
-         Left            =   7260
-         TabIndex        =   48
-         Top             =   735
-         Visible         =   0   'False
-         Width           =   270
-      End
-      Begin VB.TextBox Text2 
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   0  'None
-         Enabled         =   0   'False
-         Height          =   290
-         Left            =   14520
-         TabIndex        =   47
-         Top             =   435
-         Width           =   270
-      End
-      Begin MSDataListLib.DataCombo txt_aux3 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2BC2
-         DataField       =   "edif_codigo"
-         DataSource      =   "Ado_datos0"
-         Height          =   315
-         Left            =   13680
-         TabIndex        =   46
-         Top             =   420
-         Width           =   1125
-         _ExtentX        =   1984
-         _ExtentY        =   556
-         _Version        =   393216
-         Locked          =   -1  'True
-         Appearance      =   0
-         Style           =   2
-         BackColor       =   12632256
-         ForeColor       =   0
-         ListField       =   "edif_tipo"
-         BoundColumn     =   "edif_codigo"
-         Text            =   "Todos"
-      End
-      Begin MSDataListLib.DataCombo txt_codigo3 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2BDC
-         DataField       =   "edif_codigo"
-         DataSource      =   "Ado_datos0"
-         Height          =   315
-         Left            =   12360
-         TabIndex        =   45
-         Top             =   420
-         Width           =   1605
-         _ExtentX        =   2831
-         _ExtentY        =   556
-         _Version        =   393216
-         Locked          =   -1  'True
-         Appearance      =   0
-         Style           =   2
-         BackColor       =   12632256
-         ForeColor       =   0
-         ListField       =   "edif_codigo"
-         BoundColumn     =   "edif_codigo"
-         Text            =   "Todos"
-      End
-      Begin VB.TextBox Text7 
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   0  'None
-         Enabled         =   0   'False
-         Height          =   290
-         Left            =   5880
-         TabIndex        =   43
-         Top             =   435
-         Width           =   270
-      End
-      Begin VB.TextBox Txt_estado 
-         Alignment       =   2  'Center
-         BackColor       =   &H00404040&
-         BorderStyle     =   0  'None
-         DataField       =   "estado_codigo"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   315
-         Left            =   960
-         Locked          =   -1  'True
-         TabIndex        =   19
-         Top             =   120
-         Visible         =   0   'False
-         Width           =   495
-      End
-      Begin VB.TextBox Txt_campo11 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         DataField       =   "unidad_codigo_ant"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   300
-         Left            =   11160
-         Locked          =   -1  'True
-         TabIndex        =   6
-         Top             =   1080
-         Width           =   1815
-      End
-      Begin MSComCtl2.DTPicker DTPfecha1 
-         DataField       =   "cotiza_fecha"
-         BeginProperty DataFormat 
-            Type            =   1
-            Format          =   "dd-MMM-yyyy"
-            HaveTrueFalseNull=   0
-            FirstDayOfWeek  =   0
-            FirstWeekOfYear =   0
-            LCID            =   3082
-            SubFormatType   =   3
-         EndProperty
-         DataSource      =   "Ado_datos0"
-         Height          =   315
-         Left            =   13140
-         TabIndex        =   18
-         Top             =   1080
-         Width           =   1665
-         _ExtentX        =   2937
-         _ExtentY        =   556
-         _Version        =   393216
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         CalendarBackColor=   16777215
-         CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   118882307
-         CurrentDate     =   44235
-         MaxDate         =   55153
-         MinDate         =   32874
-      End
-      Begin MSDataListLib.DataCombo Txt_campo12 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2BF6
-         DataField       =   "unidad_codigo"
-         DataSource      =   "Ado_datos0"
-         Height          =   315
-         Left            =   1560
-         TabIndex        =   41
-         Top             =   420
-         Width           =   4605
-         _ExtentX        =   8123
-         _ExtentY        =   556
-         _Version        =   393216
-         Locked          =   -1  'True
-         Appearance      =   0
-         Style           =   2
-         BackColor       =   12632256
-         ForeColor       =   0
-         ListField       =   "unidad_descripcion"
-         BoundColumn     =   "unidad_codigo"
-         Text            =   "Todos"
-      End
-      Begin MSDataListLib.DataCombo Txt_campo1 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2C10
-         DataField       =   "unidad_codigo"
-         DataSource      =   "Ado_datos0"
-         Height          =   315
-         Left            =   5040
-         TabIndex        =   42
-         Top             =   120
-         Visible         =   0   'False
-         Width           =   1095
-         _ExtentX        =   1931
-         _ExtentY        =   556
-         _Version        =   393216
-         Style           =   2
-         ListField       =   "unidad_codigo"
-         BoundColumn     =   "unidad_codigo"
-         Text            =   ""
-      End
-      Begin MSDataListLib.DataCombo txt_desc3 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2C2B
-         DataField       =   "edif_codigo"
-         DataSource      =   "Ado_datos0"
-         Height          =   315
-         Left            =   6480
-         TabIndex        =   44
-         Top             =   420
-         Width           =   6165
-         _ExtentX        =   10874
-         _ExtentY        =   556
-         _Version        =   393216
-         Locked          =   -1  'True
-         Appearance      =   0
-         Style           =   2
-         BackColor       =   12632256
-         ForeColor       =   0
-         ListField       =   "edif_descripcion"
-         BoundColumn     =   "edif_codigo"
-         Text            =   "Todos"
-      End
-      Begin VB.Label dtc_codigo11 
-         Alignment       =   2  'Center
-         BackColor       =   &H00404040&
-         Caption         =   "0"
-         DataField       =   "h_nro_total_equipos"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   300
-         Left            =   3720
-         TabIndex        =   74
-         Top             =   120
-         Visible         =   0   'False
-         Width           =   1095
-      End
-      Begin VB.Label dtc_desc10 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   4800
-         TabIndex        =   73
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.Label dtc_desc11 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         DataField       =   "h_nro_total_equipos"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   6120
-         TabIndex        =   72
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.Label dtc_desc14 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         DataField       =   "h_capacidad_trafico"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   3360
-         TabIndex        =   71
-         Top             =   1080
-         Width           =   1215
-      End
-      Begin VB.Label dtc_desc13 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         DataField       =   "h_intervalo_trafico"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   1800
-         TabIndex        =   70
-         Top             =   1080
-         Width           =   1215
-      End
-      Begin VB.Label dtc_desc12 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         DataField       =   "h_partidas_por_hora"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   240
-         TabIndex        =   69
-         Top             =   1080
-         Width           =   1215
-      End
-      Begin VB.Label Label29 
-         Appearance      =   0  'Flat
-         AutoSize        =   -1  'True
-         BackColor       =   &H80000005&
-         BackStyle       =   0  'Transparent
-         Caption         =   "De                      ="
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C00000&
-         Height          =   240
-         Left            =   7230
-         TabIndex        =   27
-         Top             =   1080
-         Width           =   1755
-      End
-      Begin VB.Label dtc_desc15 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   7560
-         TabIndex        =   26
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.Label dtc_desc16 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   9135
-         TabIndex        =   25
-         Top             =   1080
-         Width           =   495
-      End
-      Begin VB.Label dtc_desc17 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   15000
-         TabIndex        =   24
-         Top             =   1080
-         Visible         =   0   'False
-         Width           =   495
-      End
-      Begin VB.Label lbl_campo1 
-         AutoSize        =   -1  'True
-         BackColor       =   &H8000000A&
-         BackStyle       =   0  'Transparent
-         Caption         =   $"frm_ao_solicitud_cotiza_venta.frx":2C45
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Left            =   240
-         TabIndex        =   21
-         Top             =   825
-         Width           =   14265
-      End
-      Begin VB.Label Label2 
-         AutoSize        =   -1  'True
-         BackColor       =   &H00000000&
-         BackStyle       =   0  'Transparent
-         Caption         =   "No.Trámite         Unidad Ejecutora"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Left            =   240
-         TabIndex        =   20
-         Top             =   180
-         Width           =   2970
-      End
-      Begin VB.Label lblLabels 
-         AutoSize        =   -1  'True
-         BackColor       =   &H00C0C0C0&
-         BackStyle       =   0  'Transparent
-         Caption         =   $"frm_ao_solicitud_cotiza_venta.frx":2CFF
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   240
-         Index           =   0
-         Left            =   6480
-         TabIndex        =   17
-         Top             =   180
-         Width           =   8295
-      End
-      Begin VB.Label txt_codigo1 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   9840
-         TabIndex        =   10
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.Label txt_codigo 
-         Alignment       =   2  'Center
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0C0&
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "0"
-         DataField       =   "solicitud_codigo"
-         DataSource      =   "Ado_datos0"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H80000008&
-         Height          =   300
-         Left            =   240
-         TabIndex        =   9
-         Top             =   420
-         Width           =   1095
-      End
-   End
    Begin TabDlg.SSTab SSTab1 
-      Height          =   2565
+      Height          =   2805
       Left            =   120
-      TabIndex        =   15
-      Top             =   4680
+      TabIndex        =   10
+      Top             =   3600
       Width           =   15705
       _ExtentX        =   27702
-      _ExtentY        =   4524
+      _ExtentY        =   4948
       _Version        =   393216
       TabHeight       =   520
       BackColor       =   -2147483638
       TabCaption(0)   =   "Proveedor de AMERICA"
-      TabPicture(0)   =   "frm_ao_solicitud_cotiza_venta.frx":2DA0
+      TabPicture(0)   =   "mw_solicitud_cotiza_venta.frx":3CE0
       Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FraNavega"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Proveedor de ASIA"
-      TabPicture(1)   =   "frm_ao_solicitud_cotiza_venta.frx":2DBC
+      TabPicture(1)   =   "mw_solicitud_cotiza_venta.frx":3CFC
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FraNavegaA"
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Proveedor de EUROPA"
-      TabPicture(2)   =   "frm_ao_solicitud_cotiza_venta.frx":2DD8
+      TabPicture(2)   =   "mw_solicitud_cotiza_venta.frx":3D18
       Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FraNavegaE"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       Begin VB.Frame FraNavegaE 
          BackColor       =   &H00C0C0C0&
@@ -1433,18 +1466,18 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          ForeColor       =   &H00C00000&
          Height          =   2415
          Left            =   -74940
-         TabIndex        =   32
+         TabIndex        =   26
          Top             =   345
          Width           =   15615
          Begin MSDataGridLib.DataGrid dg_datosE 
-            Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":2DF4
-            Height          =   1080
+            Bindings        =   "mw_solicitud_cotiza_venta.frx":3D34
+            Height          =   1320
             Left            =   120
-            TabIndex        =   64
+            TabIndex        =   57
             Top             =   1035
             Width           =   15360
             _ExtentX        =   27093
-            _ExtentY        =   1905
+            _ExtentY        =   2328
             _Version        =   393216
             AllowUpdate     =   0   'False
             BackColor       =   16777215
@@ -1709,7 +1742,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
             Left            =   120
             ScaleHeight     =   690
             ScaleWidth      =   15375
-            TabIndex        =   33
+            TabIndex        =   27
             Top             =   240
             Width           =   15435
             Begin VB.CommandButton BtnImprimir2E 
@@ -1717,9 +1750,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-224"
                Height          =   650
                Left            =   3850
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":2E0D
+               Picture         =   "mw_solicitud_cotiza_venta.frx":3D4D
                Style           =   1  'Graphical
-               TabIndex        =   66
+               TabIndex        =   59
                ToolTipText     =   "Imprime Formulario"
                Top             =   30
                Width           =   1245
@@ -1729,9 +1762,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-222"
                Height          =   650
                Left            =   2610
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":33CA
+               Picture         =   "mw_solicitud_cotiza_venta.frx":430A
                Style           =   1  'Graphical
-               TabIndex        =   65
+               TabIndex        =   58
                ToolTipText     =   "Imprime Formulario"
                Top             =   30
                Width           =   1245
@@ -1741,9 +1774,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Verificar"
                Height          =   650
                Left            =   1365
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":3987
+               Picture         =   "mw_solicitud_cotiza_venta.frx":48C7
                Style           =   1  'Graphical
-               TabIndex        =   54
+               TabIndex        =   47
                ToolTipText     =   "Ok, envía datos para Contrato de Venta"
                Top             =   30
                Width           =   1245
@@ -1753,9 +1786,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Hoja.de.Costos"
                Height          =   650
                Left            =   120
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":3B91
+               Picture         =   "mw_solicitud_cotiza_venta.frx":4AD1
                Style           =   1  'Graphical
-               TabIndex        =   53
+               TabIndex        =   46
                ToolTipText     =   "Registra Hoja de Costos"
                Top             =   30
                Width           =   1245
@@ -1765,9 +1798,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Datos.Iniciales"
                Height          =   680
                Left            =   4560
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":4171
+               Picture         =   "mw_solicitud_cotiza_venta.frx":50B1
                Style           =   1  'Graphical
-               TabIndex        =   34
+               TabIndex        =   28
                ToolTipText     =   "Registra Datos Iniciales para Cotización"
                Top             =   30
                Visible         =   0   'False
@@ -1790,7 +1823,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                ForeColor       =   &H00FFFF80&
                Height          =   360
                Left            =   8100
-               TabIndex        =   67
+               TabIndex        =   60
                Top             =   120
                Width           =   4425
             End
@@ -1849,21 +1882,21 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          ForeColor       =   &H00C00000&
          Height          =   2415
          Left            =   -74940
-         TabIndex        =   28
+         TabIndex        =   23
          Top             =   345
          Width           =   15615
          Begin MSDataGridLib.DataGrid dg_datosA 
-            Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":4751
-            Height          =   1080
+            Bindings        =   "mw_solicitud_cotiza_venta.frx":5691
+            Height          =   1320
             Left            =   120
-            TabIndex        =   61
+            TabIndex        =   54
             Top             =   1035
             Width           =   15360
             _ExtentX        =   27093
-            _ExtentY        =   1905
+            _ExtentY        =   2328
             _Version        =   393216
             AllowUpdate     =   0   'False
-            BackColor       =   12648447
+            BackColor       =   -2147483624
             HeadLines       =   1
             RowHeight       =   15
             FormatLocked    =   -1  'True
@@ -2125,7 +2158,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
             Left            =   120
             ScaleHeight     =   690
             ScaleWidth      =   15375
-            TabIndex        =   29
+            TabIndex        =   24
             Top             =   240
             Width           =   15435
             Begin VB.CommandButton BtnImprimir2A 
@@ -2133,9 +2166,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-224"
                Height          =   650
                Left            =   3850
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":476B
+               Picture         =   "mw_solicitud_cotiza_venta.frx":56AB
                Style           =   1  'Graphical
-               TabIndex        =   63
+               TabIndex        =   56
                ToolTipText     =   "Imprime Formulario"
                Top             =   30
                Width           =   1245
@@ -2145,9 +2178,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-222"
                Height          =   650
                Left            =   2610
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":4D28
+               Picture         =   "mw_solicitud_cotiza_venta.frx":5C68
                Style           =   1  'Graphical
-               TabIndex        =   62
+               TabIndex        =   55
                ToolTipText     =   "Imprime Formulario"
                Top             =   30
                Width           =   1245
@@ -2157,9 +2190,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Verificar"
                Height          =   650
                Left            =   1365
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":52E5
+               Picture         =   "mw_solicitud_cotiza_venta.frx":6225
                Style           =   1  'Graphical
-               TabIndex        =   52
+               TabIndex        =   45
                ToolTipText     =   "Ok, envía datos para Contrato de Venta"
                Top             =   30
                Width           =   1245
@@ -2169,9 +2202,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Hoja.de.Costos"
                Height          =   650
                Left            =   120
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":54EF
+               Picture         =   "mw_solicitud_cotiza_venta.frx":642F
                Style           =   1  'Graphical
-               TabIndex        =   51
+               TabIndex        =   44
                ToolTipText     =   "Registra Hoja de Costos"
                Top             =   30
                Width           =   1245
@@ -2181,9 +2214,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Datos.Iniciales"
                Height          =   680
                Left            =   5160
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":5931
+               Picture         =   "mw_solicitud_cotiza_venta.frx":6871
                Style           =   1  'Graphical
-               TabIndex        =   30
+               TabIndex        =   25
                ToolTipText     =   "Registra Datos Iniciales para Cotización"
                Top             =   30
                Visible         =   0   'False
@@ -2206,7 +2239,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                ForeColor       =   &H00FFFF80&
                Height          =   360
                Left            =   8520
-               TabIndex        =   60
+               TabIndex        =   53
                Top             =   120
                Width           =   3825
             End
@@ -2265,18 +2298,18 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          ForeColor       =   &H00C00000&
          Height          =   2415
          Left            =   60
-         TabIndex        =   16
+         TabIndex        =   11
          Top             =   345
          Width           =   15615
          Begin MSDataGridLib.DataGrid dg_datos 
-            Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":5F11
-            Height          =   1080
+            Bindings        =   "mw_solicitud_cotiza_venta.frx":6E51
+            Height          =   1320
             Left            =   120
-            TabIndex        =   56
+            TabIndex        =   49
             Top             =   1035
             Width           =   15360
             _ExtentX        =   27093
-            _ExtentY        =   1905
+            _ExtentY        =   2328
             _Version        =   393216
             AllowUpdate     =   0   'False
             BackColor       =   12640511
@@ -2541,7 +2574,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
             Left            =   120
             ScaleHeight     =   690
             ScaleWidth      =   15300
-            TabIndex        =   22
+            TabIndex        =   17
             Top             =   240
             Width           =   15360
             Begin VB.CommandButton BtnAprobar 
@@ -2549,9 +2582,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Verificar"
                Height          =   650
                Left            =   1365
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":5F29
+               Picture         =   "mw_solicitud_cotiza_venta.frx":6E69
                Style           =   1  'Graphical
-               TabIndex        =   75
+               TabIndex        =   67
                ToolTipText     =   "Ok, envía datos para Contrato de Venta"
                Top             =   30
                Width           =   1245
@@ -2561,9 +2594,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-224"
                Height          =   650
                Left            =   3850
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":6133
+               Picture         =   "mw_solicitud_cotiza_venta.frx":7073
                Style           =   1  'Graphical
-               TabIndex        =   58
+               TabIndex        =   51
                ToolTipText     =   "Imprime Formulario"
                Top             =   30
                Width           =   1245
@@ -2573,9 +2606,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "R-222"
                Height          =   650
                Left            =   2610
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":66F0
+               Picture         =   "mw_solicitud_cotiza_venta.frx":7630
                Style           =   1  'Graphical
-               TabIndex        =   57
+               TabIndex        =   50
                ToolTipText     =   "Imprime Formulario"
                Top             =   30
                Width           =   1245
@@ -2585,9 +2618,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Datos Iniciales"
                Height          =   680
                Left            =   5160
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":6CAD
+               Picture         =   "mw_solicitud_cotiza_venta.frx":7BED
                Style           =   1  'Graphical
-               TabIndex        =   55
+               TabIndex        =   48
                ToolTipText     =   "Registra Datos Iniciales para Cotización"
                Top             =   30
                Visible         =   0   'False
@@ -2598,9 +2631,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Hoja de Costos"
                Height          =   650
                Left            =   120
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":728D
+               Picture         =   "mw_solicitud_cotiza_venta.frx":81CD
                Style           =   1  'Graphical
-               TabIndex        =   50
+               TabIndex        =   43
                ToolTipText     =   "Registra Hoja de Costos"
                Top             =   30
                Width           =   1245
@@ -2610,9 +2643,9 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                Caption         =   "Copia"
                Height          =   720
                Left            =   360
-               Picture         =   "frm_ao_solicitud_cotiza_venta.frx":76CF
+               Picture         =   "mw_solicitud_cotiza_venta.frx":860F
                Style           =   1  'Graphical
-               TabIndex        =   23
+               TabIndex        =   18
                ToolTipText     =   "Nuevo Registro"
                Top             =   60
                Visible         =   0   'False
@@ -2635,7 +2668,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
                ForeColor       =   &H00FFFF80&
                Height          =   360
                Left            =   7920
-               TabIndex        =   59
+               TabIndex        =   52
                Top             =   120
                Width           =   4545
             End
@@ -2692,59 +2725,91 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
    Begin VB.PictureBox FrmABMDet 
       BackColor       =   &H80000015&
       FillColor       =   &H00FFFFFF&
-      Height          =   2445
+      Height          =   3165
       Left            =   120
-      ScaleHeight     =   2385
-      ScaleWidth      =   2475
-      TabIndex        =   11
-      Top             =   7320
-      Width           =   2535
-      Begin VB.CommandButton BtnAddDetalle2 
-         BackColor       =   &H80000010&
-         Caption         =   "Nuevo.Item.Costo"
-         Height          =   640
-         Left            =   420
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":7CF3
-         Style           =   1  'Graphical
-         TabIndex        =   31
-         ToolTipText     =   "Crear Nuevo Item de Costo"
-         Top             =   1560
-         Width           =   1410
-      End
-      Begin VB.CommandButton BtnAnlDetalle 
-         BackColor       =   &H00C0FFC0&
-         Caption         =   "Borrar"
-         Height          =   640
-         Left            =   960
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":8135
-         Style           =   1  'Graphical
-         TabIndex        =   14
-         ToolTipText     =   "Elimina Detalle Elegido"
-         Top             =   1560
+      ScaleHeight     =   3105
+      ScaleWidth      =   1755
+      TabIndex        =   9
+      Top             =   6600
+      Visible         =   0   'False
+      Width           =   1815
+      Begin VB.PictureBox BtnGrabar 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   590
+         Left            =   240
+         Picture         =   "mw_solicitud_cotiza_venta.frx":8C33
+         ScaleHeight     =   585
+         ScaleWidth      =   1335
+         TabIndex        =   76
+         ToolTipText     =   "Graba los Cambios del Detalle de Costos"
+         Top             =   1320
          Visible         =   0   'False
-         Width           =   765
+         Width           =   1335
       End
-      Begin VB.CommandButton BtnModDetalle 
-         BackColor       =   &H00C0FFC0&
-         Height          =   640
-         Left            =   465
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":8577
-         Style           =   1  'Graphical
-         TabIndex        =   13
-         ToolTipText     =   "Modifica Detalle Elegido"
+      Begin VB.PictureBox BtnAddDetalle2 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   590
+         Left            =   240
+         Picture         =   "mw_solicitud_cotiza_venta.frx":9421
+         ScaleHeight     =   585
+         ScaleWidth      =   1335
+         TabIndex        =   75
+         ToolTipText     =   "Crea un nuevo Item (Costo)..."
+         Top             =   2160
+         Width           =   1335
+      End
+      Begin VB.PictureBox BtnAnlDetalle 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   590
+         Left            =   240
+         Picture         =   "mw_solicitud_cotiza_venta.frx":A10B
+         ScaleHeight     =   585
+         ScaleWidth      =   1335
+         TabIndex        =   74
+         ToolTipText     =   "Anula el Item elegido..."
+         Top             =   1320
+         Visible         =   0   'False
+         Width           =   1335
+      End
+      Begin VB.PictureBox BtnModDetalle 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   590
+         Left            =   240
+         Picture         =   "mw_solicitud_cotiza_venta.frx":A857
+         ScaleHeight     =   585
+         ScaleWidth      =   1335
+         TabIndex        =   73
+         ToolTipText     =   "Modifica los Costos de los Items"
          Top             =   720
-         Width           =   1365
+         Width           =   1335
       End
-      Begin VB.CommandButton BtnAddDetalle 
-         BackColor       =   &H80000015&
-         Height          =   645
-         Left            =   480
-         Picture         =   "frm_ao_solicitud_cotiza_venta.frx":8E8C
-         Style           =   1  'Graphical
-         TabIndex        =   12
-         ToolTipText     =   "Adiciona Item Existente"
+      Begin VB.PictureBox BtnAddDetalle 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000006&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   590
+         Left            =   240
+         Picture         =   "mw_solicitud_cotiza_venta.frx":B16C
+         ScaleHeight     =   585
+         ScaleWidth      =   1335
+         TabIndex        =   72
+         ToolTipText     =   "Borra los Items y los vuelve a cargar Todos..."
          Top             =   120
-         Width           =   1365
+         Visible         =   0   'False
+         Width           =   1335
       End
    End
    Begin MSAdodcLib.Adodc Ado_datos21 
@@ -3379,20 +3444,20 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       BackColor       =   &H00C0C0C0&
       Caption         =   "DETALLE DE COSTOS POR EQUIPO"
       ForeColor       =   &H00C00000&
-      Height          =   2535
-      Left            =   2760
-      TabIndex        =   35
-      Top             =   7320
-      Width           =   13060
+      Height          =   3255
+      Left            =   2040
+      TabIndex        =   29
+      Top             =   6480
+      Width           =   13785
       Begin MSDataGridLib.DataGrid dg_det1E 
-         Bindings        =   "frm_ao_solicitud_cotiza_venta.frx":964B
-         Height          =   2175
+         Bindings        =   "mw_solicitud_cotiza_venta.frx":B92B
+         Height          =   2895
          Left            =   195
-         TabIndex        =   36
+         TabIndex        =   30
          Top             =   240
-         Width           =   12735
-         _ExtentX        =   22463
-         _ExtentY        =   3836
+         Width           =   13455
+         _ExtentX        =   23733
+         _ExtentY        =   5106
          _Version        =   393216
          AllowUpdate     =   0   'False
          BackColor       =   12648384
@@ -3474,7 +3539,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
          EndProperty
          BeginProperty Column04 
             DataField       =   "codigo_costo"
-            Caption         =   "Codigo"
+            Caption         =   "Codigo.Costo"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -3613,47 +3678,45 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
             EndProperty
             BeginProperty Column04 
                Locked          =   -1  'True
-               ColumnWidth     =   720
+               ColumnWidth     =   1049.953
             EndProperty
             BeginProperty Column05 
-               ColumnWidth     =   764.787
+               ColumnWidth     =   900.284
             EndProperty
             BeginProperty Column06 
                Alignment       =   1
-               Locked          =   -1  'True
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1365.165
+               ColumnWidth     =   1349.858
             EndProperty
             BeginProperty Column07 
                Alignment       =   1
                Locked          =   -1  'True
-               ColumnWidth     =   1305.071
+               ColumnWidth     =   1335.118
             EndProperty
             BeginProperty Column08 
                Alignment       =   1
-               Locked          =   -1  'True
                ColumnWidth     =   1409.953
             EndProperty
             BeginProperty Column09 
                Alignment       =   1
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               Object.Visible         =   0   'False
                ColumnWidth     =   1260.284
             EndProperty
             BeginProperty Column10 
                Alignment       =   1
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               Object.Visible         =   0   'False
                ColumnWidth     =   1200.189
             EndProperty
             BeginProperty Column11 
                Alignment       =   1
                Locked          =   -1  'True
-               Object.Visible         =   -1  'True
+               Object.Visible         =   0   'False
                ColumnWidth     =   1289.764
             EndProperty
             BeginProperty Column12 
-               ColumnWidth     =   5084.788
+               ColumnWidth     =   6254.929
             EndProperty
          EndProperty
       End
@@ -3706,7 +3769,7 @@ Begin VB.Form frm_ao_solicitud_cotiza_venta
       _Version        =   393216
    End
 End
-Attribute VB_Name = "frm_ao_solicitud_cotiza_venta"
+Attribute VB_Name = "mw_solicitud_cotiza_venta"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -3747,6 +3810,7 @@ Dim rs_aux4 As New ADODB.Recordset
 Dim rs_aux5 As New ADODB.Recordset
 Dim rs_aux6 As New ADODB.Recordset
 Dim rs_aux7 As New ADODB.Recordset
+Dim rs_aux8 As New ADODB.Recordset
 
 'Dim CAMPOS As ADODB.Field
 'BUSCADOR
@@ -3809,11 +3873,14 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
             If Ado_datos.Recordset!estado_codigo = "REG" Then
                 BtnAprobar.Visible = True
                 BtnModificar1.Visible = True
+                FrmABMDet.Visible = True
             Else
                 BtnAprobar.Visible = False
                 BtnModificar1.Visible = False
+                FrmABMDet.Visible = False
             End If
-            txt_codigo1.Caption = Ado_datos0.Recordset!cotiza_codigo
+            GlCotiza = Ado_datos0.Recordset!cotiza_codigo       'txt_codigo1.Caption
+            GlUnidad = Ado_datos0.Recordset!unidad_codigo
             FraDet1.Visible = True
             FraDet1E.Visible = False
         End If
@@ -3884,6 +3951,10 @@ Private Sub Ado_datosE_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
 End Sub
 
 Private Sub BtnAddDetalle_Click()
+    If glusuario = "CCRUZ" Then                     'Or glusuario = "LNAVA"
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
     VARCTRL = 0
     Select Case SSTab1.Tab
         Case 0
@@ -3921,8 +3992,8 @@ Private Sub BtnAddDetalle_Click()
     FrmABMDet.Enabled = False
   If VARCTRL = 1 Then
     aw_p_ao_solicitud_cotiza_detalle.txt_codigo.Caption = Me.txt_codigo.Caption     ' Nro. Negociacion (Cod.solicitud)
-    aw_p_ao_solicitud_cotiza_detalle.txt_campo1.Caption = txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
-    aw_p_ao_solicitud_cotiza_detalle.Txt_descripcion.Caption = Me.Txt_campo12    ' Descripcion Unidad
+    aw_p_ao_solicitud_cotiza_detalle.Txt_campo1.Caption = Txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
+    aw_p_ao_solicitud_cotiza_detalle.Txt_descripcion.Caption = Me.txt_campo12    ' Descripcion Unidad
     aw_p_ao_solicitud_cotiza_detalle.Txt_Correl.Caption = Me.txt_codigo1.Caption        ' Nro. Cotización
     aw_p_ao_solicitud_cotiza_detalle.Txt_campo2.Caption = GlEdificio    'Me.dtc_codigo3.Text       ' Codigo Edificio
     aw_p_ao_solicitud_cotiza_detalle.Txt_campo5.Caption = VAR_CONTI     'Continente
@@ -3976,8 +4047,8 @@ Private Sub BtnAddDetalle_Click()
 'wwwwwwwwwwwwwwwwwwwwwwww EUROPA
   If VARCTRL = 2 Then
     aw_p_ao_solicitud_cotiza_det_eur.txt_codigo.Caption = Me.txt_codigo.Caption     ' Nro. Negociacion (Cod.solicitud)
-    aw_p_ao_solicitud_cotiza_det_eur.txt_campo1.Caption = txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
-    aw_p_ao_solicitud_cotiza_det_eur.Txt_descripcion.Caption = Me.Txt_campo12    ' Descripcion Unidad
+    aw_p_ao_solicitud_cotiza_det_eur.Txt_campo1.Caption = Txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
+    aw_p_ao_solicitud_cotiza_det_eur.Txt_descripcion.Caption = Me.txt_campo12    ' Descripcion Unidad
     aw_p_ao_solicitud_cotiza_det_eur.Txt_Correl.Caption = Me.txt_codigo1.Caption        ' Nro. Cotización
     aw_p_ao_solicitud_cotiza_det_eur.Txt_campo2.Caption = GlEdificio    'Me.dtc_codigo3.Text       ' Codigo Edificio
     aw_p_ao_solicitud_cotiza_det_eur.Txt_campo5.Caption = VAR_CONTI     'Continente
@@ -4032,8 +4103,8 @@ Private Sub BtnAddDetalle_Click()
   'wwwwwwwwwwwwwwwwwwwwww ASIA
   If VARCTRL = 3 Then
     aw_p_ao_solicitud_cotiza_det_asia.txt_codigo.Caption = Me.txt_codigo.Caption     ' Nro. Negociacion (Cod.solicitud)
-    aw_p_ao_solicitud_cotiza_det_asia.txt_campo1.Caption = txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
-    aw_p_ao_solicitud_cotiza_det_asia.Txt_descripcion.Caption = Me.Txt_campo12    ' Descripcion Unidad
+    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo1.Caption = Txt_campo1.Text   ' Me.dtc_codigo1.Text       ' Codigo Unidad
+    aw_p_ao_solicitud_cotiza_det_asia.Txt_descripcion.Caption = Me.txt_campo12    ' Descripcion Unidad
     aw_p_ao_solicitud_cotiza_det_asia.Txt_Correl.Caption = Me.txt_codigo1.Caption        ' Nro. Cotización
     aw_p_ao_solicitud_cotiza_det_asia.Txt_campo2.Caption = GlEdificio    'Me.dtc_codigo3.Text       ' Codigo Edificio
     aw_p_ao_solicitud_cotiza_det_asia.Txt_campo5.Caption = VAR_CONTI     'Continente
@@ -4095,6 +4166,10 @@ Private Sub BtnAddDetalle_Click()
   End Sub
 
 Private Sub BtnAddDetalle2_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
     Select Case SSTab1.Tab
         Case 0
             VAR_CONTI = "AMERICA"
@@ -4131,6 +4206,11 @@ Private Sub BtnAnlDetalle_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+  
   On Error GoTo UpdateErr
    Set rs_aux2 = New ADODB.Recordset
    rs_aux2.Open "Select * from ao_solicitud_costos where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "'  and solicitud_codigo = " & Ado_datos.Recordset!solicitud_codigo & "   ", db, adOpenStatic
@@ -4220,7 +4300,7 @@ Private Sub BtnAprobar_Click()
                 rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                 rs_aux1!unimed_codigo = "EQP"
                 rs_aux1!estado_codigo = "REG"
-                rs_aux1!Fecha_Registro = Date
+                rs_aux1!fecha_registro = Date
                 rs_aux1!usr_codigo = glusuario
                 rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & Ado_datos1.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos1.Recordset!solicitud_codigo & "  "
@@ -4260,10 +4340,10 @@ Private Sub BtnAprobar_Click()
                         rs_aux3!bien_codigo = "NA" + Trim(Str(Ado_datos.Recordset!cotiza_codigo))           'Trim(Str(rs_aux3.RecordCount))      'Ado_datos.Recordset!bien_codigo
                         rs_aux3!venta_det_cantidad = 1      'Ado_datos.Recordset!cotiza_cantidad
                         rs_aux3!venta_precio_unitario_bs = Ado_datos.Recordset!cotiza_precio_fob_bs         'cotiza_fob_seg_bs
-                        rs_aux3!venta_descuento_bs = 0
+                        rs_aux3!venta_descuento_bs = Ado_datos.Recordset!cotiza_precio_fob_me               'EUR
                         rs_aux3!venta_precio_total_bs = Ado_datos.Recordset!cotiza_precio_fob_bs            'cotiza_fob_seg_bs
                         rs_aux3!venta_precio_unitario_dol = Ado_datos.Recordset!cotiza_precio_fob_dol       'cotiza_fob_seg_dol
-                        rs_aux3!venta_descuento_dol = 0
+                        rs_aux3!venta_descuento_dol = Ado_datos.Recordset!cotiza_precio_fob_me               'EUR
                         rs_aux3!venta_precio_total_dol = Ado_datos.Recordset!cotiza_precio_fob_dol          'cotiza_fob_seg_dol
                         rs_aux3!concepto_venta = "Codigo: " + Ado_datos.Recordset!bien_codigo + " Modelo: " + Ado_datos.Recordset!modelo_codigo     'aw_p_ao_solicitud_cotiza_datos.dtc_desc21.Text           '+ " - " + Ado_datos.Recordset!bien_codigo  '"PAGO POR VENTAS NUEVAS"
                         rs_aux3!observaciones = "Codigo: " + Ado_datos.Recordset!bien_codigo + " Modelo: " + Ado_datos.Recordset!modelo_codigo + " Paradas: " + dtc_desc10   '
@@ -4282,11 +4362,11 @@ Private Sub BtnAprobar_Click()
                         'rs_aux3!modelo_codigo_x = Ado_datos0.Recordset!beneficiario_codigo
                         '"S/M"    'Ado_datos.Recordset!modelo_codigo_x
                         rs_aux3!modelo_elegido = "N"
-                        rs_aux3!modelo_elegido_h = "N"
-                        rs_aux3!modelo_elegido_x = "N"
+'                        rs_aux3!modelo_elegido_h = "N"
+'                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!pais_codigo = Ado_datos.Recordset!pais_codigo
                         'rs_aux3!estado_codigo = "REG"
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                     Wend
@@ -4314,10 +4394,10 @@ Private Sub BtnAprobar_Click()
                     rs_aux3!bien_codigo = "NA" + Trim(Str(VAR_EQP))      'Ado_datos.Recordset!bien_codigo
                     rs_aux3!venta_det_cantidad = 1      'Ado_datos.Recordset!cotiza_cantidad
                     rs_aux3!venta_precio_unitario_bs = Ado_datos.Recordset!cotiza_fob_seg_bs
-                    rs_aux3!venta_descuento_bs = 0
+                    rs_aux3!venta_descuento_bs = Ado_datos.Recordset!cotiza_precio_fob_me               'EUR
                     rs_aux3!venta_precio_total_bs = Ado_datos.Recordset!cotiza_fob_seg_bs
                     rs_aux3!venta_precio_unitario_dol = Ado_datos.Recordset!cotiza_fob_seg_dol
-                    rs_aux3!venta_descuento_dol = 0
+                    rs_aux3!venta_descuento_dol = Ado_datos.Recordset!cotiza_precio_fob_me               'EUR
                     rs_aux3!venta_precio_total_dol = Ado_datos.Recordset!cotiza_fob_seg_dol
                     rs_aux3!concepto_venta = "Codigo: " + Ado_datos.Recordset!bien_codigo + "Modelo: " + Ado_datos.Recordset!modelo_codigo     'aw_p_ao_solicitud_cotiza_datos.dtc_desc21.Text           '+ " - " + Ado_datos.Recordset!bien_codigo  '"PAGO POR VENTAS NUEVAS"
                     'ok
@@ -4333,11 +4413,11 @@ Private Sub BtnAprobar_Click()
                     rs_aux3!modelo_codigo_x = IIf(IsNull(Ado_datos0.Recordset!beneficiario_codigo), "0", Ado_datos0.Recordset!beneficiario_codigo)
                     'rs_aux3!modelo_codigo_x = "S/M"    'Ado_datos.Recordset!modelo_codigo_x
                     rs_aux3!modelo_elegido = "S"
-                    rs_aux3!modelo_elegido_h = "N"
-                    rs_aux3!modelo_elegido_x = "N"
+'                    rs_aux3!modelo_elegido_h = "N"
+'                    rs_aux3!modelo_elegido_x = "N"
                     rs_aux3!pais_codigo = Ado_datos.Recordset!pais_codigo
                     'rs_aux3!estado_codigo = "REG"
-                    rs_aux3!Fecha_Registro = Date
+                    rs_aux3!fecha_registro = Date
                     rs_aux3!usr_codigo = glusuario
                     rs_aux3.Update
                 Wend
@@ -4398,7 +4478,7 @@ Private Sub BtnAprobar_Click()
     '            rs_datos!archivo_respaldo_cargado = "N"
             End If
             Ado_datos.Recordset!estado_codigo_verif = "APR"
-            Ado_datos.Recordset!Fecha_Registro = Date
+            Ado_datos.Recordset!fecha_registro = Date
             Ado_datos.Recordset!usr_codigo = glusuario
             Ado_datos.Recordset.UpdateBatch adAffectAll
         
@@ -4422,6 +4502,11 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAprobarA_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+   
    On Error GoTo UpdateErr
    Set rs_aux2 = New ADODB.Recordset
    rs_aux2.Open "Select * from ao_solicitud_costos where unidad_codigo = '" & Ado_datosA.Recordset!unidad_codigo & "'  and solicitud_codigo = " & Ado_datosA.Recordset!solicitud_codigo & "   ", db, adOpenStatic
@@ -4503,7 +4588,7 @@ Private Sub BtnAprobarA_Click()
                     rs_aux1!unidad_codigo_ant = Ado_datosA.Recordset!unidad_codigo_ant
                     rs_aux1!unimed_codigo = "MES"
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!Fecha_Registro = Date
+                    rs_aux1!fecha_registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & Ado_datos1.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos1.Recordset!solicitud_codigo & "  "
@@ -4597,10 +4682,10 @@ Private Sub BtnAprobarA_Click()
                         rs_aux3!bien_codigo = "NA" + Trim(Str(Ado_datosA.Recordset!cotiza_codigo))           'Trim(Str(rs_aux3.RecordCount))      'Ado_datos.Recordset!bien_codigo
                         rs_aux3!venta_det_cantidad = 1      'Ado_datos.Recordset!cotiza_cantidad
                         rs_aux3!venta_precio_unitario_bs = Ado_datosA.Recordset!cotiza_precio_fob_bs        'cotiza_fob_seg_bs
-                        rs_aux3!venta_descuento_bs = 0
+                        rs_aux3!venta_descuento_bs = Ado_datosA.Recordset!cotiza_precio_fob_me               'EUR
                         rs_aux3!venta_precio_total_bs = Ado_datosA.Recordset!cotiza_precio_fob_bs           'cotiza_fob_seg_bs
                         rs_aux3!venta_precio_unitario_dol = Ado_datosA.Recordset!cotiza_precio_fob_dol      'cotiza_fob_seg_dol
-                        rs_aux3!venta_descuento_dol = 0
+                        rs_aux3!venta_descuento_dol = Ado_datosA.Recordset!cotiza_precio_fob_me               'EUR
                         rs_aux3!venta_precio_total_dol = Ado_datosA.Recordset!cotiza_precio_fob_dol         'cotiza_fob_seg_dol
                         rs_aux3!concepto_venta = "Codigo: " + Ado_datosA.Recordset!bien_codigo + " Modelo: " + Ado_datosA.Recordset!modelo_codigo     'aw_p_ao_solicitud_cotiza_datos.dtc_desc21.Text           '+ " - " + Ado_datosA.Recordset!bien_codigo  '"PAGO POR VENTAS NUEVAS"
                         'ok
@@ -4616,11 +4701,11 @@ Private Sub BtnAprobarA_Click()
                         rs_aux3!modelo_codigo_x = IIf(IsNull(Ado_datos0.Recordset!beneficiario_codigo), "0", Ado_datos0.Recordset!beneficiario_codigo)
                         'rs_aux3!modelo_codigo_x = "S/M"    'Ado_datos.Recordset!modelo_codigo_x
                         rs_aux3!modelo_elegido = "N"
-                        rs_aux3!modelo_elegido_h = "N"
-                        rs_aux3!modelo_elegido_x = "N"
+'                        rs_aux3!modelo_elegido_h = "N"
+'                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!pais_codigo = Ado_datosA.Recordset!pais_codigo
                         'rs_aux3!estado_codigo = "REG"
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                     Wend
@@ -4650,6 +4735,14 @@ Private Sub BtnAprobarA_Click()
             Else
                 'VAR_AUX = rs_aux3.RecordCount + 1
                 VAR_EQP = 0
+                Set rs_aux8 = New ADODB.Recordset
+                If rs_aux8.State = 1 Then rs_aux8.Close
+                rs_aux8.Open "Select * from ao_ventas_detalle where venta_codigo = " & var_cod & " AND par_codigo = '43340'  ", db, adOpenKeyset, adLockOptimistic
+                If rs_aux8.RecordCount > 0 Then
+                    VAR_AUX = rs_aux8.RecordCount
+                Else
+                    VAR_AUX = 0
+                End If
                 While Ado_datosA.Recordset!cotiza_cantidad > VAR_EQP
                     VAR_EQP = VAR_EQP + 1
                     rs_aux3.AddNew
@@ -4657,13 +4750,14 @@ Private Sub BtnAprobarA_Click()
                     rs_aux3!venta_codigo = var_cod
                     rs_aux3!venta_codigo_det = rs_aux3.RecordCount      'Ado_datos.Recordset!cotiza_codigo      'VAR_AUX
                     rs_aux3!cotiza_codigo = Ado_datosA.Recordset!cotiza_codigo          'VAR_AUX
-                    rs_aux3!bien_codigo = "NA" + Trim(Str(VAR_EQP))      'Ado_datos.Recordset!bien_codigo
+                    VAR_AUX = VAR_AUX + 1
+                    rs_aux3!bien_codigo = "NA" + Trim(Str(VAR_AUX))      'Ado_datos.Recordset!bien_codigo
                     rs_aux3!venta_det_cantidad = 1      'Ado_datos.Recordset!cotiza_cantidad
                     rs_aux3!venta_precio_unitario_bs = Ado_datosA.Recordset!cotiza_fob_seg_bs
-                    rs_aux3!venta_descuento_bs = 0
+                    rs_aux3!venta_descuento_bs = Ado_datosA.Recordset!cotiza_precio_fob_me               'EUR
                     rs_aux3!venta_precio_total_bs = Ado_datosA.Recordset!cotiza_fob_seg_bs
                     rs_aux3!venta_precio_unitario_dol = Ado_datosA.Recordset!cotiza_fob_seg_dol
-                    rs_aux3!venta_descuento_dol = 0
+                    rs_aux3!venta_descuento_dol = Ado_datosA.Recordset!cotiza_precio_fob_me               'EUR
                     rs_aux3!venta_precio_total_dol = Ado_datosA.Recordset!cotiza_fob_seg_dol
                     rs_aux3!concepto_venta = "Codigo: " + Ado_datosA.Recordset!bien_codigo + " Modelo: " + Ado_datosA.Recordset!modelo_codigo     'aw_p_ao_solicitud_cotiza_datos.dtc_desc21.Text           '+ " - " + Ado_datosA.Recordset!bien_codigo  '"PAGO POR VENTAS NUEVAS"
                     'ok
@@ -4679,11 +4773,11 @@ Private Sub BtnAprobarA_Click()
                     rs_aux3!modelo_codigo_x = IIf(IsNull(Ado_datos0.Recordset!beneficiario_codigo), "0", Ado_datos0.Recordset!beneficiario_codigo)
                     'rs_aux3!modelo_codigo_x = "S/M"    'Ado_datos.Recordset!modelo_codigo_x
                     rs_aux3!modelo_elegido = "N"
-                    rs_aux3!modelo_elegido_h = "N"
-                    rs_aux3!modelo_elegido_x = "N"
+'                    rs_aux3!modelo_elegido_h = "N"
+'                    rs_aux3!modelo_elegido_x = "N"
                     rs_aux3!pais_codigo = Ado_datos0.Recordset!pais_codigo
                     'rs_aux3!estado_codigo = "REG"
-                    rs_aux3!Fecha_Registro = Date
+                    rs_aux3!fecha_registro = Date
                     rs_aux3!usr_codigo = glusuario
                     rs_aux3.Update
                 Wend
@@ -4724,7 +4818,7 @@ Private Sub BtnAprobarA_Click()
 '            rs_datosA!archivo_respaldo_cargado = "N"
         End If
             Ado_datosA.Recordset!estado_codigo_verif = "APR"
-            Ado_datosA.Recordset!Fecha_Registro = Date
+            Ado_datosA.Recordset!fecha_registro = Date
             Ado_datosA.Recordset!usr_codigo = glusuario
             Ado_datosA.Recordset.UpdateBatch adAffectAll
         
@@ -4743,6 +4837,10 @@ UpdateErr:
 End Sub
 
 Private Sub BtnAprobarE_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
     On Error GoTo UpdateErr
    Set rs_aux2 = New ADODB.Recordset
    rs_aux2.Open "Select * from ao_solicitud_costos where unidad_codigo = '" & Ado_datosE.Recordset!unidad_codigo & "'  and solicitud_codigo = " & Ado_datosE.Recordset!solicitud_codigo & "   ", db, adOpenStatic
@@ -4824,7 +4922,7 @@ Private Sub BtnAprobarE_Click()
                     rs_aux1!unidad_codigo_ant = Ado_datosE.Recordset!unidad_codigo_ant
                     rs_aux1!unimed_codigo = "MES"
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!Fecha_Registro = Date
+                    rs_aux1!fecha_registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & Ado_datos1.Recordset!unidad_codigo & "' and solicitud_codigo = " & Ado_datos1.Recordset!solicitud_codigo & "  "
@@ -4867,10 +4965,10 @@ Private Sub BtnAprobarE_Click()
                         rs_aux3!bien_codigo = "NA" + Trim(Str(Ado_datosE.Recordset!cotiza_codigo))           'Trim(Str(rs_aux3.RecordCount))      'Ado_datos.Recordset!bien_codigo
                         rs_aux3!venta_det_cantidad = 1      'Ado_datos.Recordset!cotiza_cantidad
                         rs_aux3!venta_precio_unitario_bs = Ado_datosE.Recordset!cotiza_precio_fob_bs        'cotiza_fob_seg_bs
-                        rs_aux3!venta_descuento_bs = 0
+                        rs_aux3!venta_descuento_bs = Ado_datosE.Recordset!cotiza_precio_fob_me               'EUR
                         rs_aux3!venta_precio_total_bs = Ado_datosE.Recordset!cotiza_precio_fob_bs           'cotiza_fob_seg_bs
                         rs_aux3!venta_precio_unitario_dol = Ado_datosE.Recordset!cotiza_precio_fob_dol      'cotiza_fob_seg_dol
-                        rs_aux3!venta_descuento_dol = 0
+                        rs_aux3!venta_descuento_dol = Ado_datosE.Recordset!cotiza_precio_fob_me               'EUR
                         rs_aux3!venta_precio_total_dol = Ado_datosE.Recordset!cotiza_precio_fob_dol         'cotiza_fob_seg_dol
                         rs_aux3!concepto_venta = "Codigo: " + Ado_datosE.Recordset!bien_codigo + " Modelo: " + Ado_datosE.Recordset!modelo_codigo     'aw_p_ao_solicitud_cotiza_datos.dtc_desc21.Text           '+ " - " + Ado_datosE.Recordset!bien_codigo  '"PAGO POR VENTAS NUEVAS"
                         'ok
@@ -4886,11 +4984,11 @@ Private Sub BtnAprobarE_Click()
                         rs_aux3!modelo_codigo_x = IIf(IsNull(Ado_datos0.Recordset!beneficiario_codigo), "0", Ado_datos0.Recordset!beneficiario_codigo)
                         'rs_aux3!modelo_codigo_x = "S/M"    'Ado_datos.Recordset!modelo_codigo_x
                         rs_aux3!modelo_elegido = "N"
-                        rs_aux3!modelo_elegido_h = "N"
-                        rs_aux3!modelo_elegido_x = "N"
+'                        rs_aux3!modelo_elegido_h = "N"
+'                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!pais_codigo = Ado_datosE.Recordset!pais_codigo
                         'rs_aux3!estado_codigo = "REG"
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                     Wend
@@ -4930,10 +5028,10 @@ Private Sub BtnAprobarE_Click()
                     rs_aux3!bien_codigo = "NA" + Trim(Str(VAR_EQP))      'Ado_datos.Recordset!bien_codigo
                     rs_aux3!venta_det_cantidad = 1      'Ado_datos.Recordset!cotiza_cantidad
                     rs_aux3!venta_precio_unitario_bs = Ado_datosE.Recordset!cotiza_fob_seg_bs
-                    rs_aux3!venta_descuento_bs = 0
+                    rs_aux3!venta_descuento_bs = Ado_datosE.Recordset!cotiza_precio_fob_me               'EUR
                     rs_aux3!venta_precio_total_bs = Ado_datosE.Recordset!cotiza_fob_seg_bs
                     rs_aux3!venta_precio_unitario_dol = Ado_datosE.Recordset!cotiza_fob_seg_dol
-                    rs_aux3!venta_descuento_dol = 0
+                    rs_aux3!venta_descuento_dol = Ado_datosE.Recordset!cotiza_precio_fob_me               'EUR
                     rs_aux3!venta_precio_total_dol = Ado_datosE.Recordset!cotiza_fob_seg_dol
                     rs_aux3!concepto_venta = "Codigo: " + Ado_datosE.Recordset!bien_codigo + " Modelo: " + Ado_datosE.Recordset!modelo_codigo     'aw_p_ao_solicitud_cotiza_datos.dtc_desc21.Text           '+ " - " + Ado_datosE.Recordset!bien_codigo  '"PAGO POR VENTAS NUEVAS"
                     'ok
@@ -4949,11 +5047,11 @@ Private Sub BtnAprobarE_Click()
                     rs_aux3!modelo_codigo_x = IIf(IsNull(Ado_datos0.Recordset!beneficiario_codigo), "0", Ado_datos0.Recordset!beneficiario_codigo)
                     'rs_aux3!modelo_codigo_x = "S/M"    'Ado_datos.Recordset!modelo_codigo_x
                     rs_aux3!modelo_elegido = "N"
-                    rs_aux3!modelo_elegido_h = "N"
-                    rs_aux3!modelo_elegido_x = "N"
+'                    rs_aux3!modelo_elegido_h = "N"
+'                    rs_aux3!modelo_elegido_x = "N"
                     rs_aux3!pais_codigo = Ado_datos.Recordset!pais_codigo
                     'rs_aux3!estado_codigo = "REG"
-                    rs_aux3!Fecha_Registro = Date
+                    rs_aux3!fecha_registro = Date
                     rs_aux3!usr_codigo = glusuario
                     rs_aux3.Update
                 Wend
@@ -4991,7 +5089,7 @@ Private Sub BtnAprobarE_Click()
 '            rs_datosA!archivo_respaldo_cargado = "N"
         End If
         Ado_datosE.Recordset!estado_codigo_verif = "APR"
-        Ado_datosE.Recordset!Fecha_Registro = Date
+        Ado_datosE.Recordset!fecha_registro = Date
         Ado_datosE.Recordset!usr_codigo = glusuario
         Ado_datosE.Recordset.UpdateBatch adAffectAll
         
@@ -5021,6 +5119,77 @@ Private Sub BtnBuscar_Click()
     ClBuscaGrid.Ejecutar
 End Sub
 
+Private Sub BtnGrabar_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+    GlCotiza = Ado_datos0.Recordset!cotiza_codigo       'txt_codigo1.Caption
+    GlUnidad = Ado_datos0.Recordset!unidad_codigo
+    Select Case SSTab1.Tab
+        Case 0
+            marca1 = Ado_datos.Recordset.Bookmark
+            If rs_datos.RecordCount > 0 And rs_datos!estado_codigo = "REG" Then
+                'FraNavega.Enabled = False
+                'FraDet1E.Visible = True
+                'FraDet1.Visible = False
+                FraDet1.Enabled = False
+                dg_det1.Enabled = False
+                dg_det1.AllowUpdate = False
+                VARCTRL = 1
+                VAR_CONTI = "AMERICA"
+                db.Execute "update ao_solicitud_costos set costo_monto = costo_monto_usd * " & GlTipoCambioOficial & " where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto_usd > 0  "
+            End If
+        Case 1
+            marca1 = Ado_datosA.Recordset.Bookmark
+            If rs_datosA.RecordCount > 0 And rs_datosA!estado_codigo = "REG" Then
+                'FraNavegaA.Enabled = False
+                'FraDet1E.Visible = True
+                'FraDet1.Visible = False
+                FraDet1.Enabled = False
+                dg_det1.Enabled = False
+                dg_det1.AllowUpdate = False
+                VARCTRL = 3
+                VAR_CONTI = "ASIA"
+                db.Execute "update ao_solicitud_costos set costo_monto = costo_monto_usd * " & GlTipoCambioOficial & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto_usd > 0  "
+            End If
+        Case 2
+            marca1 = Ado_datosE.Recordset.Bookmark
+            If rs_datosE.RecordCount > 0 And rs_datosE!estado_codigo = "REG" Then
+                'FraNavegaE.Enabled = False
+                'FraDet1.Visible = True
+                'FraDet1E.Enabled = False
+                dg_det1E.Enabled = False
+                dg_det1E.AllowUpdate = False
+                VARCTRL = 2
+                VAR_CONTI = "EUROPA"
+                '
+                db.Execute "update ao_solicitud_costos set costo_monto = costo_monto2 * " & GlTipoCambioEuro & " where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto2 > 0  "
+                db.Execute "update ao_solicitud_costos set costo_monto_usd= costo_monto / " & GlTipoCambioOficial & " where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & " AND costo_monto > 0  "
+            End If
+    End Select
+    'VAR_CONTI = Ado_datos.Recordset!pais_continente
+    swnuevo = 0
+    fraOpciones.Visible = True
+    Fra_datos2.Enabled = True
+    
+    FraNavega0.Enabled = True
+    'FrmABMDet.Enabled = False
+    SSTab1.Enabled = True
+    BtnGrabar.Visible = False
+    BtnModDetalle.Visible = True
+    BtnAddDetalle2.Visible = True
+    
+    db.Execute "update ao_solicitud_cotiza_venta set ao_solicitud_cotiza_venta.cotiza_gasto_local_dol = av_solicitud_costo1_acum.costo_montoDol FROM ao_solicitud_cotiza_venta INNER JOIN av_solicitud_costo1_acum " & _
+    " ON ao_solicitud_cotiza_venta.unidad_codigo= av_solicitud_costo1_acum.unidad_codigo AND ao_solicitud_cotiza_venta.solicitud_codigo= av_solicitud_costo1_acum.solicitud_codigo AND ao_solicitud_cotiza_venta.pais_continente= av_solicitud_costo1_acum.pais_continente AND ao_solicitud_cotiza_venta.cotiza_codigo = av_solicitud_costo1_acum.cotiza_codigo " & _
+    " where ao_solicitud_cotiza_venta.unidad_codigo = '" & parametro & "' and ao_solicitud_cotiza_venta.solicitud_codigo = " & GlSolicitud & " and ao_solicitud_cotiza_venta.pais_continente = '" & VAR_CONTI & "' and ao_solicitud_cotiza_venta.cotiza_codigo = " & txt_codigo1.Caption & " "
+    
+    db.Execute "update ao_solicitud_cotiza_venta set cotiza_gasto_local_bs = cotiza_gasto_local_dol * " & CDbl(GlTipoCambioOficial) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & "  "
+    
+    db.Execute "update ao_solicitud_cotiza_venta set cotiza_precio_total_dol = cotiza_gasto_local_dol + cotiza_precio_cif_dol   where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & "  "
+    db.Execute "update ao_solicitud_cotiza_venta set cotiza_precio_total_bs = cotiza_precio_total_dol * " & CDbl(GlTipoCambioOficial) & "  where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_CONTI & "' and cotiza_codigo = " & txt_codigo1.Caption & "  "
+End Sub
+
 Private Sub BtnImprimirE_Click()
 If Ado_datosE.Recordset.RecordCount > 0 Then
     Dim iResult As Integer
@@ -5048,6 +5217,10 @@ End If
 End Sub
 
 Private Sub BtnModificar0_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
     Select Case Ado_datos0.Recordset!pais_continente_cot
         Case "AMERICA"
             Call BtnModificar_Click
@@ -6436,143 +6609,193 @@ End If
 End Sub
 
 Private Sub BtnModDetalle_Click()
-    VARCTRL = 0
-    swnuevo = 2
-    fraOpciones.Enabled = False
-    Fra_datos2.Enabled = False
-    FraDet1.Enabled = False
-    FrmABMDet.Enabled = False
-    Select Case SSTab1.Tab
-        Case 0
-            marca1 = Ado_datos.Recordset.Bookmark
-            If rs_datos.RecordCount > 0 And rs_datos!estado_codigo = "REG" Then
-                FraNavega.Enabled = False
-'                FraNavega1.Enabled = False
-'                FraModeloCosto.Enabled = False
-                VARCTRL = 1
-                If VARCTRL = 1 Then
-                    aw_p_ao_solicitud_cotiza_detalle.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-                    aw_p_ao_solicitud_cotiza_detalle.txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")    ' Codigo Unidad
-                    aw_p_ao_solicitud_cotiza_detalle.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
-                    aw_p_ao_solicitud_cotiza_detalle.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("cotiza_codigo")    ' Nro. Cotización
-                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo2.Caption = Me.Ado_detalle1.Recordset("edif_codigo")      ' Codigo Edificio
-                    
-                    aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("codigo_costo")     ' Codigo Costo
-                    aw_p_ao_solicitud_cotiza_detalle.dtc_desc1.BoundText = aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.BoundText
-                    aw_p_ao_solicitud_cotiza_detalle.dtc_aux1.BoundText = aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.BoundText
-                    aw_p_ao_solicitud_cotiza_detalle.dtc_aux2.BoundText = aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.BoundText
-                    
-                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo5.Caption = Me.Ado_detalle1.Recordset("pais_continente")    ' Continente
-                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo3.Text = Me.Ado_detalle1.Recordset("costo_porcentaje")    ' % Costo
-                    If Ado_datos.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datos.Recordset!cotiza_precio_fob_dol) Then
-                    'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
-                        aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
-                    Else
-                        aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = Ado_datos.Recordset!cotiza_precio_fob_dol   ' Monto Modelo1(ME)
-                    End If
-                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo4.Text = Me.Ado_detalle1.Recordset("costo_observaciones") ' Observaciones
-                    aw_p_ao_solicitud_cotiza_detalle.Show vbModal
-            '    Else
-            '        MsgBox "No se puede Modificar el registro, porque este ya está Aprobado!! ", vbExclamation
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+    If Ado_detalle1.Recordset.RecordCount > 0 Then
+        VARCTRL = 0
+        Select Case SSTab1.Tab
+            Case 0
+                marca1 = Ado_datos.Recordset.Bookmark
+                If rs_datos.RecordCount > 0 And rs_datos!estado_codigo = "REG" Then
+                    'FraNavega.Enabled = False
+                    FraDet1E.Visible = False
+                    FraDet1.Visible = True
+                    FraDet1.Enabled = True
+                    dg_det1.Enabled = True
+                    dg_det1.AllowUpdate = True
+                    VARCTRL = 1
+                    VAR_CONTI = "AMERICA"
                 End If
-            End If
-            
-            FraNavega.Enabled = True
-        Case 1
-            marca1 = Ado_datosA.Recordset.Bookmark
-            If rs_datosA.RecordCount > 0 And rs_datosA!estado_codigo = "REG" Then
-                FraNavegaA.Enabled = False
-'                FraNavega1A.Enabled = False
-'                FraModeloCostoA.Enabled = False
-                VARCTRL = 3
-                    'ASIA
-                If VARCTRL = 3 Then
-                    aw_p_ao_solicitud_cotiza_det_asia.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-                    aw_p_ao_solicitud_cotiza_det_asia.txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")    ' Codigo Unidad
-                    aw_p_ao_solicitud_cotiza_det_asia.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
-                    aw_p_ao_solicitud_cotiza_det_asia.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("cotiza_codigo")    ' Nro. Cotización
-                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo2.Caption = Me.Ado_detalle1.Recordset("edif_codigo")      ' Codigo Edificio
-                    
-                    aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("codigo_costo")     ' Codigo Costo
-                    aw_p_ao_solicitud_cotiza_det_asia.dtc_desc1.BoundText = aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.BoundText
-                    aw_p_ao_solicitud_cotiza_det_asia.dtc_aux1.BoundText = aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.BoundText
-                    aw_p_ao_solicitud_cotiza_det_asia.dtc_aux2.BoundText = aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.BoundText
-                    
-                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo5.Caption = Me.Ado_detalle1.Recordset("pais_continente")    ' Continente
-                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo3.Text = Me.Ado_detalle1.Recordset("costo_porcentaje")    ' % Costo
-                    
-                    aw_p_ao_solicitud_cotiza_det_asia.lbl_decA.Caption = Ado_datosA.Recordset!cotiza_dec     'cmd_decA.Text      ' # Decimales
-                    If Ado_datosA.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datosA.Recordset!cotiza_precio_fob_dol) Then
-                    'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
-                        aw_p_ao_solicitud_cotiza_det_asia.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
-                    Else
-                        aw_p_ao_solicitud_cotiza_det_asia.txt_monto01.Caption = Ado_datosA.Recordset!cotiza_precio_fob_dol   ' Monto Modelo1(ME)
-                    End If
-                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo4.Text = Me.Ado_detalle1.Recordset("costo_observaciones") ' Observaciones
-                    aw_p_ao_solicitud_cotiza_det_asia.Show vbModal
-            '    Else
-            '        MsgBox "No se puede Modificar el registro, porque este ya está Aprobado!! ", vbExclamation
+            Case 1
+                marca1 = Ado_datosA.Recordset.Bookmark
+                If rs_datosA.RecordCount > 0 And rs_datosA!estado_codigo = "REG" Then
+                    'FraNavegaA.Enabled = False
+                    FraDet1E.Visible = False
+                    FraDet1.Visible = True
+                    FraDet1.Enabled = True
+                    dg_det1.Enabled = True
+                    dg_det1.AllowUpdate = True
+                    VARCTRL = 3
+                    VAR_CONTI = "ASIA"
                 End If
-
-            End If
-            FraNavegaA.Enabled = True
-        Case 2
-        marca1 = Ado_datosE.Recordset.Bookmark
-        If rs_datosE.RecordCount > 0 And rs_datosE!estado_codigo = "REG" Then
-            FraNavegaE.Enabled = False
-'            FraModeloCostoE.Enabled = False
-'            FraNavega1E.Enabled = False
-            VARCTRL = 2
-            'EUROPA
-            If VARCTRL = 2 Then
-                aw_p_ao_solicitud_cotiza_det_eur.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-                aw_p_ao_solicitud_cotiza_det_eur.txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")    ' Codigo Unidad
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("cotiza_codigo")    ' Nro. Cotización
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo2.Caption = Me.Ado_detalle1.Recordset("edif_codigo")      ' Codigo Edificio
-                
-                aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("codigo_costo")     ' Codigo Costo
-                aw_p_ao_solicitud_cotiza_det_eur.dtc_desc1.BoundText = aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.BoundText
-                aw_p_ao_solicitud_cotiza_det_eur.dtc_aux1.BoundText = aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.BoundText
-                aw_p_ao_solicitud_cotiza_det_eur.dtc_aux2.BoundText = aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.BoundText
-                
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo3.Text = Me.Ado_detalle1.Recordset("costo_porcentaje")    ' % Costo
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo6 = Ado_datosE.Recordset!cotiza_tdc_me
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo7 = Ado_datosE.Recordset!cotiza_dec
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo8 = Ado_datosE.Recordset!cotiza_tdc_bol
-                
-        '        If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
-        '            aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
-        '        Else
-        '            aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = Me.txt_fob_me1.Text   ' Monto Modelo1(ME)
-        '        End If
-                aw_p_ao_solicitud_cotiza_det_eur.txt_monto01.Caption = IIf(IsNull(Ado_datosE.Recordset!cotiza_precio_base_me), "0", Ado_datosE.Recordset!cotiza_precio_base_me)
-                
-                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo4.Text = Me.Ado_detalle1.Recordset("costo_observaciones") ' Observaciones
-                aw_p_ao_solicitud_cotiza_det_eur.Show vbModal
-            End If
-
-        End If
-        FraNavegaE.Enabled = True
-    End Select
+            Case 2
+                marca1 = Ado_datosE.Recordset.Bookmark
+                If rs_datosE.RecordCount > 0 And rs_datosE!estado_codigo = "REG" Then
+                    'FraNavegaE.Enabled = False
+                    FraDet1.Visible = False
+                    FraDet1E.Enabled = True
+                    dg_det1E.Enabled = True
+                    dg_det1E.AllowUpdate = True
+                    VARCTRL = 2
+                    VAR_CONTI = "EUROPA"
+                End If
+        End Select
+        swnuevo = 2
+        fraOpciones.Visible = False
+'        Fra_datos2.Enabled = False
+        FraNavega0.Enabled = False
+        'FrmABMDet.Enabled = False
+        SSTab1.Enabled = False
+        BtnGrabar.Visible = True
+        BtnModDetalle.Visible = False
+        BtnAddDetalle2.Visible = False
+        BtnAnlDetalle.Visible = False
+    Else
+        MsgBox "No se puede Modificar, Verifique y vuelva a intentar !! ", vbExclamation
+    End If
 '    Select Case SSTab1.Tab
 '        Case 0
+'            marca1 = Ado_datos.Recordset.Bookmark
+'            If rs_datos.RecordCount > 0 And rs_datos!estado_codigo = "REG" Then
+'                FraNavega.Enabled = False
+''                FraNavega1.Enabled = False
+''                FraModeloCosto.Enabled = False
+'                VARCTRL = 1
+'                If VARCTRL = 1 Then
+'                    aw_p_ao_solicitud_cotiza_detalle.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")    ' Codigo Unidad
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("cotiza_codigo")    ' Nro. Cotización
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo2.Caption = Me.Ado_detalle1.Recordset("edif_codigo")      ' Codigo Edificio
 '
-''            FraNavega1.Enabled = True
-''            FraModeloCosto.Enabled = True
+'                    aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("codigo_costo")     ' Codigo Costo
+'                    aw_p_ao_solicitud_cotiza_detalle.dtc_desc1.BoundText = aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.BoundText
+'                    aw_p_ao_solicitud_cotiza_detalle.dtc_aux1.BoundText = aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.BoundText
+'                    aw_p_ao_solicitud_cotiza_detalle.dtc_aux2.BoundText = aw_p_ao_solicitud_cotiza_detalle.dtc_codigo1.BoundText
+'
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo5.Caption = Me.Ado_detalle1.Recordset("pais_continente")    ' Continente
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo3.Text = Me.Ado_detalle1.Recordset("costo_porcentaje")    ' % Costo
+'                    If Ado_datos.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datos.Recordset!cotiza_precio_fob_dol) Then
+'                    'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
+'                        aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
+'                    Else
+'                        aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = Ado_datos.Recordset!cotiza_precio_fob_dol   ' Monto Modelo1(ME)
+'                    End If
+'                    aw_p_ao_solicitud_cotiza_detalle.Txt_campo4.Text = Me.Ado_detalle1.Recordset("costo_observaciones") ' Observaciones
+'                    aw_p_ao_solicitud_cotiza_detalle.Show vbModal
+'            '    Else
+'            '        MsgBox "No se puede Modificar el registro, porque este ya está Aprobado!! ", vbExclamation
+'                End If
+'            End If
+'
+'            FraNavega.Enabled = True
 '        Case 1
+'            marca1 = Ado_datosA.Recordset.Bookmark
+'            If rs_datosA.RecordCount > 0 And rs_datosA!estado_codigo = "REG" Then
+'                FraNavegaA.Enabled = False
+''                FraNavega1A.Enabled = False
+''                FraModeloCostoA.Enabled = False
+'                VARCTRL = 3
+'                    'ASIA
+'                If VARCTRL = 3 Then
+'                    aw_p_ao_solicitud_cotiza_det_asia.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")    ' Codigo Unidad
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("cotiza_codigo")    ' Nro. Cotización
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo2.Caption = Me.Ado_detalle1.Recordset("edif_codigo")      ' Codigo Edificio
+'
+'                    aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("codigo_costo")     ' Codigo Costo
+'                    aw_p_ao_solicitud_cotiza_det_asia.dtc_desc1.BoundText = aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.BoundText
+'                    aw_p_ao_solicitud_cotiza_det_asia.dtc_aux1.BoundText = aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.BoundText
+'                    aw_p_ao_solicitud_cotiza_det_asia.dtc_aux2.BoundText = aw_p_ao_solicitud_cotiza_det_asia.dtc_codigo1.BoundText
+'
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo5.Caption = Me.Ado_detalle1.Recordset("pais_continente")    ' Continente
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo3.Text = Me.Ado_detalle1.Recordset("costo_porcentaje")    ' % Costo
+'
+'                    aw_p_ao_solicitud_cotiza_det_asia.lbl_decA.Caption = Ado_datosA.Recordset!cotiza_dec     'cmd_decA.Text      ' # Decimales
+'                    If Ado_datosA.Recordset!cotiza_precio_fob_dol = "0" Or IsNull(Ado_datosA.Recordset!cotiza_precio_fob_dol) Then
+'                    'If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
+'                        aw_p_ao_solicitud_cotiza_det_asia.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
+'                    Else
+'                        aw_p_ao_solicitud_cotiza_det_asia.txt_monto01.Caption = Ado_datosA.Recordset!cotiza_precio_fob_dol   ' Monto Modelo1(ME)
+'                    End If
+'                    aw_p_ao_solicitud_cotiza_det_asia.Txt_campo4.Text = Me.Ado_detalle1.Recordset("costo_observaciones") ' Observaciones
+'                    aw_p_ao_solicitud_cotiza_det_asia.Show vbModal
+'            '    Else
+'            '        MsgBox "No se puede Modificar el registro, porque este ya está Aprobado!! ", vbExclamation
+'                End If
+'
+'            End If
 '            FraNavegaA.Enabled = True
-''            FraNavega1A.Enabled = True
-''            FraModeloCostoA.Enabled = True
 '        Case 2
+'        marca1 = Ado_datosE.Recordset.Bookmark
+'        If rs_datosE.RecordCount > 0 And rs_datosE!estado_codigo = "REG" Then
 '            FraNavegaE.Enabled = False
 ''            FraModeloCostoE.Enabled = False
 ''            FraNavega1E.Enabled = False
+'            VARCTRL = 2
+'            'EUROPA
+'            If VARCTRL = 2 Then
+'                aw_p_ao_solicitud_cotiza_det_eur.txt_codigo.Caption = Me.Ado_detalle1.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo1.Caption = Me.Ado_detalle1.Recordset("unidad_codigo")    ' Codigo Unidad
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_Correl.Caption = Me.Ado_detalle1.Recordset("cotiza_codigo")    ' Nro. Cotización
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo2.Caption = Me.Ado_detalle1.Recordset("edif_codigo")      ' Codigo Edificio
+'
+'                aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.Text = Me.Ado_detalle1.Recordset("codigo_costo")     ' Codigo Costo
+'                aw_p_ao_solicitud_cotiza_det_eur.dtc_desc1.BoundText = aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.BoundText
+'                aw_p_ao_solicitud_cotiza_det_eur.dtc_aux1.BoundText = aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.BoundText
+'                aw_p_ao_solicitud_cotiza_det_eur.dtc_aux2.BoundText = aw_p_ao_solicitud_cotiza_det_eur.dtc_codigo1.BoundText
+'
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo3.Text = Me.Ado_detalle1.Recordset("costo_porcentaje")    ' % Costo
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo6 = Ado_datosE.Recordset!cotiza_tdc_me
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo7 = Ado_datosE.Recordset!cotiza_dec
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo8 = Ado_datosE.Recordset!cotiza_tdc_bol
+'
+'        '        If txt_fob_bs1.Text = "0" Or txt_fob_bs1.Text = "" Then
+'        '            aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = "0"                  ' Monto Modelo1(ME)
+'        '        Else
+'        '            aw_p_ao_solicitud_cotiza_detalle.txt_monto01.Caption = Me.txt_fob_me1.Text   ' Monto Modelo1(ME)
+'        '        End If
+'                aw_p_ao_solicitud_cotiza_det_eur.txt_monto01.Caption = IIf(IsNull(Ado_datosE.Recordset!cotiza_precio_base_me), "0", Ado_datosE.Recordset!cotiza_precio_base_me)
+'
+'                aw_p_ao_solicitud_cotiza_det_eur.Txt_campo4.Text = Me.Ado_detalle1.Recordset("costo_observaciones") ' Observaciones
+'                aw_p_ao_solicitud_cotiza_det_eur.Show vbModal
+'            End If
+'
+'        End If
+'        FraNavegaE.Enabled = True
 '    End Select
-    swnuevo = 0
-    fraOpciones.Enabled = True
-    FraDet1.Enabled = True
-    FrmABMDet.Enabled = True
+''    Select Case SSTab1.Tab
+''        Case 0
+''
+'''            FraNavega1.Enabled = True
+'''            FraModeloCosto.Enabled = True
+''        Case 1
+''            FraNavegaA.Enabled = True
+'''            FraNavega1A.Enabled = True
+'''            FraModeloCostoA.Enabled = True
+''        Case 2
+''            FraNavegaE.Enabled = False
+'''            FraModeloCostoE.Enabled = False
+'''            FraNavega1E.Enabled = False
+''    End Select
+'    swnuevo = 0
+'    fraOpciones.Enabled = True
+'    FraDet1.Enabled = True
+'    FrmABMDet.Enabled = True
   
 End Sub
 
@@ -6604,11 +6827,11 @@ Private Sub BtnModificar_Click()
             'Call ABRIR_TABLA_DET
             VAR_CONTI = Ado_datos0.Recordset!pais_continente_cot
             GlConti = VAR_CONTI
-            GlSolicitud = Me.Ado_datos0.Recordset("solicitud_codigo")           ' Nro. Negociacion (Cod.solicitud)
-            GlUnidad = Me.Ado_datos0.Recordset("unidad_codigo")                 ' Codigo Unidad
-            GlNombFor = Me.Txt_campo12                                          ' Descripcion Unidad
-            GlCotiza = Me.Ado_datos0.Recordset("cotiza_codigo")    ' Nro. Cotización
-            GlEdificio = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
+            GlSolicitud = Me.Ado_datos0.Recordset!solicitud_codigo           ' Nro. Negociacion (Cod.solicitud)
+            GlUnidad = Me.Ado_datos0.Recordset!unidad_codigo                 ' Codigo Unidad
+            GlNombFor = Me.txt_campo12                                          ' Descripcion Unidad
+            GlCotiza = Me.Ado_datos0.Recordset!cotiza_codigo                ' Nro. Cotización
+            GlEdificio = Me.Ado_datos0.Recordset!edif_codigo                ' Codigo Edificio
             aw_solicitud_cotiza_datos.Show vbModal
             
             VAR_CONTI = "AMERICA"
@@ -6682,6 +6905,10 @@ Private Sub BtnModificar_Click()
 End Sub
 
 Private Sub BtnModificar1_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 '  On Error GoTo EditErr
 ''  lblStatus.Caption = "Modificar registro"
 '   If Ado_datos.Recordset!estado_codigo = "REG" Then
@@ -6763,8 +6990,8 @@ Private Sub BtnModificar1_Click()
         aw_p_ao_solicitud_cotiza_costos.txt_conti = VAR_CONTI
         aw_p_ao_solicitud_cotiza_costos.txt_codigo.Caption = Me.Ado_datos.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
         GlSolicitud = Me.Ado_datos.Recordset("solicitud_codigo") ' Nro. Tramite (Cod.solicitud)
-        aw_p_ao_solicitud_cotiza_costos.txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
-        aw_p_ao_solicitud_cotiza_costos.Txt_descripcion.Caption = Me.Txt_campo12.Text                         ' Descripcion Unidad
+        aw_p_ao_solicitud_cotiza_costos.Txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
+        aw_p_ao_solicitud_cotiza_costos.Txt_descripcion.Caption = Me.txt_campo12.Text                         ' Descripcion Unidad
         aw_p_ao_solicitud_cotiza_costos.Txt_Correl.Caption = Me.Ado_datos.Recordset("cotiza_codigo")    ' Nro. Cotización
         aw_p_ao_solicitud_cotiza_costos.Txt_campo2.Caption = Me.Ado_datos.Recordset("edif_codigo")      ' Codigo Edificio
         aw_p_ao_solicitud_cotiza_costos.txt_pais.Caption = Me.Ado_datos.Recordset("pais_codigo")      ' Pais
@@ -6863,6 +7090,10 @@ Private Sub BtnModificar1_Click()
 End Sub
 
 Private Sub BtnModificar1A_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
 '  On Error GoTo EditErr
 ''  lblStatus.Caption = "Modificar registro"
 '    If Ado_datosA.Recordset!estado_codigo = "REG" Then
@@ -6938,8 +7169,8 @@ If rs_datosA.RecordCount > 0 Then
         VAR_CONTI = "ASIA"
         aw_p_ao_solicitud_cotiza_costosA.txt_conti.Caption = VAR_CONTI
         aw_p_ao_solicitud_cotiza_costosA.txt_codigo.Caption = Me.Ado_datosA.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-        aw_p_ao_solicitud_cotiza_costosA.txt_campo1.Caption = parametro 'Me.Ado_datosA.Recordset("unidad_codigo")    ' Codigo Unidad
-        aw_p_ao_solicitud_cotiza_costosA.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+        aw_p_ao_solicitud_cotiza_costosA.Txt_campo1.Caption = parametro 'Me.Ado_datosA.Recordset("unidad_codigo")    ' Codigo Unidad
+        aw_p_ao_solicitud_cotiza_costosA.Txt_descripcion.Caption = Me.txt_campo12                        ' Descripcion Unidad
         aw_p_ao_solicitud_cotiza_costosA.Txt_Correl.Caption = Me.Ado_datosA.Recordset("cotiza_codigo")    ' Nro. Cotización
         aw_p_ao_solicitud_cotiza_costosA.Txt_campo2.Caption = Me.Ado_datosA.Recordset("edif_codigo")      ' Codigo Edificio
         aw_p_ao_solicitud_cotiza_costosA.txt_pais.Caption = Me.Ado_datosA.Recordset("pais_codigo")      ' Pais
@@ -7049,6 +7280,10 @@ End If
 End Sub
 
 Private Sub BtnModificar1E_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
   If rs_datosE.RecordCount > 0 And rs_datosE!estado_codigo = "REG" Then
     If IsNull(Ado_datosE.Recordset!cotiza_nro_montador) Then            'Txt_campo5A.Text = "" Then
         MsgBox "Debe registrar el Número de Montadores, verifique por favor y vuelva a intentar...", vbExclamation, "Validación de Registro"
@@ -7076,8 +7311,8 @@ Private Sub BtnModificar1E_Click()
         VAR_CONTI = "EUROPA"
         aw_p_ao_solicitud_cotiza_costosE.txt_conti.Caption = VAR_CONTI
         aw_p_ao_solicitud_cotiza_costosE.txt_codigo.Caption = Me.Ado_datosE.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-        aw_p_ao_solicitud_cotiza_costosE.txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
-        aw_p_ao_solicitud_cotiza_costosE.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+        aw_p_ao_solicitud_cotiza_costosE.Txt_campo1.Caption = parametro 'Me.Ado_datosE.Recordset("unidad_codigo")    ' Codigo Unidad
+        aw_p_ao_solicitud_cotiza_costosE.Txt_descripcion.Caption = Me.txt_campo12                        ' Descripcion Unidad
         aw_p_ao_solicitud_cotiza_costosE.Txt_Correl.Caption = Me.Ado_datosE.Recordset("cotiza_codigo")    ' Nro. Cotización
         aw_p_ao_solicitud_cotiza_costosE.Txt_campo2.Caption = Me.Ado_datosE.Recordset("edif_codigo")      ' Codigo Edificio
         aw_p_ao_solicitud_cotiza_costosE.txt_pais.Caption = Me.Ado_datosE.Recordset("pais_codigo")      ' Pais
@@ -7204,44 +7439,53 @@ Private Sub BtnModificarA_Click()
         '        Case "2"
         '        Case "3"
             'Call ABRIR_TABLA_DET
+            VAR_CONTI = Ado_datos0.Recordset!pais_continente_cot
+            GlConti = VAR_CONTI
+            GlSolicitud = Me.Ado_datos0.Recordset!solicitud_codigo           ' Nro. Negociacion (Cod.solicitud)
+            GlUnidad = Me.Ado_datos0.Recordset!unidad_codigo                 ' Codigo Unidad
+            GlNombFor = Me.txt_campo12                                          ' Descripcion Unidad
+            GlCotiza = Me.Ado_datos0.Recordset!cotiza_codigo                ' Nro. Cotización
+            GlEdificio = Me.Ado_datos0.Recordset!edif_codigo                ' Codigo Edificio
+            aw_solicitud_cotiza_datos.Show vbModal
+            
             VAR_CONTI = "ASIA"
-            frm_ao_solicitud_cotiza_datosA.txt_conti.Caption = VAR_CONTI
-            frm_ao_solicitud_cotiza_datosA.txt_codigo.Caption = Me.Ado_datos0.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-            frm_ao_solicitud_cotiza_datosA.txt_campo1.Caption = Me.Ado_datos0.Recordset("unidad_codigo")    ' Codigo Unidad
-            frm_ao_solicitud_cotiza_datosA.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
-            frm_ao_solicitud_cotiza_datosA.Txt_Correl.Caption = Me.Ado_datos0.Recordset("cotiza_codigo")    ' Nro. Cotización
-            frm_ao_solicitud_cotiza_datosA.Txt_campo2A.Caption = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
-            GlEdificio = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
-            frm_ao_solicitud_cotiza_datosA.Txt_campo4.Text = Me.Ado_datos0.Recordset("modelo_codigo") ' Modelo
-            
-            frm_ao_solicitud_cotiza_datosA.Txt_campo5.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_nro_montador), "2", Me.Ado_datos0.Recordset!cotiza_nro_montador) ' Montadores
-            frm_ao_solicitud_cotiza_datosA.Txt_campo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_energia), "0", Me.Ado_datos0.Recordset!cotiza_energia) ' Energia
-            frm_ao_solicitud_cotiza_datosA.Txt_campo3.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_luz), "0", Me.Ado_datos0.Recordset!cotiza_luz) ' Luz
-            frm_ao_solicitud_cotiza_datosA.Txt_campo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!bien_cotiza_num_accesos), "0", Me.Ado_datos0.Recordset!bien_cotiza_num_accesos) ' Num Accesos
-            frm_ao_solicitud_cotiza_datosA.Txt_campo9.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_fondo), "0", Me.Ado_datos0.Recordset!dimension_fosa_fondo) ' Fosa fondo
-            frm_ao_solicitud_cotiza_datosA.Txt_campo10.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_frente), "0", Me.Ado_datos0.Recordset!dimension_fosa_frente) ' Fosa Frente
-            frm_ao_solicitud_cotiza_datosA.Txt_campo8.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_m), "0", Me.Ado_datos0.Recordset!dimension_fosa_m) ' Espacio Dintel
-            'Equipo
-            frm_ao_solicitud_cotiza_datosA.dtc_codigo21.Text = IIf(IsNull(Me.Ado_datos0.Recordset!bien_codigo), "NA2", Me.Ado_datos0.Recordset!bien_codigo)     ' Codigo Equipo
-            frm_ao_solicitud_cotiza_datosA.dtc_desc24.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo21.BoundText
-            frm_ao_solicitud_cotiza_datosA.dtc_desc21.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo21.BoundText
-            'Pais
-            frm_ao_solicitud_cotiza_datosA.dtc_codigo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!pais_codigo), "CHN", Me.Ado_datos0.Recordset!pais_codigo)    ' Pais
-            frm_ao_solicitud_cotiza_datosA.dtc_desc7.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo7.BoundText
-            'Tipo de Equipo
-            frm_ao_solicitud_cotiza_datosA.dtc_codigo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!tipo_eqp), "A", Me.Ado_datos0.Recordset!tipo_eqp)    ' Tipo Equipo
-            frm_ao_solicitud_cotiza_datosA.dtc_desc2.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo2.BoundText
-            'Cuarto de Control
-            frm_ao_solicitud_cotiza_datosA.dtc_codigo61.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cuadro_ctrl_codigo), "1", Me.Ado_datos0.Recordset!cuadro_ctrl_codigo)    'Cuarto de Control
-            frm_ao_solicitud_cotiza_datosA.dtc_desc61.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo61.BoundText
-            'Marcas
-            frm_ao_solicitud_cotiza_datosA.dtc_codigo3.Text = IIf(IsNull(Me.Ado_datos0.Recordset!marca_codigo), "S/M", Me.Ado_datos0.Recordset!marca_codigo)    'Marca
-            frm_ao_solicitud_cotiza_datosA.dtc_desc3.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo3.BoundText
-            
-            frm_ao_solicitud_cotiza_datosA.Show vbModal
-    '        Case "4"
-    '
-    '    End Select
+'            frm_ao_solicitud_cotiza_datosA.txt_conti.Caption = VAR_CONTI
+'            frm_ao_solicitud_cotiza_datosA.txt_codigo.Caption = Me.Ado_datos0.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo1.Caption = Me.Ado_datos0.Recordset("unidad_codigo")    ' Codigo Unidad
+'            frm_ao_solicitud_cotiza_datosA.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+'            frm_ao_solicitud_cotiza_datosA.Txt_Correl.Caption = Me.Ado_datos0.Recordset("cotiza_codigo")    ' Nro. Cotización
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo2A.Caption = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
+'            GlEdificio = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo4.Text = Me.Ado_datos0.Recordset("modelo_codigo") ' Modelo
+'
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo5.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_nro_montador), "2", Me.Ado_datos0.Recordset!cotiza_nro_montador) ' Montadores
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_energia), "0", Me.Ado_datos0.Recordset!cotiza_energia) ' Energia
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo3.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_luz), "0", Me.Ado_datos0.Recordset!cotiza_luz) ' Luz
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!bien_cotiza_num_accesos), "0", Me.Ado_datos0.Recordset!bien_cotiza_num_accesos) ' Num Accesos
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo9.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_fondo), "0", Me.Ado_datos0.Recordset!dimension_fosa_fondo) ' Fosa fondo
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo10.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_frente), "0", Me.Ado_datos0.Recordset!dimension_fosa_frente) ' Fosa Frente
+'            frm_ao_solicitud_cotiza_datosA.Txt_campo8.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_m), "0", Me.Ado_datos0.Recordset!dimension_fosa_m) ' Espacio Dintel
+'            'Equipo
+'            frm_ao_solicitud_cotiza_datosA.dtc_codigo21.Text = IIf(IsNull(Me.Ado_datos0.Recordset!bien_codigo), "NA2", Me.Ado_datos0.Recordset!bien_codigo)     ' Codigo Equipo
+'            frm_ao_solicitud_cotiza_datosA.dtc_desc24.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo21.BoundText
+'            frm_ao_solicitud_cotiza_datosA.dtc_desc21.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo21.BoundText
+'            'Pais
+'            frm_ao_solicitud_cotiza_datosA.dtc_codigo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!pais_codigo), "CHN", Me.Ado_datos0.Recordset!pais_codigo)    ' Pais
+'            frm_ao_solicitud_cotiza_datosA.dtc_desc7.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo7.BoundText
+'            'Tipo de Equipo
+'            frm_ao_solicitud_cotiza_datosA.dtc_codigo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!tipo_eqp), "A", Me.Ado_datos0.Recordset!tipo_eqp)    ' Tipo Equipo
+'            frm_ao_solicitud_cotiza_datosA.dtc_desc2.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo2.BoundText
+'            'Cuarto de Control
+'            frm_ao_solicitud_cotiza_datosA.dtc_codigo61.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cuadro_ctrl_codigo), "1", Me.Ado_datos0.Recordset!cuadro_ctrl_codigo)    'Cuarto de Control
+'            frm_ao_solicitud_cotiza_datosA.dtc_desc61.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo61.BoundText
+'            'Marcas
+'            frm_ao_solicitud_cotiza_datosA.dtc_codigo3.Text = IIf(IsNull(Me.Ado_datos0.Recordset!marca_codigo), "S/M", Me.Ado_datos0.Recordset!marca_codigo)    'Marca
+'            frm_ao_solicitud_cotiza_datosA.dtc_desc3.BoundText = frm_ao_solicitud_cotiza_datosA.dtc_codigo3.BoundText
+'
+'            frm_ao_solicitud_cotiza_datosA.Show vbModal
+'    '        Case "4"
+'    '
+'    '    End Select
             fraOpciones1A.Visible = True
             FraNavegaA.Enabled = True
 '            FraModeloCostoA.Enabled = False
@@ -7290,43 +7534,52 @@ Private Sub BtnModificarE_Click()
 '        Case "1"
 '        Case "2"
 '        Case "3"
-        Call ABRIR_TABLA_DET
+        'Call ABRIR_TABLA_DET
+         VAR_CONTI = Ado_datos0.Recordset!pais_continente_cot
+            GlConti = VAR_CONTI
+            GlSolicitud = Me.Ado_datos0.Recordset!solicitud_codigo           ' Nro. Negociacion (Cod.solicitud)
+            GlUnidad = Me.Ado_datos0.Recordset!unidad_codigo                 ' Codigo Unidad
+            GlNombFor = Me.txt_campo12                                          ' Descripcion Unidad
+            GlCotiza = Me.Ado_datos0.Recordset!cotiza_codigo                ' Nro. Cotización
+            GlEdificio = Me.Ado_datos0.Recordset!edif_codigo                ' Codigo Edificio
+            aw_solicitud_cotiza_datos.Show vbModal
+            
         VAR_CONTI = "EUROPA"
-        frm_ao_solicitud_cotiza_datosE.txt_conti.Caption = "EUROPA"
-        frm_ao_solicitud_cotiza_datosE.txt_codigo.Caption = Me.Ado_datos0.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
-        frm_ao_solicitud_cotiza_datosE.txt_campo1.Caption = Me.Ado_datos0.Recordset("unidad_codigo")    ' Codigo Unidad
-        frm_ao_solicitud_cotiza_datosE.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
-        frm_ao_solicitud_cotiza_datosE.Txt_Correl.Caption = Me.Ado_datos0.Recordset("cotiza_codigo")    ' Nro. Cotización
-        frm_ao_solicitud_cotiza_datosE.Txt_campo2A.Caption = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
-        GlEdificio = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
-        frm_ao_solicitud_cotiza_datosE.Txt_campo4.Text = Me.Ado_datos0.Recordset("modelo_codigo") ' Modelo
-        frm_ao_solicitud_cotiza_datosE.Txt_campo5.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_nro_montador), "2", Me.Ado_datos0.Recordset!cotiza_nro_montador) ' Montadores
-        frm_ao_solicitud_cotiza_datosE.Txt_campo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_energia), "0", Me.Ado_datos0.Recordset!cotiza_energia) ' Energia
-        frm_ao_solicitud_cotiza_datosE.Txt_campo3.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_luz), "0", Me.Ado_datos0.Recordset!cotiza_luz) ' Luz
-        frm_ao_solicitud_cotiza_datosE.Txt_campo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!bien_cotiza_num_accesos), "0", Me.Ado_datos0.Recordset!bien_cotiza_num_accesos) ' Num Accesos
-        frm_ao_solicitud_cotiza_datosE.Txt_campo9.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_fondo), "0", Me.Ado_datos0.Recordset!dimension_fosa_fondo) ' Fosa fondo
-        frm_ao_solicitud_cotiza_datosE.Txt_campo10.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_frente), "0", Me.Ado_datos0.Recordset!dimension_fosa_frente) ' Fosa Frente
-        frm_ao_solicitud_cotiza_datosE.Txt_campo8.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_m), "0", Me.Ado_datos0.Recordset!dimension_fosa_m) ' Espacio Dintel
-        'Equipo dtc_codigo21
-        frm_ao_solicitud_cotiza_datosE.dtc_codigo21.Text = Me.Ado_datos0.Recordset("bien_codigo")     ' Codigo Equipo
-        frm_ao_solicitud_cotiza_datosE.dtc_desc24.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo21.BoundText
-        frm_ao_solicitud_cotiza_datosE.dtc_desc21.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo21.BoundText
-        
-        'Pais
-        frm_ao_solicitud_cotiza_datosE.dtc_codigo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!pais_codigo), "NN", Me.Ado_datos0.Recordset!pais_codigo)    ' Pais
-        frm_ao_solicitud_cotiza_datosE.dtc_desc7.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo7.BoundText
-        'Tipo de Equipo
-        'frm_ao_solicitud_cotiza_datosE.dtc_codigo2.Text = Me.Ado_datos0.Recordset("tipo_eqp")    ' Tipo Equipo
-        frm_ao_solicitud_cotiza_datosE.dtc_codigo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!tipo_eqp), "X", Me.Ado_datos0.Recordset("tipo_eqp"))  ' Tipo Equipo
-        frm_ao_solicitud_cotiza_datosE.dtc_desc2.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo2.BoundText
-        'Cuarto de Control
-        frm_ao_solicitud_cotiza_datosE.dtc_codigo61.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cuadro_ctrl_codigo), "1", Me.Ado_datos0.Recordset!cuadro_ctrl_codigo)    'Cuarto de Control
-        frm_ao_solicitud_cotiza_datosE.dtc_desc61.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo61.BoundText
-        
-        frm_ao_solicitud_cotiza_datosE.Show vbModal
-'        Case "4"
+'        frm_ao_solicitud_cotiza_datosE.txt_conti.Caption = "EUROPA"
+'        frm_ao_solicitud_cotiza_datosE.txt_codigo.Caption = Me.Ado_datos0.Recordset("solicitud_codigo") ' Nro. Negociacion (Cod.solicitud)
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo1.Caption = Me.Ado_datos0.Recordset("unidad_codigo")    ' Codigo Unidad
+'        frm_ao_solicitud_cotiza_datosE.Txt_descripcion.Caption = Me.Txt_campo12                        ' Descripcion Unidad
+'        frm_ao_solicitud_cotiza_datosE.Txt_Correl.Caption = Me.Ado_datos0.Recordset("cotiza_codigo")    ' Nro. Cotización
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo2A.Caption = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
+'        GlEdificio = Me.Ado_datos0.Recordset("edif_codigo")      ' Codigo Edificio
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo4.Text = Me.Ado_datos0.Recordset("modelo_codigo") ' Modelo
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo5.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_nro_montador), "2", Me.Ado_datos0.Recordset!cotiza_nro_montador) ' Montadores
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_energia), "0", Me.Ado_datos0.Recordset!cotiza_energia) ' Energia
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo3.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cotiza_luz), "0", Me.Ado_datos0.Recordset!cotiza_luz) ' Luz
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!bien_cotiza_num_accesos), "0", Me.Ado_datos0.Recordset!bien_cotiza_num_accesos) ' Num Accesos
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo9.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_fondo), "0", Me.Ado_datos0.Recordset!dimension_fosa_fondo) ' Fosa fondo
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo10.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_frente), "0", Me.Ado_datos0.Recordset!dimension_fosa_frente) ' Fosa Frente
+'        frm_ao_solicitud_cotiza_datosE.Txt_campo8.Text = IIf(IsNull(Me.Ado_datos0.Recordset!dimension_fosa_m), "0", Me.Ado_datos0.Recordset!dimension_fosa_m) ' Espacio Dintel
+'        'Equipo dtc_codigo21
+'        frm_ao_solicitud_cotiza_datosE.dtc_codigo21.Text = Me.Ado_datos0.Recordset("bien_codigo")     ' Codigo Equipo
+'        frm_ao_solicitud_cotiza_datosE.dtc_desc24.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo21.BoundText
+'        frm_ao_solicitud_cotiza_datosE.dtc_desc21.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo21.BoundText
 '
-'    End Select
+'        'Pais
+'        frm_ao_solicitud_cotiza_datosE.dtc_codigo7.Text = IIf(IsNull(Me.Ado_datos0.Recordset!pais_codigo), "NN", Me.Ado_datos0.Recordset!pais_codigo)    ' Pais
+'        frm_ao_solicitud_cotiza_datosE.dtc_desc7.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo7.BoundText
+'        'Tipo de Equipo
+'        'frm_ao_solicitud_cotiza_datosE.dtc_codigo2.Text = Me.Ado_datos0.Recordset("tipo_eqp")    ' Tipo Equipo
+'        frm_ao_solicitud_cotiza_datosE.dtc_codigo2.Text = IIf(IsNull(Me.Ado_datos0.Recordset!tipo_eqp), "X", Me.Ado_datos0.Recordset("tipo_eqp"))  ' Tipo Equipo
+'        frm_ao_solicitud_cotiza_datosE.dtc_desc2.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo2.BoundText
+'        'Cuarto de Control
+'        frm_ao_solicitud_cotiza_datosE.dtc_codigo61.Text = IIf(IsNull(Me.Ado_datos0.Recordset!cuadro_ctrl_codigo), "1", Me.Ado_datos0.Recordset!cuadro_ctrl_codigo)    'Cuarto de Control
+'        frm_ao_solicitud_cotiza_datosE.dtc_desc61.BoundText = frm_ao_solicitud_cotiza_datosE.dtc_codigo61.BoundText
+'
+'        frm_ao_solicitud_cotiza_datosE.Show vbModal
+''        Case "4"
+''
+''    End Select
         fraOpciones1E.Visible = True
         FraNavegaE.Enabled = True
 '        FraModeloCostoE.Enabled = False
@@ -7352,28 +7605,29 @@ Private Sub BtnSalir_Click()
     Unload Me
 End Sub
 
-Private Sub BtnVer_Click()
-    'ARREGLO 1
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc11 = dtc_aux41.Text
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc21 = dtc_aux51.Text
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoc31 = IIf(IsNull(Ado_datos.Recordset!trafico_c_time_entrada_salida), 0, Ado_datos.Recordset!trafico_c_time_entrada_salida)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campod11 = IIf(IsNull(Ado_datos.Recordset!trafico_d_num_paradas_probables), 0, Ado_datos.Recordset!trafico_d_num_paradas_probables)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe11 = IIf(IsNull(Ado_datos.Recordset!trafico_e_tiempo_recorrido), 0, Ado_datos.Recordset!trafico_e_tiempo_recorrido)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe21 = IIf(IsNull(Ado_datos.Recordset!trafico_e_tiempo_asc_desaceleracion), 0, Ado_datos.Recordset!trafico_e_tiempo_asc_desaceleracion)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe31 = IIf(IsNull(Ado_datos.Recordset!trafico_e_tiempo_apertura_cierre), 0, Ado_datos.Recordset!trafico_e_tiempo_apertura_cierre)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campoe41 = IIf(IsNull(Ado_datos.Recordset!trafico_e_tiempo_entrada_salida), 0, Ado_datos.Recordset!trafico_e_tiempo_entrada_salida)
-'
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof11 = IIf(IsNull(Ado_datos.Recordset!trafico_f_tiempo_recorrido), 0, Ado_datos.Recordset!trafico_f_tiempo_recorrido)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof21 = IIf(IsNull(Ado_datos.Recordset!trafico_f_time_asc_desaceleracion), 0, Ado_datos.Recordset!trafico_f_time_asc_desaceleracion)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof31 = IIf(IsNull(Ado_datos.Recordset!trafico_f_time_apertura_cierre), 0, Ado_datos.Recordset!trafico_f_time_apertura_cierre)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campof41 = IIf(IsNull(Ado_datos.Recordset!trafico_f_time_entrada_salida), 0, Ado_datos.Recordset!trafico_f_time_entrada_salida)
-'
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog11 = IIf(IsNull(Ado_datos.Recordset!trafico_g_capacidad_tiempo_cti), 0, Ado_datos.Recordset!trafico_g_capacidad_tiempo_cti)
-'    aw_p_ao_solicitud_calculo_trafico_det.lbl_campog21 = IIf(IsNull(Ado_datos.Recordset!trafico_g_capacidad_total_arreglo), 0, Ado_datos.Recordset!trafico_g_capacidad_total_arreglo)
-End Sub
 
 Private Sub dtc_desc64_Click(Area As Integer)
 '    dtc_codigo64.BoundText = dtc_codigo64.BoundText
+End Sub
+
+Private Sub BtnSalir2_Click()
+    Fra_datos2.Enabled = False
+    fraOpciones.Visible = True
+    FrmABMDet.Visible = True
+    FraNavega0.Enabled = True
+    SSTab1.Enabled = True
+    Fra_datos2.Visible = False
+    FraDet1.Enabled = True
+End Sub
+
+Private Sub BtnVer_Click()
+    Fra_datos2.Enabled = True
+    Fra_datos2.Visible = True
+    fraOpciones.Visible = False
+    FrmABMDet.Visible = False
+    FraNavega0.Enabled = False
+    SSTab1.Enabled = False
+    FraDet1.Enabled = False
 End Sub
 
 Private Sub Form_Load()
@@ -7417,7 +7671,7 @@ Private Sub Form_Load()
             Aux = "DNMOD"
             VAR_DPTO = "2"
         Case "0"    ' TODO
-            If glusuario = "CNUÑEZ" Then
+            If glusuario = "ASANTIVAÑEZ" Then
                 Aux = "DNMOD"
                 VAR_DPTO = "2"
             Else
@@ -7473,7 +7727,7 @@ Private Sub Form_Load()
 ''    End If
 '
 '    VAR_PRDA = IIf(dtc_desc10 = "", 0, dtc_desc10)
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub OptFilGral1_Click()
@@ -7494,9 +7748,14 @@ Private Sub OptFilGral1_Click()
         Case "1.8"    'Cochabamba
             queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo_cot = 'REG'  AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '4' ))) "
         Case "1.7"    'Santa Cruz
-            queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo_cot = 'REG' AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' ) )) "
+            If glusuario = "CURDININEA" Then        'SCZ
+                queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo_cot = 'REG' AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8'  or left(edif_codigo,1) = '9' or left(edif_codigo,1) = '3' ) )) "
+            Else
+                queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo_cot = 'REG' AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' ) )) "
+            End If
+            
         Case "1.2"    'La Paz - Comercial
-            If glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "GSOLIZ" Or glusuario = "CNUÑEZ" Then           'LPZ
+            If glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then            'LPZ
                 queryinicial = "select * From av_calculo_y_cotiza WHERE (estado_codigo_cot = 'REG' AND (unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMC')) "
             Else
                 queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo_cot = 'REG'  AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '1' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' or left(edif_codigo,1) = '9'  ) )) "
@@ -7511,7 +7770,7 @@ Private Sub OptFilGral1_Click()
         Case "1.9"    ' Chuquisaca
             queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo_cot = 'REG' AND unidad_codigo = '" & VAR_UORIGEN & "'  AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6') )) "
         Case "1.4"    ' ADMIN
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
                 If VAR_UORIGEN = "DVTA" Then
                     queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND (unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC'))) "
                 Else
@@ -7519,7 +7778,7 @@ Private Sub OptFilGral1_Click()
                 End If
             End If
         Case Else    ' ADMIN
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CNUÑEZ" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
                 If VAR_UORIGEN = "DVTA" Then
                     queryinicial = "select * From av_calculo_y_cotiza WHERE ((estado_codigo_cot = 'REG' AND (unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC'))) "
                 Else
@@ -7557,9 +7816,14 @@ Private Sub OptFilGral2_Click()
         Case "1.8"    'Cochabamba
             queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '4' ))) "
         Case "1.7"    'Santa Cruz
-            queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' )))  "
+            If glusuario = "CURDININEA" Then        'SCZ
+                queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' or left(edif_codigo,1) = '9' or left(edif_codigo,1) = '3' )))  "
+            Else
+                queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' )))  "
+            End If
+            
         Case "1.2"    'La Paz - Comercial
-            If glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "GSOLIZ" Or glusuario = "CNUÑEZ" Then           'LPZ
+            If glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then            'LPZ
                 queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMC')) "
             Else
                 queryinicial = "select * From av_calculo_y_cotiza WHERE (((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '1' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' or left(edif_codigo,1) = '9' )))) "
@@ -7574,7 +7838,7 @@ Private Sub OptFilGral2_Click()
         Case "1.9"    ' Chuquisaca
             queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' )))  "
         Case "1.4"    ' ADMIN
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
                 If VAR_UORIGEN = "DVTA" Then
                     queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC')) "
                     'queryinicial = "select * From ao_solicitud WHERE estado_codigo = 'REG'  "
@@ -7583,7 +7847,7 @@ Private Sub OptFilGral2_Click()
                 End If
             End If
         Case Else    ' ADMIN
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CNUÑEZ" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
                 If VAR_UORIGEN = "DVTA" Then
                     queryinicial = "select * From av_calculo_y_cotiza WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC')) "
                     'queryinicial = "select * From ao_solicitud WHERE estado_codigo = 'REG'  "
@@ -7626,9 +7890,10 @@ Private Sub Ado_datos0_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByV
         dtc_desc16.Caption = "0"
         dtc_desc17.Caption = "0"
         GlSolicitud = Ado_datos0.Recordset!solicitud_codigo
+        GlUnidad = Ado_datos0.Recordset!unidad_codigo
         VAR_PAISC = IIf(IsNull(Ado_datos0.Recordset!pais_continente_cot), "", Ado_datos0.Recordset!pais_continente_cot)
         GlEdificio = Ado_datos0.Recordset!edif_codigo      ' Codigo Edificio
-        txt_codigo1.Caption = Ado_datos0.Recordset!cotiza_codigo
+        GlCotiza = Ado_datos0.Recordset!cotiza_codigo       'txt_codigo1.Caption
         VAR_AME = 0
         VAR_ASI = 0
         VAR_EUR = 0
@@ -7773,7 +8038,7 @@ Private Sub ABRIR_TABLAS_AUX()
     If rs_datos01.State = 1 Then rs_datos01.Close
     rs_datos01.Open "Select * from gc_unidad_ejecutora order by unidad_descripcion", db, adOpenStatic
     Set Ado_datos01.Recordset = rs_datos01
-    Txt_campo12.BoundText = txt_campo1.BoundText
+    txt_campo12.BoundText = Txt_campo1.BoundText
     
     'gc_edificaciones
     Set rs_datos3 = New ADODB.Recordset
@@ -7782,7 +8047,7 @@ Private Sub ABRIR_TABLAS_AUX()
     'rs_datos3.Open "gp_listar_apr_gc_edificaciones", db, adOpenStatic
     Set Ado_datos03.Recordset = rs_datos3
     txt_desc3.BoundText = txt_codigo3.BoundText
-    txt_Aux3.BoundText = txt_codigo3.BoundText
+    txt_aux3.BoundText = txt_codigo3.BoundText
     
     'Cálculo de Tráfico.
     Set rs_datos11 = New ADODB.Recordset
@@ -8146,9 +8411,9 @@ Private Sub ABRIR_TABLA()
             'Cotiza AMERICA (Brasil, EE.UU, y otros)
             Set rs_datos = New Recordset
             If rs_datos.State = 1 Then rs_datos.Close
-            rs_datos.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'AMERICA'  and cotiza_codigo = " & txt_codigo1.Caption & " ", db, adOpenKeyset, adLockOptimistic
-            'queryinicial = "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & Ado_datos0.Recordset!solicitud_codigo & " and pais_continente = 'AMERICA'  "
-            'queryinicial = "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'AMERICA'  "
+            rs_datos.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'AMERICA'  and cotiza_codigo = " & GlCotiza & " ", db, adOpenKeyset, adLockOptimistic
+            'queryinicial = "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & Ado_datos0.Recordset!solicitud_codigo & " and pais_continente = 'AMERICA'  "            'txt_codigo1.Caption
+            'queryinicial = "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & GlCotiza & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'AMERICA'  "
             'rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
             Set Ado_datos.Recordset = rs_datos.DataSource
             Set dg_datos.DataSource = Ado_datos.Recordset
@@ -8160,8 +8425,8 @@ Private Sub ABRIR_TABLA()
             'Cotiza ASIA (China, Japon)
             Set rs_datosA = New ADODB.Recordset
             If rs_datosA.State = 1 Then rs_datosA.Close
-            rs_datosA.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'ASIA' and cotiza_codigo = " & txt_codigo1.Caption & "  ", db, adOpenKeyset, adLockOptimistic
-            'rs_datosA.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'ASIA'  ", db, adOpenKeyset, adLockOptimistic
+            rs_datosA.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'ASIA' and cotiza_codigo = " & GlCotiza & "  ", db, adOpenKeyset, adLockOptimistic
+            'rs_datosA.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'ASIA'  ", db, adOpenKeyset, adLockOptimistic         'txt_codigo1.Caption
             Set Ado_datosA.Recordset = rs_datosA
             Set dg_datosA.DataSource = Ado_datosA.Recordset
             If Ado_datosA.Recordset.RecordCount > 0 Then
@@ -8173,7 +8438,7 @@ Private Sub ABRIR_TABLA()
             Set rs_datosE = New ADODB.Recordset
             If rs_datosE.State = 1 Then rs_datosE.Close
             'rs_datosE.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'EUROPA' and cotiza_codigo = " & txt_codigo1.Caption & " ", db, adOpenKeyset, adLockOptimistic
-            rs_datosE.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'EUROPA' ", db, adOpenKeyset, adLockOptimistic
+            rs_datosE.Open "Select * from ao_solicitud_cotiza_venta where unidad_codigo = '" & GlUnidad & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = 'EUROPA'  and cotiza_codigo = " & GlCotiza & " ", db, adOpenKeyset, adLockOptimistic
             Set Ado_datosE.Recordset = rs_datosE
             Set dg_datosE.DataSource = Ado_datosE.Recordset
             If Ado_datosE.Recordset.RecordCount > 0 Then
@@ -8350,7 +8615,7 @@ Private Sub ABRIR_TABLA_DET()
     If rs_det1.State = 1 Then rs_det1.Close
     If VAR_PAISC = "AMERICA" Then
         'rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Ado_datos.Recordset!cotiza_codigo & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(txt_codigo1.Caption) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(GlCotiza) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
         Set Ado_detalle1.Recordset = rs_det1
         If Ado_detalle1.Recordset.RecordCount > 0 Then
             Set dg_det1.DataSource = Ado_detalle1.Recordset
@@ -8360,7 +8625,7 @@ Private Sub ABRIR_TABLA_DET()
     End If
     If VAR_PAISC = "ASIA" Then
         'rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Ado_datosA.Recordset!cotiza_codigo & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(txt_codigo1.Caption) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(GlCotiza) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
         Set Ado_detalle1.Recordset = rs_det1
         If Ado_detalle1.Recordset.RecordCount > 0 Then
             Set dg_det1.DataSource = Ado_detalle1.Recordset
@@ -8370,7 +8635,7 @@ Private Sub ABRIR_TABLA_DET()
     End If
     If VAR_PAISC = "EUROPA" Then
         'rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Ado_datosE.Recordset!cotiza_codigo & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
-        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(txt_codigo1.Caption) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det1.Open "select * from ao_solicitud_costos where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & GlSolicitud & " and pais_continente = '" & VAR_PAISC & "' and cotiza_codigo = " & Val(GlCotiza) & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText           'txt_codigo1.Caption
         Set Ado_detalle1.Recordset = rs_det1
         If Ado_detalle1.Recordset.RecordCount > 0 Then
             Set dg_det1E.DataSource = Ado_detalle1.Recordset
@@ -8439,15 +8704,15 @@ Private Sub sstab1_Click(PreviousTab As Integer)
 End Sub
 
 Private Sub Txt_campo1_Click(Area As Integer)
-    Txt_campo12.BoundText = txt_campo1.BoundText
+    txt_campo12.BoundText = Txt_campo1.BoundText
 End Sub
 
 Private Sub Txt_campo12_Click(Area As Integer)
-    txt_campo1.BoundText = Txt_campo12.BoundText
+    Txt_campo1.BoundText = txt_campo12.BoundText
 End Sub
 
 Private Sub txt_codigo3_Click(Area As Integer)
     txt_desc3.BoundText = txt_codigo3.BoundText
-    txt_Aux3.BoundText = txt_codigo3.BoundText
+    txt_aux3.BoundText = txt_codigo3.BoundText
 End Sub
 

@@ -256,7 +256,7 @@ Begin VB.Form fw_compras_gral
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110690305
+         Format          =   137297921
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -3929,7 +3929,7 @@ On Error GoTo UpdateErr
 '                'Call ABRIR_TABLA_DET
         Ado_detalle2.Recordset.AddNew
         fw_adjudica_gral.txt_codigo.Caption = Me.Ado_datos.Recordset!solicitud_codigo  'cod_cabecera
-        fw_adjudica_gral.Txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
+        fw_adjudica_gral.txt_campo1.Text = Me.Ado_datos.Recordset!unidad_codigo  'Unidad
         fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
         fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_datos.Recordset!compra_codigo
 '                If rs_aux4!correla > 0 Then
@@ -4097,7 +4097,7 @@ If Ado_detalle2.Recordset.RecordCount > 0 Then
         rs_compra_det!almacen_codigo = Ado_detalle1.Recordset!almacen_codigo
          rs_compra_det!estado_codigo = "APR"
         rs_compra_det!usr_codigo = glusuario
-        rs_compra_det!Fecha_Registro = Date
+        rs_compra_det!fecha_registro = Date
         rs_compra_det.Update
         DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
         DETALLE1 = Ado_detalle1.Recordset!compra_codigo_det
@@ -4380,7 +4380,7 @@ Private Sub BtnAprobar_Click()
 '        rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
 '        rs_datos!archivo_respaldo_cargado = "N"
         rs_datos!estado_codigo = "APR"
-        rs_datos!Fecha_Registro = Date
+        rs_datos!fecha_registro = Date
         rs_datos!usr_codigo = glusuario
         rs_datos.UpdateBatch adAffectAll
         
@@ -4835,16 +4835,21 @@ Private Sub BtnAprobar4_Click()
            Exit Sub
         Else
            If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
+              db.Execute " update ao_compra_cabecera set ao_compra_cabecera.codigo_empresa = ao_ventas_cabecera.codigo_empresa FROM ao_compra_cabecera INNER JOIN ao_ventas_cabecera ON  ao_compra_cabecera.unidad_codigo = ao_ventas_cabecera.unidad_codigo AND ao_compra_cabecera.solicitud_codigo = ao_ventas_cabecera.solicitud_codigo AND ao_compra_cabecera.codigo_empresa  <> ao_ventas_cabecera.codigo_empresa where ao_compra_cabecera.codigo_empresa = 0 "
+              
+              db.Execute " update ao_compra_adjudica set ao_compra_adjudica.codigo_empresa  = ao_compra_cabecera.codigo_empresa FROM ao_compra_adjudica INNER JOIN  ao_compra_cabecera ON  ao_compra_cabecera.compra_codigo  = ao_compra_adjudica.compra_codigo where ao_compra_adjudica.codigo_empresa = 0 "
+              
               'INI correlativo ALMACEN
               Set rs_aux7 = New ADODB.Recordset
               If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
               If Ado_detalle2.Recordset!codigo_empresa = 2 Then
-                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
               Else
-                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
+                rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
               End If
               If rs_aux7.RecordCount > 0 Then
                  CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
+                 
               Else
                  MsgBox "No se puede generar el Correlativo, consulte con el Administrador del Sistema ...", vbCritical, "sofia"
                  Exit Sub
@@ -5109,7 +5114,7 @@ Private Sub btnEliminar_Click()
                Ado_datos.Recordset!estado_codigo_eqp = "ANL"
        End Select
           'rs_datos!estado_codigo_eqp = "ANL"
-       rs_datos!Fecha_Registro = Date
+       rs_datos!fecha_registro = Date
        rs_datos!usr_codigo = glusuario
        rs_datos.UpdateBatch adAffectAll
        db.Execute "ap_compras_grla 1 ,'',0, '' ,0,'',''," & Ado_datos.Recordset!compra_codigo & ",'','',0,0,0, 'REG', '" & glusuario & "','',0"
@@ -5158,7 +5163,7 @@ Private Sub BtnDesAprobar_Click()
    If rs_datos!estado_codigo = "APR" Then
       If sino = vbYes Then
          rs_datos!estado_codigo = "REG"
-         rs_datos!Fecha_Registro = Date
+         rs_datos!fecha_registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -5408,7 +5413,7 @@ Private Sub BtnGrabar_Click()
      'rs_datos!ARCHIVO_Foto = var_cod + ".JPG"
      'rs_datos!archivo_foto_cargado = "N"
      'hora_registro
-     rs_datos!Fecha_Registro = Date     'no cambia
+     rs_datos!fecha_registro = Date     'no cambia
 '     Select Case Glaux
 '             Case "PROVI"
 '            rs_datos!estado_codigo_eqp = "REG"
@@ -5609,12 +5614,12 @@ Private Sub BtnModDetalle1_Click()
            If Me.Ado_detalle1.Recordset("almacen_codigo") <> "NULL" And parametro <> "COMEX" Then
                frm_solicitud_bienes_gral.dtc_desc_alm.BoundText = Me.Ado_detalle1.Recordset("almacen_codigo")
            End If
-           frm_solicitud_bienes_gral.Txt_campo1.Caption = dtc_codigo1.Text   'Unidad
+           frm_solicitud_bienes_gral.txt_campo1.Caption = dtc_codigo1.Text   'Unidad
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = Me.Ado_detalle1.Recordset("bien_codigo")
           
            frm_solicitud_bienes_gral.dtc_desc1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_aux1.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
-           frm_solicitud_bienes_gral.dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
+           frm_solicitud_bienes_gral.Dtc_aux2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.dtc_aux3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.Txt_campo2.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
            frm_solicitud_bienes_gral.Txt_campo3.BoundText = frm_solicitud_bienes_gral.dtc_codigo1.BoundText
@@ -5760,7 +5765,7 @@ On Error GoTo UpdateErr
          'usr_codigo , fecha_registro, hora_registro, usr_codigo_aprueba, fecha_aprueba
 
             fw_adjudica_gral.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-            fw_adjudica_gral.Txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+            fw_adjudica_gral.txt_campo1.Text = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
             fw_adjudica_gral.Txt_descripcion.Caption = Me.dtc_desc1.Text
             fw_adjudica_gral.txtCodigo1.Caption = Me.Ado_detalle2.Recordset("compra_codigo")
             'fw_adjudica_gral.Txt_estado.Caption = "REG"
@@ -5996,7 +6001,7 @@ End If
     '    BtnVer.Visible = True
 '        dtc_codigo9.Enabled = False
         FraGrabarCancelar.Visible = True
-        btnCancelar.Visible = True
+        BtnCancelar.Visible = True
     'Else
      ' MsgBox "No se puede MODIFICAR un registro ya APROBADO ...", vbExclamation, "Validación de Registro"
     'End If

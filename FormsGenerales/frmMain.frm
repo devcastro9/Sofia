@@ -1,6 +1,5 @@
 VERSION 5.00
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.MDIForm frmMain 
    AutoShowChildren=   0   'False
    BackColor       =   &H00C0C0C0&
@@ -462,7 +461,7 @@ Begin VB.MDIForm frmMain
          EndProperty
          Height          =   195
          Left            =   14040
-         TabIndex        =   33
+         TabIndex        =   26
          Top             =   0
          Width           =   720
       End
@@ -610,18 +609,6 @@ Begin VB.MDIForm frmMain
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
-   End
-   Begin ComctlLib.ProgressBar ProgressBar1 
-      Align           =   2  'Align Bottom
-      Height          =   390
-      Left            =   0
-      TabIndex        =   26
-      Top             =   7350
-      Width           =   14715
-      _ExtentX        =   25956
-      _ExtentY        =   688
-      _Version        =   327682
-      Appearance      =   1
    End
    Begin VB.Menu Mnu_Planificacion 
       Caption         =   "PLANIFICACION"
@@ -3018,7 +3005,7 @@ Private Sub MDIForm_Load()
    txtFechaGl.Caption = Format(Date, "dd/mm/yyyy")
    txtHoraGl.Caption = Format(Time, "hh:mm:ss")
    txtVersion.Caption = App.Major & "." & App.Minor & "." & App.Revision
-   If glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MPAREDES" Or glusuario = "APALACIOS" Or glusuario = "CSALINAS" Or glusuario = "VBELLIDO" Then
+   If glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "MPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCHIPANA" Or glusuario = "VBELLIDO" Then
         CmdRepGral.Visible = True
    Else
         CmdRepGral.Visible = False

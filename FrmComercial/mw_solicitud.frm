@@ -971,19 +971,6 @@ Begin VB.Form mw_solicitud
             EndProperty
          EndProperty
          BeginProperty Column02 
-            DataField       =   "edif_codigo"
-            Caption         =   "Edificio"
-            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
-               Type            =   0
-               Format          =   ""
-               HaveTrueFalseNull=   0
-               FirstDayOfWeek  =   0
-               FirstWeekOfYear =   0
-               LCID            =   16394
-               SubFormatType   =   0
-            EndProperty
-         EndProperty
-         BeginProperty Column03 
             DataField       =   "observacion_proy"
             Caption         =   "Nombre.Edificio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -996,7 +983,7 @@ Begin VB.Form mw_solicitud
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column04 
+         BeginProperty Column03 
             DataField       =   "unidad_codigo_ant"
             Caption         =   "Cite.Contrato"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -1009,9 +996,22 @@ Begin VB.Form mw_solicitud
                SubFormatType   =   0
             EndProperty
          EndProperty
+         BeginProperty Column04 
+            DataField       =   "estado_codigo"
+            Caption         =   "Estado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   16394
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
          BeginProperty Column05 
-            DataField       =   "solicitud_fecha_solicitud"
-            Caption         =   "Fecha.Solic."
+            DataField       =   "edif_codigo"
+            Caption         =   "Edificio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1023,8 +1023,8 @@ Begin VB.Form mw_solicitud
             EndProperty
          EndProperty
          BeginProperty Column06 
-            DataField       =   "estado_codigo"
-            Caption         =   "Estado"
+            DataField       =   "solicitud_fecha_solicitud"
+            Caption         =   "Fecha.Solic."
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -1051,26 +1051,27 @@ Begin VB.Form mw_solicitud
          SplitCount      =   1
          BeginProperty Split0 
             BeginProperty Column00 
-               ColumnWidth     =   854.929
+               ColumnWidth     =   915.024
             EndProperty
             BeginProperty Column01 
                ColumnWidth     =   1200.189
             EndProperty
             BeginProperty Column02 
-               Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column03 
                ColumnWidth     =   3390.236
             EndProperty
-            BeginProperty Column04 
+            BeginProperty Column03 
                ColumnWidth     =   1289.764
             EndProperty
-            BeginProperty Column05 
-               Object.Visible         =   0   'False
-            EndProperty
-            BeginProperty Column06 
+            BeginProperty Column04 
                Alignment       =   2
                ColumnWidth     =   764.787
+            EndProperty
+            BeginProperty Column05 
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1214.929
+            EndProperty
+            BeginProperty Column06 
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
                Object.Visible         =   0   'False
@@ -1929,7 +1930,7 @@ Begin VB.Form mw_solicitud
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   110821377
+         Format          =   118358017
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   2
@@ -3176,6 +3177,8 @@ Dim rs_aux2 As New ADODB.Recordset
 Dim rs_aux3 As New ADODB.Recordset
 Dim rs_aux4 As New ADODB.Recordset
 Dim rs_aux5 As New ADODB.Recordset
+Dim rs_aux6 As New ADODB.Recordset
+Dim rs_aux7 As New ADODB.Recordset
 
 Dim rsNada As New ADODB.Recordset
 'BUSCADOR
@@ -3187,7 +3190,7 @@ Dim VAR_VAL As String
 Dim VAR_SW As String
 Dim NombreCarpeta, e As String
 Dim CodBien As String
-Dim VAR_UNI, VAR_UORIGEN As String
+Dim VAR_UNI, VAR_UORIGEN, VAR_UNIDAD0 As String
 Dim sino As String
 Dim VAR_BENEF As String
 Dim VAR_CITE As String
@@ -3319,7 +3322,7 @@ On Error GoTo AddErr
     Fra_datos.Enabled = False
     Call ABRIR_TABLA_DET3
     aw_p_ao_negociacion_bitacora.txt_codigo.Caption = Me.txt_codigo.Caption
-    aw_p_ao_negociacion_bitacora.Txt_campo1.Caption = Me.dtc_codigo1.Text
+    aw_p_ao_negociacion_bitacora.txt_campo1.Caption = Me.dtc_codigo1.Text
     aw_p_ao_negociacion_bitacora.Txt_descripcion.Caption = Me.dtc_desc1.Text
     aw_p_ao_negociacion_bitacora.Txt_Correl.Caption = 0
     aw_p_ao_negociacion_bitacora.Txt_estado.Caption = "REG"
@@ -3487,13 +3490,13 @@ Private Sub BtnAprobar_Click()
               rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
               If rs_aux2.RecordCount > 0 Then
                   rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-                  Txt_campo1.Caption = rs_aux2!correl_doc
+                  txt_campo1.Caption = rs_aux2!correl_doc
                   rs_aux2.Update
               End If
-              rs_datos!doc_numero = Txt_campo1.Caption
+              rs_datos!doc_numero = txt_campo1.Caption
               'REVISAR !!! JQA 2014_07_08
               'VAR_ARCH = RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
-              VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(Txt_campo1.Caption)))
+              VAR_ARCH = "COM_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
               rs_datos!archivo_respaldo = VAR_ARCH + ".PDF"
               rs_datos!archivo_respaldo_cargado = "N"
               rs_datos!estado_codigo = "APR"
@@ -3684,16 +3687,8 @@ Private Sub BtnGrabar_Click()
                 var_cod = 1
             End If
             txt_codigo.Caption = var_cod
-'            rs_datos!solicitud_codigo = var_cod
-'            rs_datos!estado_codigo = "REG"      'no cambia
-'            rs_datos!ges_gestion = Year(Date)   'no cambia
-'            rs_datos!unidad_codigo = VAR_UNI
             'Actualiza correaltivo ...
             db.Execute "Update gc_unidad_ejecutora Set correl_solicitud = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "'   "
-'            rs_datos!doc_numero = "0"    'txt_campo1.Caption
-'            'rs_datos!correl_edificacion = 0
-'            rs_datos!archivo_respaldo = "sin_nombre"
-'            rs_datos!archivo_respaldo_cargado = "N"
             'WWWWWWWWWWWWWWWWWWWWWWWWWW
             Set rs_aux5 = New ADODB.Recordset
             If rs_aux5.State = 1 Then rs_aux5.Close
@@ -3785,9 +3780,10 @@ Private Sub BtnGrabar_Click()
      If VAR_SW = "MOD" Then
         VAR_UNI = dtc_codigo1.Text
         VAR_SOLA = Ado_datos.Recordset!solicitud_codigo_ant
+        GlSolicitud = Ado_datos.Recordset!solicitud_codigo
         Set rs_aux1 = New ADODB.Recordset
         If rs_aux1.State = 1 Then rs_aux1.Close
-        SQL_FOR = "select * from ao_solicitud where edif_codigo = '" & dtc_codigo3 & "' AND unidad_codigo = '" & VAR_UNI & "' "
+        SQL_FOR = "select * from ao_solicitud where edif_codigo = '" & dtc_codigo3.Text & "'  "         'AND unidad_codigo = '" & VAR_UNI & "'
         rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux1.RecordCount > 1 Then
            sino = MsgBox("Un proceso anterior con este EDIFICIO ya existe, si desea vender un nuevo EQUIPO elija <SI>, caso contrario elija <NO> y cambie el edificio. ", vbYesNo + vbQuestion, "Atención")
@@ -3806,7 +3802,23 @@ Private Sub BtnGrabar_Click()
          Else
             VAR_BENEF = dtc_codigo4.Text
          End If
-         db.Execute "Update ao_solicitud Set unidad_codigo_ant = '" & Txt_campo2.Text & "', solicitud_fecha_solicitud = '" & DTPfecha1.Value & "', beneficiario_codigo = '" & VAR_BENEF & "', edif_codigo = '" & dtc_codigo3.Text & "', beneficiario_codigo_resp = '" & dtc_codigo11.Text & "', solicitud_justificacion = '" & Txt_descripcion.Text & "', fecha_registro = '" & Date & "', usr_codigo= '" & glusuario & "', observacion_proy = '" & dtc_desc3.Text & "'  Where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  "
+         'VALIDAR Detalle de Edificacion
+        Set rs_aux6 = New ADODB.Recordset
+        If rs_aux6.State = 1 Then rs_aux6.Close
+        rs_aux6.Open "select * from ao_solicitud_edificacion where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & GlSolicitud & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        If rs_aux6.RecordCount > 0 Then
+            If rs_aux6!edif_codigo <> dtc_codigo3.Text Then
+                sino = MsgBox("Está seguro de cambiar de EDIFICIO en esta Negociación ?  ", vbYesNo + vbQuestion, "Atención")
+                If sino = vbYes Then
+                    db.Execute "UPDATE ao_solicitud_edificacion SET edif_codigo = '" & dtc_codigo3.Text & "' WHERE unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & GlSolicitud & "  "
+                Else
+                    Exit Sub
+                End If
+            End If
+        End If
+        'rs_det2.Open "SELECT * From ao_negociacion_bitacora WHERE unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        ' OK
+         db.Execute "Update ao_solicitud Set unidad_codigo_ant = '" & Txt_campo2.Text & "', solicitud_fecha_solicitud = '" & DTPfecha1.Value & "', beneficiario_codigo = '" & VAR_BENEF & "', edif_codigo = '" & dtc_codigo3.Text & "', beneficiario_codigo_resp = '" & dtc_codigo11.Text & "', solicitud_justificacion = '" & Txt_descripcion.Text & "', fecha_registro = '" & Date & "', usr_codigo= '" & glusuario & "', observacion_proy = '" & dtc_desc3.Text & "'  Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & GlSolicitud & "  "
      End If
      
 '     rs_datos!solicitud_fecha_solicitud = DTPfecha1.Value
@@ -4162,7 +4174,7 @@ On Error GoTo QError
     
     VAR_SOL = Ado_datos.Recordset!solicitud_codigo
     Aux = Ado_datos.Recordset!unidad_codigo               'Unidad
-    aw_p_ao_negociacion_bitacora.Txt_campo1.Caption = Aux  'Unidad
+    aw_p_ao_negociacion_bitacora.txt_campo1.Caption = Aux  'Unidad
     aw_p_ao_negociacion_bitacora.txt_codigo.Caption = VAR_SOL  'Tramite
       
     'aw_p_ao_negociacion_bitacora.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'solicitud_codigo
@@ -4232,6 +4244,19 @@ Private Sub BtnModificar_Click()
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
+    VAR_UNI = Ado_datos.Recordset!unidad_codigo
+    GlSolicitud = Ado_datos.Recordset!solicitud_codigo
+    Set rs_aux7 = New ADODB.Recordset
+    If rs_aux7.State = 1 Then rs_aux7.Close
+    rs_aux7.Open "select * from ao_negociacion_bitacora where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & GlSolicitud & "   ", db, adOpenKeyset, adLockOptimistic, adCmdText
+    If rs_aux7.RecordCount > 0 Then
+        dtc_desc3.Locked = True
+        BtnAux3.Visible = False
+    Else
+        dtc_desc3.Locked = False
+        BtnAux3.Visible = True
+    End If
+        
   On Error GoTo EditErr
 '  lblStatus.Caption = "Modificar registro"
     If Ado_datos.Recordset!estado_codigo = "REG" Then
@@ -4240,7 +4265,7 @@ Private Sub BtnModificar_Click()
         FraGrabarCancelar.Visible = True
         dg_datos.Enabled = False
         VAR_SW = "MOD"
-        BtnAux3.Visible = True
+        'BtnAux3.Visible = True
         BtnAux2.Visible = True
     '    dtc_desc1.Visible = False
     '    lbl_aux1.Visible = True
@@ -4598,6 +4623,11 @@ Private Sub Form_Load()
         VAR_DA = "1.2"
     End If
     VAR_UORIGEN = Aux
+    If VAR_UORIGEN = "DVTA" Then
+        VAR_UNIDAD0 = "COM"
+    Else
+        VAR_UNIDAD0 = "MOD"
+    End If
     Select Case VAR_DA
         Case "1.8"    'Cochabamba - Comercial
             Aux = "DCOMB"
@@ -5079,6 +5109,7 @@ End Sub
 
 Private Sub OptFilGral2_Click()
   '===== Proceso para filtrado general de datos (todos los registros )
+    VAR_SW = 0
     Set rs_aux3 = New ADODB.Recordset
     If rs_aux3.State = 1 Then rs_aux3.Close
     rs_aux3.Open "Select * from gc_usuarios where usr_codigo = '" & glusuario & "' ", db, adOpenStatic
@@ -5091,50 +5122,63 @@ Private Sub OptFilGral2_Click()
     End If
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
-    Select Case VAR_DA
-        Case "1.8"    'Cochabamba
-            queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '4' ))) "
-        Case "1.7"    'Santa Cruz
-            If glusuario = "CURDININEA" Then        'SCZ
-                queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' or left(edif_codigo,1) = '9' or left(edif_codigo,1) = '3' )))  "
-            Else
-                queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' )))  "
-            End If
-            
-        Case "1.2"    'La Paz - Comercial
-            If glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then            'LPZ
-                queryinicial = "select * From ao_solicitud WHERE (unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMC') "
-            Else
-                queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '1' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' or left(edif_codigo,1) = '9' )))  "
-                'queryinicial = "select * From ao_solicitud WHERE ((estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo = 'REG'  AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '1' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' or left(edif_codigo,1) = '9'  ) )) "
-            End If
-        Case "1.3"    'La Paz - Modernizacion
-            If glusuario = "ADMIN" Or glusuario = "JSAAVEDRA" Or glusuario = "CCOLODRO" Or glusuario = "CSALINAS" Then
-                queryinicial = "select * From ao_solicitud WHERE (unidad_codigo = 'DNMOD') "
-            Else
-                queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' ))) "      'AND beneficiario_codigo_resp2 = '" & usuario2 & "'
-            End If
-        Case "1.9"    ' Chuquisaca
-            queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '5' or left(edif_codigo,1) = '6' )))  "
-        Case "1.4"    ' ADMIN
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
-                If VAR_UORIGEN = "DVTA" Then
-                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC')) "
-                    'queryinicial = "select * From ao_solicitud WHERE estado_codigo = 'REG'  "
+    If Aux = "DVTA" Then
+        If glusuario = "ADMIN" Or glusuario = "GSOLIZ" Or glusuario = "CPLATA" Or glusuario = "RCUELA" Or glusuario = "DTERCEROS" Or glusuario = "CCRUZ" Then
+            queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo LIKE '%" + VAR_UNIDAD0 + "%' OR unidad_codigo = 'DVTA' ) AND (estado_codigo <>'ERR')) "
+            VAR_SW = 1
+        End If
+    Else
+        If glusuario = "ADMIN" Or glusuario = "JSAAVEDRA" Or glusuario = "RCUELA" Or glusuario = "OCOLODRO" Or glusuario = "JORAQUENI" Then
+            queryinicial = "select * From ao_solicitud WHERE (unidad_codigo LIKE '%" + VAR_UNIDAD0 + "%') "
+            VAR_SW = 1
+        End If
+    End If
+    If VAR_SW = 0 Then
+        Select Case VAR_DA
+            Case "1.8"    'Cochabamba
+                queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '4' ))) "
+            Case "1.7"    'Santa Cruz
+                If glusuario = "CURDININEA" Then        'SCZ
+                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' or left(edif_codigo,1) = '9' or left(edif_codigo,1) = '3' )))  "
                 Else
-                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DNMOD' OR unidad_codigo = 'DMODS' OR unidad_codigo = 'DMODB' OR unidad_codigo = 'DMODC')) "
+                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '8' )))  "
                 End If
-            End If
-        Case Else    ' ADMIN
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
-                If VAR_UORIGEN = "DVTA" Then
-                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC')) "
-                    'queryinicial = "select * From ao_solicitud WHERE estado_codigo = 'REG'  "
+                
+            Case "1.2"    'La Paz - Comercial
+                If glusuario = "ADMIN" Or glusuario = "CPLATA" Or glusuario = "DTERCEROS" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then            'LPZ
+                    queryinicial = "select * From ao_solicitud WHERE (unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMC') "
                 Else
-                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DNMOD' OR unidad_codigo = 'DMODS' OR unidad_codigo = 'DMODB' OR unidad_codigo = 'DMODC')) "
+                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '1' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' or left(edif_codigo,1) = '9' )))  "
+                    'queryinicial = "select * From ao_solicitud WHERE ((estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo = 'REG'  AND unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '1' or left(edif_codigo,1) = '5'  or left(edif_codigo,1) = '6' or left(edif_codigo,1) = '9'  ) )) "
                 End If
-            End If
-     End Select
+            Case "1.3"    'La Paz - Modernizacion
+                If glusuario = "ADMIN" Or glusuario = "JSAAVEDRA" Or glusuario = "CCOLODRO" Or glusuario = "CSALINAS" Then
+                    queryinicial = "select * From ao_solicitud WHERE (unidad_codigo = 'DNMOD') "
+                Else
+                    queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' ))) "      'AND beneficiario_codigo_resp2 = '" & usuario2 & "'
+                End If
+            Case "1.9"    ' Chuquisaca
+                queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = '" & parametro & "') OR (unidad_codigo = '" & VAR_UORIGEN & "' AND (left(edif_codigo,1) = '" & VAR_DPTO & "' or left(edif_codigo,1) = '5' or left(edif_codigo,1) = '6' )))  "
+            Case "1.4"    ' ADMIN
+                If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "CSALINAS" Then
+                    If VAR_UORIGEN = "DVTA" Then
+                        queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC')) "
+                        'queryinicial = "select * From ao_solicitud WHERE estado_codigo = 'REG'  "
+                    Else
+                        queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DNMOD' OR unidad_codigo = 'DMODS' OR unidad_codigo = 'DMODB' OR unidad_codigo = 'DMODC')) "
+                    End If
+                End If
+            Case Else    ' ADMIN
+                If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CSALINAS" Then
+                    If VAR_UORIGEN = "DVTA" Then
+                        queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DVTA' OR unidad_codigo = 'DCOMS' OR unidad_codigo = 'DCOMB' OR unidad_codigo = 'DCOMC')) "
+                        'queryinicial = "select * From ao_solicitud WHERE estado_codigo = 'REG'  "
+                    Else
+                        queryinicial = "select * From ao_solicitud WHERE ((unidad_codigo = 'DNMOD' OR unidad_codigo = 'DMODS' OR unidad_codigo = 'DMODB' OR unidad_codigo = 'DMODC')) "
+                    End If
+                End If
+         End Select
+     End If
 '    'queryinicial = "Select * from ao_solicitud where " + parametro
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = "unidad_codigo, solicitud_codigo"

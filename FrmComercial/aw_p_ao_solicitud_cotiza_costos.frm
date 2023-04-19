@@ -86,10 +86,10 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costos
       Begin VB.TextBox txt_conti 
          DataSource      =   "mw_solicitud_cotiza_venta.Ado_datos"
          Height          =   315
-         Left            =   9600
+         Left            =   240
          TabIndex        =   76
          Text            =   "AMERICA"
-         Top             =   1080
+         Top             =   5400
          Visible         =   0   'False
          Width           =   1005
       End
@@ -149,7 +149,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costos
          DataSource      =   "mw_solicitud_cotiza_venta.Ado_datos"
          Height          =   315
          ItemData        =   "aw_p_ao_solicitud_cotiza_costos.frx":1ADE
-         Left            =   3840
+         Left            =   3990
          List            =   "aw_p_ao_solicitud_cotiza_costos.frx":1AEE
          TabIndex        =   1
          Text            =   "BRL"
@@ -162,8 +162,8 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costos
          DataField       =   "cotiza_tdc_bol"
          DataSource      =   "mw_solicitud_cotiza_venta.Ado_datos"
          Height          =   285
-         Left            =   5400
-         TabIndex        =   2
+         Left            =   6100
+         TabIndex        =   3
          Text            =   "0"
          Top             =   1080
          Width           =   885
@@ -184,8 +184,8 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costos
          DataSource      =   "mw_solicitud_cotiza_venta.Ado_datos"
          ForeColor       =   &H00000000&
          Height          =   315
-         Left            =   8445
-         TabIndex        =   3
+         Left            =   9330
+         TabIndex        =   2
          Text            =   "0"
          Top             =   1080
          Width           =   1365
@@ -1460,7 +1460,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costos
          AutoSize        =   -1  'True
          BackColor       =   &H00FFFFFF&
          BackStyle       =   0  'Transparent
-         Caption         =   "# Decimales                    Moneda Origen                         TDC                          Monto Moneda Base"
+         Caption         =   $"aw_p_ao_solicitud_cotiza_costos.frx":1B99
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -1475,7 +1475,7 @@ Begin VB.Form aw_p_ao_solicitud_cotiza_costos
          Left            =   360
          TabIndex        =   68
          Top             =   1080
-         Width           =   8010
+         Width           =   8910
       End
       Begin VB.Label Txt_campo1 
          Alignment       =   2  'Center
@@ -2122,26 +2122,26 @@ Private Sub BtnGrabar_Click()
            VAR_PRDA = txt_paradas.Text
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_dec = IIf(cmd_dec.Text = "", "2", cmd_dec.Text)
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!tipo_moneda = IIf(cmd_moneda.Text = "", "BOB", cmd_moneda.Text)
-             If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-                Txt_tdc.Text = GlTipoCambioBrl
+             If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+                txt_tdc.Text = GlTipoCambioBrl
              End If
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_tdc_bol = Txt_tdc.Text
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_tdc_bol = txt_tdc.Text
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!costo_monto = IIf(txt_montobase.Text = "", "0", Round(txt_montobase.Text, Val(cmd_dec)))
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_fob_dol = IIf(txt_fob_me = "", "0", Round(txt_fob_me, Val(cmd_dec)))
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_fob_bs = Round(CDbl(txt_fob_me) * CDbl(Txt_tdc.Text), Val(cmd_dec))   'Txt_campo6.Text
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_fob_bs = Round(CDbl(txt_fob_me) * CDbl(txt_tdc.Text), Val(cmd_dec))   'Txt_campo6.Text
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_dcto_dol = IIf(txt_dcto_me = "", "0", Round(txt_dcto_me, Val(cmd_dec)))
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_dcto_bs = Round(CDbl(txt_dcto_me) * CDbl(Txt_tdc.Text), Val(cmd_dec))
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_dcto_bs = Round(CDbl(txt_dcto_me) * CDbl(txt_tdc.Text), Val(cmd_dec))
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_seg_dol = IIf(txt_seguro_me = "", "0", Round(txt_seguro_me, Val(cmd_dec)))
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_seg_bs = Round(CDbl(txt_seguro_me) * CDbl(Txt_tdc.Text), Val(cmd_dec))
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_seg_bs = Round(CDbl(txt_seguro_me) * CDbl(txt_tdc.Text), Val(cmd_dec))
     
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_fob_seg_dol = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me) + CDbl(txt_seguro_me), Val(cmd_dec))
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(Txt_tdc.Text), Val(cmd_dec))
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_fob_seg_bs = Round(CDbl(txt_fob_seg_dol) * CDbl(txt_tdc.Text), Val(cmd_dec))
     
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_flete_dol = IIf(txt_fletefrontera_me = "", "0", Round(txt_fletefrontera_me, Val(cmd_dec)))
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_flete_bs = Round(CDbl(txt_fletefrontera_me) * CDbl(Txt_tdc.Text), Val(cmd_dec))
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_flete_bs = Round(CDbl(txt_fletefrontera_me) * CDbl(txt_tdc.Text), Val(cmd_dec))
              
              mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_cif_dol = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_seguro_me.Text) + CDbl(txt_fletefrontera_me.Text), Val(cmd_dec))
-             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_cif_bs = Round(CDbl(txt_cif_me) * CDbl(Txt_tdc.Text), Val(cmd_dec))  '
+             mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_cif_bs = Round(CDbl(txt_cif_me) * CDbl(txt_tdc.Text), Val(cmd_dec))  '
     '         'rs_datos!Foto = Date
     '         'rs_datos!ARCHIVO_Foto = var_cod + ".JPG"
     '         'rs_datos!archivo_foto_cargado = "N"
@@ -2216,7 +2216,7 @@ Private Sub BtnGrabar_Click()
                     VAR_LOCAL = Round(rs_aux4!totdl - VAR_NAC - VAR_ALM - VAR_AGE - VAR_FLE, Val(cmd_dec))
                     'VAR_LOCAL = Round(rs_aux4!totdl, Val(cmd_dec))
                     db.Execute "update ao_solicitud_cotiza_venta set cotiza_gasto_local_dol = " & Round(VAR_LOCAL, Val(cmd_dec)) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & "   "
-                    db.Execute "update ao_solicitud_cotiza_venta set cotiza_gasto_local_bs = " & Round(VAR_LOCAL * CDbl(Txt_tdc.Text), Val(cmd_dec)) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & "   "
+                    db.Execute "update ao_solicitud_cotiza_venta set cotiza_gasto_local_bs = " & Round(VAR_LOCAL * CDbl(txt_tdc.Text), Val(cmd_dec)) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & "   "
                     
                     db.Execute "update ao_solicitud_cotiza_venta set cotiza_saldo_local_IT_bs = " & CDbl(txt_local_IT_bs.Text) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & "   "
                     db.Execute "update ao_solicitud_cotiza_venta set cotiza_saldo_local_IT_dol = " & Round(VAR_LOCAL * CDbl(txt_local_IT_bs.Text), Val(cmd_dec)) & "  where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & "  AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & "   "
@@ -2228,7 +2228,7 @@ Private Sub BtnGrabar_Click()
                     'db.Execute "update ao_solicitud_cotiza_venta set cotiza_precio_total_bs_cli = ROUND(cotiza_precio_total_dol_cli * " & GlTipoCambioOficial & ", Val(cmd_dec)) where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & " "
                     VAR_DOLCLI2 = Round(SUBTOTD + CDbl(txt_local_IT_dol) + CDbl(txt_local_IVA_dol), Val(cmd_dec))
                     db.Execute "update ao_solicitud_cotiza_venta set cotiza_precio_total_dol_cli = " & Round(VAR_DOLCLI2, Val(cmd_dec)) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & " "
-                    db.Execute "update ao_solicitud_cotiza_venta set cotiza_precio_total_bs_cli = " & Round(VAR_DOLCLI2 * CDbl(Txt_tdc.Text), Val(cmd_dec)) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & " "
+                    db.Execute "update ao_solicitud_cotiza_venta set cotiza_precio_total_bs_cli = " & Round(VAR_DOLCLI2 * CDbl(txt_tdc.Text), Val(cmd_dec)) & " where unidad_codigo = '" & parametro & "' and solicitud_codigo = " & GlSolicitud & " AND pais_continente = '" & VAR_CONTI & "' AND cotiza_codigo = " & CDbl(Txt_Correl) & " "
                     
                     VAR_DOLCLI = Round(rs_aux4!totdl + mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_cif_dol - mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_fob_dol - mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_seg_dol, Val(cmd_dec))
                     'VAR_BSCLI = rs_aux4!totbs + mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_cif_bs - mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_fob_bs - mw_solicitud_cotiza_venta.Ado_datos.Recordset!cotiza_precio_seg_bs
@@ -2520,7 +2520,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  If (Txt_tdc = "") Then
+  If (txt_tdc = "") Then
     MsgBox "Debe registrar el Tipo de Cambio (TDC) ... ", vbCritical + vbExclamation, "Validación de datos"
     VAR_VAL = "ERR"
     Exit Sub
@@ -2565,9 +2565,9 @@ Private Sub dtc_desc1_LostFocus()
             
         Case 2
             'FLETE FRONTERA
-            Txt_monto1.Text = dtc_aux2.Text
-            txt_monto3.Text = dtc_aux2.Text
-            Txt_monto5.Text = dtc_aux2.Text
+            Txt_monto1.Text = Dtc_aux2.Text
+            txt_monto3.Text = Dtc_aux2.Text
+            Txt_monto5.Text = Dtc_aux2.Text
             
         Case 3
             'NACIONALIZACION 0.1498
@@ -2643,17 +2643,17 @@ End Sub
 
 Private Sub cmd_moneda_LostFocus()
     If cmd_moneda.Text = "BRL" Then
-        Txt_tdc.Text = GlTipoCambioBrl
+        txt_tdc.Text = GlTipoCambioBrl
     Else
-        Txt_tdc.Text = GlTipoCambioOficial
+        txt_tdc.Text = GlTipoCambioOficial
     End If
 End Sub
 
 Private Sub Form_Activate()
     Call ABRIR_TABLA
     VAR_SEGURO = "0.0078"
-    If Txt_tdc.Text = "" Or Txt_tdc.Text = "0" Then
-       Txt_tdc.Text = GlTipoCambioBrl
+    If txt_tdc.Text = "" Or txt_tdc.Text = "0" Then
+       txt_tdc.Text = GlTipoCambioBrl
     End If
     If txt_local_IT_bs.Text = "" Or txt_local_IT_bs.Text = "0" Then
        txt_local_IT_bs.Text = "0.0309"
@@ -2757,9 +2757,13 @@ Private Sub Form_Unload(Cancel As Integer)
   Screen.MousePointer = vbDefault
 End Sub
 
+Private Sub txt_dcto_me_KeyPress(KeyAscii As Integer)
+    KeyAscii = IIf(Chr(KeyAscii) Like "[0-9,'.']", KeyAscii, 0)
+End Sub
+
 Private Sub txt_dcto_me_LostFocus()
-    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-        Txt_tdc.Text = GlTipoCambioBrl
+    If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+        txt_tdc.Text = GlTipoCambioBrl
      End If
      If txt_dcto_me = "" Then
         txt_dcto_bs.Text = "0"
@@ -2770,6 +2774,10 @@ Private Sub txt_dcto_me_LostFocus()
         txt_fob_seg_dol.Text = Round(CDbl(txt_fob_me) - CDbl(txt_dcto_me.Text) + CDbl(txt_seguro_me), Val(cmd_dec))
         txt_fob_seg_bs.Text = Round(CDbl(txt_fob_seg_dol) * CDbl(GlTipoCambioOficial), Val(cmd_dec)) '
      End If
+End Sub
+
+Private Sub txt_fletefrontera_me_KeyPress(KeyAscii As Integer)
+    KeyAscii = IIf(Chr(KeyAscii) Like "[0-9,'.']", KeyAscii, 0)
 End Sub
 
 Private Sub txt_fletefrontera_me_LostFocus()
@@ -2783,9 +2791,13 @@ Private Sub txt_fletefrontera_me_LostFocus()
     End If
 End Sub
 
+Private Sub txt_fob_me_KeyPress(KeyAscii As Integer)
+    KeyAscii = IIf(Chr(KeyAscii) Like "[0-9,'.']", KeyAscii, 0)
+End Sub
+
 Private Sub txt_fob_me_LostFocus()
-    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-        Txt_tdc.Text = GlTipoCambioBrl
+    If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+        txt_tdc.Text = GlTipoCambioBrl
     End If
     If txt_fob_me = "" Then
         txt_fob_bs.Text = "0"
@@ -2802,22 +2814,61 @@ Private Sub txt_fob_me_LostFocus()
     End If
 End Sub
 
+Private Sub txt_montobase_KeyPress(KeyAscii As Integer)
+    KeyAscii = IIf(Chr(KeyAscii) Like "[0-9,'.']", KeyAscii, 0)
+End Sub
+
 Private Sub txt_montobase_LostFocus()
-    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-        Txt_tdc.Text = GlTipoCambioBrl
+    If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+        Select Case cmd_moneda
+            Case "BRL"
+                txt_tdc.Text = GlTipoCambioBrl
+            Case "BOB"
+                txt_tdc.Text = GlTipoCambioOficial      'GlTipoCambioBrl
+            Case "USD"
+                txt_tdc.Text = GlTipoCambioOficial      'GlTipoCambioMercado
+            Case "UFV"
+                txt_tdc.Text = GlTipoCambioUfv
+            Case "RMB", "CNY"
+                txt_tdc.Text = GlTipoCambioRmb
+            Case "EUR"
+                txt_tdc.Text = GlTipoCambioEuro
+            Case Else
+                txt_tdc.Text = GlTipoCambioOficial
+        End Select
      End If
     If txt_montobase.Text = "" Then
         txt_montobase.Text = "0"
-        'txt_montobase.Text = "0"
     Else
-        txt_fob_me.Text = Round(CDbl(txt_montobase) / CDbl(Txt_tdc), Val(cmd_dec))
-        txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(GlTipoCambioOficial))
+        Select Case cmd_moneda
+            Case "BRL", "UFV", "RMB", "CNY", "EUR"
+                txt_fob_bs.Text = Round(CDbl(txt_montobase) * CDbl(txt_tdc), Val(cmd_dec))
+                txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            Case "BOB"
+                txt_fob_bs.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            Case "USD"
+                txt_fob_me.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(txt_tdc), Val(cmd_dec))
+            'Case UFV
+            '    txt_fob_bs.Text = Round(CDbl(txt_montobase) * CDbl(txt_tdc), Val(cmd_dec))
+            '    txt_fob_me.Text = Round(CDbl(txt_fob_bs) / CDbl(GlTipoCambioOficial), Val(cmd_dec))
+            Case Else
+                txt_fob_me.Text = Round(CDbl(txt_montobase), Val(cmd_dec))
+                txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(txt_tdc), Val(cmd_dec))
+        End Select
+        'txt_fob_me.Text = Round(CDbl(txt_montobase) / CDbl(txt_tdc), Val(cmd_dec))
+        'txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(GlTipoCambioOficial))
     End If
 End Sub
 
+Private Sub txt_seguro_me_KeyPress(KeyAscii As Integer)
+    KeyAscii = IIf(Chr(KeyAscii) Like "[0-9,'.']", KeyAscii, 0)
+End Sub
+
 Private Sub txt_seguro_me_LostFocus()
-    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-        Txt_tdc.Text = GlTipoCambioBrl
+    If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+        txt_tdc.Text = GlTipoCambioBrl
      End If
      If txt_seguro_me = "" Then
         txt_seguro_bs.Text = "0"
@@ -2833,8 +2884,8 @@ End Sub
 'End Sub
 
 Private Sub txt_tdc_LostFocus()
-    If Txt_tdc.Text = "0" Or Txt_tdc.Text = "" Then
-        Txt_tdc.Text = GlTipoCambioBrl
+    If txt_tdc.Text = "0" Or txt_tdc.Text = "" Then
+        txt_tdc.Text = GlTipoCambioBrl
     End If
     If txt_montobase.Text = "" Or CDbl(txt_montobase.Text) < "0" Then
         txt_montobase.Text = "0"
@@ -2842,7 +2893,7 @@ Private Sub txt_tdc_LostFocus()
     Else
         'if val(cmd_dec)= 0 then
         'txt_fob_me.Text = Round(CDbl(txt_montobase) / CDbl(txt_tdc), 2)
-        txt_fob_me.Text = Round(CDbl(txt_montobase) / CDbl(Txt_tdc), Val(cmd_dec))
+        txt_fob_me.Text = Round(CDbl(txt_montobase) / CDbl(txt_tdc), Val(cmd_dec))
         txt_fob_bs.Text = Round(CDbl(txt_fob_me) * CDbl(GlTipoCambioOficial))
     End If
 End Sub

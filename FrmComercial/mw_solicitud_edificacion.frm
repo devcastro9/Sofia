@@ -552,6 +552,7 @@ Begin VB.Form mw_solicitud_edificacion
          Style           =   1  'Graphical
          TabIndex        =   11
          Top             =   4320
+         Visible         =   0   'False
          Width           =   2205
       End
       Begin VB.CommandButton BtnVer 
@@ -563,6 +564,7 @@ Begin VB.Form mw_solicitud_edificacion
          Style           =   1  'Graphical
          TabIndex        =   10
          Top             =   4320
+         Visible         =   0   'False
          Width           =   2205
       End
       Begin VB.PictureBox Img_Foto 
@@ -762,7 +764,7 @@ Begin VB.Form mw_solicitud_edificacion
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000000&
+         ForeColor       =   &H00800000&
          Height          =   240
          Left            =   2640
          TabIndex        =   37
@@ -1326,7 +1328,7 @@ Private Sub BtnGrabar_Click()
 '        ado_datos2.Recordset("edif_codigo").Value = dtc_codigo1.Text
         
         Ado_datos2.Recordset("ges_gestion").Value = txt_gestion 'Year(Date)
-        Ado_datos2.Recordset("unidad_codigo").Value = Txt_campo1.Text
+        Ado_datos2.Recordset("unidad_codigo").Value = txt_campo1.Text
         Ado_datos2.Recordset("solicitud_codigo").Value = txt_codigo.Caption
         Ado_datos2.Recordset("estado_codigo").Value = "REG"
         Ado_datos2.Recordset("archivo_foto_cargado").Value = "N"
@@ -1353,7 +1355,7 @@ Private Sub BtnGrabar_Click()
      Ado_datos2.Recordset("edif_num_habit_dorm_2").Value = IIf(Txt_campo9.Text = "", 0, Txt_campo9.Text)
      Ado_datos2.Recordset("edif_num_habit_dorm_3").Value = IIf(Txt_campo10.Text = "", 0, Txt_campo10.Text)
      Ado_datos2.Recordset("edif_num_habit_dorm_4").Value = IIf(Txt_campo11.Text = "", 0, Txt_campo11.Text)
-     Select Case dtc_aux2.Text
+     Select Case Dtc_aux2.Text
         Case "DPTO"
             var_itm = Round(Val(Txt_campo8.Text) * 2 + Val(Txt_campo9.Text) * 4 + Val(Txt_campo10.Text) * 5 + Val(Txt_campo11.Text) * 6 + Val(Txt_campo7), 2)
             var_ctm = Round(var_itm * 0.1, 2)
@@ -1401,7 +1403,7 @@ Private Sub BtnGrabar_Click()
      Ado_datos2.Recordset("usr_codigo").Value = glusuario
      Ado_datos2.Recordset.Update
      var_cod = Ado_datos2.Recordset.RecordCount
-     db.Execute "Update ao_solicitud Set correl_edificacion = " & var_cod & " Where unidad_codigo = '" & Txt_campo1.Text & "' and solicitud_codigo = " & txt_codigo.Caption & "  "
+     db.Execute "Update ao_solicitud Set correl_edificacion = " & var_cod & " Where unidad_codigo = '" & txt_campo1.Text & "' and solicitud_codigo = " & txt_codigo.Caption & "  "
      
      Unload Me
      
@@ -1432,7 +1434,7 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-  Select Case dtc_aux2.Text
+  Select Case Dtc_aux2.Text
     Case "DPTO"
         If (Txt_campo8.Text = "") Or (Txt_campo9.Text = "") Or (Txt_campo10.Text = "") Or (Txt_campo11.Text = "") Then
           MsgBox "Verifique los datos de : " + lbl_campo8.Caption + " o " + lbl_campo9.Caption + " o " + lbl_campo10.Caption + " o " + lbl_campo11.Caption, vbCritical + vbExclamation, "Validación de datos"
@@ -1682,47 +1684,47 @@ End Sub
 Private Sub dtc_aux1_Click(Area As Integer)
 '    dtc_codigo1.BoundText = dtc_aux1.BoundText
 '    dtc_desc1.BoundText = dtc_aux1.BoundText
-    dtc_aux2.BoundText = dtc_aux1.BoundText
+    Dtc_aux2.BoundText = dtc_aux1.BoundText
     dtc_aux3.BoundText = dtc_aux1.BoundText
 End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
 '    dtc_codigo1.BoundText = dtc_aux2.BoundText
 '    dtc_desc1.BoundText = dtc_aux2.BoundText
-    dtc_aux1.BoundText = dtc_aux2.BoundText
-    dtc_aux3.BoundText = dtc_aux2.BoundText
+    dtc_aux1.BoundText = Dtc_aux2.BoundText
+    dtc_aux3.BoundText = Dtc_aux2.BoundText
 End Sub
 
 Private Sub dtc_aux3_Click(Area As Integer)
 '    dtc_codigo1.BoundText = dtc_aux3.BoundText
 '    dtc_desc1.BoundText = dtc_aux3.BoundText
-    dtc_aux2.BoundText = dtc_aux3.BoundText
+    Dtc_aux2.BoundText = dtc_aux3.BoundText
     dtc_aux1.BoundText = dtc_aux3.BoundText
 End Sub
 
 Private Sub dtc_codigo1_Click(Area As Integer)
     dtc_desc1.BoundText = dtc_codigo1.BoundText
     dtc_aux1.BoundText = dtc_codigo1.BoundText
-    dtc_aux2.BoundText = dtc_codigo1.BoundText
+    Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
 End Sub
 
 Private Sub dtc_desc1_Change()
  dtc_codigo1.BoundText = dtc_desc1.BoundText
     dtc_aux1.BoundText = dtc_desc1.BoundText
-    dtc_aux2.BoundText = dtc_desc1.BoundText
+    Dtc_aux2.BoundText = dtc_desc1.BoundText
     dtc_aux3.BoundText = dtc_desc1.BoundText
 End Sub
 
 Private Sub dtc_desc1_Click(Area As Integer)
     dtc_codigo1.BoundText = dtc_desc1.BoundText
     dtc_aux1.BoundText = dtc_desc1.BoundText
-    dtc_aux2.BoundText = dtc_desc1.BoundText
+    Dtc_aux2.BoundText = dtc_desc1.BoundText
     dtc_aux3.BoundText = dtc_desc1.BoundText
 End Sub
 
 Private Sub dtc_desc1_LostFocus()
-    Select Case dtc_aux2.Text
+    Select Case Dtc_aux2.Text
         Case "DPTO", "RECI"
             lbl_campo8.Caption = "Depto.de 1 Dorm."
             lbl_campo7.Caption = "NºHabit.Servicio"
@@ -1814,7 +1816,7 @@ Private Sub Form_Load()
 '        ado_datos2.Recordset("archivo_foto_cargado").Value = "N"
 '        ado_datos2.Recordset("archivo_plano_cargado").Value = "N"
 '        ado_datos2.Recordset("edif_codigo").Value = dtc_codigo1.Text
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
@@ -1842,14 +1844,14 @@ Private Sub ABRIR_TABLA_AUX()
     rs_datos01.Open "Select * from gv_edificaciones_tipo", db, adOpenStatic
     Set Ado_datos01.Recordset = rs_datos01
     'dtc_codigo1.Text = GlEdificio
-    dtc_aux1.BoundText = dtc_aux2.BoundText
-    dtc_aux3.BoundText = dtc_aux2.BoundText
+    dtc_aux1.BoundText = Dtc_aux2.BoundText
+    dtc_aux3.BoundText = Dtc_aux2.BoundText
     
     Set rs_datos3 = New ADODB.Recordset
     If rs_datos3.State = 1 Then rs_datos01.Close
     rs_datos3.Open "Select * from gc_unidad_ejecutora", db, adOpenStatic
     Set Ado_datos3.Recordset = rs_datos3
-        Txt_campo1.BoundText = Txt_descripcion.BoundText
+        txt_campo1.BoundText = Txt_descripcion.BoundText
     
     Set rs_datos4 = New ADODB.Recordset
     If rs_datos4.State = 1 Then rs_datos01.Close
@@ -1870,7 +1872,7 @@ Private Sub Form_Unload(Cancel As Integer)
 End Sub
 
 Private Sub Txt_campo1_Click(Area As Integer)
-    Txt_descripcion.BoundText = Txt_campo1.BoundText
+    Txt_descripcion.BoundText = txt_campo1.BoundText
 End Sub
 
 Private Sub Txt_campo2_Click()
@@ -1890,9 +1892,9 @@ Private Sub Txt_campo4_Click()
 End Sub
 
 Private Sub Txt_descripcion_Change()
- Txt_campo1.BoundText = Txt_descripcion.BoundText
+ txt_campo1.BoundText = Txt_descripcion.BoundText
 End Sub
 
 Private Sub Txt_descripcion_Click(Area As Integer)
-    Txt_campo1.BoundText = Txt_descripcion.BoundText
+    txt_campo1.BoundText = Txt_descripcion.BoundText
 End Sub

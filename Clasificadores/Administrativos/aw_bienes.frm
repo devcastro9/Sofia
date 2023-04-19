@@ -15,8 +15,8 @@ Begin VB.Form aw_bienes
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   8355
+   ScaleWidth      =   11145
    WindowState     =   2  'Maximized
    Begin MSAdodcLib.Adodc AdoProductoSin 
       Height          =   330
@@ -162,7 +162,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   2408
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   109969409
+         Format          =   135593985
          CurrentDate     =   40245
       End
       Begin VB.PictureBox Picture1 
@@ -1208,7 +1208,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   109969409
+         Format          =   135593985
          CurrentDate     =   40245
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1452,7 +1452,7 @@ Begin VB.Form aw_bienes
          _ExtentX        =   1773
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   109969409
+         Format          =   135593985
          CurrentDate     =   40245
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -2423,10 +2423,10 @@ Begin VB.Form aw_bienes
       Height          =   480
       Left            =   0
       ScaleHeight     =   480
-      ScaleWidth      =   20160
+      ScaleWidth      =   11145
       TabIndex        =   26
-      Top             =   10455
-      Width           =   20160
+      Top             =   7875
+      Width           =   11145
       Begin VB.Frame Frame4 
          Height          =   60
          Left            =   15
@@ -2956,12 +2956,12 @@ If Ado_datos.Recordset.BOF Or Ado_datos.Recordset.EOF Then
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "TCRUZ" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         Else
@@ -2995,12 +2995,12 @@ Else
             If glusuario = "CARIZACA" Or glusuario = "ADMIN" Or glusuario = "AFLORES" Or glusuario = "RCUELA" Or glusuario = "CSALINAS" Then
                 BtnAñadir.Visible = True
                 BtnModificar.Visible = True
-                BtnEliminar.Visible = True
+                btnEliminar.Visible = True
                 BtnAprobar.Visible = True
             Else
                 BtnAñadir.Visible = False
                 BtnModificar.Visible = False
-                BtnEliminar.Visible = False
+                btnEliminar.Visible = False
                 BtnAprobar.Visible = False
             End If
         If Ado_datos.Recordset!bien_stock_minimo < Ado_datos.Recordset!bien_stock_actual Then
@@ -3680,7 +3680,7 @@ On Error GoTo QError
             Ado_datos.Recordset!archivo_foto2 = Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
             Ado_datos.Recordset!estado_codigo = "REG"  'chkEstado
             Ado_datos.Recordset!usr_codigo = glusuario
-            Ado_datos.Recordset!Fecha_Registro = Date
+            Ado_datos.Recordset!fecha_registro = Date
             Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
             '*********************************
             Ado_datos.Recordset!codigo_pSIN = IIf(IsNull(TxtCodigo_pSIN.Text), "", TxtCodigo_pSIN.Text)
@@ -3919,12 +3919,12 @@ Private Sub Form_Load()
     If glusuario = "CARIZACA" Or glusuario = "RCUELA" Or glusuario = "AFLORES" Or glusuario = "ADMIN" Or glusuario = "JYMAMANI" Or glusuario = "AFLORES" Or glusuario = "CSALINAS" Then
         BtnAñadir.Visible = True
         BtnModificar.Visible = True
-        BtnEliminar.Visible = True
+        btnEliminar.Visible = True
         BtnAprobar.Visible = True
     Else
         BtnAñadir.Visible = False
         BtnModificar.Visible = False
-        BtnEliminar.Visible = False
+        btnEliminar.Visible = False
         BtnAprobar.Visible = False
     End If
             

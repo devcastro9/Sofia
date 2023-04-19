@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
@@ -374,7 +374,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118685697
+         Format          =   114622465
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -406,7 +406,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118685697
+         Format          =   114622465
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -421,7 +421,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118685697
+         Format          =   114622465
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -5640,7 +5640,7 @@ Private Sub OptFilGral1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DPTOC
         Case "2"
-            If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "APACIOS" Or glusuario = "CSALINAS" Then
+            If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "APALACIOS" Or glusuario = "JCHIPANA" Then
                 queryinicial = "Select * from av_solicitud_venta where (estado_codigo <> 'ANL'  AND ges_gestion = " & Year(Date) & "  and solicitud_tipo = '10' ) "
             Else
                 If parametro = "DNINS" Then

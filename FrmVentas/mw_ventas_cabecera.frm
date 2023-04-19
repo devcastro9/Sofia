@@ -17,10 +17,76 @@ Begin VB.Form mw_ventas_cabecera
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    Moveable        =   0   'False
-   ScaleHeight     =   7.52331e6
+   ScaleHeight     =   8.01441e6
    ScaleMode       =   0  'User
-   ScaleWidth      =   2.70153e9
+   ScaleWidth      =   3.92724e9
    WindowState     =   2  'Maximized
+   Begin VB.Frame FraAnula 
+      BackColor       =   &H00404040&
+      Caption         =   "Registra Justificacion para Anulación de Factura"
+      ForeColor       =   &H00FFFFC0&
+      Height          =   2535
+      Left            =   8880
+      TabIndex        =   222
+      Top             =   4800
+      Visible         =   0   'False
+      Width           =   7575
+      Begin VB.TextBox TxtAnula 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00E0E0E0&
+         BeginProperty DataFormat 
+            Type            =   0
+            Format          =   "#,##0.00"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   3082
+            SubFormatType   =   0
+         EndProperty
+         DataSource      =   "Ado_datos16"
+         ForeColor       =   &H00000000&
+         Height          =   885
+         Left            =   360
+         MultiLine       =   -1  'True
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   225
+         Text            =   "mw_ventas_cabecera.frx":0A02
+         Top             =   480
+         Width           =   6855
+      End
+      Begin VB.CommandButton Command3 
+         BackColor       =   &H00C0FFFF&
+         Height          =   635
+         Left            =   4080
+         MaskColor       =   &H00000000&
+         Picture         =   "mw_ventas_cabecera.frx":0A04
+         Style           =   1  'Graphical
+         TabIndex        =   224
+         ToolTipText     =   "Cancelar"
+         Top             =   1560
+         Width           =   1365
+      End
+      Begin VB.CommandButton Command2 
+         BackColor       =   &H00C0FFFF&
+         Height          =   635
+         Left            =   2040
+         Picture         =   "mw_ventas_cabecera.frx":12F0
+         Style           =   1  'Graphical
+         TabIndex        =   223
+         Top             =   1560
+         Width           =   1365
+      End
+      Begin VB.Label Label32 
+         BackColor       =   &H80000010&
+         BackStyle       =   0  'Transparent
+         ForeColor       =   &H00FFFFFF&
+         Height          =   240
+         Left            =   240
+         TabIndex        =   226
+         Top             =   360
+         Width           =   2025
+      End
+   End
    Begin VB.Frame FraZona 
       BackColor       =   &H00404040&
       Caption         =   "Elija una Zona Piloto..."
@@ -36,7 +102,7 @@ Begin VB.Form mw_ventas_cabecera
          Height          =   635
          Left            =   4080
          MaskColor       =   &H00000000&
-         Picture         =   "mw_ventas_cabecera.frx":0A02
+         Picture         =   "mw_ventas_cabecera.frx":1ADE
          Style           =   1  'Graphical
          TabIndex        =   216
          ToolTipText     =   "Cancelar"
@@ -47,14 +113,14 @@ Begin VB.Form mw_ventas_cabecera
          BackColor       =   &H00C0FFFF&
          Height          =   635
          Left            =   2040
-         Picture         =   "mw_ventas_cabecera.frx":12EE
+         Picture         =   "mw_ventas_cabecera.frx":23CA
          Style           =   1  'Graphical
          TabIndex        =   215
          Top             =   1560
          Width           =   1365
       End
       Begin MSDataListLib.DataCombo dtc_desc7 
-         Bindings        =   "mw_ventas_cabecera.frx":1ADC
+         Bindings        =   "mw_ventas_cabecera.frx":2BB8
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -71,7 +137,7 @@ Begin VB.Form mw_ventas_cabecera
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux7 
-         Bindings        =   "mw_ventas_cabecera.frx":1AF5
+         Bindings        =   "mw_ventas_cabecera.frx":2BD1
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -89,7 +155,7 @@ Begin VB.Form mw_ventas_cabecera
          Text            =   "0"
       End
       Begin MSDataListLib.DataCombo dtc_codigo7 
-         Bindings        =   "mw_ventas_cabecera.frx":1B0E
+         Bindings        =   "mw_ventas_cabecera.frx":2BEA
          DataField       =   "zpiloto_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -130,7 +196,7 @@ Begin VB.Form mw_ventas_cabecera
          BackColor       =   &H00C0FFFF&
          Height          =   635
          Left            =   2040
-         Picture         =   "mw_ventas_cabecera.frx":1B27
+         Picture         =   "mw_ventas_cabecera.frx":2C03
          Style           =   1  'Graphical
          TabIndex        =   211
          Top             =   1440
@@ -141,7 +207,7 @@ Begin VB.Form mw_ventas_cabecera
          Height          =   635
          Left            =   4080
          MaskColor       =   &H00000000&
-         Picture         =   "mw_ventas_cabecera.frx":2315
+         Picture         =   "mw_ventas_cabecera.frx":33F1
          Style           =   1  'Graphical
          TabIndex        =   210
          ToolTipText     =   "Cancelar"
@@ -230,13 +296,12 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   12360
-         Picture         =   "mw_ventas_cabecera.frx":2C01
+         Picture         =   "mw_ventas_cabecera.frx":3CDD
          ScaleHeight     =   615
          ScaleWidth      =   1440
          TabIndex        =   221
          ToolTipText     =   "Aprueba el Contrato Elegido (ya NO podrá ser modificado)"
          Top             =   20
-         Visible         =   0   'False
          Width           =   1440
       End
       Begin VB.PictureBox BtnVer 
@@ -246,7 +311,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   10920
-         Picture         =   "mw_ventas_cabecera.frx":36AF
+         Picture         =   "mw_ventas_cabecera.frx":478B
          ScaleHeight     =   615
          ScaleWidth      =   1575
          TabIndex        =   195
@@ -262,7 +327,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   18360
-         Picture         =   "mw_ventas_cabecera.frx":3F66
+         Picture         =   "mw_ventas_cabecera.frx":5042
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   139
@@ -277,7 +342,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8040
-         Picture         =   "mw_ventas_cabecera.frx":4728
+         Picture         =   "mw_ventas_cabecera.frx":5804
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   161
@@ -293,7 +358,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   2640
-         Picture         =   "mw_ventas_cabecera.frx":5272
+         Picture         =   "mw_ventas_cabecera.frx":634E
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   160
@@ -309,7 +374,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6600
-         Picture         =   "mw_ventas_cabecera.frx":5AAA
+         Picture         =   "mw_ventas_cabecera.frx":6B86
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   159
@@ -324,7 +389,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5280
-         Picture         =   "mw_ventas_cabecera.frx":6564
+         Picture         =   "mw_ventas_cabecera.frx":7640
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   140
@@ -336,7 +401,7 @@ Begin VB.Form mw_ventas_cabecera
          Appearance      =   0  'Flat
          Height          =   585
          Left            =   18360
-         Picture         =   "mw_ventas_cabecera.frx":6E31
+         Picture         =   "mw_ventas_cabecera.frx":7F0D
          Style           =   1  'Graphical
          TabIndex        =   146
          Top             =   0
@@ -346,7 +411,7 @@ Begin VB.Form mw_ventas_cabecera
       Begin VB.CommandButton Command1 
          Appearance      =   0  'Flat
          BackColor       =   &H80000015&
-         DownPicture     =   "mw_ventas_cabecera.frx":703B
+         DownPicture     =   "mw_ventas_cabecera.frx":8117
          Height          =   705
          Left            =   19800
          MaskColor       =   &H8000000F&
@@ -364,7 +429,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   -15
-         Picture         =   "mw_ventas_cabecera.frx":77FA
+         Picture         =   "mw_ventas_cabecera.frx":88D6
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   144
@@ -379,7 +444,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   1440
-         Picture         =   "mw_ventas_cabecera.frx":810F
+         Picture         =   "mw_ventas_cabecera.frx":91EB
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   143
@@ -394,7 +459,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   9600
-         Picture         =   "mw_ventas_cabecera.frx":885B
+         Picture         =   "mw_ventas_cabecera.frx":9937
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   142
@@ -409,7 +474,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   3960
-         Picture         =   "mw_ventas_cabecera.frx":908E
+         Picture         =   "mw_ventas_cabecera.frx":A16A
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   141
@@ -456,12 +521,13 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "mw_ventas_cabecera.frx":9843
+         Picture         =   "mw_ventas_cabecera.frx":A91F
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   181
          ToolTipText     =   "Imprime el Plan de Cuotas a cobrar"
          Top             =   2400
+         Visible         =   0   'False
          Width           =   1400
       End
       Begin VB.PictureBox BtnAprobar2 
@@ -471,7 +537,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "mw_ventas_cabecera.frx":A110
+         Picture         =   "mw_ventas_cabecera.frx":B1EC
          ScaleHeight     =   615
          ScaleWidth      =   1320
          TabIndex        =   180
@@ -486,13 +552,14 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "mw_ventas_cabecera.frx":A943
+         Picture         =   "mw_ventas_cabecera.frx":BA1F
          ScaleHeight     =   615
-         ScaleWidth      =   1215
+         ScaleWidth      =   1455
          TabIndex        =   179
          ToolTipText     =   "Anula Cuota elegida"
          Top             =   1200
-         Width           =   1215
+         Visible         =   0   'False
+         Width           =   1455
       End
       Begin VB.PictureBox BtnModDetalle2 
          Appearance      =   0  'Flat
@@ -501,7 +568,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "mw_ventas_cabecera.frx":B08F
+         Picture         =   "mw_ventas_cabecera.frx":C45F
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   178
@@ -516,7 +583,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "mw_ventas_cabecera.frx":B9A4
+         Picture         =   "mw_ventas_cabecera.frx":CD74
          ScaleHeight     =   615
          ScaleWidth      =   1425
          TabIndex        =   177
@@ -542,7 +609,7 @@ Begin VB.Form mw_ventas_cabecera
          Caption         =   "Modifica Equipo"
          Height          =   720
          Left            =   240
-         Picture         =   "mw_ventas_cabecera.frx":C163
+         Picture         =   "mw_ventas_cabecera.frx":D533
          Style           =   1  'Graphical
          TabIndex        =   114
          ToolTipText     =   "Modifica datos del Equipo"
@@ -552,7 +619,7 @@ Begin VB.Form mw_ventas_cabecera
    End
    Begin TabDlg.SSTab SSTab1 
       Height          =   4770
-      Left            =   6480
+      Left            =   7295
       TabIndex        =   18
       Top             =   765
       Width           =   12135
@@ -560,7 +627,6 @@ Begin VB.Form mw_ventas_cabecera
       _ExtentY        =   8414
       _Version        =   393216
       Tabs            =   4
-      Tab             =   2
       TabsPerRow      =   4
       TabHeight       =   520
       BackColor       =   12632256
@@ -575,23 +641,23 @@ Begin VB.Form mw_ventas_cabecera
          Strikethrough   =   0   'False
       EndProperty
       TabCaption(0)   =   "REGISTRO DE VENTAS"
-      TabPicture(0)   =   "mw_ventas_cabecera.frx":C5A5
-      Tab(0).ControlEnabled=   0   'False
+      TabPicture(0)   =   "mw_ventas_cabecera.frx":D975
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FrmCabecera"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "DETALLE BIENES (Equipos)"
-      TabPicture(1)   =   "mw_ventas_cabecera.frx":C5C1
+      TabPicture(1)   =   "mw_ventas_cabecera.frx":D991
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmEdita"
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "REGISTRO PLAN DE CUOTAS"
-      TabPicture(2)   =   "mw_ventas_cabecera.frx":C5DD
-      Tab(2).ControlEnabled=   -1  'True
+      TabPicture(2)   =   "mw_ventas_cabecera.frx":D9AD
+      Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "FrmCobros"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
       TabCaption(3)   =   "ALCANCE DEL CONTRATO"
-      TabPicture(3)   =   "mw_ventas_cabecera.frx":C5F9
+      TabPicture(3)   =   "mw_ventas_cabecera.frx":D9C9
       Tab(3).ControlEnabled=   0   'False
       Tab(3).Control(0)=   "FrmAlcance"
       Tab(3).Control(1)=   "FraGrabarCancelar1"
@@ -616,7 +682,7 @@ Begin VB.Form mw_ventas_cabecera
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   5760
-            Picture         =   "mw_ventas_cabecera.frx":C615
+            Picture         =   "mw_ventas_cabecera.frx":D9E5
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   187
@@ -631,7 +697,7 @@ Begin VB.Form mw_ventas_cabecera
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3960
-            Picture         =   "mw_ventas_cabecera.frx":CF2A
+            Picture         =   "mw_ventas_cabecera.frx":E2FA
             ScaleHeight     =   615
             ScaleWidth      =   1425
             TabIndex        =   182
@@ -658,7 +724,7 @@ Begin VB.Form mw_ventas_cabecera
             ForeColor       =   &H80000008&
             Height          =   590
             Left            =   7200
-            Picture         =   "mw_ventas_cabecera.frx":D6E9
+            Picture         =   "mw_ventas_cabecera.frx":EAB9
             ScaleHeight     =   585
             ScaleWidth      =   825
             TabIndex        =   193
@@ -673,7 +739,7 @@ Begin VB.Form mw_ventas_cabecera
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   10200
-            Picture         =   "mw_ventas_cabecera.frx":DE0F
+            Picture         =   "mw_ventas_cabecera.frx":F1DF
             ScaleHeight     =   615
             ScaleWidth      =   1275
             TabIndex        =   191
@@ -723,7 +789,7 @@ Begin VB.Form mw_ventas_cabecera
          Top             =   360
          Width           =   11895
          Begin MSDataGridLib.DataGrid DtgAlcance 
-            Bindings        =   "mw_ventas_cabecera.frx":E5FD
+            Bindings        =   "mw_ventas_cabecera.frx":F9CD
             Height          =   2985
             Left            =   120
             Negotiate       =   -1  'True
@@ -910,7 +976,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   40
+         Left            =   -74960
          TabIndex        =   53
          Top             =   380
          Width           =   12015
@@ -927,7 +993,7 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             Height          =   315
             Left            =   11340
-            Picture         =   "mw_ventas_cabecera.frx":E616
+            Picture         =   "mw_ventas_cabecera.frx":F9E6
             Style           =   1  'Graphical
             TabIndex        =   206
             Top             =   2175
@@ -945,7 +1011,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   270
          End
          Begin MSDataListLib.DataCombo dtc_email2A 
-            Bindings        =   "mw_ventas_cabecera.frx":F018
+            Bindings        =   "mw_ventas_cabecera.frx":103E8
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -977,9 +1043,9 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             ForeColor       =   &H00000040&
             Height          =   315
-            ItemData        =   "mw_ventas_cabecera.frx":F031
+            ItemData        =   "mw_ventas_cabecera.frx":10401
             Left            =   11040
-            List            =   "mw_ventas_cabecera.frx":F03B
+            List            =   "mw_ventas_cabecera.frx":1040B
             TabIndex        =   156
             Text            =   "NO"
             Top             =   1575
@@ -987,9 +1053,9 @@ Begin VB.Form mw_ventas_cabecera
          End
          Begin VB.ComboBox cmd_fac 
             Height          =   315
-            ItemData        =   "mw_ventas_cabecera.frx":F047
+            ItemData        =   "mw_ventas_cabecera.frx":10417
             Left            =   240
-            List            =   "mw_ventas_cabecera.frx":F051
+            List            =   "mw_ventas_cabecera.frx":10421
             TabIndex        =   154
             Text            =   "FACTURA"
             Top             =   1040
@@ -1007,7 +1073,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   118882305
+            Format          =   110559233
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1052,7 +1118,7 @@ Begin VB.Form mw_ventas_cabecera
                ForeColor       =   &H80000008&
                Height          =   615
                Left            =   6240
-               Picture         =   "mw_ventas_cabecera.frx":F06E
+               Picture         =   "mw_ventas_cabecera.frx":1043E
                ScaleHeight     =   615
                ScaleWidth      =   1455
                TabIndex        =   189
@@ -1066,7 +1132,7 @@ Begin VB.Form mw_ventas_cabecera
                ForeColor       =   &H80000008&
                Height          =   615
                Left            =   4440
-               Picture         =   "mw_ventas_cabecera.frx":F95A
+               Picture         =   "mw_ventas_cabecera.frx":10D2A
                ScaleHeight     =   615
                ScaleWidth      =   1275
                TabIndex        =   188
@@ -1102,7 +1168,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   255
          End
          Begin MSDataListLib.DataCombo dtc_codigo4A 
-            Bindings        =   "mw_ventas_cabecera.frx":10130
+            Bindings        =   "mw_ventas_cabecera.frx":11500
             DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1240,7 +1306,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   9420
          End
          Begin MSDataListLib.DataCombo dtc_codigo2A 
-            Bindings        =   "mw_ventas_cabecera.frx":1014A
+            Bindings        =   "mw_ventas_cabecera.frx":1151A
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1259,7 +1325,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc2A 
-            Bindings        =   "mw_ventas_cabecera.frx":10163
+            Bindings        =   "mw_ventas_cabecera.frx":11533
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1277,7 +1343,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc4A 
-            Bindings        =   "mw_ventas_cabecera.frx":1017C
+            Bindings        =   "mw_ventas_cabecera.frx":1154C
             DataField       =   "beneficiario_codigo_resp"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1315,13 +1381,13 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   118882307
+            Format          =   110559235
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
          End
          Begin MSDataListLib.DataCombo dtc_benef2A 
-            Bindings        =   "mw_ventas_cabecera.frx":10196
+            Bindings        =   "mw_ventas_cabecera.frx":11566
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos16"
             Height          =   315
@@ -1973,7 +2039,7 @@ Begin VB.Form mw_ventas_cabecera
                Caption         =   "Anular-->"
                Height          =   640
                Left            =   1560
-               Picture         =   "mw_ventas_cabecera.frx":101AF
+               Picture         =   "mw_ventas_cabecera.frx":1157F
                Style           =   1  'Graphical
                TabIndex        =   186
                ToolTipText     =   "Anula la Cobranza Identificada"
@@ -1988,7 +2054,7 @@ Begin VB.Form mw_ventas_cabecera
                ForeColor       =   &H80000008&
                Height          =   615
                Left            =   6240
-               Picture         =   "mw_ventas_cabecera.frx":10E79
+               Picture         =   "mw_ventas_cabecera.frx":12249
                ScaleHeight     =   615
                ScaleWidth      =   1455
                TabIndex        =   185
@@ -2002,7 +2068,7 @@ Begin VB.Form mw_ventas_cabecera
                ForeColor       =   &H80000008&
                Height          =   615
                Left            =   4440
-               Picture         =   "mw_ventas_cabecera.frx":11765
+               Picture         =   "mw_ventas_cabecera.frx":12B35
                ScaleHeight     =   615
                ScaleWidth      =   1275
                TabIndex        =   184
@@ -2014,7 +2080,7 @@ Begin VB.Form mw_ventas_cabecera
                Caption         =   "Codificar"
                Height          =   640
                Left            =   120
-               Picture         =   "mw_ventas_cabecera.frx":11F3B
+               Picture         =   "mw_ventas_cabecera.frx":1330B
                Style           =   1  'Graphical
                TabIndex        =   183
                ToolTipText     =   "Codifica Equipos"
@@ -2065,7 +2131,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   255
          End
          Begin MSDataListLib.DataCombo dtc_preciocompra15 
-            Bindings        =   "mw_ventas_cabecera.frx":1237D
+            Bindings        =   "mw_ventas_cabecera.frx":1374D
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2086,7 +2152,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_subgrupo15 
-            Bindings        =   "mw_ventas_cabecera.frx":12397
+            Bindings        =   "mw_ventas_cabecera.frx":13767
             CausesValidation=   0   'False
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
@@ -2116,7 +2182,7 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_grupo15 
-            Bindings        =   "mw_ventas_cabecera.frx":123B1
+            Bindings        =   "mw_ventas_cabecera.frx":13781
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2182,7 +2248,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   1215
          End
          Begin MSDataListLib.DataCombo dtc_precioventafinal15 
-            Bindings        =   "mw_ventas_cabecera.frx":123CB
+            Bindings        =   "mw_ventas_cabecera.frx":1379B
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2203,7 +2269,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo15 
-            Bindings        =   "mw_ventas_cabecera.frx":123E5
+            Bindings        =   "mw_ventas_cabecera.frx":137B5
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2222,7 +2288,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc15 
-            Bindings        =   "mw_ventas_cabecera.frx":123FF
+            Bindings        =   "mw_ventas_cabecera.frx":137CF
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2242,7 +2308,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc12 
-            Bindings        =   "mw_ventas_cabecera.frx":12419
+            Bindings        =   "mw_ventas_cabecera.frx":137E9
             DataField       =   "tipoben_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2260,7 +2326,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Dtc_aux12 
-            Bindings        =   "mw_ventas_cabecera.frx":12433
+            Bindings        =   "mw_ventas_cabecera.frx":13803
             DataField       =   "tipoben_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2281,7 +2347,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc13 
-            Bindings        =   "mw_ventas_cabecera.frx":1244D
+            Bindings        =   "mw_ventas_cabecera.frx":1381D
             DataField       =   "almacen_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2299,7 +2365,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_unimed15 
-            Bindings        =   "mw_ventas_cabecera.frx":12467
+            Bindings        =   "mw_ventas_cabecera.frx":13837
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2329,7 +2395,7 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_stocktotal15 
-            Bindings        =   "mw_ventas_cabecera.frx":12481
+            Bindings        =   "mw_ventas_cabecera.frx":13851
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2359,7 +2425,7 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
          End
          Begin MSDataListLib.DataCombo dtc_codigo12 
-            Bindings        =   "mw_ventas_cabecera.frx":1249B
+            Bindings        =   "mw_ventas_cabecera.frx":1386B
             DataField       =   "tipoben_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2380,7 +2446,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo13 
-            Bindings        =   "mw_ventas_cabecera.frx":124B5
+            Bindings        =   "mw_ventas_cabecera.frx":13885
             DataField       =   "almacen_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2401,7 +2467,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Dtc_Stock13 
-            Bindings        =   "mw_ventas_cabecera.frx":124CF
+            Bindings        =   "mw_ventas_cabecera.frx":1389F
             DataField       =   "almacen_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2421,7 +2487,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo Dtc_partida15 
-            Bindings        =   "mw_ventas_cabecera.frx":124E9
+            Bindings        =   "mw_ventas_cabecera.frx":138B9
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2441,7 +2507,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_precioventabase15 
-            Bindings        =   "mw_ventas_cabecera.frx":12503
+            Bindings        =   "mw_ventas_cabecera.frx":138D3
             DataField       =   "bien_codigo"
             DataSource      =   "ado_datos14"
             Height          =   315
@@ -2617,7 +2683,7 @@ Begin VB.Form mw_ventas_cabecera
             Strikethrough   =   0   'False
          EndProperty
          Height          =   4350
-         Left            =   -74960
+         Left            =   40
          TabIndex        =   23
          Top             =   380
          Width           =   12015
@@ -2659,7 +2725,7 @@ Begin VB.Form mw_ventas_cabecera
             Height          =   735
             Left            =   7560
             MaskColor       =   &H00C0FFFF&
-            Picture         =   "mw_ventas_cabecera.frx":1251D
+            Picture         =   "mw_ventas_cabecera.frx":138ED
             Style           =   1  'Graphical
             TabIndex        =   101
             ToolTipText     =   "Nuevo Personal"
@@ -2678,7 +2744,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   330
          End
          Begin MSDataListLib.DataCombo Dtc_deudor2 
-            Bindings        =   "mw_ventas_cabecera.frx":12827
+            Bindings        =   "mw_ventas_cabecera.frx":13BF7
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2698,7 +2764,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo2 
-            Bindings        =   "mw_ventas_cabecera.frx":12840
+            Bindings        =   "mw_ventas_cabecera.frx":13C10
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -2760,7 +2826,7 @@ Begin VB.Form mw_ventas_cabecera
                Width           =   735
             End
             Begin MSDataListLib.DataCombo dtc_desc11 
-               Bindings        =   "mw_ventas_cabecera.frx":12859
+               Bindings        =   "mw_ventas_cabecera.frx":13C29
                DataField       =   "venta_tipo"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2776,7 +2842,7 @@ Begin VB.Form mw_ventas_cabecera
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_desc4 
-               Bindings        =   "mw_ventas_cabecera.frx":12873
+               Bindings        =   "mw_ventas_cabecera.frx":13C43
                DataField       =   "beneficiario_codigo_resp"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2826,12 +2892,12 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   118882305
+               Format          =   110559233
                CurrentDate     =   44228
                MinDate         =   32874
             End
             Begin MSDataListLib.DataCombo dtc_codigo11 
-               Bindings        =   "mw_ventas_cabecera.frx":1288C
+               Bindings        =   "mw_ventas_cabecera.frx":13C5C
                DataField       =   "venta_tipo"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2848,7 +2914,7 @@ Begin VB.Form mw_ventas_cabecera
                Text            =   ""
             End
             Begin MSDataListLib.DataCombo dtc_codigo4 
-               Bindings        =   "mw_ventas_cabecera.frx":128A6
+               Bindings        =   "mw_ventas_cabecera.frx":13C76
                DataField       =   "beneficiario_codigo_resp"
                DataSource      =   "Ado_datos"
                Height          =   315
@@ -2880,7 +2946,7 @@ Begin VB.Form mw_ventas_cabecera
          End
          Begin VB.Frame Fra_Total 
             BackColor       =   &H00C0C0C0&
-            Caption         =   $"mw_ventas_cabecera.frx":128BF
+            Caption         =   $"mw_ventas_cabecera.frx":13C8F
             ForeColor       =   &H00800000&
             Height          =   1215
             Left            =   120
@@ -3452,7 +3518,7 @@ Begin VB.Form mw_ventas_cabecera
             Width           =   1245
          End
          Begin MSDataListLib.DataCombo dtc_desc2 
-            Bindings        =   "mw_ventas_cabecera.frx":12954
+            Bindings        =   "mw_ventas_cabecera.frx":13D24
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3470,7 +3536,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_codigo1 
-            Bindings        =   "mw_ventas_cabecera.frx":1296D
+            Bindings        =   "mw_ventas_cabecera.frx":13D3D
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3488,7 +3554,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc1 
-            Bindings        =   "mw_ventas_cabecera.frx":12987
+            Bindings        =   "mw_ventas_cabecera.frx":13D57
             DataField       =   "unidad_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3508,7 +3574,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo Dtc_aux2 
-            Bindings        =   "mw_ventas_cabecera.frx":129A0
+            Bindings        =   "mw_ventas_cabecera.frx":13D70
             DataField       =   "beneficiario_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3528,7 +3594,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_aux3 
-            Bindings        =   "mw_ventas_cabecera.frx":129B9
+            Bindings        =   "mw_ventas_cabecera.frx":13D89
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3546,7 +3612,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo3 
-            Bindings        =   "mw_ventas_cabecera.frx":129D2
+            Bindings        =   "mw_ventas_cabecera.frx":13DA2
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3566,7 +3632,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_desc3 
-            Bindings        =   "mw_ventas_cabecera.frx":129EB
+            Bindings        =   "mw_ventas_cabecera.frx":13DBB
             DataField       =   "edif_codigo"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3586,7 +3652,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   "Todos"
          End
          Begin MSDataListLib.DataCombo dtc_codigo8 
-            Bindings        =   "mw_ventas_cabecera.frx":12A04
+            Bindings        =   "mw_ventas_cabecera.frx":13DD4
             DataField       =   "codigo_empresa"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3603,7 +3669,7 @@ Begin VB.Form mw_ventas_cabecera
             Text            =   ""
          End
          Begin MSDataListLib.DataCombo dtc_desc8 
-            Bindings        =   "mw_ventas_cabecera.frx":12A1D
+            Bindings        =   "mw_ventas_cabecera.frx":13DED
             DataField       =   "codigo_empresa"
             DataSource      =   "Ado_datos"
             Height          =   315
@@ -3850,7 +3916,7 @@ Begin VB.Form mw_ventas_cabecera
       Left            =   15
       TabIndex        =   76
       Top             =   720
-      Width           =   6345
+      Width           =   7203
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00FFFFFF&
          Caption         =   "Todos"
@@ -3865,7 +3931,7 @@ Begin VB.Form mw_ventas_cabecera
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   3960
+         Left            =   4800
          TabIndex        =   79
          Top             =   4520
          Width           =   915
@@ -3891,13 +3957,13 @@ Begin VB.Form mw_ventas_cabecera
          Width           =   1455
       End
       Begin MSDataGridLib.DataGrid dg_datos 
-         Bindings        =   "mw_ventas_cabecera.frx":12A36
+         Bindings        =   "mw_ventas_cabecera.frx":13E06
          Height          =   4170
          Left            =   120
          TabIndex        =   77
          Top             =   240
-         Width           =   6120
-         _ExtentX        =   10795
+         Width           =   7000
+         _ExtentX        =   12356
          _ExtentY        =   7355
          _Version        =   393216
          AllowUpdate     =   0   'False
@@ -3923,7 +3989,7 @@ Begin VB.Form mw_ventas_cabecera
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   8
+         ColumnCount     =   9
          BeginProperty Column00 
             DataField       =   "solicitud_codigo"
             Caption         =   "#Tramite"
@@ -3991,7 +4057,7 @@ Begin VB.Form mw_ventas_cabecera
          EndProperty
          BeginProperty Column05 
             DataField       =   "estado_codigo"
-            Caption         =   "Estado"
+            Caption         =   "Arobado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
                Type            =   0
                Format          =   ""
@@ -4016,6 +4082,19 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
          EndProperty
          BeginProperty Column07 
+            DataField       =   "estado_contab"
+            Caption         =   "Contabilizado"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   0
+               Format          =   ""
+               HaveTrueFalseNull=   0
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   0
+            EndProperty
+         EndProperty
+         BeginProperty Column08 
             DataField       =   "edif_codigo"
             Caption         =   "Cod.Edificio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -4048,12 +4127,14 @@ Begin VB.Form mw_ventas_cabecera
             EndProperty
             BeginProperty Column05 
                Alignment       =   2
-               ColumnWidth     =   599.811
+               ColumnWidth     =   689.953
             EndProperty
             BeginProperty Column06 
                Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
+            EndProperty
+            BeginProperty Column08 
                Locked          =   -1  'True
                Object.Visible         =   -1  'True
             EndProperty
@@ -4063,8 +4144,8 @@ Begin VB.Form mw_ventas_cabecera
          Height          =   330
          Left            =   120
          Top             =   4440
-         Width           =   6120
-         _ExtentX        =   10795
+         Width           =   7000
+         _ExtentX        =   12356
          _ExtentY        =   582
          ConnectMode     =   0
          CursorLocation  =   3
@@ -4125,7 +4206,7 @@ Begin VB.Form mw_ventas_cabecera
       Top             =   5580
       Width           =   16455
       Begin MSDataGridLib.DataGrid DtGLista 
-         Bindings        =   "mw_ventas_cabecera.frx":12A4E
+         Bindings        =   "mw_ventas_cabecera.frx":13E1E
          Height          =   1065
          Left            =   240
          TabIndex        =   22
@@ -4356,7 +4437,7 @@ Begin VB.Form mw_ventas_cabecera
       Top             =   6930
       Width           =   16455
       Begin MSDataGridLib.DataGrid DtgCobro 
-         Bindings        =   "mw_ventas_cabecera.frx":12A68
+         Bindings        =   "mw_ventas_cabecera.frx":13E38
          Height          =   2820
          Left            =   255
          TabIndex        =   20
@@ -5358,7 +5439,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   5160
-         Picture         =   "mw_ventas_cabecera.frx":12A82
+         Picture         =   "mw_ventas_cabecera.frx":13E52
          ScaleHeight     =   615
          ScaleWidth      =   1275
          TabIndex        =   150
@@ -5372,7 +5453,7 @@ Begin VB.Form mw_ventas_cabecera
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   6435
-         Picture         =   "mw_ventas_cabecera.frx":13258
+         Picture         =   "mw_ventas_cabecera.frx":14628
          ScaleHeight     =   615
          ScaleWidth      =   1455
          TabIndex        =   149
@@ -5768,6 +5849,7 @@ Dim VAR_ZONA, VAR_ZPILOTO As Integer
 Dim VAR_DIA, VAR_MES As Integer
 Dim VAR_IDTAREA, VAR_NRODIAS As Integer
 Dim VAR_EDIFC As Integer
+Dim VAR_BUSCA As Integer
 
 'contabilidad
 Dim VAR_EMPRESA, VAR_TIPOCOMPID, VAR_MONEDAID As Integer
@@ -5845,20 +5927,37 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         End If
         nroventa = Ado_datos.Recordset!venta_codigo
         lbl_cerrado.Caption = ""
+        If (Ado_datos.Recordset!estado_codigo_verif = "REG" And Ado_datos.Recordset!estado_codigo = "REG" And Ado_datos.Recordset!estado_contab = "REG") Then
+            BtnAprobar.Visible = True
+            BtnAprobar1.Visible = False
+            BtnAprobar3.Visible = False
+        End If
+        If (Ado_datos.Recordset!estado_codigo_verif = "APR" And Ado_datos.Recordset!estado_codigo = "REG" And Ado_datos.Recordset!estado_contab = "REG") Then
+            BtnAprobar.Visible = False
+            BtnAprobar1.Visible = True
+            BtnAprobar3.Visible = False
+        End If
+        If (Ado_datos.Recordset!estado_codigo_verif = "APR" And Ado_datos.Recordset!estado_codigo = "APR" And Ado_datos.Recordset!estado_contab = "REG") Then
+            BtnAprobar.Visible = False
+            BtnAprobar1.Visible = False
+            BtnAprobar3.Visible = True
+        End If
         If (Ado_datos.Recordset!estado_codigo = "REG") Then
-            If glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPAREDES" Or glusuario = "KGARCIA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "JCASTRO" Or glusuario = "ADMIN" Or glusuario = "CSALINAS" Then
-                BtnAprobar.Visible = True   'APROBAR Tramite
+            If glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPAREDES" Or glusuario = "KGARCIA" Or glusuario = "EVILLALOBOS" Or glusuario = "JCASTRO" Or glusuario = "ADMIN" Then    'Or glusuario = "CSALINAS"
+'                BtnAprobar.Visible = True   'APROBAR Tramite
                 btnEliminar.Visible = True  'ANULAR Tramite
                 BtnAñadir.Visible = True    'CERRAR Tramite
                 BtnVer.Visible = False
+                'BtnAnlDetalle2.Visible = True
             Else
-                BtnAprobar.Visible = False   'APROBAR Tramite
+'                BtnAprobar.Visible = False   'APROBAR Tramite
                 btnEliminar.Visible = False  'ANULAR Tramite
                 BtnAñadir.Visible = False    'CERRAR Tramite
                 BtnVer.Visible = True
+                'BtnAnlDetalle2.Visible = False
             End If
-            BtnAprobar1.Visible = True
-            BtnDesAprobar.Visible = False
+'            BtnAprobar1.Visible = True
+'            BtnDesAprobar.Visible = False
             BtnModificar.Visible = True
             BtnModDetalle1.Visible = True
 '            BtnAprobar.Visible = False   'APROBAR Tramite
@@ -5916,7 +6015,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                         lbl_cerrado.Caption = ""
                         FrmABMDet2.Visible = True
 '                        BtnAprobar.Visible = False
-                        BtnDesAprobar.Visible = True
+'                        BtnDesAprobar.Visible = True
                         BtnModificar.Visible = False
                         BtnModDetalle1.Visible = False
                         FrmABMDet.Visible = False
@@ -5930,6 +6029,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
             FrmCobranza.Visible = True
             FrmAlcance.Visible = True
             If (Ado_datos.Recordset!estado_codigo = "APR") Then
+                BtnAnlDetalle2.Visible = True
                 'CRONOGRAMA COMPRA SERVICIO
                 'Compra Cabecera Funcionario - Vendedor
                 Set rs_datos8 = New ADODB.Recordset
@@ -5959,25 +6059,7 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
                 End If
             End If
         End If
-'            If Ado_datos.Recordset("estado_codigo") = "APR" Then
-'                BtnAprobar.Enabled = False
-''                BtnDesAprobar.Enabled = False
-'                FrmABMDet.Visible = False
-'                BtnModDetalle.Visible = False
-'                BtnAnlDetalle.Visible = False
-'            Else
-'                BtnAprobar.Enabled = True
-'                FrmABMDet.Visible = True
-'                BtnModDetalle.Visible = True
-'                BtnAnlDetalle.Visible = True
-'            End If
-'            If (Ado_datos.Recordset("venta_tipo") = "C") And Ado_datos.Recordset("estado_codigo") = "APR" Then
-'                FrmABMDet2.Visible = True
-'                FrmCobranza.Visible = True
-'            Else
-'                FrmABMDet2.Visible = False
-'                FrmCobranza.Visible = False
-'            End If
+
         If (Ado_datos.Recordset("venta_tipo") = "C") Or (Ado_datos.Recordset("venta_tipo") = "V") Or (Ado_datos.Recordset("venta_tipo") = "G") Or (Ado_datos.Recordset("venta_tipo") = "L") Then
 '            TxtPlazo.Visible = True
             BtnAddDetalle2.Visible = True
@@ -5989,7 +6071,9 @@ If (Not Ado_datos.Recordset.BOF) And (Not Ado_datos.Recordset.EOF) Then
         End If
         
         Call ABRIR_TABLA_DET
-        Call ABRIR_TABLAS_AUX
+        If VAR_BUSCA = 0 Then
+            Call ABRIR_TABLAS_AUX
+        End If
 '        FrmDetalle.Caption = "BIENES DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
 '        FrmCobranza.Caption = "CRONOGRAMA DE COBRANZAS DE LA VENTA NRO. " + Str((Ado_datos.Recordset("venta_codigo")))
         
@@ -6025,11 +6109,6 @@ Private Sub Ado_datos16_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
     If Not IsNull(Ado_datos16.Recordset("venta_codigo")) Then
         'BtnModDetalle2.Visible = False
         If (Ado_datos16.Recordset("estado_codigo") = "REG") Then
-'            If (Ado_datos.Recordset("estado_codigo") = "APR") Then
-'                BtnAprobar2.Visible = False
-'            Else
-'                BtnAprobar2.Visible = True
-'            End If
             BtnImprimir2.Visible = True
             BtnAprobar2.Visible = True
             BtnAnlDetalle2.Visible = True
@@ -6038,7 +6117,11 @@ Private Sub Ado_datos16_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
         If (Ado_datos16.Recordset("estado_codigo") = "APR") Then
             BtnImprimir2.Visible = True
             BtnAprobar2.Visible = False
-            BtnAnlDetalle2.Visible = False
+            If glusuario = "GSOLIZ" Or glusuario = "ADMIN" Then
+                BtnAnlDetalle2.Visible = True
+            Else
+                BtnAnlDetalle2.Visible = False
+            End If
             BtnModDetalle2.Visible = False
         End If
         If (Ado_datos16.Recordset("estado_codigo") = "ANL") Then
@@ -6182,7 +6265,9 @@ Private Sub BtnAñadir_Click()
 End Sub
 
 Private Sub BtnAprobar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPAREDES" Or glusuario = "KGARCIA" Or glusuario = "EVILLALOBOS" Or glusuario = "JCASTRO" Or glusuario = "ADMIN" Then    'Or glusuario = "CSALINAS"
+    Else
+    'If glusuario = "CCRUZ" Or glusuario = "LNAVA" Or glusuario = "RCUELA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -6308,7 +6393,7 @@ Private Sub BtnAprobar_Click()
 '           'INI CONTABILIZACION NUEVA
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
             
-            Call Contabiliza_Contratos(correlv)
+'            Call Contabiliza_Contratos(correlv)
 
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 '            'FIN CONTABILIZACION NUEVA
@@ -6325,6 +6410,7 @@ Private Sub BtnAprobar_Click()
                While Not rs_aux1.EOF
                  VAR_COD1 = rs_aux1!unidad_codigo_tec
                  VAR_CANT0 = Round((rs_aux1!venta_tiempo_dias / 30), 0)
+                 VAR_TIPOS = rs_aux1!solicitud_tipo
                  'rs_aux1.MoveNext
                  If VAR_COD1 = "COMEX" Or VAR_COD1 = "DVTA" Then         'INI GRABA CRONOGRAMA COMEX
                     ' AV_COMPRA_VS_ADJUDICA
@@ -6360,7 +6446,7 @@ Private Sub BtnAprobar_Click()
                         rs_aux3.AddNew
                         rs_aux3!ges_gestion = glGestion     'Year(Date)
                         'rs_aux3!compra_codigo = 0      'Autonumerico
-                        rs_aux3!unidad_codigo_adm = VAR_COD1
+                        rs_aux3!unidad_codigo_adm = "COMEX"         'VAR_COD1
                         rs_aux3!solicitud_codigo_adm = correldetalle
                         rs_aux3!unidad_codigo = VAR_UNIDCOD
                         rs_aux3!solicitud_codigo = VAR_SOL
@@ -6390,7 +6476,7 @@ Private Sub BtnAprobar_Click()
                         rs_aux3!estado_codigo_eqp = "REG"
                         rs_aux3!estado_codigo = "REG"
                         rs_aux3!usr_codigo = glusuario
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3.Update
                         'INI ACTUALIZA CORRELATIVO POR ALMACEN
                         Set rs_aux9 = New ADODB.Recordset
@@ -6468,19 +6554,28 @@ Private Sub BtnAprobar_Click()
                             Case Else
                                 VAR_TRAMITE = "BANCO"
                         End Select
-                        If VAR_COMPRA = "NO" Then
+                        
+                        'If VAR_COMPRA = "NO" Then
                             Set rs_aux4 = New ADODB.Recordset
                             If rs_aux4.State = 1 Then rs_aux4.Close
                             rs_aux4.Open "select * from ac_bienes where bien_codigo_anterior= '" & VAR_TRAMITE & "' AND KIT = '90'  ", db, adOpenKeyset, adLockBatchOptimistic
                             If rs_aux4.RecordCount > 0 Then
                                rs_aux4.MoveFirst
                                While Not rs_aux4.EOF
-                                    db.Execute "INSERT INTO ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,            grupo_codigo,                   subgrupo_codigo,                    par_codigo,                 tipo_descuento, almacen_codigo , usr_usuario,       fecha_registro) " & _
-                                    "VALUES ('" & glGestion & "', " & rs_aux3!compra_codigo & ", '" & rs_aux4!bien_codigo & "', '1',        '0',                    '0',                    '0',                    '0',                        '0',                '0',                    '" & bien_descripcion & "', '" & rs_aux4!grupo_codigo & "', '" & rs_aux4!subgrupo_codigo & "', '" & rs_aux4!par_codigo & "', '1',           '0',            '" & glusuario & "', '" & Date & "')"
+                                    VAR_BIEN = rs_aux4!bien_codigo
+                                    Set rs_aux16 = New ADODB.Recordset
+                                    If rs_aux16.State = 1 Then rs_aux16.Close
+                                    rs_aux16.Open "select * from ao_compra_detalle where compra_codigo= " & rs_aux3!compra_codigo & " AND bien_codigo = '" & VAR_BIEN & "'  ", db, adOpenKeyset, adLockBatchOptimistic
+                                    If rs_aux16.RecordCount > 0 Then
+                                        
+                                    Else
+                                        db.Execute "INSERT INTO ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto,            grupo_codigo,                   subgrupo_codigo,                    par_codigo,                 tipo_descuento, almacen_codigo , usr_usuario,       fecha_registro) " & _
+                                        "VALUES ('" & glGestion & "', " & rs_aux3!compra_codigo & ", '" & rs_aux4!bien_codigo & "', '1',        '0',                    '0',                    '0',                    '0',                        '0',                '0',                    '" & bien_descripcion & "', '" & rs_aux4!grupo_codigo & "', '" & rs_aux4!subgrupo_codigo & "', '" & rs_aux4!par_codigo & "', '1',           '0',            '" & glusuario & "', '" & Date & "')"
+                                    End If
                                     rs_aux4.MoveNext
                                Wend
                             End If
-                        End If
+                        'End If
                     End If
                     'WWWWWWWWWW
                  Else
@@ -6732,7 +6827,7 @@ Private Sub CRONO_INSTALACION()
 End Sub
 
 Private Sub BtnAprobar1_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Or glusuario = "RCUELA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -6838,6 +6933,10 @@ Private Sub BtnAprobar1_Click()
 End Sub
 
 Private Sub BtnAprobar2_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Or glusuario = "RCUELA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
  If IsNull(Ado_datos16.Recordset!cobranza_observaciones) Or (Ado_datos16.Recordset!cobranza_programada_bs = 0) Then
     MsgBox "No se puede APROBAR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
     Exit Sub
@@ -6915,7 +7014,7 @@ Private Sub BtnAprobar2_Click()
 
         ' APRUEBA ao_ventas_cobranza_prog
         'db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
-        db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!Fecha_Registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
+        db.Execute "update ao_ventas_cobranza_prog set estado_codigo = 'APR', fecha_registro= '" & Ado_datos16.Recordset!fecha_registro & "' Where venta_codigo = " & nroventa & " And cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "
         ' Actualiza CODIGO_COBRNAZA en el cronogrma
         db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_codigo = ao_ventas_cobranza.cobranza_codigo from ao_ventas_cobranza_prog INNER JOIN ao_ventas_cobranza " & _
         " ON ao_ventas_cobranza_prog.venta_codigo = ao_ventas_cobranza.venta_codigo and ao_ventas_cobranza_prog.cobranza_prog_codigo = ao_ventas_cobranza.cobranza_prog_codigo WHERE (ao_ventas_cobranza_prog.venta_codigo = " & nroventa & " and ao_ventas_cobranza_prog.cobranza_prog_codigo=" & Ado_datos16.Recordset!cobranza_prog_codigo & " )"
@@ -6964,7 +7063,8 @@ Private Sub BtnAprobar2_Click()
 End Sub
 
 Private Sub BtnAprobar3_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "ADMIN" Or glusuario = "RCUELA" Or glusuario = "SQUISPE" Then
+    Else
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -7017,6 +7117,13 @@ Private Sub BtnAprobar3_Click()
            sino = MsgBox("Esta seguro de CONTABILIZAR el registro?", vbYesNo, "Confirmando")
            If sino = vbYes Then
                ' CONTABILIZA ao_ventas_cabecera' AQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+'           'INI CONTABILIZACION NUEVA
+'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+            
+            Call Contabiliza_Contratos(correlv)
+
+'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+'            'FIN CONTABILIZACION NUEVA
                
                Ado_datos.Recordset!estado_contab = "APR"
                Ado_datos.Recordset.Update
@@ -7032,6 +7139,7 @@ Private Sub BtnBuscar_Click()
     '  Dim ClVBusca As  ClBuscaEnGridPropio 'Componente de busquedas
     '  Dim ClBuscaSec As ClBuscaSecuencialEnRS
       'Call OptFilGral1_Click
+      VAR_BUSCA = 1
       OptFilGral2.Value = True
       Call OptFilGral2_Click
       PosibleApliqueFiltro = False
@@ -7091,11 +7199,12 @@ Private Sub BtnCancelarBen_Click()
 End Sub
 
 Private Sub btnEliminar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "CPAREDES" Or glusuario = "KGARCIA" Or glusuario = "EVILLALOBOS" Or glusuario = "JCASTRO" Or glusuario = "ADMIN" Then    'Or glusuario = "CSALINAS"
+    Else
+    'If glusuario = "CCRUZ" Or glusuario = "LNAVA" Or glusuario = "RCUELA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
-  
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset("estado_codigo") = "REG" Then
       sino = MsgBox("Esta seguro de ANULAR la venta registrada ?", vbYesNo, "Confirmando")
@@ -7143,6 +7252,7 @@ Private Sub BtnGrabar_Click()
      MsgBox "Debe registrar el CITE de TRAMITE !!,  Vuelva a intentar ...", vbExclamation, "Atención"
   End If
     FrmCabecera.Enabled = False
+    VAR_BUSCA = 0
     Call grabar
     fraOpciones.Visible = True
     FraGrabarCancelar.Visible = False
@@ -7202,6 +7312,7 @@ Private Sub BtnGrabar1_Click()
         Wend
     End If
     'rs_aux19.Requery
+    VAR_BUSCA = 0
     Call ABRIR_TABLA_DET
     'Txt_descripcion = DateDiff("y", DTPfechaIni, DTPfechaFin)
     'If Val(Txt_descripcion) < 0 Then
@@ -7230,7 +7341,7 @@ Private Sub BtnGrabarBen_Click()
     Set rs_datos9 = New ADODB.Recordset
     If rs_datos9.State = 1 Then rs_datos9.Close
     rs_datos9.Open "Select * from gc_beneficiario WHERE beneficiario_codigo = '" & dtc_benef2A.Text & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
-    Set Ado_datos9.Recordset = rs_datos9
+    Set Ado_datos2.Recordset = rs_datos9
     dtc_codigo2A.BoundText = dtc_benef2A.BoundText
     dtc_desc2A.BoundText = dtc_benef2A.BoundText
     dtc_email2A.BoundText = dtc_benef2A.BoundText
@@ -7284,7 +7395,7 @@ Private Sub BtnImprimir_Click()
 End Sub
 
 Private Sub BtnModificar_Click()
-    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Then
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Or glusuario = "RCUELA" Then
         MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
         Exit Sub
     End If
@@ -7466,31 +7577,62 @@ Private Sub CmdCancelaDet_Click()
 End Sub
 
 Private Sub BtnAnlDetalle2_Click()
- 'If Ado_datos16.Recordset!estado_codigo = "REG" Then
-   sino = MsgBox("Está seguro de ANULAR este registro", vbYesNo + vbQuestion, "Atención ...")
-   If sino = vbYes Then
-    'If Ado_datos16.Recordset.RecordCount > 0 Then
-    If Ado_datos16.Recordset!estado_codigo = "REG" Then
-      db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.estado_codigo = 'ANL' Where ao_ventas_cobranza_prog.venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  And ao_ventas_cobranza_prog.cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "      'Ado_datos16.Recordset!cobranza_codigo
-      'db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.estado_codigo = 'ANL' Where ao_ventas_cobranza_prog.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_cobranza_prog.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_cobranza_prog.cobranza_codigo = " & Ado_datos16.Recordset("cobranza_codigo") & " "
-      'db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.cobranza_deuda_bs = '0', ao_ventas_cobranza_prog.cobranza_deuda_dol = '0'  Where ao_ventas_cobranza_prog.ges_gestion = '" & Ado_datos.Recordset("ges_gestion") & "' And ao_ventas_cobranza_prog.venta_codigo = " & Ado_datos.Recordset("venta_codigo") & "  And ao_ventas_cobranza_prog.cobranza_codigo = " & ado_datos16.Recordset("cobranza_codigo") & " "
-     'End If
-     'ado_ventas_COBRANZAS.Recordset.Delete
-     'ado_ventas_COBRANZAS.Recordset.Update
-     'ado_ventas_COBRANZAS.Requery
-     'ado_ventas_COBRANZAS.Refresh
-     ''cerea
-     'ado_ventas_COBRANZAS.Refresh
-   Else
-    MsgBox "El item " + Ado_datos16.Recordset!cobranza_prog_codigo + " del " + FrmCobranza.Caption + " Ya fue APROBADO o ANULADO !! ", vbExclamation, "Atención!"
-   End If
-   End If
-  'Else
-  '  MsgBox "El item " + Ado_datos16.Recordset!cobranza_prog_codigo + " del " + FrmCobranza.Caption + " Ya fue APROBADO o ANULADO !! ", vbExclamation, "Atención!"
-  'End If
+'   sino = MsgBox("Está seguro de ANULAR este registro", vbYesNo + vbQuestion, "Atención ...")
+'   If sino = vbYes Then
+'    If Ado_datos16.Recordset!estado_codigo = "REG" Then
+'      db.Execute "update ao_ventas_cobranza_prog set ao_ventas_cobranza_prog.estado_codigo = 'ANL' Where ao_ventas_cobranza_prog.venta_codigo = " & Ado_datos.Recordset!venta_codigo & "  And ao_ventas_cobranza_prog.cobranza_prog_codigo = " & Ado_datos16.Recordset!cobranza_prog_codigo & " "      'Ado_datos16.Recordset!cobranza_codigo
+'   Else
+'    MsgBox "El item " + Ado_datos16.Recordset!cobranza_prog_codigo + " del " + FrmCobranza.Caption + " Ya fue APROBADO o ANULADO !! ", vbExclamation, "Atención!"
+'   End If
+'   End If
+  ' INI - SOLICITUD DE ANULACION DE FACTURA
+    If Ado_datos16.Recordset.RecordCount > 0 Then
+       If Ado_datos16.Recordset!estado_ac = "APR" Then
+            'MsgBox "Ya fue solicitada la ANULACION la Factura... , verifique si es la cuota correcta ...", vbYesNo, "Confirmando"      '+ rs_aux15!cobranza_nro_factura
+            sino = MsgBox("Ya fue solicitada la ANULACION la Factura...¿Desea Re-Imprimir la Solicitud?.", vbYesNo, "Confirmando")
+            If sino = vbYes Then
+                'Set rs_aviso_cob = New ADODB.Recordset
+                'If rs_aviso_cob.State = 1 Then rs_aviso_cob.Close
+                'rs_aviso_cob.Open "Select * from fc_correl where tipo_tramite = 'aviso_cob'", db, adOpenStatic
+                'If rs_aviso_cob.RecordCount > 0 Then
+                    aviso_cob = Ado_datos16.Recordset!correl_ac
+                    Dim iResult As Variant  ', i%, y%
+                    cry_ac.WindowShowRefreshBtn = True
+                    cry_ac.StoredProcParam(0) = Me.Ado_datos.Recordset!venta_codigo
+                    cry_ac.StoredProcParam(1) = Me.Ado_datos16.Recordset!cobranza_prog_codigo
+                    cry_ac.ReportFileName = App.Path & "\reportes\ventas\ar_solicita_ANL_factura.rpt"
+                    'cry_ac.ReportFileName = App.Path & "\reportes\ventas\ar_solicita_ANL_factura_PRUEBA.rpt"
+                    '
+                    cry_ac.Formulas(1) = "correl = '" & aviso_cob & "' "
+                    iResult = cry_ac.PrintReport
+                    If iResult <> 0 Then MsgBox cry_ac.LastErrorNumber & " : " & cry_ac.LastErrorString, vbCritical, "Error de impresión"
+                'End If
+            End If
+            Exit Sub
+       End If
+       If rs_aux15.State = 1 Then rs_aux15.Close
+       rs_aux15.Open "SELECT * FROM av_ventas_cuotas_con_factura WHERE correl_prog = " & Ado_datos16.Recordset!correl_prog & " ", db, adOpenKeyset, adLockOptimistic, adCmdText
+       If rs_aux15.RecordCount > 0 Then
+            sino = MsgBox("¿Esta seguro de solicitar la ANULACION de la Factura Nro." + rs_aux15!cobranza_nro_factura, vbYesNo, "Confirmando")
+            If sino = vbYes Then
+                FraAnula.Visible = True
+                'Else
+                '    sino = MsgBox("Ya se genero un Aviso de cobranza anteriormente, ¿Desea reimprimir este aviso?", vbYesNo, "Confirmando")
+                '    cry_ac.Formulas(1) = "correl = '" & Ado_datos16.Recordset!correl_ac & "' "
+            End If
+       Else
+            MsgBox "No se puede PROCESAR el registro, verifique los datos y vuelva a intentar ...", , "Atención"
+       End If
+    End If
+  ' FIN - SOLICITUD DE ANULACION DE FACTURA
 End Sub
 
 Private Sub BtnModDetalle2_Click()
+    If glusuario = "CCRUZ" Or glusuario = "LNAVA" Or glusuario = "RCUELA" Then
+        MsgBox "el Usuario NO tiene acceso, consulte con el Administrador del Sistema!! ", vbExclamation
+        Exit Sub
+    End If
+  
   'If Ado_datos.Recordset!venta_tipo <> "E" And Ado_datos16.Recordset!estado_codigo = "REG" Then
   If Ado_datos16.Recordset!estado_codigo = "REG" And (Ado_datos.Recordset!venta_tipo = "E" Or Ado_datos.Recordset!venta_tipo = "V" Or Ado_datos.Recordset!venta_tipo = "C" Or Ado_datos.Recordset!venta_tipo = "G" Or Ado_datos.Recordset!venta_tipo = "L") Then
     FraNavega.Enabled = False
@@ -9553,7 +9695,7 @@ Private Sub CmdGrabaCobro_Click()
       Ado_datos16.Recordset!trans_codigo = VAR_EMISION
       Ado_datos16.Recordset!estado_codigo = "REG"
       Ado_datos16.Recordset!usr_codigo = glusuario
-      Ado_datos16.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
+      Ado_datos16.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
       Ado_datos16.Recordset!hora_registro = Format(Time, "hh:mm:ss")
       Ado_datos16.Recordset.Update
     db.CommitTrans
@@ -9870,7 +10012,7 @@ Private Sub CmdGrabaDet_Click()
          'FIN GUARDA BIENES
           Ado_datos14.Recordset!estado_codigo = "REG"
           Ado_datos14.Recordset!usr_codigo = glusuario
-          Ado_datos14.Recordset!Fecha_Registro = Format(Date, "dd/mm/yyyy")
+          Ado_datos14.Recordset!fecha_registro = Format(Date, "dd/mm/yyyy")
           Ado_datos14.Recordset!hora_registro = Format(Time, "hh:mm:ss")
           Ado_datos14.Recordset.Update
         'db.CommitTrans
@@ -10026,6 +10168,46 @@ Private Sub BtnModDetalle_Click()
   Else
     MsgBox "Los datos del registro Aprobado o Entregado, NO pueden ser modificados !! ", vbExclamation, "Atención!"
   End If
+End Sub
+
+Private Sub Command2_Click()
+    Set rs_aux10 = New ADODB.Recordset
+    If rs_aux10.State = 1 Then rs_aux10.Close
+    rs_aux10.Open "Select * from ao_ventas_cobranza WHERE cobranza_codigo = '" & Ado_datos16.Recordset!cobranza_codigo & "' ", db, adOpenStatic
+    If rs_aux10.RecordCount > 0 Then
+        rs_aux10.MoveFirst
+        db.Execute "UPDATE ao_ventas_cobranza_fac set JustificaAnulacionFac = '" & TxtAnula.Text & "' where IdFactura = '" & rs_aux10!venta_codigo_new & "' "
+    Else
+        MsgBox "No se puede Solicitar Anulación de Factura, Verifique si se emitió Factura para la cuota ... " & FrmDetalle.Caption, , "Atención"
+        'Exit Sub
+    End If
+    Set rs_aviso_cob = New ADODB.Recordset
+    If rs_aviso_cob.State = 1 Then rs_aviso_cob.Close
+    rs_aviso_cob.Open "Select * from fc_correl where tipo_tramite = 'aviso_cob'", db, adOpenStatic
+    If rs_aviso_cob.RecordCount > 0 Then
+        aviso_cob = rs_aviso_cob!numero_correlativo + 1
+        db.Execute "update fc_correl set numero_correlativo = " & aviso_cob & " where tipo_tramite = 'aviso_cob'"
+        db.Execute "update ao_ventas_cobranza_prog set correl_ac = " & aviso_cob & ", estado_ac = 'APR' where correl_prog = " & Ado_datos16.Recordset!correl_prog & " "
+        'Ado_datos16.Recordset!correl_ac = aviso_cob
+        'Ado_datos16.Recordset!estado_ac = "APR"
+        'Ado_datos16.Recordset.Update
+        'cry_ac.ReportFileName = App.Path & "\reportes\ventas\ar_aviso_cobranza.rpt"
+        Dim iResult As Variant  ', i%, y%
+        cry_ac.WindowShowRefreshBtn = True
+        cry_ac.StoredProcParam(0) = Me.Ado_datos.Recordset!venta_codigo
+        cry_ac.StoredProcParam(1) = Me.Ado_datos16.Recordset!cobranza_prog_codigo
+        cry_ac.ReportFileName = App.Path & "\reportes\ventas\ar_solicita_ANL_factura.rpt"
+        'cry_ac.ReportFileName = App.Path & "\reportes\ventas\ar_solicita_ANL_factura_PRUEBA.rpt"
+        '
+        cry_ac.Formulas(1) = "correl = '" & aviso_cob & "' "
+        iResult = cry_ac.PrintReport
+        If iResult <> 0 Then MsgBox cry_ac.LastErrorNumber & " : " & cry_ac.LastErrorString, vbCritical, "Error de impresión"
+    End If
+    FraAnula.Visible = False
+End Sub
+
+Private Sub Command3_Click()
+    FraAnula.Visible = False
 End Sub
 
 Private Sub dtc_aux2_Click(Area As Integer)
@@ -10869,6 +11051,7 @@ End Sub
 Private Sub Form_Load()
     swnuevo = 0
     VAR_SW = ""
+    VAR_BUSCA = 0
     'parametro = "estado_codigo" + " = " + "'REG'"
     Set rs_aux3 = New ADODB.Recordset
     If rs_aux3.State = 1 Then rs_aux3.Close

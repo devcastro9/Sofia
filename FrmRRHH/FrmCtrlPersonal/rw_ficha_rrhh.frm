@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -30,6 +30,7 @@ Begin VB.Form rw_ficha_rrhh
       _ExtentY        =   16722
       _Version        =   393216
       Tabs            =   6
+      Tab             =   5
       TabHeight       =   520
       BackColor       =   14737632
       ForeColor       =   16384
@@ -44,13 +45,10 @@ Begin VB.Form rw_ficha_rrhh
       EndProperty
       TabCaption(0)   =   "PERSONALES"
       TabPicture(0)   =   "rw_ficha_rrhh.frx":0A02
-      Tab(0).ControlEnabled=   -1  'True
-      Tab(0).Control(0)=   "FraGrabarCancelar"
-      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "fraDatos"
       Tab(0).Control(1)=   "fraOpciones"
-      Tab(0).Control(1).Enabled=   0   'False
-      Tab(0).Control(2)=   "fraDatos"
-      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(2)=   "FraGrabarCancelar"
       Tab(0).ControlCount=   3
       TabCaption(1)   =   "CONTROL ASISTENCIA"
       TabPicture(1)   =   "rw_ficha_rrhh.frx":0A1E
@@ -81,10 +79,13 @@ Begin VB.Form rw_ficha_rrhh
       Tab(4).ControlCount=   3
       TabCaption(5)   =   "CONTRATOS Y LIQUIDACIONES"
       TabPicture(5)   =   "rw_ficha_rrhh.frx":0A8E
-      Tab(5).ControlEnabled=   0   'False
-      Tab(5).Control(0)=   "Frame10"
+      Tab(5).ControlEnabled=   -1  'True
+      Tab(5).Control(0)=   "Label16"
+      Tab(5).Control(0).Enabled=   0   'False
       Tab(5).Control(1)=   "Frame20"
-      Tab(5).Control(2)=   "Label16"
+      Tab(5).Control(1).Enabled=   0   'False
+      Tab(5).Control(2)=   "Frame10"
+      Tab(5).Control(2).Enabled=   0   'False
       Tab(5).ControlCount=   3
       Begin VB.Frame Frame14 
          BackColor       =   &H00E0E0E0&
@@ -2279,7 +2280,7 @@ Begin VB.Form rw_ficha_rrhh
          AutoSize        =   -1  'True
          BackColor       =   &H00E0E0E0&
          Height          =   8055
-         Left            =   120
+         Left            =   -74880
          ScaleHeight     =   7995
          ScaleWidth      =   12555
          TabIndex        =   52
@@ -2972,7 +2973,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   62717953
+               Format          =   109248513
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3073,7 +3074,7 @@ Begin VB.Form rw_ficha_rrhh
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   62717953
+               Format          =   109248513
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -3326,7 +3327,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   62717953
+            Format          =   109248513
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3343,7 +3344,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   62717953
+            Format          =   109248513
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3507,7 +3508,7 @@ Begin VB.Form rw_ficha_rrhh
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   62717953
+            Format          =   109248513
             CurrentDate     =   40179
             MinDate         =   2
          End
@@ -3793,7 +3794,7 @@ Begin VB.Form rw_ficha_rrhh
       Begin VB.PictureBox fraOpciones 
          BackColor       =   &H00404040&
          Height          =   735
-         Left            =   120
+         Left            =   -74880
          ScaleHeight     =   675
          ScaleWidth      =   12555
          TabIndex        =   44
@@ -4800,7 +4801,7 @@ Begin VB.Form rw_ficha_rrhh
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   4215
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   20
          Top             =   5160
          Width           =   12615
@@ -5198,7 +5199,7 @@ Begin VB.Form rw_ficha_rrhh
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   3975
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   12
          Top             =   1200
          Width           =   12615
@@ -5617,7 +5618,7 @@ Begin VB.Form rw_ficha_rrhh
          BackColor       =   &H80000006&
          FillColor       =   &H00FFFFFF&
          Height          =   735
-         Left            =   120
+         Left            =   -74880
          ScaleHeight     =   675
          ScaleWidth      =   12555
          TabIndex        =   169
@@ -5789,7 +5790,7 @@ Begin VB.Form rw_ficha_rrhh
          EndProperty
          ForeColor       =   &H00FFFF80&
          Height          =   495
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   173
          Top             =   720
          Width           =   12615
@@ -10525,7 +10526,7 @@ Private Sub Command17_Click()
         frm_ro_personal_contrato.lblARCH.Caption = Ado_Contrato.Recordset!ARCHIVO
         frm_ro_personal_contrato.TxtCodigo.Text = Ado_Contrato.Recordset!codigo_contrato
         frm_ro_personal_contrato.txtObjContrato.Text = IIf(IsNull(Ado_Contrato.Recordset!objeto_contrato), "-", Ado_Contrato.Recordset!objeto_contrato)
-        frm_ro_personal_contrato.DTcFte.Text = IIf(IsNull(Ado_Contrato.Recordset!fte_codigo), "10", Ado_Contrato.Recordset!fte_codigo)
+        frm_ro_personal_contrato.DtcFte.Text = IIf(IsNull(Ado_Contrato.Recordset!fte_codigo), "10", Ado_Contrato.Recordset!fte_codigo)
         frm_ro_personal_contrato.dtc_codigo.Text = Ado_Contrato.Recordset!unidad_codigo
         frm_ro_personal_contrato.DtcOrg.Text = IIf(IsNull(Ado_Contrato.Recordset!org_codigo), "111", Ado_Contrato.Recordset!org_codigo)
         frm_ro_personal_contrato.DtcCargo.Text = Ado_Contrato.Recordset!cargo_codigo
@@ -10542,7 +10543,7 @@ Private Sub Command17_Click()
         frm_ro_personal_contrato.txt_otro_bs.Text = IIf(IsNull(Ado_Contrato.Recordset!monto_otroBS), 0, Ado_Contrato.Recordset!monto_otroBS)
         frm_ro_personal_contrato.DtcRespaldoCod.Text = Ado_Contrato.Recordset!doc_codigo
         
-        frm_ro_personal_contrato.DtcFteDes.BoundText = frm_ro_personal_contrato.DTcFte.BoundText
+        frm_ro_personal_contrato.DtcFteDes.BoundText = frm_ro_personal_contrato.DtcFte.BoundText
         frm_ro_personal_contrato.DtcOrgDes.BoundText = frm_ro_personal_contrato.DtcOrg.BoundText
         frm_ro_personal_contrato.DtcPryDes.BoundText = frm_ro_personal_contrato.DtcPry.BoundText
         frm_ro_personal_contrato.Dtc_descrip.BoundText = frm_ro_personal_contrato.dtc_codigo.BoundText
@@ -11243,7 +11244,7 @@ On Error GoTo EditErr
    fraDatos.Enabled = False
 '   fraDatos2.Enabled = False
 '   FraSS_SS.Enabled = False
-     Call OptFilGral1_Click
+    Call OptFilGral1_Click
     Call Carga_afp
    Call Carga_Recor
    'Call Carga_Beneficiario(1)
@@ -11345,7 +11346,7 @@ Private Sub Carga_Beneficiario(posicion As Integer)
     rs_aux17.Open "select * from rv_personal_contratado WHERE tipoben_codigo < '20' and beneficiario_codigo <> '0' order by beneficiario_denominacion asc", db, adOpenKeyset, adLockOptimistic, adCmdText
     End If
     
-    Set Ado_datos_busq.Recordset = rs_aux17
+    Set ado_datos_busq.Recordset = rs_aux17
     dtc_buscar_ci.BoundText = dtc_buscar_desc.BoundText
     If rs_aux17.RecordCount > 0 Then
     dtc_buscar_desc.Visible = True

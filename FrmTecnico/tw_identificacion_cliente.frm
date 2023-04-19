@@ -15,8 +15,8 @@ Begin VB.Form tw_identificacion_cliente
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   18585
+   ScaleHeight     =   10935
+   ScaleWidth      =   20160
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprimeRepara 
@@ -33,9 +33,9 @@ Begin VB.Form tw_identificacion_cliente
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   6615
-      Left            =   7080
+      Left            =   9480
       TabIndex        =   112
-      Top             =   840
+      Top             =   720
       Visible         =   0   'False
       Width           =   9375
       Begin VB.CommandButton btnPanelSalir 
@@ -343,7 +343,7 @@ Begin VB.Form tw_identificacion_cliente
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       Height          =   8115
-      Left            =   5760
+      Left            =   7800
       TabIndex        =   11
       Top             =   600
       Visible         =   0   'False
@@ -383,7 +383,7 @@ Begin VB.Form tw_identificacion_cliente
             Height          =   315
             Left            =   3765
             TabIndex        =   86
-            Top             =   300
+            Top             =   480
             Visible         =   0   'False
             Width           =   5295
          End
@@ -578,7 +578,7 @@ Begin VB.Form tw_identificacion_cliente
       End
       Begin MSDataListLib.DataCombo dtc_codigo10 
          Bindings        =   "tw_identificacion_cliente.frx":7464
-         DataField       =   "TipoContratoCodigo"
+         DataField       =   "trans_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   4320
@@ -593,8 +593,8 @@ Begin VB.Form tw_identificacion_cliente
          Style           =   2
          BackColor       =   12632256
          ForeColor       =   0
-         ListField       =   "TipoContratoCodigo"
-         BoundColumn     =   "TipoContratoCodigo"
+         ListField       =   "trans_codigo"
+         BoundColumn     =   "trans_codigo"
          Text            =   "Todos"
       End
       Begin VB.TextBox Txt_descripcion 
@@ -741,7 +741,7 @@ Begin VB.Form tw_identificacion_cliente
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
          Bindings        =   "tw_identificacion_cliente.frx":74E3
-         DataField       =   "TipoContratoCodigo"
+         DataField       =   "trans_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   1875
@@ -753,8 +753,8 @@ Begin VB.Form tw_identificacion_cliente
          _Version        =   393216
          Style           =   2
          BackColor       =   16777215
-         ListField       =   "DescripcionTipoContrato"
-         BoundColumn     =   "TipoContratoCodigo"
+         ListField       =   "trans_descripcion"
+         BoundColumn     =   "trans_codigo"
          Text            =   "Todos"
       End
       Begin MSDataListLib.DataCombo dtc_aux3 
@@ -860,7 +860,7 @@ Begin VB.Form tw_identificacion_cliente
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118489089
+         Format          =   126025729
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -2683,7 +2683,7 @@ Begin VB.Form tw_identificacion_cliente
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ColumnCount     =   9
+         ColumnCount     =   10
          BeginProperty Column00 
             DataField       =   "solicitud_codigo"
             Caption         =   "#Trámite"
@@ -2711,6 +2711,22 @@ Begin VB.Form tw_identificacion_cliente
             EndProperty
          EndProperty
          BeginProperty Column02 
+            DataField       =   "codigo_empresa"
+            Caption         =   "Empresa"
+            BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
+               Type            =   5
+               Format          =   "#,##0.00 "" """
+               HaveTrueFalseNull=   1
+               TrueValue       =   "CGI"
+               FalseValue      =   "CGE"
+               NullValue       =   "NN"
+               FirstDayOfWeek  =   0
+               FirstWeekOfYear =   0
+               LCID            =   3082
+               SubFormatType   =   7
+            EndProperty
+         EndProperty
+         BeginProperty Column03 
             DataField       =   "edif_codigo"
             Caption         =   "Edificio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2723,7 +2739,7 @@ Begin VB.Form tw_identificacion_cliente
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column03 
+         BeginProperty Column04 
             DataField       =   "unidad_codigo_ant"
             Caption         =   "Cite.Contrato"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2736,7 +2752,7 @@ Begin VB.Form tw_identificacion_cliente
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column04 
+         BeginProperty Column05 
             DataField       =   "estado_codigo"
             Caption         =   "Estado"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2749,7 +2765,7 @@ Begin VB.Form tw_identificacion_cliente
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column05 
+         BeginProperty Column06 
             DataField       =   "usr_codigo"
             Caption         =   "Usuario"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2762,7 +2778,7 @@ Begin VB.Form tw_identificacion_cliente
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column06 
+         BeginProperty Column07 
             DataField       =   "observacion_proy"
             Caption         =   "Nombre.Edificio"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2775,7 +2791,7 @@ Begin VB.Form tw_identificacion_cliente
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column07 
+         BeginProperty Column08 
             DataField       =   "doc_numero2"
             Caption         =   "No.CiteTec"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2788,7 +2804,7 @@ Begin VB.Form tw_identificacion_cliente
                SubFormatType   =   0
             EndProperty
          EndProperty
-         BeginProperty Column08 
+         BeginProperty Column09 
             DataField       =   "solicitud_fecha_solicitud"
             Caption         =   "Fecha.Solicitud"
             BeginProperty DataFormat {6D835690-900B-11D0-9484-00A0C91110ED} 
@@ -2805,7 +2821,7 @@ Begin VB.Form tw_identificacion_cliente
          BeginProperty Split0 
             BeginProperty Column00 
                Alignment       =   2
-               ColumnWidth     =   854.929
+               ColumnWidth     =   810.142
             EndProperty
             BeginProperty Column01 
                Alignment       =   2
@@ -2813,27 +2829,31 @@ Begin VB.Form tw_identificacion_cliente
             EndProperty
             BeginProperty Column02 
                Alignment       =   2
-               Object.Visible         =   -1  'True
-               ColumnWidth     =   1200.189
+               ColumnWidth     =   720
             EndProperty
             BeginProperty Column03 
                Alignment       =   2
                Object.Visible         =   -1  'True
-               ColumnWidth     =   1275.024
+               ColumnWidth     =   915.024
             EndProperty
             BeginProperty Column04 
                Alignment       =   2
-               ColumnWidth     =   720
+               Object.Visible         =   -1  'True
+               ColumnWidth     =   1275.024
             EndProperty
             BeginProperty Column05 
-               Object.Visible         =   0   'False
+               Alignment       =   2
+               ColumnWidth     =   615.118
             EndProperty
             BeginProperty Column06 
-               ColumnWidth     =   3525.166
+               Object.Visible         =   0   'False
             EndProperty
             BeginProperty Column07 
+               ColumnWidth     =   3525.166
             EndProperty
             BeginProperty Column08 
+            EndProperty
+            BeginProperty Column09 
             EndProperty
          EndProperty
       End
@@ -2851,9 +2871,9 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   2280
+         Left            =   1800
          TabIndex        =   37
-         Top             =   6465
+         Top             =   6480
          Value           =   -1  'True
          Width           =   1455
       End
@@ -2871,10 +2891,10 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   5640
+         Left            =   5280
          TabIndex        =   38
          Top             =   6465
-         Width           =   1155
+         Width           =   1515
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
@@ -2931,10 +2951,10 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   18585
+      ScaleWidth      =   20160
       TabIndex        =   5
-      Top             =   10260
-      Width           =   18585
+      Top             =   10935
+      Width           =   20160
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4022,18 +4042,19 @@ Dim ClBuscaGrid As ClBuscaEnGridExterno
 'Dim queryinicial As String
 
 Dim var_cod, VAR_DET As String
-Dim VAR_VAL, VAR_SUBP As String
-Dim VAR_SW As String
+Dim VAR_PROC, VAR_SUBP, VAR_ETAPA As String
+Dim VAR_TIPODOC, VAR_DOC, VAR_POA As String
+Dim VAR_SW, VAR_VAL As String
 Dim NombreCarpeta, e As String
 Dim CodBien As String
-Dim VAR_UNI As String
+Dim VAR_UNI, VAR_UNI0, VAR_EDIF, VAR_EDIF2 As String
 Dim sino As String
 Dim parametro As String
 Dim VAR_DA, VAR_UORIGEN As String
 Dim VAR_DPTO, VAR_DPTOC As String
 Dim VAR_TIT, VAR_SUBT As String
 Dim var_literal As String
-Dim VAR_PLAZO As String
+Dim VAR_PLAZO, VAR_CITE As String
 
 Dim VAR_AUX, VAR_CONT2 As Double
 Dim VAR_TOTBS As Double
@@ -4068,7 +4089,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
 '            mw_solicitud_edificacion.dtc_codigo1.Text = Me.dtc_codigo3.Text
@@ -4083,7 +4104,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.Txt_estado.Caption = "REG"
@@ -4093,7 +4114,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.Txt_estado.Caption = "REG"
@@ -4103,7 +4124,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.Txt_estado.Caption = "REG"
@@ -4113,7 +4134,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.lbl_det.Caption = "43340"
@@ -4124,7 +4145,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.lbl_det.Caption = "43340"
@@ -4134,7 +4155,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.lbl_det.Caption = "43340"
@@ -4144,7 +4165,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.lbl_det.Caption = "43340"
@@ -4154,7 +4175,7 @@ Private Sub BtnAddDetalle2_Click()
             Call ABRIR_TABLA_DET
             Ado_detalle2.Recordset.AddNew
             tw_solicitud_bienes.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes.lbl_det.Caption = "43340"
@@ -4296,7 +4317,7 @@ Private Sub NuevoDetalle()
         'If VAR_DET = "30000" Then
             Ado_detalle3.Recordset.AddNew
             tw_solicitud_bienes3.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes3.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes3.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes3.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes3.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes3.lbl_det.Caption = VAR_DET     '"34110"
@@ -4308,7 +4329,7 @@ Private Sub NuevoDetalle()
         'If VAR_DET = "39800" Then
             Ado_detalle5.Recordset.AddNew
             tw_solicitud_bienes5.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes5.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes5.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes5.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes5.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes5.lbl_det.Caption = VAR_DET     '"34110"
@@ -4320,7 +4341,7 @@ Private Sub NuevoDetalle()
         'If VAR_DET = "34800" Then
             Ado_detalle6.Recordset.AddNew
             tw_solicitud_bienes6.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes6.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes6.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes6.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes6.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes6.lbl_det.Caption = VAR_DET     '"34110"
@@ -4331,7 +4352,7 @@ Private Sub NuevoDetalle()
         'If VAR_DET = "24300" Then
             Ado_detalle7.Recordset.AddNew
             tw_solicitud_bienes7.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes7.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes7.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes7.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes7.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes7.lbl_det.Caption = VAR_DET     '"34110"
@@ -4342,7 +4363,7 @@ Private Sub NuevoDetalle()
         Case Else
             Ado_detalle5.Recordset.AddNew
             tw_solicitud_bienes5.txt_codigo.Caption = Me.txt_codigo.Caption
-            tw_solicitud_bienes5.Txt_campo1.Caption = Me.dtc_codigo1.Text
+            tw_solicitud_bienes5.txt_campo1.Caption = Me.dtc_codigo1.Text
             tw_solicitud_bienes5.Txt_descripcion.Caption = Me.dtc_desc1.Text
             tw_solicitud_bienes5.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes5.lbl_det.Caption = VAR_DET     '"34110"
@@ -4384,9 +4405,9 @@ Private Sub BtnAddDetalle5_Click()
          If Ado_datos.Recordset.RecordCount > 0 Then
             rs_datos.Find "solicitud_codigo = " & VAR_COD2 & "   ", , , 1
             dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
-             If rs_det1.RecordCount > 0 Then
-             rs_det1.MoveLast
-            End If
+            'If rs_det1.RecordCount > 0 Then
+            '    rs_det1.MoveLast
+            'End If
          Else
             rs_datos.MoveLast
          End If
@@ -4493,9 +4514,9 @@ Private Sub BtnAddDetalle7_Click()
          If Ado_datos.Recordset.RecordCount > 0 Then
             rs_datos.Find "solicitud_codigo = " & VAR_COD2 & "   ", , , 1
             dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
-             If rs_det1.RecordCount > 0 Then
-             rs_det1.MoveLast
-            End If
+'             If rs_det1.RecordCount > 0 Then
+'             rs_det1.MoveLast
+'            End If
          Else
             rs_datos.MoveLast
          End If
@@ -4618,6 +4639,10 @@ Private Sub BtnAprobar_Click()
         VAR_UNI = Ado_datos.Recordset!unidad_codigo
         VAR_SOL = Ado_datos.Recordset!solicitud_codigo
         VAR_SUBP = Ado_datos.Recordset!subproceso_codigo
+        VAR_DPTO = Left(Ado_datos.Recordset!edif_codigo, 1)
+        VAR_EDIF = Ado_datos.Recordset!edif_codigo
+        VAR_CITE = Ado_datos.Recordset!unidad_codigo_ant
+        GlEmpresa = Ado_datos.Recordset!codigo_empresa
         Select Case VAR_SUBP        'dtc_codigo2.Text
             Case "1"    'SOLO COMPRAS BB y SS
             Case "2"    'SOLO VENTA DE BIENES
@@ -4653,7 +4678,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!trafico_codigo = var_cod
                    ' rs_aux1!trafico_h_capacidad_trafico_parametro = Round(VAR_AUX, 2)
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!Fecha_Registro = Date
+                    rs_aux1!fecha_registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
                     db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -4698,34 +4723,45 @@ Private Sub BtnAprobar_Click()
                     If Not rs_aux2.EOF Then
                         var_cod = IIf(IsNull(rs_aux2!Codigo), 1, rs_aux2!Codigo + 1)
                     End If
-                    rs_aux1.AddNew
-                    'var_cod = rs_aux1.RecordCount + 1
-                    rs_aux1!ges_gestion = glGestion
-                    rs_aux1!unidad_codigo = VAR_UNI
-                    rs_aux1!solicitud_codigo = VAR_SOL
-                    rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
-                    rs_aux1!depto_codigo = Left(Ado_datos.Recordset!edif_codigo, 1)
-                    rs_aux1!venta_codigo = var_cod
-                    rs_aux1!beneficiario_codigo = Ado_datos.Recordset!beneficiario_codigo
-                    rs_aux1!venta_monto_total_bs = rs_aux4!totdl2                        'Ado_datos.Recordset!cotiza_precio_total_bs
-                    rs_aux1!venta_monto_total_dol = rs_aux4!totdl2 / GlTipoCambioOficial 'Ado_datos.Recordset!cotiza_precio_total_dol
-                    rs_aux1!venta_monto_cobrado_bs = 0
-                    rs_aux1!venta_monto_cobrado_dol = 0
-                    rs_aux1!venta_saldo_p_cobrar_bs = rs_aux4!totdl2                        'Ado_datos.Recordset!cotiza_precio_total_bs
-                    rs_aux1!venta_saldo_p_cobrar_dol = rs_aux4!totdl2 / GlTipoCambioOficial 'Ado_datos.Recordset!cotiza_precio_total_dol
-                    rs_aux1!venta_cantidad_total = rs_aux4!cant2
-                    rs_aux1!venta_fecha = Ado_datos.Recordset!solicitud_fecha_solicitud
-                    rs_aux1!venta_fecha_inicio = Ado_datos.Recordset!solicitud_fecha_solicitud
+                    db.Execute "INSERT INTO AO_ventas_cabecera (ges_gestion, venta_codigo,  depto_codigo, unidad_codigo, solicitud_codigo, edif_codigo, unidad_destino, unidad_codigo_ant, solicitud_codigo_ant, venta_fecha, venta_tipo, beneficiario_codigo, beneficiario_codigo_resp, beneficiario_codigo_cobr, beneficiario_codigo_alm, " & _
+                   " beneficiario_codigo_almR, beneficiario_codigo_almH, beneficiario_codigo_tec, beneficiario_codigo_tecR, beneficiario_codigo_tecH, venta_descripcion, venta_cantidad_total, venta_monto_total_bs,            venta_monto_total_dol,                                 venta_tipo_cambio, venta_monto_cobrado_bs, venta_monto_cobrado_dol, " & _
+                   " venta_saldo_p_cobrar_bs, venta_saldo_p_cobrar_dol,                                 venta_plazo_dias_calendario, venta_fecha_inicio,                                venta_fecha_fin,                                    unimed_codigo, venta_cantidad_cobr, unimed_codigo_cobr, mes_inicio_crono, tipoben_codigo, proceso_codigo, subproceso_codigo, etapa_codigo, clasif_codigo, doc_codigo, doc_numero, poa_codigo, " & _
+                   " doc_codigo_alm, doc_numero_alm, poa_codigo_alm, almacen_codigo, almacen_codigo_d, depto_codigo_d,          doc_codigo_almR, doc_numero_almR, almacen_codigoR, almacen_codigo_dR, depto_codigo_dR, doc_codigo_almH, doc_numero_almH, almacen_codigoH,  depto_codigo_dH, archivo_respaldo, " & _
+                   " archivo_respaldo_cargado, correl_detalle, correl_cobro_prog, estado_cancelado, estado_alcance, estado_codigo, estado_almacen, usr_codigo, fecha_registro, estado_codigo_verif, usr_codigo_verif, fecha_verif, literal_a, nro_eqp, tipo_moneda, almacen_tipo, almacen_tipoD, codigo_empresa ) " & _
+                    " values ('" & glGestion & "', " & var_cod & ",  '" & VAR_DPTO & "', '" & VAR_UNI & "', " & VAR_SOL & ", '" & VAR_EDIF & "', '" & VAR_UNI & "', '" & VAR_CITE & "', '0', '" & Ado_datos.Recordset!solicitud_fecha_solicitud & "', 'C', '" & Ado_datos.Recordset!beneficiario_codigo & "', '" & dtc_codigo11.Text & "', '0', '0', " & _
+                    " '0',                      '0',                    '0',                        '0',                    '0',            '" & Txt_descripcion.Text & "', " & CDbl(rs_aux4!cant2) & ", " & CDbl(rs_aux4!totdl2) & ", " & CDbl(rs_aux4!totdl2) / GlTipoCambioOficial & ", " & GlTipoCambioOficial & ", '0',                   '0', " & _
+                    " " & CDbl(rs_aux4!totdl2) & ", " & CDbl(rs_aux4!totdl2) / GlTipoCambioOficial & ",                    '0',           '" & Ado_datos.Recordset!solicitud_fecha_solicitud & "', '" & Ado_datos.Recordset!solicitud_fecha_solicitud & "', 'MES',          '1',            'MES',                  'ENERO',            '1',        'TEC', 'TEC-02', 'TEC-02-02', 'ADM', 'TEC', '0', '3.2.3', " & _
+                    " 'R-115',      '0',            '0',            '0',                '0',        '" & VAR_DPTO & "',         'R-115',        '0',                '0',            '0',                '0',            '',             '0',                '0',            '',         '" & VAR_CITE & "', " & _
+                    " 'N',                              '0',            '1',                'N',            'N',            'REG',          'REG', '" & glusuario & "', '" & Date & "', 'REG',  '" & glusuario & "', '" & Date & "', '',        '1',    'BOB',        'I',              'I', " & GlEmpresa & " ) "
+            
+                    'rs_aux1.AddNew
+                    ''var_cod = rs_aux1.RecordCount + 1
+                    'rs_aux1!ges_gestion = glGestion
+                    'rs_aux1!unidad_codigo = VAR_UNI
+                    'rs_aux1!solicitud_codigo = VAR_SOL
+                    'rs_aux1!edif_codigo = Ado_datos.Recordset!edif_codigo
+                    'rs_aux1!depto_codigo = Left(Ado_datos.Recordset!edif_codigo, 1)
+                    'rs_aux1!venta_codigo = var_cod
+                    'rs_aux1!beneficiario_codigo = Ado_datos.Recordset!beneficiario_codigo
+                    'rs_aux1!venta_monto_total_bs = rs_aux4!totdl2                        'Ado_datos.Recordset!cotiza_precio_total_bs
+                    'rs_aux1!venta_monto_total_dol = rs_aux4!totdl2 / GlTipoCambioOficial 'Ado_datos.Recordset!cotiza_precio_total_dol
+                    'rs_aux1!venta_monto_cobrado_bs = 0
+                    'rs_aux1!venta_monto_cobrado_dol = 0
+                    'rs_aux1!venta_saldo_p_cobrar_bs = rs_aux4!totdl2                        'Ado_datos.Recordset!cotiza_precio_total_bs
+                    'rs_aux1!venta_saldo_p_cobrar_dol = rs_aux4!totdl2 / GlTipoCambioOficial 'Ado_datos.Recordset!cotiza_precio_total_dol
+                    'rs_aux1!venta_cantidad_total = rs_aux4!cant2
+                    'rs_aux1!venta_fecha = Ado_datos.Recordset!solicitud_fecha_solicitud
+                    'rs_aux1!venta_fecha_inicio = Ado_datos.Recordset!solicitud_fecha_solicitud
                     'VAR_CONT2 = 365 / 30 * rs_aux4!cant2
-                    rs_aux1!venta_plazo_dias_calendario = 0 'VAR_CONT2
+                    'rs_aux1!venta_plazo_dias_calendario = 0 'VAR_CONT2
                     
-                    rs_aux1!correl_cobro_prog = 0
-                    rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
-                    rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
-                    rs_aux1!estado_codigo = "REG"
-                    rs_aux1!Fecha_Registro = Date
-                    rs_aux1!usr_codigo = glusuario
-                    rs_aux1.Update
+                    'rs_aux1!correl_cobro_prog = 0
+                    'rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
+                    'rs_aux1!unidad_codigo_ANT = Ado_datos.Recordset!unidad_codigo_ANT
+                    'rs_aux1!estado_codigo = "REG"
+                    'rs_aux1!fecha_registro = Date
+                    'rs_aux1!usr_codigo = glusuario
+                    'rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
                End If
                 'db.Execute "Update ao_solicitud_calculo_trafico Set estado_codigo = 'APR' Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -4794,7 +4830,7 @@ Private Sub BtnAprobar_Click()
 '                        rs_aux3!modelo_elegido_h = "N"
 '                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!estado_codigo = "REG"
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                         rs_aux5.MoveNext
@@ -4860,7 +4896,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
                     rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!Fecha_Registro = Date
+                    rs_aux1!fecha_registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -4929,7 +4965,7 @@ Private Sub BtnAprobar_Click()
 '                        rs_aux3!modelo_elegido_h = "N"
 '                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!estado_codigo = "REG"
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                      rs_aux5.MoveNext
@@ -4995,7 +5031,7 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
                     rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
                     rs_aux1!estado_codigo = "REG"
-                    rs_aux1!Fecha_Registro = Date
+                    rs_aux1!fecha_registro = Date
                     rs_aux1!usr_codigo = glusuario
                     rs_aux1.Update
 '                    db.Execute "Update ao_solicitud Set correl_calculo = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "  "
@@ -5063,7 +5099,7 @@ Private Sub BtnAprobar_Click()
 '                        rs_aux3!modelo_elegido_h = "N"
 '                        rs_aux3!modelo_elegido_x = "N"
                         rs_aux3!estado_codigo = "REG"
-                        rs_aux3!Fecha_Registro = Date
+                        rs_aux3!fecha_registro = Date
                         rs_aux3!usr_codigo = glusuario
                         rs_aux3.Update
                      rs_aux5.MoveNext
@@ -5083,14 +5119,14 @@ Private Sub BtnAprobar_Click()
         rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 Then
             rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-            Txt_campo1.Caption = rs_aux2!correl_doc
+            txt_campo1.Caption = rs_aux2!correl_doc
             rs_aux2.Update
         End If
-        db.Execute "update ao_solicitud set doc_numero = " & Txt_campo1.Caption & " where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "   "
+        db.Execute "update ao_solicitud set doc_numero = " & txt_campo1.Caption & " where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "   "
         'rs_datos!doc_numero = txt_campo1.Caption
         'REVISAR !!! JQA 2014_07_08
         'VAR_ARCH = RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
-        VAR_ARCH = "TEC_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(Txt_campo1.Caption)))
+        VAR_ARCH = "TEC_" + RTrim(RTrim(dtc_codigo9) + "-") + LTrim(Str(Val(txt_campo1.Caption)))
         db.Execute "update ao_solicitud set archivo_respaldo = '" & VAR_ARCH & "' + '.PDF' where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "   "
         db.Execute "update ao_solicitud set archivo_respaldo_cargado = 'N' where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "   "
         db.Execute "update ao_solicitud set estado_codigo = 'APR' where unidad_codigo = '" & VAR_UNI & "' and solicitud_codigo = " & VAR_SOL & "   "
@@ -5107,7 +5143,7 @@ Private Sub BtnAprobar_Click()
         
     VAR_COD2 = Ado_datos.Recordset!solicitud_codigo
     OptFilGral2_Click
-    
+    VAR_COD2 = Ado_datos.Recordset!solicitud_codigo
      If (dg_datos.SelBookmarks.Count <> 0) Then
         dg_datos.SelBookmarks.Remove 0
      End If
@@ -5236,13 +5272,13 @@ Private Sub btnEliminar_Click()
        sino = MsgBox("Está Seguro de ANULAR el Registro ? ", vbYesNo + vbQuestion, "Atención")
        If sino = vbYes Then
           rs_datos!estado_codigo = "ANL"
-          rs_datos!Fecha_Registro = Date
+          rs_datos!fecha_registro = Date
           rs_datos!usr_codigo = glusuario
           rs_datos.UpdateBatch adAffectAll
        End If
     Else
         rs_datos!estado_codigo = "ERR"
-        rs_datos!Fecha_Registro = Date
+        rs_datos!fecha_registro = Date
         rs_datos!usr_codigo = glusuario
         rs_datos.UpdateBatch adAffectAll
        'MsgBox "No se puede ANULAR un registro Elaborado o Errado ...", vbExclamation, "Validación de Registro"
@@ -5262,7 +5298,7 @@ Private Sub BtnDesAprobar_Click()
    If rs_datos!estado_codigo = "APR" Then
       If sino = vbYes Then
          rs_datos!estado_codigo = "REG"
-         rs_datos!Fecha_Registro = Date
+         rs_datos!fecha_registro = Date
          rs_datos!usr_codigo = glusuario
          rs_datos.UpdateBatch adAffectAll
       End If
@@ -5284,7 +5320,7 @@ Private Sub BtnGrabar_Click()
         var_cod = IIf(txt_codigo.Caption = "", 0, txt_codigo.Caption)
         Set rs_aux1 = New ADODB.Recordset
         If rs_aux1.State = 1 Then rs_aux1.Close
-        SQL_FOR = "Select max(solicitud_codigo) as Codigo from ao_solicitud where unidad_codigo = '" & VAR_UNI & "' "
+        SQL_FOR = "Select max(solicitud_codigo) as Codigo from ao_solicitud where unidad_codigo = '" & VAR_UNI0 & "' "
         rs_aux1.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         'If rs_aux1.RecordCount > 0 Then
         If Not rs_aux1.EOF Then
@@ -5320,187 +5356,221 @@ Private Sub BtnGrabar_Click()
         'var_cod = RTrim(RTrim(dtc_codigo2.Text) + "-") + LTrim(Str(Val(dtc_aux2) + 1))
         txt_codigo.Caption = var_cod
         Txt_campo3.Text = VAR_CITES
-        ' Guardar con INSERT
-        'ges_gestion, unidad_codigo, solicitud_codigo, solicitud_fecha_solicitud, solicitud_fecha_recepción, solicitud_tipo, edif_codigo, beneficiario_codigo,
-'                    beneficiario_codigo_resp, beneficiario_codigo_resp2, unidad_codigo_sol, solicitud_justificacion, solicitud_observaciones, proceso_codigo, subproceso_codigo,
-'                      etapa_codigo, etapa_codigo2, clasif_codigo, doc_codigo, doc_codigo2, doc_numero, doc_numero2, poa_codigo, ges_gestion_ant, unidad_codigo_ant,
-'                      solicitud_codigo_ant, correl_detalle, correl_edificacion, correl_calculo, correl_persona, correl_cotiza, correl_bitacora, archivo_respaldo, archivo_respaldo_cargado,
-'                      estado_codigo, estado_etapa2, estado_cotiza, fecha_registro, hora_registro, usr_codigo, usr_codigo_aprueba, fecha_aprueba, hora_aprueba, fecha_registro2,
-'                      usr_codigo2 , observacion_proy, mes_codigo
-                      
-        'db.Execute "INSERT INTO ao_compra_detalle (ges_gestion, compra_codigo, bien_codigo, compra_cantidad, compra_precio_unitario_bs, compra_descuento_bs, compra_precio_total_bs, compra_precio_unitario_dol, compra_descuento_dol, compra_precio_total_dol, compra_concepto, grupo_codigo, subgrupo_codigo, par_codigo, tipo_descuento, almacen_codigo , usr_usuario, fecha_registro) " &
-        '"VALUES ('" & glGestion & "', " & rs_aux3!compra_codigo & ", '" & rs_aux4!bien_codigo & "', '1', " & rs_aux4!venta_precio_unitario_bs & ", '0', " & rs_aux4!venta_precio_total_bs & ", " & rs_aux4!venta_precio_unitario_dol & ", '0', " & rs_aux4!venta_precio_total_dol & ", '" & concepto_venta & "', '" & rs_aux4!grupo_codigo & "', '" & rs_aux4!subgrupo_codigo & "', '" & rs_aux4!par_codigo & "', '1', '0', '" & glusuario & "', '" & Date & "')"
+        VAR_BENEF = IIf(dtc_codigo4.Text = "", "0", dtc_codigo4.Text)
+        
+        Select Case dtc_codigo1.Text
+           Case "DNINS", "DINSS", "DINSB", "DINSC"    '4. SERVICIOS INSTALACIONES
+               VAR_PROC = "COM"
+               VAR_SUBP = "COM-03"
+               VAR_ETAPA = "COM-03-01"
+               VAR_TIPODOC = "TEC"
+               VAR_DOC = "R-362"
+               VAR_POA = "3.2.2"
+           Case "DNMAN", "DMANS", "DMANB", "DMANC"    '10. SERVICIO MANTENIMIENTO INTEGRAL
+               VAR_PROC = "TEC"
+               VAR_SUBP = "TEC-02"
+               VAR_ETAPA = "TEC-02-01"
+               VAR_TIPODOC = "TEC"
+               VAR_DOC = "R-355"
+               VAR_POA = "3.2.3"
+               'COD.ADM. o CODIGO DE CONTRATO
+               rs_datos!unidad_codigo_ant = Trim(Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6)) + "-" + Trim(CStr(glGestion))
+               'End If
+           Case "DNREP", "DREPS", "DREPB", "DREPC"    '7. SERVICIO DE REPARACIONES
+               VAR_PROC = "TEC"
+               VAR_SUBP = "TEC-03"
+               VAR_ETAPA = "TEC-03-01"
+               VAR_TIPODOC = "TEC"
+               VAR_DOC = "R-362"
+               VAR_POA = "3.2.4"
+           Case "DNEME", "DEMES", "DEMEB", "DEMEC"    '8. SERVICIO DE EMERGENCIAS
+               VAR_PROC = "TEC"
+               VAR_SUBP = "TEC-04"
+               VAR_ETAPA = "TEC-04-01"
+               VAR_TIPODOC = "TEC"
+               VAR_DOC = "R-362"
+               VAR_POA = "3.2.1"
+           Case Else   '10. SERVICIO MANTENIMIENTO PREVENTIVO
+               VAR_PROC = "TEC"
+               VAR_SUBP = "TEC-02"
+               VAR_ETAPA = "TEC-02-01"
+               VAR_TIPODOC = "TEC"
+               VAR_DOC = "R-355"
+               VAR_POA = "3.2.3"
+        End Select
+        VAR_EDIF2 = Trim(Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6))
+        If var_cod < 10 Then
+           VAR_CITE = VAR_UNI0 + "-00000" + Trim(txt_codigo)
+        End If
+        If var_cod > 9 And var_cod < 100 Then
+           VAR_CITE = VAR_UNI0 + "-0000" + Trim(txt_codigo)
+        End If
+        If var_cod > 99 And var_cod < 1000 Then
+           VAR_CITE = VAR_UNI0 + "-000" + Trim(txt_codigo)
+        End If
+        If var_cod > 999 And var_cod < 10000 Then
+           VAR_CITE = VAR_UNI0 + "-00" + Trim(txt_codigo)
+        End If
+        If var_cod > 9999 And var_cod < 100000 Then
+           VAR_CITE = VAR_UNI0 + "-0" + Trim(txt_codigo)
+        End If
+        If var_cod > 99999 Then
+           VAR_CITE = VAR_UNI0 + "-" + Trim(txt_codigo)
+        End If
 
-        rs_datos!solicitud_codigo = var_cod
-        rs_datos!estado_codigo = "REG"      'no cambia
-        rs_datos!ges_gestion = glGestion    ' no cambia
-        rs_datos!unidad_codigo = VAR_UNI
+        ' Guardar con INSERT
+        db.Execute "INSERT INTO ao_solicitud (ges_gestion, unidad_codigo, solicitud_codigo, solicitud_fecha_solicitud, solicitud_fecha_recepción, solicitud_tipo, TipoContratoCodigo,               codigo_empresa,                 edif_codigo,            beneficiario_codigo,    beneficiario_codigo_resp, " & _
+                " beneficiario_codigo_resp2, unidad_codigo_sol, solicitud_justificacion, solicitud_observaciones,   proceso_codigo,     subproceso_codigo, etapa_codigo,        etapa_codigo2,      clasif_codigo,          doc_codigo,     doc_codigo2, doc_numero, " & _
+                " doc_numero2,                                          poa_codigo,         ges_gestion_ant,    unidad_codigo_ant, solicitud_codigo_ant, correl_detalle, correl_edificacion, correl_calculo, correl_persona, correl_cotiza, correl_bitacora, archivo_respaldo, " & _
+                " archivo_respaldo_cargado, observacion_proy,       mes_codigo,                     observaciones2,             PlazoDias,                  literal, observaciones3,                                    trans_codigo,               estado_codigo, estado_etapa2, estado_cotiza, fecha_registro, hora_registro, usr_codigo, " & _
+                " usr_codigo_aprueba , fecha_aprueba, hora_aprueba, fecha_registro2, usr_codigo2)  " & _
+        " VALUES ('" & glGestion & "',                  '" & VAR_UNI0 & "', " & var_cod & ", '" & DTPfecha1.Value & "', '" & DTPfecha1.Value & "', " & VAR_TIPO & ", " & Val(dtc_codigo10.Text) & ", " & Val(dtc_codigo8.Text) & ", '" & dtc_codigo3.Text & "', '" & VAR_BENEF & "', '" & dtc_codigo11 & "', " & _
+                " '0',                          '',         '" & Txt_descripcion.Text & "', '" & txt_obs.Text & "', '" & VAR_PROC & "', '" & VAR_SUBP & "', '" & VAR_ETAPA & "', '" & VAR_EDIF2 & "', '" & VAR_TIPODOC & "', '" & VAR_DOC & "', '',         '0',  " & _
+                " " & IIf(Txt_campo3.Text = "", "0", Txt_campo3.Text) & ", '" & VAR_POA & "', '" & glGestion & "', '" & VAR_CITE & "', '0',                 '0',            '0',                '0',            '0',            '0',            '0',        'sin_nombre',  " & _
+                " 'N',                      '" & dtc_desc3.Text & "', " & Month(DTPfecha1.Value) & ", '" & txt_obs2.Text & "', " & Val(TxtPlazo.Text) & ",  '', '" & IIf(txt_obs3.Text = "", "", txt_obs3.Text) & "', '" & dtc_codigo10.Text & "', 'REG',          'REG',          'REG',      '" & Date & "',     '',         '" & glusuario & "', " & _
+                " '" & glusuario & "', '" & Date & "', '',          '" & Date & "', '" & glusuario & "' )"
+                
+        'rs_datos!solicitud_codigo = var_cod
+'        rs_datos!estado_codigo = "REG"      'no cambia
+        'rs_datos!ges_gestion = glGestion    ' no cambia
+        'rs_datos!unidad_codigo = VAR_UNI
         'Actualiza correaltivo ...
-        db.Execute "Update gc_unidad_ejecutora Set correl_solicitud = " & var_cod & " Where unidad_codigo = '" & VAR_UNI & "'   "
-        rs_datos!doc_numero = "0"    'txt_campo1.Caption
+        db.Execute "Update gc_unidad_ejecutora Set correl_solicitud = " & var_cod & " Where unidad_codigo = '" & VAR_UNI0 & "'   "
+'        rs_datos!doc_numero = "0"    'txt_campo1.Caption
         'rs_datos!correl_edificacion = 0
-        rs_datos!archivo_respaldo = "sin_nombre"
-        rs_datos!archivo_respaldo_cargado = "N"
-        rs_datos!correl_bitacora = 0
-        rs_datos!doc_numero2 = IIf(Txt_campo3.Text = "", "0", Txt_campo3.Text)
+'        rs_datos!archivo_respaldo = "sin_nombre"
+'        rs_datos!archivo_respaldo_cargado = "N"
+'        rs_datos!correl_bitacora = 0
+'        rs_datos!doc_numero2 = IIf(Txt_campo3.Text = "", "0", Txt_campo3.Text)
      End If
      If VAR_SW = "MOD" Then
         VAR_UNI = rs_datos!unidad_codigo
         var_cod = rs_datos!solicitud_codigo
+        db.Execute "Update ao_solicitud Set codigo_empresa = " & dtc_codigo8.Text & ", beneficiario_codigo= '" & dtc_codigo4.Text & "', beneficiario_codigo_resp = '" & dtc_codigo11.Text & "', trans_codigo = '" & dtc_codigo10.Text & "', TipoContratoCodigo = " & dtc_codigo10.Text & ",  " & _
+            " solicitud_fecha_solicitud = '" & CDate(DTPfecha1.Value) & "', PlazoDias = '" & TxtPlazo.Text & "', solicitud_justificacion = '" & Txt_descripcion.Text & "', solicitud_observaciones = '" & txt_obs.Text & "', observaciones2 = '" & txt_obs2.Text & "', observaciones3 = '" & txt_obs3.Text & "' Where unidad_codigo = '" & VAR_UNI0 & "' AND solicitud_codigo = " & var_cod & "  "
      End If
-     rs_datos!solicitud_fecha_solicitud = DTPfecha1.Value
+     'rs_datos!solicitud_fecha_solicitud = DTPfecha1.Value
      'rs_datos!solicitud_tipo = dtc_codigo2.Text
-     rs_datos!edif_codigo = dtc_codigo3.Text
-     If dtc_codigo4.Text = "" Or dtc_codigo4.Text = "0" Then
-        VAR_BENEF = IIf(txt_ci.Text = "", "0", txt_ci.Text)
-        'rs_datos!beneficiario_codigo = dtc_aux3.Text
-     Else
-        VAR_BENEF = dtc_codigo4.Text
-        'rs_datos!beneficiario_codigo = dtc_codigo4.Text
-     End If
-     rs_datos!beneficiario_codigo = VAR_BENEF
-     rs_datos!solicitud_justificacion = Txt_descripcion.Text
+'     rs_datos!edif_codigo = dtc_codigo3.Text
+'     If dtc_codigo4.Text = "" Or dtc_codigo4.Text = "0" Then
+'        VAR_BENEF = IIf(txt_ci.Text = "", "0", txt_ci.Text)
+'        'rs_datos!beneficiario_codigo = dtc_aux3.Text
+'     Else
+'        VAR_BENEF = dtc_codigo4.Text
+'        'rs_datos!beneficiario_codigo = dtc_codigo4.Text
+'     End If
+'     rs_datos!beneficiario_codigo = VAR_BENEF
+'     rs_datos!solicitud_justificacion = Txt_descripcion.Text
      
-     If var_cod < 10 Then
-        rs_datos!unidad_codigo_ant = VAR_UNI + "-00000" + Trim(txt_codigo)
-     End If
-     If var_cod > 9 And var_cod < 100 Then
-        rs_datos!unidad_codigo_ant = VAR_UNI + "-0000" + Trim(txt_codigo)
-     End If
-     If var_cod > 99 And var_cod < 1000 Then
-        rs_datos!unidad_codigo_ant = VAR_UNI + "-000" + Trim(txt_codigo)
-     End If
-     If var_cod > 999 And var_cod < 10000 Then
-        rs_datos!unidad_codigo_ant = VAR_UNI + "-00" + Trim(txt_codigo)
-     End If
-     If var_cod > 9999 And var_cod < 100000 Then
-        rs_datos!unidad_codigo_ant = VAR_UNI + "-0" + Trim(txt_codigo)
-     End If
-     If var_cod > 99999 Then
-        rs_datos!unidad_codigo_ant = VAR_UNI + "-" + Trim(txt_codigo)
-     End If
+'     If var_cod < 10 Then
+'        rs_datos!unidad_codigo_ant = VAR_UNI + "-00000" + Trim(txt_codigo)
+'     End If
+'     If var_cod > 9 And var_cod < 100 Then
+'        rs_datos!unidad_codigo_ant = VAR_UNI + "-0000" + Trim(txt_codigo)
+'     End If
+'     If var_cod > 99 And var_cod < 1000 Then
+'        rs_datos!unidad_codigo_ant = VAR_UNI + "-000" + Trim(txt_codigo)
+'     End If
+'     If var_cod > 999 And var_cod < 10000 Then
+'        rs_datos!unidad_codigo_ant = VAR_UNI + "-00" + Trim(txt_codigo)
+'     End If
+'     If var_cod > 9999 And var_cod < 100000 Then
+'        rs_datos!unidad_codigo_ant = VAR_UNI + "-0" + Trim(txt_codigo)
+'     End If
+'     If var_cod > 99999 Then
+'        rs_datos!unidad_codigo_ant = VAR_UNI + "-" + Trim(txt_codigo)
+'     End If
 
      'rs_datos!poa_codigo = IIf(dtc_codigo10.Text = "", "3.2.6", dtc_codigo10.Text)
      'Select Case dtc_codigo2.Text
-     Select Case dtc_codigo1.Text
-'        Case "COM-01"    '3. COMPRA-VENTA BB Y SS - COMERCIAL - Case "1"    'SOLO COMPRAS BB y SS
-'            rs_datos!proceso_codigo = "COM"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-'            rs_datos!subproceso_codigo = "COM-01"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-'            rs_datos!etapa_codigo = "COM-01-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-'            rs_datos!clasif_codigo = "COM"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-'            rs_datos!doc_codigo = "R-234"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-'            rs_datos!poa_codigo = "3.1.1"
-'        Case "CMX-01"    '3. COMPRA-VENTA BB Y SS - COMERCIAL
-'            rs_datos!solicitud_tipo = "3"
-'            rs_datos!proceso_codigo = "CMX"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-'            rs_datos!subproceso_codigo = "CMX-01"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-'            rs_datos!etapa_codigo = "CMX-01-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-'            rs_datos!clasif_codigo = "CMX"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-'            rs_datos!doc_codigo = "R-XXX"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-'            rs_datos!poa_codigo = "4.1.1"
-'        Case "COM-02"    '3. COMPRA-VENTA BB Y SS - COMERCIAL -         'VENTAS NUEVAS
-        Case "DVTA", "DCOMS", "DCOMB", "DCOMC"    '3. VENTAS NUEVAS
-            rs_datos!solicitud_tipo = "3"
-            rs_datos!proceso_codigo = "COM"
-            rs_datos!subproceso_codigo = "COM-02"
-            rs_datos!etapa_codigo = "COM-02-01"
-            rs_datos!clasif_codigo = "COM"
-            rs_datos!doc_codigo = "R-234"
-            rs_datos!poa_codigo = "3.1.1"
-'        Case "COM-03"    'VENTA DE SERVICIOS INSTALACIONES
-        Case "DNINS", "DINSS", "DINSB", "DINSC"    '4. SERVICIOS INSTALACIONES
-            rs_datos!solicitud_tipo = "4"
-            rs_datos!proceso_codigo = "COM"
-            rs_datos!subproceso_codigo = "COM-03"
-            rs_datos!etapa_codigo = "COM-03-01"
-            rs_datos!clasif_codigo = "TEC"
-            rs_datos!doc_codigo = "R-362"
-            rs_datos!poa_codigo = "3.2.2"
-'        Case "COM-04" '5       'VENTA DE SERVICIOS AJUSTE
-        Case "DNAJS", "DAJSS", "DAJSB", "DAJSC"    '5. SERVICIOS AJUSTE
-            rs_datos!solicitud_tipo = "5"
-            rs_datos!proceso_codigo = "COM"
-            rs_datos!subproceso_codigo = "COM-04"
-            rs_datos!etapa_codigo = "COM-04-01"
-            rs_datos!clasif_codigo = "TEC"
-            rs_datos!doc_codigo = "R-362"
-            rs_datos!poa_codigo = "3.2.6"
-'        Case "TEC-01"    '6. SERVICIO MANTENIMIENTO GRATUITO
-'            rs_datos!proceso_codigo = "TEC"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-'            rs_datos!subproceso_codigo = "TEC-01"   'IIf(dtc_codigo6.Text = "", "COM-03", dtc_codigo6.Text)
-'            rs_datos!etapa_codigo = "TEC-01-01"     'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-'            rs_datos!clasif_codigo = "TEC"          'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-'            rs_datos!doc_codigo = "R-362"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
+'     Select Case dtc_codigo1.Text
+''        Case "COM-03"    'VENTA DE SERVICIOS INSTALACIONES
+'        Case "DNINS", "DINSS", "DINSB", "DINSC"    '4. SERVICIOS INSTALACIONES
+'            'rs_datos!solicitud_tipo = "4"
+'            rs_datos!proceso_codigo = "COM"
+'            rs_datos!subproceso_codigo = "COM-03"
+'            rs_datos!etapa_codigo = "COM-03-01"
+'            rs_datos!clasif_codigo = "TEC"
+'            rs_datos!doc_codigo = "R-362"
+'            rs_datos!poa_codigo = "3.2.2"
+'''        Case "COM-04" '5       'VENTA DE SERVICIOS AJUSTE
+''        Case "DNAJS", "DAJSS", "DAJSB", "DAJSC"    '5. SERVICIOS AJUSTE
+''            'rs_datos!solicitud_tipo = "5"
+''            rs_datos!proceso_codigo = "COM"
+''            rs_datos!subproceso_codigo = "COM-04"
+''            rs_datos!etapa_codigo = "COM-04-01"
+''            rs_datos!clasif_codigo = "TEC"
+''            rs_datos!doc_codigo = "R-362"
+''            rs_datos!poa_codigo = "3.2.6"
+''        Case "TEC-02"    '10. SERVICIO MANTENIMIENTO PREVENTIVO
+'        Case "DNMAN", "DMANS", "DMANB", "DMANC"    '10. SERVICIO MANTENIMIENTO INTEGRAL
+'            'rs_datos!solicitud_tipo = "10"
+'            rs_datos!proceso_codigo = "TEC"       'Left(dtc_codigo2.Text, 3)
+'            rs_datos!subproceso_codigo = "TEC-02"       'IIf(dtc_codigo2.Text = "", "TEC-02", dtc_codigo2.Text)
+'            rs_datos!etapa_codigo = "TEC-02-01"        'Trim(dtc_codigo2.Text) + "-01"  '
+'            rs_datos!clasif_codigo = "TEC"           'Left(dtc_codigo2.Text, 3)  '
+'            rs_datos!doc_codigo = "R-355"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
 '            rs_datos!poa_codigo = "3.2.3"           'IIf(dtc_codigo10.Text = "", "3.2.6", dtc_codigo10.Text)
-'        Case "TEC-02"    '10. SERVICIO MANTENIMIENTO PREVENTIVO
-        Case "DNMAN", "DMANS", "DMANB", "DMANC"    '10. SERVICIO MANTENIMIENTO INTEGRAL
-            rs_datos!solicitud_tipo = "10"
-            rs_datos!proceso_codigo = "TEC"       'Left(dtc_codigo2.Text, 3)
-            rs_datos!subproceso_codigo = "TEC-02"       'IIf(dtc_codigo2.Text = "", "TEC-02", dtc_codigo2.Text)
-            rs_datos!etapa_codigo = "TEC-02-01"        'Trim(dtc_codigo2.Text) + "-01"  '
-            rs_datos!clasif_codigo = "TEC"           'Left(dtc_codigo2.Text, 3)  '
-            rs_datos!doc_codigo = "R-355"                'IIf(dtc_codigo9.Text = "", "R-XXX", dtc_codigo9.Text)
-            rs_datos!poa_codigo = "3.2.3"           'IIf(dtc_codigo10.Text = "", "3.2.6", dtc_codigo10.Text)
-            'COD.ADM. o CODIGO DE CONTRATO
-            rs_datos!unidad_codigo_ant = Trim(Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6)) + "-" + Trim(CStr(glGestion))
-            'End If
-'        Case "TEC-03" '10 REPARACION    If VAR_UNI = "DNIREP" Then
-        Case "DNREP", "DREPS", "DREPB", "DREPC"    '7. SERVICIO DE REPARACIONES
-            rs_datos!solicitud_tipo = "7"
-            rs_datos!proceso_codigo = "TEC"
-            rs_datos!subproceso_codigo = "TEC-03"
-            rs_datos!etapa_codigo = "TEC-03-01"
-            rs_datos!clasif_codigo = "TEC"
-            rs_datos!doc_codigo = "R-362"
-            rs_datos!poa_codigo = "3.2.4"
-'        Case "TEC-04" '10 EMERGENCIAS   If VAR_UNI = "DNEME" Then
-        Case "DNEME", "DEMES", "DEMEB", "DEMEC"    '8. SERVICIO DE EMERGENCIAS
-            rs_datos!solicitud_tipo = "8"
-            rs_datos!proceso_codigo = "TEC"
-            rs_datos!subproceso_codigo = "TEC-04"
-            rs_datos!etapa_codigo = "TEC-04-01"
-            rs_datos!clasif_codigo = "TEC"
-            rs_datos!doc_codigo = "R-362"
-            rs_datos!poa_codigo = "3.2.1"
-'        Case "TEC-05"    '5. SERVICIO MODERNIZACION -If VAR_UNI = "DNMOD" Then
-        Case "DNMOD", "DMODS", "DMODB", "DMODC"    '9. SERVICIO DE MODERNIZACIONES
-            rs_datos!solicitud_tipo = "9"
-            rs_datos!proceso_codigo = "TEC"
-            rs_datos!subproceso_codigo = "TEC-05"
-            rs_datos!etapa_codigo = "TES-05-01"
-            rs_datos!clasif_codigo = "TEC"
-            rs_datos!doc_codigo = "R-362"
-            rs_datos!poa_codigo = "3.2.7"
-        Case Else   '10. SERVICIO MANTENIMIENTO PREVENTIVO
-            'If VAR_UNI = "DNMAN" Then
-            rs_datos!solicitud_tipo = "10"
-            rs_datos!proceso_codigo = "TEC"             'Left(dtc_codigo2.Text, 3)     ' "TEC"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
-            rs_datos!subproceso_codigo = "TEC-02"       'IIf(dtc_codigo2.Text = "", "TEC-02", dtc_codigo2.Text)
-            rs_datos!etapa_codigo = "TEC-02-01"         'Trim(dtc_codigo2.Text) + "-01"  'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
-            rs_datos!clasif_codigo = "TEC"              'Left(dtc_codigo2.Text, 3)      'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
-            rs_datos!doc_codigo = "R-355"
-            rs_datos!poa_codigo = "3.2.3"
-     End Select
-     rs_datos!TipoContratoCodigo = IIf(dtc_codigo10.Text = "", "0", dtc_codigo10.Text)
-     rs_datos!PlazoDias = IIf(TxtPlazo.Text = "", "15", TxtPlazo.Text)
-     rs_datos!solicitud_observaciones = IIf(txt_obs.Text = "", "", txt_obs.Text)
-     rs_datos!observaciones2 = IIf(txt_obs2.Text = "", "", txt_obs2.Text)
-     rs_datos!observaciones3 = IIf(txt_obs3.Text = "", "", txt_obs3.Text)
-     rs_datos!solicitud_fecha_recepción = DTPfecha1.Value
-     rs_datos!beneficiario_codigo_resp = dtc_codigo11.Text
-     rs_datos!observacion_proy = dtc_desc3.Text
-     rs_datos!trans_codigo = IIf(dtc_codigo10.Text = "", "0", dtc_codigo10.Text)
-     rs_datos!ges_gestion_ant = glGestion       'glGestion
-     rs_datos!usr_codigo_aprueba = ""
-     rs_datos!fecha_aprueba = Date
-     rs_datos!hora_aprueba = ""
+'            'COD.ADM. o CODIGO DE CONTRATO
+'            rs_datos!unidad_codigo_ant = Trim(Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6)) + "-" + Trim(CStr(glGestion))
+'            'End If
+''        Case "TEC-03" '10 REPARACION    If VAR_UNI = "DNIREP" Then
+'        Case "DNREP", "DREPS", "DREPB", "DREPC"    '7. SERVICIO DE REPARACIONES
+'            'rs_datos!solicitud_tipo = "7"
+'            rs_datos!proceso_codigo = "TEC"
+'            rs_datos!subproceso_codigo = "TEC-03"
+'            rs_datos!etapa_codigo = "TEC-03-01"
+'            rs_datos!clasif_codigo = "TEC"
+'            rs_datos!doc_codigo = "R-362"
+'            rs_datos!poa_codigo = "3.2.4"
+''        Case "TEC-04" '10 EMERGENCIAS   If VAR_UNI = "DNEME" Then
+'        Case "DNEME", "DEMES", "DEMEB", "DEMEC"    '8. SERVICIO DE EMERGENCIAS
+'            'rs_datos!solicitud_tipo = "8"
+'            rs_datos!proceso_codigo = "TEC"
+'            rs_datos!subproceso_codigo = "TEC-04"
+'            rs_datos!etapa_codigo = "TEC-04-01"
+'            rs_datos!clasif_codigo = "TEC"
+'            rs_datos!doc_codigo = "R-362"
+'            rs_datos!poa_codigo = "3.2.1"
+''        Case "TEC-05"    '5. SERVICIO MODERNIZACION -If VAR_UNI = "DNMOD" Then
+'        Case "DNMOD", "DMODS", "DMODB", "DMODC"    '9. SERVICIO DE MODERNIZACIONES
+'            'rs_datos!solicitud_tipo = "9"
+'            rs_datos!proceso_codigo = "TEC"
+'            rs_datos!subproceso_codigo = "TEC-05"
+'            rs_datos!etapa_codigo = "TES-05-01"
+'            rs_datos!clasif_codigo = "TEC"
+'            rs_datos!doc_codigo = "R-362"
+'            rs_datos!poa_codigo = "3.2.7"
+'        Case Else   '10. SERVICIO MANTENIMIENTO PREVENTIVO
+'            'If VAR_UNI = "DNMAN" Then
+'            'rs_datos!solicitud_tipo = "10"
+'            rs_datos!proceso_codigo = "TEC"             'Left(dtc_codigo2.Text, 3)     ' "TEC"         'IIf(dtc_codigo5.Text = "", "COM", dtc_codigo5.Text)
+'            rs_datos!subproceso_codigo = "TEC-02"       'IIf(dtc_codigo2.Text = "", "TEC-02", dtc_codigo2.Text)
+'            rs_datos!etapa_codigo = "TEC-02-01"         'Trim(dtc_codigo2.Text) + "-01"  'IIf(dtc_codigo7.Text = "", "COM-03-02", dtc_codigo7.Text)
+'            rs_datos!clasif_codigo = "TEC"              'Left(dtc_codigo2.Text, 3)      'IIf(dtc_codigo8.Text = "", "TEC", dtc_codigo8.Text)
+'            rs_datos!doc_codigo = "R-355"
+'            rs_datos!poa_codigo = "3.2.3"
+'     End Select
+     'rs_datos!TipoContratoCodigo = IIf(dtc_codigo10.Text = "", "0", dtc_codigo10.Text)
+'     rs_datos!PlazoDias = IIf(TxtPlazo.Text = "", "15", TxtPlazo.Text)
+'     rs_datos!solicitud_observaciones = IIf(txt_obs.Text = "", "", txt_obs.Text)
+'     rs_datos!observaciones2 = IIf(txt_obs2.Text = "", "", txt_obs2.Text)
+'     rs_datos!observaciones3 = IIf(txt_obs3.Text = "", "", txt_obs3.Text)
+     'rs_datos!solicitud_fecha_recepción = DTPfecha1.Value
+'     rs_datos!beneficiario_codigo_resp = dtc_codigo11.Text
+'     rs_datos!observacion_proy = dtc_desc3.Text
+'     rs_datos!trans_codigo = IIf(dtc_codigo10.Text = "", "0", dtc_codigo10.Text)
+'     rs_datos!ges_gestion_ant = glGestion       'glGestion
+'     rs_datos!usr_codigo_aprueba = ""
+'     rs_datos!fecha_aprueba = Date
+'     rs_datos!hora_aprueba = ""
      'rs_datos!Foto = Date
      'rs_datos!ARCHIVO_Foto = var_cod + ".JPG"
      'rs_datos!archivo_foto_cargado = "N"
-     rs_datos!codigo_empresa = dtc_codigo8.Text
-     rs_datos!Fecha_Registro = Date     'no cambia
-     rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
-     rs_datos.Update    'Batch 'adAffectAll
+'     rs_datos!codigo_empresa = dtc_codigo8.Text
+'     rs_datos!fecha_registro = Date     'no cambia
+'     rs_datos!usr_codigo = IIf(glusuario = "", "ADMIN", glusuario) 'no cambia
+'     rs_datos.Update    'Batch 'adAffectAll
      VAR_SOLA = rs_datos!solicitud_codigo
 '     If Ado_datos.Recordset!estado_codigo = "REG" Then
 '        Call OptFilGral1_Click
@@ -5514,17 +5584,22 @@ Private Sub BtnGrabar_Click()
      Else
         Call OptFilGral2_Click        'TODOS
      End If
-     If (dg_datos.SelBookmarks.Count <> 0) Then
-        dg_datos.SelBookmarks.Remove 0
-     End If
-     If Ado_datos.Recordset.RecordCount > 0 And VAR_SW = "MOD" Then
-     VAR_SW = ""
-        rs_datos.Find "solicitud_codigo = " & VAR_SOLA & "   ", , , 1
-        dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
-     Else
-     VAR_SW = ""
+     If VAR_SW = "MOD" Then
+        If (dg_datos.SelBookmarks.Count <> 0) Then
+           dg_datos.SelBookmarks.Remove 0
+        End If
+        If Ado_datos.Recordset.RecordCount > 0 And VAR_SW = "MOD" Then
+        VAR_SW = ""
+           rs_datos.Find "solicitud_codigo = " & VAR_SOLA & "   ", , , 1
+           dg_datos.SelBookmarks.Add (rs_datos.Bookmark)
+        Else
+           VAR_SW = ""
+           rs_datos.MoveLast
+        End If
+    Else
+        VAR_SW = ""
         rs_datos.MoveLast
-     End If
+    End If
     
      mbDataChanged = False
       
@@ -6066,7 +6141,7 @@ Private Sub BtnModDetalle2_Click()
             Case "COM-03"    '4. VENTA DE SERVICIOS (INST, AJUSTE, REP, EMERG, MANT)
                 Call ABRIR_TABLA_DET
                 tw_solicitud_bienes.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes.Txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes.txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 'tw_solicitud_bienes.Txt_Correl.Caption = Me.Ado_detalle2.Recordset("bitacora_codigo")
                 'tw_solicitud_bienes.Txt_estado.Caption = "REG"
@@ -6074,7 +6149,7 @@ Private Sub BtnModDetalle2_Click()
                 tw_solicitud_bienes.dtc_codigo1.Text = Me.Ado_detalle2.Recordset("bien_codigo")
                 tw_solicitud_bienes.dtc_desc1.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.dtc_aux1.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
-                tw_solicitud_bienes.dtc_aux2.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
+                tw_solicitud_bienes.Dtc_aux2.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.dtc_aux3.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.Txt_campo2.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.Txt_campo3.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
@@ -6097,7 +6172,7 @@ Private Sub BtnModDetalle2_Click()
             Case "TEC-01"    '6. SERVICIO DE MANTENIMIENTO GRATUITO
                 Call ABRIR_TABLA_DET
                 tw_solicitud_bienes.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes.Txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes.txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 'tw_solicitud_bienes.Txt_Correl.Caption = Me.Ado_detalle2.Recordset("bitacora_codigo")
                 'tw_solicitud_bienes.Txt_estado.Caption = "REG"
@@ -6106,7 +6181,7 @@ Private Sub BtnModDetalle2_Click()
                 tw_solicitud_bienes.dtc_codigo1.Text = Me.Ado_detalle2.Recordset("bien_codigo")
                 tw_solicitud_bienes.dtc_desc1.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.dtc_aux1.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
-                tw_solicitud_bienes.dtc_aux2.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
+                tw_solicitud_bienes.Dtc_aux2.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.dtc_aux3.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.Txt_campo2.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
                 tw_solicitud_bienes.Txt_campo3.BoundText = tw_solicitud_bienes.dtc_codigo1.BoundText
@@ -6127,7 +6202,7 @@ Private Sub BtnModDetalle2_Click()
             Case "TEC-02"    '10. VENTA DE SERVICIO DE MANTENIMIENTO PREVENTIVO
                 'Call ABRIR_TABLA_DET
                 tw_solicitud_bienes.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes.Txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes.txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 
                 tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
@@ -6150,7 +6225,7 @@ Private Sub BtnModDetalle2_Click()
                 tw_solicitud_bienes.Show vbModal
             Case "TEC-03"    '7. VENTA DE SERVICIOS REPARACION
                 tw_solicitud_bienes.txt_codigo.Caption = Me.Ado_detalle2.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes.Txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes.txt_campo1.Caption = Me.Ado_detalle2.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes.Txt_descripcion.Caption = Me.dtc_desc1.Text
                 
                 tw_solicitud_bienes.lbl_edif.Caption = dtc_codigo3.Text
@@ -6205,7 +6280,7 @@ Private Sub ModifDetalle()
             If VAR_DET = "30000" Then
                 'marca1 = Ado_detalle3.Recordset.Bookmark
                 tw_solicitud_bienes3.txt_codigo.Caption = Me.Ado_detalle3.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes3.Txt_campo1.Caption = Me.Ado_detalle3.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes3.txt_campo1.Caption = Me.Ado_detalle3.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes3.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes3.lbl_edif.Caption = dtc_codigo3.Text
@@ -6231,7 +6306,7 @@ Private Sub ModifDetalle()
             If VAR_DET = "39800" Then
                 tw_solicitud_bienes5.lbl_det.Caption = VAR_DET
                 tw_solicitud_bienes5.txt_codigo.Caption = Me.Ado_detalle5.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes5.Txt_campo1.Caption = Me.Ado_detalle5.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes5.txt_campo1.Caption = Me.Ado_detalle5.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes5.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes5.lbl_edif.Caption = dtc_codigo3.Text
@@ -6259,7 +6334,7 @@ Private Sub ModifDetalle()
             If VAR_DET = "34800" Then
                  tw_solicitud_bienes6.lbl_det.Caption = VAR_DET
                 tw_solicitud_bienes6.txt_codigo.Caption = Me.Ado_detalle6.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes6.Txt_campo1.Caption = Me.Ado_detalle6.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes6.txt_campo1.Caption = Me.Ado_detalle6.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes6.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes6.lbl_edif.Caption = dtc_codigo3.Text
@@ -6283,7 +6358,7 @@ Private Sub ModifDetalle()
 
             If VAR_DET = "24300" Then
                 tw_solicitud_bienes7.txt_codigo.Caption = Me.Ado_detalle7.Recordset("solicitud_codigo")  'cod_cabecera
-                tw_solicitud_bienes7.Txt_campo1.Caption = Me.Ado_detalle7.Recordset("unidad_codigo")  'Unidad
+                tw_solicitud_bienes7.txt_campo1.Caption = Me.Ado_detalle7.Recordset("unidad_codigo")  'Unidad
                 tw_solicitud_bienes7.Txt_descripcion.Caption = Me.dtc_desc1.Text
             
                 tw_solicitud_bienes7.lbl_edif.Caption = dtc_codigo3.Text
@@ -6914,19 +6989,19 @@ Private Sub Form_Load()
     If Aux = "DNMAN" Then
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
-                Aux = "DMANB"
+                VAR_UNI = "DMANB"
                 'VAR_DPTOC = "3"
             Case "1.7"    'Santa Cruz
-                Aux = "DMANS"
+                VAR_UNI = "DMANS"
                 'VAR_DPTOC = "7"
-            Case "1.3"    'La Paz - Tecnico
-                Aux = "DNMAN"
+            Case "1.4", "1.2", "1.3"    'La Paz - Tecnico
+                VAR_UNI = "DNMAN"
                 'VAR_DPTOC = "2"
             Case "1.9"    ' Chuquisaca
-                Aux = "DMANC"
+                VAR_UNI = "DMANC"
                 'VAR_DPTOC = "1"
             Case "0"    ' TODO
-                Aux = "DNMAN"
+                VAR_UNI = "DNMAN"
                 'VAR_DPTOC = "0"
          End Select
          VAR_TIPO = 10
@@ -6935,19 +7010,19 @@ Private Sub Form_Load()
      If Aux = "DNREP" Then
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
-                Aux = "DREPB"
+                VAR_UNI = "DREPB"
                 'VAR_DPTOC = "3"
             Case "1.7"    'Santa Cruz
-                Aux = "DREPS"
+                VAR_UNI = "DREPS"
                 'VAR_DPTOC = "7"
-            Case "1.3"    'La Paz - Tecnico
-                Aux = "DNREP"
+            Case "1.4", "1.2", "1.3"    'La Paz - Tecnico
+                VAR_UNI = "DNREP"
                 'VAR_DPTOC = "2"
             Case "1.9"    ' Chuquisaca
-                Aux = "DREPC"
+                VAR_UNI = "DREPC"
                 'VAR_DPTOC = "1"
             Case "0"    ' TODO
-                Aux = "DNREP"
+                VAR_UNI = "DNREP"
                 'VAR_DPTOC = "0"
          End Select
          VAR_TIPO = 7
@@ -6956,19 +7031,19 @@ Private Sub Form_Load()
      If Aux = "DNINS" Then
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
-                Aux = "DINSB"
+                VAR_UNI = "DINSB"
                 'VAR_DPTOC = "3"
             Case "1.7"    'Santa Cruz
-                Aux = "DINSS"
+                VAR_UNI = "DINSS"
                 'VAR_DPTOC = "7"
-            Case "1.3", "1.2"    'La Paz - Tecnico
-                Aux = "DNINS"
+            Case "1.4", "1.2", "1.3"    'La Paz - Tecnico
+                VAR_UNI = "DNINS"
                 'VAR_DPTOC = "2"
             Case "1.9"    ' Chuquisaca
-                Aux = "DINSC"
+                VAR_UNI = "DINSC"
                 'VAR_DPTOC = "1"
             Case "0"    ' TODO
-                Aux = "DNINS"
+                VAR_UNI = "DNINS"
                 'VAR_DPTOC = "0"
          End Select
          VAR_TIPO = 4
@@ -6977,28 +7052,31 @@ Private Sub Form_Load()
     If Aux = "DNEME" Then
         Select Case VAR_DA
             Case "1.8"    'Cochabamba
-                Aux = "DMANB"
+                VAR_UNI = "DMANB"
                 'VAR_DPTOC = "3"
             Case "1.7"    'Santa Cruz
-                Aux = "DMANS"
+                VAR_UNI = "DMANS"
                 'VAR_DPTOC = "7"
-            Case "1.3"    'La Paz - Tecnico
-                Aux = "DNEME"
+            Case "1.4", "1.2", "1.3"    'La Paz - Tecnico
+                VAR_UNI = "DNEME"
                 'VAR_DPTOC = "2"
             Case "1.9"    ' Chuquisaca
-                Aux = "DMANC"
+                VAR_UNI = "DMANC"
                 'VAR_DPTOC = "1"
             Case "0"    ' TODO
-                Aux = "DNEME"
+                VAR_UNI = "DNEME"
                 'VAR_DPTOC = "2"
          End Select
          VAR_TIPO = 8
          VAR_PLAZO = "Plazo:               dias"
      End If
+     VAR_UNI0 = VAR_UNI
     LblPlazo.Caption = VAR_PLAZO
     parametro = Aux
-    db.Execute "UPDATE ao_solicitud SET ao_solicitud.observacion_proy = gc_edificaciones.edif_descripcion from ao_solicitud inner join gc_edificaciones on ao_solicitud.edif_codigo = gc_edificaciones.edif_codigo WHERE (ao_solicitud.unidad_codigo = '" & parametro & "')"
-    'db.Execute "UPDATE ao_solicitud SET ao_solicitud.observacion_proy = gc_edificaciones.edif_descripcion from ao_solicitud inner join gc_edificaciones on ao_solicitud.edif_codigo = gc_edificaciones.edif_codigo where ao_solicitud.edif_codigo <> '0' and ao_solicitud.observacion_proy is null"
+        
+    db.Execute "UPDATE ao_solicitud SET ao_solicitud.observacion_proy = gc_edificaciones.edif_descripcion from ao_solicitud inner join gc_edificaciones on ao_solicitud.edif_codigo = gc_edificaciones.edif_codigo where ao_solicitud.edif_codigo <> '0' and ao_solicitud.observacion_proy is null "
+    db.Execute "UPDATE ao_solicitud SET ao_solicitud.observacion_proy = gc_edificaciones.edif_descripcion from ao_solicitud inner join gc_edificaciones on ao_solicitud.edif_codigo = gc_edificaciones.edif_codigo WHERE (ao_solicitud.unidad_codigo = '" & parametro & "' and ao_solicitud.edif_codigo <> gc_edificaciones.edif_codigo) "
+
     'parametro = "estado_codigo" + " = " + "'REG'"
     Call ABRIR_TABLAS_AUX
     Call OptFilGral1_Click
@@ -7061,7 +7139,9 @@ Private Sub ABRIR_TABLAS_AUX()
     'gc_ContratoTipo  -
     Set rs_datos10 = New ADODB.Recordset
     If rs_datos10.State = 1 Then rs_datos10.Close
-    rs_datos10.Open "Select * from gc_ContratoTipo WHERE solicitud_tipo = " & VAR_TIPO & " order by TipoContratoCodigo", db, adOpenStatic
+    'rs_datos10.Open "Select * from gc_ContratoTipo WHERE solicitud_tipo = " & VAR_TIPO & " order by TipoContratoCodigo", db, adOpenStatic
+    'rs_datos10.Open "select * from ac_tipo_compra_venta where subproceso_codigo = 'TEC-02' or subproceso_codigo = 'TEC-03'  ", db, adOpenStatic
+    rs_datos10.Open "Select * from gc_tipo_transaccion WHERE solicitud_tipo = " & VAR_TIPO & " order by trans_codigo", db, adOpenStatic
     Set Ado_datos10.Recordset = rs_datos10
     dtc_desc10.BoundText = dtc_codigo10.BoundText
     
@@ -7069,7 +7149,7 @@ Private Sub ABRIR_TABLAS_AUX()
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
     'rs_datos11.Open "Select * from gv_personal_contratado where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic, adCmdText   ', adOpenStatic
-    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText
 End Sub
@@ -7173,7 +7253,7 @@ Private Sub ABRIR_TABLA_AUX2()
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
     'rs_datos11.Open "Select * from gv_personal_contratado where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic, adCmdText   ', adOpenStatic
-    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText
 End Sub
@@ -7288,7 +7368,7 @@ Private Sub BtnAñadir_Click()
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
     'rs_datos11.Open "Select * from gv_personal_contratado where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic, adCmdText   ', adOpenStatic
-    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText
     'lblStatus.Caption = "Agregar registro"
@@ -7381,16 +7461,25 @@ Private Sub OptFilGral1_Click()
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DPTOC
-        Case "2"
-            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') "
-        Case "7"
-            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
-        Case "3"
-            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '4' )) "
         Case "1"
-            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (Left(edif_codigo, 1) = '1' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+        Case "2"
+            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') "
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '2' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '6' OR   Left(edif_codigo, 1) = '5' )) "
+        Case "3"
+            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '4' )) "
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '3' OR  Left(edif_codigo, 1) = '4' )) "
+        Case "4"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '4' ) "
+        Case "6"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '6' ) "
+        Case "7"
+            'queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '7' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
         Case Else
-            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "')) "
+            queryinicial = "Select * from ao_solicitud where (estado_codigo = 'REG' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' ) "
     End Select
             'queryinicial = "Select * from ao_solicitud where estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "' "
             'queryinicial = "select * From av_ventas_cabecera WHERE ((estado_codigo = 'REG' AND unidad_codigo = '" & parametro & "') OR (estado_codigo = 'REG' AND unidad_codigo='" & VAR_UORIGEN & "' AND left(edif_codigo,1) = '" & VAR_DPTO & "')) "
@@ -7407,21 +7496,21 @@ Private Sub OptFilGral2_Click()
     Set rs_datos = New Recordset
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DPTOC
-        Case "2"
-            queryinicial = "Select * from ao_solicitud WHERE (unidad_codigo = '" & parametro & "') "
-        Case "7"
-            queryinicial = "Select * from ao_solicitud where ((unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
-            'queryinicial = "Select * from ao_solicitud where ((Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
-        Case "3"
-            queryinicial = "Select * from ao_solicitud where ((unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '4' )) "
-            'queryinicial = "Select * from ao_solicitud where ((Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '4' )) "
         Case "1"
-            queryinicial = "Select * from ao_solicitud where ((unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
-            'queryinicial = "Select * from ao_solicitud where ((Left(edif_codigo, 1) = '" & VAR_DPTOC & "' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '1' OR  Left(edif_codigo, 1) = '5' OR  Left(edif_codigo, 1) = '6' )) "
+        Case "2"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '2' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '6' OR   Left(edif_codigo, 1) = '5' )) "
+        Case "3"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL' AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '3' OR  Left(edif_codigo, 1) = '4' )) "
+        Case "4"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL'  AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '4' ) "
+        Case "6"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL'  AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '6' ) "
+        Case "7"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL'  AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND (Left(edif_codigo, 1) = '7' OR   Left(edif_codigo, 1) = '8' OR   Left(edif_codigo, 1) = '9' OR   Left(edif_codigo, 1) = '1' )) "
         Case Else
-            queryinicial = "Select * from ao_solicitud where (Left(edif_codigo, 1) = '" & VAR_DPTOC & "' AND (unidad_codigo = '" & parametro & "' OR unidad_codigo = '" & VAR_UORIGEN & "'))"
+            queryinicial = "Select * from ao_solicitud where (estado_codigo <> 'ANL'  AND (unidad_codigo = '" & VAR_UORIGEN & "' OR unidad_codigo = '" & VAR_UNI0 & "') AND Left(edif_codigo, 1) = '" & VAR_DPTOC & "' ) "
     End Select
-    'queryinicial = "Select * from ao_solicitud where unidad_codigo = '" & parametro & "' "
     rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
     rs_datos.Sort = "unidad_codigo, solicitud_codigo"
     Set Ado_datos.Recordset = rs_datos.DataSource
