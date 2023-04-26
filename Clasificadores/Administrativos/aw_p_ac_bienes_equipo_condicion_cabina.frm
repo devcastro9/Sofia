@@ -694,7 +694,7 @@ Private Sub BtnCancelar_Click()
     End If
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
    If ExisteReg(Ado_datos.Recordset!condicion_cabina) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado ..", vbInformation + vbOKOnly, "Atención": Exit Sub
    If rs_datos!estado_codigo = "APR" Then
@@ -837,7 +837,7 @@ Private Sub Form_Load()
 '    lbl_aux1.Visible = False
     FraNavega.Caption = lbl_titulo.Caption
     lbl_titulo2.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()

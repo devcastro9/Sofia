@@ -35,7 +35,7 @@ Begin VB.Form mw_solicitud
       Height          =   2175
       Left            =   6000
       TabIndex        =   98
-      Top             =   3360
+      Top             =   3480
       Visible         =   0   'False
       Width           =   5895
       Begin VB.OptionButton ob_opcion4 
@@ -1930,7 +1930,7 @@ Begin VB.Form mw_solicitud
          _ExtentX        =   2831
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   118358017
+         Format          =   110166017
          CurrentDate     =   44232
          MaxDate         =   55153
          MinDate         =   2

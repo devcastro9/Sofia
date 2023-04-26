@@ -4,7 +4,7 @@ Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.Form aw_almacen_inventario 
    Caption         =   "Inventario de Almacenes"
    ClientHeight    =   8415
@@ -17,6 +17,18 @@ Begin VB.Form aw_almacen_inventario
    ScaleHeight     =   8415
    ScaleWidth      =   11400
    WindowState     =   2  'Maximized
+   Begin ComctlLib.ProgressBar ProgressBar1 
+      Align           =   2  'Align Bottom
+      Height          =   255
+      Left            =   0
+      TabIndex        =   45
+      Top             =   7665
+      Width           =   11400
+      _ExtentX        =   20108
+      _ExtentY        =   450
+      _Version        =   327682
+      Appearance      =   1
+   End
    Begin VB.Frame fra_reportes 
       BackColor       =   &H00FFC0C0&
       Caption         =   "Elija una de las opciones ..."
@@ -30,26 +42,28 @@ Begin VB.Form aw_almacen_inventario
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   4575
+      Height          =   4815
       Left            =   1920
       TabIndex        =   32
       Top             =   2640
       Visible         =   0   'False
       Width           =   8775
       Begin VB.CommandButton btnSalirPanel 
-         Caption         =   "Salir"
-         Height          =   495
-         Left            =   7320
+         Height          =   555
+         Left            =   4800
+         Picture         =   "aw_almacen_inventario.frx":6852
+         Style           =   1  'Graphical
          TabIndex        =   43
-         Top             =   3840
-         Width           =   1095
+         Top             =   3960
+         Width           =   1335
       End
       Begin VB.CommandButton btnPrintOption 
-         Caption         =   "Imprimir"
-         Height          =   495
-         Left            =   5760
+         Height          =   555
+         Left            =   2640
+         Picture         =   "aw_almacen_inventario.frx":7211
+         Style           =   1  'Graphical
          TabIndex        =   42
-         Top             =   3840
+         Top             =   3960
          Width           =   1335
       End
       Begin VB.OptionButton Option6 
@@ -248,7 +262,7 @@ Begin VB.Form aw_almacen_inventario
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   3240
-            Picture         =   "aw_almacen_inventario.frx":6852
+            Picture         =   "aw_almacen_inventario.frx":7B3F
             ScaleHeight     =   615
             ScaleWidth      =   1245
             TabIndex        =   29
@@ -263,7 +277,7 @@ Begin VB.Form aw_almacen_inventario
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   6240
-            Picture         =   "aw_almacen_inventario.frx":7040
+            Picture         =   "aw_almacen_inventario.frx":832D
             ScaleHeight     =   615
             ScaleWidth      =   1245
             TabIndex        =   27
@@ -278,7 +292,7 @@ Begin VB.Form aw_almacen_inventario
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   1800
-            Picture         =   "aw_almacen_inventario.frx":7802
+            Picture         =   "aw_almacen_inventario.frx":8AEF
             ScaleHeight     =   615
             ScaleWidth      =   1455
             TabIndex        =   26
@@ -293,7 +307,7 @@ Begin VB.Form aw_almacen_inventario
             ForeColor       =   &H80000008&
             Height          =   615
             Left            =   0
-            Picture         =   "aw_almacen_inventario.frx":80CF
+            Picture         =   "aw_almacen_inventario.frx":93BC
             ScaleHeight     =   615
             ScaleWidth      =   1455
             TabIndex        =   15
@@ -333,7 +347,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110624769
+         Format          =   116785153
          CurrentDate     =   44197
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -346,7 +360,7 @@ Begin VB.Form aw_almacen_inventario
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   110624769
+         Format          =   116785153
          CurrentDate     =   44561
       End
       Begin VB.Label Label2 
@@ -396,7 +410,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   8760
-         Picture         =   "aw_almacen_inventario.frx":899C
+         Picture         =   "aw_almacen_inventario.frx":9C89
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   44
@@ -412,7 +426,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   6480
-         Picture         =   "aw_almacen_inventario.frx":9151
+         Picture         =   "aw_almacen_inventario.frx":A43E
          ScaleHeight     =   735
          ScaleWidth      =   1395
          TabIndex        =   30
@@ -428,7 +442,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   4920
-         Picture         =   "aw_almacen_inventario.frx":9A1E
+         Picture         =   "aw_almacen_inventario.frx":AD0B
          ScaleHeight     =   735
          ScaleWidth      =   1395
          TabIndex        =   28
@@ -444,7 +458,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17400
-         Picture         =   "aw_almacen_inventario.frx":A2EB
+         Picture         =   "aw_almacen_inventario.frx":B5D8
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   8
@@ -459,7 +473,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   240
-         Picture         =   "aw_almacen_inventario.frx":AAAD
+         Picture         =   "aw_almacen_inventario.frx":BD9A
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   7
@@ -475,7 +489,7 @@ Begin VB.Form aw_almacen_inventario
          ForeColor       =   &H80000008&
          Height          =   735
          Left            =   3360
-         Picture         =   "aw_almacen_inventario.frx":B262
+         Picture         =   "aw_almacen_inventario.frx":C54F
          ScaleHeight     =   735
          ScaleWidth      =   1395
          TabIndex        =   6
@@ -516,7 +530,7 @@ Begin VB.Form aw_almacen_inventario
       Top             =   660
       Width           =   11400
       Begin MSDataListLib.DataCombo dtc_desc1 
-         Bindings        =   "aw_almacen_inventario.frx":BB2F
+         Bindings        =   "aw_almacen_inventario.frx":CE1C
          DataField       =   "almacen_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -532,7 +546,7 @@ Begin VB.Form aw_almacen_inventario
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_codigo1 
-         Bindings        =   "aw_almacen_inventario.frx":BB48
+         Bindings        =   "aw_almacen_inventario.frx":CE35
          DataField       =   "almacen_codigo"
          DataSource      =   "Ado_datos"
          Height          =   315
@@ -549,7 +563,7 @@ Begin VB.Form aw_almacen_inventario
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_desc2 
-         Bindings        =   "aw_almacen_inventario.frx":BB61
+         Bindings        =   "aw_almacen_inventario.frx":CE4E
          DataField       =   "bien_codigo"
          Height          =   315
          Left            =   9000
@@ -565,7 +579,7 @@ Begin VB.Form aw_almacen_inventario
          Text            =   ""
       End
       Begin MSDataListLib.DataCombo dtc_cod2 
-         Bindings        =   "aw_almacen_inventario.frx":BB7E
+         Bindings        =   "aw_almacen_inventario.frx":CE6B
          DataField       =   "bien_codigo"
          Height          =   315
          Left            =   16080
@@ -875,15 +889,15 @@ Begin VB.Form aw_almacen_inventario
    End
    Begin MSDataGridLib.DataGrid tdbgInventario 
       Align           =   3  'Align Left
-      Bindings        =   "aw_almacen_inventario.frx":BB9B
-      Height          =   6315
+      Bindings        =   "aw_almacen_inventario.frx":CE88
+      Height          =   6450
       Left            =   0
       Negotiate       =   -1  'True
       TabIndex        =   25
       Top             =   1215
       Width           =   13935
       _ExtentX        =   24580
-      _ExtentY        =   11139
+      _ExtentY        =   11377
       _Version        =   393216
       AllowUpdate     =   0   'False
       BackColor       =   12572159
@@ -908,7 +922,7 @@ Begin VB.Form aw_almacen_inventario
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Caption         =   $"aw_almacen_inventario.frx":BBB3
+      Caption         =   $"aw_almacen_inventario.frx":CEA0
       ColumnCount     =   9
       BeginProperty Column00 
          DataField       =   "almacen_codigo"
@@ -1114,18 +1128,6 @@ Begin VB.Form aw_almacen_inventario
       WindowShowSearchBtn=   -1  'True
       WindowShowPrintSetupBtn=   -1  'True
       WindowShowRefreshBtn=   -1  'True
-   End
-   Begin ComctlLib.ProgressBar ProgressBar1 
-      Align           =   2  'Align Bottom
-      Height          =   390
-      Left            =   0
-      TabIndex        =   45
-      Top             =   7530
-      Width           =   11400
-      _ExtentX        =   20108
-      _ExtentY        =   688
-      _Version        =   327682
-      Appearance      =   1
    End
    Begin VB.Label Label1 
       Alignment       =   2  'Center

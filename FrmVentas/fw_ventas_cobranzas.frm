@@ -24,11 +24,11 @@ Begin VB.Form fw_ventas_cobranzas
       BackColor       =   &H00808080&
       FillColor       =   &H00FFFFFF&
       Height          =   2145
-      Left            =   3480
+      Left            =   3600
       ScaleHeight     =   2085
       ScaleWidth      =   12435
       TabIndex        =   88
-      Top             =   2520
+      Top             =   3840
       Visible         =   0   'False
       Width           =   12495
       Begin MSDataListLib.DataCombo DctOrigina18 
@@ -518,7 +518,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   129302529
+            Format          =   118292481
             CurrentDate     =   44177
          End
          Begin VB.TextBox Txt_docnro 
@@ -635,7 +635,7 @@ Begin VB.Form fw_ventas_cobranzas
             _ExtentY        =   529
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   129302529
+            Format          =   118292481
             CurrentDate     =   44652
          End
          Begin MSDataListLib.DataCombo dtc_cta2 
@@ -702,7 +702,7 @@ Begin VB.Form fw_ventas_cobranzas
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   129302529
+            Format          =   118292481
             CurrentDate     =   42963
          End
          Begin VB.Label LblCmpbteFecha 
@@ -4530,7 +4530,7 @@ Private Sub Ado_datos01_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, By
 '            DTPFechaProg1.backColor = &H404040       '&H80000013      'Fondo Oscuro
         End If
         If (Ado_datos01.Recordset("estado_codigo") = "REG") Then          'REG
-            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "FCABRERA" Or glusuario = "TCASTILLO" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "CPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "KGARCIA" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Or glusuario = "CSALINAS" Then
+            If glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "SQUISPE" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "FCABRERA" Or glusuario = "TCASTILLO" Or glusuario = "FDELGADILLO" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "EVILLALOBOS" Or glusuario = "LVEDIA" Or glusuario = "PMAJLUF" Or glusuario = "CPAREDES" Or glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "KGARCIA" Or glusuario = "GMORA" Or glusuario = "PMAJLUF" Then 'Or glusuario = "CSALINAS" Then
                 BtnAprobar.Visible = True
             Else
                 BtnAprobar.Visible = False
@@ -5034,7 +5034,7 @@ Private Sub BtnAprobar1_Click()
          'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
          If (Ado_datos02.Recordset!trans_codigo = "F" Or Ado_datos02.Recordset!trans_codigo = "T" Or Ado_datos02.Recordset!trans_codigo = "O") Then
             If CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
-                If glusuario = "GSOLIZ" Or glusuario = "ADMIN" Then
+                If glusuario = "GSOLIZ" Or glusuario = "ADMIN" Or glusuario = "APALACIOS" Then
                     MsgBox "La cobranza tiene una fecha de Comprobante menor al 31-DICIEMBRE-2022, Usted tiene autorización para este registro ... ", , "Atención"
                 Else
                     MsgBox "No se puede VERIFICAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
@@ -5564,7 +5564,7 @@ Private Sub valida_campos()
     'REGISTROS CERRADOS QUE NO SE PUEDEN APROBAR
      If (DataCombo9.Text = "F" Or DataCombo9.Text = "T" Or DataCombo9.Text = "O") Then
         If CDate(DTPFechaCmpbte.Value) <= CDate("31/12/2022") Then
-            If glusuario = "APALACIOS" Or glusuario = "ADMIN" Or glusuario = "GSOLIZ" Then
+            If glusuario = "APALACIOS" Or glusuario = "ADMIN" Or glusuario = "GSOLIZ" Or glusuario = "ASANTIVAÑEZ" Then
                 MsgBox "La fecha de Comprobante es menor al 31-DICIEMBRE-2022, solo se realiza con Autorizacion, consulte con Contabilidad ... ", , "Atención"
             Else
                 MsgBox "No se puede GRABAR una cobranza con fecha de Comprobante menor al 31-DICIEMBRE-2022, porque se encuentra CERRADA, consulte con Contabilidad ... ", , "Atención"
@@ -5754,12 +5754,7 @@ Private Sub BtnGrabar1_Click()
         'Para CONTROL de Recibos provisional hasta que se habilite Dosificacion
         Set rs_aux8 = New ADODB.Recordset
         If rs_aux8.State = 1 Then rs_aux8.Close
-        If (Ado_datos01.Recordset!doc_codigo_fac = "R-101") Then
-            rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
-            'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-393') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
-            Autorizacion = 0
-            Txt_docnro.Enabled = True
-        Else
+        If rs_datos01!unidad_codigo = "DVTA" Or rs_datos01!unidad_codigo = "DCOMS" Or rs_datos01!unidad_codigo = "DCOMB" Or rs_datos01!unidad_codigo = "DCOMC" Or rs_datos01!unidad_codigo = "DCOMT" Then
             rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-209') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
             'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
             If rs_aux8.RecordCount > 0 Then
@@ -5784,7 +5779,42 @@ Private Sub BtnGrabar1_Click()
                 Autorizacion = 0
                 Txt_docnro.Enabled = True
             End If
+        Else
+            rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
+            Autorizacion = 0
+            Txt_docnro.Enabled = True
         End If
+'        If (Ado_datos01.Recordset!doc_codigo_fac = "R-101" Or Ado_datos01.Recordset!doc_codigo_fac = "R-100") Then
+'            rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
+'            'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-393') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
+'            Autorizacion = 0
+'            Txt_docnro.Enabled = True
+'        Else
+'            rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-209') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
+'            'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
+'            If rs_aux8.RecordCount > 0 Then
+'                AutorizacionRbo = rs_aux8!dosifica_autorizacion
+'                VAR_FECHA2 = Format(rs_aux8!dosifica_fecha_ini, "dd/mm/yyyy")
+'                VAR_TIPOT = rs_aux8!dgral_codigo
+'                If CDate(DTPicker1.Value) >= CDate(VAR_FECHA2) Then
+'                    Autorizacion = rs_aux8!dosifica_autorizacion
+'                    If swnuevo = 1 Then
+'                        VAR_COD1 = CDbl(rs_aux8!CORREL) + 1
+'                        rs_aux8!CORREL = VAR_COD1
+'                        rs_aux8.Update
+'                        Txt_docnro.Enabled = True
+'                        Txt_docnro.Text = VAR_COD1
+'                    End If
+'                    Txt_docnro.Enabled = False
+'                Else
+'                    Autorizacion = 0
+'                    Txt_docnro.Enabled = True
+'                End If
+'            Else
+'                Autorizacion = 0
+'                Txt_docnro.Enabled = True
+'            End If
+'        End If
         'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
         If swnuevo = 1 Then
             correldet = Ado_datos02.Recordset.RecordCount
@@ -6924,7 +6954,7 @@ Private Sub BtnModificar1_Click()
     If SW_MODIF = "MOD" Then
     'If glusuario = "APALACIOS" Or glusuario = "EMACHICADO" Or glusuario = "IRAMOS" Or glusuario = "ADMIN" Or glusuario = "VPAREDES" Or glusuario = "KGARCIA" Or glusuario = "FCABRERA" Or glusuario = "GSOLIZ" Or glusuario = "VPEÑA" Or glusuario = "SQUISPE" Or glusuario = "FDELGADILLO" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "BMONTAÑO" Or glusuario = "MVALDIVIA" Or glusuario = "SPAREDES" Or glusuario = "GPALLY" Or glusuario = "MMENACHO" Or glusuario = "RCUELA" Or glusuario = "BCASTRO" Or glusuario = "CESCALANTE" Or glusuario = "EVILLALOBOS" Or glusuario = "FFLORES" Or glusuario = "PRODAS" Or glusuario = "DPANIAGUA" Or glusuario = "MARTEAGA" Or glusuario = "RROMERO" Or glusuario = "CORTEGA" Or glusuario = "JHERESI" Or glusuario = "DTERCEROS" Or glusuario = "CPLATA" Or glusuario = "MARTEAGA" Or glusuario = "EVILLALOBOS" Or glusuario = "TCASTILLO" Or glusuario = "HMARIN" Or glusuario = "CURDININEA" Or glusuario = "ULEDESMA" Or glusuario = "AACOSTA" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Then
       If Ado_datos02.Recordset.RecordCount > 0 Then
-        If (Ado_datos02.Recordset!estado_codigo_bco = "REG") Or ((Ado_datos02.Recordset!estado_codigo_bco = "APR" And Ado_datos02.Recordset!estado_codigo = "REG") And (glusuario = "RVALDIVIEZO" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "ASANTIVAÑEZ" Or glusuario = "RPRIETO" Or glusuario = "PMAJLUF")) Or (SWCOBRO = 1) Or (glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "CSALINAS") Then
+        If (Ado_datos02.Recordset!estado_codigo_bco = "REG") Or ((Ado_datos02.Recordset!estado_codigo_bco = "APR" And Ado_datos02.Recordset!estado_codigo = "REG") And (glusuario = "RVALDIVIEZO" Or glusuario = "FDELGADILLO" Or glusuario = "ADMIN" Or glusuario = "HMARIN" Or glusuario = "RCUELA" Or glusuario = "GSOLIZ" Or glusuario = "MARTEAGA" Or glusuario = "ULEDESMA" Or glusuario = "CPAREDES" Or glusuario = "RGIL" Or glusuario = "LMORALES" Or glusuario = "GMORA" Or glusuario = "RPRIETO" Or glusuario = "PMAJLUF")) Or (SWCOBRO = 1) Or (glusuario = "APALACIOS" Or glusuario = "JCASTRO" Or glusuario = "ASANTIVAÑEZ") Then
           'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
           swnuevo = 2
           FrmCobros.Visible = True
@@ -9647,18 +9677,7 @@ Private Sub DTPicker1_LostFocus()
     'Para CONTROL de Recibos    HASTA QUE SE HABILITE LA DOSIFICACION
     Set rs_aux8 = New ADODB.Recordset
     If rs_aux8.State = 1 Then rs_aux8.Close
-    If (Ado_datos01.Recordset!doc_codigo_fac = "R-101") Then
-        rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
-        'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-393') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
-        Autorizacion = 0
-        Txt_docnro.Enabled = True
-        If rs_datos01!unidad_codigo = "" Then
-        Else
-        End If
-        If DataCombo9.Text = "E" Then
-            DTPFechaCmpbte.Value = DTPicker1.Value
-        End If
-    Else
+    If rs_datos01!unidad_codigo = "DVTA" Or rs_datos01!unidad_codigo = "DCOMS" Or rs_datos01!unidad_codigo = "DCOMB" Or rs_datos01!unidad_codigo = "DCOMC" Or rs_datos01!unidad_codigo = "DCOMT" Then
         rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-209') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
         'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
         If rs_aux8.RecordCount > 0 Then
@@ -9676,7 +9695,46 @@ Private Sub DTPicker1_LostFocus()
             Autorizacion = 0
             Txt_docnro.Enabled = True
         End If
+    Else
+        rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
+        Autorizacion = 0
+        Txt_docnro.Enabled = True
+        If DataCombo9.Text = "E" Then
+            DTPFechaCmpbte.Value = DTPicker1.Value
+        End If
     End If
+    
+'   If (Ado_datos01.Recordset!doc_codigo_fac = "R-101") Then
+'    'If (Ado_datos01.Recordset!doc_codigo_fac = "R-101" Or Ado_datos01.Recordset!doc_codigo_fac = "R-100") Then
+'        rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
+'        'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-393') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
+'        Autorizacion = 0
+'        Txt_docnro.Enabled = True
+'        If rs_datos01!unidad_codigo = "" Then
+'        Else
+'        End If
+'        If DataCombo9.Text = "E" Then
+'            DTPFechaCmpbte.Value = DTPicker1.Value
+'        End If
+'    Else
+'        rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-209') AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '4792382' ", db, adOpenDynamic, adLockOptimistic
+'        'rs_aux8.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' ) AND estado_codigo = 'APR' AND beneficiario_codigo_resp = '" & Ado_datos01.Recordset!beneficiario_codigo_resp & "' ", db, adOpenDynamic, adLockOptimistic
+'        If rs_aux8.RecordCount > 0 Then
+'            AutorizacionRbo = rs_aux8!dosifica_autorizacion
+'            VAR_FECHA2 = Format(rs_aux8!dosifica_fecha_ini, "dd/mm/yyyy")
+'            VAR_TIPOT = rs_aux8!dgral_codigo
+'            If CDate(DTPicker1.Value) >= CDate(VAR_FECHA2) Then
+'                Autorizacion = 1
+'                Txt_docnro.Enabled = False
+'            Else
+'                Autorizacion = 0
+'                Txt_docnro.Enabled = True
+'            End If
+'        Else
+'            Autorizacion = 0
+'            Txt_docnro.Enabled = True
+'        End If
+'    End If
     
 'PENDIENTE HASTA QUE SE GENERE DOSIFICACIONES
 '    Set rs_aux8 = New ADODB.Recordset
@@ -9705,53 +9763,6 @@ Private Sub DTPicker1_LostFocus()
 '        Txt_docnro.Enabled = True
 '    End If
                     
-'BORRAR
-'    If (Ado_datos01.Recordset!doc_codigo_fac <> "R-101") Then
-'        If (Ado_datos01.Recordset!doc_codigo_fac = "R-393") Then      'And CDate(DTPicker1.Value) >= CDate(VAR_FECHA2)
-'            VAR_FECHA2 = Format("04/06/2021", "dd/mm/yyyy")
-'            Select Case glusuario
-'                Case "RVALDIVIEZO"
-'                    VAR_TIPOT = 9
-'                Case "CPAREDES"
-'                    VAR_TIPOT = 10
-'                Case "FDELGADILLO"
-'                    VAR_TIPOT = 11
-'                Case Else
-'                    VAR_TIPOT = 9
-'            End Select
-'        End If
-'        If (Ado_datos01.Recordset!doc_codigo_fac = "R-103") Then      'And CDate(DTPicker1.Value) >= CDate(VAR_FECHA2)
-'            VAR_FECHA2 = Format("23/06/2021", "dd/mm/yyyy")
-'            VAR_TIPOT = 3
-'        End If
-'        If swnuevo = 1 Then
-'            '===== ini GENERA EL CODIGO DE RECIBO  ====
-'            Set rs_aux1 = New ADODB.Recordset
-'            rs_aux1.CursorLocation = adUseClient
-'            If rs_aux1.State = 1 Then rs_aux1.Close
-'            rs_aux1.Open "select * from fc_dosificacion_docs where (doc_codigo = 'R-103' OR doc_codigo = 'R-393') AND estado_codigo = 'APR' AND dgral_codigo= " & VAR_TIPOT & " ", db, adOpenDynamic, adLockOptimistic
-'            If rs_aux1.RecordCount > 0 Then
-'                If Date > rs_aux1!dosifica_fecha_limite Then
-'                    MsgBox "No se puede EMITIR mas Facturas, la fecha límite de emisión EXPIRÓ, debe realizar una nueva Dosificación ... ", , "Atención"
-'                    Exit Sub
-'                End If
-'                Autorizacion = rs_aux1!dosifica_autorizacion
-'                'VAR_COD1 = CDbl(rs_aux1!CORREL) + 1
-'
-'            Else
-'                Autorizacion = 1
-'            End If
-'            'Txt_docnro.Text = VAR_COD1
-'            'Txt_deposito.Text = Autorizacion
-'        End If
-'        'Autorizacion = 1
-'        Txt_docnro.Enabled = False
-'        'Txt_deposito.Enabled = False
-'    Else
-'        Autorizacion = 0
-'        Txt_docnro.Enabled = True
-'        'Txt_deposito.Enabled = True
-'    End If
 End Sub
 
 Private Sub Form_Load()
@@ -10140,14 +10151,15 @@ Private Sub OptFilGral05_Click()
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') "
-        Case "SQUISPE", "ASANTIVAÑEZ", "RCUELA", "RVALDIVIEZO"
+        Case "SQUISPE", "RCUELA", "RVALDIVIEZO", "APALACIOS"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False
             queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') "
-        Case "APALACIOS"
+        Case "ASANTIVAÑEZ"
             BtnAprobar.Visible = True
             BtnModificar.Visible = True
-            queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '1' or depto_codigo = '2' OR depto_codigo = '5' or depto_codigo = '6' OR depto_codigo = '8' or depto_codigo = '9') "
+            queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '4' or depto_codigo = '3' ) "
+            'queryinicial = "select * From av_venta_cobranza_REG where (doc_codigo_fac = 'R-101') AND (depto_codigo = '1' or depto_codigo = '2' OR depto_codigo = '5' or depto_codigo = '6' OR depto_codigo = '8' or depto_codigo = '9') "
         Case "JCASTRO"
             BtnAprobar.Visible = True
             BtnModificar.Visible = False

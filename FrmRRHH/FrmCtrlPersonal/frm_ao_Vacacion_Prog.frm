@@ -265,7 +265,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678593
+         Format          =   112132097
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -280,7 +280,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678593
+         Format          =   112132097
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -295,7 +295,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678594
+         Format          =   112132098
          CurrentDate     =   0.333333333333333
          MinDate         =   4.16666666666667E-02
       End
@@ -310,7 +310,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678593
+         Format          =   112132097
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -325,7 +325,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678594
+         Format          =   112132098
          CurrentDate     =   0.770833333333333
          MaxDate         =   0.999305555555556
          MinDate         =   4.16666666666667E-02
@@ -341,7 +341,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678593
+         Format          =   112132097
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -389,7 +389,7 @@ Begin VB.Form frm_ao_Vacacion_Prog
          _ExtentY        =   556
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   45678594
+         Format          =   112132098
          CurrentDate     =   0.967326388888889
          MaxDate         =   0.999988425925926
          MinDate         =   4.16666666666667E-02
@@ -781,7 +781,7 @@ Private Sub cmdOk_Click()
 
 'sino = MsgBox("¿Desea que el sistema genere autamaticamente Las planillas?", vbYesNo + vbQuestion, "Atención")
 '    If sino = vbYes Then
-Select Case txt01.Text
+Select Case Txt01.Text
     Case "ENERO"
         txt_num_mes.Text = "1"
     Case "FEBRERO"
@@ -807,7 +807,7 @@ Select Case txt01.Text
     Case "DICIEMBRE"
         txt_num_mes.Text = "12"
     Case Else
-        MsgBox ("EL MES" & txt01.Text & " no existe")
+        MsgBox ("EL MES" & Txt01.Text & " no existe")
     Exit Sub
 End Select
 
@@ -815,20 +815,20 @@ If sel = 1 Then
         
        If rs_aux6.State = 1 Then rs_aux6.Close
        rs_aux6.Open "SELECT * FROM ro_personal_contratado WHERE estado_codigo <> 'ANL' AND beneficiario_codigo = '" & txtBenef.Text & "' and codigo_empresa = '" & txt_empresa.Text & "'", db, adOpenStatic
-       rw_ficha_rrhh.ProgressBar1.Visible = True
+       'rw_ficha_rrhh.ProgressBar1.Visible = True
        If rs_aux6.RecordCount = 0 Then
        sino = MsgBox("Existe un error con esta persona, no deberia estar en la lista", vbCritical, "Error")
        Exit Sub
        End If
-       With rw_ficha_rrhh.ProgressBar1
-        .Max = rs_aux6.RecordCount
-        .Min = 0
-        .Value = 0
-       End With
+'       With rw_ficha_rrhh.ProgressBar1
+'        .Max = rs_aux6.RecordCount
+'        .Min = 0
+'        .Value = 0
+'       End With
       'ProgressBar1.Max =
-       rw_ficha_rrhh.ProgressBar1.Value = rw_ficha_rrhh.ProgressBar1.Value + 1
+'       rw_ficha_rrhh.ProgressBar1.Value = rw_ficha_rrhh.ProgressBar1.Value + 1
        If rs_aux5.State = 1 Then rs_aux5.Close
-       rs_aux5.Open "select * from ro_vacaciones_programadas where ges_gestion = '" & TxtGestion.Text & "' AND beneficiario_codigo = '" & txtBenef.Text & "' and codigo_empresa = " & txt_empresa.Text & "", db, adOpenKeyset, adLockOptimistic, adCmdText
+       rs_aux5.Open "select * from ro_vacaciones_programadas where ges_gestion = '" & txtGestion.Text & "' AND beneficiario_codigo = '" & txtBenef.Text & "' and codigo_empresa = " & txt_empresa.Text & "", db, adOpenKeyset, adLockOptimistic, adCmdText
        VAR_GES = DateDiff("yyyy", rs_aux6!fecha_ingreso, Date)
        DIA_IN = Day(rs_aux6!fecha_ingreso)
        MES_IN = Month(rs_aux6!fecha_ingreso)
@@ -855,8 +855,8 @@ If sel = 1 Then
       
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset.AddNew
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset("beneficiario_codigo").Value = txtBenef.Text
-        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("ges_gestion").Value = TxtGestion.Text
-        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("mes_control") = txt01.Text
+        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("ges_gestion").Value = txtGestion.Text
+        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("mes_control") = Txt01.Text
         
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset("fecha_ini_Prog").Value = "01/01/" & Year(Date)
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset("fecha_fin_Prog").Value = "01/" & Txt02.Text & "/" & Year(Date)
@@ -896,32 +896,32 @@ If sel = 1 Then
        Else
        
         If rw_ficha_rrhh.Ado_VacacionesProg.Recordset("estado_codigo") = "REG" Or glusuario = "VPAREDES" Then
-            db.Execute "UPDATE ro_vacaciones_programadas SET dias_Programados = " & txt_dias_vac.Text & " , Dias_Pendientes = " & Val(txt_dias_vac.Text) - rs_aux5!dias_utilizados & ", Mes_control = '" & txt01.Text & "' where beneficiario_codigo = '" & txtBenef.Text & "' and ges_gestion = '" & TxtGestion.Text & "'"
+            db.Execute "UPDATE ro_vacaciones_programadas SET dias_Programados = " & txt_dias_vac.Text & " , Dias_Pendientes = " & Val(txt_dias_vac.Text) - rs_aux5!dias_utilizados & ", Mes_control = '" & Txt01.Text & "' where beneficiario_codigo = '" & txtBenef.Text & "' and ges_gestion = '" & txtGestion.Text & "'"
         End If
        
        End If
 
-   rw_ficha_rrhh.ProgressBar1.Visible = False
+'   rw_ficha_rrhh.ProgressBar1.Visible = False
    Para_Aceptado = "S"
    rw_ficha_rrhh.opciones
    Call rw_ficha_rrhh.abrirtabla
    Unload Me
 Else
-       rw_ficha_rrhh.ProgressBar1.Visible = True
+'       rw_ficha_rrhh.ProgressBar1.Visible = True
        If rs_aux6.State = 1 Then rs_aux6.Close
        rs_aux6.Open "SELECT * FROM ro_personal_contratado WHERE estado_codigo <> 'ANL' and codigo_empresa = " & txt_empresa.Text & ", db, adOpenStatic 'order by beneficiario_denominacion"
       'rs_aux6.Open "SELECT * FROM av_ro_peronal_vs_gc_beneficiario  WHERE unidad_codigo = '" & rs_datos1!unidad_codigo_pla & "' AND estado_codigo = 'APR' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic
        rs_aux6.MoveFirst
-       With rw_ficha_rrhh.ProgressBar1
-        .Max = rs_aux6.RecordCount
-        .Min = 0
-        .Value = 0
-       End With
+'       With rw_ficha_rrhh.ProgressBar1
+'        .Max = rs_aux6.RecordCount
+'        .Min = 0
+'        .Value = 0
+'       End With
       'ProgressBar1.Max =
        While Not rs_aux6.EOF
-       rw_ficha_rrhh.ProgressBar1.Value = rw_ficha_rrhh.ProgressBar1.Value + 1
+'       rw_ficha_rrhh.ProgressBar1.Value = rw_ficha_rrhh.ProgressBar1.Value + 1
        If rs_aux5.State = 1 Then rs_aux5.Close
-       rs_aux5.Open "select * from ro_vacaciones_programadas where ges_gestion = '" & TxtGestion.Text & "' AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' and codigo_empresa = " & txt_empresa.Text & ", db, adOpenKeyset, adLockOptimistic, adCmdText"
+       rs_aux5.Open "select * from ro_vacaciones_programadas where ges_gestion = '" & txtGestion.Text & "' AND beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' and codigo_empresa = " & txt_empresa.Text & ", db, adOpenKeyset, adLockOptimistic, adCmdText"
         VAR_GES = DateDiff("yyyy", rs_aux6!fecha_ingreso, Date)
        DIA_IN = Day(rs_aux6!fecha_ingreso)
        MES_IN = Month(rs_aux6!fecha_ingreso)
@@ -943,8 +943,8 @@ Else
       
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset.AddNew
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset("beneficiario_codigo").Value = rs_aux6!beneficiario_codigo
-        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("ges_gestion").Value = TxtGestion.Text
-        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("mes_control") = txt01.Text
+        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("ges_gestion").Value = txtGestion.Text
+        rw_ficha_rrhh.Ado_VacacionesProg.Recordset("mes_control") = Txt01.Text
         
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset("fecha_ini_Prog").Value = "01/01/" & Year(Date)
         rw_ficha_rrhh.Ado_VacacionesProg.Recordset("fecha_fin_Prog").Value = "01/" & Txt02.Text & "/" & Year(Date)
@@ -979,13 +979,13 @@ Else
       
        Else
         If rw_ficha_rrhh.Ado_VacacionesProg.Recordset("estado_codigo") = "REG" Or glusuario = "VPAREDES" Then
-            db.Execute "UPDATE ro_vacaciones_programadas SET dias_Programados = " & txt_dias_vac.Text & ", Dias_Pendientes = " & Val(txt_dias_vac.Text) - rs_aux5!dias_utilizados & " , mes_control = '" & txt01.Text & "' where beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' and ges_gestion = '" & TxtGestion.Text & "'  and codigo_empresa = " & txt_empresa.Text & ""
+            db.Execute "UPDATE ro_vacaciones_programadas SET dias_Programados = " & txt_dias_vac.Text & ", Dias_Pendientes = " & Val(txt_dias_vac.Text) - rs_aux5!dias_utilizados & " , mes_control = '" & Txt01.Text & "' where beneficiario_codigo = '" & rs_aux6!beneficiario_codigo & "' and ges_gestion = '" & txtGestion.Text & "'  and codigo_empresa = " & txt_empresa.Text & ""
         End If
        End If
        rs_aux6.MoveNext
       Wend
  
-   rw_ficha_rrhh.ProgressBar1.Visible = False
+'   rw_ficha_rrhh.ProgressBar1.Visible = False
    Para_Aceptado = "S"
    rw_ficha_rrhh.opciones
    Call rw_ficha_rrhh.abrirtabla
@@ -1005,7 +1005,7 @@ ValidaMontos = True
 '    Me.mskMonto.SelLength = Len(Me.mskMonto)
 '    Me.mskMonto.SetFocus
 'End If
-    If txt01 = "" Then
+    If Txt01 = "" Then
         ValidaMontos = False
     End If
     If Txt02 = "" Then
@@ -1083,7 +1083,7 @@ End Sub
 Private Sub Form_Load()
 txt03.Value = Date
 txt04.Value = Date
-txt01.Text = UCase(MonthName(Month(Date)))
+Txt01.Text = UCase(MonthName(Month(Date)))
 DtcFec_Fin.Value = Date
 If glProceso = "CONSULTORIA" Then
     Me.Caption = "Consultoría - Captura de datos personales"
@@ -1130,7 +1130,7 @@ Dim XAbe As Double, XAde As Double, XAbn As Double, XAdn As Double
     
 
 'mskMonto.SetFocus
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 'Private Sub mskMonto_KeyPress(KeyAscii As Integer)

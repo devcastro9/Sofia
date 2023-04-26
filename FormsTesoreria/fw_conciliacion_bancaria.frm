@@ -5,7 +5,6 @@ Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form fw_conciliacion_bancaria 
    BackColor       =   &H00C0C0C0&
    Caption         =   "Financiero - Tesorer�a - Conciliaci�n Bancaria"
@@ -17,8 +16,8 @@ Begin VB.Form fw_conciliacion_bancaria
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   8790
-   ScaleWidth      =   14835
+   ScaleHeight     =   10935
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
    Begin VB.Frame FraBusca4 
       BackColor       =   &H00C0C0C0&
@@ -120,7 +119,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   119668737
          CurrentDate     =   42880
       End
       Begin VB.Label Label8 
@@ -266,7 +265,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2831
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   119668737
          CurrentDate     =   44457
       End
       Begin MSComCtl2.DTPicker DTP_Ffin 
@@ -280,7 +279,7 @@ Begin VB.Form fw_conciliacion_bancaria
          _ExtentX        =   2619
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   114622465
+         Format          =   119668737
          CurrentDate     =   42880
       End
       Begin VB.Label Label2 
@@ -367,14 +366,22 @@ Begin VB.Form fw_conciliacion_bancaria
       TabCaption(1)   =   "CONCILIACION BANCARIA"
       TabPicture(1)   =   "fw_conciliacion_bancaria.frx":2D5E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "BtnImprimir2"
-      Tab(1).Control(1)=   "BtnBuscar2"
-      Tab(1).Control(2)=   "BtnBuscar3"
-      Tab(1).Control(3)=   "Frame3"
-      Tab(1).Control(4)=   "FrmDetalle"
-      Tab(1).Control(5)=   "Frame2"
-      Tab(1).Control(6)=   "FrmDetalle2"
-      Tab(1).Control(7)=   "FrmABMDet"
+      Tab(1).Control(0)=   "FrmABMDet"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "FrmDetalle2"
+      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(2)=   "Frame2"
+      Tab(1).Control(2).Enabled=   0   'False
+      Tab(1).Control(3)=   "FrmDetalle"
+      Tab(1).Control(3).Enabled=   0   'False
+      Tab(1).Control(4)=   "Frame3"
+      Tab(1).Control(4).Enabled=   0   'False
+      Tab(1).Control(5)=   "BtnBuscar3"
+      Tab(1).Control(5).Enabled=   0   'False
+      Tab(1).Control(6)=   "BtnBuscar2"
+      Tab(1).Control(6).Enabled=   0   'False
+      Tab(1).Control(7)=   "BtnImprimir2"
+      Tab(1).Control(7).Enabled=   0   'False
       Tab(1).ControlCount=   8
       Begin VB.PictureBox BtnImprimir2 
          Appearance      =   0  'Flat
@@ -385,7 +392,7 @@ Begin VB.Form fw_conciliacion_bancaria
          Picture         =   "fw_conciliacion_bancaria.frx":2D7A
          ScaleHeight     =   585
          ScaleWidth      =   1395
-         TabIndex        =   102
+         TabIndex        =   18
          ToolTipText     =   "Busca Registros CONCILIADOS"
          Top             =   7800
          Width           =   1390
@@ -2065,7 +2072,7 @@ Begin VB.Form fw_conciliacion_bancaria
       End
       Begin VB.Frame Frame1 
          BackColor       =   &H00C0C0C0&
-         Caption         =   "Borrar registro de Facturación Electrónica"
+         Caption         =   "Borrar registro de Facturacion Electronica"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -2328,7 +2335,7 @@ Begin VB.Form fw_conciliacion_bancaria
          End
          Begin VB.Label Label32 
             BackColor       =   &H00C0C0C0&
-            Caption         =   "GESTIÓN"
+            Caption         =   "GESTION"
             ForeColor       =   &H00000000&
             Height          =   255
             Left            =   1080
@@ -2481,7 +2488,7 @@ Begin VB.Form fw_conciliacion_bancaria
          Width           =   5805
          Begin VB.OptionButton rbtDia 
             BackColor       =   &H00C0C0C0&
-            Caption         =   "Por día"
+            Caption         =   "Por dia"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   9.75
@@ -2577,17 +2584,6 @@ Begin VB.Form fw_conciliacion_bancaria
             Top             =   1800
             Width           =   1095
          End
-         Begin ComctlLib.ProgressBar ProgressBar1 
-            Height          =   375
-            Left            =   120
-            TabIndex        =   18
-            Top             =   6840
-            Width           =   5535
-            _ExtentX        =   9763
-            _ExtentY        =   661
-            _Version        =   327682
-            Appearance      =   1
-         End
          Begin MSComCtl2.DTPicker dtpFecha 
             Height          =   285
             Left            =   360
@@ -2598,7 +2594,7 @@ Begin VB.Form fw_conciliacion_bancaria
             _ExtentX        =   3625
             _ExtentY        =   503
             _Version        =   393216
-            Format          =   114622465
+            Format          =   119668737
             CurrentDate     =   42570
          End
          Begin VB.Label lbl_inicial 
@@ -2672,7 +2668,7 @@ Begin VB.Form fw_conciliacion_bancaria
             AutoSize        =   -1  'True
             BackColor       =   &H00C0C0C0&
             BackStyle       =   0  'Transparent
-            Caption         =   "Equipo Biométrico"
+            Caption         =   "Equipo Biometrico"
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   9.75
@@ -2689,7 +2685,7 @@ Begin VB.Form fw_conciliacion_bancaria
             TabIndex        =   28
             Top             =   2160
             Visible         =   0   'False
-            Width           =   1905
+            Width           =   1920
          End
          Begin VB.Label LblTime 
             BackColor       =   &H00C0C0C0&
@@ -2869,10 +2865,10 @@ Begin VB.Form fw_conciliacion_bancaria
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   14835
+      ScaleWidth      =   20250
       TabIndex        =   0
-      Top             =   8790
-      Width           =   14835
+      Top             =   10935
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545

@@ -1,10 +1,9 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.Form rw_importar_registro_asistencia 
    BackColor       =   &H00000000&
    Caption         =   "Reportes RRHH"
@@ -782,17 +781,6 @@ Begin VB.Form rw_importar_registro_asistencia
       TabIndex        =   6
       Top             =   720
       Width           =   5805
-      Begin ComctlLib.ProgressBar ProgressBar1 
-         Height          =   375
-         Left            =   0
-         TabIndex        =   57
-         Top             =   6840
-         Width           =   5775
-         _ExtentX        =   10186
-         _ExtentY        =   661
-         _Version        =   327682
-         Appearance      =   1
-      End
       Begin VB.ComboBox cmb_gestion_rep 
          Height          =   315
          ItemData        =   "rw_importar_registro_asistencia.frx":74C5
@@ -881,7 +869,7 @@ Begin VB.Form rw_importar_registro_asistencia
          _ExtentX        =   3625
          _ExtentY        =   503
          _Version        =   393216
-         Format          =   126550017
+         Format          =   119668737
          CurrentDate     =   42570
       End
       Begin VB.CommandButton btnImportarDato 
@@ -1223,12 +1211,12 @@ Private Sub Form_Load()
     rs_aux7.Open "SELECT * FROM rc_planilla_grupo", db, adOpenStatic
     Set Ado_datos_rep.Recordset = rs_aux7
     dtc_rep_det.BoundText = dtc_rep_cod.BoundText
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub BtnAñadir_Click()
     Call limpiar
-    LblMensaje.Visible = False
+    lblMensaje.Visible = False
     Fra_ABM.Enabled = True
     btnImportarDato.Visible = False
     Image1.Visible = True
@@ -1243,7 +1231,7 @@ Mensaje = ""
     btnImportarDato.Enabled = False
     cmb_departamento = ""
     cmb_equipo = ""
-    dtpFecha.Value = Date
+    DtpFecha.Value = Date
     
 End Sub
 
@@ -1251,7 +1239,7 @@ Private Sub btnCargarArchivo_Click()
 
     Dim rutaArchivo As String
     rutaArchivo = App.Path & "\ASISTENCIA\"
-    LblMensaje.Visible = False
+    lblMensaje.Visible = False
     Dim existeRuta As Boolean
     Dim oDir As New Scripting.FileSystemObject
     existeRuta = oDir.FolderExists(rutaArchivo)
@@ -1280,13 +1268,13 @@ If rbtMes.Value = True Then
 sino = MsgBox("¿Esta seguro de subir la asistencia del MES con los siguientes datos?" & vbCrLf & "Gestion: " & cmb_gestion_rep.Text & vbCrLf & "Mes:" & cmb_mes_ini.Text & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
 End If
 If rbtDia(0).Value = True Then
-sino = MsgBox("¿Esta seguro de subir la asistencia de un DÍA con los siguientes datos?" & vbCrLf & "Fecha:" & dtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
+sino = MsgBox("¿Esta seguro de subir la asistencia de un DÍA con los siguientes datos?" & vbCrLf & "Fecha:" & DtpFecha.Value & vbCrLf & "Equipo Biométrico: " & cmb_equipo.Text & vbCrLf & "Departamento: " & cmb_departamento.Text, vbYesNo + vbQuestion, "Atención")
 End If
 If sino = vbYes Then
         GLCarpeta = ""
         Dim dia As String, mes As String
         
-        Fecha = dtpFecha.Value
+        Fecha = DtpFecha.Value
         Call ObtenerDiaMes(DatePart("m", Fecha), mes)
         ' Tipo de exportación por mes o dia.
         If rbtMes.Value = True Then
@@ -1360,7 +1348,7 @@ End Sub
 Private Sub valida_campos(esValio)
   Dim inicial As Integer
   If rbtDia(0).Value = True Then
-  If dtpFecha.Value = "" Then
+  If DtpFecha.Value = "" Then
     MsgBox " El campo Fecha es requerido."
     esValio = False
   End If
@@ -1417,7 +1405,7 @@ End Sub
 Private Sub ImportarDato()
   On Error GoTo ErrorHandler
             
-        LblMensaje.Visible = True
+        lblMensaje.Visible = True
         MsgBox " Se inicia el proceso de importación de datos."
                 
         Dim conExcel As New ADODB.Connection
@@ -1631,7 +1619,7 @@ Private Sub ImportarDato()
                      ' Inserta registros.
                     db.Execute sql
               End If
-             LblMensaje.Visible = False
+             lblMensaje.Visible = False
              MsgBox "Los datos se registraron en la tabla oficial."
              
         Else
@@ -1643,7 +1631,7 @@ Private Sub ImportarDato()
            ' VERIFICA REGISTROS
 ErrorHandler:
     If Trim(Err.Description) <> "" Then
-       LblMensaje.Visible = False
+       lblMensaje.Visible = False
        MsgBox Err.Description, , "Error"
     End If
 End Sub
@@ -1730,7 +1718,7 @@ End Sub
 Private Sub rbtDia_Click(Index As Integer)
 If rbtDia(0).Value = True Then
 lbl_inicial(0).Visible = True
-dtpFecha.Visible = True
+DtpFecha.Visible = True
 lbl_inicial(1).Visible = False
 cmb_mes_ini.Visible = False
 cmb_gestion_rep.Visible = False
@@ -1742,7 +1730,7 @@ Private Sub rbtMes_Click()
 If rbtMes.Value = True Then
 
 lbl_inicial(0).Visible = False
-dtpFecha.Visible = False
+DtpFecha.Visible = False
 lbl_inicial(1).Visible = True
 cmb_mes_ini.Visible = True
 cmb_gestion_rep.Visible = True

@@ -274,7 +274,7 @@ Begin VB.Form fw_compras_fondos
          _ExtentY        =   529
          _Version        =   393216
          CheckBox        =   -1  'True
-         Format          =   135200769
+         Format          =   118292481
          CurrentDate     =   44934
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -6449,10 +6449,10 @@ On Error GoTo UpdateErr
     'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
     rsNada.Open "select * from gc_beneficiario where beneficiario_codigo =  'XX-1000000'", db, adOpenKeyset, adLockOptimistic, adCmdText
     sino = rsNada.RecordCount
-Exit Sub
+    Call SeguridadSet(Me)
+    Exit Sub
 UpdateErr:
   MsgBox Err.Description
-        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

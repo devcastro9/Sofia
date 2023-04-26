@@ -1073,7 +1073,7 @@ Begin VB.Form mw_ventas_cabecera
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   128319489
+            Format          =   110231553
             CurrentDate     =   44713
             MinDate         =   32874
          End
@@ -1381,7 +1381,7 @@ Begin VB.Form mw_ventas_cabecera
                Strikethrough   =   0   'False
             EndProperty
             CalendarBackColor=   16777215
-            Format          =   128319491
+            Format          =   110231555
             CurrentDate     =   44600
             MaxDate         =   109939
             MinDate         =   36526
@@ -2910,7 +2910,7 @@ Begin VB.Form mw_ventas_cabecera
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   128319489
+               Format          =   110231553
                CurrentDate     =   44228
                MinDate         =   32874
             End

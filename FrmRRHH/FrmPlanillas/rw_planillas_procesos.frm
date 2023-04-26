@@ -1,10 +1,9 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
 Begin VB.Form rw_planillas_procesos 
    BackColor       =   &H00C0C0C0&
    Caption         =   "RRHH - Proceso de Planillas"
@@ -16,8 +15,8 @@ Begin VB.Form rw_planillas_procesos
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   12915
-   ScaleWidth      =   21360
+   ScaleHeight     =   10935
+   ScaleWidth      =   11280
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame fra_generar 
@@ -170,7 +169,7 @@ Begin VB.Form rw_planillas_procesos
          _Version        =   393216
          CalendarTitleBackColor=   0
          CalendarTitleForeColor=   16776960
-         Format          =   110690305
+         Format          =   119668737
          CurrentDate     =   42570
       End
       Begin VB.TextBox txt_antecedente 
@@ -323,7 +322,7 @@ Begin VB.Form rw_planillas_procesos
          ForeColor       =   &H00000000&
          Height          =   285
          Left            =   3600
-         TabIndex        =   211
+         TabIndex        =   208
          Text            =   "0"
          Top             =   3600
          Width           =   1470
@@ -1186,7 +1185,7 @@ Begin VB.Form rw_planillas_procesos
          ForeColor       =   &H00000000&
          Height          =   255
          Left            =   3600
-         TabIndex        =   212
+         TabIndex        =   209
          Top             =   3360
          Width           =   1455
       End
@@ -2013,7 +2012,7 @@ Begin VB.Form rw_planillas_procesos
          _Version        =   393216
          CalendarTitleBackColor=   -2147483635
          CheckBox        =   -1  'True
-         Format          =   110690305
+         Format          =   119668737
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -2028,7 +2027,7 @@ Begin VB.Form rw_planillas_procesos
          _Version        =   393216
          CalendarTitleBackColor=   -2147483635
          CheckBox        =   -1  'True
-         Format          =   110690305
+         Format          =   119668737
          CurrentDate     =   40179
          MinDate         =   2
       End
@@ -2639,17 +2638,6 @@ Begin VB.Form rw_planillas_procesos
       TabIndex        =   34
       Top             =   720
       Width           =   5535
-      Begin ComctlLib.ProgressBar ProgressBar3 
-         Height          =   270
-         Left            =   120
-         TabIndex        =   209
-         Top             =   7080
-         Width           =   5175
-         _ExtentX        =   9128
-         _ExtentY        =   476
-         _Version        =   327682
-         Appearance      =   1
-      End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00FFFFFF&
          Caption         =   "Pendientes"
@@ -2894,17 +2882,6 @@ Begin VB.Form rw_planillas_procesos
       TabIndex        =   20
       Top             =   4200
       Width           =   10485
-      Begin ComctlLib.ProgressBar ProgressBar1 
-         Height          =   255
-         Left            =   120
-         TabIndex        =   208
-         Top             =   3960
-         Width           =   10215
-         _ExtentX        =   18018
-         _ExtentY        =   450
-         _Version        =   327682
-         Appearance      =   1
-      End
       Begin VB.PictureBox fra_opciones_det_2 
          BackColor       =   &H80000015&
          BorderStyle     =   0  'None
@@ -3679,17 +3656,6 @@ Begin VB.Form rw_planillas_procesos
       TabIndex        =   0
       Top             =   720
       Width           =   10485
-      Begin ComctlLib.ProgressBar ProgressBar2 
-         Height          =   270
-         Left            =   120
-         TabIndex        =   210
-         Top             =   3120
-         Width           =   10215
-         _ExtentX        =   18018
-         _ExtentY        =   476
-         _Version        =   327682
-         Appearance      =   1
-      End
       Begin VB.PictureBox fra_opciones_det_1 
          BackColor       =   &H80000015&
          BorderStyle     =   0  'None
@@ -6510,7 +6476,7 @@ Private Function ExisteReg(where As String, tabla As String) As Boolean
 End Function
 
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
 If Ado_datos.Recordset.RecordCount > 0 Then
 On Error GoTo UpdateErr
    If ExisteReg(" ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' AND planilla_codigo = '" & Ado_datos.Recordset!planilla_codigo & "' AND mes_grupo = " & Ado_datos.Recordset!mes_grupo, "ro_pagos_cronograma") Then
@@ -6934,7 +6900,7 @@ Select Case Pos
     Set rs_aux17 = New ADODB.Recordset
     If rs_aux17.State = 1 Then rs_aux17.Close
     rs_aux17.Open "select * from av_gc_beneficiario_vs_ro_pagos_cronograma_detalle where ges_gestion = '" & Ado_datos.Recordset!ges_gestion & "' AND planilla_codigo = '" & Ado_datos.Recordset!planilla_codigo & "' AND mes_grupo = " & Ado_datos.Recordset!mes_grupo & "order by beneficiario_denominacion asc", db, adOpenKeyset, adLockOptimistic, adCmdText
-    Set Ado_datos_busq.Recordset = rs_aux17
+    Set ado_datos_busq.Recordset = rs_aux17
     dtc_buscar_ci.BoundText = dtc_buscar_desc.BoundText
     If rs_aux17.RecordCount > 0 Then
     dtc_buscar_desc.Visible = True

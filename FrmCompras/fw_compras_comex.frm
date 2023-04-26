@@ -18,7 +18,7 @@ Begin VB.Form fw_compras_comex
    ScaleHeight     =   10935
    ScaleWidth      =   20250
    WindowState     =   2  'Maximized
-   Begin VB.PictureBox Picture1 
+   Begin VB.PictureBox FraAlmacen 
       BackColor       =   &H00808080&
       FillColor       =   &H00FFFFFF&
       Height          =   1300
@@ -57,8 +57,7 @@ Begin VB.Form fw_compras_comex
          Top             =   0
          Width           =   1395
       End
-      Begin MSComCtl2.DTPicker DTPicker1 
-         DataField       =   "compra_fecha"
+      Begin MSComCtl2.DTPicker DTPFechaIng2 
          Height          =   300
          Left            =   3000
          TabIndex        =   110
@@ -67,8 +66,8 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   111411201
-         CurrentDate     =   41678
+         Format          =   130613249
+         CurrentDate     =   44927
       End
       Begin VB.Label Label4 
          AutoSize        =   -1  'True
@@ -282,7 +281,7 @@ Begin VB.Form fw_compras_comex
       Height          =   5280
       Left            =   4320
       TabIndex        =   13
-      Top             =   2760
+      Top             =   5880
       Visible         =   0   'False
       Width           =   10335
       Begin VB.PictureBox Picture2 
@@ -496,7 +495,7 @@ Begin VB.Form fw_compras_comex
          _ExtentX        =   2566
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   111411201
+         Format          =   130613249
          CurrentDate     =   41678
       End
       Begin MSDataListLib.DataCombo dtc_desc10 
@@ -2472,9 +2471,9 @@ Begin VB.Form fw_compras_comex
             Width           =   1815
          End
       End
-      Begin VB.OptionButton Opt_CGE 
+      Begin VB.OptionButton Opt_AMT 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "CGE"
+         Caption         =   "AMT/QLD"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2484,13 +2483,12 @@ Begin VB.Form fw_compras_comex
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         ForeColor       =   &H00000040&
+         ForeColor       =   &H00004000&
          Height          =   210
-         Left            =   2160
+         Left            =   7560
          TabIndex        =   61
-         Top             =   3960
-         Visible         =   0   'False
-         Width           =   675
+         Top             =   3840
+         Width           =   1155
       End
       Begin VB.OptionButton opt_directa 
          BackColor       =   &H00FFFFFF&
@@ -2506,14 +2504,14 @@ Begin VB.Form fw_compras_comex
          EndProperty
          ForeColor       =   &H00C00000&
          Height          =   210
-         Left            =   6960
+         Left            =   5760
          TabIndex        =   60
          Top             =   3840
          Width           =   1635
       End
       Begin VB.OptionButton opt_local 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Aprobados EQP"
+         Caption         =   "EQP-Aprobado"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2525,7 +2523,7 @@ Begin VB.Form fw_compras_comex
          EndProperty
          ForeColor       =   &H00000040&
          Height          =   210
-         Left            =   2640
+         Left            =   2400
          TabIndex        =   59
          Top             =   3840
          Width           =   1635
@@ -2805,7 +2803,7 @@ Begin VB.Form fw_compras_comex
       End
       Begin VB.OptionButton OptFilGral1 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Pendientes EQP"
+         Caption         =   "EQP-Pendiente "
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2821,11 +2819,11 @@ Begin VB.Form fw_compras_comex
          TabIndex        =   10
          Top             =   3840
          Value           =   -1  'True
-         Width           =   1695
+         Width           =   1575
       End
       Begin VB.OptionButton OptFilGral2 
          BackColor       =   &H00FFFFFF&
-         Caption         =   "Repuestos Pendientes"
+         Caption         =   "Repuestos"
          BeginProperty Font 
             Name            =   "Arial"
             Size            =   8.25
@@ -2837,10 +2835,10 @@ Begin VB.Form fw_compras_comex
          EndProperty
          ForeColor       =   &H00C00000&
          Height          =   210
-         Left            =   4560
+         Left            =   4200
          TabIndex        =   11
          Top             =   3840
-         Width           =   2235
+         Width           =   1275
       End
       Begin MSAdodcLib.Adodc Ado_datos 
          Height          =   330
@@ -4130,7 +4128,7 @@ Private Sub Ado_detalle2_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, B
         Else
             BtnAprobar1.Visible = False
         End If
-        If (glusuario = "CARIZACA" Or glusuario = "LVASQUEZ" Or glusuario = "ADMIN") Then 'And (Ado_detalle2.Recordset!estado_codigo_tes = "APR") Then
+        If (glusuario = "CARIZACA" Or glusuario = "LVASQUEZ" Or glusuario = "ADMIN" Or glusuario = "SPAREDES" Or glusuario = "MVALDIVIA") Then 'And (Ado_detalle2.Recordset!estado_codigo_tes = "APR") Then
             BtnAprobar3.Visible = True
         Else
             BtnAprobar3.Visible = False
@@ -4896,7 +4894,7 @@ Private Sub BtnAprobar1_Click()
         Set rs_datos4A = New ADODB.Recordset
         If rs_datos4A.State = 1 Then rs_datos4A.Close
         rs_datos4A.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & parametro & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
-        Set Ado_datos4A.Recordset = rs_datos4A
+        Set ado_datos4A.Recordset = rs_datos4A
         dtc_desc4A.BoundText = dtc_codigo4A.BoundText
         Fra_aux1.Visible = True
         'Contabilizacion
@@ -5036,8 +5034,16 @@ Private Sub BtnAprobar1_Click()
 End Sub
 
 Private Sub BtnAprobar3_Click()
+    FraAlmacen.Visible = True
+End Sub
+
+Private Sub BtnCancelar1_Click()
+    FraAlmacen.Visible = False
+End Sub
+
+Private Sub BtnGrabar1_Click()
 On Error GoTo AddErr
-    If glusuario = "LVASQUEZ" Or glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Then
+    If glusuario = "LVASQUEZ" Or glusuario = "RCUELA" Or glusuario = "ADMIN" Or glusuario = "CARIZACA" Or glusuario = "SPAREDES" Then
     Else
         MsgBox "El Usuario No tiene Acceso, consulte son el Administrador del Sistema ...", vbExclamation, "SOFIA"
         Exit Sub
@@ -5060,33 +5066,7 @@ On Error GoTo AddErr
    If parametro = "COMEX" Then
      sino = MsgBox("Desea ENVIAR Todos los Bienes, a Almacenes ? (Verifique la Planilla de Costos previamente)", vbYesNo + vbInformation, "Atención")
      If sino = vbYes Then
-
-'If parametro <> "COMEX" Then
-'    If Ado_detalle2.Recordset.RecordCount = 0 Then
-'        MsgBox "No se puede ENVIAR, debe registrar al menos una Factura del Proveedor ...", vbCritical, "SOFIA"
-'        Exit Sub
-'    End If
-'    If Glaux <> "ADUAN" Then
-'        'If Format(Ado_detalle2.Recordset!adjudica_monto_bs, "###,###,##0.00") > CDbl(lbl_total_bs.Caption) Then
-'        If (Ado_detalle1.Recordset!compra_precio_total_bs) > CDbl(Ado_detalle2.Recordset!adjudica_monto_bs) Then
-'            sino = MsgBox("El monto del Item elegido es mayor al importe de la factura, Desea continuar? ", vbCritical, "SOFIA")
-'            If sino <> "1" Then
-'                Exit Sub
-'            End If
-'            '
-'        End If
-'    End If
-''    Timer1.Enabled = False
-    
-    'If Ado_detalle2.Recordset!estado_codigo <> "REG" Then
-    '    sino = MsgBox("No se puede APROBAR un registro ANULADO o Aprobado", vbCritical, "SOFIA")
-    '    Exit Sub
-    'End If
     If Ado_detalle1.Recordset.RecordCount > 0 Then
-'        If Ado_detalle1.Recordset!estado_codigo <> "REG" Then
-'            sino = MsgBox("El registro ya fue ENVIADO o fue ANULADO ... Elija otro registro y vuelva a intentar....", vbCritical, "SOFIA")
-'            Exit Sub
-'        End If
         'sino = MsgBox("Desea Envia como parte de la Factura Elegida... ? (Ya no podrá modificarlo)", vbYesNo + vbInformation, "Atención")
         'If sino = vbYes Then
             DETALLE2 = Ado_detalle2.Recordset!adjudica_codigo
@@ -5099,17 +5079,6 @@ On Error GoTo AddErr
                 End If
                 VAR_ALMACEN = 1
             Else
-'                If Ado_detalle1.Recordset!par_codigo = "39810" Then
-'                    ' 1Bienes que no son Repuestos Importados ...
-'                Else
-'                    MsgBox "No se puede ENVIAR, debe elegir un repuesto IMPORTADO, vuelva a intentar ...", vbExclamation, "SOFIA"
-'                    Exit Sub
-'                End If
-'                If OptFilGral2.Value = True Or opt_directa.Value = True Then
-'                    VAR_TIPO_ALM = "R"
-'                Else
-'                    VAR_TIPO_ALM = "Q"
-'                End If
                 'db.Execute "UPDATE AO_compra_cabecera set depto_codigo = '2' where unidad_codigo = 'DNREP' "
                 Select Case Ado_datos.Recordset!depto_codigo
                     Case "1"
@@ -5141,7 +5110,7 @@ On Error GoTo AddErr
                     VAR_TIPO_ALM = "Q"
                 End If
             End If
-'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+            'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
             If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
               db.Execute " update ao_compra_cabecera set ao_compra_cabecera.codigo_empresa = ao_ventas_cabecera.codigo_empresa FROM ao_compra_cabecera INNER JOIN ao_ventas_cabecera ON  ao_compra_cabecera.unidad_codigo = ao_ventas_cabecera.unidad_codigo AND ao_compra_cabecera.solicitud_codigo = ao_ventas_cabecera.solicitud_codigo AND ao_compra_cabecera.codigo_empresa  <> ao_ventas_cabecera.codigo_empresa where ao_compra_cabecera.codigo_empresa = 0 "
               
@@ -5171,31 +5140,6 @@ On Error GoTo AddErr
            db.Execute "update ao_compra_cabecera set doc_numero_alm = " & CORRELARTIVO1 & ", doc_numero = " & CORRELARTIVO1 & " where compra_codigo = " & VAR_COD2 & " "
            db.Execute "update ao_compra_adjudica set doc_numero_alm = " & CORRELARTIVO1 & ", doc_numero = " & CORRELARTIVO1 & " where compra_codigo = " & VAR_COD2 & " "
 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-'            'INI correlativo ALMACEN
-'          Set rs_aux7 = New ADODB.Recordset
-'          If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM
-'          rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
-'          If rs_aux7.RecordCount > 0 Then
-'             CORRELARIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
-'          Else
-'             MsgBox "No se puede generar el Correlativo por los privilegios del USUARIO", vbCritical, "sofia"
-'             Exit Sub
-'          End If
-'          rs_aux7!numero_correlativo = CORRELARIVO1
-'          rs_aux7.Update
-'
-'          If parametro <> "COMEX" Then
-'            If IsNull(rs_datos!doc_numero) Or (rs_datos!doc_numero = 0) Then
-'                rs_datos!doc_numero = CORRELARTIVO1
-'                rs_datos.Update
-'            End If
-'             'rs_datos!doc_numero_alm = CORRELARIVO1
-'          End If
-'
-'          If IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0) Then
-'                Ado_detalle2.Recordset!doc_numero_alm = CORRELARIVO1
-'                Ado_detalle2.Recordset.Update
-'          End If
         ' envia BIENES A LA FACTURA
         Call BIENES
         'If (Ado_datos.Recordset!edif_codigo = "20101-3") Or (Ado_datos.Recordset!edif_codigo = "30101-3") Or (Ado_datos.Recordset!edif_codigo = "70101-3") Or (Ado_datos.Recordset!edif_codigo = "10101-3") Then
@@ -5206,52 +5150,10 @@ On Error GoTo AddErr
            rs_det1A.Open "select * from ao_compra_adjudica_bienes where compra_codigo = " & VAR_COMPRA & " AND adjudica_codigo = " & Ado_detalle2.Recordset!adjudica_codigo & "", db, adOpenKeyset, adLockOptimistic, adCmdText
 '           If rs_det1A.RecordCount > 0 Then
            'Else
-'            If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
-'             'INI correlativo ALMACEN
-'              Set rs_aux7 = New ADODB.Recordset
-'              If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
-'              If Ado_detalle2.Recordset!codigo_empresa = 2 Then
-'                  rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
-'              Else
-'                  rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
-'              End If
-'              If rs_aux7.RecordCount > 0 Then
-'                   CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
-'                Else
-'                   MsgBox "No se puede generar el Correlativo, consulte con el Administrador del Sistema ...", vbCritical, "sofia"
-'                   Exit Sub
-'                End If
-'                rs_aux7!numero_correlativo = CORRELARTIVO1
-'                rs_aux7.Update
-'                'CORRELARTIVO1 = "177"
-'             Else
-'                CORRELARTIVO1 = Ado_detalle2.Recordset!doc_numero_alm
-'             End If
            rs_det1A.MoveFirst
            sino = rs_det1A.RecordCount
             While Not rs_det1A.EOF
                 CodBien = rs_det1A!bien_codigo
-'                If (IsNull(Ado_detalle2.Recordset!doc_numero_alm) Or (Ado_detalle2.Recordset!doc_numero_alm = 0)) Then
-'                   'INI correlativo ALMACEN
-'                   Set rs_aux7 = New ADODB.Recordset
-'                   If rs_aux7.State = 1 Then rs_aux7.Close 'VAR_TIPO_ALM     '
-'                   If Ado_detalle2.Recordset!codigo_empresa = 2 Then
-'                     rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl_2 WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
-'                   Else
-'                     rs_aux7.Open "Select numero_correlativo, tipo_tramite FROM fc_correl WHERE Left(tipo_tramite,5) = 'R-114' and (cta_codigo1 = '" & VAR_DPTO_AUX & "' and cta_codigo2 = '" & VAR_TIPO_ALM & "' ) ", db, adOpenKeyset, adLockOptimistic
-'                   End If
-'                   If rs_aux7.RecordCount > 0 Then
-'                      CORRELARTIVO1 = IIf(IsNull(rs_aux7!numero_correlativo), 1, rs_aux7!numero_correlativo + 1)
-'                   Else
-'                      MsgBox "No se puede generar el Correlativo, consulte con el Administrador del Sistema ...", vbCritical, "sofia"
-'                      Exit Sub
-'                   End If
-'                   rs_aux7!numero_correlativo = CORRELARTIVO1
-'                   rs_aux7.Update
-'                   'CORRELARTIVO1 = "177"
-'                Else
-'                   CORRELARTIVO1 = Ado_detalle2.Recordset!doc_numero_alm
-'                End If
                 'ac_tipo_compra_venta
                 Set rs_aux12 = New ADODB.Recordset
                 If rs_aux12.State = 1 Then rs_aux12.Close
@@ -5259,8 +5161,8 @@ On Error GoTo AddErr
                 rs_aux12.Open "select * from ao_almacen_ingresos where ges_gestion='" & rs_det1A!ges_gestion & "' AND almacen_codigo=" & rs_det1A!almacen_codigo & " AND doc_codigo='R-114' AND doc_numero=" & CORRELARTIVO1 & " AND bien_codigo='" & CodBien & "' ", db, adOpenStatic
                 If rs_aux12.RecordCount > 0 Then
                 Else
-                    'db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", '" & Ado_datos.Recordset!doc_codigo_alm & "' ," & CORRELARIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
-                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", 'R-114' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                    'db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", 'R-114' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & Ado_detalle2.Recordset!fecha_compra & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
+                    db.Execute "ap_compras_grla 2,'" & rs_det1A!ges_gestion & "'," & rs_det1A!almacen_codigo & ", 'R-114' ," & CORRELARTIVO1 & ",'" & rs_det1A!bien_codigo & "','" & Ado_datos.Recordset!edif_codigo & "'," & VAR_COD2 & ",'" & Ado_detalle2.Recordset!beneficiario_codigo & "','" & DTPFechaIng2.Value & "'," & rs_det1A!adjudica_cantidad & "," & rs_det1A!bien_total_adjudica_bs & "," & CDbl(rs_det1A!bien_total_adjudica_bs / GlTipoCambioOficial) & ", 'REG', '" & glusuario & "','" & Ado_datos.Recordset!compra_DESCRIPCION & "'," & rs_det1A!bien_precio_adjudica_bs & ""
                 End If
 
                 Set rs_aux6 = New ADODB.Recordset
@@ -5299,22 +5201,6 @@ On Error GoTo AddErr
             Ado_detalle1.Recordset!estado_codigo = "APR"
             Ado_detalle1.Recordset.Update
         
-'        rs_datos!correl_bitacora = 0
-       'Ado_detalle2.Recordset("fecha_recibe_almacen") = Date
-'       Ado_detalle2.Recordset("estado_codigo") = "APR"
-'       Ado_detalle2.Recordset("usr_codigo_aprueba") = glusuario
-'       Ado_detalle2.Recordset("fecha_aprueba") = Date
-'       Ado_detalle2.Recordset("fecha_recibe_almacen") = Date
-'       Ado_detalle2.Recordset.Update
-       
-'    If IsNull(rs_datos!doc_numero) Then
-'        rs_datos!doc_numero = CORRELARTIVO1
-'    End If
-'
-'     rs_aux7!numero_correlativo = CORRELARIVO1
-'
-'     rs_aux7.Update
-'     rs_datos.Update
     If OptFilGral1.Value = True Then
         Call OptFilGral1_Click
     End If
@@ -5355,6 +5241,7 @@ On Error GoTo AddErr
   End If
 End If
 End If
+FraAlmacen.Visible = False
   Exit Sub
 AddErr:
   MsgBox Err.Description
@@ -6496,7 +6383,7 @@ On Error GoTo UpdateErr
           fw_adjudica_comex.lblbien(3).Visible = False
           'fw_adjudica_comex.lblbien(4).Visible = False
         End If
-        Select Case Ado_detalle2.Recordset!trans_codigo
+        Select Case Ado_detalle2.Recordset!TRANS_codigo
             Case "22"
                 fw_adjudica_comex.opt_normal = True
             Case "23"
@@ -7503,26 +7390,26 @@ Private Sub ABRIR_TABLA_DET()
     sino = "0"
 
     'BIENES (Equipos a Comprar)
-    Set rs_det1 = New ADODB.Recordset
-            If rs_det1.State = 1 Then rs_det1.Close
-            'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
-            rs_det1.Open "select * from av_compra_detalle_tipo where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic, adCmdText
-            rs_det1.Sort = "compra_codigo_det"
-            Set Ado_detalle1.Recordset = rs_det1
-            If Ado_detalle1.Recordset.RecordCount > 0 Then
-                VAR_PAIS = Ado_detalle1.Recordset!pais_codigo
-                dg_det1.Visible = True
+        Set rs_det1 = New ADODB.Recordset
+        If rs_det1.State = 1 Then rs_det1.Close
+        'rs_det1.Open "select * from ao_compra_detalle where compra_codigo = " & Ado_datos.Recordset!compra_codigo & " and par_codigo = '43340' ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det1.Open "select * from av_compra_detalle_tipo where compra_codigo = " & VAR_COMPRA & " ", db, adOpenKeyset, adLockOptimistic, adCmdText
+        rs_det1.Sort = "compra_codigo_det"
+        Set Ado_detalle1.Recordset = rs_det1
+        If Ado_detalle1.Recordset.RecordCount > 0 Then
+            VAR_PAIS = Ado_detalle1.Recordset!pais_codigo
+            dg_det1.Visible = True
 '                BtnAddDetalle3.Visible = True
-                Set dg_det1.DataSource = Ado_detalle1.Recordset
-            Else
-                dg_det1.Visible = False
-                dg_det1A.Visible = False
+            Set dg_det1.DataSource = Ado_detalle1.Recordset
+        Else
+            dg_det1.Visible = False
+            dg_det1A.Visible = False
 '                Command1.Visible = False
 '                BtnAddDetalle3.Visible = False
-                 'Set Ado_detalle1.Recordset = rsNada
-                Set dg_det1.DataSource = rsNada
-                 'dg_det1.ClearFields
-            End If
+             'Set Ado_detalle1.Recordset = rsNada
+            Set dg_det1.DataSource = rsNada
+             'dg_det1.ClearFields
+        End If
 
 '            If Ado_detalle1.Recordset.RecordCount > 0 Then
 '            BtnAddDetalle1.Visible = False
@@ -7537,7 +7424,7 @@ Private Sub ABRIR_TABLA_DET()
             If rs_aux11.State = 1 Then rs_aux11.Close
             Set rs_det1 = New ADODB.Recordset
             If rs_det1.State = 1 Then rs_det1.Close
-            If OptFilGral2.Value = True Then
+            If OptFilGral2.Value = True Or Opt_AMT.Value = True Then
                 rs_det1.Open "select * from av_compra_detalle where compra_codigo = " & VAR_COMPRA & " and (par_codigo = '39810' OR par_codigo ='79300') ", db, adOpenKeyset, adLockOptimistic, adCmdText
                 rs_aux11.Open "select * from av_compra_detalle where compra_codigo = " & VAR_COMPRA & " and (par_codigo = '39810' OR par_codigo ='79300') ", db, adOpenKeyset, adLockOptimistic, adCmdText
             Else
@@ -7748,7 +7635,7 @@ Private Sub ABRIR_TABLA_DET()
         End Select
         rs_det2.Open "select * from ao_compra_adjudica where compra_codigo = " & VAR_COMPRA & " AND (subproceso_codigo = '" & VAR_SUB & "' ) ", db, adOpenKeyset, adLockOptimistic, adCmdText  '
     End If
-    If OptFilGral2.Value = True Or opt_directa.Value = True Then
+    If OptFilGral2.Value = True Or opt_directa.Value = True Or Opt_AMT.Value = True Then
         Select Case Glaux
                Case "PROVI"    'PROVEEDOR FABRICA
                    VAR_TIPOSOL = 15
@@ -7853,13 +7740,17 @@ Private Sub Ado_datos_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVa
                 LblModalidad.Caption = "Importacion.Directa"
             Case "R"
                 LblModalidad.Caption = "Importacion.Repuestos"
+            Case "Q"
+                LblModalidad.Caption = "QLD.Importacion"
+            Case "M"
+                LblModalidad.Caption = "AMT.Importacion"
             Case Else
                 LblModalidad.Caption = "Corregir Modalidad"
        End Select
        If IsNull(DTPfecha1.Value) = True Then
           DTPfecha1.Value = Ado_datos.Recordset!compra_fecha
        End If
-       If OptFilGral2.Value = True Then
+       If OptFilGral2.Value = True Or Opt_AMT.Value = True Then
             BtnAprobar3.Visible = True
         Else
             BtnAprobar3.Visible = False
@@ -8026,42 +7917,56 @@ Private Function ExisteReg(Unidad As String) As Boolean
 '    ExisteReg = rs!Cuantos > 0
 End Function
 
-Private Sub opt_CGE_Click()
-'    Set rs_datos = New Recordset
-'    If rs_datos.State = 1 Then rs_datos.Close
-'    If parametro = "COMEX" Then
-'      Select Case Glaux
-'        Case "PROVI"
-'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'        Case "TRANS"
-'            lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'        Case "ADUAN"
-'            lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'        Case "DESCA"
-'            lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'        Case "CONTR"
-'            lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'        Case "REPTO"
-'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'        Case Else
-'            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
-'            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'      End Select
-'    Else
-'        queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'G' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DVTA') ) "
-'    End If
-'    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
-'    rs_datos.Sort = "compra_codigo"
-'    Set Ado_datos.Recordset = rs_datos.DataSource
-'    Set dg_datos.DataSource = Ado_datos.Recordset
-'    FraNavega.Caption = lbl_titulo.Caption
-'    fw_compras_comex.Caption = lbl_titulo.Caption
+Private Sub Opt_AMT_Click()
+    If OptFilGral2.Value = True Or Opt_AMT.Value = True Then
+        BtnAprobar3.Visible = True
+    Else
+        BtnAprobar3.Visible = False
+    End If
+    ' REPARACIONES O INSTALACIONES
+    Set rs_datos = New Recordset
+    If rs_datos.State = 1 Then rs_datos.Close
+    If parametro = "COMEX" Then
+      Select Case Glaux
+        Case "PROVI"
+            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS'  OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M') AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+        Case "TRANS"
+            lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M')  AND estado_codigo_tra = 'REG' AND (unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+        Case "ADUAN"
+            lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M')  AND estado_codigo_NAC = 'REG' AND (unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+        Case "DESCA"
+            lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M')  AND estado_codigo_des = 'REG' AND (unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+        Case "CONTR"
+            lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M') AND estado_codigo = 'REG' AND (unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+        Case "REPTO"
+            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M')  AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+        Case Else
+            lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
+            'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'Q' OR venta_tipo = 'M')  AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+      End Select
+    Else
+        'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
+        queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'Q' AND estado_codigo = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+    End If
+    rs_datos.Open queryinicial, db, adOpenKeyset, adLockOptimistic
+    rs_datos.Sort = "compra_codigo"
+    Set Ado_datos.Recordset = rs_datos.DataSource
+    Set dg_datos.DataSource = Ado_datos.Recordset
+    FraNavega.Caption = lbl_titulo.Caption
+    fw_compras_comex.Caption = lbl_titulo.Caption
 End Sub
 
 Private Sub opt_directa_Click()
@@ -8225,31 +8130,31 @@ Private Sub OptFilGral2_Click()
         Case "PROVI"
             lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS'  OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' ) AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
         Case "TRANS"
             lbl_titulo.Caption = frmMain.Mnu_Transporte.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo_tra = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' )  AND estado_codigo_tra = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
         Case "ADUAN"
             lbl_titulo.Caption = frmMain.Mnu_Nacionalizacion.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo_NAC = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' )  AND estado_codigo_NAC = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
         Case "DESCA"
             lbl_titulo.Caption = frmMain.Mnu_Descarguio.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo_des = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' )  AND estado_codigo_des = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
         Case "CONTR"
             lbl_titulo.Caption = frmMain.Mnu_ContratacionTecnicos.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' ) AND estado_codigo = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
         Case "REPTO"
             lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' )  AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
         Case Else
             lbl_titulo.Caption = frmMain.Mnu_ProveedoresEquipos.Caption
             'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "
-            queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
+            queryinicial = "Select * from ao_compra_cabecera where ((venta_tipo = 'R' )  AND estado_codigo_eqp = 'REG' AND (unidad_codigo LIKE '%REP%' OR unidad_codigo LIKE '%INS%') AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'COMEX') ) "
       End Select
     Else
         'queryinicial = "Select * from ao_compra_cabecera where (venta_tipo = 'R' AND (unidad_codigo_adm = '" & parametro & "' OR unidad_codigo_adm = 'DNINS' OR unidad_codigo_adm = 'DNREP') ) "

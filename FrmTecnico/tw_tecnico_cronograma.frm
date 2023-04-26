@@ -1,11 +1,10 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.Form tw_tecnico_cronograma 
    BackColor       =   &H00C0C0C0&
    BorderStyle     =   1  'Fixed Single
@@ -31,17 +30,6 @@ Begin VB.Form tw_tecnico_cronograma
       Top             =   8160
       Visible         =   0   'False
       Width           =   10335
-      Begin ComctlLib.ProgressBar ProgressBar1 
-         Height          =   270
-         Left            =   120
-         TabIndex        =   99
-         Top             =   600
-         Width           =   10095
-         _ExtentX        =   17806
-         _ExtentY        =   476
-         _Version        =   327682
-         Appearance      =   1
-      End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
          AutoSize        =   -1  'True
@@ -977,7 +965,7 @@ Begin VB.Form tw_tecnico_cronograma
                _Version        =   393216
                CalendarBackColor=   -2147483646
                CheckBox        =   -1  'True
-               Format          =   114491393
+               Format          =   119668737
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -1002,7 +990,7 @@ Begin VB.Form tw_tecnico_cronograma
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   114491393
+               Format          =   119668737
                CurrentDate     =   44561
                MinDate         =   36526
             End
@@ -1336,7 +1324,7 @@ Begin VB.Form tw_tecnico_cronograma
                _ExtentY        =   503
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   114491393
+               Format          =   119668737
                CurrentDate     =   44197
                MinDate         =   36526
             End
@@ -2755,7 +2743,7 @@ Begin VB.Form tw_tecnico_cronograma
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   114491393
+            Format          =   119668737
             CurrentDate     =   41791
             MinDate         =   36526
          End
@@ -2781,7 +2769,7 @@ Begin VB.Form tw_tecnico_cronograma
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   114491393
+            Format          =   119668737
             CurrentDate     =   41791
             MinDate         =   36526
          End
@@ -2825,7 +2813,7 @@ Begin VB.Form tw_tecnico_cronograma
             _ExtentY        =   503
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   114491393
+            Format          =   119668737
             CurrentDate     =   43101
             MinDate         =   36526
          End
@@ -3113,7 +3101,7 @@ Begin VB.Form tw_tecnico_cronograma
          Bindings        =   "tw_tecnico_cronograma.frx":F775
          Height          =   4305
          Left            =   120
-         TabIndex        =   164
+         TabIndex        =   99
          Top             =   240
          Width           =   7200
          _ExtentX        =   12700
@@ -5066,7 +5054,7 @@ Private Sub BtnCancelar_Click()
   'Ado_datos.Recordset.Move marca1 - 1
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_detalle = "REG" Then
       sino = MsgBox("Esta seguro de ANULAR el Registro ?", vbYesNo, "Confirmando")
@@ -6166,7 +6154,7 @@ Private Sub Form_Load()
     FraNavega.Caption = lbl_titulo.Caption
     lbl_titulo2.Caption = lbl_titulo.Caption
 '    Chk_plazo.Value = 0
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

@@ -38,20 +38,22 @@ Begin VB.Form fw_seguimiento_ventas
       Visible         =   0   'False
       Width           =   10095
       Begin VB.CommandButton btnSalirPanel 
-         Caption         =   "Salir"
-         Height          =   495
-         Left            =   2160
+         Height          =   615
+         Left            =   5520
+         Picture         =   "fw_seguimiento_ventas.frx":058A
+         Style           =   1  'Graphical
          TabIndex        =   39
          Top             =   6600
-         Width           =   1335
+         Width           =   1455
       End
       Begin VB.CommandButton btnPrintOption 
-         Caption         =   "Imprimir"
-         Height          =   495
-         Left            =   480
+         Height          =   615
+         Left            =   3120
+         Picture         =   "fw_seguimiento_ventas.frx":0F49
+         Style           =   1  'Graphical
          TabIndex        =   38
          Top             =   6600
-         Width           =   1335
+         Width           =   1455
       End
       Begin VB.OptionButton Option9 
          BackColor       =   &H80000018&
@@ -687,7 +689,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   0
-         Picture         =   "fw_seguimiento_ventas.frx":058A
+         Picture         =   "fw_seguimiento_ventas.frx":1877
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   13
@@ -702,7 +704,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   3000
-         Picture         =   "fw_seguimiento_ventas.frx":0EF3
+         Picture         =   "fw_seguimiento_ventas.frx":21E0
          ScaleHeight     =   615
          ScaleWidth      =   1395
          TabIndex        =   10
@@ -717,7 +719,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   17880
-         Picture         =   "fw_seguimiento_ventas.frx":197D
+         Picture         =   "fw_seguimiento_ventas.frx":2C6A
          ScaleHeight     =   615
          ScaleWidth      =   1245
          TabIndex        =   8
@@ -732,7 +734,7 @@ Begin VB.Form fw_seguimiento_ventas
          ForeColor       =   &H80000008&
          Height          =   615
          Left            =   7680
-         Picture         =   "fw_seguimiento_ventas.frx":213F
+         Picture         =   "fw_seguimiento_ventas.frx":342C
          ScaleHeight     =   615
          ScaleWidth      =   1215
          TabIndex        =   7

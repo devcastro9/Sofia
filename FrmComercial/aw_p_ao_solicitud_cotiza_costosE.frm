@@ -3830,6 +3830,8 @@ Private Sub txt_gac_me_Change()
     txt_base_imp_eu.Text = Round(CDbl(txt_base_imp_bs) / CDbl(GlTipoCambioEuro), Val(cmd_dec))
 End Sub
 
+
+
 'Private Sub Txt_campo4_KeyPress(KeyAscii As Integer)
 '    KeyAscii = Asc(UCase(Chr(KeyAscii)))
 'End Sub

@@ -1578,7 +1578,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   1138
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   117571585
+         Format          =   119668737
          CurrentDate     =   44993
       End
       Begin VB.TextBox TxtPrecEst 
@@ -1841,7 +1841,7 @@ Begin VB.Form frm_ac_bienes_eqp
          _ExtentX        =   2408
          _ExtentY        =   450
          _Version        =   393216
-         Format          =   117571585
+         Format          =   119668737
          CurrentDate     =   44993
       End
       Begin MSDataListLib.DataCombo DtcPaisD 
@@ -4096,7 +4096,7 @@ On Error GoTo QError
         Ado_datos.Recordset!archivo_foto2 = Trim(Ado_datos.Recordset!bien_codigo) + ".JPG"
         Ado_datos.Recordset!estado_codigo = "REG"  'chkEstado
         Ado_datos.Recordset!usr_codigo = glusuario
-        Ado_datos.Recordset!Fecha_Registro = Date
+        Ado_datos.Recordset!fecha_registro = Date
         Ado_datos.Recordset!hora_registro = Format(Time, "hh:mm:ss")
         '*********************************
         Ado_datos.Recordset!codigo_pSIN = IIf(IsNull(TxtCodigo_pSIN.Text), "", TxtCodigo_pSIN.Text)

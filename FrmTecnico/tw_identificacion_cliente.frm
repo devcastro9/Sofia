@@ -15,8 +15,8 @@ Begin VB.Form tw_identificacion_cliente
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10935
-   ScaleWidth      =   20160
+   ScaleHeight     =   10260
+   ScaleWidth      =   18585
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame FraImprimeRepara 
@@ -33,16 +33,16 @@ Begin VB.Form tw_identificacion_cliente
       EndProperty
       ForeColor       =   &H00C00000&
       Height          =   6615
-      Left            =   9480
-      TabIndex        =   112
-      Top             =   720
+      Left            =   9720
+      TabIndex        =   111
+      Top             =   600
       Visible         =   0   'False
       Width           =   9375
       Begin VB.CommandButton btnPanelSalir 
          Caption         =   "Salir"
          Height          =   495
          Left            =   5400
-         TabIndex        =   120
+         TabIndex        =   119
          Top             =   3960
          Width           =   1335
       End
@@ -50,7 +50,7 @@ Begin VB.Form tw_identificacion_cliente
          Caption         =   "Imprimir"
          Height          =   495
          Left            =   2880
-         TabIndex        =   119
+         TabIndex        =   118
          Top             =   3960
          Width           =   1335
       End
@@ -68,7 +68,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   116
+         TabIndex        =   115
          Top             =   960
          Width           =   5655
       End
@@ -86,7 +86,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   115
+         TabIndex        =   114
          Top             =   1440
          Width           =   5535
       End
@@ -104,7 +104,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   114
+         TabIndex        =   113
          Top             =   2760
          Width           =   5655
       End
@@ -122,7 +122,7 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          Height          =   375
          Left            =   1800
-         TabIndex        =   113
+         TabIndex        =   112
          Top             =   3240
          Width           =   5535
       End
@@ -141,7 +141,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   118
+         TabIndex        =   117
          Top             =   600
          Width           =   6615
       End
@@ -160,7 +160,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00000080&
          Height          =   255
          Left            =   600
-         TabIndex        =   117
+         TabIndex        =   116
          Top             =   2280
          Width           =   7215
       End
@@ -185,7 +185,7 @@ Begin VB.Form tw_identificacion_cliente
          Picture         =   "tw_identificacion_cliente.frx":0A02
          ScaleHeight     =   615
          ScaleWidth      =   1395
-         TabIndex        =   76
+         TabIndex        =   75
          ToolTipText     =   "Lista Mantenimientos Gratuitos"
          Top             =   0
          Width           =   1400
@@ -343,7 +343,7 @@ Begin VB.Form tw_identificacion_cliente
    Begin VB.Frame Fra_datos 
       BackColor       =   &H00C0C0C0&
       Height          =   8115
-      Left            =   7800
+      Left            =   7920
       TabIndex        =   11
       Top             =   600
       Visible         =   0   'False
@@ -363,7 +363,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00C00000&
          Height          =   1605
          Left            =   120
-         TabIndex        =   82
+         TabIndex        =   81
          Top             =   1560
          Width           =   10815
          Begin VB.TextBox Text2 
@@ -372,7 +372,7 @@ Begin VB.Form tw_identificacion_cliente
             Enabled         =   0   'False
             Height          =   285
             Left            =   9120
-            TabIndex        =   110
+            TabIndex        =   109
             Top             =   240
             Width           =   75
          End
@@ -382,7 +382,7 @@ Begin VB.Form tw_identificacion_cliente
             Enabled         =   0   'False
             Height          =   315
             Left            =   3765
-            TabIndex        =   86
+            TabIndex        =   85
             Top             =   480
             Visible         =   0   'False
             Width           =   5295
@@ -395,7 +395,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   3225
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   85
+            TabIndex        =   84
             Top             =   720
             Width           =   5850
          End
@@ -406,7 +406,7 @@ Begin VB.Form tw_identificacion_cliente
             MaskColor       =   &H00FFFFFF&
             Picture         =   "tw_identificacion_cliente.frx":5599
             Style           =   1  'Graphical
-            TabIndex        =   84
+            TabIndex        =   83
             ToolTipText     =   "Registrar un NUEVO Cliente"
             Top             =   285
             Width           =   1380
@@ -418,7 +418,7 @@ Begin VB.Form tw_identificacion_cliente
             ForeColor       =   &H80000004&
             Height          =   285
             Left            =   9240
-            TabIndex        =   83
+            TabIndex        =   82
             Top             =   1245
             Visible         =   0   'False
             Width           =   1365
@@ -429,7 +429,7 @@ Begin VB.Form tw_identificacion_cliente
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   3840
-            TabIndex        =   109
+            TabIndex        =   108
             Top             =   285
             Width           =   5220
             _ExtentX        =   9208
@@ -447,7 +447,7 @@ Begin VB.Form tw_identificacion_cliente
             DataSource      =   "Ado_datos"
             Height          =   315
             Left            =   9240
-            TabIndex        =   111
+            TabIndex        =   110
             Top             =   960
             Visible         =   0   'False
             Width           =   1365
@@ -476,7 +476,7 @@ Begin VB.Form tw_identificacion_cliente
             ForeColor       =   &H00000000&
             Height          =   240
             Left            =   120
-            TabIndex        =   88
+            TabIndex        =   87
             Top             =   285
             Width           =   3525
          End
@@ -496,7 +496,7 @@ Begin VB.Form tw_identificacion_cliente
             ForeColor       =   &H00000000&
             Height          =   1440
             Left            =   120
-            TabIndex        =   87
+            TabIndex        =   86
             Top             =   720
             Width           =   3120
          End
@@ -512,7 +512,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   120
          ScaleHeight     =   705
          ScaleWidth      =   10920
-         TabIndex        =   78
+         TabIndex        =   77
          Top             =   7320
          Visible         =   0   'False
          Width           =   10920
@@ -526,7 +526,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":63A2
             ScaleHeight     =   615
             ScaleWidth      =   1455
-            TabIndex        =   80
+            TabIndex        =   79
             Top             =   60
             Width           =   1455
          End
@@ -540,7 +540,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":6C8E
             ScaleHeight     =   615
             ScaleWidth      =   1335
-            TabIndex        =   79
+            TabIndex        =   78
             Top             =   60
             Width           =   1335
          End
@@ -561,7 +561,7 @@ Begin VB.Form tw_identificacion_cliente
             ForeColor       =   &H00FFFFC0&
             Height          =   285
             Left            =   12735
-            TabIndex        =   81
+            TabIndex        =   80
             Top             =   195
             Visible         =   0   'False
             Width           =   1005
@@ -571,7 +571,7 @@ Begin VB.Form tw_identificacion_cliente
          DataField       =   "PlazoDias"
          Height          =   285
          Left            =   9120
-         TabIndex        =   75
+         TabIndex        =   74
          Text            =   "2"
          Top             =   4320
          Width           =   520
@@ -617,7 +617,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   1520
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
-         TabIndex        =   74
+         TabIndex        =   73
          Top             =   6480
          Width           =   9405
       End
@@ -640,11 +640,11 @@ Begin VB.Form tw_identificacion_cliente
          DataField       =   "doc_numero2"
          DataSource      =   "Ado_datos"
          Height          =   315
-         Left            =   8710
+         Left            =   8835
          MultiLine       =   -1  'True
-         TabIndex        =   71
+         TabIndex        =   70
          Top             =   1080
-         Width           =   2205
+         Width           =   2085
       End
       Begin MSDataListLib.DataCombo dtc_desc2 
          Bindings        =   "tw_identificacion_cliente.frx":747E
@@ -853,14 +853,15 @@ Begin VB.Form tw_identificacion_cliente
          DataField       =   "solicitud_fecha_solicitud"
          DataSource      =   "Ado_datos"
          Height          =   300
-         Left            =   8715
+         Left            =   8580
          TabIndex        =   45
-         Top             =   3720
-         Width           =   1485
-         _ExtentX        =   2619
+         Top             =   3700
+         Width           =   1560
+         _ExtentX        =   2752
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   126025729
+         CheckBox        =   -1  'True
+         Format          =   130613249
          CurrentDate     =   44860
          MaxDate         =   55153
          MinDate         =   2
@@ -888,7 +889,7 @@ Begin VB.Form tw_identificacion_cliente
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   1860
-         TabIndex        =   121
+         TabIndex        =   120
          Top             =   3360
          Width           =   5925
          _ExtentX        =   10451
@@ -904,7 +905,7 @@ Begin VB.Form tw_identificacion_cliente
          DataSource      =   "Ado_datos"
          Height          =   315
          Left            =   7800
-         TabIndex        =   122
+         TabIndex        =   121
          Top             =   3360
          Visible         =   0   'False
          Width           =   810
@@ -914,6 +915,26 @@ Begin VB.Form tw_identificacion_cliente
          ListField       =   "codigo_empresa"
          BoundColumn     =   "codigo_empresa"
          Text            =   ""
+      End
+      Begin VB.Label LblCite 
+         Alignment       =   1  'Right Justify
+         BackStyle       =   0  'Transparent
+         Caption         =   "Cite TEC"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000080&
+         Height          =   255
+         Left            =   7440
+         TabIndex        =   123
+         Top             =   1080
+         Width           =   1215
       End
       Begin VB.Label lblLabels 
          AutoSize        =   -1  'True
@@ -933,7 +954,7 @@ Begin VB.Form tw_identificacion_cliente
          Height          =   240
          Index           =   4
          Left            =   180
-         TabIndex        =   123
+         TabIndex        =   122
          Top             =   3360
          Width           =   915
       End
@@ -952,7 +973,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00800000&
          Height          =   255
          Left            =   8400
-         TabIndex        =   77
+         TabIndex        =   76
          Top             =   4350
          Width           =   1815
       End
@@ -972,7 +993,7 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00800000&
          Height          =   480
          Left            =   180
-         TabIndex        =   73
+         TabIndex        =   72
          Top             =   6600
          Width           =   1245
       End
@@ -992,32 +1013,9 @@ Begin VB.Form tw_identificacion_cliente
          ForeColor       =   &H00800000&
          Height          =   480
          Left            =   180
-         TabIndex        =   72
+         TabIndex        =   71
          Top             =   5760
          Width           =   1245
-      End
-      Begin VB.Label lblLabels 
-         Alignment       =   2  'Center
-         AutoSize        =   -1  'True
-         BackColor       =   &H00000000&
-         BackStyle       =   0  'Transparent
-         Caption         =   "Cite TEC"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000080&
-         Height          =   240
-         Index           =   3
-         Left            =   7560
-         TabIndex        =   70
-         Top             =   1110
-         Width           =   1170
       End
       Begin VB.Label dtc_codigo9 
          Alignment       =   2  'Center
@@ -1038,9 +1036,9 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   300
-         Left            =   2580
+         Left            =   9240
          TabIndex        =   43
-         Top             =   5700
+         Top             =   3960
          Visible         =   0   'False
          Width           =   1605
       End
@@ -1267,11 +1265,11 @@ Begin VB.Form tw_identificacion_cliente
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   300
-         Left            =   5460
+         Left            =   9840
          TabIndex        =   26
-         Top             =   4380
+         Top             =   4320
          Visible         =   0   'False
-         Width           =   1605
+         Width           =   1125
       End
       Begin VB.Label lblLabels 
          AutoSize        =   -1  'True
@@ -1472,7 +1470,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   120
          ScaleHeight     =   615
          ScaleWidth      =   9225
-         TabIndex        =   97
+         TabIndex        =   96
          Top             =   240
          Width           =   9255
          Begin VB.PictureBox BtnAddDetalle7 
@@ -1485,7 +1483,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":C21B
             ScaleHeight     =   585
             ScaleWidth      =   1215
-            TabIndex        =   100
+            TabIndex        =   99
             Top             =   40
             Width           =   1220
          End
@@ -1499,7 +1497,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":C9DA
             ScaleHeight     =   585
             ScaleWidth      =   1425
-            TabIndex        =   99
+            TabIndex        =   98
             Top             =   40
             Width           =   1430
          End
@@ -1513,7 +1511,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":D2EF
             ScaleHeight     =   585
             ScaleWidth      =   1215
-            TabIndex        =   98
+            TabIndex        =   97
             Top             =   0
             Width           =   1220
          End
@@ -1693,7 +1691,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   120
          ScaleHeight     =   615
          ScaleWidth      =   9345
-         TabIndex        =   101
+         TabIndex        =   100
          Top             =   240
          Width           =   9375
          Begin VB.CommandButton BtnAnlDetalle6 
@@ -1701,7 +1699,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   3120
             Picture         =   "tw_identificacion_cliente.frx":DA56
             Style           =   1  'Graphical
-            TabIndex        =   104
+            TabIndex        =   103
             ToolTipText     =   "Anula Producto Elegido"
             Top             =   0
             Width           =   1365
@@ -1711,7 +1709,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   1440
             Picture         =   "tw_identificacion_cliente.frx":E24E
             Style           =   1  'Graphical
-            TabIndex        =   103
+            TabIndex        =   102
             ToolTipText     =   "Modifica Producto Elegido"
             Top             =   0
             Width           =   1365
@@ -1721,7 +1719,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   50
             Picture         =   "tw_identificacion_cliente.frx":EC63
             Style           =   1  'Graphical
-            TabIndex        =   102
+            TabIndex        =   101
             ToolTipText     =   "Adiciona Producto"
             Top             =   0
             Width           =   1365
@@ -1887,7 +1885,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   120
          ScaleHeight     =   615
          ScaleWidth      =   9225
-         TabIndex        =   93
+         TabIndex        =   92
          Top             =   240
          Width           =   9255
          Begin VB.PictureBox BtnAddDetalle5 
@@ -1900,7 +1898,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":F52E
             ScaleHeight     =   585
             ScaleWidth      =   1215
-            TabIndex        =   96
+            TabIndex        =   95
             Top             =   40
             Width           =   1220
          End
@@ -1914,7 +1912,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":FCED
             ScaleHeight     =   585
             ScaleWidth      =   1425
-            TabIndex        =   95
+            TabIndex        =   94
             Top             =   40
             Width           =   1430
          End
@@ -1928,7 +1926,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":10602
             ScaleHeight     =   585
             ScaleWidth      =   1215
-            TabIndex        =   94
+            TabIndex        =   93
             Top             =   0
             Width           =   1220
          End
@@ -2125,7 +2123,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   120
          ScaleHeight     =   615
          ScaleWidth      =   8985
-         TabIndex        =   105
+         TabIndex        =   104
          Top             =   240
          Width           =   9015
          Begin VB.CommandButton BtnAddDetalle3 
@@ -2133,7 +2131,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   50
             Picture         =   "tw_identificacion_cliente.frx":10D69
             Style           =   1  'Graphical
-            TabIndex        =   108
+            TabIndex        =   107
             ToolTipText     =   "Adiciona Producto"
             Top             =   0
             Width           =   1365
@@ -2143,7 +2141,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   1440
             Picture         =   "tw_identificacion_cliente.frx":11619
             Style           =   1  'Graphical
-            TabIndex        =   107
+            TabIndex        =   106
             ToolTipText     =   "Modifica Producto Elegido"
             Top             =   0
             Width           =   1365
@@ -2153,7 +2151,7 @@ Begin VB.Form tw_identificacion_cliente
             Left            =   2805
             Picture         =   "tw_identificacion_cliente.frx":1202E
             Style           =   1  'Graphical
-            TabIndex        =   106
+            TabIndex        =   105
             ToolTipText     =   "Anula Producto Elegido"
             Top             =   0
             Width           =   1365
@@ -2404,7 +2402,7 @@ Begin VB.Form tw_identificacion_cliente
          Left            =   120
          ScaleHeight     =   615
          ScaleWidth      =   9225
-         TabIndex        =   89
+         TabIndex        =   88
          Top             =   240
          Width           =   9255
          Begin VB.PictureBox BtnAddDetalle2 
@@ -2417,7 +2415,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":12841
             ScaleHeight     =   585
             ScaleWidth      =   1215
-            TabIndex        =   92
+            TabIndex        =   91
             Top             =   40
             Width           =   1220
          End
@@ -2431,7 +2429,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":13000
             ScaleHeight     =   585
             ScaleWidth      =   1425
-            TabIndex        =   91
+            TabIndex        =   90
             Top             =   40
             Width           =   1430
          End
@@ -2445,7 +2443,7 @@ Begin VB.Form tw_identificacion_cliente
             Picture         =   "tw_identificacion_cliente.frx":13915
             ScaleHeight     =   585
             ScaleWidth      =   1215
-            TabIndex        =   90
+            TabIndex        =   89
             Top             =   0
             Width           =   1220
          End
@@ -2951,10 +2949,10 @@ Begin VB.Form tw_identificacion_cliente
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   20160
+      ScaleWidth      =   18585
       TabIndex        =   5
-      Top             =   10935
-      Width           =   20160
+      Top             =   10260
+      Width           =   18585
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -4054,7 +4052,7 @@ Dim VAR_DA, VAR_UORIGEN As String
 Dim VAR_DPTO, VAR_DPTOC As String
 Dim VAR_TIT, VAR_SUBT As String
 Dim var_literal As String
-Dim VAR_PLAZO, VAR_CITE As String
+Dim VAR_PLAZO, VAR_CITE, VAR_CITE2 As String
 
 Dim VAR_AUX, VAR_CONT2 As Double
 Dim VAR_TOTBS As Double
@@ -4325,7 +4323,7 @@ Private Sub NuevoDetalle()
             GlExtension = Ado_detalle2.Recordset!bien_codigo
             tw_solicitud_bienes3.Show vbModal
         'End If
-        Case "39800"
+        Case "39800"                            'REPUESTOS
         'If VAR_DET = "39800" Then
             Ado_detalle5.Recordset.AddNew
             tw_solicitud_bienes5.txt_codigo.Caption = Me.txt_codigo.Caption
@@ -4334,6 +4332,7 @@ Private Sub NuevoDetalle()
             tw_solicitud_bienes5.lbl_edif.Caption = dtc_codigo3.Text
             tw_solicitud_bienes5.lbl_det.Caption = VAR_DET     '"34110"
             tw_solicitud_bienes5.Txt_estado.Caption = "REG"
+            tw_solicitud_bienes5.TxtTipo.Text = dtc_codigo10.Text
             GlExtension = Ado_detalle2.Recordset!bien_codigo
             tw_solicitud_bienes5.Show vbModal
         'End If
@@ -4895,6 +4894,15 @@ Private Sub BtnAprobar_Click()
                     rs_aux1!correl_cobro_prog = 0
                     rs_aux1!venta_fecha_fin = FormatDateTime(Ado_datos.Recordset!solicitud_fecha_solicitud + VAR_CONT2, vbGeneralDate)
                     rs_aux1!unidad_codigo_ant = Ado_datos.Recordset!unidad_codigo_ant
+                    rs_aux1!codigo_empresa = Ado_datos.Recordset!codigo_empresa
+                    Select Case Ado_datos.Recordset!trans_codigo
+                        Case "70"
+                            rs_aux1!venta_tipo = "M"
+                        Case "71"
+                            rs_aux1!venta_tipo = "Q"
+                        Case Else
+                            rs_aux1!venta_tipo = "C"
+                    End Select
                     rs_aux1!estado_codigo = "REG"
                     rs_aux1!fecha_registro = Date
                     rs_aux1!usr_codigo = glusuario
@@ -5115,7 +5123,7 @@ Private Sub BtnAprobar_Click()
             'rs_datos!estado_cotiza = "APR"
         End If
         Set rs_aux2 = New ADODB.Recordset
-        SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & dtc_codigo9 & "'  "
+        SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & dtc_codigo9.Caption & "'  "
         rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
         If rs_aux2.RecordCount > 0 Then
             rs_aux2!correl_doc = rs_aux2!correl_doc + 1
@@ -5355,7 +5363,6 @@ Private Sub BtnGrabar_Click()
         End If
         'var_cod = RTrim(RTrim(dtc_codigo2.Text) + "-") + LTrim(Str(Val(dtc_aux2) + 1))
         txt_codigo.Caption = var_cod
-        Txt_campo3.Text = VAR_CITES
         VAR_BENEF = IIf(dtc_codigo4.Text = "", "0", dtc_codigo4.Text)
         
         Select Case dtc_codigo1.Text
@@ -5364,7 +5371,15 @@ Private Sub BtnGrabar_Click()
                VAR_SUBP = "COM-03"
                VAR_ETAPA = "COM-03-01"
                VAR_TIPODOC = "TEC"
-               VAR_DOC = "R-362"
+               Select Case dtc_codigo10.Text
+                    Case "70"                   'AMT
+                        VAR_DOC = "R-326"
+                    Case "71"                   'QLD
+                        VAR_DOC = "R-326"
+                    Case Else
+                        VAR_DOC = "R-362"
+                        Txt_campo3.Text = VAR_CITES
+                End Select
                VAR_POA = "3.2.2"
            Case "DNMAN", "DMANS", "DMANB", "DMANC"    '10. SERVICIO MANTENIMIENTO INTEGRAL
                VAR_PROC = "TEC"
@@ -5373,6 +5388,7 @@ Private Sub BtnGrabar_Click()
                VAR_TIPODOC = "TEC"
                VAR_DOC = "R-355"
                VAR_POA = "3.2.3"
+               Txt_campo3.Text = VAR_CITES
                'COD.ADM. o CODIGO DE CONTRATO
                rs_datos!unidad_codigo_ant = Trim(Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6)) + "-" + Trim(CStr(glGestion))
                'End If
@@ -5381,8 +5397,9 @@ Private Sub BtnGrabar_Click()
                VAR_SUBP = "TEC-03"
                VAR_ETAPA = "TEC-03-01"
                VAR_TIPODOC = "TEC"
-               VAR_DOC = "R-362"
+               VAR_DOC = "R-369"
                VAR_POA = "3.2.4"
+               Txt_campo3.Text = VAR_CITES
            Case "DNEME", "DEMES", "DEMEB", "DEMEC"    '8. SERVICIO DE EMERGENCIAS
                VAR_PROC = "TEC"
                VAR_SUBP = "TEC-04"
@@ -5397,37 +5414,64 @@ Private Sub BtnGrabar_Click()
                VAR_TIPODOC = "TEC"
                VAR_DOC = "R-355"
                VAR_POA = "3.2.3"
+               Txt_campo3.Text = VAR_CITES
         End Select
         VAR_EDIF2 = Trim(Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6))
-        If var_cod < 10 Then
-           VAR_CITE = VAR_UNI0 + "-00000" + Trim(txt_codigo)
+        If Txt_campo2.Caption = "" Then
+            If var_cod < 10 Then
+               VAR_CITE = VAR_UNI0 + "-00000" + Trim(txt_codigo)
+            End If
+            If var_cod > 9 And var_cod < 100 Then
+               VAR_CITE = VAR_UNI0 + "-0000" + Trim(txt_codigo)
+            End If
+            If var_cod > 99 And var_cod < 1000 Then
+               VAR_CITE = VAR_UNI0 + "-000" + Trim(txt_codigo)
+            End If
+            If var_cod > 999 And var_cod < 10000 Then
+               VAR_CITE = VAR_UNI0 + "-00" + Trim(txt_codigo)
+            End If
+            If var_cod > 9999 And var_cod < 100000 Then
+               VAR_CITE = VAR_UNI0 + "-0" + Trim(txt_codigo)
+            End If
+            If var_cod > 99999 Then
+               VAR_CITE = VAR_UNI0 + "-" + Trim(txt_codigo)
+            End If
+        Else
+            VAR_CITE = Txt_campo2.Caption
         End If
-        If var_cod > 9 And var_cod < 100 Then
-           VAR_CITE = VAR_UNI0 + "-0000" + Trim(txt_codigo)
+        'AMT - QLD
+        If dtc_codigo10.Text = "70" Or dtc_codigo10.Text = "71" Then
+            If Txt_campo3.Text = "" Then
+                Txt_campo3.Text = "1"
+            End If
+            If Txt_campo3.Text < 10 Then
+               VAR_CITE2 = LblCite + "0000" + Trim(Txt_campo3.Text)
+            End If
+            If Txt_campo3.Text > 9 And Txt_campo3.Text < 100 Then
+               VAR_CITE2 = LblCite + "000" + Trim(Txt_campo3.Text)
+            End If
+            If Txt_campo3.Text > 99 And Txt_campo3.Text < 1000 Then
+               VAR_CITE2 = LblCite + "00" + Trim(Txt_campo3.Text)
+            End If
+            If Txt_campo3.Text > 999 And Txt_campo3.Text < 10000 Then
+               VAR_CITE2 = LblCite + "0" + Trim(Txt_campo3.Text)
+            End If
+            If Txt_campo3.Text > 9999 Then
+               VAR_CITE2 = LblCite + "-" + Trim(Txt_campo3.Text)
+            End If
+        Else
+            VAR_CITE2 = IIf(txt_obs2.Text = "", "", txt_obs2.Text)
         End If
-        If var_cod > 99 And var_cod < 1000 Then
-           VAR_CITE = VAR_UNI0 + "-000" + Trim(txt_codigo)
-        End If
-        If var_cod > 999 And var_cod < 10000 Then
-           VAR_CITE = VAR_UNI0 + "-00" + Trim(txt_codigo)
-        End If
-        If var_cod > 9999 And var_cod < 100000 Then
-           VAR_CITE = VAR_UNI0 + "-0" + Trim(txt_codigo)
-        End If
-        If var_cod > 99999 Then
-           VAR_CITE = VAR_UNI0 + "-" + Trim(txt_codigo)
-        End If
-
         ' Guardar con INSERT
         db.Execute "INSERT INTO ao_solicitud (ges_gestion, unidad_codigo, solicitud_codigo, solicitud_fecha_solicitud, solicitud_fecha_recepción, solicitud_tipo, TipoContratoCodigo,               codigo_empresa,                 edif_codigo,            beneficiario_codigo,    beneficiario_codigo_resp, " & _
                 " beneficiario_codigo_resp2, unidad_codigo_sol, solicitud_justificacion, solicitud_observaciones,   proceso_codigo,     subproceso_codigo, etapa_codigo,        etapa_codigo2,      clasif_codigo,          doc_codigo,     doc_codigo2, doc_numero, " & _
                 " doc_numero2,                                          poa_codigo,         ges_gestion_ant,    unidad_codigo_ant, solicitud_codigo_ant, correl_detalle, correl_edificacion, correl_calculo, correl_persona, correl_cotiza, correl_bitacora, archivo_respaldo, " & _
-                " archivo_respaldo_cargado, observacion_proy,       mes_codigo,                     observaciones2,             PlazoDias,                  literal, observaciones3,                                    trans_codigo,               estado_codigo, estado_etapa2, estado_cotiza, fecha_registro, hora_registro, usr_codigo, " & _
+                " archivo_respaldo_cargado, observacion_proy,       mes_codigo,                     observaciones2,             PlazoDias,                  literal, observaciones3,    trans_codigo,          estado_codigo, estado_etapa2, estado_cotiza, fecha_registro, hora_registro, usr_codigo, " & _
                 " usr_codigo_aprueba , fecha_aprueba, hora_aprueba, fecha_registro2, usr_codigo2)  " & _
         " VALUES ('" & glGestion & "',                  '" & VAR_UNI0 & "', " & var_cod & ", '" & DTPfecha1.Value & "', '" & DTPfecha1.Value & "', " & VAR_TIPO & ", " & Val(dtc_codigo10.Text) & ", " & Val(dtc_codigo8.Text) & ", '" & dtc_codigo3.Text & "', '" & VAR_BENEF & "', '" & dtc_codigo11 & "', " & _
                 " '0',                          '',         '" & Txt_descripcion.Text & "', '" & txt_obs.Text & "', '" & VAR_PROC & "', '" & VAR_SUBP & "', '" & VAR_ETAPA & "', '" & VAR_EDIF2 & "', '" & VAR_TIPODOC & "', '" & VAR_DOC & "', '',         '0',  " & _
                 " " & IIf(Txt_campo3.Text = "", "0", Txt_campo3.Text) & ", '" & VAR_POA & "', '" & glGestion & "', '" & VAR_CITE & "', '0',                 '0',            '0',                '0',            '0',            '0',            '0',        'sin_nombre',  " & _
-                " 'N',                      '" & dtc_desc3.Text & "', " & Month(DTPfecha1.Value) & ", '" & txt_obs2.Text & "', " & Val(TxtPlazo.Text) & ",  '', '" & IIf(txt_obs3.Text = "", "", txt_obs3.Text) & "', '" & dtc_codigo10.Text & "', 'REG',          'REG',          'REG',      '" & Date & "',     '',         '" & glusuario & "', " & _
+                " 'N',                      '" & dtc_desc3.Text & "', " & Month(DTPfecha1.Value) & ", '" & txt_obs2.Text & "', " & Val(TxtPlazo.Text) & ",  '', '" & VAR_CITE2 & "', '" & dtc_codigo10.Text & "', 'REG',          'REG',          'REG',      '" & Date & "',     '',         '" & glusuario & "', " & _
                 " '" & glusuario & "', '" & Date & "', '',          '" & Date & "', '" & glusuario & "' )"
                 
         'rs_datos!solicitud_codigo = var_cod
@@ -5646,13 +5690,23 @@ Private Sub valida_campos()
     VAR_VAL = "ERR"
     Exit Sub
   End If
-'  If VAR_SW = "ADD" Then
-'    If (Year(DTPfecha1.Value) = Year(Date)) Then
-'      MsgBox "Debe registrar una fecha de la Gestión Actual ... ", vbCritical + vbExclamation, "Validación de datos"
-'      VAR_VAL = "ERR"
-'      Exit Sub
-'    End If
-'  End If
+  If VAR_SW = "ADD" Then
+    If IsNull(DTPfecha1.Value) Then
+      MsgBox "Debe registrar la Fecha de Solicitud ... ", vbCritical + vbExclamation, "Validación de datos"
+      VAR_VAL = "ERR"
+      Exit Sub
+    End If
+    'If (Year(DTPfecha1.Value) = Year(Date)) Then
+    '  MsgBox "Debe registrar una fecha de la Gestión Actual ... ", vbCritical + vbExclamation, "Validación de datos"
+    '  VAR_VAL = "ERR"
+    '  Exit Sub
+    'End If
+  End If
+  If (Txt_campo3.Text = "") Then
+    MsgBox "Debe registrar ... " + LblCite.Caption, vbCritical + vbExclamation, "Validación de datos"
+    VAR_VAL = "ERR"
+    Exit Sub
+  End If
   
 '  If (dtc_codigo9.Text = "") Then
 '    MsgBox "Debe registrar ... " + lbl_campo9.Caption, vbCritical + vbExclamation, "Validación de datos"
@@ -6747,20 +6801,6 @@ Private Sub dtc_codigo8_Click(Area As Integer)
     dtc_desc8.BoundText = dtc_codigo8.BoundText
 End Sub
 
-'Private Sub dtc_codigo9_LostFocus()
-''  If VAR_SW = "ADD" Then
-''    Set rs_aux2 = New ADODB.Recordset
-''    SQL_FOR = "select * from gc_documentos_respaldo where doc_codigo = '" & dtc_codigo9.Text & "'  "
-''    rs_aux2.Open SQL_FOR, db, adOpenKeyset, adLockOptimistic
-''    If rs_aux2.RecordCount > 0 Then
-''        rs_aux2!correl_doc = rs_aux2!correl_doc + 1
-''        txt_campo1.Caption = rs_aux2!correl_doc
-''        rs_aux2.Update
-''    End If
-''  End If
-'  txt_aux9.Text = dtc_desc9.Text
-'End Sub
-
 'Private Sub dtc_desc5_Click(Area As Integer)
 '    dtc_codigo5.BoundText = dtc_desc5.BoundText
 ''    Call pnivel5(dtc_codigo5.BoundText)
@@ -6862,6 +6902,24 @@ Private Sub dtc_desc10_Click(Area As Integer)
     dtc_codigo10.BoundText = dtc_desc10.BoundText
 End Sub
 
+Private Sub dtc_desc10_LostFocus()
+    'Txt_descripcion
+    Select Case dtc_codigo10.Text
+        Case "70"
+            LblCite.Caption = "BOL-"
+            'Txt_descripcion.Text = "AMT (Importacion de Repuestos para Reposición). Edificio: " + dtc_desc3.Text
+        Case "71"
+            LblCite.Caption = "BOLQD-"
+            'Txt_descripcion.Text = "QLD (Importacion de Repuestos para Reposición). Edificio: " + dtc_desc3.Text
+        Case Else
+            If dtc_codigo1.Text = "DNINS" Or dtc_codigo1.Text = "DINSS" Or dtc_codigo1.Text = "DINSB" Or dtc_codigo1.Text = "DINSC" Then
+                LblCite.Caption = "Cite INS"
+            Else
+                LblCite.Caption = "Cite TEC"
+            End If
+    End Select
+End Sub
+
 Private Sub dtc_desc11_Click(Area As Integer)
     dtc_codigo11.BoundText = dtc_desc11.BoundText
 End Sub
@@ -6887,6 +6945,14 @@ Private Sub dtc_desc3_LostFocus()
             Txt_descripcion.Text = "Propuesta de MODERNIZACION de equipos. Edificio: " + dtc_desc3.Text + ". Cod.ADM.: " + Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6)
         Case "DNINS", "DINSS", "DINSB", "DINSC"
             Txt_descripcion.Text = "Servicio de INSTALACION de equipos. Edificio: " + dtc_desc3.Text
+            Set rs_aux9 = New ADODB.Recordset
+            If rs_aux9.State = 1 Then rs_aux9.Close
+            rs_aux9.Open "Select * from ao_ventas_cabecera where edif_codigo = '" & dtc_codigo3.Text & "' AND solicitud_tipo = '3' ", db, adOpenStatic
+            If rs_aux9.RecordCount > 0 Then
+                Txt_campo2.Caption = rs_aux9!unidad_codigo_ant
+            Else
+                Txt_campo2.Caption = ""
+            End If
         Case "DNEME", "DEMES", "DEMEB", "DEMEC"
             Txt_descripcion.Text = "Atención de EMERGENCIAS. Edificio: " + dtc_desc3.Text + ". Cod.ADM.: " + Mid(dtc_codigo3.Text, 7, Len(dtc_codigo3.Text) - 6)
             Set rs_aux9 = New ADODB.Recordset
@@ -7036,7 +7102,7 @@ Private Sub Form_Load()
             Case "1.7"    'Santa Cruz
                 VAR_UNI = "DINSS"
                 'VAR_DPTOC = "7"
-            Case "1.4", "1.2", "1.3"    'La Paz - Tecnico
+            Case "1.4", "1.2", "1.3", "1.5"    'La Paz - Tecnico
                 VAR_UNI = "DNINS"
                 'VAR_DPTOC = "2"
             Case "1.9"    ' Chuquisaca
@@ -7148,8 +7214,8 @@ Private Sub ABRIR_TABLAS_AUX()
     'gc_beneficiario (Personal CGI)
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
-    'rs_datos11.Open "Select * from gv_personal_contratado where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic, adCmdText   ', adOpenStatic
-    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' OR (unidad_codigo = '" & VAR_UORIGEN & "' AND estado_codigo_resp = 'APR')  ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    'rs_datos11.Open "select * from rv_unidad_vs_responsable where (unidad_codigo = '" & VAR_UNI0 & "' OR unidad_codigo = '" & VAR_UORIGEN & "') AND estado_codigo_resp = 'APR'  ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText
 End Sub
@@ -7252,8 +7318,8 @@ End Sub
 Private Sub ABRIR_TABLA_AUX2()
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
-    'rs_datos11.Open "Select * from gv_personal_contratado where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic, adCmdText   ', adOpenStatic
-    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' OR (unidad_codigo = '" & VAR_UORIGEN & "' AND estado_codigo_resp = 'APR')  ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    'rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText
 End Sub
@@ -7367,8 +7433,8 @@ Private Sub BtnAñadir_Click()
     'gc_beneficiario (Personal CGI)
     Set rs_datos11 = New ADODB.Recordset
     If rs_datos11.State = 1 Then rs_datos11.Close
-    'rs_datos11.Open "Select * from gv_personal_contratado where unidad_codigo = '" & Ado_datos.Recordset!unidad_codigo & "' order by beneficiario_denominacion", db, adOpenKeyset, adLockOptimistic, adCmdText   ', adOpenStatic
-    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' OR (unidad_codigo = '" & VAR_UORIGEN & "' AND estado_codigo_resp = 'APR')  ORDER BY beneficiario_denominacion ", db, adOpenStatic
+    'rs_datos11.Open "select * from rv_unidad_vs_responsable where unidad_codigo = '" & VAR_UNI0 & "' ORDER BY beneficiario_denominacion ", db, adOpenStatic
     Set Ado_datos11.Recordset = rs_datos11
     dtc_desc11.BoundText = dtc_codigo11.BoundText
     'lblStatus.Caption = "Agregar registro"
@@ -7572,4 +7638,44 @@ Private Sub CotizaRep_Pag1Op1_2SM()
     FraNavega.Enabled = True
     FraDet3.Visible = True
     FraDet6.Visible = True
+End Sub
+
+Private Sub txt_campo3_LostFocus()
+    If dtc_codigo10.Text = "70" Or dtc_codigo10.Text = "71" Then
+        If Txt_campo3.Text = "" Then
+            Txt_campo3.Text = "1"
+        End If
+        If Txt_campo3.Text < 10 Then
+           VAR_CITE2 = LblCite.Caption + "-0000" + Trim(Txt_campo3.Text)
+        End If
+        If Txt_campo3.Text > 9 And Txt_campo3.Text < 100 Then
+           VAR_CITE2 = LblCite.Caption + "-000" + Trim(Txt_campo3.Text)
+        End If
+        If Txt_campo3.Text > 99 And Txt_campo3.Text < 1000 Then
+           VAR_CITE2 = LblCite.Caption + "-00" + Trim(Txt_campo3.Text)
+        End If
+        If Txt_campo3.Text > 999 And Txt_campo3.Text < 10000 Then
+           VAR_CITE2 = LblCite.Caption + "-0" + Trim(Txt_campo3.Text)
+        End If
+        If Txt_campo3.Text > 9999 Then
+           VAR_CITE2 = LblCite.Caption + "-" + Trim(Txt_campo3.Text)
+        End If
+        'Txt_descripcion.Text = "BOL-" + Str(Txt_campo3.Text) + " - AMT - Edificio: " + dtc_desc3.Text
+    Else
+        VAR_CITE2 = IIf(txt_obs2.Text = "", "", txt_obs2.Text)
+    End If
+    
+    Select Case dtc_codigo10.Text
+        Case "70"
+            'Txt_descripcion.Text = "BOL-" + Str(Txt_campo3.Text) + " - AMT - Edificio: " + dtc_desc3.Text
+            Txt_descripcion.Text = VAR_CITE2 + " - AMT - Edificio: " + dtc_desc3.Text
+        Case "71"
+            Txt_descripcion.Text = VAR_CITE2 + " - QLD - Edificio: " + dtc_desc3.Text
+        Case Else
+            If dtc_codigo1.Text = "DNINS" Or dtc_codigo1.Text = "DINSS" Or dtc_codigo1.Text = "DINSB" Or dtc_codigo1.Text = "DINSC" Then
+                LblCite.Caption = "Cite INS"
+            Else
+                LblCite.Caption = "Cite TEC"
+            End If
+    End Select
 End Sub

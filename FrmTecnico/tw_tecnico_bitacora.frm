@@ -374,7 +374,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   114622465
+         Format          =   110624769
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -406,7 +406,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   114622465
+         Format          =   110624769
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -421,7 +421,7 @@ Begin VB.Form tw_tecnico_bitacora
          _ExtentX        =   2619
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   114622465
+         Format          =   110624769
          CurrentDate     =   44324
          MaxDate         =   55153
          MinDate         =   2
@@ -5640,7 +5640,7 @@ Private Sub OptFilGral1_Click()
     If rs_datos.State = 1 Then rs_datos.Close
     Select Case VAR_DPTOC
         Case "2"
-            If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "APALACIOS" Or glusuario = "JCHIPANA" Then
+            If glusuario = "ADMIN" Or glusuario = "VBELLIDO" Or glusuario = "APALACIOS" Or glusuario = "JCHIPANA" Or glusuario = "DVEGA" Then
                 queryinicial = "Select * from av_solicitud_venta where (estado_codigo <> 'ANL'  AND ges_gestion = " & Year(Date) & "  and solicitud_tipo = '10' ) "
             Else
                 If parametro = "DNINS" Then

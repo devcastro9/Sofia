@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -451,15 +451,10 @@ Begin VB.Form fw_nota_credito_debito
       TabPicture(1)   =   "fw_nota_credito_debito.frx":D8A9C
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FrmCobros"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "FraNavega"
-      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).Control(2)=   "frm_benef"
-      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).Control(3)=   "FraGrabarCancelar"
-      Tab(1).Control(3).Enabled=   0   'False
       Tab(1).Control(4)=   "fraOpciones"
-      Tab(1).Control(4).Enabled=   0   'False
       Tab(1).ControlCount=   5
       Begin VB.PictureBox fraOpciones1 
          BackColor       =   &H80000015&
@@ -1170,7 +1165,7 @@ Begin VB.Form fw_nota_credito_debito
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   116195329
+            Format          =   119668737
             CurrentDate     =   41678
          End
          Begin MSDataListLib.DataCombo dtc_desc4A1 
@@ -2642,7 +2637,7 @@ Begin VB.Form fw_nota_credito_debito
                Strikethrough   =   0   'False
             EndProperty
             CheckBox        =   -1  'True
-            Format          =   116195329
+            Format          =   119668737
             CurrentDate     =   41678
          End
          Begin VB.Label Label2 
@@ -5779,7 +5774,7 @@ Private Sub BtnCancelarBen_Click()
     FraGrabarCancelar.Enabled = True
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   If Ado_datos.Recordset.RecordCount > 0 Then
     If Ado_datos.Recordset!estado_codigo_fac = "APR" And Ado_datos.Recordset!estado_codigo_bco = "REG" Then      'Ado_datos.Recordset("estado_codigo_anl") = "REG"
       sino = MsgBox("Esta seguro de ANULAR la facturación registrada ?", vbYesNo, "Confirmando")
@@ -9742,7 +9737,7 @@ Private Sub Form_Load()
     FraNavega.Caption = lbl_titulo.Caption
     'lbl_titulo2.Caption = lbl_titulo.Caption
     'lbl_titulo1.Caption = lbl_titulo.Caption
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLAS_AUX()

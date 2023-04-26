@@ -17,7 +17,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    ScaleHeight     =   10935
-   ScaleWidth      =   20250
+   ScaleWidth      =   11280
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.Frame Fra_datos2 
@@ -197,7 +197,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
          CalendarBackColor=   12632256
          CalendarTitleBackColor=   -2147483638
          CustomFormat    =   "dd-MMM-yyyy"
-         Format          =   112459779
+         Format          =   109707267
          CurrentDate     =   44235
          MaxDate         =   55153
          MinDate         =   32874
@@ -1442,23 +1442,22 @@ Begin VB.Form mw_solicitud_cotiza_venta
       _ExtentX        =   27702
       _ExtentY        =   4948
       _Version        =   393216
+      Tab             =   2
       TabHeight       =   520
       BackColor       =   -2147483638
       TabCaption(0)   =   "Proveedor de AMERICA"
       TabPicture(0)   =   "mw_solicitud_cotiza_venta.frx":3CE0
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "FraNavega"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Proveedor de ASIA"
       TabPicture(1)   =   "mw_solicitud_cotiza_venta.frx":3CFC
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "FraNavegaA"
-      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).ControlCount=   1
       TabCaption(2)   =   "Proveedor de EUROPA"
       TabPicture(2)   =   "mw_solicitud_cotiza_venta.frx":3D18
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "FraNavegaE"
       Tab(2).Control(0).Enabled=   0   'False
       Tab(2).ControlCount=   1
@@ -1467,7 +1466,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
          Caption         =   "REGISTRO DE DATOS PARA LA COTIZACION"
          ForeColor       =   &H00C00000&
          Height          =   2415
-         Left            =   -74940
+         Left            =   60
          TabIndex        =   26
          Top             =   345
          Width           =   15615
@@ -2299,7 +2298,7 @@ Begin VB.Form mw_solicitud_cotiza_venta
          Caption         =   "HOJA DE COSTOS"
          ForeColor       =   &H00C00000&
          Height          =   2415
-         Left            =   60
+         Left            =   -74940
          TabIndex        =   11
          Top             =   345
          Width           =   15615

@@ -23,7 +23,7 @@ Begin VB.Form aw_seguimiento_comex
       ScaleHeight     =   660
       ScaleWidth      =   20280
       TabIndex        =   24
-      Top             =   600
+      Top             =   0
       Width           =   20280
       Begin VB.PictureBox BtnImprimir1 
          Appearance      =   0  'Flat

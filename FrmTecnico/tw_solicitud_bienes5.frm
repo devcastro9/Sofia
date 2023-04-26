@@ -497,6 +497,17 @@ Begin VB.Form tw_solicitud_bienes5
          TabIndex        =   25
          Top             =   720
          Width           =   11055
+         Begin VB.TextBox TxtTipo 
+            DataField       =   "fosa_dimension_fondo"
+            DataSource      =   "tw_identificacion_cliente.ado_detalle5"
+            Height          =   285
+            Left            =   7920
+            TabIndex        =   83
+            Text            =   "0"
+            Top             =   1680
+            Visible         =   0   'False
+            Width           =   855
+         End
          Begin VB.TextBox Text1 
             BackColor       =   &H00C0C0C0&
             BorderStyle     =   0  'None
@@ -619,7 +630,6 @@ Begin VB.Form tw_solicitud_bienes5
             _ExtentX        =   4630
             _ExtentY        =   556
             _Version        =   393216
-            Style           =   2
             BackColor       =   16777215
             ForeColor       =   0
             ListField       =   "bien_codigo"
@@ -1699,14 +1709,14 @@ Private Sub BtnGrabar_Click()
     '        tw_identificacion_cliente.Ado_detalle3.Recordset("archivo_plano_cargado").Value = "N"
          End If
             If var_val2 = "1" Then
-                tw_identificacion_cliente.Ado_detalle3.Recordset("bien_codigo").Value = IIf(txt_campo5.Text = "", "NA1", txt_campo5.Text)
-                tw_identificacion_cliente.Ado_detalle3.Recordset("marca_codigo").Value = IIf(txt_campo8.Text = "", "S/M", txt_campo8.Text)
-                tw_identificacion_cliente.Ado_detalle3.Recordset("modelo_codigo").Value = IIf(txt_campo9.Text = "", "S/M", txt_campo9.Text)
+                tw_identificacion_cliente.Ado_detalle3.Recordset("bien_codigo").Value = IIf(Txt_campo5.Text = "", "NA1", Txt_campo5.Text)
+                tw_identificacion_cliente.Ado_detalle3.Recordset("marca_codigo").Value = IIf(Txt_campo8.Text = "", "S/M", Txt_campo8.Text)
+                tw_identificacion_cliente.Ado_detalle3.Recordset("modelo_codigo").Value = IIf(Txt_campo9.Text = "", "S/M", Txt_campo9.Text)
             Else
                 'OJO FALTA GRABAR EN ac_bienes
                 tw_identificacion_cliente.Ado_detalle3.Recordset("bien_codigo").Value = IIf(dtc_codigo1.Text = "", "NA1", dtc_codigo1.Text)
-                tw_identificacion_cliente.Ado_detalle3.Recordset("marca_codigo").Value = IIf(txt_campo2.Text = "", "S/M", txt_campo2.Text)
-                tw_identificacion_cliente.Ado_detalle3.Recordset("modelo_codigo").Value = IIf(txt_campo3.Text = "", "S/M", txt_campo3.Text)
+                tw_identificacion_cliente.Ado_detalle3.Recordset("marca_codigo").Value = IIf(Txt_campo2.Text = "", "S/M", Txt_campo2.Text)
+                tw_identificacion_cliente.Ado_detalle3.Recordset("modelo_codigo").Value = IIf(Txt_campo3.Text = "", "S/M", Txt_campo3.Text)
             End If
             tw_identificacion_cliente.Ado_detalle3.Recordset("grupo_codigo").Value = IIf(dtc_aux1.Text = "", "90000", dtc_aux1.Text)
             tw_identificacion_cliente.Ado_detalle3.Recordset("subgrupo_codigo").Value = IIf(Dtc_aux2.Text = "", "99900", Dtc_aux2.Text)
@@ -1714,14 +1724,14 @@ Private Sub BtnGrabar_Click()
             tw_identificacion_cliente.Ado_detalle3.Recordset("unimed_codigo").Value = IIf(dtc_codigo2 = "", "MES", dtc_codigo2)
             
             If Txt_campo16.Text <> "" Then
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
             Else
                 Txt_campo16.Text = 1
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
             End If
             tw_identificacion_cliente.Ado_detalle3.Recordset("bien_cantidad").Value = IIf(Txt_campo16 = "", 1, Txt_campo16)
-            tw_identificacion_cliente.Ado_detalle3.Recordset("bien_precio_venta_base").Value = IIf(txt_campo10 = "", 0, txt_campo10)
-            tw_identificacion_cliente.Ado_detalle3.Recordset("bien_total_venta").Value = IIf(txt_campo11 = "", 0, txt_campo11)
+            tw_identificacion_cliente.Ado_detalle3.Recordset("bien_precio_venta_base").Value = IIf(Txt_campo10 = "", 0, Txt_campo10)
+            tw_identificacion_cliente.Ado_detalle3.Recordset("bien_total_venta").Value = IIf(Txt_campo11 = "", 0, Txt_campo11)
             tw_identificacion_cliente.Ado_detalle3.Recordset("bien_precio_compra").Value = IIf(Txt_campo19 = "", 0, Txt_campo19)
             tw_identificacion_cliente.Ado_detalle3.Recordset("bien_total_compra").Value = IIf(Txt_campo20 = "", 0, Txt_campo20)
             tw_identificacion_cliente.Ado_detalle3.Recordset!bien_precio_eur.Value = IIf(Txt_campo21 = "", 0, Txt_campo21.Text)
@@ -1739,10 +1749,10 @@ Private Sub BtnGrabar_Click()
      End If
      If lbl_det.Caption = "39800" Then
          If Txt_campo16.Text <> "" Then
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
          Else
                 Txt_campo16.Text = 1
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
          End If
          If dtc_codigo2.Text = "" Then
                 dtc_codigo2.Text = "PZA"
@@ -1756,14 +1766,14 @@ Private Sub BtnGrabar_Click()
                 "  bien_cantidad_aux, bien_precio_compra, bien_total_compra, bien_precio_venta_base, bien_total_venta, tipo_moneda, unimed_codigo, unimed_codigo_empaque, " & _
                 "  bien_cantidad_por_empaque, venta_o_compra, fosa_dimension_frente, fosa_dimension_fondo, almacen_tipo, bien_codigo_padre, estado_codigo, observacion, " & _
                 "  usr_codigo , fecha_registro, bien_precio_eur, bien_total_eur)  " & _
-                " VALUES ('" & glGestion & "', '" & txt_campo1.Caption & "', " & txt_codigo.Caption & ", '" & dtc_codigo1.Text & "', '" & dtc_aux1.Text & "', '" & Dtc_aux2.Text & "', '" & dtc_aux3.Text & "', '" & txt_campo2.Text & "', '" & txt_campo3.Text & "', " & Txt_campo16.Text & ",  " & _
-                " '0', '0', '0', " & txt_campo10.Text & ", " & txt_campo11.Text & ", '" & IIf(dtc_codigo4.Text = "", "BOB", dtc_codigo4.Text) & "', '" & txt_campo4.Text & "', '" & txt_campo4.Text & "', " & _
-                " " & Txt_campo16.Text & ", 'V', '7', '0', 'R', '" & GlExtension & "', 'REG', '" & Trim(TxtObservacion.Text) & "', " & _
+                " VALUES ('" & glGestion & "', '" & txt_campo1.Caption & "', " & txt_codigo.Caption & ", '" & dtc_codigo1.Text & "', '" & dtc_aux1.Text & "', '" & Dtc_aux2.Text & "', '" & dtc_aux3.Text & "', '" & Txt_campo2.Text & "', '" & Txt_campo3.Text & "', " & Txt_campo16.Text & ",  " & _
+                " '0', '0', '0', " & Txt_campo10.Text & ", " & Txt_campo11.Text & ", '" & IIf(dtc_codigo4.Text = "", "BOB", dtc_codigo4.Text) & "', '" & Txt_campo4.Text & "', '" & Txt_campo4.Text & "', " & _
+                " " & Txt_campo16.Text & ", 'V', '7', '" & TxtTipo.Text & "', 'R', '" & GlExtension & "', 'REG', '" & Trim(TxtObservacion.Text) & "', " & _
                 " '" & glusuario & "', '" & Date & "', " & CDbl(Txt_campo21.Text) & ", " & CDbl(Txt_campo22.Text) & ") "
          Else
             db.Execute "UPDATE ao_solicitud_bienes SET bien_codigo='" & dtc_codigo1.Text & "', grupo_codigo='" & dtc_aux1.Text & "', subgrupo_codigo='" & Dtc_aux2.Text & "', par_codigo='" & dtc_aux3.Text & "', tipo_moneda = '" & IIf(dtc_codigo4.Text = "", "BOB", dtc_codigo4.Text) & "' ,  " & _
-            " marca_codigo='" & txt_campo2.Text & "', modelo_codigo='" & txt_campo3.Text & "', bien_cantidad=" & Txt_campo16.Text & ", bien_precio_venta_base=" & txt_campo10.Text & ", unimed_codigo='" & txt_campo4.Text & "', unimed_codigo_empaque='" & txt_campo4.Text & "', observacion='" & Trim(TxtObservacion.Text) & "', " & _
-            " bien_total_venta=" & txt_campo11.Text & ", usr_codigo='" & glusuario & "', bien_codigo_padre= '" & GlExtension & "',  bien_precio_eur=" & CDbl(Txt_campo21.Text) & ", bien_total_eur = " & CDbl(Txt_campo22.Text) & " WHERE unidad_codigo='" & txt_campo1.Caption & "'  AND solicitud_codigo=" & txt_codigo.Caption & " AND bien_codigo= '" & tw_identificacion_cliente.Ado_detalle5.Recordset!bien_codigo & "' "
+            " marca_codigo='" & Txt_campo2.Text & "', modelo_codigo='" & Txt_campo3.Text & "', bien_cantidad=" & Txt_campo16.Text & ", bien_precio_venta_base=" & Txt_campo10.Text & ", unimed_codigo='" & Txt_campo4.Text & "', unimed_codigo_empaque='" & Txt_campo4.Text & "', observacion='" & Trim(TxtObservacion.Text) & "', " & _
+            " bien_total_venta=" & Txt_campo11.Text & ", usr_codigo='" & glusuario & "', bien_codigo_padre= '" & GlExtension & "',  bien_precio_eur=" & CDbl(Txt_campo21.Text) & ", bien_total_eur = " & CDbl(Txt_campo22.Text) & " WHERE unidad_codigo='" & txt_campo1.Caption & "'  AND solicitud_codigo=" & txt_codigo.Caption & " AND bien_codigo= '" & tw_identificacion_cliente.Ado_detalle5.Recordset!bien_codigo & "' "
 
             'tw_identificacion_cliente.Ado_detalle3.Recordset!observacion = TxtObservacion.Text
          End If
@@ -1779,28 +1789,28 @@ Private Sub BtnGrabar_Click()
     '        tw_identificacion_cliente.Ado_detalle6.Recordset("archivo_plano_cargado").Value = "N"
          End If
             If var_val2 = "1" Then
-                tw_identificacion_cliente.Ado_detalle6.Recordset("bien_codigo").Value = IIf(txt_campo5.Text = "", "NA1", txt_campo5.Text)
-                tw_identificacion_cliente.Ado_detalle6.Recordset("marca_codigo").Value = IIf(txt_campo8.Text = "", "S/M", txt_campo8.Text)
-                tw_identificacion_cliente.Ado_detalle6.Recordset("modelo_codigo").Value = IIf(txt_campo9.Text = "", "S/M", txt_campo9.Text)
+                tw_identificacion_cliente.Ado_detalle6.Recordset("bien_codigo").Value = IIf(Txt_campo5.Text = "", "NA1", Txt_campo5.Text)
+                tw_identificacion_cliente.Ado_detalle6.Recordset("marca_codigo").Value = IIf(Txt_campo8.Text = "", "S/M", Txt_campo8.Text)
+                tw_identificacion_cliente.Ado_detalle6.Recordset("modelo_codigo").Value = IIf(Txt_campo9.Text = "", "S/M", Txt_campo9.Text)
             Else
                 'OJO FALTA GRABAR EN ac_bienes
                 tw_identificacion_cliente.Ado_detalle6.Recordset("bien_codigo").Value = IIf(dtc_codigo1.Text = "", "NA1", dtc_codigo1.Text)
-                tw_identificacion_cliente.Ado_detalle6.Recordset("marca_codigo").Value = IIf(txt_campo2.Text = "", "S/M", txt_campo2.Text)
-                tw_identificacion_cliente.Ado_detalle6.Recordset("modelo_codigo").Value = IIf(txt_campo3.Text = "", "S/M", txt_campo3.Text)
+                tw_identificacion_cliente.Ado_detalle6.Recordset("marca_codigo").Value = IIf(Txt_campo2.Text = "", "S/M", Txt_campo2.Text)
+                tw_identificacion_cliente.Ado_detalle6.Recordset("modelo_codigo").Value = IIf(Txt_campo3.Text = "", "S/M", Txt_campo3.Text)
             End If
             tw_identificacion_cliente.Ado_detalle6.Recordset("grupo_codigo").Value = IIf(dtc_aux1.Text = "", "90000", dtc_aux1.Text)
             tw_identificacion_cliente.Ado_detalle6.Recordset("subgrupo_codigo").Value = IIf(Dtc_aux2.Text = "", "99900", Dtc_aux2.Text)
             tw_identificacion_cliente.Ado_detalle6.Recordset("par_codigo").Value = IIf(dtc_aux3.Text = "", "99990", dtc_aux3.Text)
             If Txt_campo16.Text <> "" Then
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
             Else
                 Txt_campo16.Text = 1
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
             End If
-            tw_identificacion_cliente.Ado_detalle6.Recordset("bien_precio_venta_base").Value = IIf(txt_campo10 = "", 0, txt_campo10)
+            tw_identificacion_cliente.Ado_detalle6.Recordset("bien_precio_venta_base").Value = IIf(Txt_campo10 = "", 0, Txt_campo10)
             tw_identificacion_cliente.Ado_detalle6.Recordset("unimed_codigo").Value = IIf(dtc_codigo2 = "", "MES", dtc_codigo2)
             tw_identificacion_cliente.Ado_detalle6.Recordset("bien_cantidad").Value = IIf(Txt_campo16 = "", 1, Txt_campo16)
-            tw_identificacion_cliente.Ado_detalle6.Recordset("bien_total_venta").Value = IIf(txt_campo11 = "", 0, txt_campo11)
+            tw_identificacion_cliente.Ado_detalle6.Recordset("bien_total_venta").Value = IIf(Txt_campo11 = "", 0, Txt_campo11)
             tw_identificacion_cliente.Ado_detalle6.Recordset("bien_precio_compra").Value = 0
             tw_identificacion_cliente.Ado_detalle6.Recordset("bien_total_compra").Value = 0
             tw_identificacion_cliente.Ado_detalle2.Recordset!observacion = TxtObservacion.Text
@@ -1825,28 +1835,28 @@ Private Sub BtnGrabar_Click()
     '        tw_identificacion_cliente.Ado_detalle6.Recordset("archivo_plano_cargado").Value = "N"
          End If
             If var_val2 = "1" Then
-                tw_identificacion_cliente.Ado_detalle7.Recordset("bien_codigo").Value = IIf(txt_campo5.Text = "", "NA1", txt_campo5.Text)
-                tw_identificacion_cliente.Ado_detalle7.Recordset("marca_codigo").Value = IIf(txt_campo8.Text = "", "S/M", txt_campo8.Text)
-                tw_identificacion_cliente.Ado_detalle7.Recordset("modelo_codigo").Value = IIf(txt_campo9.Text = "", "S/M", txt_campo9.Text)
+                tw_identificacion_cliente.Ado_detalle7.Recordset("bien_codigo").Value = IIf(Txt_campo5.Text = "", "NA1", Txt_campo5.Text)
+                tw_identificacion_cliente.Ado_detalle7.Recordset("marca_codigo").Value = IIf(Txt_campo8.Text = "", "S/M", Txt_campo8.Text)
+                tw_identificacion_cliente.Ado_detalle7.Recordset("modelo_codigo").Value = IIf(Txt_campo9.Text = "", "S/M", Txt_campo9.Text)
             Else
                 'OJO FALTA GRABAR EN ac_bienes
                 tw_identificacion_cliente.Ado_detalle7.Recordset("bien_codigo").Value = IIf(dtc_codigo1.Text = "", "NA1", dtc_codigo1.Text)
-                tw_identificacion_cliente.Ado_detalle7.Recordset("marca_codigo").Value = IIf(txt_campo2.Text = "", "S/M", txt_campo2.Text)
-                tw_identificacion_cliente.Ado_detalle7.Recordset("modelo_codigo").Value = IIf(txt_campo3.Text = "", "S/M", txt_campo3.Text)
+                tw_identificacion_cliente.Ado_detalle7.Recordset("marca_codigo").Value = IIf(Txt_campo2.Text = "", "S/M", Txt_campo2.Text)
+                tw_identificacion_cliente.Ado_detalle7.Recordset("modelo_codigo").Value = IIf(Txt_campo3.Text = "", "S/M", Txt_campo3.Text)
             End If
             tw_identificacion_cliente.Ado_detalle7.Recordset("grupo_codigo").Value = IIf(dtc_aux1.Text = "", "90000", dtc_aux1.Text)
             tw_identificacion_cliente.Ado_detalle7.Recordset("subgrupo_codigo").Value = IIf(Dtc_aux2.Text = "", "99900", Dtc_aux2.Text)
             tw_identificacion_cliente.Ado_detalle7.Recordset("par_codigo").Value = IIf(dtc_aux3.Text = "", "99990", dtc_aux3.Text)
             If Txt_campo16.Text <> "" Then
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
             Else
                 Txt_campo16.Text = 1
-                txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+                Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
             End If
-            tw_identificacion_cliente.Ado_detalle7.Recordset("bien_precio_venta_base").Value = IIf(txt_campo10 = "", 0, txt_campo10)
+            tw_identificacion_cliente.Ado_detalle7.Recordset("bien_precio_venta_base").Value = IIf(Txt_campo10 = "", 0, Txt_campo10)
             tw_identificacion_cliente.Ado_detalle7.Recordset("unimed_codigo").Value = IIf(dtc_codigo2 = "", "MES", dtc_codigo2)
             tw_identificacion_cliente.Ado_detalle7.Recordset("bien_cantidad").Value = IIf(Txt_campo16 = "", 1, Txt_campo16)
-            tw_identificacion_cliente.Ado_detalle7.Recordset("bien_total_venta").Value = IIf(txt_campo11 = "", 0, txt_campo11)
+            tw_identificacion_cliente.Ado_detalle7.Recordset("bien_total_venta").Value = IIf(Txt_campo11 = "", 0, Txt_campo11)
             tw_identificacion_cliente.Ado_detalle7.Recordset("bien_precio_compra").Value = 0
             tw_identificacion_cliente.Ado_detalle7.Recordset("bien_total_compra").Value = 0
             tw_identificacion_cliente.Ado_detalle2.Recordset!observacion = TxtObservacion.Text
@@ -1898,17 +1908,17 @@ Private Sub BtnGrabar_Click()
             'Call correl_bien
             'VAR_COD3 = "36NO-" + Trim(Str(VAR_COD2))
             rs_aux4!bien_codigo = "MAN-002"       'VAR_COD3  '"36NO-" + Trim(Str(VAR_COD2))
-            rs_aux4!modelo_codigo = txt_campo3.Text     'Ado_datos.Recordset!modelo_codigo
+            rs_aux4!modelo_codigo = Txt_campo3.Text     'Ado_datos.Recordset!modelo_codigo
             rs_aux4!modelo_codigo_h = "0"        'Ado_datos.Recordset!modelo_codigo_h1
             rs_aux4!modelo_codigo_x = "0"       'Ado_datos.Recordset!modelo_codigo_x1
             rs_aux4!cotiza_fecha = Date
             rs_aux4!cotiza_cantidad = IIf(Txt_campo16 = "", 1, Txt_campo16)
             rs_aux4!cotiza_tdc_bol = GlTipoCambioOficial
-            rs_aux4!cotiza_precio_fob_bs = IIf(txt_campo10 = "", 0, txt_campo10)
-            rs_aux4!cotiza_precio_fob_dol = CDbl(txt_campo10) * GlTipoCambioOficial
-            rs_aux4!cotiza_precio_total_bs = IIf(txt_campo11 = "", 0, txt_campo11)
-            rs_aux4!cotiza_precio_total_dol = CDbl(txt_campo11) * GlTipoCambioOficial
-            rs_aux4!costo_monto = IIf(txt_campo11 = "", 0, txt_campo11)
+            rs_aux4!cotiza_precio_fob_bs = IIf(Txt_campo10 = "", 0, Txt_campo10)
+            rs_aux4!cotiza_precio_fob_dol = CDbl(Txt_campo10) * GlTipoCambioOficial
+            rs_aux4!cotiza_precio_total_bs = IIf(Txt_campo11 = "", 0, Txt_campo11)
+            rs_aux4!cotiza_precio_total_dol = CDbl(Txt_campo11) * GlTipoCambioOficial
+            rs_aux4!costo_monto = IIf(Txt_campo11 = "", 0, Txt_campo11)
             rs_aux4!proceso_codigo = "TEC"
             rs_aux4!subproceso_codigo = "TEC-2"
             rs_aux4!etapa_codigo = "TEC-2-1"
@@ -2076,54 +2086,65 @@ End Sub
 Private Sub CmdCalcula_Click()
     'GlTipoCambioOficial        'USD
     'GlTipoCambioEuro           'EUR
-    If dtc_codigo4.Text = "" Then dtc_codigo4.Text = "BOB"
+    If dtc_codigo4.Text = "" Then
+        dtc_codigo4.Text = "BOB"
+    End If
+  If TxtTipo.Text = "70" Or TxtTipo.Text = "71" Then
+    If Txt_campo16.Text = "" Then Txt_campo16.Text = "1"
+    Txt_campo10.Text = "0"
+    Txt_campo11.Text = "0"
+    Txt_campo19.Text = "0"
+    Txt_campo20.Text = "0"
+    Txt_campo21.Text = "0"
+    Txt_campo22.Text = "0"
+  Else
     Select Case dtc_codigo4.Text
         Case "BOB"
-            If txt_campo10.Text = "" Then txt_campo10.Text = "0"
-            txt_campo10.Enabled = True      'BOB
+            If Txt_campo10.Text = "" Then Txt_campo10.Text = "0"
+            Txt_campo10.Enabled = True      'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = False     'EUR
-            Txt_campo19.Text = Round(CDbl(txt_campo10.Text) / GlTipoCambioOficial, 2)
-            Txt_campo21.Text = Round(CDbl(txt_campo10.Text) / GlTipoCambioEuro, 2)
+            Txt_campo19.Text = Round(CDbl(Txt_campo10.Text) / GlTipoCambioOficial, 2)
+            Txt_campo21.Text = Round(CDbl(Txt_campo10.Text) / GlTipoCambioEuro, 2)
             If Txt_campo16.Text = "" Then Txt_campo16.Text = "1"
-            txt_campo11.Text = Round(CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
+            Txt_campo11.Text = Round(CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
             Txt_campo20.Text = Round(CDbl(Txt_campo19.Text) * CDbl(Txt_campo16.Text), 2)     'USD (Total)
             Txt_campo22.Text = Round(CDbl(Txt_campo21.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Total)
         Case "USD"
             If Txt_campo19.Text = "" Then Txt_campo19.Text = "0"
-            txt_campo10.Enabled = False     'BOB
+            Txt_campo10.Enabled = False     'BOB
             Txt_campo19.Enabled = True      'USD
             Txt_campo21.Enabled = False     'EUR
-            txt_campo10.Text = Round(CDbl(Txt_campo19.Text) * GlTipoCambioOficial, 2)
-            Txt_campo21.Text = Round(CDbl(txt_campo10.Text) / GlTipoCambioEuro, 2)
+            Txt_campo10.Text = Round(CDbl(Txt_campo19.Text) * GlTipoCambioOficial, 2)
+            Txt_campo21.Text = Round(CDbl(Txt_campo10.Text) / GlTipoCambioEuro, 2)
             If Txt_campo16.Text = "" Then Txt_campo16.Text = "1"
-            txt_campo11.Text = Round(CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
+            Txt_campo11.Text = Round(CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
             Txt_campo20.Text = Round(CDbl(Txt_campo19.Text) * CDbl(Txt_campo16.Text), 2)     'USD (Total)
             Txt_campo22.Text = Round(CDbl(Txt_campo21.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Total)
         Case "EUR"
             If Txt_campo21.Text = "" Then Txt_campo21.Text = "0"
-            txt_campo10.Enabled = False     'BOB
+            Txt_campo10.Enabled = False     'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = True      'EUR
-            txt_campo10.Text = Round(CDbl(Txt_campo21.Text) * GlTipoCambioEuro, 2)
-            Txt_campo19.Text = Round(CDbl(txt_campo10.Text) / GlTipoCambioOficial, 2)
+            Txt_campo10.Text = Round(CDbl(Txt_campo21.Text) * GlTipoCambioEuro, 2)
+            Txt_campo19.Text = Round(CDbl(Txt_campo10.Text) / GlTipoCambioOficial, 2)
             If Txt_campo16.Text = "" Then Txt_campo16.Text = "1"
-            txt_campo11.Text = Round(CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
+            Txt_campo11.Text = Round(CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
             Txt_campo20.Text = Round(CDbl(Txt_campo19.Text) * CDbl(Txt_campo16.Text), 2)     'USD (Total)
             Txt_campo22.Text = Round(CDbl(Txt_campo21.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Total)
         Case Else
-            If txt_campo10.Text = "" Then txt_campo10.Text = "0"
-            txt_campo10.Enabled = True      'BOB
+            If Txt_campo10.Text = "" Then Txt_campo10.Text = "0"
+            Txt_campo10.Enabled = True      'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = False     'EUR
-            Txt_campo19.Text = Round(CDbl(txt_campo10.Text) / GlTipoCambioOficial, 2)
-            Txt_campo21.Text = Round(CDbl(txt_campo10.Text) / GlTipoCambioEuro, 2)
+            Txt_campo19.Text = Round(CDbl(Txt_campo10.Text) / GlTipoCambioOficial, 2)
+            Txt_campo21.Text = Round(CDbl(Txt_campo10.Text) / GlTipoCambioEuro, 2)
             If Txt_campo16.Text = "" Then Txt_campo16.Text = "1"
-            txt_campo11.Text = Round(CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
+            Txt_campo11.Text = Round(CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text), 2)     'BOB (Total)
             Txt_campo20.Text = Round(CDbl(Txt_campo19.Text) * CDbl(Txt_campo16.Text), 2)     'USD (Total)
             Txt_campo22.Text = Round(CDbl(Txt_campo21.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Total)
     End Select
-
+  End If
 End Sub
 
 Private Sub CmdCalcula2_Click()
@@ -2131,59 +2152,59 @@ Private Sub CmdCalcula2_Click()
     Select Case dtc_codigo4.Text
         Case "BOB"
             If Txt_campo16.Text = "" Or Txt_campo16.Text = "0" Then Txt_campo16.Text = "1"
-            If txt_campo11.Text = "" Then txt_campo11.Text = "0"
-            txt_campo10.Enabled = True      'BOB
+            If Txt_campo11.Text = "" Then Txt_campo11.Text = "0"
+            Txt_campo10.Enabled = True      'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = False     'EUR
-            txt_campo11.Enabled = True      'BOB
+            Txt_campo11.Enabled = True      'BOB
             Txt_campo20.Enabled = False     'USD
             Txt_campo22.Enabled = False     'EUR
-            Txt_campo20.Text = Round(CDbl(txt_campo11.Text) / GlTipoCambioOficial, 2)
-            Txt_campo22.Text = Round(CDbl(txt_campo11.Text) / GlTipoCambioEuro, 2)
+            Txt_campo20.Text = Round(CDbl(Txt_campo11.Text) / GlTipoCambioOficial, 2)
+            Txt_campo22.Text = Round(CDbl(Txt_campo11.Text) / GlTipoCambioEuro, 2)
             
-            txt_campo10.Text = Round(CDbl(txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
+            Txt_campo10.Text = Round(CDbl(Txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
             Txt_campo19.Text = Round(CDbl(Txt_campo20.Text) / CDbl(Txt_campo16.Text), 2)     'USD (Unitario)
             Txt_campo21.Text = Round(CDbl(Txt_campo22.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Unitario)
         Case "USD"
             If Txt_campo16.Text = "" Or Txt_campo16.Text = "0" Then Txt_campo16.Text = "1"
             If Txt_campo20.Text = "" Then Txt_campo20.Text = "0"
-            txt_campo10.Enabled = False     'BOB
+            Txt_campo10.Enabled = False     'BOB
             Txt_campo19.Enabled = True      'USD
             Txt_campo21.Enabled = False     'EUR
-            txt_campo11.Enabled = False     'BOB
+            Txt_campo11.Enabled = False     'BOB
             Txt_campo20.Enabled = True      'USD
             Txt_campo22.Enabled = False     'EUR
-            txt_campo11.Text = Round(CDbl(Txt_campo20.Text) * GlTipoCambioOficial, 2)
-            Txt_campo22.Text = Round(CDbl(txt_campo11.Text) / GlTipoCambioEuro, 2)
+            Txt_campo11.Text = Round(CDbl(Txt_campo20.Text) * GlTipoCambioOficial, 2)
+            Txt_campo22.Text = Round(CDbl(Txt_campo11.Text) / GlTipoCambioEuro, 2)
             
-            txt_campo10.Text = Round(CDbl(txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
+            Txt_campo10.Text = Round(CDbl(Txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
             Txt_campo19.Text = Round(CDbl(Txt_campo20.Text) / CDbl(Txt_campo16.Text), 2)     'USD (Unitario)
             Txt_campo21.Text = Round(CDbl(Txt_campo22.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Unitario)
         Case "EUR"
             If Txt_campo16.Text = "" Or Txt_campo16.Text = "0" Then Txt_campo16.Text = "1"
             If Txt_campo22.Text = "" Then Txt_campo22.Text = "0"
-            txt_campo10.Enabled = False     'BOB
+            Txt_campo10.Enabled = False     'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = True      'EUR
-            txt_campo11.Enabled = False     'BOB
+            Txt_campo11.Enabled = False     'BOB
             Txt_campo20.Enabled = False     'USD
             Txt_campo22.Enabled = True      'EUR
-            txt_campo11.Text = Round(CDbl(Txt_campo22.Text) * GlTipoCambioEuro, 2)
-            Txt_campo20.Text = Round(CDbl(txt_campo11.Text) / GlTipoCambioOficial, 2)
+            Txt_campo11.Text = Round(CDbl(Txt_campo22.Text) * GlTipoCambioEuro, 2)
+            Txt_campo20.Text = Round(CDbl(Txt_campo11.Text) / GlTipoCambioOficial, 2)
             
-            txt_campo10.Text = Round(CDbl(txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
+            Txt_campo10.Text = Round(CDbl(Txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
             Txt_campo19.Text = Round(CDbl(Txt_campo20.Text) / CDbl(Txt_campo16.Text), 2)     'USD (Unitario)
             Txt_campo21.Text = Round(CDbl(Txt_campo22.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Unitario)
         Case Else
             If Txt_campo16.Text = "" Or Txt_campo16.Text = "0" Then Txt_campo16.Text = "1"
-            If txt_campo11.Text = "" Then txt_campo11.Text = "0"
-            txt_campo10.Enabled = True      'BOB
+            If Txt_campo11.Text = "" Then Txt_campo11.Text = "0"
+            Txt_campo10.Enabled = True      'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = False     'EUR
-            Txt_campo20.Text = Round(CDbl(txt_campo11.Text) / GlTipoCambioOficial, 2)
-            Txt_campo22.Text = Round(CDbl(txt_campo11.Text) / GlTipoCambioEuro, 2)
+            Txt_campo20.Text = Round(CDbl(Txt_campo11.Text) / GlTipoCambioOficial, 2)
+            Txt_campo22.Text = Round(CDbl(Txt_campo11.Text) / GlTipoCambioEuro, 2)
             
-            txt_campo10.Text = Round(CDbl(txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
+            Txt_campo10.Text = Round(CDbl(Txt_campo11.Text) / CDbl(Txt_campo16.Text), 2)     'BOB (Unitario)
             Txt_campo19.Text = Round(CDbl(Txt_campo20.Text) / CDbl(Txt_campo16.Text), 2)     'USD (Unitario)
             Txt_campo21.Text = Round(CDbl(Txt_campo22.Text) * CDbl(Txt_campo16.Text), 2)     'EUR (Unitario)
     End Select
@@ -2195,9 +2216,9 @@ Private Sub dtc_aux1_Click(Area As Integer)
     dtc_desc1.BoundText = dtc_aux1.BoundText
     Dtc_aux2.BoundText = dtc_aux1.BoundText
     dtc_aux3.BoundText = dtc_aux1.BoundText
-    txt_campo2.BoundText = dtc_aux1.BoundText
-    txt_campo3.BoundText = dtc_aux1.BoundText
-    txt_campo4.BoundText = dtc_aux1.BoundText
+    Txt_campo2.BoundText = dtc_aux1.BoundText
+    Txt_campo3.BoundText = dtc_aux1.BoundText
+    Txt_campo4.BoundText = dtc_aux1.BoundText
     Txt_campo18.BoundText = dtc_aux1.BoundText
     'dtc_codigo2.BoundText = dtc_aux1.BoundText
 End Sub
@@ -2207,9 +2228,9 @@ Private Sub dtc_aux2_Click(Area As Integer)
     dtc_desc1.BoundText = Dtc_aux2.BoundText
     dtc_aux1.BoundText = Dtc_aux2.BoundText
     dtc_aux3.BoundText = Dtc_aux2.BoundText
-    txt_campo2.BoundText = Dtc_aux2.BoundText
-    txt_campo3.BoundText = Dtc_aux2.BoundText
-    txt_campo4.BoundText = Dtc_aux2.BoundText
+    Txt_campo2.BoundText = Dtc_aux2.BoundText
+    Txt_campo3.BoundText = Dtc_aux2.BoundText
+    Txt_campo4.BoundText = Dtc_aux2.BoundText
     Txt_campo18.BoundText = Dtc_aux2.BoundText
     'dtc_codigo2.BoundText = dtc_aux2.BoundText
 End Sub
@@ -2219,9 +2240,9 @@ Private Sub dtc_aux3_Click(Area As Integer)
     dtc_desc1.BoundText = dtc_aux3.BoundText
     Dtc_aux2.BoundText = dtc_aux3.BoundText
     dtc_aux1.BoundText = dtc_aux3.BoundText
-    txt_campo2.BoundText = dtc_aux3.BoundText
-    txt_campo3.BoundText = dtc_aux3.BoundText
-    txt_campo4.BoundText = dtc_aux3.BoundText
+    Txt_campo2.BoundText = dtc_aux3.BoundText
+    Txt_campo3.BoundText = dtc_aux3.BoundText
+    Txt_campo4.BoundText = dtc_aux3.BoundText
     Txt_campo18.BoundText = dtc_aux3.BoundText
     'dtc_codigo2.BoundText = dtc_aux3.BoundText
 End Sub
@@ -2231,9 +2252,9 @@ Private Sub dtc_codigo1_Click(Area As Integer)
     dtc_aux1.BoundText = dtc_codigo1.BoundText
     Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
-    txt_campo2.BoundText = dtc_codigo1.BoundText
-    txt_campo3.BoundText = dtc_codigo1.BoundText
-    txt_campo4.BoundText = dtc_codigo1.BoundText
+    Txt_campo2.BoundText = dtc_codigo1.BoundText
+    Txt_campo3.BoundText = dtc_codigo1.BoundText
+    Txt_campo4.BoundText = dtc_codigo1.BoundText
     Txt_campo18.BoundText = dtc_codigo1.BoundText
     'dtc_codigo2.BoundText = dtc_codigo1.BoundText
 End Sub
@@ -2242,7 +2263,7 @@ Private Sub dtc_codigo1_LostFocus()
     If Len(TxtObservacion.Text) = 0 Then
         'TxtObservacion.Text = TxtObservacion.Text
     'Else
-        TxtObservacion.Text = dtc_desc1.Text + " - " + txt_campo4
+        TxtObservacion.Text = dtc_desc1.Text + " - " + Txt_campo4
     End If
 End Sub
 
@@ -2267,9 +2288,9 @@ Private Sub dtc_desc1_Change()
     dtc_aux1.BoundText = dtc_desc1.BoundText
     Dtc_aux2.BoundText = dtc_desc1.BoundText
     dtc_aux3.BoundText = dtc_desc1.BoundText
-    txt_campo2.BoundText = dtc_desc1.BoundText
-    txt_campo3.BoundText = dtc_desc1.BoundText
-    txt_campo4.BoundText = dtc_desc1.BoundText
+    Txt_campo2.BoundText = dtc_desc1.BoundText
+    Txt_campo3.BoundText = dtc_desc1.BoundText
+    Txt_campo4.BoundText = dtc_desc1.BoundText
     Txt_campo18.BoundText = dtc_desc1.BoundText
 '    dtc_codigo2.BoundText = dtc_desc1.BoundText
 End Sub
@@ -2279,16 +2300,16 @@ Private Sub dtc_desc1_Click(Area As Integer)
     dtc_aux1.BoundText = dtc_desc1.BoundText
     Dtc_aux2.BoundText = dtc_desc1.BoundText
     dtc_aux3.BoundText = dtc_desc1.BoundText
-    txt_campo2.BoundText = dtc_desc1.BoundText
-    txt_campo3.BoundText = dtc_desc1.BoundText
-    txt_campo4.BoundText = dtc_desc1.BoundText
+    Txt_campo2.BoundText = dtc_desc1.BoundText
+    Txt_campo3.BoundText = dtc_desc1.BoundText
+    Txt_campo4.BoundText = dtc_desc1.BoundText
     Txt_campo18.BoundText = dtc_desc1.BoundText
 '    dtc_codigo2.BoundText = dtc_desc1.BoundText
 End Sub
 
 Private Sub dtc_desc1_LostFocus()
     If Len(TxtObservacion.Text) = 0 Then
-        TxtObservacion.Text = dtc_desc1.Text + " - " + txt_campo4
+        TxtObservacion.Text = dtc_desc1.Text + " - " + Txt_campo4
     End If
 End Sub
 
@@ -2306,19 +2327,19 @@ Private Sub dtc_desc4_LostFocus()
     If dtc_codigo4.Text = "" Then dtc_codigo4.Text = "BOB"
     Select Case dtc_codigo4.Text
         Case "BOB"
-            txt_campo10.Enabled = True      'BOB
+            Txt_campo10.Enabled = True      'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = False     'EUR
         Case "USD"
-            txt_campo10.Enabled = False     'BOB
+            Txt_campo10.Enabled = False     'BOB
             Txt_campo19.Enabled = True      'USD
             Txt_campo21.Enabled = False     'EUR
         Case "EUR"
-            txt_campo10.Enabled = False     'BOB
+            Txt_campo10.Enabled = False     'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = True      'EUR
         Case Else
-            txt_campo10.Enabled = True      'BOB
+            Txt_campo10.Enabled = True      'BOB
             Txt_campo19.Enabled = False     'USD
             Txt_campo21.Enabled = False     'EUR
     End Select
@@ -2354,17 +2375,12 @@ Private Sub Form_Activate()
             Label1.Caption = "SERVICIOS TECNICOS EXTERNOS"
             Option1.Caption = "Servicios NUEVOS"
             Option2.Caption = "Servicios existentes en la Base de Datos"
-        
      End Select
-'    If lbl_det = "43340" Then
-'        Label1.Caption = "DETALLE DE BIENES (Equipos)"
-'        Option1.Caption = "Equipo NUEVO"
-'        Option2.Caption = "Equipo existente en la Base de Datos"
-'    Else
-'        Label1.Caption = "DETALLE DE BIENES (Insumos)"
-'        Option1.Caption = "Insumos NUEVOS"
-'        Option2.Caption = "Insumos existentes en la Base de Datos"
-'    End If
+'     If TxtTipo.Text = "70" Or TxtTipo.Text = "71" Then
+'        Frame3.Visible = False
+'     Else
+'        Frame3.Visible = True
+'     End If
 End Sub
 
 Private Sub Form_Load()
@@ -2392,7 +2408,7 @@ Private Sub Form_Load()
 ''        mw_solicitud.Ado_detalle1.Recordset("archivo_foto_cargado").Value = "N"
 ''        mw_solicitud.Ado_detalle1.Recordset("archivo_plano_cargado").Value = "N"
 ''        mw_solicitud.Ado_detalle1.Recordset("edif_codigo").Value = dtc_codigo1.Text
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Private Sub ABRIR_TABLA()
@@ -2425,15 +2441,15 @@ Private Sub ABRIR_TABLA()
     'rs_datos1.Open "select * from ac_bienes where par_codigo = '" & 43340 & "' AND edif_codigo = '" & lbl_edif.Caption & "' ", db, adOpenStatic   'order by descripcion
     Set Ado_datos1.Recordset = rs_datos1
     If swnuevo = 2 Then
-        dtc_codigo1.Text = txt_campo5.Text
+        dtc_codigo1.Text = Txt_campo5.Text
     End If
     dtc_desc1.BoundText = dtc_codigo1.BoundText
     dtc_aux1.BoundText = dtc_codigo1.BoundText
     Dtc_aux2.BoundText = dtc_codigo1.BoundText
     dtc_aux3.BoundText = dtc_codigo1.BoundText
-    txt_campo2.BoundText = dtc_codigo1.BoundText
-    txt_campo3.BoundText = dtc_codigo1.BoundText
-    txt_campo4.BoundText = dtc_codigo1.BoundText
+    Txt_campo2.BoundText = dtc_codigo1.BoundText
+    Txt_campo3.BoundText = dtc_codigo1.BoundText
+    Txt_campo4.BoundText = dtc_codigo1.BoundText
     Txt_campo18.BoundText = dtc_codigo1.BoundText
     
     'ac_bienes_unidad_medida
@@ -2533,11 +2549,11 @@ Private Sub Txt_campo16_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub Txt_campo16_Change()
-    If txt_campo10.Text = "" Then
-        txt_campo10.Text = "1"
+    If Txt_campo10.Text = "" Then
+        Txt_campo10.Text = "1"
     End If
     If Txt_campo16.Text <> "" Then
-    txt_campo11.Text = CDbl(txt_campo10.Text) * CDbl(Txt_campo16.Text)
+    Txt_campo11.Text = CDbl(Txt_campo10.Text) * CDbl(Txt_campo16.Text)
     End If
 End Sub
 
@@ -2546,10 +2562,10 @@ Private Sub Txt_campo18_Click(Area As Integer)
     dtc_desc1.BoundText = Txt_campo18.BoundText
     Dtc_aux2.BoundText = Txt_campo18.BoundText
     dtc_aux3.BoundText = Txt_campo18.BoundText
-    txt_campo2.BoundText = Txt_campo18.BoundText
+    Txt_campo2.BoundText = Txt_campo18.BoundText
     dtc_aux1.BoundText = Txt_campo18.BoundText
-    txt_campo4.BoundText = Txt_campo18.BoundText
-    txt_campo3.BoundText = Txt_campo18.BoundText
+    Txt_campo4.BoundText = Txt_campo18.BoundText
+    Txt_campo3.BoundText = Txt_campo18.BoundText
     dtc_codigo2.BoundText = Txt_campo18.BoundText
 End Sub
 
@@ -2558,37 +2574,37 @@ End Sub
 'End Sub
 
 Private Sub Txt_campo2_Click(Area As Integer)
-    dtc_codigo1.BoundText = txt_campo2.BoundText
-    dtc_desc1.BoundText = txt_campo2.BoundText
-    Dtc_aux2.BoundText = txt_campo2.BoundText
-    dtc_aux3.BoundText = txt_campo2.BoundText
-    dtc_aux1.BoundText = txt_campo2.BoundText
-    txt_campo3.BoundText = txt_campo2.BoundText
-    txt_campo4.BoundText = txt_campo2.BoundText
-    Txt_campo18.BoundText = txt_campo2.BoundText
+    dtc_codigo1.BoundText = Txt_campo2.BoundText
+    dtc_desc1.BoundText = Txt_campo2.BoundText
+    Dtc_aux2.BoundText = Txt_campo2.BoundText
+    dtc_aux3.BoundText = Txt_campo2.BoundText
+    dtc_aux1.BoundText = Txt_campo2.BoundText
+    Txt_campo3.BoundText = Txt_campo2.BoundText
+    Txt_campo4.BoundText = Txt_campo2.BoundText
+    Txt_campo18.BoundText = Txt_campo2.BoundText
     'dtc_codigo2.BoundText = Txt_campo2.BoundText
 End Sub
 
 Private Sub Txt_campo3_Click(Area As Integer)
-    dtc_codigo1.BoundText = txt_campo3.BoundText
-    dtc_desc1.BoundText = txt_campo3.BoundText
-    Dtc_aux2.BoundText = txt_campo3.BoundText
-    dtc_aux3.BoundText = txt_campo3.BoundText
-    txt_campo2.BoundText = txt_campo3.BoundText
-    dtc_aux1.BoundText = txt_campo3.BoundText
-    txt_campo4.BoundText = txt_campo3.BoundText
-    Txt_campo18.BoundText = txt_campo3.BoundText
+    dtc_codigo1.BoundText = Txt_campo3.BoundText
+    dtc_desc1.BoundText = Txt_campo3.BoundText
+    Dtc_aux2.BoundText = Txt_campo3.BoundText
+    dtc_aux3.BoundText = Txt_campo3.BoundText
+    Txt_campo2.BoundText = Txt_campo3.BoundText
+    dtc_aux1.BoundText = Txt_campo3.BoundText
+    Txt_campo4.BoundText = Txt_campo3.BoundText
+    Txt_campo18.BoundText = Txt_campo3.BoundText
     'dtc_codigo2.BoundText = Txt_campo3.BoundText
 End Sub
 
 Private Sub Txt_campo4_Click(Area As Integer)
-    dtc_codigo1.BoundText = txt_campo4.BoundText
-    dtc_desc1.BoundText = txt_campo4.BoundText
-    Dtc_aux2.BoundText = txt_campo4.BoundText
-    dtc_aux3.BoundText = txt_campo4.BoundText
-    txt_campo2.BoundText = txt_campo4.BoundText
-    dtc_aux1.BoundText = txt_campo4.BoundText
-    txt_campo3.BoundText = txt_campo4.BoundText
-    Txt_campo18.BoundText = txt_campo4.BoundText
+    dtc_codigo1.BoundText = Txt_campo4.BoundText
+    dtc_desc1.BoundText = Txt_campo4.BoundText
+    Dtc_aux2.BoundText = Txt_campo4.BoundText
+    dtc_aux3.BoundText = Txt_campo4.BoundText
+    Txt_campo2.BoundText = Txt_campo4.BoundText
+    dtc_aux1.BoundText = Txt_campo4.BoundText
+    Txt_campo3.BoundText = Txt_campo4.BoundText
+    Txt_campo18.BoundText = Txt_campo4.BoundText
     'dtc_codigo2.BoundText = Txt_campo4.BoundText
 End Sub

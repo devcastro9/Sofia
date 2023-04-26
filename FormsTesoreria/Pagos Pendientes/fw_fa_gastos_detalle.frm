@@ -15,8 +15,8 @@ Begin VB.Form fw_fa_gastos_detalle
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   10260
-   ScaleWidth      =   11280
+   ScaleHeight     =   10935
+   ScaleWidth      =   20250
    WindowState     =   2  'Maximized
    Begin VB.PictureBox fraOpciones 
       BackColor       =   &H80000015&
@@ -1013,11 +1013,11 @@ Begin VB.Form fw_fa_gastos_detalle
          TabCaption(1)   =   "Datos de Carta"
          TabPicture(1)   =   "fw_fa_gastos_detalle.frx":4FC1
          Tab(1).ControlEnabled=   0   'False
-         Tab(1).Control(0)=   "Option2"
+         Tab(1).Control(0)=   "txt_observacion"
          Tab(1).Control(0).Enabled=   0   'False
          Tab(1).Control(1)=   "Option1"
          Tab(1).Control(1).Enabled=   0   'False
-         Tab(1).Control(2)=   "txt_observacion"
+         Tab(1).Control(2)=   "Option2"
          Tab(1).Control(2).Enabled=   0   'False
          Tab(1).ControlCount=   3
          Begin VB.OptionButton Option2 
@@ -1282,7 +1282,7 @@ Begin VB.Form fw_fa_gastos_detalle
                _ExtentY        =   556
                _Version        =   393216
                CheckBox        =   -1  'True
-               Format          =   90832897
+               Format          =   420085761
                CurrentDate     =   40179
                MinDate         =   2
             End
@@ -1557,10 +1557,10 @@ Begin VB.Form fw_fa_gastos_detalle
       Height          =   0
       Left            =   0
       ScaleHeight     =   0
-      ScaleWidth      =   11280
+      ScaleWidth      =   20250
       TabIndex        =   0
-      Top             =   10260
-      Width           =   11280
+      Top             =   10935
+      Width           =   20250
       Begin VB.CommandButton cmdLast 
          Height          =   300
          Left            =   4545
@@ -2473,14 +2473,14 @@ End Sub
 Private Sub BtnGrabar_Click()
   On Error GoTo UpdateErr
    
-  Call Validar
+  Call validar
   
   If esValido = True Then
     If Ado_datos.Recordset.BOF = False Then
          Dim sqlReg As String
          If txt_montous.Text = "" Then txt_montous.Text = "0"
-         If txt_montobs.Text = "" Then txt_montobs.Text = "0"
-         sqlReg = "  EXEC ao_registrar_compraplanillapago " & Ado_datos.Recordset!gestionval & ", " & Ado_datos.Recordset!orgcodigoval & ", " & Replace(Ado_datos.Recordset!gastocodigoval, ",", ".") & ", '" & dtc_cuentabancaria & "', '" & dtc_tipotransacion.BoundText & "', '" & Replace(txt_numerocheq.Text, ",", ".") & "', '" & txt_cuentadestino.Text & "', '" & txt_personaprovee.Text & "', '" & Ado_datos.Recordset!pago_descripcion & "', " & Replace(txt_montobs.Text, ",", ".") & ", " & Replace(txt_montous.Text, ",", ".") & ", '" & dtp_fechapago.Value & "', '" & txt_observacion.Text & "', " & GlTipoCambioOficial & ", '" & glusuario & "', '" & txt_swit.Text & "' "
+         If Txt_MontoBs.Text = "" Then Txt_MontoBs.Text = "0"
+         sqlReg = "  EXEC ao_registrar_compraplanillapago " & Ado_datos.Recordset!gestionval & ", " & Ado_datos.Recordset!orgcodigoval & ", " & Replace(Ado_datos.Recordset!gastocodigoval, ",", ".") & ", '" & dtc_cuentabancaria & "', '" & dtc_tipotransacion.BoundText & "', '" & Replace(txt_numerocheq.Text, ",", ".") & "', '" & txt_cuentadestino.Text & "', '" & txt_personaprovee.Text & "', '" & Ado_datos.Recordset!pago_descripcion & "', " & Replace(Txt_MontoBs.Text, ",", ".") & ", " & Replace(txt_montous.Text, ",", ".") & ", '" & dtp_fechapago.Value & "', '" & txt_observacion.Text & "', " & GlTipoCambioOficial & ", '" & glusuario & "', '" & txt_swit.Text & "' "
          db.Execute sqlReg
                     
         ' Actualiza correlativo
@@ -2548,7 +2548,7 @@ EditErr:
 End Sub
 
 ' Boton anular
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
   On Error GoTo UpdateErr
   If Ado_datos.Recordset.RecordCount > 0 Then
     'If ExisteReg(Ado_datos.Recordset!edif_codigo) Then MsgBox "No se puede ANULAR el Registro que ya fue utilizado previamente ...", vbInformation + vbOKOnly, "Atención": Exit Sub
@@ -2961,7 +2961,7 @@ Private Sub Form_Load()
    Call CargarCuentaBancaria
    dtp_fechapago.Value = Date
    correlDocCta = 0
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 
@@ -3736,7 +3736,7 @@ Private Sub TxtNC_Change()
   End If
 End Sub
 
-Private Sub Validar()
+Private Sub validar()
    esValido = True
    If dtc_tipotransacion.BoundText = "T" Then
         If Trim(txt_cuentadestino.Text) = "" Then

@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomct2.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
@@ -1394,12 +1394,12 @@ Begin VB.Form Frm_fo_ppto
          TabCaption(0)   =   "ADICIONES/REDUCIONES"
          TabPicture(0)   =   "Frm_fo_ppto.frx":DB87E
          Tab(0).ControlEnabled=   0   'False
-         Tab(0).Control(0)=   "Frame7"
-         Tab(0).Control(1)=   "fraprincipalAd"
-         Tab(0).Control(2)=   "fragrabarAd"
-         Tab(0).Control(3)=   "Frame1"
-         Tab(0).Control(4)=   "adoAdicion"
-         Tab(0).Control(5)=   "dtgAdicion"
+         Tab(0).Control(0)=   "dtgAdicion"
+         Tab(0).Control(1)=   "adoAdicion"
+         Tab(0).Control(2)=   "Frame1"
+         Tab(0).Control(3)=   "fragrabarAd"
+         Tab(0).Control(4)=   "fraprincipalAd"
+         Tab(0).Control(5)=   "Frame7"
          Tab(0).ControlCount=   6
          TabCaption(1)   =   "TRANSFERENCIAS"
          TabPicture(1)   =   "Frm_fo_ppto.frx":DB89A
@@ -3728,7 +3728,7 @@ Begin VB.Form Frm_fo_ppto
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   84410369
+            Format          =   110428161
             CurrentDate     =   36775
          End
          Begin MSDataListLib.DataCombo DataCombo3 
@@ -4752,7 +4752,7 @@ Dim iResult As Variant
 
 End Sub
 
-Private Sub BtnEliminar_Click()
+Private Sub btnEliminar_Click()
     MsgBox "No se puede Eliminar el formulado, cuando ya existe una Adición o Transferencia ..."
 End Sub
 
@@ -4841,7 +4841,7 @@ Private Sub BtnGrabarA_Click()
             adoAdicion.Recordset("trn_monto_origen") = varmontoO
             adoAdicion.Recordset("resolucion") = varRes
             adoAdicion.Recordset("fecha_transaccion") = Date
-            adoAdicion.Recordset("usr_usuario") = GlUsuario
+            adoAdicion.Recordset("usr_usuario") = glusuario
             adoAdicion.Recordset("fecha_registro") = Date
             adoAdicion.Recordset("hora_registro") = Format(Time, "hh:mm:ss")
             adoAdicion.Recordset.Update
@@ -4875,7 +4875,7 @@ Private Sub BtnGrabarA_Click()
             End If
             adoAdicion.Recordset("resolucion") = varRes
             adoAdicion.Recordset("fecha_transaccion") = Date
-            adoAdicion.Recordset("usr_usuario") = GlUsuario
+            adoAdicion.Recordset("usr_usuario") = glusuario
             adoAdicion.Recordset("fecha_registro") = Date
             adoAdicion.Recordset("hora_registro") = Format(Time, "hh:mm:ss")
             adoAdicion.Recordset.Update
@@ -4894,7 +4894,7 @@ Private Sub BtnGrabarA_Click()
             adoAdicion.Recordset("trn_monto_origen") = varmontoO
             adoAdicion.Recordset("resolucion") = varRes
             adoAdicion.Recordset("fecha_transaccion") = Date
-            adoAdicion.Recordset("usr_usuario") = GlUsuario
+            adoAdicion.Recordset("usr_usuario") = glusuario
             adoAdicion.Recordset("fecha_registro") = Date
             adoAdicion.Recordset("hora_registro") = Format(Time, "hh:mm:ss")
             adoAdicion.Recordset.Update
@@ -4916,7 +4916,7 @@ Private Sub BtnGrabarA_Click()
         adoAdicion.Recordset("trn_monto_origen") = varmontoO
         adoAdicion.Recordset("resolucion") = varRes
         adoAdicion.Recordset("fecha_transaccion") = Date
-        adoAdicion.Recordset("usr_usuario") = GlUsuario
+        adoAdicion.Recordset("usr_usuario") = glusuario
         adoAdicion.Recordset("fecha_registro") = Date
         adoAdicion.Recordset("hora_registro") = Format(Time, "hh:mm:ss")
         adoAdicion.Recordset.Update
@@ -5026,7 +5026,7 @@ Private Sub BtnGrabarT_Click()
                 
                 Adotraspaso.Recordset("resolucion") = varRes
                 Adotraspaso.Recordset("fecha_transaccion") = Date
-                Adotraspaso.Recordset("usr_usuario") = GlUsuario
+                Adotraspaso.Recordset("usr_usuario") = glusuario
                 Adotraspaso.Recordset("fecha_registro") = Date
                 Adotraspaso.Recordset("hora_registro") = Format(Time, "hh:mm:ss")
     
@@ -5105,7 +5105,7 @@ Private Sub BtnImprimir_Click()
 ''    'e = Shell(App.Path & "\saf2003\Reportes\Presupuesto\ProyRepPresupuesto.exe", 1)
 ''
   glRepPresup = "REP002"
-  frmRepPresupuesto.Show
+'  frmRepPresupuesto.Show
 End Sub
 
 Private Sub BtnImprimirB_Click()
@@ -5232,7 +5232,7 @@ Private Sub Form_Load()
     Frm_fo_ppto.lblModificaciones = Format(montoTotalM, "###,###,##0")
     Frm_fo_ppto.lblVigente = Format((montoTotal + montoTotalA + montoTotalM), "###,###,##0")
    
-	Call SeguridadSet(Me)
+        Call SeguridadSet(Me)
 End Sub
 
 Public Sub abrir_formulacion()
@@ -5283,7 +5283,7 @@ Private Sub abrir_tablas()
     If rsfuente.State = 1 Then rsfuente.Close
     rsfuente.Open "select * from fc_fuente_financiamiento  ", db, adOpenDynamic, adLockOptimistic
     If rsfuente.RecordCount > 0 Then
-        Set Adofuente.Recordset = rsfuente
+        Set AdoFuente.Recordset = rsfuente
     End If
     
     Set rsOrganismo = New ADODB.Recordset       ' Organismo de Financiamiento
@@ -5314,7 +5314,7 @@ Private Sub Form_Unload(Cancel As Integer)
 End Sub
 
 Private Sub sstab1_Click(PreviousTab As Integer)
-  If Frm_fo_ppto.sstab1.Tab = 0 Then        ' Formulacion
+  If Frm_fo_ppto.SSTab1.Tab = 0 Then        ' Formulacion
     parametro = "fv_ppto_formulacion_gasto.ges_gestion" + " = " + "'2014'"
     Call abrir_formulacion
     
@@ -5326,7 +5326,7 @@ Private Sub sstab1_Click(PreviousTab As Integer)
     
   End If
   
-  If Frm_fo_ppto.sstab1.Tab = 1 Then        ' Adiciones o Reducciones
+  If Frm_fo_ppto.SSTab1.Tab = 1 Then        ' Adiciones o Reducciones
     parametro = "fv_formulacion_trn.tipo_transaccion" + " = " + "'A'" + " or " + "fv_formulacion_trn.tipo_transaccion" + " = " + "'R'"
     Call abrir_adicion
     Frame1.Enabled = False
@@ -5466,7 +5466,7 @@ Private Sub graba_origen()
     End If
     adoformulacion.Recordset("tipo_transaccion") = varTipo
     adoformulacion.Recordset("fecha_formulacion") = Date
-    adoformulacion.Recordset("usr_usuario") = GlUsuario
+    adoformulacion.Recordset("usr_usuario") = glusuario
     adoformulacion.Recordset("fecha_registro") = Date
     adoformulacion.Recordset("hora_registro") = Format(Time, "hh:mm:ss")
     adoformulacion.Recordset.Update
